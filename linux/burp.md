@@ -20,3 +20,12 @@ Add the following contents:
     create 0600 root root
 }
 ```
+Cron job
+``` shell
+touch /etc/cron.d/burp-client
+```
+Add the following contents:
+```
+# Run burp client every 20 minutes
+*/20 *    * * * root /usr/sbin/burp -a t >>/var/log/burp-client.log 2>&1
+```
