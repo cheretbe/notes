@@ -29,3 +29,7 @@ Add the following contents:
 # Run burp client every 20 minutes
 */20 *    * * * root /usr/sbin/burp -a t >>/var/log/burp-client.log 2>&1
 ```
+Restart cron daemon
+``` shell
+service crond restart
+```
