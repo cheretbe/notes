@@ -15,7 +15,8 @@ Add the following contents:
 /var/log/burp-client.log {
     missingok
     notifempty
-    size 30k
+    rotate 4
+    size 50k
     daily
     create 0600 root root
 }
