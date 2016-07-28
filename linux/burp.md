@@ -1,6 +1,10 @@
 ## Client installation
 
-Centos:
+**Ubuntu**
+
+The same as server up until `make install`
+
+**Centos**
 ``` shell
 yum install burp-client
 ```
@@ -16,12 +20,12 @@ Add the following contents:
     missingok
     notifempty
     rotate 4
-    size 50k
+    size 100k
     daily
     create 0600 root root
 }
 ```
-Cron job
+**Cron job**
 ``` shell
 touch /etc/cron.d/burp-client
 ```
