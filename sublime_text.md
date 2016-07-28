@@ -10,3 +10,5 @@
   "translate_tabs_to_spaces": true
 }
 ```
+Packages:
+* Powershell: https://packagecontrol.io/packages/PowerShell
