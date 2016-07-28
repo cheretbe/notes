@@ -28,6 +28,8 @@ Add the following contents:
 **Cron job**
 ``` shell
 touch /etc/cron.d/burp-client
+chmod 600 /etc/cron.d/burp-client
+vi /etc/cron.d/burp-client
 ```
 Add the following contents:
 ```
