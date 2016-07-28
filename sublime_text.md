@@ -12,3 +12,6 @@
 ```
 Packages:
 * Powershell: https://packagecontrol.io/packages/PowerShell
+
+2check:
+https://github.com/aziz/SublimeFileBrowser
