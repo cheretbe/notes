@@ -11,7 +11,13 @@
 }
 ```
 Packages:
+Install [Package Control](https://packagecontrol.io/installation#st3)
+
+**CTRL-SHIFT-P**, "Package Control: Install Package"
+
+* GitGutter
 * Powershell: https://packagecontrol.io/packages/PowerShell
 
 2check:
-https://github.com/aziz/SublimeFileBrowser
+* SublimeFileBrowser: https://github.com/aziz/SublimeFileBrowser
+* or SideBarEnhancements?
