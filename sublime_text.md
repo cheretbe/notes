@@ -7,7 +7,8 @@
   "draw_white_space": "all",
   "rulers": [80],
   "tab_size": 2,
-  "translate_tabs_to_spaces": true
+  "translate_tabs_to_spaces": true,
+  "highlight_modified_tabs": true
 }
 ```
 Packages:
@@ -15,6 +16,7 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 
 **CTRL-SHIFT-P**, "Package Control: Install Package"
 
+* Theme - Soda (then add `"theme": "Soda Dark 3.sublime-theme"` to "Settings - User")
 * GitGutter
 * Powershell: https://packagecontrol.io/packages/PowerShell
 
