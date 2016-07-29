@@ -8,7 +8,9 @@
   "rulers": [80],
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
-  "highlight_modified_tabs": true
+  "highlight_modified_tabs": true,
+  "remember_open_files": false,
+  "hot_exit": false
 }
 ```
 Packages:
