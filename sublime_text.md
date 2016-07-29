@@ -18,11 +18,12 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 
 **CTRL-SHIFT-P**, "Package Control: Install Package"
 
-* Theme - Soda (then add `"theme": "Soda Dark 3.sublime-theme"` to "Settings - User")
-* GitGutter
-* Powershell: https://packagecontrol.io/packages/PowerShell
+* `Theme - Soda` (then add `"theme": "Soda Dark 3.sublime-theme"` to "Settings - User")
+* `GitGutter`
+* `Powershell`: https://packagecontrol.io/packages/PowerShell
+* `SublimeBookmarks`: https://packagecontrol.io/packages/Sublime%20Bookmarks
+* `Open URL`: https://github.com/noahcoad/open-url
 
 2check:
 * SublimeFileBrowser: https://github.com/aziz/SublimeFileBrowser
 * or SideBarEnhancements?
-* SublimeBookmarks https://packagecontrol.io/packages/Sublime%20Bookmarks
