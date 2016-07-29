@@ -23,3 +23,4 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 2check:
 * SublimeFileBrowser: https://github.com/aziz/SublimeFileBrowser
 * or SideBarEnhancements?
+* SublimeBookmarks https://packagecontrol.io/packages/Sublime%20Bookmarks
