@@ -10,7 +10,13 @@
   "translate_tabs_to_spaces": true,
   "highlight_modified_tabs": true,
   "remember_open_files": false,
-  "hot_exit": false
+  "hot_exit": false,
+  "auto_complete": false,
+	"indent_guide_options":
+	 [
+   "draw_normal",
+   "draw_active"
+  ]
 }
 ```
 Packages:
