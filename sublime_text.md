@@ -12,11 +12,11 @@
   "remember_open_files": false,
   "hot_exit": false,
   "auto_complete": false,
-	"indent_guide_options":
-	 [
-   "draw_normal",
-   "draw_active"
-  ]
+  "indent_guide_options":
+    [
+      "draw_normal",
+      "draw_active"
+    ]
 }
 ```
 Packages:
