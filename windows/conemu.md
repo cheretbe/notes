@@ -8,8 +8,16 @@ set clink_profile=c:\Users\username\AppData\Roaming\clink
 ```
 The directory will be created automatically
 
-Add add custom completion files
+Add custom completion files
 
 https://github.com/vladimir-kotikov/clink-completions
 
 Extract into `c:\Users\username\AppData\Roaming\clink`
+
+To enable cmd.exe-like tab completion (cycle through options), in
+`C:\Program Files\ConEmu\ConEmu\clink\clink_inputrc_base` uncomment the following lines:
+```
+# Uncomment these two lines for vanilla cmd.exe style completion.
+"\t": clink-menu-completion-shim
+"\e`Z": clink-backward-menu-completion-shim
+```
