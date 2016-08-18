@@ -8,3 +8,9 @@ usermod -aG wheel newuser
 # On Ubuntu
 adduser newuser sudo
 ```
+Delete user:
+```
+userdel username
+# To delete user's home directory along with the user account itself (includes mail spool /var/mail/username)
+userdel -r username
+```
