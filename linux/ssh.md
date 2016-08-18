@@ -1,3 +1,14 @@
+## Hardening SSH Access
+SSH daemon options in `/etc/ssh/sshd_config`:
+```
+PermitRootLogin no
+# [!!!] Authentication key-pair must be created and tested beforehand
+PasswordAuthentication no
+# [!!!] If SELinux is enabled, SSH daemon needs to be allowed to listen on new port
+# semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
+Port <port_number>
+```
+
 ## Multiple instances of sshd
 
 ### Centos 7 (systemd)
