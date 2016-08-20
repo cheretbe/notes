@@ -46,3 +46,9 @@ PidFile /var/run/sshd-external.pid
 ```
 
 https://access.redhat.com/solutions/1166283
+
+## Notes
+``` bash
+# Find out PIDs of active tunnes
+netstat -tulpn | grep sshd
+```
