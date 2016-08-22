@@ -12,7 +12,7 @@
       </FolderLocations>
     </component>
   </settings>
-  <cpi:offlineImage cpi:source="wim:E:/sources/install.wim#Windows 7 ULTIMATE" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+  <cpi:offlineImage cpi:source="wim:E:/sources/install.wim#Windows 8.1 PROFESSIONAL" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>
 ```
 * Change processorArchitecture="amd64" to "x86" and cpi:source="wim:**E:**/sources/install.wim#**Windows 8.1 PROFESSIONAL**" to HOMEBASIC, HOMEPREMIUM, PROFESSIONAL, ULTIMATE or ENTERPRISE if needed
