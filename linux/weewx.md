@@ -24,3 +24,5 @@ sqlite3 /var/lib/weewx/weewx.sdb 'select max(datetime(dateTime, "unixepoch", "lo
 # Last 10 records
 sqlite3 /var/lib/weewx/weewx.sdb 'select datetime(dateTime, "unixepoch", "localtime") as dt, windSpeed, windGust from archive order by dt desc limit 10;'
 ```
+
+Windguru extension: https://github.com/claudobahn/weewx-windguru/blob/master/bin/user/windguru.py
