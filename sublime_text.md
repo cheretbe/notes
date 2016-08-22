@@ -21,6 +21,7 @@
 ```
 On linux:
 ```
+  "font_face": "Consolas",
   "line_padding_bottom": 2,
   "line_padding_top": 2
 ```
