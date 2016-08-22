@@ -1,3 +1,26 @@
+* Instead of typing username and computer name, enter audit mode (**CTRL+SHIFT+F3**)
+* Format drive D:
+* Create D:\relocate.xml with the following content
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+  <settings pass="oobeSystem">
+    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <FolderLocations>
+        <ProfilesDirectory>d:\Users</ProfilesDirectory>
+        <ProgramData>d:\ProgramData</ProgramData>
+      </FolderLocations>
+    </component>
+  </settings>
+  <cpi:offlineImage cpi:source="wim:E:/sources/install.wim#Windows 7 ULTIMATE" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
+</unattend>
+```
+Change processorArchitecture="amd64" to "x86" and cpi:source="wim:E:/sources/install.wim#Windows 7 ULTIMATE" to HOMEBASIC, HOMEPREMIUM, PROFESSIONAL, ULTIMATE or ENTERPRISE
+
+
+Source:
+
 http://www.sevenforums.com/tutorials/124198-user-profiles-create-move-during-windows-7-installation.html
-Detailed instructions:
+
+Detailed instructions: 
 http://www.sevenforums.com/attachments/tutorials/119213d1291161650-user-profiles-create-move-during-windows-7-installation-relocate-user-folders-during-windows-7-installation.pdf
