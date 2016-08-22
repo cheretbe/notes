@@ -19,6 +19,11 @@
     ]
 }
 ```
+On linux:
+```
+  "line_padding_bottom": 2,
+  "line_padding_top": 2
+```
 Packages:
 Install [Package Control](https://packagecontrol.io/installation#st3)
 
