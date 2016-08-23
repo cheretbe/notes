@@ -38,6 +38,12 @@ Add-Type -AssemblyName 'System.IO.Compression.FileSystem'
   Import-Module C:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1
   Get-WUInstall -CategoryIDs @('28bc880e-0592-4cbf-8f95-c79b17911d5f', '0fa1201d-4330-4fa8-8ae9-b877473b6441', 'e6cf1350-c01b-414d-a61f-263d14d133b4') -Confirm:$FALSE
   ```
+* Delete `%SYSTEMROOT%\SoftwareDistribution\Download` contents and cleanup component store
+```
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+```
+* Install everything else what is needed
+
 
 Source:
 
