@@ -32,7 +32,7 @@ Add-Type -AssemblyName 'System.IO.Compression.FileSystem'
 [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\')
 ```
   Install updates  
-  Skip Malicious Software Removal Tool: -NotKBArticleID @('KB890830')
+  Skip Malicious Software Removal Tool: `-NotKBArticleID @('KB890830')`
   ``` powershell
   (New-Object -ComObject Microsoft.Update.ServiceManager -Strict).AddService2("7971f918-a847-4430-9279-4a52d1efe18d", 7, "") | Out-Null
   Import-Module C:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1
