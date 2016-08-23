@@ -21,8 +21,9 @@
 cd %SystemRoot%\System32\Sysprep
 sysprep.exe /audit /reboot /unattend:D:\relocate.xml
 ```
-* Windows updates don't install in audit mode (at least on win8.1)
-  Use PSWindowsUpdate
+* Windows updates don't install in audit mode (at least on win8.1)  
+  Use PSWindowsUpdate (make sure you run `powershell -ExecutionPolicy Unrestricted`)  
+  Download PSWindowsUpdate
 ``` powershell
 New-Item -ItemType Directory -Path 'c:\temp\' | Out-Null
 Invoke-WebRequest -Uri 'https://225c40b6fb6f3c94f9d5a6b1d51e6941d0474521.googledrive.com/host/0Bw7oiu8ys_I7TTJWQ2lxM2pBQmc/util/PSWindowsUpdate.zip' -OutFile 'c:\temp\PSWindowsUpdate.zip'
