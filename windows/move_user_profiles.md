@@ -27,9 +27,8 @@ sysprep.exe /audit /reboot /unattend:D:\relocate.xml
 New-Item -ItemType Directory -Path 'c:\temp\' | Out-Null
 Invoke-WebRequest -Uri 'https://225c40b6fb6f3c94f9d5a6b1d51e6941d0474521.googledrive.com/host/0Bw7oiu8ys_I7TTJWQ2lxM2pBQmc/util/PSWindowsUpdate.zip' -OutFile 'c:\temp\PSWindowsUpdate.zip'
 Unblock-File -Path 'C:\temp\PSWindowsUpdate.zip'
-New-Item -ItemType Directory -Path 'c:\temp\PSWindowsUpdate\' | Out-Null
 Add-Type -AssemblyName 'System.IO.Compression.FileSystem'
-[System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\PSWindowsUpdate\')
+[System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\')
 ```
 
 Source:
