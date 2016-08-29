@@ -1,0 +1,17 @@
+## Remove Windows Store Apps
+1) From system account:
+```
+Get-AppXProvisionedPackage -online | Remove-AppxProvisionedPackage -online
+```
+2) For all users:
+```
+Get-AppxPackage -AllUsers | Remove-AppxPackage
+```
+In Windows 10, you should use: `Get-AppXPackage -User <username> | Remove-AppxPackage` (? 2check)
+
+3) Delete files:  
+TODO: Fix directory name
+```
+SetACL -on "d:\Boot.2del" -ot file -actn setowner -ownr "n:S-1-5-32-544" -rec cont_obj
+SetACL -on "d:\Boot.2del" -ot file -actn ace -ace "n:S-1-5-32-544;p:full" -rec cont_obj
+```
