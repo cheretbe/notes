@@ -1,6 +1,6 @@
 * Instead of typing username and computer name, enter audit mode (**CTRL+SHIFT+F3**)
 * Format drive D:
-* Create D:\relocate.xml with the following content
+* Create D:\relocate.xml with the following content  
   (relocation of ProgramData with `<ProgramData>d:\ProgramData</ProgramData>` breaks Metro UI applications, including PC settings and Windows Update)
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
