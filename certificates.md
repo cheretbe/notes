@@ -8,7 +8,7 @@ openssl pkcs12 –in {site}.pfx -clcerts -nokeys -passin pass:{password} | opens
 ```
 Extract the chain bundle from the PFX
 ```
-# [!]Note certificates order in the output file. Edit the file afterward to put them in correct order
+# [!]Note certificates order in the output file. Edit the file afterwards to put them in correct order
 openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -out chain.pem
 # CA certificates only
 openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -cacerts -out chain.pem
