@@ -32,12 +32,15 @@ Add-Type -AssemblyName 'System.IO.Compression.FileSystem'
 [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\')
 ```
   Install updates  
-  Skip Malicious Software Removal Tool: `-NotKBArticleID @('KB890830')`
-  ``` powershell
-  (New-Object -ComObject Microsoft.Update.ServiceManager -Strict).AddService2("7971f918-a847-4430-9279-4a52d1efe18d", 7, "") | Out-Null
-  Import-Module C:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1
-  Get-WUInstall -CategoryIDs @('28bc880e-0592-4cbf-8f95-c79b17911d5f', '0fa1201d-4330-4fa8-8ae9-b877473b6441', 'e6cf1350-c01b-414d-a61f-263d14d133b4') -Confirm:$FALSE
-  ```
+Skip Malicious Software Removal Tool: `-NotKBArticleID @('KB890830')`
+``` powershell
+(New-Object -ComObject Microsoft.Update.ServiceManager -Strict).AddService2("7971f918-a847-4430-9279-4a52d1efe18d", 7, "") | Out-Null
+# on PS < 3.0 only (e.g. Windows 7)
+If (@(Get-Command Unblock-File*).Count -Eq 0)
+  { Function Unblock-File {} }
+Import-Module C:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1
+Get-WUInstall -CategoryIDs @('28bc880e-0592-4cbf-8f95-c79b17911d5f', '0fa1201d-4330-4fa8-8ae9-b877473b6441', 'e6cf1350-c01b-414d-a61f-263d14d133b4') -Confirm:$FALSE
+```
 * Delete `%SYSTEMROOT%\SoftwareDistribution\Download` contents and cleanup component store
 ```
 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
