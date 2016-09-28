@@ -6,6 +6,10 @@ apt install bridge-utils qemu-kvm virt-manager
 # Add a user to kvm and libvirtd groups (logoff/logon to take effect)
 adduser username kvm
 adduser username libvirtd
+# https://bugs.launchpad.net/ubuntu/+source/virt-manager/+bug/1550983
+# If virt-manager fails to start with error message "Couldn't open libGL.so.1: libGL.so.1:
+# cannot open shared object file: No such file or directory"
+apt install libgl1-mesa-glx
 ```
 Add bridged network adapter to `/etc/network/interfaces`
 ```
