@@ -1,6 +1,6 @@
 ### Create dynamic VDI
 ```
-VBoxManage createhd --filename <path to your vdi> <size in megabytes>
+VBoxManage createhd --filename <path to your vdi> --size <size in megabytes>
 ```
 * 15Gb – 15360
 * 20Gb – 20480
