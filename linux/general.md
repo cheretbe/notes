@@ -1,5 +1,5 @@
 Add user:
-```
+``` bash
 # adduser is more user friendly and interactive than its back-end useradd
 adduser newuser
 # On CentOS adduser in not very friendly though
@@ -9,7 +9,7 @@ usermod -aG wheel newuser
 adduser newuser sudo
 ```
 Delete user:
-```
+``` bash
 userdel username
 # To delete user's home directory along with the user account itself (includes mail spool /var/mail/username)
 userdel -r username
