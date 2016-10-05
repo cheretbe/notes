@@ -14,3 +14,10 @@ userdel username
 # To delete user's home directory along with the user account itself (includes mail spool /var/mail/username)
 userdel -r username
 ```
+Group membership
+``` bash
+# Check a user's group membership
+groups [username]
+# Add to multiple groups
+usermod -a -G group1,group2 username
+```
