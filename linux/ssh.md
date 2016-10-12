@@ -36,8 +36,8 @@ Description=OpenSSH server daemon (external)
 # modify After: add sshd.service, so that the second instance starts only after the first
 # one has started (which includes key generation), remove sshd-keygen.service
 After=network.target sshd.service
-# modify ExecStart
-ExecStart=/usr/sbin/sshd-external -D $SSHD_OPTS
+# modify ExecStart (add -f /etc/ssh/sshd_config_external)
+ExecStart=/usr/sbin/sshd-external -D -f /etc/ssh/sshd_config_external $SSHD_OPTS
 # 
 ```
 debian
@@ -54,7 +54,19 @@ vi /etc/ssh/sshd_config_external
 ```
 ```
 Port 22220
+# Uncomment or add
 PidFile /var/run/sshd-external.pid
+```
+
+Turn on debugging if daemon fails to load
+Add `-ddd` option to `/etc/sysconfig/sshd` (debian `/etc/default/ssh`)
+```
+SSHD_OPTS=-ddd
+```
+
+Re-read systemctl configuration if .service file is modified after start attempt
+```
+systemctl daemon-reload
 ```
 
 https://access.redhat.com/solutions/1166283
