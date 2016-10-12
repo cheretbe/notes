@@ -11,7 +11,7 @@ After that the rest of updates can be installed normally
 
 ###Registering WU DLLs
 
-[!] Note `System32\Catroot2` and `SoftwareDistribution` rename
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Note `System32\Catroot2` and `SoftwareDistribution` rename
 ```
 net stop wuauserv
 net stop bits
