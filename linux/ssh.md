@@ -13,14 +13,22 @@ Port <port_number>
 
 ### Centos 7 (systemd)
 
+```
+ln -s /usr/sbin/sshd /usr/sbin/sshd-external
+```
+
 * Make a copy of the systemd unit file for the sshd service
 ```
 cp /usr/lib/systemd/system/sshd{,-external}.service
+debian 8
+cp /lib/systemd/system/ssh{,-external}.service
 ```
 
 * Modify `sshd-external.service` file
 ```
 vi /usr/lib/systemd/system/sshd-external.service
+debian
+vi /lib/systemd/system/ssh-external.service
 ```
 ```
 # modify Description
@@ -28,8 +36,12 @@ Description=OpenSSH server daemon (external)
 # modify After: add sshd.service, so that the second instance starts only after the first
 # one has started (which includes key generation), remove sshd-keygen.service
 After=network.target sshd.service
+# modify ExecStart
+ExecStart=/usr/sbin/sshd-external -D $SSHD_OPTS
 # 
 ```
+debian
+After=network.target ssh.service
 
 * Make a copy of the sshd_config file 
 ```
