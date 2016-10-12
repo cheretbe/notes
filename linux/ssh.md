@@ -42,6 +42,9 @@ ExecStart=/usr/sbin/sshd-external -D -f /etc/ssh/sshd_config_external $SSHD_OPTS
 ```
 debian
 After=network.target ssh.service
+[Install]
+#check if this is applicable to centos
+Alias=sshd-external.service
 
 * Make a copy of the sshd_config file 
 ```
@@ -56,6 +59,12 @@ vi /etc/ssh/sshd_config_external
 Port 22220
 # Uncomment or add
 PidFile /var/run/sshd-external.pid
+```
+
+Enable service start on boot
+```
+systemctl enable sshd-external
+systemctl enable ssh-external
 ```
 
 Turn on debugging if daemon fails to load
