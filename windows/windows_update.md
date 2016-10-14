@@ -1,5 +1,8 @@
 Windows Update error code list: https://support.microsoft.com/en-us/kb/938205
 
+###Windows 8.1/2012R2
+Update client (december 2015): https://support.microsoft.com/en-us/kb/3112336
+
 ###Windows 7/2008R2
 
 1. KB3020369 (prerequisite for KB3125574): https://support.microsoft.com/en-gb/kb/3020369
