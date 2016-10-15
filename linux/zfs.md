@@ -40,8 +40,7 @@ zfs set dedup=on zfs-storage/withdedup
 zfs destroy zfs-storage/share
 ```
 ### 5. Set up health monitoring script
-Download script from https://calomel.org/zfs_health_check_script.html
-Save to `/etc/cron.daily/zfs_health_check` (do not use .sh extension as dot breaks anacron functionality) and modify it to use with Ubuntu:
+Download script from https://calomel.org/zfs_health_check_script.html, save to `/etc/cron.daily/zfs_health_check` (do not use .sh extension as dot breaks anacron functionality) and modify it to use with Ubuntu:
 ```bash
 #! /usr/local/bin/bash
 #!/bin/bash
@@ -56,7 +55,7 @@ Save to `/etc/cron.daily/zfs_health_check` (do not use .sh extension as dot brea
     scrubDate=$(date -d "$scrubRawDate" +%s)
 ```
 Check if script works:
-```bash
+```shell
 chmod 755 /etc/cron.daily/zfs_health_check
 # temporarily shift current date for 9 days to trigger
 # scrub expiration message (max scrub age is 8 days by default)
@@ -66,7 +65,7 @@ date --set="$(date) + 9 days"
 ntpdate -s ru.pool.ntp.org
 service ntp start
 ```
-Add weekly integrity check to /etc/crontab:
+Add weekly integrity check to `/etc/crontab`:
 ```
 # every sunday at 4:00
 0 4 * * 0 root /sbin/zpool scrub zfs-data
