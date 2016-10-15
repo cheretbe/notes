@@ -70,3 +70,14 @@ Add weekly integrity check to `/etc/crontab`:
 # every sunday at 4:00
 0 4 * * 0 root /sbin/zpool scrub zfs-data
 ```
+
+### 6. Replace a disk in a pool
+Unplanned (disk is completely dead and is already removed)
+```bash
+# Replacing /dev/disk/by-id/ata-VBOX_HARDDISK_sn002-part1 -> /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
+# Find out disk's GUID
+zdb
+# GUID is 16718377149670207017
+zpool offline zfs-data 16718377149670207017
+zpool replace -f zfs-data 16718377149670207017 /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
+```
