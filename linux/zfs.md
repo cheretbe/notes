@@ -25,9 +25,9 @@ Source: http://arstechnica.com/information-technology/2014/02/ars-walkthrough-us
 ```
 zpool create -f -o ashift=12 zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
 ```
-**-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)
-**-f** option forces creation on errors (like existing data on disk etc.)
-**-m /mnt/mountpoint** sets mountpoint location instead of /poolname
+**-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)  
+**-f** option forces creation on errors (like existing data on disk etc.)  
+**-m /mnt/mountpoint** sets mountpoint location instead of /poolname  
 ### 4. Useful ZFS commands
 ```
 zpool status
