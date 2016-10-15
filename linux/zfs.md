@@ -72,12 +72,22 @@ Add weekly integrity check to `/etc/crontab`:
 ```
 
 ### 6. Replace a disk in a pool
-Unplanned (disk is completely dead and is already removed)
+Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002-part1` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
+* Planned
 ```bash
-# Replacing /dev/disk/by-id/ata-VBOX_HARDDISK_sn002-part1 -> /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
+zpool offline zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002
+# Replace disks
+zpool replace -f zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002 /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
+# View progress
+zpool status
+```
+* Unplanned (disk is completely dead and has already been removed)
+```bash
 # Find out disk's GUID
 zdb
 # GUID is 16718377149670207017
 zpool offline zfs-data 16718377149670207017
 zpool replace -f zfs-data 16718377149670207017 /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
+# View progress
+zpool status
 ```
