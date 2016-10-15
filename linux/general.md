@@ -19,7 +19,7 @@ Group membership
 # Check a user's group membership
 groups [username]
 # Add to multiple groups
-usermod -a -G group1,group2 
+usermod -a -G group1,group2 username
 # Add new group
 groupadd group
 ```
