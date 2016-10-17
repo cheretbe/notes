@@ -15,11 +15,12 @@ IF ERRORLEVEL 1 (
 
 ECHO Checking if required hotfixes are present...
 
-
+SET IsWin7=0
 VER | FINDSTR /IL "6.1." > NUL
 IF %ERRORLEVEL% EQU 1 GOTO :Win8Check
 
 :: Win7/2008R2
+SET IsWin7=1
 powershell "If ($NULL -eq (Get-Hotfix KB3138612 -ErrorAction SilentlyContinue)) {exit 1} else {exit 0}"
 IF ERRORLEVEL 1 (
   ECHO ERROR: Hotfix KB3138612 [Update client march 2016] is not installed
@@ -57,9 +58,14 @@ IF EXIST "c:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1" GOTO :Skip_Download
     MKDIR "c:\temp"
   )
   ECHO Downloading PSWindowsUpdate
-  :: https://blogs.iis.net/steveschofield/unzip-several-files-with-powershell
-  powershell "(New-Object System.Net.WebClient).DownloadFile('https://go.beercaps.ru/files/util/PSWindowsUpdate.zip', 'c:\temp\PSWindowsUpdate.zip'); [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.Filesystem'); [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\')"
-  ::powershell "Invoke-WebRequest -Uri 'https://go.beercaps.ru/files/util/PSWindowsUpdate.zip' -OutFile 'c:\temp\PSWindowsUpdate.zip'; Add-Type -AssemblyName 'System.IO.Compression.FileSystem'; [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\')"
+  IF IsWin7==1 (
+    :: https://blogs.iis.net/steveschofield/unzip-several-files-with-powershell
+    :: CopyHere vOptions: 4  - Do not display a progress dialog box.
+    ::                    16 - Respond with "Yes to All" for any dialog box that is displayed.
+    powershell "(New-Object System.Net.WebClient).DownloadFile('https://go.beercaps.ru/files/util/PSWindowsUpdate.zip', 'c:\temp\PSWindowsUpdate.zip'); $shellApp = New-Object -Com Shell.Application; $shellApp.NameSpace('c:\temp').CopyHere($shellApp.NameSpace('c:\temp\PSWindowsUpdate.zip').Items(),20)"
+  ) ELSE (
+    powershell "Invoke-WebRequest -Uri 'https://go.beercaps.ru/files/util/PSWindowsUpdate.zip' -OutFile 'c:\temp\PSWindowsUpdate.zip'; Add-Type -AssemblyName 'System.IO.Compression.FileSystem'; [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\temp\PSWindowsUpdate.zip', 'C:\temp\')"
+  )
 
 :Skip_Download
 ECHO Searching for updates...
