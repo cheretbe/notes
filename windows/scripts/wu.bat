@@ -69,7 +69,7 @@ IF EXIST "c:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1" GOTO :Skip_Download
 
 :Skip_Download
 ECHO Searching for updates...
-powershell -ExecutionPolicy Bypass "If (@(Get-Command Unblock-File*).Count -Eq 0) { Function Unblock-File {} }; Import-Module 'C:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1'; Get-WUInstall -CategoryIDs @('28bc880e-0592-4cbf-8f95-c79b17911d5f', '0fa1201d-4330-4fa8-8ae9-b877473b6441', 'e6cf1350-c01b-414d-a61f-263d14d133b4') -Confirm:$FALSE -NotKBArticleID @('KB890830')"
+powershell -ExecutionPolicy Bypass "If (@(Get-Command Unblock-File*).Count -Eq 0) { Function Unblock-File {} }; Import-Module 'C:\temp\PSWindowsUpdate\PSWindowsUpdate.psm1'; Get-WUInstall -CategoryIDs @('28bc880e-0592-4cbf-8f95-c79b17911d5f', '0fa1201d-4330-4fa8-8ae9-b877473b6441', 'e6cf1350-c01b-414d-a61f-263d14d133b4') -Confirm:$FALSE -IgnoreReboot:$TRUE -NotKBArticleID @('KB890830')"
 
 :EndScript
 IF %DoubleClicked%==1 (
