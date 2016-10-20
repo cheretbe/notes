@@ -72,7 +72,7 @@ Add weekly integrity check to `/etc/crontab`:
 ```
 
 ### 6. Replace a disk in a pool
-Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002-part1` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
+Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
 * Planned
 ```bash
 zpool offline zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002
