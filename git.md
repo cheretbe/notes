@@ -1,4 +1,4 @@
-Troubleshooting
+###Troubleshooting
 ``` shell
 # Increase verbosity
 git 'command' --verbose
@@ -14,4 +14,8 @@ SET GIT_TRACE_PACKET=2
 ```
 Make sure `--verbose` switch is **after the actual git command**, otherwise it won' t work!
 
+Unsorted:
+
 http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule
+
+git submodule add https://url [dir**/**subdir] '/' on windows also!
