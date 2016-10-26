@@ -1,4 +1,5 @@
 Windows Update error code list: https://support.microsoft.com/en-us/kb/938205
+Update troubleshooter: https://support.microsoft.com/en-us/kb/971058
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect
 
 ###Windows 8.1/2012R2
