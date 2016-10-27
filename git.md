@@ -29,7 +29,7 @@ git submodule add https://url [dir/subdir]
 git submodule status
 # Clone a repository and download submodules simultaneously
 git clone --recursive https://url
-# Download submodules in an already cloned repository (or if a submodule was add later)
+# Download submodules in an already cloned repository (or if a submodule has been added later)
 git submodule update --init --recursive
 ```
 Specifying a branch/tag
@@ -41,6 +41,8 @@ cd ..
 git add /path/to/yoursubmodule
 git commit -m "use submoduile at tag xx"
 git push
+# On another copy of the repo (after pull)
+git submodule update --init --recursive
 ```
 Submodules always point to a specific commit in the linked repository. To track a branch `-b` option can be used. Submodule will still point to some specific commit, but it can be updated to the latest commit with the following command:
 ``` shell
