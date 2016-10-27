@@ -48,8 +48,8 @@ git submodule update --remote
 ```
 http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag/1778247#1778247
 
-###Unsorted
+Deleting a submodule
 
 http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule
 
-git submodule add https://url [dir**/**subdir] '/' on windows also!
+###Unsorted
