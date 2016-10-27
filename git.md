@@ -52,6 +52,6 @@ http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag/1
 
 Deleting a submodule
 
-http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule
+http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule/21211232#21211232
 
 ###Unsorted
