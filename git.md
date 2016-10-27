@@ -1,3 +1,7 @@
+## Table of Contents
+* [Troubleshooting](#troubleshooting)
+* [Submodules](#submodules)
+
 ###Troubleshooting
 ``` shell
 # Increase verbosity
@@ -13,6 +17,11 @@ SET GIT_CURL_VERBOSE=1
 SET GIT_TRACE_PACKET=2
 ```
 Make sure `--verbose` switch is **after the actual git command**, otherwise it won' t work!
+
+###Submodules
+``` shell
+git submodule add https://url [dir\subdir]
+```
 
 Unsorted:
 
