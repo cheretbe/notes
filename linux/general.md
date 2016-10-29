@@ -23,3 +23,10 @@ usermod -a -G group1,group2 username
 # Add new group
 groupadd group
 ```
+
+Unsorted
+```
+tar cvf - directory/ | pigz > /path/to/archive.tar.gz
+ssh user@host "cat /path/to/archive.tar.gz" | tar -xzv
+rdfind -makehardlinks true -removeidentinode true .
+```
