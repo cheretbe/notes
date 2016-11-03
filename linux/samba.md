@@ -33,11 +33,16 @@ Install `samba` package and edit default `/etc/samba/smb.conf`. Run `testparm` a
 workgroup = TEST
 server string = %h server (Samba, Ubuntu)
 
-# follow symlincs settings
 [global]
+# follow symlincs settings
 follow symlinks = yes
 wide links = yes
 unix extensions = no
+# Disable printing
+load printers = no
+printing = bsd
+printcap name = /dev/null
+disable spoolss = yes
 
 # Share with authentication (by default it is tdbsam)
 # Password has to be set by: sudo smbpasswd -a <username>
