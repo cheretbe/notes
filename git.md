@@ -1,6 +1,7 @@
 ## Table of Contents
 * [Troubleshooting](#troubleshooting)
 * [Submodules](#submodules)
+* [Branches and tags](#branches-and-tags)
 * [Unsorted](#unsorted)
 
 ###Troubleshooting
@@ -53,5 +54,19 @@ http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag/1
 Deleting a submodule
 
 http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule/21211232#21211232
+###Branches and tags
+
+``` shell
+# Merge back develop -> master and tag a version
+# Make sure you are on master branch
+git branch
+# If not switch to it
+git checkout master
+# Merge (--no-ff skips "fast-forward")
+git merge develop --no-ff
+# Add a tag
+git tag -a 1.0 -m "version 1.0"
+git push --follow-tags
+```
 
 ###Unsorted
