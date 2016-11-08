@@ -67,6 +67,8 @@ git merge develop --no-ff
 # Add a tag
 git tag -a 1.0 -m "version 1.0"
 git push --follow-tags
+# View current tag
+git describe --abbrev=0 --tags
 ```
 
 ###Unsorted
