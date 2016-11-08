@@ -34,7 +34,7 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 * `GitGutter`
 * `Powershell`: https://packagecontrol.io/packages/PowerShell
 * `SublimeBookmarks`: https://packagecontrol.io/packages/Sublime%20Bookmarks
-* `Open URL`: https://github.com/noahcoad/open-url
+* ~~`Open URL`: https://github.com/noahcoad/open-url~~ at leas until https://github.com/noahcoad/open-url/issues/33 is resolved (Ctrl+U override)
 
 2check:
 * SublimeFileBrowser: https://github.com/aziz/SublimeFileBrowser
