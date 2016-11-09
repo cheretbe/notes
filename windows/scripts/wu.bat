@@ -44,7 +44,7 @@ IF %ERRORLEVEL% EQU 1 GOTO :EndHotfixCheck
 :: Win8.1/2012R2
 powershell "If ($NULL -eq (Get-Hotfix KB3112336 -ErrorAction SilentlyContinue)) {exit 1} else {exit 0}"
 IF ERRORLEVEL 1 (
-  ECHO ERROR: Hotfix KB3112336 [Update client december 2015] is not installed
+  ECHO ERROR: Hotfix KB3138615 [Update client March 2016] is not installed
   :: White on dark red
   COLOR 4F
   GOTO :EndScript
