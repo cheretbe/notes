@@ -4,8 +4,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
 
 ###Windows 8.1/2012R2
 ~~Update client (December 2015): https://support.microsoft.com/en-us/kb/3112336~~  
-1. (Prerequisite) Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 update: April 2014 http://support.microsoft.com/kb/2919355
-2. Update client (March 2016): https://support.microsoft.com/en-in/kb/3138615
+
+1. (Prerequisite) March 2014 servicing stack update for Windows 8.1 and Windows Server 2012 R2  https://support.microsoft.com/en-us/kb/2919442
+2. (Prerequisite) Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 update: April 2014 http://support.microsoft.com/kb/2919355
+3. Update client (March 2016): https://support.microsoft.com/en-in/kb/3138615
 
 ###Windows 7/2008R2
 
