@@ -3,7 +3,10 @@ Update troubleshooter: https://support.microsoft.com/en-us/kb/971058
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect
 
 ###Windows 8.1/2012R2
-~~Update client (December 2015): https://support.microsoft.com/en-us/kb/3112336~~  
+~~Update client (December 2015): https://support.microsoft.com/en-us/kb/3112336~~
+* https://download.microsoft.com/download/C/6/0/C60E8D85-FD51-4B27-A78F-7F68093A1DCF/Windows8.1-KB3112336-x86.msu
+* https://download.microsoft.com/download/0/6/5/06585DC5-F6E3-4DB8-B11C-DD8CCF867DF3/Windows8.1-KB3112336-x64.msu
+
 
 1. (Prerequisite) March 2014 servicing stack update for Windows 8.1 and Windows Server 2012 R2  https://support.microsoft.com/en-us/kb/2919442
 2. Clearcompressionflag.exe tool
