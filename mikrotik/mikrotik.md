@@ -1,3 +1,4 @@
+MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```
 export compact
 # .rsc extension is added automatically
