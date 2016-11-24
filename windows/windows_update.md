@@ -18,6 +18,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
 ###Windows 7/2008R2
 
 1. KB3020369 (prerequisite for KB3125574): https://support.microsoft.com/en-gb/kb/3020369
+  * x86: https://download.microsoft.com/download/C/0/8/C0823F43-BFE9-4147-9B0A-35769CBBE6B0/Windows6.1-KB3020369-x86.msu
+  * x64: https://download.microsoft.com/download/5/D/0/5D0821EB-A92D-4CA2-9020-EC41D56B074F/Windows6.1-KB3020369-x64.msu
 2. KB3125574 Convenience rollup
   * https://support.microsoft.com/en-us/kb/3125574
   * http://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3125574
