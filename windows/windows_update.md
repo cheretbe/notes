@@ -18,7 +18,11 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
 ###Windows 7/2008R2
 
 1. KB3020369 (prerequisite for KB3125574): https://support.microsoft.com/en-gb/kb/3020369
-2. KB3125574 Convenience rollup (download works in IE only): http://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3125574
+2. KB3125574 Convenience rollup
+  * https://support.microsoft.com/en-us/kb/3125574
+  * http://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3125574
+    * x86: http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/05/windows6.1-kb3125574-v4-x86_ba1ff5537312561795cc04db0b02fbb0a74b2cbd.msu
+    * x64: http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/05/windows6.1-kb3125574-v4-x64_2dafb1d203c8964239af3048b5dd4b1264cd93b9.msu
 3. KB3138612 Update Client: https://support.microsoft.com/en-us/kb/3138612
 4. KB3172605 July 2016 update rollup: https://support.microsoft.com/en-us/kb/3172605
 
