@@ -25,7 +25,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
   * http://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3125574
     * x86: http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/05/windows6.1-kb3125574-v4-x86_ba1ff5537312561795cc04db0b02fbb0a74b2cbd.msu
     * x64: http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/05/windows6.1-kb3125574-v4-x64_2dafb1d203c8964239af3048b5dd4b1264cd93b9.msu
-3. KB3138612 Update Client: https://support.microsoft.com/en-us/kb/3138612
+3. KB3138612 Update Client (March 2016): https://support.microsoft.com/en-us/kb/3138612
+  * x86: https://download.microsoft.com/download/E/4/7/E47FB37E-7443-4047-91F7-16DDDCF2955C/Windows6.1-KB3138612-x86.msu
+  * x64: https://download.microsoft.com/download/B/7/C/B7CD3A70-1EA7-486A-9585-F6814663F1A9/Windows6.1-KB3138612-x64.msu
 4. KB3172605 July 2016 update rollup: https://support.microsoft.com/en-us/kb/3172605
 
 After that the rest of updates can be installed normally
