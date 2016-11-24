@@ -31,9 +31,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
 4. KB3172605 July 2016 update rollup: https://support.microsoft.com/en-us/kb/3172605
  * x86: https://download.microsoft.com/download/C/D/5/CD5DE7B2-E857-4BD4-AA9C-6B30C3E1735A/Windows6.1-KB3172605-x86.msu
  * x64: https://download.microsoft.com/download/5/6/0/560504D4-F91A-4DEB-867F-C713F7821374/Windows6.1-KB3172605-x64.msu
-5. KB3185278 September 2016 update rollup: https://support.microsoft.com/en-us/kb/3185278 (2check)
-  * x86: https://download.microsoft.com/download/4/D/7/4D7FEBC6-48FC-46EF-90C4-1D17E1D044F2/Windows6.1-KB3185278-x86.msu
-  * x64: https://download.microsoft.com/download/C/8/5/C85D83D7-CDA8-411C-985A-4A50E82B7A61/Windows6.1-KB3185278-x64.msu
 
 After that the rest of updates can be installed normally
 
