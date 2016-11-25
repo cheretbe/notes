@@ -32,6 +32,12 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
  * x86: https://download.microsoft.com/download/C/D/5/CD5DE7B2-E857-4BD4-AA9C-6B30C3E1735A/Windows6.1-KB3172605-x86.msu
  * x64: https://download.microsoft.com/download/5/6/0/560504D4-F91A-4DEB-867F-C713F7821374/Windows6.1-KB3172605-x64.msu
 
+### Windows 2012
+
+KB2937636 Windows Update Agent for Windows 8 and Windows Server 2012: https://support.microsoft.com/en-us/kb/2887535
+
+x64: https://download.microsoft.com/download/C/4/F/C4F803A8-D91E-435E-90BF-5BCB019A4010/Windows8-RT-KB2937636-x64.msu
+
 After that the rest of updates can be installed normally
 
 ###Registering WU DLLs
