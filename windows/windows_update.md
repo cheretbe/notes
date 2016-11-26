@@ -3,10 +3,6 @@ Update troubleshooter: https://support.microsoft.com/en-us/kb/971058
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect
 
 ###Windows 8.1/2012R2
-~~Update client (December 2015): https://support.microsoft.com/en-us/kb/3112336~~
-* https://download.microsoft.com/download/C/6/0/C60E8D85-FD51-4B27-A78F-7F68093A1DCF/Windows8.1-KB3112336-x86.msu
-* https://download.microsoft.com/download/0/6/5/06585DC5-F6E3-4DB8-B11C-DD8CCF867DF3/Windows8.1-KB3112336-x64.msu
-
 
 1. KB2919442 (Prerequisite for KB2919355) March 2014 servicing stack update for Windows 8.1/2012R2 https://support.microsoft.com/en-us/kb/2919442
   * x86: https://download.microsoft.com/download/9/D/A/9DA6C939-9E65-4681-BBBE-A8F73A5C116F/Windows8.1-KB2919442-x86.msu
@@ -33,7 +29,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
   * 2-7 KB2934018
     * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2934018-x86.msu
     * x64: https://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/Windows8.1-KB2934018-x64.msu
-3. Update client (March 2016): https://support.microsoft.com/en-us/kb/3138615
+3. Update client for Windows 8.1/2012R2 (March 2016): https://support.microsoft.com/en-us/kb/3138615
+  * x86: https://download.microsoft.com/download/9/6/4/964EE585-03DC-441A-AA99-6A39BA731869/Windows8.1-KB3138615-x86.msu
+  * x64: https://download.microsoft.com/download/8/8/A/88AFE5D4-0021-4384-9D64-5411257CCC5B/Windows8.1-KB3138615-x64.msu
 
 ###Windows 7/2008R2
 
