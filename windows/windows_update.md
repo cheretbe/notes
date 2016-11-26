@@ -29,7 +29,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
   * 2-7 KB2934018
     * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2934018-x86.msu
     * x64: https://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/Windows8.1-KB2934018-x64.msu
-3. Update client for Windows 8.1/2012R2 (March 2016): https://support.microsoft.com/en-us/kb/3138615
+3. KB3138615 Update client for Windows 8.1/2012R2 (March 2016): https://support.microsoft.com/en-us/kb/3138615
   * x86: https://download.microsoft.com/download/9/6/4/964EE585-03DC-441A-AA99-6A39BA731869/Windows8.1-KB3138615-x86.msu
   * x64: https://download.microsoft.com/download/8/8/A/88AFE5D4-0021-4384-9D64-5411257CCC5B/Windows8.1-KB3138615-x64.msu
 
@@ -43,7 +43,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
   * http://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB3125574
     * x86: http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/05/windows6.1-kb3125574-v4-x86_ba1ff5537312561795cc04db0b02fbb0a74b2cbd.msu
     * x64: http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/05/windows6.1-kb3125574-v4-x64_2dafb1d203c8964239af3048b5dd4b1264cd93b9.msu
-3. KB3138612 Update Client (March 2016): https://support.microsoft.com/en-us/kb/3138612
+3. KB3138612 Update Client for Windows 7/2008R2 (March 2016): https://support.microsoft.com/en-us/kb/3138612
   * x86: https://download.microsoft.com/download/E/4/7/E47FB37E-7443-4047-91F7-16DDDCF2955C/Windows6.1-KB3138612-x86.msu
   * x64: https://download.microsoft.com/download/B/7/C/B7CD3A70-1EA7-486A-9585-F6814663F1A9/Windows6.1-KB3138612-x64.msu
 4. KB3172605 July 2016 update rollup: https://support.microsoft.com/en-us/kb/3172605
