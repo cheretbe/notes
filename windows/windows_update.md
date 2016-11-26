@@ -8,14 +8,20 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
 * https://download.microsoft.com/download/0/6/5/06585DC5-F6E3-4DB8-B11C-DD8CCF867DF3/Windows8.1-KB3112336-x64.msu
 
 
-1. (Prerequisite for KB2919355) March 2014 servicing stack update for Windows 8.1/2012R2  https://support.microsoft.com/en-us/kb/2919442
+1. KB2919442 (Prerequisite for KB2919355) March 2014 servicing stack update for Windows 8.1/2012R2 https://support.microsoft.com/en-us/kb/2919442
   * x86: https://download.microsoft.com/download/9/D/A/9DA6C939-9E65-4681-BBBE-A8F73A5C116F/Windows8.1-KB2919442-x86.msu
   * x64: https://download.microsoft.com/download/C/F/8/CF821C31-38C7-4C5C-89BB-B283059269AF/Windows8.1-KB2919442-x64.msu
-2. Clearcompressionflag.exe tool
-  * x86: http://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/clearcompressionflag.exe
-  * x64: http://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/clearcompressionflag.exe
-3. (Prerequisite) Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 update: April 2014 http://support.microsoft.com/kb/2919355
-4. Update client (March 2016): https://support.microsoft.com/en-in/kb/3138615
+2. KB2919355 (prerequisite for KB3138615) April 2014 update for Windows 8.1/2012R2 https://support.microsoft.com/en-us/kb/2919355
+  1. Clearcompressionflag.exe tool
+    * x86: http://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/clearcompressionflag.exe
+    * x64: http://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/clearcompressionflag.exe
+  2. KB2919355
+  3. KB2932046
+  4. KB2959977
+  5. KB2937592
+  6. KB2938439
+  7. KB2934018
+3. Update client (March 2016): https://support.microsoft.com/en-us/kb/3138615
 
 ###Windows 7/2008R2
 
