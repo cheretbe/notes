@@ -12,15 +12,27 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
   * x86: https://download.microsoft.com/download/9/D/A/9DA6C939-9E65-4681-BBBE-A8F73A5C116F/Windows8.1-KB2919442-x86.msu
   * x64: https://download.microsoft.com/download/C/F/8/CF821C31-38C7-4C5C-89BB-B283059269AF/Windows8.1-KB2919442-x64.msu
 2. KB2919355 (prerequisite for KB3138615) April 2014 update for Windows 8.1/2012R2 https://support.microsoft.com/en-us/kb/2919355
-  1. Clearcompressionflag.exe tool
+  * 2-1 Clearcompressionflag.exe tool
     * x86: http://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/clearcompressionflag.exe
     * x64: http://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/clearcompressionflag.exe
-  2. KB2919355
-  3. KB2932046
-  4. KB2959977
-  5. KB2937592
-  6. KB2938439
-  7. KB2934018
+  * 2-2 KB2919355
+    * x86:
+    * x64:
+  * 2-3 KB2932046
+    * x86:
+    * x64:
+  * 2-4 KB2959977
+    * x86:
+    * x64:
+  * 2-5 KB2937592
+    * x86:
+    * x64:
+  * 2-6 KB2938439
+    * x86:
+    * x64:
+  * 2-7 KB2934018
+    * x86:
+    * x64:
 3. Update client (March 2016): https://support.microsoft.com/en-us/kb/3138615
 
 ###Windows 7/2008R2
