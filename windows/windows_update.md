@@ -16,22 +16,22 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto 
     * x86: http://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/clearcompressionflag.exe
     * x64: http://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/clearcompressionflag.exe
   * 2-2 KB2919355
-    * x86:
+    * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2919355-x86.msu
     * x64:
   * 2-3 KB2932046
     * x86:
-    * x64:
+    * x64: https://download.microsoft.com/download/D/B/1/DB1F29FC-316D-481E-B435-1654BA185DCF/Windows8.1-KB2932046-x64.msu
   * 2-4 KB2959977
-    * x86:
+    * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2959977-x86.msu
     * x64:
   * 2-5 KB2937592
-    * x86:
+    * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2937592-x86.msu
     * x64:
   * 2-6 KB2938439
-    * x86:
+    * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2938439-x86.msu
     * x64:
   * 2-7 KB2934018
-    * x86:
+    * x86: https://download.microsoft.com/download/4/E/C/4EC66C83-1E15-43FD-B591-63FB7A1A5C04/Windows8.1-KB2934018-x86.msu
     * x64:
 3. Update client (March 2016): https://support.microsoft.com/en-us/kb/3138615
 
