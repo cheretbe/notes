@@ -1,3 +1,5 @@
+http://www.windowscentral.com/how-create-windows-10-iso-file-using-installesd-image
+
 ``` bash
 # /etc/dhcp/dhclient.conf
 # supersede domain-name-servers 8.8.8.8, 8.8.4.4;
