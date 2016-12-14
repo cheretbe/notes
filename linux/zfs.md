@@ -1,5 +1,8 @@
 ### 1. Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
+```
+apt install zfs
+```
 
 14.04:
 ```
