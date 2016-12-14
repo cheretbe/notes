@@ -1,3 +1,5 @@
+https://wiki.archlinux.org/index.php/ZFS
+
 ### 1. Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
 ```
