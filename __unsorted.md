@@ -1,5 +1,15 @@
 http://www.windowscentral.com/how-create-windows-10-iso-file-using-installesd-image
 
+http://askubuntu.com/questions/133384/keyboard-shortcut-gnome-terminal-ctrl-tab-and-ctrl-shift-tab-in-12-04/837629#837629
+```
+gsettings set \
+  org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ \
+  next-tab '<Primary>Tab'
+gsettings set \
+  org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ \
+  prev-tab '<Primary><Shift>Tab'
+```
+
 ``` bash
 # /etc/dhcp/dhclient.conf
 # supersede domain-name-servers 8.8.8.8, 8.8.4.4;
