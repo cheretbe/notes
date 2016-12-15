@@ -31,3 +31,6 @@ iface br0 inet static
   brigge_maxage 12
   #bridge_stp off
 ```
+Some info on bridge parameters:
+* http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
+* http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
