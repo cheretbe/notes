@@ -11,6 +11,7 @@ adduser username libvirtd
 # cannot open shared object file: No such file or directory"
 apt install libgl1-mesa-glx
 ```
+###Networking
 Add bridged network adapter to `/etc/network/interfaces`
 ```
 auto eth0
@@ -34,3 +35,21 @@ iface br0 inet static
 Some info on bridge parameters:
 * http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
 * http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
+
+VLAN
+```bash
+apt install vlan
+# Load kernel module
+modprobe 8021q
+# Add VLAN with id 100 to eth0
+vconfig add eth0 100
+# Assign an address to the new interface
+ip addr add 10.0.0.1/24 dev eth0.100
+
+# Make this setup permanent
+echo "8021q" >> /etc/modules
+# /etc/network/interfaces
+# auto eth0.100
+# iface eth0.100 inet dhcp
+#   vlan-raw-device eth0
+```
