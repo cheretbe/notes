@@ -1,5 +1,10 @@
 https://wiki.archlinux.org/index.php/ZFS
 
+for sda1:
+```
+parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
+```
+
 ### 1. Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
 ```
