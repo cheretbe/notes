@@ -1,3 +1,8 @@
+```
+dpkg-reconfigure locales
+LANG="ru_RU.CP1251" wine Downloads/bvssol.exe
+```
+
 Ubuntu global .desktop files location: `/usr/share/applications`
 
 http://www.windowscentral.com/how-create-windows-10-iso-file-using-installesd-image
