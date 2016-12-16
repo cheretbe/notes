@@ -30,6 +30,9 @@ On linux:
   "line_padding_bottom": 2,
   "line_padding_top": 2
 ```
+
+"Open With" on Ubuntu: http://askubuntu.com/questions/732464/sublime-text-not-showing-in-nautilus-open-with-menu/755041#755041
+
 Packages:
 Install [Package Control](https://packagecontrol.io/installation#st3)
 
