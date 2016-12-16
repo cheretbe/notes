@@ -1,3 +1,5 @@
+Ubuntu global .desktop files location: `/usr/share/applications`
+
 http://www.windowscentral.com/how-create-windows-10-iso-file-using-installesd-image
 
 http://askubuntu.com/questions/133384/keyboard-shortcut-gnome-terminal-ctrl-tab-and-ctrl-shift-tab-in-12-04/837629#837629
