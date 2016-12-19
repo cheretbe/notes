@@ -1,3 +1,5 @@
+
+PCManFM file manager
 ```
 dpkg-reconfigure locales
 LANG="ru_RU.CP1251" wine Downloads/bvssol.exe
