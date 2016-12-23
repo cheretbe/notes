@@ -1,0 +1,2 @@
+- [ ] `apt install parted ntfsprogs mc htop`
+- [ ] Screensaver and lock settings
