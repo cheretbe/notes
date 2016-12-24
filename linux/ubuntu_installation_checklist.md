@@ -1,4 +1,5 @@
 - [ ] grub settings
+- [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
 - [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
 - [ ] `apt install parted mc htop`
 - [ ] Screensaver and lock settings
