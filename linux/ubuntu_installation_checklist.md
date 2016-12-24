@@ -1,3 +1,5 @@
+- [ ] grub settings
+- [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
 - [ ] `apt install parted mc htop`
 - [ ] Screensaver and lock settings
 - [ ] Change time from UTC to local (when dual-booting with Windows)
@@ -16,4 +18,7 @@ systemctl status systemd-timesyncd --no-pager -l
 # host names or IPs are separated by spaces
 # NTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org 2.ru.pool.ntp.org 3.ru.pool.ntp.org
 # FallbackNTP=ntp.ubuntu.com
+```
+- [ ] Install Windows TTF fonts ([Download link](files/windows-ttf.zip))
+```
 ```
