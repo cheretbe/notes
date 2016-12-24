@@ -1,6 +1,6 @@
-https://wiki.archlinux.org/index.php/ZFS
-https://icesquare.com/wordpress/how-to-improve-zfs-performance/
-https://github.com/zfsonlinux/zfs/wiki/Ubuntu-16.04-Root-on-ZFS
+* https://wiki.archlinux.org/index.php/ZFS
+* https://icesquare.com/wordpress/how-to-improve-zfs-performance/
+* https://github.com/zfsonlinux/zfs/wiki/Ubuntu-16.04-Root-on-ZFS
 
 for sda1:
 ```
