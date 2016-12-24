@@ -34,7 +34,13 @@ fc-cache -fv
 add-apt-repository ppa:no1wantdthisname/ppa
 apt update
 apt install  fontconfig-infinality libfreetype6
-# Config
+# Config (current session)
 /etc/fonts/infinality/infctl.sh setstyle
+# Permanent settings: set USE_STYLE (USE_STYLE="DEFAULT" is fine)
 # /etc/profile.d/infinality-settings.sh
+
+# Uninstall
+apt-get purge fontconfig-infinality
+apt-get install ppa-purge
+ppa-purge ppa:no1wantdthisname/ppa
 ```
