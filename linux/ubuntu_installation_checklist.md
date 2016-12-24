@@ -19,10 +19,21 @@ systemctl status systemd-timesyncd --no-pager -l
 # NTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org 2.ru.pool.ntp.org 3.ru.pool.ntp.org
 # FallbackNTP=ntp.ubuntu.com
 ```
-- [ ] Install Windows TTF fonts ([Download link](files/windows-ttf.zip))
+- [ ] Unity Tweak Tool
+- [ ] Windows TTF fonts ([Download link](files/windows-ttf.zip))
 ```bash
 # Copy to /usr/share/fonts/truetype or ~/.fonts/truetype/
 # fc-cache is in package fontconfig
+mkdir -p ~/.fonts/truetype/
 unzip ~/Downloads/windows-ttf.zip -d ~/.fonts/truetype/
 fc-cache -fv
+```
+- [ ] Infinality
+```
+add-apt-repository ppa:no1wantdthisname/ppa
+apt update
+apt install  fontconfig-infinality freetype
+# Config
+/etc/fonts/infinality/infctl.sh setstyle
+# /etc/profile.d/infinality-settings.sh
 ```
