@@ -20,5 +20,8 @@ systemctl status systemd-timesyncd --no-pager -l
 # FallbackNTP=ntp.ubuntu.com
 ```
 - [ ] Install Windows TTF fonts ([Download link](files/windows-ttf.zip))
-```
+```bash
+# Copy to /usr/share/fonts/truetype or /usr/share/fonts/truetype
+# fc-cache is in package fontconfig
+fc-cache -fv
 ```
