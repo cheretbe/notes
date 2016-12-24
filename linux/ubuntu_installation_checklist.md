@@ -1,5 +1,19 @@
 - [ ] `apt install parted mc htop`
 - [ ] Screensaver and lock settings
-- [ ] Change time from UTC to local `/etc/default/rcS`: UTC=no
-
-http://askubuntu.com/questions/720445/ubuntu-15-10-assumes-bios-clock-is-set-to-utc-time-regardless-of-utc-no-in-etc
+- [ ] Change time from UTC to local (when dual-booting with Windows)
+```bash
+timedatectl set-local-rtc 1
+# view current settings
+timedatectl
+# turn UTC back on
+timedatectl set-local-rtc 1
+# pre-16.04: add UTC=no to /etc/default/rcS 
+```
+- [ ] NTP time sync
+```bash
+systemctl status systemd-timesyncd --no-pager -l
+# settings are in /etc/systemd/timesyncd.conf
+# host names or IPs are separated by spaces
+# NTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org 2.ru.pool.ntp.org 3.ru.pool.ntp.org
+# FallbackNTP=ntp.ubuntu.com
+```
