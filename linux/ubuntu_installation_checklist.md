@@ -33,7 +33,7 @@ fc-cache -fv
 ```
 add-apt-repository ppa:no1wantdthisname/ppa
 apt update
-apt install  fontconfig-infinality freetype
+apt install  fontconfig-infinality libfreetype6
 # Config
 /etc/fonts/infinality/infctl.sh setstyle
 # /etc/profile.d/infinality-settings.sh
