@@ -21,7 +21,8 @@ systemctl status systemd-timesyncd --no-pager -l
 ```
 - [ ] Install Windows TTF fonts ([Download link](files/windows-ttf.zip))
 ```bash
-# Copy to /usr/share/fonts/truetype or /usr/share/fonts/truetype
+# Copy to /usr/share/fonts/truetype or ~/.fonts/truetype/
 # fc-cache is in package fontconfig
+unzip ~/Downloads/windows-ttf.zip -d ~/.fonts/truetype/
 fc-cache -fv
 ```
