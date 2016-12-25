@@ -3,7 +3,7 @@ http://askubuntu.com/questions/115333/how-do-i-disable-the-sleep-button-on-my-ke
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
 - [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
-- [ ] `apt install parted mc htop`
+- [ ] `apt install gparted mc htop`
 - [ ] Screensaver and lock settings
 - [ ] Change time from UTC to local (when dual-booting with Windows)
 ```bash
