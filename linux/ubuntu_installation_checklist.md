@@ -59,3 +59,9 @@ ppa-purge ppa:no1wantdthisname/ppa
  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
  ```
+   * Position
+  ``` bash
+  cp /usr/share/applications/gnome-terminal.desktop{,.bak}
+  # Update 'Exec' parameters in  '[Desktop Entry]' and '[Desktop Action New]' sections:
+  # Exec=gnome-terminal --geometry 127x43+490+290
+  ```
