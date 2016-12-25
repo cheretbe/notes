@@ -1,3 +1,5 @@
+http://askubuntu.com/questions/115333/how-do-i-disable-the-sleep-button-on-my-keyboard/115423#115423
+
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
 - [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
