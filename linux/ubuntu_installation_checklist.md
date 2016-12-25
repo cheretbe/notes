@@ -46,3 +46,16 @@ apt-get purge fontconfig-infinality
 apt-get install ppa-purge
 ppa-purge ppa:no1wantdthisname/ppa
 ```
+- [ ] Gnome terminal
+  * Edit -> Preferences -> General -> Open new terminals in: Tab
+  * Switch tabs with Ctrl+Tab
+ ```bash
+ sudo apt install dconf-tools
+ dconf-editor &
+ # Org -> Gnome -> Terminal -> Legacy -> Keybindings
+ # next-tab <Primary>Tab
+ # prev-tab <Primary><Shift>Tab
+ # If there is no 'Keybindings' item in the tree:
+ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
+ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
+ ```
