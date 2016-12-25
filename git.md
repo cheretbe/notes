@@ -1,8 +1,20 @@
 ## Table of Contents
+* [Initial setup](#initial-setup)
 * [Troubleshooting](#troubleshooting)
 * [Submodules](#submodules)
 * [Branches and tags](#branches-and-tags)
 * [Unsorted](#unsorted)
+
+### Initial setup
+```bash
+git config --global user.name "user name"
+git config --global user.email "email"
+# Not needed in recent versions?
+git config --global credential.helper wincred
+# Linux (warning: stores in plaintext!):
+git config --global credential.helper store
+git config --global push.default simple
+```
 
 ###Troubleshooting
 ``` shell
