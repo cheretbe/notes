@@ -5,6 +5,12 @@ Icon in context menu on Windows
 ```
 reg.exe add "HKCR\*\shell\Open with Sublime Text" /v Icon /t REG_SZ /d "c:\Program Files\Sublime Text 3\sublime_text.exe" /f
 ```
+Linux installation
+```
+add-apt-repository ppa:webupd8team/sublime-text-3
+apt update
+apt install sublime-text-installer
+```
 Settings
 ```
 {
