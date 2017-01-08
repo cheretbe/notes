@@ -1,6 +1,8 @@
 TODO:
 * http://askubuntu.com/questions/115333/how-do-i-disable-the-sleep-button-on-my-keyboard/115423#115423
 * http://www.noobslab.com/p/themes-icons.html
+* http://www.webupd8.org/2016/03/mailnag-email-notifier-12-released-with.html
+* http://mark.orbum.net/2012/05/14/disabling-dnsmasq-as-your-local-dns-server-in-ubuntu/
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
