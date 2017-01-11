@@ -1,9 +1,15 @@
 ## Table of Contents
+* [Unsorted](#unsorted)
 * [Initial setup](#initial-setup)
 * [Troubleshooting](#troubleshooting)
 * [Submodules](#submodules)
 * [Branches and tags](#branches-and-tags)
-* [Unsorted](#unsorted)
+
+###Unsorted
+``` shell
+# work with a different path instead of current working directory
+git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
+```
 
 ### Initial setup
 ```bash
@@ -82,5 +88,3 @@ git push --follow-tags
 # View current tag
 git describe --abbrev=0 --tags
 ```
-
-###Unsorted
