@@ -1,3 +1,18 @@
+### Simple HTTPS Server in Python
+```python
+# https://gist.github.com/dergachev/7028596
+# https://carlo-hamalainen.net/blog/2013/1/24/python-ssl-socket-echo-test-with-self-signed-certificate
+
+# Python 2
+import BaseHTTPServer, SimpleHTTPServer
+import ssl
+
+# root privileges needed to listen to 443 port
+httpd = BaseHTTPServer.HTTPServer(('localhost', 4443), SimpleHTTPServer.SimpleHTTPRequestHandler)
+httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt', keyfile='/path/to/private.key' server_side=True)
+httpd.serve_forever()
+```
+
 * The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
 * GUI certificate viewer in linux: gcr-viewer
 
