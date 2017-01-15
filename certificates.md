@@ -1,4 +1,5 @@
-GUI certificate viewer in linux: gcr-viewer
+* The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
+* GUI certificate viewer in linux: gcr-viewer
 
 
 Extract the private key from the PFX
