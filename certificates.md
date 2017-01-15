@@ -1,3 +1,6 @@
+GUI certificate viewer in linux: gcr-viewer
+
+
 Extract the private key from the PFX
 ```
 openssl pkcs12 -in {site}.pfx  -nocerts -nodes -passin pass:{password} | openssl rsa -out {site}.key
