@@ -1,5 +1,6 @@
 ### Unsorted
-GUI certificate viewer in linux: gcr-viewer
+* GUI certificate viewer in linux: gcr-viewer
+* https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
 
 ### Simple HTTPS Server in Python
 ```python
