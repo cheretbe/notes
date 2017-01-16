@@ -1,3 +1,5 @@
+* https://github.com/grke/burp/wiki/Automated-deploy-and-maintenance
+
 ## Client installation
 
 **Ubuntu**
