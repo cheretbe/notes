@@ -53,3 +53,26 @@ echo "8021q" >> /etc/modules
 # iface eth0.100 inet dhcp
 #   vlan-raw-device eth0
 ```
+###Copying a VM
+Copy the VM's disks from `/var/lib/libvirt/images` on src host to the same dir on destination host
+```shell
+# on the source host run
+virsh dumpxml VMNAME > domxml.xml
+# and copy this xml to the dest. host
+# on the destination host run
+Virsh define domxml.xml
+```
+Start new VM.
+If the disk location differs, you need to edit the xml's devices/disk node to point to the image on the destination host. If the VM is attached to custom defined networks, you'll need to either edit them out of the xml on the destination host or redefine them as well
+```shell
+virsh net-dumpxml > netxml.xml
+# and
+virsh net-define netxml.xml && virsh net-start NETNAME & virsh net-autostart NETNAME
+```
+To edit existing (registered) vm:
+```shell
+export EDITOR=nano
+virsh edit vmname
+```
+VM's configs are in `/etc/libvirt/qemu`
+* http://serverfault.com/questions/434064/correct-way-to-move-kvm-vm
