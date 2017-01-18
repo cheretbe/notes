@@ -60,7 +60,7 @@ Copy the VM's disks from `/var/lib/libvirt/images` on src host to the same dir o
 virsh dumpxml VMNAME > domxml.xml
 # and copy this xml to the dest. host
 # on the destination host run
-Virsh define domxml.xml
+virsh define domxml.xml
 ```
 Start new VM.
 If the disk location differs, you need to edit the xml's devices/disk node to point to the image on the destination host. If the VM is attached to custom defined networks, you'll need to either edit them out of the xml on the destination host or redefine them as well
