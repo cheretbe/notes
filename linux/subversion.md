@@ -42,9 +42,19 @@ service apache2 restart
 Setting up HTTPS
 ```
 mkdir -p /etc/apache2/ssl
-cp /path/to/cert/server.crt
-cp /path/to/cert/server.key
+cp /path/to/cert/server.crt /etc/apache2/ssl
+cp /path/to/cert/server.key /etc/apache2/ssl
 chown :www-data /etc/apache2/ssl -R
 chmod 640 /etc/apache2/ssl/*.*
 a2enmod ssl
+```
+**Updating** (not adding) lines in `/etc/apache2/sites-available/default-ssl.conf`
+```
+SSLCertificateFile /etc/apache2/ssl/server.crt
+SSLCertificateKeyFile /etc/apache2/ssl/server.key
+```
+
+Restarting apache service
+```
+service apache2 restart
 ```
