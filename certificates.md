@@ -46,3 +46,4 @@ openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -cacerts -ou
 # and used when creating a PKCS12 keystore
 openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | openssl x509 -chain -out bundle.crt
 ```
+[TOC](#table-of-contents)
