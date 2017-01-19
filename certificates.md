@@ -2,7 +2,7 @@
 * [Unsorted](#unsorted)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
-* [Own SSL Certificate Authority](own-ssl-certificate-authority)
+* [Own SSL Certificate Authority](#own-ssl-certificate-authority)
 
 ### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
