@@ -53,4 +53,8 @@ openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | 
 
 This is for simplistic approach when CA signs server or client certificates directly. For more advanced and secure approach with intermediate CAs, database to keep track of signed certificates, etc. see this guide: https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
 
+Sources:
+* https://datacenteroverlords.com/2012/03/01/creating-your-own-ssl-certificate-authority/
+* http://blog.endpoint.com/2014/10/openssl-csr-with-alternative-names-one.html
+
 [TOC](#table-of-contents)
