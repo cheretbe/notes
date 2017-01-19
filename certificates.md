@@ -30,6 +30,9 @@ httpd.serve_forever()
 ### OpenSSL Commands
 The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
 
+#### OpenSSL unable to write 'random state' error <a name="openssl-random-state-error"></a>
+unable to write 'random state'
+
 Extract the private key from the PFX
 ```
 openssl pkcs12 -in {site}.pfx  -nocerts -nodes -passin pass:{password} | openssl rsa -out {site}.key
@@ -56,11 +59,13 @@ openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | 
 
 This is for simplistic approach when CA signs server or client certificates directly. For more advanced and secure approach with intermediate CAs, database to keep track of signed certificates, etc. see this guide: https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
 
+On Windows see [here](#openssl-random-state-error)
+
 Create the Root Key
 ```shell
 # 4096 bits is for root certificate only. It will be possible to
 # sign server and client certificates of a shorter length
-openssl genrsa -aes256 -out private/ca.key.pem 4096
+openssl genrsa -aes256 -out ca.key.pem 4096
 ```
 
 Sources:
