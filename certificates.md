@@ -1,7 +1,7 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
-* [OpenSSL Commands](#open-ssl-commands)
+* [OpenSSL Commands](#openssl-commands)
 
 ###Unsorted
 * GUI certificate viewer in linux: gcr-viewer
@@ -23,7 +23,7 @@ httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt'
 httpd.serve_forever()
 ```
 
-###OpenSSL Commands
+### OpenSSL Commands
 The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
 
 Extract the private key from the PFX
