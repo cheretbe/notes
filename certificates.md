@@ -85,9 +85,22 @@ openssl req -key ca.key.pem -new -x509 -days 7300 -sha256 -out ca.cert.pem
 # Verify it
 openssl x509 -noout -text -in ca.cert.pem
 ```
-Export to DER format to use on Windows machines
-```
+Export to DER format to use on Windows machines (or just rename .pem to .crt)
+```shell
 openssl x509 -in ca.cert.pem -outform DER -out ca.cer
+```
+Issue a device certificate
+```shell
+# Create a private key
+openssl genrsa -out device.key 2048
+# Generate a certificate signing request (leave challenge password empty)
+openssl req -new -key device.key -out device.csr
+# Create a singned certificate
+# -CAcreateserial: CA serial number file is created if it does not exist. It will contain the
+#                  serial number "02" and the certificate being signed will have the 1 as its
+#                  serial number. Normally if the -CA option is specified and the serial number
+#                  file does not exist it is an error.
+openssl x509 -req -in device.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out device.crt -days 3650 -sha256
 ```
 
 Sources:
