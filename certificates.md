@@ -31,7 +31,18 @@ httpd.serve_forever()
 The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
 
 #### OpenSSL unable to write 'random state' error <a name="openssl-random-state-error"></a>
-unable to write 'random state'
+When running non-elevated on Windows openssl.exe shows the following error: `unable to write 'random state'`. 
+OpenSSL on Windows tries to save the 'random state' file in the following order:
+  1. Path taken from RANDFILE environment variable
+  2. If HOME environment variable is set then : ${HOME}\.rnd
+  3. C:\.rnd
+
+Since by default HOME is not set, it tries to write `C:\.rnd` and fails. The solution to set either RANDFILE or HOME variable:
+```bat
+SET RANDFILE=.rnd
+:: or
+SET HOME=%HOMEPATH%
+```
 
 Extract the private key from the PFX
 ```
@@ -59,7 +70,7 @@ openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | 
 
 This is for simplistic approach when CA signs server or client certificates directly. For more advanced and secure approach with intermediate CAs, database to keep track of signed certificates, etc. see this guide: https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
 
-On Windows see [here](#openssl-random-state-error)
+The solution to `unable to write 'random state'` error on Windows is [here](#openssl-random-state-error).
 
 Create the Root Key
 ```shell
