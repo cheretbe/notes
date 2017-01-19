@@ -2,6 +2,7 @@
 * [Unsorted](#unsorted)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
+* [Own SSL Certificate Authority](own-ssl-certificate-authority)
 
 ### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
@@ -46,4 +47,10 @@ openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -cacerts -ou
 # and used when creating a PKCS12 keystore
 openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | openssl x509 -chain -out bundle.crt
 ```
+[TOC](#table-of-contents)
+
+### Own SSL Certificate Authority
+
+This is for simplistic approach when CA signs server or client certificates directly. For more advanced and secure approach with intermediate CAs, database to keep track of signed certificates, etc. see this guide: https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
+
 [TOC](#table-of-contents)
