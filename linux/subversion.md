@@ -39,7 +39,7 @@ svnadmin create /svn/repos/test
 service apache2 restart
 ```
 
-Setting up HTTPS
+Setup HTTPS
 ```
 mkdir -p /etc/apache2/ssl
 cp /path/to/cert/server.crt /etc/apache2/ssl
@@ -48,13 +48,15 @@ chown :www-data /etc/apache2/ssl -R
 chmod 640 /etc/apache2/ssl/*.*
 a2enmod ssl
 ```
-**Updating** (not adding) lines in `/etc/apache2/sites-available/default-ssl.conf`
+**Update** (not add) lines in `/etc/apache2/sites-available/default-ssl.conf`
 ```
 SSLCertificateFile /etc/apache2/ssl/server.crt
 SSLCertificateKeyFile /etc/apache2/ssl/server.key
 ```
 
-Restarting apache service
+Restart apache service
 ```
+a2ensite default-ssl.conf
+a2dissite default
 service apache2 restart
 ```
