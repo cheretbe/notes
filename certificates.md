@@ -82,6 +82,8 @@ Create the root certificate
 ```shell
 # 7200 days is 20 years
 openssl req -key ca.key.pem -new -x509 -days 7300 -sha256 -out ca.cert.pem
+# Verify it
+openssl x509 -noout -text -in ca.cert.pem
 ```
 Export to DER format to use on Windows machines
 ```
