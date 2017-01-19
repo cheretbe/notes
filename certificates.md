@@ -78,6 +78,15 @@ Create the Root Key
 # sign server and client certificates of a shorter length
 openssl genrsa -aes256 -out ca.key.pem 4096
 ```
+Create the root certificate
+```shell
+# 7200 days is 20 years
+openssl req -key ca.key.pem -new -x509 -days 7300 -sha256 -out ca.cert.pem
+```
+Export to DER format to use on Windows machines
+```
+openssl x509 -in ca.cert.pem -outform DER -out ca.cer
+```
 
 Sources:
 * https://datacenteroverlords.com/2012/03/01/creating-your-own-ssl-certificate-authority/
