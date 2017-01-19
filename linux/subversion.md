@@ -57,6 +57,9 @@ SSLCertificateKeyFile /etc/apache2/ssl/server.key
 Restart apache service
 ```
 a2ensite default-ssl.conf
-a2dissite default
+a2dissite 000-default.conf
+# Comment out in /etc/apache2/ports.conf
+# NameVirtualHost *:80  
+# Listen 80
 service apache2 restart
 ```
