@@ -3,12 +3,12 @@
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
 
-###Unsorted
+### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
 * https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
 * https://github.com/diafygi/acme-tiny
 
-###Simple HTTPS Server in Python
+### Simple HTTPS Server in Python
 ```python
 # https://gist.github.com/dergachev/7028596
 # https://carlo-hamalainen.net/blog/2013/1/24/python-ssl-socket-echo-test-with-self-signed-certificate
