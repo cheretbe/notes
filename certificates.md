@@ -8,6 +8,7 @@
 * GUI certificate viewer in linux: gcr-viewer
 * https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
 * https://github.com/diafygi/acme-tiny
+[\[ TOC \]](#table-of-contents)
 
 ### Simple HTTPS Server in Python
 ```python
@@ -23,6 +24,7 @@ httpd = BaseHTTPServer.HTTPServer(('localhost', 4443), SimpleHTTPServer.SimpleHT
 httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt', keyfile='/path/to/private.key' server_side=True)
 httpd.serve_forever()
 ```
+[\[ TOC \]](#table-of-contents)
 
 ### OpenSSL Commands
 The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
@@ -47,7 +49,7 @@ openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -cacerts -ou
 # and used when creating a PKCS12 keystore
 openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | openssl x509 -chain -out bundle.crt
 ```
-[TOC](#table-of-contents)
+[\[ TOC \]](#table-of-contents)
 
 ### Own SSL Certificate Authority
 
