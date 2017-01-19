@@ -102,6 +102,7 @@ openssl req -new -key device.key -out device.csr
 #                  file does not exist it is an error.
 openssl x509 -req -in device.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out device.crt -days 3650 -sha256
 ```
+Sertificate reques with alternative names: http://blog.endpoint.com/2014/10/openssl-csr-with-alternative-names-one.html
 
 Sources:
 * https://datacenteroverlords.com/2012/03/01/creating-your-own-ssl-certificate-authority/
