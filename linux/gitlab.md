@@ -30,11 +30,11 @@ sudo mkdir -p /var/www/letsencrypt
 ```
 Add the following line to `/etc/gitlab/gitlab.rb`:
 ```
-nginx['custom_gitlab_server_config']="location ^~ /.well-known {\n alias /var/www/letsencrypt;\n}\n"
+nginx['custom_gitlab_server_config']="location ^~ /.well-known/acme-challenge {\n alias /var/www/letsencrypt;\n}\n"
 ```
 Reconfigure gitlab instance to activate new configuration
 ```
-gitlab-ctl reconfigure
+sudo gitlab-ctl reconfigure
 ```
 ```
 sudo adduser --disabled-password letsencrypt
@@ -44,7 +44,7 @@ sudo chown letsencrypt:letsencrypt /home/letsencrypt/letsencrypt-account.key
 sudo chmod 600 /home/letsencrypt/letsencrypt-account.key
 sudo su - letsencrypt
 
-echo works > /srv/http/letsencrypt/.well-known/acme-challenge/test.txt
+echo works > /var/www/letsencrypt/test.txt
 curl example.com/.well-known/acme-challenge/test.txt
 
 git clone https://github.com/diafygi/acme-tiny.git
