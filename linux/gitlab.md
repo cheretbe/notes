@@ -38,7 +38,15 @@ gitlab-ctl reconfigure
 ```
 ```
 sudo adduser --disabled-password letsencrypt
+sudo chown letsencrypt: /var/www/letsencrypt
+sudo cp letsencrypt-account.key /home/letsencrypt/
+sudo chown letsencrypt:letsencrypt /home/letsencrypt/letsencrypt-account.key
+sudo chmod 600 /home/letsencrypt/letsencrypt-account.key
 sudo su - letsencrypt
+
+echo works > /srv/http/letsencrypt/.well-known/acme-challenge/test.txt
+curl example.com/.well-known/acme-challenge/test.txt
+
 git clone https://github.com/diafygi/acme-tiny.git
 ```
 * \[!\] https://scotthelme.co.uk/setting-up-le/
