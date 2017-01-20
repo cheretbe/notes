@@ -1,3 +1,5 @@
+Ubuntu 16.04, GitLab 8
+
 https://about.gitlab.com/downloads/
 
 Install packages
@@ -19,3 +21,4 @@ Configure and start GitLab
 ```
 sudo gitlab-ctl reconfigure
 ```
+Visit server URL in a web browser set password for the user `root`
