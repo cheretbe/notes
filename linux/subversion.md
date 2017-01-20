@@ -1,3 +1,18 @@
+### Move existing repository to a new server
+On the old server. Backup old repository
+```shell
+su svn
+svnadmin dump /path/to/repository > repo_name.svn_dump
+```
+On the new server. Create new repository, import old repository data into the new one.
+```shell
+su svn
+svnadmin create /path/to/repository
+svnadmin load /path/to/repository < repo_name.svn_dump --force-uuid
+```
+**Note:** Dump and load do not copy conf subdirectory contents. Check contents of /conf/svnserve.conf and conf/passwd files after restore.
+
+### Subversion over HTTPS with Apache
 Install subversion, apache and create a directory to hold the repositories
 ```shell
 apt install subversion apache2 libapache2-svn apache2-utils
