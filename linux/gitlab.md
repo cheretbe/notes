@@ -21,4 +21,4 @@ Configure and start GitLab
 ```
 sudo gitlab-ctl reconfigure
 ```
-Visit server URL in a web browser set password for the user `root`
+Visit server URL in a web browser and set password for the user `root`
