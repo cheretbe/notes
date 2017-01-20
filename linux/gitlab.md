@@ -46,6 +46,7 @@ sudo su - letsencrypt
 
 echo works > /var/www/letsencrypt/test.txt
 curl example.com/.well-known/acme-challenge/test.txt
+rm /var/www/letsencrypt/test.txt
 
 git clone https://github.com/diafygi/acme-tiny.git
 ```
