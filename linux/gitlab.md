@@ -1,4 +1,5 @@
 Ubuntu 16.04, GitLab 8
+
 https://about.gitlab.com/downloads/
 
 ### Installation
@@ -51,6 +52,8 @@ rm /var/www/letsencrypt/test.txt
 git clone https://github.com/diafygi/acme-tiny.git
 ```
 * \[!\] https://scotthelme.co.uk/setting-up-le/
+* https://thelinuxexperiment.com/automating-lets-encrypt-certificates-on-nginx/
 * https://stosb.com/blog/secure-your-letsencrypt-setup-with-acme-tiny/
 * https://webnugget.de/setting-up-gitlab-with-free-ssl-certs-from-lets-encrypt-on-ubuntu-14-04/
 * https://www.digitalocean.com/community/tutorials/how-to-secure-gitlab-with-let-s-encrypt-on-ubuntu-16-04
+* http://serverfault.com/questions/259302/best-location-for-ssl-certificate-and-private-keys-on-ubuntu
