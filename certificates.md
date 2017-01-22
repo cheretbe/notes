@@ -20,9 +20,17 @@
 import BaseHTTPServer, SimpleHTTPServer
 import ssl
 
-# root privileges needed to listen to 443 port
+# root privileges are needed to listen to 443 port
 httpd = BaseHTTPServer.HTTPServer(('localhost', 4443), SimpleHTTPServer.SimpleHTTPRequestHandler)
-httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt', keyfile='/path/to/private.key' server_side=True)
+httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt', keyfile='/path/to/private.key', server_side=True)
+httpd.serve_forever()
+
+# Python 3
+import http.server
+import ssl
+
+httpd = http.server.HTTPServer(('localhost', 4443), http.server.SimpleHTTPRequestHandler)
+httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt', keyfile='/path/to/private.key', server_side=True)
 httpd.serve_forever()
 ```
 [\[ TOC \]](#table-of-contents)
