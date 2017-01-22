@@ -70,6 +70,10 @@ cat /etc/gitlab/ssl/certs/example.com.pem /home/letsencrypt/lets-encrypt-x1-cros
 
 Edit `/etc/gitlab/gitlab.rb`
 ```
+external_url 'https://your_domain'
+...
+nginx['redirect_http_to_https'] = true
+...
 nginx['ssl_certificate'] = "/etc/letsencrypt/live/your_domain/fullchain.pem"
 nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/your_domain/privkey.pem"
 ```
