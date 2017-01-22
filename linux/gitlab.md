@@ -77,6 +77,11 @@ nginx['redirect_http_to_https'] = true
 nginx['ssl_certificate'] = "/etc/letsencrypt/live/your_domain/fullchain.pem"
 nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/your_domain/privkey.pem"
 ```
+
+activate new configuration
+```
+sudo gitlab-ctl reconfigure
+```
 * \[!\] https://scotthelme.co.uk/setting-up-le/
 * https://thelinuxexperiment.com/automating-lets-encrypt-certificates-on-nginx/
 * https://stosb.com/blog/secure-your-letsencrypt-setup-with-acme-tiny/
