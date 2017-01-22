@@ -47,6 +47,7 @@ sudo chmod 600 /home/letsencrypt/letsencrypt-account.key
 # by analogy with /etc/ssl structure
 sudo mkdir -p /etc/gitlab/ssl/certs
 sudo chmod 755 /etc/gitlab/ssl/certs
+sudo chown letsencrypt: /etc/gitlab/ssl/certs/
 sudo mkdir /etc/gitlab/ssl/private
 sudo chown :ssl-cert /etc/gitlab/ssl/private
 sudo chmod 700 /etc/gitlab/ssl/private
@@ -59,6 +60,8 @@ sudo su - letsencrypt
 echo works > /var/www/letsencrypt/test.txt
 curl example.com/.well-known/acme-challenge/test.txt
 rm /var/www/letsencrypt/test.txt
+
+python3 acme-tiny/acme_tiny.py --account-key /home/letsencrypt/letsencrypt-account.key --csr /etc/gitlab/ssl/certs/example.com.csr --acme-dir /var/www/letsencrypt/ > /etc/gitlab/ssl/certs/ecample.com.pem
 
 git clone https://github.com/diafygi/acme-tiny.git
 ```
