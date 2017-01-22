@@ -51,6 +51,9 @@ sudo mkdir /etc/gitlab/ssl/private
 sudo chown :ssl-cert /etc/gitlab/ssl/private
 sudo chmod 700 /etc/gitlab/ssl/private
 
+openssl genrsa 4096 | sudo tee /etc/gitlab/ssl/private/example.com.key > /dev/null
+sudo openssl req -new -sha256 -key /etc/gitlab/ssl/private/example.com.key -subj "/CN=example.com" -out /etc/gitlab/ssl/certs/example.com.csr
+
 sudo su - letsencrypt
 
 echo works > /var/www/letsencrypt/test.txt
