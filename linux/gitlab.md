@@ -64,8 +64,8 @@ rm /var/www/letsencrypt/test.txt
 git clone https://github.com/diafygi/acme-tiny.git
 python3 acme-tiny/acme_tiny.py --account-key /home/letsencrypt/letsencrypt-account.key --csr /etc/gitlab/ssl/certs/example.com.csr --acme-dir /var/www/letsencrypt/ > /etc/gitlab/ssl/certs/ecample.com.pem
 
-wget https://letsencrypt.org/certs/lets-encrypt-x1-cross-signed.pem -O /home/letsencrypt/lets-encrypt-x1-cross-signed.pem
-cat /etc/gitlab/ssl/certs/example.com.pem /home/letsencrypt/lets-encrypt-x1-cross-signed.pem > /etc/gitlab/ssl/certs/example.com.fullchain.pem
+wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem -O /home/letsencrypt/lets-encrypt-x3-cross-signed.pem
+cat /etc/gitlab/ssl/certs/example.com.pem /home/letsencrypt/lets-encrypt-x3-cross-signed.pem > /etc/gitlab/ssl/certs/example.com.fullchain.pem
 ```
 
 Edit `/etc/gitlab/gitlab.rb`
