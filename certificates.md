@@ -44,6 +44,11 @@ SET RANDFILE=.rnd
 SET HOME=%HOMEPATH%
 ```
 
+View certificates on server
+```
+openssl s_client -connect www.godaddy.com:443
+```
+
 Extract the private key from the PFX
 ```
 openssl pkcs12 -in {site}.pfx  -nocerts -nodes -passin pass:{password} | openssl rsa -out {site}.key
