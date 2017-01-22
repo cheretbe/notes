@@ -37,12 +37,20 @@ Reconfigure gitlab instance to activate new configuration
 ```
 sudo gitlab-ctl reconfigure
 ```
-```
+```shell
 sudo adduser --disabled-password letsencrypt
 sudo chown letsencrypt: /var/www/letsencrypt
 sudo cp letsencrypt-account.key /home/letsencrypt/
 sudo chown letsencrypt:letsencrypt /home/letsencrypt/letsencrypt-account.key
 sudo chmod 600 /home/letsencrypt/letsencrypt-account.key
+
+# by analogy with /etc/ssl structure
+sudo mkdir -p /etc/gitlab/ssl/certs
+sudo chmod 755 /etc/gitlab/ssl/certs
+sudo mkdir /etc/gitlab/ssl/private
+sudo chown :ssl-cert /etc/gitlab/ssl/private
+sudo chmod 700 /etc/gitlab/ssl/private
+
 sudo su - letsencrypt
 
 echo works > /var/www/letsencrypt/test.txt
