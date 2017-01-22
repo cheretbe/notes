@@ -61,9 +61,17 @@ echo works > /var/www/letsencrypt/test.txt
 curl example.com/.well-known/acme-challenge/test.txt
 rm /var/www/letsencrypt/test.txt
 
+git clone https://github.com/diafygi/acme-tiny.git
 python3 acme-tiny/acme_tiny.py --account-key /home/letsencrypt/letsencrypt-account.key --csr /etc/gitlab/ssl/certs/example.com.csr --acme-dir /var/www/letsencrypt/ > /etc/gitlab/ssl/certs/ecample.com.pem
 
-git clone https://github.com/diafygi/acme-tiny.git
+wget https://letsencrypt.org/certs/lets-encrypt-x1-cross-signed.pem -O /home/letsencrypt/lets-encrypt-x1-cross-signed.pem
+cat /etc/gitlab/ssl/certs/example.com.pem /home/letsencrypt/lets-encrypt-x1-cross-signed.pem > /etc/gitlab/ssl/certs/example.com.fullchain.pem
+```
+
+Edit `/etc/gitlab/gitlab.rb`
+```
+nginx['ssl_certificate'] = "/etc/letsencrypt/live/your_domain/fullchain.pem"
+nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/your_domain/privkey.pem"
 ```
 * \[!\] https://scotthelme.co.uk/setting-up-le/
 * https://thelinuxexperiment.com/automating-lets-encrypt-certificates-on-nginx/
