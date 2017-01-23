@@ -8,6 +8,7 @@
 * GUI certificate viewer in linux: gcr-viewer
 * https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
 * https://github.com/diafygi/acme-tiny
+* Online SSL test: https://www.ssllabs.com/ssltest/
 
 [\[ TOC \]](#table-of-contents)
 
