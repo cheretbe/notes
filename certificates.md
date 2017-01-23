@@ -9,6 +9,7 @@
 * https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
 * https://github.com/diafygi/acme-tiny
 * Online SSL test: https://www.ssllabs.com/ssltest/
+* Hardening server SSL: https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
 
 [\[ TOC \]](#table-of-contents)
 
