@@ -34,6 +34,15 @@ httpd = http.server.HTTPServer(('localhost', 4443), http.server.SimpleHTTPReques
 httpd.socket = ssl.wrap_socket(httpd.socket, certfile='/path/to/cert_bundle.crt', keyfile='/path/to/private.key', server_side=True)
 httpd.serve_forever()
 ```
+
+Command line version:
+```shell
+# Python 2
+python -m SimpleHTTPServer [port]
+# Python 3 (run python3 -m http.server --help for details)
+python3 -m http.server [port]
+```
+
 [\[ TOC \]](#table-of-contents)
 
 ### OpenSSL Commands
