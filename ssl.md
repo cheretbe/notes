@@ -18,6 +18,9 @@
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 
 ```
+openssl genrsa 4096 > domain.key
+openssl req -new -sha256 -key domain.key -subj "/CN=domain" -out domain.csr
+
 mkdir -p .well-known/acme-challenge/
 sudo python -m SimpleHTTPServer 80 &
 
