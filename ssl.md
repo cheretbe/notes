@@ -17,7 +17,7 @@
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 
-```
+``` shell
 openssl genrsa 4096 > domain.key
 openssl req -new -sha256 -key domain.key -subj "/CN=domain" -out domain.csr
 
@@ -33,6 +33,7 @@ sudo kill <process_id>
 
 wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem
 
+#check firewall rule
 ```
 
 https://xdeb.org/node/1614
