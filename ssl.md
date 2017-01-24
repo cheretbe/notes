@@ -1,5 +1,6 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
+* [Hardening HTTPS server](#Hardening-https-server)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
 * [Own SSL Certificate Authority](#own-ssl-certificate-authority)
@@ -9,7 +10,27 @@
 * https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
 * https://github.com/diafygi/acme-tiny
 * Online SSL test: https://www.ssllabs.com/ssltest/
-* Hardening server SSL: https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
+
+
+[\[ TOC \]](#table-of-contents)
+
+### Hardening HTTPS server
+
+Apache
+```apacheconf
+  <IfModule mod_headers.c>
+    Header always set Strict-Transport-Security: "max-age=15768000"
+  </IfModule>
+```
+```
+a2enmod headers
+service apache2 restart
+```
+
+Sources:
+* https://mozilla.github.io/server-side-tls/ssl-config-generator/
+* https://xdeb.org/node/1614
+* https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
 
 [\[ TOC \]](#table-of-contents)
 
