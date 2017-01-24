@@ -17,6 +17,21 @@
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 
+```
+mkdir -p .well-known/acme-challenge/
+sudo python -m SimpleHTTPServer 80 &
+
+git clone https://github.com/diafygi/acme-tiny.git
+
+python3 acme-tiny/acme_tiny.py --account-key letsencrypt-account.key --csr domain.csr --acme-dir ./.well-known/acme-challenge/ > domain.pem
+
+ps aux | grep python
+sudo kill <process_id>
+
+wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem -O /home/letsencrypt/lets-encrypt-x3-cross-signed.pem
+
+```
+
 https://xdeb.org/node/1614
 
 [\[ TOC \]](#table-of-contents)
