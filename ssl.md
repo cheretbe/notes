@@ -28,7 +28,7 @@ python3 acme-tiny/acme_tiny.py --account-key letsencrypt-account.key --csr domai
 ps aux | grep python
 sudo kill <process_id>
 
-wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem -O /home/letsencrypt/lets-encrypt-x3-cross-signed.pem
+wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem
 
 ```
 
