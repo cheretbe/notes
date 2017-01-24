@@ -18,9 +18,20 @@
 
 Apache
 ```apacheconf
-  <IfModule mod_headers.c>
-    Header always set Strict-Transport-Security: "max-age=15768000"
-  </IfModule>
+# /etc/apache2/sites-available/default-ssl.conf
+<IfModule mod_ssl.c>
+  <VirtualHost _default_:443>
+    # ...
+    SSLProtocol ALL -SSLv2 -SSLv3
+    SSLHonorCipherOrder On
+    SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL$
+
+    <IfModule mod_headers.c>
+      Header always set Strict-Transport-Security: "max-age=15768000"
+    </IfModule>
+  </VirtualHost>
+</IfModule>
+
 ```
 ```
 a2enmod headers
