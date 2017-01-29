@@ -21,3 +21,10 @@ Start Scripts:
 gedit /usr/local/crashplan/conf/my.service.xml
 /usr/local/crashplan/bin/CrashPlanEngine status|start|stop|restart
 ```
+
+* https://support.code42.com/CrashPlan/4/Troubleshooting/Linux_Real-Time_File_Watching_Errors
+```shell
+# /etc/sysctl.conf
+# fs.inotify.max_user_watches=1048576
+sudo sysctl -p /etc/sysctl.conf
+```
