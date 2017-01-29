@@ -33,3 +33,10 @@ gedit /usr/local/crashplan/conf/my.service.xml
 # fs.inotify.max_user_watches=1048576
 sudo sysctl -p /etc/sysctl.conf
 ```
+
+Copy the authentication token from the `/var/lib/crashplan/.ui_info` file from the remote computer to the local computer. On local computer:
+```
+sudo su -
+cp /var/lib/crashplan/.ui_info{,.bak}
+nano /var/lib/crashplan/.ui_info
+```
