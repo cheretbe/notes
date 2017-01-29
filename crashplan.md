@@ -1,4 +1,9 @@
 * https://liquidstate.net/how-to-manage-your-crashplan-server-remotely/
+* https://support.code42.com/CrashPlan/4/Configuring/Using_CrashPlan_On_A_Headless_Computer
+
+
+Uninstallation
+* https://support.code42.com/CrashPlan/4/Troubleshooting/Uninstalling_And_Reinstalling_The_Code42_CrashPlan_App
 
 ```
 Important directories:
