@@ -1,4 +1,6 @@
 
+Terminal background color: #0E1C4A
+
 PCManFM file manager
 ```
 dpkg-reconfigure locales
