@@ -40,3 +40,4 @@ sudo su -
 cp /var/lib/crashplan/.ui_info{,.bak}
 nano /var/lib/crashplan/.ui_info
 ```
+Windows: `C:\ProgramData\CrashPlan\.ui_info`
