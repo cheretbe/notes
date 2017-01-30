@@ -41,3 +41,5 @@ cp /var/lib/crashplan/.ui_info{,.bak}
 nano /var/lib/crashplan/.ui_info
 ```
 Windows: `C:\ProgramData\CrashPlan\.ui_info`
+
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Local Crashplan service **overwrites** this file on **every start**
