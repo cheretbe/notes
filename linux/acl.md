@@ -1,0 +1,22 @@
+* https://www.server-world.info/en/note?os=Ubuntu_14.04&p=acl
+
+```shell
+apt install acl
+# check for acl option
+tune2fs -l /dev/sda1 | grep "Default mount options"
+
+
+# set r(read) for "ubuntu" user to /home/test.txt
+setfacl -m u:ubuntu:r /home/test.txt
+
+# set r(read) for "ubuntu" to "/home/testdir" recursively
+setfacl -R -m u:ubuntu:r /home/testdir
+
+# set **DEFAULT** ACL "r-x(read/execute)" for "ubuntu" to "/home/testdir" directory
+setfacl -d -m u:ubuntu:r-x /home/testdir
+
+# remove ACL from "/home/test.txt"
+setfacl -b /home/test.txt
+# remove ACL only for "fedora" user on "/home/test.txt"
+setfacl -x u:ubuntu /home/test.txt
+```
