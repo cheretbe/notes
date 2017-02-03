@@ -26,7 +26,7 @@ systemctl status systemd-timesyncd --no-pager -l
 # NTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org 2.ru.pool.ntp.org 3.ru.pool.ntp.org
 # FallbackNTP=ntp.ubuntu.com
 ```
-- [ ] Unity Tweak Tool
+- [ ] Tweak Tool and Unity Tweak Tool
 - [ ] Windows TTF fonts ([Download link](files/windows-ttf.zip))
 ```bash
 # Copy to /usr/share/fonts/truetype or ~/.fonts/truetype/
