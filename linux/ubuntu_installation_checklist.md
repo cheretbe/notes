@@ -69,3 +69,6 @@ ppa-purge ppa:no1wantdthisname/ppa
   # Update 'Exec' parameters in  '[Desktop Entry]' and '[Desktop Action New]' sections:
   # Exec=gnome-terminal --geometry 127x43+490+290
   ```
+- [ ] AES Crypt
+  * https://www.aescrypt.com/download/
+  * PCManFM integration: https://wiki.ubuntuusers.de/AES_Crypt/
