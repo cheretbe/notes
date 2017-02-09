@@ -8,3 +8,7 @@ Mailing list:
 The status monitor is now a client-side operation.
 Please read http://burp.grke.org/docs/monitor.html and you will find out how
 to make it work.
+
+```
+burp -c /etc/burp/burp-server.conf -t -C testclient | grep timer
+```
