@@ -1,6 +1,7 @@
-https://samba.ninja/2016/10/ubuntu-16-04-samba-ad-member-server/
-https://samba.ninja/2015/10/centos-7-samba-ad-member-server/
-https://samba.ninja/2014/10/ubuntu-14-samba-ad-member-server/
+* https://samba.ninja/2016/10/ubuntu-16-04-samba-ad-member-server/
+* https://samba.ninja/2015/10/centos-7-samba-ad-member-server/
+* https://samba.ninja/2014/10/ubuntu-14-samba-ad-member-server/
+* https://community.spiceworks.com/topic/157949-only-allow-certain-ad-groups-to-log-in
 
 ### Useful commands
 ``` shell
