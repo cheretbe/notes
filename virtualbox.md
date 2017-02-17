@@ -1,3 +1,8 @@
+To be able to add USB devices on **host** in Linux:
+```
+sudo adduser <npa> vboxusers
+```
+
 ### Shared Folders Write Access in Linux
 Access to auto-mounted shared folders is only granted to the user group vboxsf, which is created by the VirtualBox Guest Additions installer. Hence guest users have to be member of that group to have read/write access or to have read-only access in case the folder is not mapped writable.
 ```shell
