@@ -12,8 +12,8 @@ In Windows 10, you should use: `Get-AppXPackage -User <username> | Remove-AppxPa
 3) Delete files:  
 TODO: Fix directory name
 ```
-SetACL -on "d:\Boot.2del" -ot file -actn setowner -ownr "n:S-1-5-32-544" -rec cont_obj
-SetACL -on "d:\Boot.2del" -ot file -actn ace -ace "n:S-1-5-32-544;p:full" -rec cont_obj
+SetACL -on "C:\Program Files\WindowsApps\DeletedAllUserPackages" -ot file -actn setowner -ownr "n:S-1-5-32-544" -rec cont_obj
+SetACL -on "C:\Program Files\WindowsApps\DeletedAllUserPackages" -ot file -actn ace -ace "n:S-1-5-32-544;p:full" -rec cont_obj
 ```
 ### Add Safe Mode to the Windows 8 and 10 Boot Menu
 http://www.howtogeek.com/245175/how-to-add-safe-mode-to-the-windows-8-and-10-boot-menu/
