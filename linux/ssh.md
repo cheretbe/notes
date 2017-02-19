@@ -82,3 +82,7 @@ https://access.redhat.com/solutions/1166283
 # Find out PIDs of active tunnes
 netstat -tulpn | grep sshd
 ```
+To fix X11 forwading error add the following line to `/etc/ssh/sshd_config`
+```
+X11UseLocalHost no
+```
