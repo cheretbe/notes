@@ -4,6 +4,7 @@ Mailing list:
 * [burp server automated](https://sourceforge.net/p/burp/mailman/message/35605032/)
 * [Incompatibility between 2.0.54 client and 1.3.48 server](https://sourceforge.net/p/burp/mailman/message/35648448/)
 * [Small things after server upgrade](https://sourceforge.net/p/burp/mailman/message/35653928/)
+* [parameters/variables for use in pre/post scripts](https://sourceforge.net/p/burp/mailman/message/35671910/)
 
 The status monitor is now a client-side operation.
 Please read http://burp.grke.org/docs/monitor.html and you will find out how
