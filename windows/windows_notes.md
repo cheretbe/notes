@@ -1,3 +1,10 @@
+## Misc
+Clear all event logs
+```powershell
+# Powershell
+wevtutil el | Foreach-Object {wevtutil cl "$_"}
+```
+
 ## Remove Windows Store Apps
 1) From system account:
 ```
