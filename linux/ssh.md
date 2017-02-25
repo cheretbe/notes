@@ -86,3 +86,12 @@ To fix X11 forwading error add the following line to `/etc/ssh/sshd_config`
 ```
 X11UseLocalHost no
 ```
+Do not forward the locale settings
+* on client: in `/etc/ssh/ssh_config` comment out the line:
+```
+SendEnv LANG LC_*
+```
+* on server: in `/etc/ssh/sshd_config` comment out the line:
+```
+AcceptEnv LANG LC_*
+```
