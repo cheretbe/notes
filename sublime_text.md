@@ -36,6 +36,13 @@ On linux:
   "line_padding_bottom": 2,
   "line_padding_top": 2
 ```
+Custom tab size for python files: `Preferences > Settings-Syntax Specific`
+```
+{
+  # File name should be something like "Python.sublime-settings"
+  "tab_size": 4
+}
+```
 
 "Open With" on Ubuntu: http://askubuntu.com/questions/732464/sublime-text-not-showing-in-nautilus-open-with-menu/755041#755041
 
