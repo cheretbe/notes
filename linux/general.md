@@ -7,6 +7,8 @@ passwd newuser
 usermod -aG wheel newuser
 # On Ubuntu
 adduser newuser sudo
+# Disable user login
+sudo passwd -l root
 ```
 Delete user:
 ``` bash
