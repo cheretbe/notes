@@ -61,6 +61,7 @@ PidFile /var/run/sshd-external.pid
 Enable service start on boot
 ```
 systemctl enable sshd-external
+# debian/ubuntu
 systemctl enable ssh-external
 ```
 
