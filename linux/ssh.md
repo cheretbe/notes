@@ -48,7 +48,7 @@ Alias=sshd-external.service
 cp /etc/ssh/sshd_config{,_external}
 ```
 
-* Edit sshd-second_config to assign a different port number and PID file
+* Edit 'sshd_config_external' to assign a different port number and PID file
 ```
 vi /etc/ssh/sshd_config_external
 ```
