@@ -83,9 +83,12 @@ https://access.redhat.com/solutions/1166283
 # Find out PIDs of active tunnes
 netstat -tulpn | grep sshd
 ```
-To fix X11 forwading error add the following line to `/etc/ssh/sshd_config`
-```
+`/etc/ssh/sshd_config` options
+```apache
+# To fix X11 forwading error
 X11UseLocalHost no
+# Allow port forwading
+AllowTcpForwarding yes
 ```
 Do not forward the locale settings
 * on client: in `/etc/ssh/ssh_config` comment out the line:
