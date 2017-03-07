@@ -11,6 +11,15 @@ systemctl status systemd-timesyncd --no-pager -l
 - [ ] Console font `sudo dpkg-reconfigure console-setup`
 - [ ] Add root mail recipient in `/etc/aliases`
 ```bash
-# to check
+# check mail delivery
 echo test | mail -s "test mail" root
 ```
+- [ ] Unattended updates (+ nagios notification)
+```shell
+apt install unattended-upgrades
+nano /etc/apt/apt.conf.d/50unattended-upgrades
+dpkg-reconfigure --priority=low unattended-upgrades
+unattended-upgrade --debug --dry-run
+```
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Add other repositories
+* TODO: make a separate file with instructions (use http://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades)
