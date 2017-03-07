@@ -30,7 +30,7 @@ vi /usr/lib/systemd/system/sshd-external.service
 # debian/ubuntu
 vi /lib/systemd/system/ssh-external.service
 ```
-```
+```apache
 # modify Description
 Description=OpenSSH server daemon (external)
 # modify After: add sshd.service, so that the second instance starts only after the first
