@@ -38,7 +38,7 @@ Description=OpenSSH server daemon (external)
 After=network.target sshd.service
 # modify ExecStart (add -f /etc/ssh/sshd_config_external)
 ExecStart=/usr/sbin/sshd-external -D -f /etc/ssh/sshd_config_external $SSHD_OPTS
-#debian (check if this is applicable to centos)
+# debian/ubuntu (check if this is applicable to centos as well)
 [Install]
 Alias=sshd-external.service
 ```
