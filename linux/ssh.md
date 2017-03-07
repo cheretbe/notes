@@ -11,23 +11,23 @@ Port <port_number>
 
 ## Multiple instances of sshd
 
-### Centos 7 (systemd)
+### Systemd (Centos 7, Debian 8, Ubuntu 16.04)
 
 ```
 ln -s /usr/sbin/sshd /usr/sbin/sshd-external
 ```
 
 * Make a copy of the systemd unit file for the sshd service
-```
+```shell
 cp /usr/lib/systemd/system/sshd{,-external}.service
-debian 8
+# debian/ubuntu
 cp /lib/systemd/system/ssh{,-external}.service
 ```
 
 * Modify `sshd-external.service` file
-```
+```shell
 vi /usr/lib/systemd/system/sshd-external.service
-debian
+# debian/ubuntu
 vi /lib/systemd/system/ssh-external.service
 ```
 ```
