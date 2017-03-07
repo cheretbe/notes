@@ -29,6 +29,7 @@ iface br0 inet static
   gateway 192.168.1.1
   dns-nameservers 192.168.1.1
   dns-search home.local
+  # [!!!] Make sure bridge-utils package is installed
   bridge_ports eth0
   bridge_fd 0
   bridge_hello 2
