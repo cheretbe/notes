@@ -4,3 +4,5 @@
 ---
 * Undo <kbd>ALT</kbd>+<kbd>U</kbd>
 * Redo <kbd>ALT</kbd>+<kbd>E</kbd>
+* Go to the first line <kbd>ALT</kbd>+<kbd>\\</kbd>
+* Go to the last line <kbd>ALT</kbd>+<kbd>/</kbd>
