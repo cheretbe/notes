@@ -37,6 +37,32 @@ wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem
 #check firewall rule
 ```
 
+Multiple names. Create `domain.com.conf` file:
+```
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+CN = www.domain.com
+
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = one.domain.com
+DNS.2 = two.domain.com
+DNS.3 = three.domain.com
+```
+Create the request:
+```
+openssl req -new -sha256 -key domain.com.key -config domain.com.conf -out domain.com.csr
+```
+
+
 https://xdeb.org/node/1614
 
 [\[ TOC \]](#table-of-contents)
