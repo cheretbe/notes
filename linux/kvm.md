@@ -1,4 +1,5 @@
-Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
+* Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
+* https://sebastian.marsching.com/wiki/Linux/KVM
 
 ### Guest Settings
 Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
