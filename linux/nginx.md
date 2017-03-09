@@ -7,3 +7,5 @@
 * https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server
 * https://www.howtoforge.com/tutorial/how-to-install-nginx-as-reverse-proxy-for-apache-on-ubuntu-16-04/
 * https://www.techandme.se/set-up-nginx-reverse-proxy/
+* https://forum.nginx.org/read.php?2,234641,234641#msg-234641
+* https://www.ssltrust.com.au/blog/nginx-reverse-proxy-setup-guide/
