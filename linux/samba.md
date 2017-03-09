@@ -39,11 +39,15 @@ server string = %h server (Samba, Ubuntu)
 follow symlinks = yes
 wide links = yes
 unix extensions = no
+
 # Disable printing
 load printers = no
 printing = bsd
 printcap name = /dev/null
 disable spoolss = yes
+
+# Allow execute files
+acl allow execute always = yes
 
 # Share with authentication (by default it is tdbsam)
 # Password has to be set by: sudo smbpasswd -a <username>
