@@ -19,7 +19,7 @@
 
 ``` shell
 openssl genrsa 4096 > domain.key
-[!] Not an account key
+# [!] Not an account key
 openssl req -new -sha256 -key domain.key -subj "/CN=domain" -out domain.csr
 
 mkdir -p .well-known/acme-challenge/
