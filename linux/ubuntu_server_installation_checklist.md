@@ -9,7 +9,7 @@ systemctl status systemd-timesyncd --no-pager -l
 # FallbackNTP=ntp.ubuntu.com
 ```
 - [ ] Console font `sudo dpkg-reconfigure console-setup`
-- [ ] Add root mail recipient in `/etc/aliases`
+- [ ] Install `postfix` and add root mail recipient in `/etc/aliases`
 ```bash
 # check mail delivery
 echo test | mail -s "test mail" root
