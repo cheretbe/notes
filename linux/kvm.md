@@ -10,6 +10,8 @@ Enable policy: Local Computer Policy > Computer Configuration > Windows Settings
 reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v shutdownwithoutlogon
 If it is 0x0, update to 0x1
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v shutdownwithoutlogon /t REG_DWORD /d 0x1 /f
+:: Update policies
+gpupdate /force
 ```
 
 Shutdown timeout
