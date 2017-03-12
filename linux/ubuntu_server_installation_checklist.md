@@ -25,5 +25,5 @@ unattended-upgrade --debug --dry-run
 * TODO: make a separate file with instructions (use http://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades)
 
 ##### Physical machine
-- [ ] Install smartmontools and [set parameters](https://github.com/cheretbe/notes/new/master/linux#smartd-settings)
+- [ ] Install smartmontools and [set parameters](https://github.com/cheretbe/notes/blob/master/linux/smart.md#smartd-settings)
 - [ ] Check if smartd sends emails
