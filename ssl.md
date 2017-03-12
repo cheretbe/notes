@@ -70,7 +70,7 @@ https://xdeb.org/node/1614
 
 ### Hardening HTTPS server
 
-Apache
+#### Apache
 ```apacheconf
 # /etc/apache2/sites-available/default-ssl.conf
 <IfModule mod_ssl.c>
@@ -96,6 +96,41 @@ Sources:
 * https://mozilla.github.io/server-side-tls/ssl-config-generator/
 * https://xdeb.org/node/1614
 * https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
+
+#### Nginx
+
+```
+server {
+    listen 80;
+    server_name *.domain.tld;
+    rewrite ^ https://$host$request_uri? permanent;
+}
+
+server {
+    listen 443 ssl;
+    server_name site.domain.tld;
+    ssl on;
+
+    ssl_certificate /etc/nginx/ssl/site.domain.tld.bundle.crt;
+    ssl_certificate_key /etc/nginx/ssl/site.domain.tld.key;
+
+    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA512:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:ECDH+AESGCM:ECDH$
+
+    ssl_session_cache shared:TLS:2m;
+
+    #Set HSTS to 365 days
+    add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains';
+
+    # openssl dhparam 4096 -out /etc/nginx/ssl/dhparam.pem
+    ssl_dhparam /etc/nginx/ssl/dhparam.pem;
+
+    root /var/www/test;
+}
+```
+
+* Nginx SSL/TLS configuration for "A+" Qualys SSL Labs rating: https://gist.github.com/gavinhungry/7a67174c18085f4a23eb
 
 [\[ TOC \]](#table-of-contents)
 
