@@ -4,6 +4,13 @@
 ### Guest Settings
 Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
 
+```batch
+:: Query current ShutdownWarningDialogTimeout value
+reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout
+:: If it is 0xffffffff, update to 0x00000001
+reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
+```
+
 ###Installation
 To check if hardware acceleration is enabled install package `cpu-checker` and run `kvm-ok` as root. KVM is basically a hardware-accelerated version of QEMU
 ``` bash
