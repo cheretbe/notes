@@ -11,7 +11,7 @@ systemctl status systemd-timesyncd --no-pager -l
 - [ ] Console font `sudo dpkg-reconfigure console-setup`
 - [ ] Install `postfix` and add root mail recipient in `/etc/aliases`
 ```bash
-# check mail delivery
+# check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
 ```
 - [ ] Unattended updates (+ nagios notification)
