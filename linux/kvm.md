@@ -4,6 +4,15 @@
 ### Guest Settings
 Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
 
+Enable policy: Local Computer Policy > Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options `"Shutdown: Allow system to be shut down without having to log on"` 
+```batch
+:: Query current policy setting
+reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v shutdownwithoutlogon
+If it is 0x0, update to 0x1
+reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v shutdownwithoutlogon /t REG_DWORD /d 0x1 /f
+```
+
+Shutdown timeout
 ```batch
 :: Query current ShutdownWarningDialogTimeout value
 reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout
