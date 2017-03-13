@@ -42,14 +42,21 @@ zpool create -f -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata
 * **-f** option forces creation on errors (like existing data on disk etc.)
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
 ### 4. Useful ZFS commands
-```
+```shell
 zpool status
 zfs list
 zfs create zfs-storage/share
 zfs create zfs-storage/compressed
+
+# enable ACL
+zfs set acltype=posixacl <dataset>
+# turn compression on
 zfs set compression=on zfs-storage/compressed
+# check dataset
 zpool scrub zfs-storage
+# turn on deduplication
 zfs set dedup=on zfs-storage/withdedup
+# remove dataset
 zfs destroy zfs-storage/share
 ```
 ### 5. Set up health monitoring script
