@@ -5,6 +5,14 @@ Clear all event logs
 wevtutil el | Foreach-Object {wevtutil cl "$_"}
 ```
 
+Allow access to administrative shares, remote registry and remote management
+```batch
+:: View current setting. Should be 0x1
+reg.exe QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy
+:: Update setting
+reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 0x1 /f
+```
+
 ## Remove Windows Store Apps
 1) From system account:
 ```
