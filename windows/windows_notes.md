@@ -13,6 +13,14 @@ reg.exe QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v 
 reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 0x1 /f
 ```
 
+## Fixes for Errors in Logs
+
+1. Source: **Store-Licensing**, Event ID: **512** (Windows Store failed to sync machine licenses. Result code 0x80070002)
+```
+schtasks /change /disable /tn "\Microsoft\Windows\WS\WSRefreshBannedAppsListTask"
+```
+
+
 ## Remove Windows Store Apps
 1) From system account:
 ```
