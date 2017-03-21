@@ -15,10 +15,19 @@ reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v Lo
 
 ## Fixes for Errors in Logs
 
-1. Source: **Store-Licensing**, Event ID: **512** (Windows Store failed to sync machine licenses. Result code 0x80070002)
+1. Source: **Store-Licensing**, Event ID: **512**
+    - `Windows Store failed to sync machine licenses. Result code 0x80070002)`
 ```
 schtasks /change /disable /tn "\Microsoft\Windows\WS\WSRefreshBannedAppsListTask"
 ```
+2. Source: **DistributedCOM**, Event ID: **10010**
+    - `The server {BF6C1E47-86EC-4194-9CE5-13C15DCB2001} did not register with DCOM within the required timeout.`
+    - `The server {1B1F472E-3221-4826-97DB-2C2324D389AE} did not register with DCOM within the required timeout.`
+```
+schtasks /change /disable /tn "\Microsoft\Windows\SkyDrive\Idle Sync Maintenance Task"
+schtasks /change /disable /tn "\Microsoft\Windows\SkyDrive\Routine Maintenance Task"
+```
+
 
 
 ## Remove Windows Store Apps
