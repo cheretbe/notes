@@ -24,5 +24,5 @@ apcaccess status
 sudo apctest
 ```
 
-When testing the real power fail shutdown (pulling the power plug) it is convinient to temporarily set TIMEOUT parameter to 30. Doing so will cause apcupsd to attempt to shutdown the system 30 seconds after it detects a power failure. Don't forget to change it back after tests.
+When testing the real power fail shutdown (pulling the power plug) it is convinient to temporarily set TIMEOUT parameter to 30. Doing so will cause apcupsd to attempt to shutdown the system 30 seconds after it detects a power failure. Don't forget to change it back after tests. Also always wait for your UPS to power itself off, or power if off manually before restarting your computer. Power off grace period can be quite long.
 
