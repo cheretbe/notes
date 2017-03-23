@@ -5,7 +5,9 @@ UPSCABLE usb
 UPSTYPE usb
 DEVICE
 
-# Network link
+# Network master/slave link
+# Set NETSERVER parameter to on in master's config file
+# On slave:
 UPSCABLE ether 
 UPSTYPE net
 #DEVICE <ip>:<port>
