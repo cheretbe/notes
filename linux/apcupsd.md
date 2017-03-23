@@ -31,15 +31,15 @@ Custom shudown script. Create `/etc/apcupsd/doshutdown` file and make sure it is
 #!/bin/bash
 WALL=wall
 
-# this script is triggered in case a power failure
+# This script is triggered in case of a power failure
 
 echo "Running custom shutdown script..." | ${WALL}
 # Custom commands
 
 echo "Finished custom shutdown script..." | ${WALL}
 
-# exit code 99 - apccontrol stops after this script, so no shutdown of this host. this is for testing purposes
-# exit code 0 - apccontrol continues with shutdown after this script
+# Exit code 99 - apccontrol stops after this script, no shutdown of this host. For testing purposes.
+# Exit code 0  - apccontrol continues with shutdown after this script.
 exit 99
 ```
 
