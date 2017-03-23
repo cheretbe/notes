@@ -17,7 +17,9 @@ In `/etc/default/apcupsd` change ISCONFIGURED parameter
 ISCONFIGURED=yes
 ```
 
-View status
-```
+```bash
+# View status
 apcaccess status
+# View/change parameters, run tests (apcupsd service must be stopped)
+sudo apctest
 ```
