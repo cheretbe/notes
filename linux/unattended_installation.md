@@ -14,6 +14,9 @@ sudo debconf-get-selections --installer
 sudo debconf-get-selections
 ```
 
+http://searchitchannel.techtarget.com/feature/Performing-an-automated-Ubuntu-install-using-preseeding
+
+
 * http://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts
 * http://askubuntu.com/questions/595826/how-to-create-ubuntu-installation-preseed-file
 * http://unix.stackexchange.com/questions/139814/what-values-from-debconf-get-selections-should-not-be-preseeded
