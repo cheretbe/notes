@@ -5,6 +5,15 @@ The Ubuntu Installer supports automating installs via preconfiguration files (pr
 Although most questions used by debian-installer can be preseeded using this method, there are some notable exceptions.
 You must (re)partition an entire disk or use available free space on a disk; it is not possible to use existing partitions.
 
+
+View current installation settings (contain extra stuff, should be used for reference only)
+```bash
+sudo apt-get install debconf-utils
+sudo debconf-get-selections --installer
+# Packages config
+sudo debconf-get-selections
+```
+
 * http://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts
 * http://askubuntu.com/questions/595826/how-to-create-ubuntu-installation-preseed-file
 * http://unix.stackexchange.com/questions/139814/what-values-from-debconf-get-selections-should-not-be-preseeded
