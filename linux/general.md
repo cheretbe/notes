@@ -1,3 +1,13 @@
+Permissions:
+```bash
+# r=4, w=2, x=1
+# + and - signs also can be used: user (u), owner group (g), others (o), and all users (a)
+# Default permissions: 644 (rw-r--r--) for a file and 755 (rwxr-xr-x) for a directory
+# Set permissions recursively
+find . -type f -exec chmod 644 {} \;
+find . -type d -exec chmod 755 {} \;
+```
+
 Add user:
 ``` bash
 # adduser is more user friendly and interactive than its back-end useradd
