@@ -91,3 +91,35 @@ directory mask = 0775
   create mask = 0700
   directory mask = 0700
 ```
+
+### Domain member
+
+`/etc/krb5.conf`:
+```
+logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+    default_realm = GUR.LOCAL
+    ticket_lifetime = 24h
+    forwardable = yes
+
+    # tests
+
+
+[appdefaults]
+    pam = {
+        debug = true
+        ticket_lifetime = 36000
+        renew_lifetime = 36000
+        forwardable = true
+        krb4_convert = false
+    }
+
+[realms]
+        GUR.LOCAL = {
+                kdc = AD-KGD-01.GUR.local
+        }
+```
