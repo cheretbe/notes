@@ -26,7 +26,21 @@ cp ~/temp/ubuntu-temp-iso/isolinux/txt.cfg{.bak}
 cp ~/temp/unattend_ubuntu_isolinux.cfg ~/temp/ubuntu-temp-iso/isolinux/txt.cfg
 cp ~/temp/unattend_ubuntu_srv.preseed ~/temp/ubuntu-temp-iso/npa.preseed
 
-mkisofs -D -r -V "UNATTENDED_UBUNTU" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o /tmp/ubuntu16-desktop-unattended-install.iso /opt/ubuntuiso
+#   -D, -disable-deep-relocation (??????)
+#                                  Disable deep directory relocation (violates ISO9660)
+# -r, -rational-rock               Generate rationalized Rock Ridge directory information
+# -V ID, -volid ID                 Set Volume ID
+# -cache-inodes                    Cache inodes (needed to detect hard links)
+# -J, -joliet                      Generate Joliet directory information
+# -l, -full-iso9660-filenames      Allow full 31 character filenames for ISO9660 names
+# -b FILE, -eltorito-boot FILE     Set El Torito boot image name
+# -c FILE, -eltorito-catalog FILE  Set El Torito boot catalog name
+# -no-emul-boot                    Boot image is 'no emulation' image
+# -boot-load-size #                Set numbers of load sectors
+# -boot-info-table                 Patch boot image with info table
+# -o FILE, -output FILE            Set output file name
+
+mkisofs -D -r -V "UNATTENDED_UBUNTU" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o ~/temp/unattended-ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-temp-iso
 
 ```
 
