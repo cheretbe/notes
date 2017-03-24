@@ -15,4 +15,10 @@ export compact file=config
 
 /ip route set [/ip route find where comment="ISP2"] disabled=yes
 
+# full reset
+
+/ip dhcp-client
+add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
+
+
 ```
