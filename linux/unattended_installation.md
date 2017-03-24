@@ -23,12 +23,15 @@ mkdir -p ~/temp/ubuntu-temp-iso
 # -R, -r, --recursive          copy directories recursively
 # -T, --no-target-directory    treat DEST as a normal file
 cp -rT ~/temp/ubuntu-iso ~/temp/ubuntu-temp-iso
+# Fix readonly CD-ROM attributes
+find ~/temp/ubuntu-temp-iso/ -type d -exec chmod 755 {} \;
+find ~/temp/ubuntu-temp-iso/ -type f -exec chmod 644 {} \;
 # needs root privileges
 # umount ~/temp/ubuntu-iso
 fusermount -u ~/temp/ubuntu-iso
 rmdir ~/temp/ubuntu-iso
 
-cp ~/temp/ubuntu-temp-iso/isolinux/txt.cfg{.bak}
+cp ~/temp/ubuntu-temp-iso/isolinux/txt.cfg{,.bak}
 cp ~/temp/unattend_ubuntu_isolinux.cfg ~/temp/ubuntu-temp-iso/isolinux/txt.cfg
 cp ~/temp/unattend_ubuntu_srv.preseed ~/temp/ubuntu-temp-iso/npa.preseed
 
