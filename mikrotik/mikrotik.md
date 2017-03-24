@@ -1,5 +1,5 @@
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
-```
+```bash
 export compact
 # .rsc extension is added automatically
 export compact file=config
@@ -16,7 +16,7 @@ export compact file=config
 /ip route set [/ip route find where comment="ISP2"] disabled=yes
 
 # full reset
-
+/system reset-configuration no-defaults=yes skip-backup=yes
 /ip dhcp-client
 add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
 
