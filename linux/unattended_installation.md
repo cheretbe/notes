@@ -21,6 +21,13 @@ mkdir -p ~/temp/ubuntu-temp-iso
 # -R, -r, --recursive          copy directories recursively
 # -T, --no-target-directory    treat DEST as a normal file
 cp -rT ~/temp/ubuntu-iso ~/temp/ubuntu-temp-iso
+
+cp ~/temp/ubuntu-temp-iso/isolinux/txt.cfg{.bak}
+cp ~/temp/unattend_ubuntu_isolinux.cfg ~/temp/ubuntu-temp-iso/isolinux/txt.cfg
+cp ~/temp/unattend_ubuntu_srv.preseed ~/temp/ubuntu-temp-iso/npa.preseed
+
+mkisofs -D -r -V "UNATTENDED_UBUNTU" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o /tmp/ubuntu16-desktop-unattended-install.iso /opt/ubuntuiso
+
 ```
 
 http://searchitchannel.techtarget.com/feature/Performing-an-automated-Ubuntu-install-using-preseeding
