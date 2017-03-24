@@ -13,6 +13,15 @@ sudo debconf-get-selections --installer
 # Packages config
 sudo debconf-get-selections
 ```
+ISO creation
+```bash
+mkdir -p ~/temp/ubuntu-iso
+mount -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
+mkdir -p ~/temp/ubuntu-temp-iso
+# -R, -r, --recursive          copy directories recursively
+# -T, --no-target-directory    treat DEST as a normal file
+cp -rT ~/temp/ubuntu-iso ~/temp/ubuntu-temp-iso
+```
 
 http://searchitchannel.techtarget.com/feature/Performing-an-automated-Ubuntu-install-using-preseeding
 
