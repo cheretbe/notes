@@ -16,12 +16,16 @@ sudo debconf-get-selections
 ISO creation
 ```bash
 mkdir -p ~/temp/ubuntu-iso
-mount -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
+# needs root privileges
+# mount -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
+fuseiso -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
 mkdir -p ~/temp/ubuntu-temp-iso
 # -R, -r, --recursive          copy directories recursively
 # -T, --no-target-directory    treat DEST as a normal file
 cp -rT ~/temp/ubuntu-iso ~/temp/ubuntu-temp-iso
-umount ~/temp/ubuntu-iso
+# needs root privileges
+# umount ~/temp/ubuntu-iso
+fusermount -u ~/temp/ubuntu-iso
 rmdir ~/temp/ubuntu-iso
 
 cp ~/temp/ubuntu-temp-iso/isolinux/txt.cfg{.bak}
