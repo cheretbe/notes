@@ -96,7 +96,7 @@ directory mask = 0775
 
 `/etc/krb5.conf`:
 ```
-logging]
+[logging]
     default = FILE:/var/log/krb5libs.log
     kdc = FILE:/var/log/krb5kdc.log
     admin_server = FILE:/var/log/kadmind.log
