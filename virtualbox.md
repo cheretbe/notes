@@ -1,6 +1,19 @@
 To be able to add USB devices on **host** in Linux:
 ```
-sudo adduser <npa> vboxusers
+sudo adduser <username> vboxusers
+```
+
+### Using a Physical Hard Drive with a VirtualBox VM
+
+Linux
+```bash
+# Make sure that current user is a member of groups "vboxusers" and "disk"
+groups
+# If not, add, log off and log on again
+sudo usermod -a -G vboxusers <username>
+sudo usermod -a -G disk <username>
+# Create virtual hard drive
+VBoxManage internalcommands createrawvmdk -filename /path/to/file.vmdk -rawdisk /dev/sda
 ```
 
 ### Shared Folders Write Access in Linux
