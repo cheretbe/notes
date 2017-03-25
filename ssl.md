@@ -198,7 +198,7 @@ Extract the public key from the PFX
 openssl pkcs12 –in {site}.pfx -clcerts -nokeys -passin pass:{password} | openssl x509 -out {site}.cer
 ```
 Extract the chain bundle from the PFX
-```
+```bash
 # [!]Note certificates order in the output file. Edit the file afterwards to put them in correct order
 # Correct order: subject,[CA],CA
 openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -out chain.pem
