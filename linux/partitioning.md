@@ -13,7 +13,8 @@ sudo mkfs.ext4 /dev/sda2
 * `-b 1024` – set block size to 1024 (for small files). Default size is 4096. To find out current block size: `sudo tune2fs -l /dev/sdc2`
 ```shell
 # NTFS
-sudo sudo mkntfs /dev/sda2
+# -Q - quick format
+sudo sudo mkntfs /dev/sda2 -Q
 # Create and use swap:
 sudo mkswap /dev/sda3
 sudo swapon /dev/sda3
