@@ -5,7 +5,7 @@ Installation Check-List
 - [ ] NTP+timezone
 - [ ] DNS server
 - [ ] Scheduled task to save current config
-- [ ] Disable autodiscovery on WAN
+- [ ] Disable autodiscovery on WAN (IP > Neighbours > Discovery Interfaces)
 
 
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
