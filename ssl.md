@@ -100,10 +100,10 @@ systemctl restart nginx
 # Edit cron file
 crontab -e
 ```
-Check for renewal weekly
+Check for renewal twice per day. Select a random minute within the hour for renewal task.
 ```
-# Check for SSL certificate renewal every monday on 02:30
-30 2 * * 1 certbot renew --post-hook "systemctl reload nginx" >> /var/log/le-renew.log
+# Check for SSL certificate renewal twice per day
+19 0,12 * * * certbot renew --post-hook "systemctl reload nginx" --quiet
 ```
 
 [\[ TOC \]](#table-of-contents)
