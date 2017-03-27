@@ -37,20 +37,6 @@ wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem
 #check firewall rule
 ```
 
-##### Certbot
-CentOS 7
-```bash
-sudo yum install epel-release
-sudo yum install certbot
-```
-Add the following to `/etc/nginx/default.d/le-well-known.conf` file:
-```
-location ~ /.well-known {
-        allow all;
-}
-```
-
-
 Multiple names. Create `domain.com.conf` file:
 ```
 [req]
@@ -75,9 +61,28 @@ Create the request:
 ```
 openssl req -new -sha256 -key domain.com.key -config domain.com.conf -out domain.com.csr
 ```
-
-
 https://xdeb.org/node/1614
+
+[\[ TOC \]](#table-of-contents)
+
+##### Certbot
+CentOS 7
+```bash
+sudo yum install epel-release
+sudo yum install certbot
+```
+Add the following to `/etc/nginx/default.d/le-well-known.conf` file:
+```
+location ~ /.well-known {
+        allow all;
+}
+```
+
+```bash
+systemctl restart nginx
+# Default root path is /usr/share/nginx/html
+certbot certonly -a webroot --webroot-path=/usr/share/nginx/html -d domain.tld -d www.domain.tld
+```
 
 [\[ TOC \]](#table-of-contents)
 
