@@ -98,7 +98,7 @@ nginx -t
 # Restart service
 systemctl restart nginx
 # Edit cron file
-crontab -e
+export VISUAL=nano; crontab -e
 ```
 Check for renewal twice per day. Select a random minute within the hour for renewal task.
 ```
