@@ -83,6 +83,28 @@ systemctl restart nginx
 # Default root path is /usr/share/nginx/html
 certbot certonly -a webroot --webroot-path=/usr/share/nginx/html -d domain.tld -d www.domain.tld
 ```
+Add certificate info to a config
+```
+server {
+...
+        ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
+...
+}
+```
+```bash
+# Check config
+nginx -t
+# Restart service
+systemctl restart nginx
+# Edit cron file
+crontab -e
+```
+Check for renewal weekly
+```
+# Check for SSL certificate renewal every monday on 02:30
+30 2 * * 1 certbot renew --post-hook "systemctl reload nginx" >> /var/log/le-renew.log
+```
 
 [\[ TOC \]](#table-of-contents)
 
