@@ -8,6 +8,13 @@ Installation Check-List
 - [ ] Disable autodiscovery on WAN (IP > Neighbours > Discovery Interfaces)
 
 
+WLAN settings
+- Band: 2GHz-B/G/N
+- 20/40 MHz Ce
+- Frequency: auto
+- Mode: ap-bridge
+
+
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
 export compact
