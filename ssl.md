@@ -1,7 +1,7 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
 * [Let's Encrypt Certificate](#lets-encrypt-certificate)
-* [Hardening HTTPS server](#Hardening-https-server)
+* [Hardening HTTPS server](#hardening-https-server)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
 * [Own SSL Certificate Authority](#own-ssl-certificate-authority)
