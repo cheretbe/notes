@@ -16,7 +16,7 @@
 [\[ TOC \]](#table-of-contents)
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
-
+##### Acme-tiny
 ``` shell
 openssl genrsa 4096 > domain.key
 # [!] Not the account key
@@ -36,6 +36,20 @@ wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem
 
 #check firewall rule
 ```
+
+##### Certbot
+CentOS 7
+```bash
+sudo yum install epel-release
+sudo yum install certbot
+```
+Add the following to `/etc/nginx/default.d/le-well-known.conf` file:
+```
+location ~ /.well-known {
+        allow all;
+}
+```
+
 
 Multiple names. Create `domain.com.conf` file:
 ```
