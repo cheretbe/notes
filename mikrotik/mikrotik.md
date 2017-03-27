@@ -13,6 +13,7 @@ WLAN settings
 - 20/40 MHz Ce
 - Frequency: auto
 - Mode: ap-bridge
+- [Switch to advanced mode] Distance: indoors
 
 
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
