@@ -100,7 +100,8 @@ systemctl restart nginx
 # Edit cron file
 export VISUAL=nano; crontab -e
 ```
-Check for renewal twice per day. Select a random minute within the hour for renewal task.
+
+From certbot's [docs](https://certbot.eff.org/all-instructions/): if you're setting up a cron or systemd job, we recommend running it twice per day (it won't do anything until your certificates are due for renewal or revoked, but running it regularly would give your site a chance of staying online in case a Let's Encrypt-initiated revocation happened for some reason). Please select a random minute within the hour for your renewal tasks.
 ```
 # Check for SSL certificate renewal twice per day
 19 0,12 * * * certbot renew --post-hook "systemctl reload nginx" --quiet
