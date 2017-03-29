@@ -83,7 +83,7 @@ service ntp stop
 # Ubuntu 16.04
 systemctl stop systemd-timesyncd
 date --set="$(date) + 9 days"
-/etc/cron.daily/zfs_health_check.sh
+/root/zfs_health_check.sh
 ntpdate -s ru.pool.ntp.org
 service ntp start
 # Ubuntu 16.04
