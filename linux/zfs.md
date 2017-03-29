@@ -60,36 +60,36 @@ zfs set dedup=on zfs-storage/withdedup
 zfs destroy zfs-storage/share
 ```
 ### 5. Set up health monitoring script
-Download script from https://calomel.org/zfs_health_check_script.html, save to `/etc/cron.daily/zfs_health_check` (do not use .sh extension as dot breaks anacron functionality) and modify it to use with Ubuntu:
-```bash
-#! /usr/local/bin/bash
-#!/bin/bash
-...
-# Comment out FreeBSD date format and uncomment Ubuntu one
-    ### FreeBSD with *nix supported date format
-    # scrubRawDate=$(/sbin/zpool status $volume | grep scrub | awk '{print $15 $12 $13}')
-    # scrubDate=$(date -j -f '%Y%b%e-%H%M%S' $scrubRawDate'-000000' +%s)
 
-    ### Ubuntu with GNU supported date format
-    scrubRawDate=$(/sbin/zpool status $volume | grep scrub | awk '{print $11" "$12" " $13" " $14" "$15}')
-    scrubDate=$(date -d "$scrubRawDate" +%s)
 ```
+cd /root
+wget https://github.com/cheretbe/notes/raw/master/linux/files/zfs_health_check.sh
+chmod +x zfs_health_check.sh
+crontab -e
+```
+Add daily check and weekly scrub
+```
+# Check ZFS pool status daily at 8:00
+00 08  *  *  *  /root/zfs_health_check.sh
+# Scrub ZFS pool every Sunday at 2:00
+00 02  *  *  0 root /sbin/zpool scrub zfs-data
+```
+
 Check if script works:
 ```shell
-chmod 755 /etc/cron.daily/zfs_health_check
 # temporarily shift current date for 9 days to trigger
 # scrub expiration message (max scrub age is 8 days by default)
 service ntp stop
+# Ubuntu 16.04
+systemctl stop systemd-timesyncd
 date --set="$(date) + 9 days"
 /etc/cron.daily/zfs_health_check.sh
 ntpdate -s ru.pool.ntp.org
 service ntp start
+# Ubuntu 16.04
+systemctl start systemd-timesyncd
 ```
-Add weekly integrity check to `/etc/crontab`:
-```
-# every sunday at 4:00
-0 4 * * 0 root /sbin/zpool scrub zfs-data
-```
+Source :https://calomel.org/zfs_health_check_script.html
 
 ### 6. Replace a disk in a pool
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
