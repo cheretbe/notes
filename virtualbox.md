@@ -8,7 +8,7 @@ sudo adduser <username> vboxusers
 Linux
 ```bash
 # Make sure that current user is a member of groups "vboxusers" and "disk"
-groups -e vboxusers -e disk
+groups | grep -e vboxusers -e disk
 # If not, add, log off and log on again
 sudo usermod -a -G vboxusers <username>
 sudo usermod -a -G disk <username>
