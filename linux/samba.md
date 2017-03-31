@@ -94,6 +94,22 @@ directory mask = 0775
 
 ### Domain member
 
+```bash
+# Install packages
+apt update
+apt install samba smbclient winbind libnss-winbind libpam-winbind
+
+# Make sure that NTP syncs time with a DC
+systemctl status systemd-timesyncd --no-pager -l
+
+# Install Heimdal Kerberos:
+apt install heimdal-clients
+
+# Test Kerberos authentication with a domain admin account
+# Enter your AD administrator password when prompted, it should just return to command prompt
+kinit administrator
+```
+
 `/etc/krb5.conf`:
 ```
 [logging]
@@ -123,3 +139,7 @@ directory mask = 0775
                 kdc = AD-KGD-01.GUR.local
         }
 ```
+
+Source:
+* https://samba.ninja/2016/10/ubuntu-16-04-samba-ad-member-server/
+* https://samba.ninja/2015/10/centos-7-samba-ad-member-server/
