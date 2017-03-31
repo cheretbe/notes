@@ -154,7 +154,41 @@ Set `/etc/samba/smb.conf` to the following (ensuring you replace the bold TEST a
     create mask = 0660
     force create mode = 0660
 ```
+To be able to login as domain user I had to add the following option:
+```ini
+template shell = /bin/bash
+```
+Join your SAMBA server to the domain:
+```shell
+# Should return:
+# Using short domain name -- TEST
+# Joined 'SERVER-NAME' to dns domain 'test.local'
+net ads join test.local -U administrator
 
+# Should return "OK"
+sudo net ads testjoin
+
+# Restart SAMBA services
+systemctl restart winbind smbd nmbd
+
+# Test domain join and Winbind AD user/group resolution:
+# Should list your AD users
+wbinfo -u
+# Should list your AD groups
+wbinfo -g
+# Should list AD users with UIDs in the 10000+ range
+getent passwd
+# Should list AD groups with UIDS in the 10000+ range
+getent group
+```
+
+Create the location your SAMBA share will be stored:
+```
+sudo mkdir -p /samba/testshare
+sudo chown administrator:"domain users" /samba/testshare
+sudo chmod 0770 /samba/testshare
+```
+ 
 `/etc/krb5.conf`:
 ```
 [logging]
