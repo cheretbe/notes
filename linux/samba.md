@@ -115,9 +115,11 @@ klist
 cp /etc/nsswitch.conf{,.bak}
 sed -i 's/passwd:\s*compat/passwd: compat winbind/' /etc/nsswitch.conf
 sed -i 's/group:\s*compat/group:  compat winbind/' /etc/nsswitch.conf
+
+cp /etc/samba/smb.conf{,.bak}
 ```
 Set `/etc/samba/smb.conf` to the following (ensuring you replace the bold TEST and TEST.LOCAL with your own AD NetBIOS and domain names):
-```inis
+```ini
 [global]
     workgroup = TEST
     server string = Samba Server Version %v
