@@ -3,6 +3,8 @@
 mkfs.btrfs -d single /dev/sdb /dev/sdc
 # Once you create a multi-device filesystem, you can use any device in the FS for the mount command
 mount /dev/sdc /mnt
+# View filesystems
+btrfs filesystem show
 ```
 
 * https://btrfs.wiki.kernel.org/index.php/FAQ
