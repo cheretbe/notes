@@ -108,6 +108,49 @@ apt install heimdal-clients
 # Test Kerberos authentication with a domain admin account
 # Enter your AD administrator password when prompted, it should just return to command prompt
 kinit administrator
+# Show your Kerberos ticket for administrator@TEST.LOCAL
+klist
+
+# Update /etc/nsswitch.conf to pull users and groups from Winbind
+cp /etc/nsswitch.conf{,.bak}
+sed -i 's/passwd:\s*compat/passwd: compat winbind/' /etc/nsswitch.conf
+sed -i 's/group:\s*compat/group:  compat winbind/' /etc/nsswitch.conf
+```
+Set `/etc/samba/smb.conf` to the following (ensuring you replace the bold TEST and TEST.LOCAL with your own AD NetBIOS and domain names):
+```inis
+[global]
+    workgroup = TEST
+    server string = Samba Server Version %v
+    security = ads
+    realm = TEST.LOCAL
+    socket options = TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072
+    use sendfile = true
+	 
+    idmap config * : backend = tdb
+    idmap config * : range = 100000-299999
+    idmap config TEST : backend = rid
+    idmap config TEST : range = 10000-99999
+    winbind separator = +
+    winbind enum users = yes
+    winbind enum groups = yes
+    winbind use default domain = yes
+    winbind refresh tickets = yes
+
+    restrict anonymous = 2
+    log file = /var/log/samba/log.%m
+    max log size = 50
+		 
+#============================ Share Definitions ==============================
+		 
+[testshare]
+    comment = Test share
+    path = /samba/testshare
+    read only = no
+    force group = "Domain Users"
+    directory mask = 0770
+    force directory mode = 0770
+    create mask = 0660
+    force create mode = 0660
 ```
 
 `/etc/krb5.conf`:
