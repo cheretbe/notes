@@ -72,7 +72,7 @@ Add daily check and weekly scrub
 # Check ZFS pool status daily at 8:00
 00 08  *  *  *  /root/zfs_health_check.sh
 # Scrub ZFS pool every Sunday at 2:00
-00 02  *  *  0 root /sbin/zpool scrub zfs-data
+00 02  *  *  0  /sbin/zpool scrub zfs-data
 ```
 
 Check if script works:
