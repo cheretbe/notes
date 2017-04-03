@@ -154,7 +154,7 @@ Set `/etc/samba/smb.conf` to the following (ensuring you replace the bold TEST a
     create mask = 0660
     force create mode = 0660
 ```
-To be able to login as domain user I had to add the following option:
+To be able to login as domain user add the following option:
 ```ini
 template shell = /bin/bash
 ```
@@ -187,6 +187,12 @@ Create the location your SAMBA share will be stored:
 sudo mkdir -p /samba/testshare
 sudo chown administrator:"domain users" /samba/testshare
 sudo chmod 0770 /samba/testshare
+```
+
+Edit `/etc/pam.d/common-session`, add the following at the bottom of the file. Be careful – mis-editing PAM configuration could permanently lock you out of your system! Take a snapshot before proceeding.
+```
+# create home directories at first logon
+session required   pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
  
 `/etc/krb5.conf`:
