@@ -194,6 +194,14 @@ Edit `/etc/pam.d/common-session`, add the following at the bottom of the file. B
 # create home directories at first logon
 session required   pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
+To limit access to sertain groups only, add the following to `/etc/pam.d/common-session`:
+```
+account required pam_access.so
+```
+and the following to `/etc/security/access.conf`:
+```
+-:ALL EXCEPT root local-admin (ad-admins):ALL
+```
  
 `/etc/krb5.conf`:
 ```
