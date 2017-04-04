@@ -1,3 +1,7 @@
+Settings for a reverse proxy:
+https://gitlab.com/gitlab-org/gitlab-ce/issues/15574#note_12468383
+
+
 Ubuntu 16.04, GitLab 8
 
 https://about.gitlab.com/downloads/
