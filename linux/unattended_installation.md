@@ -18,7 +18,7 @@ ISO creation
 mkdir -p ~/temp/ubuntu-iso
 # needs root privileges
 # mount -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
-fuseiso -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
+fuseiso ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
 mkdir -p ~/temp/ubuntu-temp-iso
 # -R, -r, --recursive          copy directories recursively
 # -T, --no-target-directory    treat DEST as a normal file
