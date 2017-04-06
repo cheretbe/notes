@@ -1,3 +1,5 @@
+[!] Check difference between `split_vss` and `strip_vss`
+
 ## Notes
 
 Mailing [list](https://sourceforge.net/p/burp/mailman/burp-users/):
