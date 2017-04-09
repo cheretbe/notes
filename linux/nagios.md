@@ -3,7 +3,7 @@ apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev send
 # Set up the users and groups which Nagios expects
 # These are in a few places in the default config; it’s not worth changing them
 adduser nagios
-add group nagcmd
+addgroup nagcmd
 usermod -a -G nagcmd nagios
 usermod -a -G nagcmd www-data
 
