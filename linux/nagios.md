@@ -14,7 +14,19 @@ wget https://github.com/NagiosEnterprises/nrpe/archive/3.0.1.tar.gz
 tar xzvf nagios-4.3.1.tar.gz
 tar xzvf nagios-plugins-2.1.4.tar.gz
 tar xzvf 3.0.1.tar.gz
+
+cd nagios-4.3.1/
+# [!] Change nagios-4.3.1 to current version
+./configure --prefix=/usr/local/nagios-4.3.1 --sysconfdir=/etc/nagios --with-nagios-group=nagios --with-command-group=nagcmd
+
+make all
+make install
+make install-init
+make install-config
+make install-commandmode
+make install-webconf
 ```
 
+* https://assets.nagios.com/downloads/nagioscore/docs/Nagios-Core-Installing-On-Centos7.pdf
 * https://jamieduerden.me/post/monitoring-nginx-nagios/
 * http://www.bogotobogo.com/DevOps/DevOps_Nginx_Nagios-Remote-Plugin-Executor-NRPE.php.NOT-Working
