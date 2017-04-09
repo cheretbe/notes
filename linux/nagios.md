@@ -1,9 +1,5 @@
 ```bash
-# 16.04 does not have PHP 5
-add-apt-repository ppa:ondrej/php
-apt update
-# apache2-utils is needed for htpasswd
-apt install nginx libpcre3-dev libssl-dev php5-cli php5-fpm php5-cgi psmisc spawn-fcgi fcgiwrap libgd2-xpm-dev openssl libssl-dev build-essential apache2-utils
+apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev sendmail unzip
 # Set up the users and groups which Nagios expects
 # These are in a few places in the default config; it’s not worth changing them
 adduser nagios
