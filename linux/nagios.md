@@ -66,6 +66,9 @@ PIDFILE=/usr/local/nagios/var/$NAME.lock
 systemctl daemon-reload
 systemctl restart apache2
 systemctl start nagios
+
+# Create a Default User for Web Access
+htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 ```
 
 ### Upgrade
