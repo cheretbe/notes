@@ -14,7 +14,7 @@
 
 ## Installation
 ```bash
-apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev sendmail unzip
+apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev libssl-dev sendmail unzip
 # Set up the users and groups which Nagios expects
 # These are in a few places in the default config; it’s not worth changing them
 adduser nagios
@@ -75,7 +75,7 @@ htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
 ### Nagios plugins Installation
 ```bash
-cd /../nagios-plugins-2.1.4
+cd ../nagios-plugins-2.1.4
 ./configure --with-nagios-user=nagios --with-nagios-group=nagios
 make
 make install
