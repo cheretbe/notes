@@ -47,6 +47,7 @@ sudo a2ensite nagios
 sudo a2enmod rewrite cgi
 
 cp /etc/init.d/skeleton /etc/init.d/nagios
+chmod +x /etc/init.d/nagios
 nano /etc/init.d/nagios
 ```
 Add/change the following lines:
