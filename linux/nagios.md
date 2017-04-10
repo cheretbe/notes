@@ -27,8 +27,9 @@ make install-commandmode
 make install-webconf
 ```
 
+* https://assets.nagios.com/downloads/nagioscore/docs/Installing_Nagios_Core_From_Source.pdf
+* https://assets.nagios.com/downloads/nagioscore/docs/Nagios-Core-Installing-On-Centos7.pdf
 * http://idroot.net/linux/install-nagios-ubuntu-16-04/
 * http://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/install-nagios-4-1-1-ubuntu-16-04.html
-* https://assets.nagios.com/downloads/nagioscore/docs/Nagios-Core-Installing-On-Centos7.pdf
 * ~~https://jamieduerden.me/post/monitoring-nginx-nagios/~~
 * ~~http://www.bogotobogo.com/DevOps/DevOps_Nginx_Nagios-Remote-Plugin-Executor-NRPE.php.NOT-Working~~
