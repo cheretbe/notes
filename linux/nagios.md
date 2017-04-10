@@ -7,7 +7,8 @@ addgroup nagcmd
 usermod -a -G nagcmd nagios
 usermod -a -G nagcmd www-data
 
-cd temp
+mkdir -p source
+cd source
 wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.1.tar.gz
 wget https://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz
 wget https://github.com/NagiosEnterprises/nrpe/archive/3.0.1.tar.gz
@@ -19,7 +20,7 @@ cd nagios-4.3.1/
 ./configure --with-command-group=nagcmd -–with-mail=/usr/bin/sendmail --with-httpd-conf=/etc/apache2/
 ```
 The following is for clean installation, for upgrade instructions see `Upgrade` section below.
-```
+```bash
 make all
 make install
 #make install-init
@@ -44,10 +45,25 @@ DAEMON=/usr/local/nagios/bin/$NAME
 DAEMON_ARGS="-d /usr/local/nagios/etc/nagios.cfg"
 PIDFILE=/usr/local/nagios/var/$NAME.lock
 ```
-```
+```bash
 systemctl daemon-reload
 systemctl restart apache2
 systemctl start nagios
+```
+
+### Upgrade
+
+### Nagios plugins Installation
+```bash
+cd /../nagios-plugins-2.1.4
+./configure --with-nagios-user=nagios --with-nagios-group=nagios
+make
+make install
+
+cd ../nrpe-3.0.1
+./configure
+make all
+make install-plugin
 ```
 
 * https://assets.nagios.com/downloads/nagioscore/docs/Installing_Nagios_Core_From_Source.pdf
