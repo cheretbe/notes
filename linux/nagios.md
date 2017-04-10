@@ -1,5 +1,5 @@
-Default installation path: `/usr/local/nagios/`
-Default config path: `/usr/local/nagios/etc/`
+* Default installation path: `/usr/local/nagios/`
+* Default config path: `/usr/local/nagios/etc/`
 
 **Tip:** Start out by creating profiles for both services and hosts, then assign your hosts to the profiles (hostgroups?) as opposed to taking a host and applying a group of services to that host. If you do it this way, your life will be much easier. If you build the profiles first, then to add a new host you just drop it into a profile and all of the service checks will be added. If you update a service profile then all hosts that use that profile will get the new service check.
 
@@ -8,6 +8,7 @@ Default config path: `/usr/local/nagios/etc/`
  /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
 ```
 
+## Installation
 ```bash
 apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev sendmail unzip
 # Set up the users and groups which Nagios expects
