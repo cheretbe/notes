@@ -16,15 +16,38 @@ tar xzvf nagios-plugins-2.1.4.tar.gz
 tar xzvf 3.0.1.tar.gz
 
 cd nagios-4.3.1/
-# [!] Change nagios-4.3.1 to current version
-./configure --prefix=/usr/local/nagios-4.3.1 --sysconfdir=/etc/nagios --with-nagios-group=nagios --with-command-group=nagcmd
-
+./configure --with-command-group=nagcmd -–with-mail=/usr/bin/sendmail --with-httpd-conf=/etc/apache2/
+```
+The following is for clean installation, for upgrade instructions see `Upgrade` section below.
+```
 make all
 make install
-make install-init
+#make install-init
 make install-config
 make install-commandmode
 make install-webconf
+
+cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
+chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
+
+sudo a2ensite nagios
+sudo a2enmod rewrite cgi
+
+cp /etc/init.d/skeleton /etc/init.d/nagios
+nano /etc/init.d/nagios
+```
+Add/change the following lines:
+```
+DESC="Nagios"
+NAME=nagios
+DAEMON=/usr/local/nagios/bin/$NAME
+DAEMON_ARGS="-d /usr/local/nagios/etc/nagios.cfg"
+PIDFILE=/usr/local/nagios/var/$NAME.lock
+```
+```
+systemctl daemon-reload
+systemctl restart apache2
+systemctl start nagios
 ```
 
 * https://assets.nagios.com/downloads/nagioscore/docs/Installing_Nagios_Core_From_Source.pdf
