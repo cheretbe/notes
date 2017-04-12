@@ -32,8 +32,8 @@ tar xzvf nagios-plugins-2.1.4.tar.gz
 tar xzvf 3.0.1.tar.gz
 
 cd nagios-4.3.1/
-# (?) /usr/bin/sendmail or skip --with-mail altogether
-./configure --with-command-group=nagcmd -–with-mail=/usr/bin/sendmail --with-httpd-conf=/etc/apache2/
+# (?) /usr/sbin/sendmail or skip --with-mail altogether
+./configure --with-command-group=nagcmd --with-mail=/usr/bin/sendmail --with-httpd-conf=/etc/apache2/
 ```
 The following is for clean installation, for upgrade instructions see `Upgrade` section below.
 ```bash
