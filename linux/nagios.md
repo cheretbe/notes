@@ -13,6 +13,7 @@
 
 
 ## Installation
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Don't install sendmail if postfix is installed
 ```bash
 apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev libssl-dev sendmail unzip
 # Set up the users and groups which Nagios expects
