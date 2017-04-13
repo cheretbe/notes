@@ -14,6 +14,8 @@ nano /etc/nagios/nrpe.cfg
 # On client
 service nagios-nrpe-server restart
 ```
+Custom plugins: https://github.com/cheretbe/nagios-plugins
+
 Allowing nrpe command arguments is in the old readme.
 
 ### Server
