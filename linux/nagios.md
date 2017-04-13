@@ -1,3 +1,22 @@
+### Client (monitored host)
+
+```bash
+apt install nagios-plugins nagios-nrpe-server
+nano /etc/nagios/nrpe.cfg
+# Configure Allowed Hosts
+# allowed_hosts=127.0.0.1, nagios.domain.tld
+# Change /dev/sda3 to whatever root filesystem is called
+# command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/sda3
+
+# On server
+/usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c burp_user_status -a kozlov 1440 2880
+# On client
+service nagios-nrpe-server restart
+```
+Allowing nrpe command arguments is in the old readme.
+
+### Server
+
 * Default installation path: `/usr/local/nagios/`
 * Default config path: `/usr/local/nagios/etc/`
 * Log location: `/usr/local/nagios/var/nagios.log`
