@@ -9,6 +9,7 @@ nano /etc/nagios/nrpe.cfg
 # command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/sda3
 
 # On server
+/usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c check_root
 /usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c burp_user_status -a kozlov 1440 2880
 # On client
 service nagios-nrpe-server restart
