@@ -10,6 +10,7 @@ Mailing [list](https://sourceforge.net/p/burp/mailman/burp-users/):
 * [Small things after server upgrade](https://sourceforge.net/p/burp/mailman/message/35653928/)
 * [parameters/variables for use in pre/post scripts](https://sourceforge.net/p/burp/mailman/message/35671910/)
 * [Burp with samba](https://sourceforge.net/p/burp/mailman/message/35769281/)
+* [fail2ban filter for burp](https://sourceforge.net/p/burp/mailman/message/35786582/)
 
 The status monitor is now a client-side operation.
 Please read http://burp.grke.org/docs/monitor.html and you will find out how
