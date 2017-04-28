@@ -72,7 +72,7 @@ Port 22220
 PidFile /var/run/sshd-external.pid
 ```
 
-If `/etc/pam.d/sshd` exists, make a copy for the new executable
+If login fails with `fatal: Access denied for user username by PAM account configuration [preauth]` message, make a copy of the PAM configuation file
 ```
 cp /etc/pam.d/sshd{,-external}
 ```
