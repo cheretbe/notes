@@ -36,6 +36,25 @@ ClientAliveCountMax 5
 ssh -v -i keys/tunnel-user-key.key tunnel-user@host.domain.tld -p 12345 -N -R 1234:localhost:22
 ```
 
+`/etc/supervisor/conf.d/reverse-ssh-tunnel.conf` contents
+```ini
+[program:reverse-ssh-tunnel]
+environment=AUTOSSH_GATETIME=0
+
+# -M 0  monitoring port (do not monitor)
+# -N    do not execute a remote command, just forward ports
+# -T    disable pseudo-tty allocation
+# -v    verbose mode
+# Additional parameters are in /home/local-user/.ssh/config (remote-tunnel)
+command=/usr/bin/autossh -v -M 0 -N -T remote-tunnel
+
+user=npa
+autostart=true
+autorestart=true
+stderr_logfile = /var/log/supervisor/reverse-ssh-tunnel.log
+stdout_logfile = /var/log/supervisor/reverse-ssh-tunnel.log
+```
+
 `/home/local-user/.ssh/config` contents
 ```
 Host remote-tunnel
