@@ -33,7 +33,23 @@ ClientAliveCountMax 5
 ```
 ```bash
 # Test tunnel creation
-ssh -v -i keys/tunnel-user-key.key tunnel-user@domain.tld -p 12345 -N -R 1234:localhost:22
+ssh -v -i keys/tunnel-user-key.key tunnel-user@host.domain.tld -p 12345 -N -R 1234:localhost:22
+```
+
+`/home/local-user/.ssh/config` contents
+```
+Host remote-tunnel
+  Hostname               host.domain.tld
+  ServerAliveInterval    30
+  ServerAliveCountMax    3
+  PubkeyAuthentication   yes
+  PasswordAuthentication no
+  ExitOnForwardFailure   yes
+  IdentityFile           /home/local-user/keys/tunnel-user-key.key
+  User                   tunnel-user
+  Port                   12345
+  RemoteForward          1234 localhost:22
+  RemoteForward          1235 192.168.1.8:443
 ```
 
 
