@@ -1,6 +1,7 @@
 ## Table of Contents
 * [Hardening SSH Access](#hardening-ssh-access)
 * [Multiple instances of sshd](#multiple-instances-of-sshd)
+* [Notes](#notes)
 
 ## Hardening SSH Access
 SSH daemon options in `/etc/ssh/sshd_config`:
