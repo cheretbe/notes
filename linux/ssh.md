@@ -17,6 +17,9 @@ Port <port_number>
 
 ### Reverse SSH Tunnel
 
+```bash
+ssh -v -i keys/tunnel-user-key.key tunnel-user@domain.tld -p 12345 -N -R 1234:localhost:4321
+```
 
 
 ## Multiple instances of sshd
