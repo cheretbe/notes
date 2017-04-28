@@ -27,7 +27,7 @@ PermitTunnel no
 GatewayPorts yes
 AllowAgentForwarding no
 ForceCommand echo 'This service can only be used for reverse port forwarding'
-PermitOpen locahost:8844
+PermitOpen locahost:1234
 ClientAliveInterval 60
 ClientAliveCountMax 5
 ```
