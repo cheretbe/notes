@@ -51,7 +51,8 @@ Description=OpenSSH server daemon (external)
 After=network.target sshd.service
 # modify ExecStart (add -f /etc/ssh/sshd_config_external)
 ExecStart=/usr/sbin/sshd-external -D -f /etc/ssh/sshd_config_external $SSHD_OPTS
-# debian/ubuntu (check if this is applicable to centos as well)
+
+# debian/ubuntu only
 [Install]
 Alias=sshd-external.service
 ```
@@ -69,6 +70,11 @@ vi /etc/ssh/sshd_config_external
 Port 22220
 # Uncomment or add
 PidFile /var/run/sshd-external.pid
+```
+
+If `/etc/pam.d/sshd` exists, make a copy for the new executable
+```
+cp /etc/pam.d/sshd{,-external}
 ```
 
 Enable service start on boot
