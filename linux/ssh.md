@@ -17,8 +17,23 @@ Port <port_number>
 
 ### Reverse SSH Tunnel
 
+Restrict allowed options in `/etc/ssh/sshd_config_rev_tunnel`
+```
+AllowTcpForwarding yes
+X11Forwarding no
+PermitTunnel no
+#GatewayPorts no
+#GatewayPorts clientspecified
+GatewayPorts yes
+AllowAgentForwarding no
+ForceCommand echo 'This service can only be used for reverse port forwarding'
+PermitOpen locahost:8844
+ClientAliveInterval 60
+ClientAliveCountMax 5
+```
 ```bash
-ssh -v -i keys/tunnel-user-key.key tunnel-user@domain.tld -p 12345 -N -R 1234:localhost:4321
+# Test tunnel creation
+ssh -v -i keys/tunnel-user-key.key tunnel-user@domain.tld -p 12345 -N -R 1234:localhost:22
 ```
 
 
