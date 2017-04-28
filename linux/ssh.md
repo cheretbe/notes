@@ -48,7 +48,7 @@ environment=AUTOSSH_GATETIME=0
 # Additional parameters are in /home/local-user/.ssh/config (remote-tunnel)
 command=/usr/bin/autossh -v -M 0 -N -T remote-tunnel
 
-user=npa
+user=local-user
 autostart=true
 autorestart=true
 stderr_logfile = /var/log/supervisor/reverse-ssh-tunnel.log
