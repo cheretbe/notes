@@ -17,7 +17,8 @@ Port <port_number>
 
 ### Reverse SSH Tunnel
 
-Restrict allowed options in `/etc/ssh/sshd_config_rev_tunnel`
+#### On server
+Create [an additional instance](#multiple-instances-of-sshd) of sshd. Restrict allowed options in `/etc/ssh/sshd_config_rev_tunnel`
 ```
 AllowTcpForwarding yes
 X11Forwarding no
@@ -31,6 +32,7 @@ PermitOpen locahost:1234
 ClientAliveInterval 60
 ClientAliveCountMax 5
 ```
+#### On client
 ```bash
 # Test tunnel creation
 ssh -v -i keys/tunnel-user-key.key tunnel-user@host.domain.tld -p 12345 -N -R 1234:localhost:22
