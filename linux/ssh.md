@@ -36,7 +36,7 @@ ClientAliveCountMax 5
 ssh -v -i keys/tunnel-user-key.key tunnel-user@host.domain.tld -p 12345 -N -R 1234:localhost:22
 ```
 
-`/etc/supervisor/conf.d/reverse-ssh-tunnel.conf` contents
+Install `supervisord` and create `/etc/supervisor/conf.d/reverse-ssh-tunnel.conf` file with the following contents
 ```ini
 [program:reverse-ssh-tunnel]
 environment=AUTOSSH_GATETIME=0
@@ -69,6 +69,19 @@ Host remote-tunnel
   Port                   12345
   RemoteForward          1234 localhost:22
   RemoteForward          1235 192.168.1.8:443
+```
+```bash
+# Enable and start supervisord service
+systemctl enable supervisor.service
+service supervisor start
+
+# Reverse tunnel service control
+supervisorctl stop reverse-ssh-tunnel
+supervisorctl start reverse-ssh-tunnel
+
+# Re-read changed config and restart the service without affecting other services
+supervisorctl reread
+supervisorctl update
 ```
 
 
