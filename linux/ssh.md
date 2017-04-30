@@ -53,8 +53,10 @@ command=/usr/bin/autossh -v -M 0 -N -T remote-tunnel
 user=local-user
 autostart=true
 autorestart=true
-stderr_logfile = /var/log/supervisor/reverse-ssh-tunnel.log
-stdout_logfile = /var/log/supervisor/reverse-ssh-tunnel.log
+stderr_logfile=/var/log/supervisor/reverse-ssh-tunnel.log
+stdout_logfile=/var/log/supervisor/reverse-ssh-tunnel.log
+logfile_maxbytes=50MB
+logfile_backups=3
 ```
 
 `/home/local-user/.ssh/config` contents
