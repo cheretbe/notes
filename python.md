@@ -9,8 +9,6 @@ pip install virtualenv
 ```
 Virtualenv
 
-* http://virtualenvwrapper.readthedocs.io/en/latest/install.html
-
 ```bash
 # Python 2
 virtualenv newenv
@@ -18,4 +16,31 @@ virtualenv newenv
 virtualenv -p python3 newenv
 source newenv/bin/activate
 deactivate
+```
+
+
+Virtualenvwrapper
+
+* http://virtualenvwrapper.readthedocs.io/en/latest/install.html
+
+```bash
+sudo apt install build-essential python-dev python3-dev python-pip python3-pip
+pip install --user virtualenvwrapper
+```
+add the following to `~/.bashrc`
+```
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/projects
+source $HOME/.local/bin/virtualenvwrapper.sh
+```
+Restart shell of run
+```bash
+source ~/.bashrc
+```
+Essential commands:
+```
+mkvirtualenv <name>
+lsvirtualenv
+rmvirtualenv <name>
+workon [<name>]
 ```
