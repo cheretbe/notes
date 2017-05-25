@@ -8,6 +8,9 @@ python get-pip.py
 pip install virtualenv
 ```
 Virtualenv
+
+* http://virtualenvwrapper.readthedocs.io/en/latest/install.html
+
 ```bash
 # Python 2
 virtualenv newenv
