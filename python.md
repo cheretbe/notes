@@ -1,3 +1,6 @@
+To review:
+* http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
+
 ```bash
 sudo su -
 wget "https://bootstrap.pypa.io/get-pip.py"
