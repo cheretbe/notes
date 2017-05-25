@@ -1,6 +1,16 @@
 To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
+Requirements
+```bash
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+# automatic version update
+pip install pur
+pur -r requirements.txt
+```
+
 ```bash
 sudo su -
 wget "https://bootstrap.pypa.io/get-pip.py"
