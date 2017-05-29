@@ -11,6 +11,7 @@ Mailing [list](https://sourceforge.net/p/burp/mailman/burp-users/):
 * [parameters/variables for use in pre/post scripts](https://sourceforge.net/p/burp/mailman/message/35671910/)
 * [Burp with samba](https://sourceforge.net/p/burp/mailman/message/35769281/)
 * [fail2ban filter for burp](https://sourceforge.net/p/burp/mailman/message/35786582/)
+* [Remove colon in backups](https://sourceforge.net/p/burp/mailman/message/35535192/)
 
 The status monitor is now a client-side operation.
 Please read http://burp.grke.org/docs/monitor.html and you will find out how
