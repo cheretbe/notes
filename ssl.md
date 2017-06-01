@@ -226,6 +226,11 @@ SET RANDFILE=.rnd
 SET HOME=%HOMEPATH%
 ```
 
+View request (CSR) file
+```
+openssl req -in mycsr.csr -noout -text
+```
+
 View certificates on server
 ```
 openssl s_client -connect www.godaddy.com:443
