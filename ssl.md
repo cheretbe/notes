@@ -226,6 +226,11 @@ SET RANDFILE=.rnd
 SET HOME=%HOMEPATH%
 ```
 
+View certificates in a bundle (remove out the `-text` to just get subject/issuer info for each certificate)
+```
+openssl crl2pkcs7 -nocrl -certfile CHAINED.pem | openssl pkcs7 -print_certs -text -noout
+```
+
 View request (CSR) file
 ```
 openssl req -in mycsr.csr -noout -text
