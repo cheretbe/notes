@@ -66,7 +66,12 @@ python -m unittest discover -s <directory> -p '*_test.py'
 # -v: increase verbosity
 # --capture=method: per-test capturing method (one of fd|sys|no)
 # -s: shortcut for --capture=no
-pytest -v -s 
+pytest -v -s
+# -k EXPRESSION: only run tests which match the given substring
+pytest -v substring
+# -m: MARKEXPR: only run tests matching given mark expression
+# Use @pytest.mark.mark1 decorator to mark
+pytest -m 'mark1 and not mark2'
 
 # pip install nose2
 nose2
