@@ -28,7 +28,6 @@ source newenv/bin/activate
 deactivate
 ```
 
-
 Virtualenvwrapper
 
 * http://virtualenvwrapper.readthedocs.io/en/latest/install.html
@@ -53,4 +52,22 @@ mkvirtualenv <name>
 lsvirtualenv
 rmvirtualenv <name>
 workon [<name>]
+```
+
+Unit tests
+```bash
+# all tests directories need to have an init.py to be discovered
+python -m unittest discover <test_directory>
+# -s: directory to start discovery ('.' default)
+# -p: pattern to match tests ('test*.py' default)
+python -m unittest discover -s <directory> -p '*_test.py'
+
+# pip install pytest
+# -v: increase verbosity
+# --capture=method: per-test capturing method (one of fd|sys|no)
+# -s: shortcut for --capture=no
+pytest -v -s 
+
+# pip install nose2
+nose2
 ```
