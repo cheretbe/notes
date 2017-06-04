@@ -48,7 +48,7 @@ source ~/.bashrc
 ```
 Essential commands:
 ```
-mkvirtualenv <name>
+mkvirtualenv [-p python3] <name>
 lsvirtualenv
 rmvirtualenv <name>
 workon [<name>]
