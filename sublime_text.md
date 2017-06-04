@@ -6,7 +6,7 @@ Icon in context menu on Windows
 reg.exe add "HKCR\*\shell\Open with Sublime Text" /v Icon /t REG_SZ /d "c:\Program Files\Sublime Text 3\sublime_text.exe" /f
 ```
 Linux installation
-```
+```bash
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt update
