@@ -85,5 +85,13 @@ sudo apt install python3.5-examples
 sudo apt install python2.7-examples
 /usr/share/doc/python3.5/examples/scripts/reindent.py [file.py]
 /usr/share/doc/python2.7/examples/Tools/scripts/reindent.py [file.py]
+```
 
+Datetime
+```python
+import dateutil.parser
+import dateutil.tz
+
+# 2016-12-31T21:25:30+00:30
+datetime.datetime(year=2016, month=12, day=31, hour=21, minute=25, second=30, tzinfo=dateutil.tz.tzoffset(None, +1800)).isoformat()
 ```
