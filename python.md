@@ -76,3 +76,14 @@ pytest -m 'mark1 and not mark2'
 # pip install nose2
 nose2
 ```
+
+Fix indentation
+([!] use file path - by default it scans current directory)
+```bash
+# Ubuntu
+sudo apt install python3.5-examples
+sudo apt install python2.7-examples
+/usr/share/doc/python3.5/examples/scripts/reindent.py [file.py]
+/usr/share/doc/python2.7/examples/Tools/scripts/reindent.py [file.py]
+
+```
