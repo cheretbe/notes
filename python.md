@@ -101,4 +101,11 @@ dateutil.parser.parse("2016-12-31T21:25:30+00:30").astimezone(dateutil.tz.tzoffs
 
 # 2016-12-31T21:25:30+00:00
 pytz.utc.localize(dateutil.parser.parse("2016-12-31T21:25:30")).isoformat()
+
+# tz-aware local UTC time
+pytz.utc.localize(datetime.datetime.utcnow())
+# tz-aware local time
+datetime.datetime.now(dateutil.tz.tzoffset(None, -time.timezone))
+# Take DST in account
+datetime.datetime.now(dateutil.tz.tzoffset(None, -time.altzone))
 ```
