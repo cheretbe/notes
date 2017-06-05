@@ -88,6 +88,9 @@ sudo apt install python2.7-examples
 ```
 
 Datetime
+* http://techblog.thescore.com/2015/11/03/timezones-in-python/
+* http://pytz.sourceforge.net/#localized-times-and-date-arithmetic
+
 ```python
 import dateutil.parser
 import dateutil.tz
