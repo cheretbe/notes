@@ -91,7 +91,14 @@ Datetime
 ```python
 import dateutil.parser
 import dateutil.tz
+import pytz
 
 # 2016-12-31T21:25:30+00:30
 datetime.datetime(year=2016, month=12, day=31, hour=21, minute=25, second=30, tzinfo=dateutil.tz.tzoffset(None, +1800)).isoformat()
+
+# 2017-01-01T00:55:30+04:00
+dateutil.parser.parse("2016-12-31T21:25:30+00:30").astimezone(dateutil.tz.tzoffset(None, 14400)).isoformat()
+
+# 2016-12-31T21:25:30+00:00
+pytz.utc.localize(dateutil.parser.parse("2016-12-31T21:25:30")).isoformat()
 ```
