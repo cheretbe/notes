@@ -15,11 +15,19 @@ Download link: https://www.python.org/downloads/windows/
 :: Install for all users since by default 'c:\users\<user>\appdata\roaming\python\python36\scripts'
 :: is not on PATH and 'C:\Python\Python36' is write-accessible without elevation
 pip install virtualenvwrapper-win
+
 :: Python3 is default
 mkvirtualenv [-p C:\Python\Python27\python.exe] <name>
 lsvirtualenv
 rmvirtualenv <name>
 workon [<name>]
+
+:: Don't use 'setprojectdir .' because hooks don't work for now (v 1.2.1) and there is
+:: no way of runnig git commands after entering the project dir (postactivate)
+:: Add the following at the end of %USERPROFILE%\Envs\<name>\Scripts\activate.bat instead:
+cd <projectdir>
+ECHO Checking git repo status...
+git fetch --all && git status
 ```
 
 * http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
