@@ -10,7 +10,14 @@ Download link: https://www.python.org/downloads/windows/
 2. Install Python 3.6
     * Select "Customize installation"
     * Check "Install for all users" and change installation path to `C:\Python\Python36`
-    * Check "Add Python to environment variables"
+    * Check "Add Python to environment variables" (as of 3.6 it defaults to python3)
+```bat
+pip install virtualenvwrapper-win
+```
+
+* http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
+* http://timmyreilly.azurewebsites.net/setup-a-virtualenv-for-python-3-on-windows/
+* https://stackoverflow.com/questions/341184/can-i-install-python-3-x-and-2-x-on-the-same-computer
 
 Requirements
 ```bash
