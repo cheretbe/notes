@@ -1,6 +1,12 @@
 To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
+## Installation
+### Windows
+Download link: https://www.python.org/downloads/windows/
+1. Install Python 2.7 (Use default options, make sure "Add python.exe to PATH" is *not* selected)
+2. Install Python 3.6 (Use default options, also don *not* add python3.exe to the path)
+
 Requirements
 ```bash
 pip freeze > requirements.txt
