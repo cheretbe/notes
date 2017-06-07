@@ -93,7 +93,7 @@ setvirtualenvproject .
 
 # Post-activate commands
 nano $VIRTUAL_ENV/bin/postactivate
-ECHO Checking git repo status...
+echo Checking git repo status...
 git fetch --all && git status
 ```
 
