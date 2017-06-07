@@ -6,7 +6,7 @@ To review:
 Download link: https://www.python.org/downloads/windows/
 1. Install Python 2.7
     * Install for all users, change installation path to `C:\Python\Python27\`
-    * Other than that use default options (make sure "Add python.exe to PATH" is *not* selected)
+    * Other than that use default options (make sure "Add python.exe to PATH" is **not** selected)
 2. Install Python 3.6
     * Select "Customize installation"
     * Check "Install for all users" and change installation path to `C:\Python\Python36`
