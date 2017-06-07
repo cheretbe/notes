@@ -12,7 +12,14 @@ Download link: https://www.python.org/downloads/windows/
     * Check "Install for all users" and change installation path to `C:\Python\Python36`
     * Check "Add Python to environment variables" (as of 3.6 it defaults to python3)
 ```bat
+:: Install for all users since by default 'c:\users\<user>\appdata\roaming\python\python36\scripts'
+:: is not on PATH and 'C:\Python\Python36' is write-accessible without elevation
 pip install virtualenvwrapper-win
+:: Python3 is default
+mkvirtualenv [-p C:\Python\Python27\python.exe] <name>
+lsvirtualenv
+rmvirtualenv <name>
+workon [<name>]
 ```
 
 * http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
