@@ -29,10 +29,11 @@ cd <projectdir>
 ECHO Checking git repo status...
 git fetch --all && git status
 ```
-
 * http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
 * http://timmyreilly.azurewebsites.net/setup-a-virtualenv-for-python-3-on-windows/
 * https://stackoverflow.com/questions/341184/can-i-install-python-3-x-and-2-x-on-the-same-computer
+
+## Linux
 
 Requirements
 ```bash
@@ -80,11 +81,20 @@ Restart shell of run
 source ~/.bashrc
 ```
 Essential commands:
-```
+```bash
 mkvirtualenv [-p python3] <name>
 lsvirtualenv
 rmvirtualenv <name>
 workon [<name>]
+
+# Set project directory
+cd ~/projects/project-dir
+setvirtualenvproject .
+
+# Post-activate commands
+nano $VIRTUAL_ENV/bin/postactivate
+ECHO Checking git repo status...
+git fetch --all && git status
 ```
 
 Unit tests
