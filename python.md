@@ -89,7 +89,7 @@ workon [<name>]
 
 # Set project directory
 cd ~/projects/project-dir
-setvirtualenvproject .
+setvirtualenvproject $VIRTUAL_ENV $(pwd)
 
 # Post-activate commands
 nano $VIRTUAL_ENV/bin/postactivate
