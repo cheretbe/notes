@@ -111,3 +111,6 @@ zpool replace -f zfs-data 16718377149670207017 /dev/disk/by-id/ata-VBOX_HARDDISK
 # View progress
 zpool status
 ```
+### 7. Send over SSH or netcat
+
+https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
