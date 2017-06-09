@@ -1,3 +1,29 @@
+Frequently used fdisk partition types: swap partition (type 82) linux partition (type 83).
+
+```shell
+parted /dev/sda
+# change device
+(parted) select /dev/sdb
+# create GPT partition table
+(parted) mklabel gpt
+# create DOS partition talbe
+(parted) mklabel msdos
+# create partition interactively
+(parted) mkpart primary
+# swap partition type: linux-swap
+# create partition using whole disk
+# (try start from 1 if it warnings about not proper alignment)
+(parted) mkpart primary 0 100%
+# other partitions
+(parted) mkpart primary 1 25Gb
+(parted) mkpart logical 372737 500000
+# set boot flag
+(parted) set 1 boot on
+# mark partition as LVM
+(parted) set 1 lvm on
+
+```
+
 Creating file systems:
 ```shell
 # ext2
