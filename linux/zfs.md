@@ -66,6 +66,13 @@ zpool scrub zfs-storage
 zfs set dedup=on zfs-storage/withdedup
 # remove dataset
 zfs destroy zfs-storage/share
+
+# Check compression ratio
+zfs get compressratio [dataset]
+# View dedup ratio
+zpool list
+# View block statistics
+zdb -b <pool>
 ```
 ### 5. Set up health monitoring script
 
