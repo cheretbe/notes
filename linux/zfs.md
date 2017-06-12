@@ -121,4 +121,5 @@ zpool status
 ```
 ### 7. Send over SSH or netcat
 
-https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
+* https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
+* https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
