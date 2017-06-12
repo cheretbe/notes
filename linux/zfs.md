@@ -27,11 +27,19 @@ apt-get install ubuntu-zfs
 # 16GB=17179869184, 8GB=8589934592, 4GB=4294967296, 2GB=2147483648, 1GB=1073741824
 options zfs zfs_arc_max=4294967296
 ```
-Check current in-use value:
-```
+Check current in-use values:
+```shell
+# c      is the target size of the ARC in bytes
+# c_max  is the maximum size of the ARC in bytes
+# size   is the current size of the ARC in bytes
 sudo grep c_max /proc/spl/kstat/zfs/arcstats
+sudo grep size /proc/spl/kstat/zfs/arcstats
+# In GiB
+awk '/^size/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
+awk '/^c_max/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 ```
-Source: http://arstechnica.com/information-technology/2014/02/ars-walkthrough-using-the-zfs-next-gen-filesystem-on-linux/
+* http://arstechnica.com/information-technology/2014/02/ars-walkthrough-using-the-zfs-next-gen-filesystem-on-linux/
+* https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel/1137417#1137417
 
 ### 3. Create zpool
 ```
