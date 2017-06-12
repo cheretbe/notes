@@ -69,7 +69,7 @@ zfs destroy zfs-storage/share
 
 # Check compression ratio
 zfs get compressratio [dataset]
-# View dedup ratio
+# View dedup ratio (ZFS deduplication has pool-wide scope and dedup ratio can't be viewed for individual filesystems)
 zpool list
 # View block statistics
 zdb -b <pool>
