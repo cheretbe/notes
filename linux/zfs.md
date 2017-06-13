@@ -73,6 +73,8 @@ zfs get compressratio [dataset]
 zpool list
 # View block statistics
 zdb -b <pool>
+# View snapshots space usage
+zfs list -ro space
 ```
 ### 5. Set up health monitoring script
 
