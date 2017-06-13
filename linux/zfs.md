@@ -130,5 +130,14 @@ zpool status
 ```
 ### 7. Send over SSH or netcat
 
+```shell
+# server
+nc -l -p 1234 | zfs receive -v pool/path
+# client
+zfs send -v pool/path[@snapshot] | nc host.domain.tld 1234
+
+
+```
+
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
 * https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
