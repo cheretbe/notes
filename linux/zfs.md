@@ -133,10 +133,14 @@ zpool status
 ```shell
 # server
 nc -l -p 1234 | zfs receive -v pool/path
+
 # client
-zfs send -v pool/path[@snapshot] | nc host.domain.tld 1234
+zfs send -v pool/path@snapshot | nc host.domain.tld 1234
 
-
+# incremental
+zfs snapshot pool/path@new-snapshot
+zfs send -v -i pool/path@old-snapshot pool/path@new-snapshot | nc host.domain.tld 1234
+zfs destroy pool/path@old-snapshot
 ```
 
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
