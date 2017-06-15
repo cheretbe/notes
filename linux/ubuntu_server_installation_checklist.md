@@ -24,6 +24,12 @@ unattended-upgrade --debug --dry-run
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Add other repositories
 * TODO: make a separate file with instructions (use http://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades)
 
+- [ ] Remove mlocate (?)
+```shell
+# This removes /var/lib/mlocate/mlocate.db and a cron job to update this file
+sudo apt purge mlocate
+```
+
 ##### Physical machine
 - [ ] Install smartmontools and [set parameters](https://github.com/cheretbe/notes/blob/master/linux/smart.md#smartd-settings)
 - [ ] Check if smartd sends emails
