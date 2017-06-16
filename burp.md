@@ -105,4 +105,7 @@ notify_failure_arg = To: notifications@rs-kgr.local
 
 # other params
 # max_children = 5
+# Check if the following works
+#syslog = 0
+#logfile=/var/log/burp/burp-server.log
 ```
