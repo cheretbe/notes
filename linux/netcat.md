@@ -9,6 +9,7 @@ pv big_file.tar.gz | nc host.domain.tld 7000
 
 
 # on server
+# -q seconds: after EOF is detected, wait the specified number of seconds and then quit
 nc -q 1 -l -p 1234 | tar xv
 
 # on client
