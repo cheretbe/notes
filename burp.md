@@ -25,6 +25,12 @@ burp -c /etc/burp/burp-server.conf -t -C testclient | grep timer
 
 ## Client installation
 
+**Windows**
+Silent install:
+```
+burp-win64-installer-2.0.54.exe /S
+```
+
 **Ubuntu**
 
 * https://ziirish.info/repos/README.txt
@@ -41,7 +47,7 @@ apt install burp-core burp-client
 apt install burp-server
 ```
 
-The same as server up until `make install`
+~~The same as server up until `make install`~~
 
 **Centos**
 ``` shell
