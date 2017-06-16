@@ -27,6 +27,20 @@ burp -c /etc/burp/burp-server.conf -t -C testclient | grep timer
 
 **Ubuntu**
 
+* https://ziirish.info/repos/README.txt
+```shell
+# 16.04
+cat >/etc/apt/sources.list.d/ziirish.list<<EOF
+deb http://ziirish.info/repos/ubuntu/xenial zi-stable main
+EOF
+
+wget http://ziirish.info/repos/ubuntu.gpg -O- | sudo apt-key add -
+apt update
+apt install burp-core burp-client
+# Both burp-server and burp-client can be installed on the same host
+apt install burp-server
+```
+
 The same as server up until `make install`
 
 **Centos**
