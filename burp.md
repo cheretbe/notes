@@ -1,4 +1,5 @@
 [!] Check difference between `split_vss` and `strip_vss`
+https://sourceforge.net/p/burp/mailman/message/35060752/ (more on this in burp-ui docs)
 
 ## Notes
 
