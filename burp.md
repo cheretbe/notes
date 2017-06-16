@@ -85,3 +85,24 @@ Restart cron daemon
 ``` shell
 service crond restart
 ```
+
+## Server config
+`cp /etc/burp/burp-server.conf{,.bak}`
+```
+# default is /var/spool/burp
+directory = /path/to/dir
+hardlinked_archive = 1
+# To use ZFS compression
+compression = 0
+
+# Allow backups 24/7
+timer_arg = Mon,Tue,Wed,Thu,Fri,Sat,Sun,00,01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23
+
+# set after debug
+notify_success_warnings_only = 1
+notify_success_arg = To: notifications@rs-kgr.local
+notify_failure_arg = To: notifications@rs-kgr.local
+
+# other params
+# max_children = 5
+```
