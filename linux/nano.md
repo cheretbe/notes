@@ -12,3 +12,4 @@ select-editor
 * Go to the first line <kbd>ALT</kbd>+<kbd>\\</kbd>
 * Go to the last line <kbd>ALT</kbd>+<kbd>/</kbd>
 * Find next <kbd>ALT</kbd>+<kbd>W</kbd>
+* Find and replace <kbd>CTRL</kbd>+<kbd>\\</kbd>
