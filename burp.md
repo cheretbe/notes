@@ -123,6 +123,7 @@ Auto upgrade
 # burp-server.conf
 autoupgrade_dir = /etc/burp/autoupgrade/server
 # client config
+# [!] on client side, not in /etc/burp/clientconfdir
 autoupgrade_os = win64
 autoupgrade_dir = C:/Program Files/Burp/autoupgrade
 ```
