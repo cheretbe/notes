@@ -73,6 +73,8 @@ zfs get compressratio [dataset]
 zpool list
 # View block statistics
 zdb -b <pool>
+# List snapshots
+zfs list -t snapshot
 # View snapshots space usage
 zfs list -ro space
 ```
