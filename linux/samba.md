@@ -26,6 +26,12 @@ testparm -s
 sudo pdbedit -L -v
 ```
 
+### Executable bit
+```
+# Allow execute files
+acl allow execute always = yes
+```
+
 ### Standalone server
 No LDAP, no Windows domain, local users.
 Install `samba` package and edit default `/etc/samba/smb.conf`. Run `testparm` after each edit.
