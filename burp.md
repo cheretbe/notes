@@ -24,14 +24,20 @@ burp -c /etc/burp/burp-server.conf -t -C testclient | grep timer
 
 * https://github.com/grke/burp/wiki/Automated-deploy-and-maintenance
 
-## Client installation
+## Client
 
 **Windows**
 Silent install:
 ```
 burp-win64-installer-2.0.54.exe /S
 ```
-
+```batch
+:: Scheduled task
+schtasks /query /tn "burp cron"
+schtasks /change /disable /tn "burp cron"
+schtasks /change /enable /tn "burp cron"
+schtasks /run /tn "burp cron"
+```
 **Ubuntu**
 
 * https://ziirish.info/repos/README.txt
