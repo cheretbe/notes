@@ -136,3 +136,7 @@ git clone https://github.com/grke/burp.git
 cp burp/configs/server/autoupgrade/windows.script /etc/burp/autoupgrade/server/win32/script
 cp burp/configs/server/autoupgrade/windows.script /etc/burp/autoupgrade/server/win64/script
 ```
+
+Put installer into `/etc/burp/autoupgrade/server/<os>/<version>` and rename it into `package`. For example, for version 2.0.54:
+* burp-win32-installer-2.0.54.exe => /etc/burp/autoupgrade/server/win32/2.0.54/package
+* burp-win64-installer-2.0.54.exe => /etc/burp/autoupgrade/server/win64/2.0.54/package
