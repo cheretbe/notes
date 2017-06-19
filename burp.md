@@ -119,7 +119,19 @@ notify_failure_arg = To: notifications@rs-kgr.local
 ```
 Auto upgrade
 
+```
+# burp-server.conf
 autoupgrade_dir = /etc/burp/autoupgrade/server
+# client config
+autoupgrade_os = win64
+autoupgrade_dir = C:/Program Files/Burp/autoupgrade
+```
 
+Examples of "script" files are given in the **source package**, in `configs/server/autoupgrade`
+
+```shell
+cd ~/temp
+git clone https://github.com/grke/burp.git
 cp burp/configs/server/autoupgrade/windows.script /etc/burp/autoupgrade/server/win32/script
 cp burp/configs/server/autoupgrade/windows.script /etc/burp/autoupgrade/server/win64/script
+```
