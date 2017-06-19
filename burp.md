@@ -117,3 +117,9 @@ notify_failure_arg = To: notifications@rs-kgr.local
 #syslog = 0
 #logfile=/var/log/burp/burp-server.log
 ```
+Auto upgrade
+
+autoupgrade_dir = /etc/burp/autoupgrade/server
+
+cp burp/configs/server/autoupgrade/windows.script /etc/burp/autoupgrade/server/win32/script
+cp burp/configs/server/autoupgrade/windows.script /etc/burp/autoupgrade/server/win64/script
