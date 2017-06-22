@@ -50,7 +50,7 @@ apt-get purge fontconfig-infinality
 apt-get install ppa-purge
 ppa-purge ppa:no1wantdthisname/ppa
 ```
-- [ ] 
+- [ ] Disable dnsmasq
 ```shell
 nano /etc/NetworkManager/NetworkManager.conf
 # Comment out "dns=dnsmasq"
