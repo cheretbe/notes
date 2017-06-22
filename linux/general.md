@@ -28,6 +28,8 @@ userdel -r username
 ```
 Group membership
 ``` bash
+# List all members of a group
+getent group <group-name>
 # Check a user's group membership
 groups [username]
 # Add to multiple groups
