@@ -23,7 +23,7 @@ unattended-upgrade --debug --dry-run
 ```
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Add other repositories
 * TODO: make a separate file with instructions (use http://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades)
-
+- [ ] Update umask value in `/etc/login.defs` (UMASK 002) if default ACLs are going to be used
 - [ ] Remove mlocate (?)
 ```shell
 # This removes /var/lib/mlocate/mlocate.db and a cron job to update this file
