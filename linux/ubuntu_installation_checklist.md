@@ -50,11 +50,13 @@ apt-get purge fontconfig-infinality
 apt-get install ppa-purge
 ppa-purge ppa:no1wantdthisname/ppa
 ```
-- [ ] Disable dnsmasq
+- [ ] Disable dnsmasq (and remove libnss-mdns)
 ```shell
 nano /etc/NetworkManager/NetworkManager.conf
 # Comment out "dns=dnsmasq"
 service network-manager restart
+# If still there is no ping to .local domain names (but nslookup works)
+apt remove libnss-mdns
 ```
 - [ ] Gnome terminal
   * Edit -> Preferences -> General -> Open new terminals in: Tab
