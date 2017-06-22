@@ -50,6 +50,12 @@ apt-get purge fontconfig-infinality
 apt-get install ppa-purge
 ppa-purge ppa:no1wantdthisname/ppa
 ```
+- [ ] 
+```shell
+nano /etc/NetworkManager/NetworkManager.conf
+# Comment out "dns=dnsmasq"
+service network-manager restart
+```
 - [ ] Gnome terminal
   * Edit -> Preferences -> General -> Open new terminals in: Tab
   * Switch tabs with Ctrl+Tab
