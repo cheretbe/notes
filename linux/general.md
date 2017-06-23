@@ -1,3 +1,10 @@
+Fix for ncdu drawing characters in PuTTY
+```shell
+export NCURSES_NO_UTF8_ACS=1
+# Set permanently
+echo export NCURSES_NO_UTF8_ACS=1 >> ~/.bashrc
+```
+
 Permissions:
 ```bash
 # r=4, w=2, x=1
