@@ -18,7 +18,7 @@ net status shares
 # List current samba group map to local groups
 net groupmap list
 # Change password
-smbpasswd –a <username>
+smbpasswd -a <username>
 # Test smb.conf
 testparm
 testparm -s
