@@ -1,12 +1,14 @@
 ```shell
 # on server
 sudo apt install netcat
-nc -l -p 7000 > /path/big_file.tar.gz
+nc -l -p 1234 > /path/big_file.tar.gz
 
 # on client
 sudo apt install netcat pv
-pv big_file.tar.gz | nc host.domain.tld 7000
+pv big_file.tar.gz | nc host.domain.tld 1234
 
+tar cvf - directory/ | pigz | nc host.domain.tld 1234
+tar cvf - /with/full/path/ | pigz | nc host.domain.tld 1234
 
 # on server
 # -q seconds: after EOF is detected, wait the specified number of seconds and then quit
