@@ -58,6 +58,9 @@ apt install burp-server
 ~~The same as server up until `make install`~~
 
 **Centos**
+Vesion 2
+* https://copr.fedorainfracloud.org/coprs/yopito/burp2/
+
 ``` shell
 yum install burp-client
 ```
