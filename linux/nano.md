@@ -1,6 +1,9 @@
 ```shell
-# Default editor selection (on Ubuntu?)
+# Default editor selection
+# Ubuntu
 select-editor
+# CentOS
+echo export EDITOR=/bin/nano >> ~/.bashrc
 ```
 
 * List keyboard shortcuts <kbd>CTRL</kbd>+<kbd>G</kbd>  
