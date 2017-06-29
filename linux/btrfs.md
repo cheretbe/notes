@@ -2,9 +2,18 @@
 # Use full capacity of multiple drives with different sizes (metadata mirrored, data not mirrored and not striped)
 mkfs.btrfs -d single /dev/sdb /dev/sdc
 # Once you create a multi-device filesystem, you can use any device in the FS for the mount command
-mount /dev/sdc /mnt
+mount /dev/sdc /mountpoint
+
 # View filesystems
 btrfs filesystem show
+
+# View balance status
+btrfs balance status /mountpoint
+
+# Delete device
+btrfs device delete /dev/sdc /mountpoint
+# Delete missing device (disk is completely dead and has already been removed)
+btrfs device delete missing /[mountpoint]
 ```
 
 * https://btrfs.wiki.kernel.org/index.php/FAQ
