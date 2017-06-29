@@ -13,6 +13,21 @@ reg.exe QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v 
 reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 0x1 /f
 ```
 
+Kill freezed service
+```batch
+:: Find PID of the service process
+sc queryex <service name>
+
+:: Kill process
+taskkill [/f] /PID <PID>
+
+:: Kill all running exe instances:
+taskkill [/f] /IM <exe name>
+
+:: List running exe instances:
+tasklist /v /fi "Imagename eq robocopy.exe"
+```
+
 ## Fixes for Errors in Logs
 
 1. Source: **Store-Licensing**, Event ID: **512**
