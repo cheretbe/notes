@@ -22,7 +22,7 @@ reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v Shu
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
 ```
 
-###I nstallation
+### Installation
 To check if hardware acceleration is enabled install package `cpu-checker` and run `kvm-ok` as root. KVM is basically a hardware-accelerated version of QEMU
 ``` bash
 apt update
