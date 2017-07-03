@@ -22,7 +22,7 @@ reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v Shu
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
 ```
 
-###Installation
+###I nstallation
 To check if hardware acceleration is enabled install package `cpu-checker` and run `kvm-ok` as root. KVM is basically a hardware-accelerated version of QEMU
 ``` bash
 apt update
@@ -35,7 +35,14 @@ adduser username libvirtd
 # cannot open shared object file: No such file or directory"
 apt install libgl1-mesa-glx
 ```
-###Networking
+### Swappiness
+Add `vm.swappiness=0` to `/etc/sysctl.conf`
+```shell
+# Find out current value
+cat /proc/sys/vm/swappiness
+```
+
+### Networking
 Add bridged network adapter to `/etc/network/interfaces`
 ```
 auto eth0
