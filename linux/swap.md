@@ -5,11 +5,11 @@ http://askubuntu.com/questions/33697/how-do-i-add-a-swap-partition-after-system-
 #### Swappines
 Add to `/etc/sysctl.conf`:
 ```
-vm.swappiness = 0
+vm.swappiness = 1
 ```
 ```shell
 # Apply changes without a reboot
-sysctl vm.swappiness=0
+sysctl vm.swappiness=1
 # Check current setting
 cat /proc/sys/vm/swappiness
 ```
