@@ -36,8 +36,10 @@ adduser username libvirtd
 apt install libgl1-mesa-glx
 ```
 ### Swappiness
-Add `vm.swappiness=0` to `/etc/sysctl.conf`
+Add `vm.swappiness=0` to `/etc/sysctl.conf` and reboot
 ```shell
+# Set swappiness value without a reboot
+echo 0 > /proc/sys/vm/swappiness
 # Find out current value
 cat /proc/sys/vm/swappiness
 ```
