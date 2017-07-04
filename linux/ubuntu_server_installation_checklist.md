@@ -1,5 +1,9 @@
 - [ ] advanced settings on packages configuration (`dpkg-reconfigure debconf`, select "low priority") 
-- [ ] grub settings (GRUB_RECORDFAIL_TIMEOUT=30, GRUB_TERMINAL=console)
+- [ ] grub settings
+```
+GRUB_RECORDFAIL_TIMEOUT=30
+GRUB_TERMINAL=console
+```
 - [ ] NTP time sync
 ```bash
 systemctl status systemd-timesyncd --no-pager -l
