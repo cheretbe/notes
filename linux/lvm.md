@@ -18,13 +18,13 @@ apt install lvm2
 pvcreate /dev/sdb1 [/dev/sdc1]
 pvdisplay
 
-vgcreate name_vg /dev/sdb1 [/dev/sdc1]
+vgcreate vg_name /dev/sdb1 [/dev/sdc1]
 vgdisplay
 
 
-lvcreate --name name_lv --size 100G name_vg
+lvcreate --name lv_name --size 100G name_vg
 # All free space
-lvcreate --name name_lv -l +100%FREE name_vg
+lvcreate --name lv_name -l +100%FREE name_vg
 
 lvdisplay
 ```
