@@ -71,6 +71,23 @@ Some info on bridge parameters:
 * http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
 * http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
 
+### LVM storage pool
+
+In `virt-manager` click "Add new storage pool", select Type "logical: LVM Volume Group".
+Use the "Target Path" field to **either** select an existing LVM volume group or as the name for a new volume group. The default format is `storage_pool_name/lvm_Volume_Group_name`.
+
+Examples
+1. Existing VG
+    - Target Path: /dev/vm_name_backup_vg
+    - Sorce Path: leave empty
+    - Build Pool: unchecked
+2. Create VG
+    - Target Path: /dev/vm_name_backup_vg
+    - Sorce Path: /dev/sda1
+    - Build Pool: checked
+
+* https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-LVM_based_storage_pools.html
+
 VLAN
 ```bash
 apt install vlan
