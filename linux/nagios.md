@@ -5,13 +5,15 @@ apt install nagios-plugins nagios-nrpe-server
 nano /etc/nagios/nrpe.cfg
 # Configure Allowed Hosts
 # allowed_hosts=127.0.0.1, nagios.domain.tld
-# Change /dev/sda3 to whatever root filesystem is called
+
 # command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /
+# command[check_swap]=/usr/lib/nagios/plugins/check_swap -w 20 -c 10
+
 service nagios-nrpe-server restart
 
 # On server
 /usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c check_root
-/usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c burp_user_status -a kozlov 1440 2880
+/usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c burp_user_status -a hostname 1440 2880
 ```
 Custom plugins: https://github.com/cheretbe/nagios-plugins
 
