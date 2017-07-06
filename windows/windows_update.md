@@ -2,6 +2,12 @@ Windows Update error code list: https://support.microsoft.com/en-us/kb/938205
 Update troubleshooter: https://support.microsoft.com/en-us/kb/971058  
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect
 
+Turn on Microsoft Update
+```powershell
+# Powershell
+(New-Object -ComObject Microsoft.Update.ServiceManager -Strict).AddService2("7971f918-a847-4430-9279-4a52d1efe18d", 7, "") | Out-Null
+```
+
 ###Windows 8.1/2012R2
 
 1. KB2919442 (Prerequisite for KB2919355) March 2014 servicing stack update for Windows 8.1/2012R2 https://support.microsoft.com/en-us/kb/2919442
