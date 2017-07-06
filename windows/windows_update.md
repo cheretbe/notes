@@ -2,6 +2,13 @@ Windows Update error code list: https://support.microsoft.com/en-us/kb/938205
 Update troubleshooter: https://support.microsoft.com/en-us/kb/971058  
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect
 
+View last update times
+```cmd
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect" /v LastSuccessTime
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Download" /v LastSuccessTime
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Install" /v LastSuccessTime
+```
+
 Turn on Microsoft Update
 ```powershell
 # Powershell
