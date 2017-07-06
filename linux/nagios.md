@@ -6,7 +6,7 @@ nano /etc/nagios/nrpe.cfg
 # Configure Allowed Hosts
 # allowed_hosts=127.0.0.1, nagios.domain.tld
 # Change /dev/sda3 to whatever root filesystem is called
-# command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/sda3
+# command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /
 
 # On server
 /usr/local/nagios/libexec/check_nrpe -H host.domain.tld -c check_root
