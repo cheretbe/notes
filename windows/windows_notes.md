@@ -1,4 +1,9 @@
 ## Misc
+Profile list
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\
+```
+
 Clear all event logs
 ```powershell
 # Powershell
