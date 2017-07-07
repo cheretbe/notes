@@ -53,6 +53,8 @@ apt update
 apt install burp-core burp-client
 # Both burp-server and burp-client can be installed on the same host
 apt install burp-server
+
+# Put RUN=yes in /etc/default/burp-client
 ```
 
 ~~The same as server up until `make install`~~
