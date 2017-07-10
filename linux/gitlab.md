@@ -29,6 +29,9 @@ sudo gitlab-ctl reconfigure
 ```
 Visit server URL in a web browser and set password for the user `root`
 
+### Backup/restore
+https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
+
 ### SSL with Let's Encrypt certificate
 ```
 sudo mkdir -p /var/www/letsencrypt
