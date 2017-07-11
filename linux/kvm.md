@@ -6,6 +6,7 @@
 * [LVM Storage Pool](#lvm-storage-pool)
 * [VLAN](#vlan)
 * [Copying \(editing\) a VM](#copying-editing-a-vm)
+* [virsh Commands](#virsh-commands)
 
 ### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
@@ -151,5 +152,16 @@ virsh edit vmname
 ```
 VM's configs are in `/etc/libvirt/qemu`
 * http://serverfault.com/questions/434064/correct-way-to-move-kvm-vm
+
+[\[ TOC \]](#table-of-contents)
+
+### virsh Commands
+
+```shell
+# Enable/disable/list autostarting VMs
+virsh autostart <vmname>
+virsh autostart <vmname> --disable
+virsh list --autostart --all
+```
 
 [\[ TOC \]](#table-of-contents)
