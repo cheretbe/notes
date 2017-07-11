@@ -1,5 +1,12 @@
+## Table of Contents
+* [Unsorted](#unsorted)
+* [Guest Settings](#guest-settings)
+
+### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
 * https://sebastian.marsching.com/wiki/Linux/KVM
+
+[\[ TOC \]](#table-of-contents)
 
 ### Guest Settings
 Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
@@ -21,6 +28,8 @@ reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v Shu
 :: If it is 0xffffffff, update to 0x00000001
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
 ```
+
+[\[ TOC \]](#table-of-contents)
 
 ### Installation
 To check if hardware acceleration is enabled install package `cpu-checker` and run `kvm-ok` as root. KVM is basically a hardware-accelerated version of QEMU
