@@ -3,6 +3,8 @@
 * [Guest Settings](#guest-settings)
 * [Installation](#installation)
 * [Networking](#networking)
+* [LVM Storage Pool](#lvm-storage-pool)
+* [VLAN](#vlan)
 
 ### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
@@ -103,7 +105,9 @@ Examples
 
 * https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-LVM_based_storage_pools.html
 
-VLAN
+[\[ TOC \]](#table-of-contents)
+
+## VLAN
 ```bash
 apt install vlan
 # Load kernel module
@@ -120,7 +124,10 @@ echo "8021q" >> /etc/modules
 # iface eth0.100 inet dhcp
 #   vlan-raw-device eth0
 ```
-###Copying a VM
+
+[\[ TOC \]](#table-of-contents)
+
+### Copying a VM
 Copy the VM's disks from `/var/lib/libvirt/images` on src host to the same dir on destination host
 ```shell
 # on the source host run
@@ -143,3 +150,5 @@ virsh edit vmname
 ```
 VM's configs are in `/etc/libvirt/qemu`
 * http://serverfault.com/questions/434064/correct-way-to-move-kvm-vm
+
+[\[ TOC \]](#table-of-contents)
