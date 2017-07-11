@@ -1,6 +1,8 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
 * [Guest Settings](#guest-settings)
+* [Installation](#installation)
+* [Networking](#networking)
 
 ### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
@@ -54,6 +56,8 @@ cat /proc/sys/vm/swappiness
 ```
 Make a link to `notes/linux/swap.md`
 
+[\[ TOC \]](#table-of-contents)
+
 ### Networking
 Add bridged network adapter to `/etc/network/interfaces`
 ```
@@ -79,6 +83,8 @@ iface br0 inet static
 Some info on bridge parameters:
 * http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
 * http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
+
+[\[ TOC \]](#table-of-contents)
 
 ### LVM storage pool
 
