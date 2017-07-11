@@ -5,6 +5,7 @@
 * [Networking](#networking)
 * [LVM Storage Pool](#lvm-storage-pool)
 * [VLAN](#vlan)
+* [Copying \(editing\) a VM](#copying-\(editing\)-a-vm)
 
 ### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
@@ -127,7 +128,7 @@ echo "8021q" >> /etc/modules
 
 [\[ TOC \]](#table-of-contents)
 
-### Copying a VM
+### Copying (editing) a VM
 Copy the VM's disks from `/var/lib/libvirt/images` on src host to the same dir on destination host
 ```shell
 # on the source host run
