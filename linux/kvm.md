@@ -5,7 +5,7 @@
 * [Networking](#networking)
 * [LVM Storage Pool](#lvm-storage-pool)
 * [VLAN](#vlan)
-* [Copying \(editing\) a VM](#copying-(editing)-a-vm)
+* [Copying \(editing\) a VM](#copying-editing-a-vm)
 
 ### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
