@@ -24,7 +24,7 @@ Configure and start GitLab
 sudo gitlab-ctl reconfigure
 ```
 * Visit server URL in a web browser and set password for the user `root`
-* Disable sign-up: Admin area > Settings (under gear button) > Sign-up Restrictions > Sign-up enabled
+* Disable sign-up: Admin area > Settings (under the gear button) > Sign-up Restrictions > Sign-up enabled
 * Add users without email: https://stackoverflow.com/questions/29704546/gitlab-signup-users-without-email-conformation/34525936#34525936
 
 ### Backup/restore
