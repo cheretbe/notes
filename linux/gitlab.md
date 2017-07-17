@@ -1,7 +1,3 @@
-Settings for a reverse proxy:
-https://gitlab.com/gitlab-org/gitlab-ce/issues/15574#note_12468383
-
-
 Ubuntu 16.04, GitLab 8
 
 https://about.gitlab.com/downloads/
@@ -31,6 +27,28 @@ Visit server URL in a web browser and set password for the user `root`
 
 ### Backup/restore
 https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
+
+### Reverse proxy
+Settings for `/etc/gitlab/gitlab.rb`:
+```
+external_url 'https://yourdomain.com'
+nginx['listen_port'] = 80
+nginx['listen_https'] = false
+nginx['proxy_set_headers'] = {
+  "X-Forwarded-Proto" => "https",
+  "X-Forwarded-Ssl" => "on"
+}
+```
+```shell
+# Apply changes
+gitlab-ctl reconfigure
+```
+Use `location` settings for Nginx from here:
+https://gitlab.com/gitlab-org/gitlab-recipes/blob/master/web-server/nginx/gitlab-omnibus-ssl-nginx.conf
+
+References
+* https://gitlab.com/gitlab-org/gitlab-ce/issues/15574#note_12468383
+* https://gist.github.com/sameersbn/becd1c976c3dc4866ef8
 
 ### SSL with Let's Encrypt certificate
 ```
