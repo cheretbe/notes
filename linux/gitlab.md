@@ -28,6 +28,16 @@ sudo gitlab-ctl reconfigure
 * Add users without email: https://stackoverflow.com/questions/29704546/gitlab-signup-users-without-email-conformation/34525936#34525936
 
 ### Backup/restore
+```
+# limit backup lifetime to 7 days - 604800 seconds
+gitlab_rails['backup_keep_time'] = 604800
+```
+```
+gitlab-ctl reconfigure
+/opt/gitlab/bin/gitlab-rake gitlab:backup:create
+/opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
+```
+
 https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
 
 ### Reverse proxy
