@@ -37,8 +37,9 @@ gitlab-ctl reconfigure
 /opt/gitlab/bin/gitlab-rake gitlab:backup:create
 /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
 ```
+Default path is `/var/opt/gitlab/backups`
 
-https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
+* https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
 
 ### Reverse proxy
 Settings for `/etc/gitlab/gitlab.rb`:
