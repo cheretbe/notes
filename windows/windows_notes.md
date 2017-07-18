@@ -1,4 +1,9 @@
 ## Misc
+Change environment variables as standard user
+```
+rundll32 sysdm.cpl,EditEnvironmentVariables
+```
+
 Profile list
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\
