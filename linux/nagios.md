@@ -36,6 +36,8 @@ Allowing nrpe command arguments is in the old readme.
 
 
 ## Installation
+* https://support.nagios.com/kb/article.php?id=96
+
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Don't install sendmail if postfix is already installed
 ```bash
 apt install build-essential apache2 php apache2-mod-php7.0 php-gd libgd-dev libssl-dev sendmail unzip
@@ -98,6 +100,10 @@ htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 ### Upgrade
 
 ### Nagios plugins Installation
+
+(?) `--with-openssl=/usr/bin/openssl` option is needed on Ubuntu. Check for CentOS. Or update OPENSSL_DIRS in `configure`?
+* https://community.spiceworks.com/topic/145769-ssl-is-not-available-error-when-using-check_http
+* https://github.com/nagios-plugins/nagios-plugins/issues/174
 ```bash
 cd ../nagios-plugins-2.1.4
 ./configure --with-nagios-user=nagios --with-nagios-group=nagios
