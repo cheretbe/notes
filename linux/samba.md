@@ -159,6 +159,11 @@ Set `/etc/samba/smb.conf` to the following (ensuring you replace the bold TEST a
     force directory mode = 0770
     create mask = 0660
     force create mode = 0660
+    
+    #valid users = "@local-admins", "@пользователи домена"
+    #read list = "@local-admins", "@пользователи домена"
+    #write list = "@local-admins"
+    #force group = "local-admins"
 ```
 To be able to login as domain user add the following option:
 ```ini
