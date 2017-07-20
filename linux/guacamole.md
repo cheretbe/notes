@@ -1,3 +1,6 @@
+* https://guacamole.incubator.apache.org/doc/gug/installing-guacamole.html
+* https://guacamole.incubator.apache.org/doc/gug/users-guide.html
+
 ln -s /etc/guacamole /usr/share/tomcat8/.guacamole
  
 echo "mysql-hostname: localhost" >> /etc/guacamole/guacamole.properties
