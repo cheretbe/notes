@@ -1,0 +1,16 @@
+ln -s /etc/guacamole /usr/share/tomcat8/.guacamole
+ 
+echo "mysql-hostname: localhost" >> /etc/guacamole/guacamole.properties
+echo "mysql-port: 3306" >> /etc/guacamole/guacamole.properties
+echo "mysql-database: guacamole_db" >> /etc/guacamole/guacamole.properties
+echo "mysql-username: guacamole_user" >> /etc/guacamole/guacamole.properties
+echo "mysql-password: <password>" >> /etc/guacamole/guacamole.properties
+```
+mysql-hostname: localhost
+mysql-port: 3306
+mysql-database: guacamole_db
+mysql-username: guacamole_user
+mysql-password: <password>
+```
+ 
+cat guacamole-auth-jdbc-0.9.11-incubating/mysql/schema/*.sql | mysql -u root -p<password> guacamole_db
