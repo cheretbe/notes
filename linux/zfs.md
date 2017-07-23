@@ -150,3 +150,9 @@ zfs destroy pool/path@old-snapshot
 
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
 * https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
+
+### 8. Rasberry PI
+* https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=165247
+Changes:
+* Add `/usr/local/lib` to `/etc/ld.so.conf` and run `ldconfig`
+* check needed packages (on a clean installation)
