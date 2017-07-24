@@ -74,6 +74,8 @@ zpool list
 # View block statistics
 zdb -b <pool>
 
+# Create snapshot
+zfs snapshot pool/path@snapshot
 # List snapshots
 zfs list -t snapshot
 # View snapshots space usage
