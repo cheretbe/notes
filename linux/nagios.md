@@ -152,7 +152,7 @@ systemctl start nagios.service
 
 ### Nagios plugins Installation
 
-(?) `--with-openssl=/usr/bin/openssl` option is needed on Ubuntu. Check for CentOS. Or update OPENSSL_DIRS in `configure`?
+(?) `--with-openssl=/usr/bin/openssl` option is needed on Ubuntu. Check for CentOS (can be /bin/openssl or /usr/bin/openssl - check in script). Or update OPENSSL_DIRS in `configure`?
 * https://community.spiceworks.com/topic/145769-ssl-is-not-available-error-when-using-check_http
 * https://github.com/nagios-plugins/nagios-plugins/issues/174
 ```bash
