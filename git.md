@@ -4,6 +4,7 @@
 * [Troubleshooting](#troubleshooting)
 * [Submodules](#submodules)
 * [Branches and tags](#branches-and-tags)
+* [Github backup](#github-backup)
 
 ###Unsorted
 ``` shell
@@ -87,4 +88,9 @@ git tag -a 1.0 -m "version 1.0"
 git push --follow-tags
 # View current tag
 git describe --abbrev=0 --tags
+```
+### Github backup
+http://github-backup.branchable.com/
+```
+sudo apt install gcc zlib1g-dev libstdc++-5-dev g++
 ```
