@@ -14,5 +14,6 @@ echo export EDITOR=/bin/nano >> ~/.bashrc
 * Redo <kbd>ALT</kbd>+<kbd>E</kbd>
 * Go to the first line <kbd>ALT</kbd>+<kbd>\\</kbd>
 * Go to the last line <kbd>ALT</kbd>+<kbd>/</kbd>
+* Go to line number <kbd>Ctrl</kbd>-<kbd>_</kbd>
 * Find next <kbd>ALT</kbd>+<kbd>W</kbd>
 * Find and replace <kbd>CTRL</kbd>+<kbd>\\</kbd>
