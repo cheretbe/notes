@@ -92,5 +92,8 @@ git describe --abbrev=0 --tags
 ### Github backup
 http://github-backup.branchable.com/
 ```
-sudo apt install gcc zlib1g-dev libstdc++-5-dev g++
+# Check if gcc is actually needed
+sudo apt install haskell-stack gcc zlib1g-dev libstdc++-5-dev g++
+stack upgrade
+/home/<user>/.local/bin/stack install --install-ghc
 ```
