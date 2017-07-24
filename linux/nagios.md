@@ -106,6 +106,11 @@ echo $nagios_version
 plugins_version=($(curl -s "https://www.nagios.org/downloads/nagios-plugins/"| grep -Eo "Plugins [0-9]{1}\.[0-9]{1}\.[0-9]{1}"))
 plugins_version=${plugins_version[1]}
 echo $plugins_version
+
+mkdir -p ~/source
+cd ~/source
+wget "https://assets.nagios.com/downloads/nagioscore/releases/nagios-${nagios_version}.tar.gz"
+wget "https://nagios-plugins.org/download/nagios-plugins-${plugins_version}.tar.gz"
 ```
 
 ### Nagios plugins Installation
