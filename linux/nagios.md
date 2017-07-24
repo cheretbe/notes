@@ -19,16 +19,28 @@ Custom plugins: https://github.com/cheretbe/nagios-plugins
 
 Allowing nrpe command arguments is in the old readme.
 
-### Server
+### Server config
 
 * Default installation path: `/usr/local/nagios/`
 * Default config path: `/usr/local/nagios/etc/`
 * Log location: `/usr/local/nagios/var/nagios.log`
 
+Add the folowing lines to `/usr/local/nagios/etc/nagios.cfg`
+```
+cfg_file=/usr/local/nagios/etc/hosts.cfg
+cfg_file=/usr/local/nagios/etc/services.cfg
+```
+and configure hosts and services.
+
 **Tip:** Start out by creating profiles for both services and hosts, then assign your hosts to the profiles (hostgroups?) as opposed to taking a host and applying a group of services to that host. If you do it this way, your life will be much easier. If you build the profiles first, then to add a new host you just drop it into a profile and all of the service checks will be added. If you update a service profile then all hosts that use that profile will get the new service check.
 
+**Tip:** Create custom versions of files in `/usr/local/nagios/etc/objects` and inculde them in `nagios.cfg` with `cfg_file` directive
+```
+cfg_file=/usr/local/nagios/etc/objects/custom-commands.cfg
+```
+
 ```bash
-# Check config after edit
+# Check config after editing
  /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
 ```
 
