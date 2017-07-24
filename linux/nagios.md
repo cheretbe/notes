@@ -131,6 +131,8 @@ cd ../nagios-plugins-${plugins_version}
 ./configure
 make all
 make install
+
+systemctl start nagios.service
 ```
 
 ### Nagios plugins Installation
