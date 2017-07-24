@@ -46,7 +46,7 @@ cfg_file=/usr/local/nagios/etc/objects/custom-commands.cfg
 
 **Debugging:** Set `debug_level` parameter (see comments in `/usr/local/nagios/etc/nagios.cfg`), then check `/usr/local/nagios/var/nagios.debug` contents.
 
-If "Error: Could not stat() command file '/usr/local/nagios/var/rw/nagios.cmd'!" error pops up, **check selinux status**
+If "Error: Could not stat() command file '/usr/local/nagios/var/rw/nagios.cmd'!" error pops up and the group for `nagios.cmd` is already `nagcmd`, **check selinux status**
 
 ## Installation
 * https://support.nagios.com/kb/article.php?id=96
@@ -108,6 +108,8 @@ systemctl start nagios
 
 # Create a Default User for Web Access
 htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+
+chown :nagcmd /usr/local/nagios/var/rw/nagios.cmd
 ```
 
 ### Upgrade
