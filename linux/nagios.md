@@ -98,6 +98,15 @@ htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 ```
 
 ### Upgrade
+```bash
+nagios_version=($(curl -s "https://www.nagios.org/checkforupdates/?product=nagioscore"| grep -Eo "is [0-9]{1}\.[0-9]{1}\.[0-9]{1}"))
+nagios_version=${nagios_version[1]}
+echo $nagios_version
+
+plugins_version=($(curl -s "https://www.nagios.org/downloads/nagios-plugins/"| grep -Eo "Plugins [0-9]{1}\.[0-9]{1}\.[0-9]{1}"))
+plugins_version=${plugins_version[1]}
+echo $plugins_version
+```
 
 ### Nagios plugins Installation
 
