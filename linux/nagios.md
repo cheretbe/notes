@@ -111,6 +111,26 @@ mkdir -p ~/source
 cd ~/source
 wget "https://assets.nagios.com/downloads/nagioscore/releases/nagios-${nagios_version}.tar.gz"
 wget "https://nagios-plugins.org/download/nagios-plugins-${plugins_version}.tar.gz"
+
+tar xzf nagios-${nagios_version}.tar.gz
+tar xzf nagios-plugins-${plugins_version}.tar.gz
+
+systemctl stop nagios.service
+
+cd nagios-${nagios_version}
+./configure
+make all
+make install
+#make install-init
+#make install-commandmode
+#make install-config
+#make install-webconf
+#make install-exfoliation
+
+cd ../nagios-plugins-${plugins_version}
+./configure
+make all
+make install
 ```
 
 ### Nagios plugins Installation
