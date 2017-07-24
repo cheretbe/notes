@@ -1,5 +1,6 @@
 * [!] Check difference between `split_vss` and `strip_vss`
 * https://sourceforge.net/p/burp/mailman/message/35060752/ (more on this in burp-ui docs)
+* https://unix.stackexchange.com/questions/1067/what-directories-do-i-need-to-back-up/286714#286714
 
 ## Notes
 
