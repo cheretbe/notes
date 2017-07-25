@@ -2,6 +2,7 @@
 * https://icesquare.com/wordpress/how-to-improve-zfs-performance/
 * https://github.com/zfsonlinux/zfs/wiki/Ubuntu-16.04-Root-on-ZFS
 * http://www.znapzend.org/
+* http://wiki.complete.org/ZFSAutoSnapshots
 
 for sda1:
 ```
