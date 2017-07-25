@@ -3,6 +3,7 @@
 * https://github.com/zfsonlinux/zfs/wiki/Ubuntu-16.04-Root-on-ZFS
 * http://www.znapzend.org/
 * http://wiki.complete.org/ZFSAutoSnapshots
+* https://github.com/leprechau/zfs-replicate
 
 for sda1:
 ```
