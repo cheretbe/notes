@@ -160,6 +160,7 @@ zfs destroy pool/path@old-snapshot
 ### 8. Rasberry PI
 * https://github.com/zfsonlinux/zfs/wiki/Building-ZFS
 * https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=165247
+* (!!!!) https://github.com/zfsonlinux/zfs/wiki/Debian and https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=146108
 Changes:
 * Add `/usr/local/lib` to `/etc/ld.so.conf` and run `ldconfig`
 * check needed packages (on a clean installation)
