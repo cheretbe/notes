@@ -1,3 +1,7 @@
+```python
+path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
+```
+
 To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
