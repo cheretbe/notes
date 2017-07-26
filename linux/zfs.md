@@ -158,6 +158,7 @@ zfs destroy pool/path@old-snapshot
 * https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
 
 ### 8. Rasberry PI
+* https://github.com/zfsonlinux/zfs/wiki/Building-ZFS
 * https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=165247
 Changes:
 * Add `/usr/local/lib` to `/etc/ld.so.conf` and run `ldconfig`
