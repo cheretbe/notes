@@ -8,3 +8,20 @@ Try adding the following to `~/.inputrc` file:
 set completion-ignore-case
 ```
 (breaks Home/End buttons and does not enter into directores)
+
+
+```bash
+#!/bin/bash
+
+search_dir="/path/to/a/dir"
+
+for subdir in "$search_dir"/*
+do
+  if [ ! -h "$subdir" ]
+  then
+    echo "$subdir"
+    #ls "$subdir/data/0000/"
+    rm -R "$subdir/data/0000/"
+  fi
+done
+```
