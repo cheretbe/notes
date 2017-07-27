@@ -164,3 +164,12 @@ zfs destroy pool/path@old-snapshot
 Changes:
 * Add `/usr/local/lib` to `/etc/ld.so.conf` and run `ldconfig`
 * check needed packages (on a clean installation)
+
+```
+apt install raspberrypi-kernel-headers
+
+dkms status
+dkms --verbose install zfs/0.6.5.9
+dkms status
+modprobe zfs
+```
