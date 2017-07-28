@@ -165,7 +165,7 @@ Changes:
 * Add `/usr/local/lib` to `/etc/ld.so.conf` and run `ldconfig`
 * check needed packages (on a clean installation)
 
-```
+```shell
 apt install raspberrypi-kernel-headers
 
 echo "deb http://ftp.debian.org/debian jessie-backports main contrib" >> /etc/apt/sources.list.d/backports.list
@@ -175,6 +175,8 @@ apt update
 gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553 7638D0442B90D010
 gpg -a --export 8B48AD6246925553 | sudo apt-key add -
 gpg -a --export 7638D0442B90D010 | sudo apt-key add -
+
+apt-get install -t jessie-backports zfs-dkms
 
 dkms status
 dkms --verbose install zfs/0.6.5.9
