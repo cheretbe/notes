@@ -168,6 +168,14 @@ Changes:
 ```
 apt install raspberrypi-kernel-headers
 
+echo "deb http://ftp.debian.org/debian jessie-backports main contrib" >> /etc/apt/sources.list.d/backports.list
+apt update
+
+# on public key error (e.g. NO_PUBKEY 8B48AD6246925553 NO_PUBKEY 7638D0442B90D010)
+gpg --keyserver pgpkeys.mit.edu --recv-key 8B48AD6246925553 7638D0442B90D010
+gpg -a --export 8B48AD6246925553 | sudo apt-key add -
+gpg -a --export 7638D0442B90D010 | sudo apt-key add -
+
 dkms status
 dkms --verbose install zfs/0.6.5.9
 dkms status
