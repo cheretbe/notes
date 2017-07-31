@@ -1,4 +1,10 @@
 ## Misc
+Shadow copies
+```
+vssadmin list shadows
+vssadmin delete shadows /all
+```
+
 Change environment variables as standard user
 ```
 rundll32 sysdm.cpl,EditEnvironmentVariables
