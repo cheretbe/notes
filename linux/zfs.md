@@ -157,7 +157,7 @@ zfs destroy pool/path@old-snapshot
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
 * https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
 
-### 8. Rasberry PI
+### 8. Rasberry Pi
 * https://github.com/zfsonlinux/zfs/wiki/Building-ZFS
 * https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=165247
 * (!!!!) https://github.com/zfsonlinux/zfs/wiki/Debian and https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=146108 (try [this](https://raspberrypi.stackexchange.com/questions/12258/where-is-the-archive-key-for-backports-debian-org/12266#12266) to add keys)
