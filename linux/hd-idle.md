@@ -9,3 +9,8 @@ apt install debhelper
 dpkg-buildpackage -rfakeroot
 dpkg -i ../hd-idle_*.deb
 ```
+/etc/default/hd-idle
+```
+START_HD_IDLE=true
+HD_IDLE_OPTS="-i 0 -a sda -i 300 -l /var/log/hd-idle.log"
+```
