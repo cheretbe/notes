@@ -43,5 +43,7 @@ if [ ! -f /path/to/file ]; then; echo "File not found!"; fi
 #### Primary expressions
 | Expression    | Meaning                |
 |---------------|------------------------|
-| `[ -a FILE ]` | True if `FILE` exists |
+| `[ -a FILE ]` | True if `FILE` exists (deprecated according to [this](https://stackoverflow.com/a/321352)) |
 | `[ -d FILE ]`	| True if `FILE` exists and is a directory |
+* http://www.gnu.org/software/bash/manual/bashref.html#Bash-Conditional-Expressions
+* http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
