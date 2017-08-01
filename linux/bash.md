@@ -37,4 +37,11 @@ fi
 
 # Each command must be properly terminated, either by a newline or a semi-colon
 if [ $? -ne 0 ] ; then echo 1; else echo 0 ; fi
+
+if [ ! -f /path/to/file ]; then; echo "File not found!"; fi
 ```
+#### Primary expressions
+| Expression    | Meaning                |
+|---------------|------------------------|
+| `[ -a FILE ]` | True if `FILE` exists |
+| `[ -d FILE ]`	| True if `FILE` exists and is a directory |
