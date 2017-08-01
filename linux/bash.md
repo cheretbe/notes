@@ -27,7 +27,9 @@ done
 ```
 
 ### If statement
-The square brackets are a synonym for the test command. An if statement checks the exit status of a command in order to decide which branch to take. `grep -q "$text"` is a command, but `"$name" = 'Bob'` is not - it's just an expression. (https://stackoverflow.com/questions/8934012/when-square-brackets-are-required-in-bash-if-statement/8934070#8934070)
+The square brackets are a synonym for the test command. An if statement checks the exit status of a command in order to decide which branch to take. `grep -q "$text"` is a command, but `"$name" = 'Bob'` is not - it's just an expression.
+* https://stackoverflow.com/questions/8934012/when-square-brackets-are-required-in-bash-if-statement/8934070#8934070
+* https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash/3427931#3427931
 
 ```bash
 command1
