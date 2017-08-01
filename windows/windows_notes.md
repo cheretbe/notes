@@ -4,6 +4,7 @@ Shadow copies
 vssadmin list shadows
 vssadmin delete shadows /all
 ```
+Exclusions are in `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\BackupRestore\FilesNotToSnapshot`
 
 Change environment variables as standard user
 ```
