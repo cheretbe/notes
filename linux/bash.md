@@ -25,3 +25,16 @@ do
   fi
 done
 ```
+
+### If statement
+The square brackets are a synonym for the test command. An if statement checks the exit status of a command in order to decide which branch to take. `grep -q "$text"` is a command, but `"$name" = 'Bob'` is not - it's just an expression. (https://stackoverflow.com/questions/8934012/when-square-brackets-are-required-in-bash-if-statement/8934070#8934070)
+
+```bash
+command1
+if [ $? -ne 0 ]; then
+    echo "command1 has failed"
+fi
+
+# Each command must be properly terminated, either by a newline or a semi-colon
+if [ $? -ne 0 ] ; then echo 1; else echo 0 ; fi
+```
