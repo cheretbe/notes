@@ -41,9 +41,21 @@ if [ $? -ne 0 ] ; then echo 1; else echo 0 ; fi
 if [ ! -f /path/to/file ]; then; echo "File not found!"; fi
 ```
 #### Primary expressions
-| Expression    | Meaning                |
-|---------------|------------------------|
+| Expression    | Meaning                                     |
+|---------------|---------------------------------------------|
 | `[ -a FILE ]` | True if `FILE` exists (deprecated according to [this](https://stackoverflow.com/a/321352)) |
-| `[ -d FILE ]`	| True if `FILE` exists and is a directory |
+| `[ -e FILE ]`	| True if `FILE` exists                       |
+| `[ -f FILE ]`	| True if `FILE` exists and is a regular file |
+| `[ -d FILE ]`	| True if `FILE` exists and is a directory    |
+
+#### Combining expressions
+
+| Operation            | Effect                                 |
+|----------------------|----------------------------------------|
+| `[ ! EXPR ]`         | True if EXPR is false                  |
+| `[ ( EXPR ) ]`       | Returns the value of EXPR. This may be used to override the normal precedence of operators |
+| `[ EXPR1 -a EXPR2 ]` |	True if both EXPR1 and EXPR2 are true |
+| `[ EXPR1 -o EXPR2 ]` |	True if either EXPR1 or EXPR2 is true |
+
 * http://www.gnu.org/software/bash/manual/bashref.html#Bash-Conditional-Expressions
 * http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
