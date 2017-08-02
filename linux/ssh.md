@@ -167,6 +167,20 @@ https://access.redhat.com/solutions/1166283
 
 ## SSH Keys
 
+```shell
+# Generate a key (by default key size is 2048, which is fine). It seems that for RSA (not RSA1) keys comment is
+# only added to the test.key.pub file, not to the key itself, so it can be skipped altogether
+ssh-keygen -C "test-comment" -f test.key
+# View the fingerprint
+ssh-keygen -lf key_file
+# Retrieve the public key
+ssh-keygen -yf key_file
+```
+To add a comment in `authorized_keys` just use a space and a comment after the key:
+```
+ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
+```
+
 * https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
 
 ## Notes
