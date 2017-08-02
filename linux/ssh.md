@@ -2,6 +2,7 @@
 * [Hardening SSH Access](#hardening-ssh-access)
 * [Multiple Instances of sshd](#multiple-instances-of-sshd)
 * [Reverse SSH Tunnel](#reverse-ssh-tunnel)
+* [SSH Keys](#ssh-keys)
 * [Notes](#notes)
 
 ## Hardening SSH Access
@@ -164,9 +165,13 @@ systemctl daemon-reload
 
 https://access.redhat.com/solutions/1166283
 
+## SSH Keys
+
+* https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
+
 ## Notes
 ``` bash
-# Find out PIDs of active tunnes
+# Find out PIDs of active tunnels
 netstat -tulpn | grep sshd
 ```
 `/etc/ssh/sshd_config` options
