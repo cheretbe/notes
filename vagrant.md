@@ -7,5 +7,5 @@ vagrant box outdated --global
 # Add latest version of a box
 vagrant box add --clean centos/7 --provider virtualbox
 # Remove all old versions
-vagrant box prune -f
+vagrant box prune
 ```
