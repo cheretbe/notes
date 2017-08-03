@@ -23,6 +23,20 @@ add-apt-repository ppa:zfs-native/stable
 apt-get update
 apt-get install ubuntu-zfs
 ```
+CentOS
+```shell
+# 7.3
+yum install http://download.zfsonlinux.org/epel/zfs-release.el7_3.noarch.rpm
+gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+# By default DKMS version is installed (implies compilation)
+# For kABI-tracking kmod version (will work with the distribution
+# provided kernel only) edit /etc/yum.repos.d/zfs.repo file
+# set enabled=0 in [zfs] section
+# set enabled=1 in [zfs-kmod] section
+yum install kernel-devel zfs
+modprobe zfs
+```
+* https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
 
 ### 2. Memory tuning
 `/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed
