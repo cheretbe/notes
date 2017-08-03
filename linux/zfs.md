@@ -28,6 +28,7 @@ CentOS
 # 7.3
 yum install http://download.zfsonlinux.org/epel/zfs-release.el7_3.noarch.rpm
 gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
+
 # By default DKMS version is installed (implies compilation)
 # For kABI-tracking kmod version (will work with the distribution
 # provided kernel only) edit /etc/yum.repos.d/zfs.repo file
@@ -35,6 +36,13 @@ gpg --quiet --with-fingerprint /etc/pki/rpm-gpg/RPM-GPG-KEY-zfsonlinux
 # set enabled=1 in [zfs-kmod] section
 yum install kernel-devel zfs
 modprobe zfs
+
+# If zfs module is not loaded during the boot, check services enabled status
+systemctl is-enabled zfs-import-cache zfs-import-scan zfs-mount zfs-share zfs-zed zfs.target
+# If not enabled
+systemctl preset zfs-import-cache zfs-import-scan zfs-mount zfs-share zfs-zed zfs.target
+#  zfs-import-scan might still be disabled
+systemctl enable zfs-import-scan
 ```
 * https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
 
