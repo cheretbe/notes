@@ -8,4 +8,7 @@ vagrant box outdated --global
 vagrant box add --clean centos/7 --provider virtualbox
 # Remove all old versions
 vagrant box prune
+
+# View all know Vagrant VMs
+vagrant global-status
 ```
