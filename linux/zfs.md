@@ -75,6 +75,10 @@ zpool create -f -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata
 * **-O atime=off** Disables access time updates
 * **-f** option forces creation on errors (like existing data on disk etc.)
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
+Change mount point after creation
+```
+zfs set mountpoint=/mountpoint pool/filesystem
+```
 ### 4. Useful ZFS commands
 ```shell
 zpool status
