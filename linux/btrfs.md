@@ -9,7 +9,7 @@ mount /dev/sdc /mountpoint
 btrfs filesystem show
 
 # Run balance (this is not a backround operation, use screen)
-btrfs balance start /mountpoint
+time btrfs balance start /mountpoint
 # View balance status
 btrfs balance status /mountpoint
 # Cancel balance
