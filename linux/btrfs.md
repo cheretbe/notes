@@ -12,6 +12,8 @@ btrfs filesystem show
 btrfs balance start /mountpoint
 # View balance status
 btrfs balance status /mountpoint
+# Cancel balance
+btrfs balance cancel /mountpoint
 
 # Add device
 btrfs device add /dev/sdc /mountpoint
