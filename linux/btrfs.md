@@ -13,6 +13,8 @@ btrfs balance start /mountpoint
 # View balance status
 btrfs balance status /mountpoint
 
+# Add device
+btrfs device add /dev/sdc /mountpoint
 # Delete device
 btrfs device delete /dev/sdc /mountpoint
 # Delete missing device (disk is completely dead and has already been removed)
