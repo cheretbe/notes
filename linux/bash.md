@@ -26,7 +26,8 @@ do
 done
 ```
 
-### Unofficial Strict Mode
+### Options
+#### Unofficial Strict Mode
 ```bash
 # -e          Exit immediately if a command exits with a non-zero status
 # -u          Treat unset variables as an error when substituting
@@ -36,6 +37,10 @@ done
 set -euo pipefail
 ```
 * http://redsymbol.net/articles/unofficial-bash-strict-mode/
+#### Debug
+* `set -x` or `set -o xtrace` expands variables and prints a little + sign before the line
+* `set -v` or `set -o verbose` does not expand the variables before printing
+* Use `set +x` and `set +v` to turn off the above settings
 
 ### If statement
 The square brackets are a synonym for the test command. An if statement checks the exit status of a command in order to decide which branch to take. `grep -q "$text"` is a command, but `"$name" = 'Bob'` is not - it's just an expression.
