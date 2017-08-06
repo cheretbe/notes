@@ -26,6 +26,17 @@ do
 done
 ```
 
+### Unofficial Strict Mode
+```bash
+# -e          Exit immediately if a command exits with a non-zero status
+# -u          Treat unset variables as an error when substituting
+# -o pipefail The return value of a pipeline is the status of
+#             the last command to exit with a non-zero status,
+#             or zero if no command exited with a non-zero status
+set -euo pipefail
+```
+* http://redsymbol.net/articles/unofficial-bash-strict-mode/
+
 ### If statement
 The square brackets are a synonym for the test command. An if statement checks the exit status of a command in order to decide which branch to take. `grep -q "$text"` is a command, but `"$name" = 'Bob'` is not - it's just an expression.
 * https://stackoverflow.com/questions/8934012/when-square-brackets-are-required-in-bash-if-statement/8934070#8934070
