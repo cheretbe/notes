@@ -1,3 +1,8 @@
+Change default VM location
+```
+vboxmanage setproperty machinefolder /path/to/directory/
+```
+
 To be able to add USB devices on **host** in Linux:
 ```
 sudo adduser <username> vboxusers
