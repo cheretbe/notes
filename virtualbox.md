@@ -1,6 +1,8 @@
 Change default VM location
 ```
 vboxmanage setproperty machinefolder /path/to/directory/
+# View current setting
+vboxmanage list systemproperties | grep "Default machine folder:"
 ```
 
 To be able to add USB devices on **host** in Linux:
