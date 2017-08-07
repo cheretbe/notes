@@ -1,5 +1,5 @@
 Change default VM location
-```
+```shell
 vboxmanage setproperty machinefolder /path/to/directory/
 # View current setting
 vboxmanage list systemproperties | grep "Default machine folder:"
