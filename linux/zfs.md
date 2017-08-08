@@ -70,6 +70,7 @@ options zfs zfs_resilver_delay=0
 # Combine with other options
 options zfs zfs_arc_max=4294967296 zfs_resilver_delay=0
 ```
+https://superuser.com/a/1182488
 ```shell
 # Make sure options are propagated
 update-initramfs -u -k all
