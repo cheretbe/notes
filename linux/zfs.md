@@ -66,7 +66,6 @@ awk '/^c_max/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 ```
 Scrub speed.
 ```
-# Check if zfs_top_maxinflight is actually makes any difference
 options zfs zfs_resilver_delay=0
 # Combine with other options
 options zfs zfs_arc_max=4294967296 zfs_resilver_delay=0
