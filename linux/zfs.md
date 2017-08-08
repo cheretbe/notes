@@ -145,7 +145,8 @@ service ntp start
 date --set="$(date) - 9 days"
 systemctl start systemd-timesyncd
 ```
-Source :https://calomel.org/zfs_health_check_script.html
+* Source: https://calomel.org/zfs_health_check_script.html
+* Local copy: https://github.com/cheretbe/notes/blob/master/linux/files/zfs_health_check.sh
 
 ### 6. Replace a disk in a pool
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
