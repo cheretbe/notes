@@ -141,6 +141,8 @@ date --set="$(date) + 9 days"
 ntpdate -s ru.pool.ntp.org
 service ntp start
 # Ubuntu 16.04
+# systemd-timesyncd changes time gradually, so we change time back manually beforehand
+date --set="$(date) - 9 days"
 systemctl start systemd-timesyncd
 ```
 Source :https://calomel.org/zfs_health_check_script.html
