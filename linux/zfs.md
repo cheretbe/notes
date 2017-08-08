@@ -46,8 +46,8 @@ systemctl enable zfs-import-scan
 ```
 * https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
 
-### 2. Memory tuning
-`/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed
+### 2. Performance tuning
+Memory. `/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed
 ```
 # value is in bytes!
 # 16GB=17179869184, 8GB=8589934592, 4GB=4294967296, 2GB=2147483648, 1GB=1073741824
@@ -64,8 +64,21 @@ sudo grep size /proc/spl/kstat/zfs/arcstats
 awk '/^size/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 awk '/^c_max/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 ```
+Scrub speed.
+```
+# Check if zfs_top_maxinflight is actually makes any difference
+options zfs zfs_resilver_delay=0
+# Combine with other options
+options zfs zfs_arc_max=4294967296 zfs_resilver_delay=0
+```
+```shell
+# Make sure options are propagated
+update-initramfs -u -k all
+```
 * http://arstechnica.com/information-technology/2014/02/ars-walkthrough-using-the-zfs-next-gen-filesystem-on-linux/
 * https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel/1137417#1137417
+* https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSScrubsOurSpeedup
+* https://www.matt-j.co.uk/2014/06/25/zfs-on-linux-resilver-scrub-performance-tuning/
 
 ### 3. Create zpool
 ```
