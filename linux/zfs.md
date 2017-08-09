@@ -6,13 +6,9 @@
 * https://github.com/leprechau/zfs-replicate
 * http://everythingshouldbevirtual.com/zfs-replication-backups
 
-for sda1:
-```
-parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
-```
-
 ## Table of Contents
 * [Installation](#installation)
+* [zpool Creation](#zpool-creation)
 * [Performance Tuning](#performance-tuning)
 
 ### Installation
@@ -50,6 +46,24 @@ systemctl enable zfs-import-scan
 ```
 * https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
 
+* [\[ TOC \]](#table-of-contents)
+
+### zpool Creation
+```shell
+# If not using the whole device partition type is zfs
+parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
+
+zpool create -f -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
+```
+* **-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)
+* **-O atime=off** Disables access time updates
+* **-f** option forces creation on errors (like existing data on disk etc.)
+* **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
+
+Change mount point after creation
+```
+zfs set mountpoint=/mountpoint pool/filesystem
+```
 * [\[ TOC \]](#table-of-contents)
 
 ### Performance Tuning
@@ -93,18 +107,6 @@ chmod +x arc_summary.py
 
 * [\[ TOC \]](#table-of-contents)
 
-### 3. Create zpool
-```
-zpool create -f -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
-```
-* **-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)
-* **-O atime=off** Disables access time updates
-* **-f** option forces creation on errors (like existing data on disk etc.)
-* **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
-Change mount point after creation
-```
-zfs set mountpoint=/mountpoint pool/filesystem
-```
 ### 4. Useful ZFS commands
 ```shell
 zpool status
