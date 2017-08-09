@@ -11,7 +11,11 @@ for sda1:
 parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
 ```
 
-### 1. Installation
+## Table of Contents
+* [Installation](#installation)
+* [Item with ' symbol](#item-with--symbol)
+
+### Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
 ```
 apt install zfs
@@ -45,6 +49,8 @@ systemctl preset zfs-import-cache zfs-import-scan zfs-mount zfs-share zfs-zed zf
 systemctl enable zfs-import-scan
 ```
 * https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
+
+* [\[ TOC \]](#table-of-contents)
 
 ### 2. Performance tuning
 Memory. `/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed
