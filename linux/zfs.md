@@ -1,15 +1,13 @@
-* https://wiki.archlinux.org/index.php/ZFS
-* https://icesquare.com/wordpress/how-to-improve-zfs-performance/
-* https://github.com/zfsonlinux/zfs/wiki/Ubuntu-16.04-Root-on-ZFS
-* http://www.znapzend.org/
-* http://wiki.complete.org/ZFSAutoSnapshots
-* https://github.com/leprechau/zfs-replicate
-* http://everythingshouldbevirtual.com/zfs-replication-backups
-
 ## Table of Contents
 * [Installation](#installation)
 * [zpool Creation](#zpool-creation)
 * [Performance Tuning](#performance-tuning)
+* [Useful ZFS Commands](#useful-zfs-commands)
+* [Health Monitoring Script](#health-monitoring-script)
+* [Replace a Disk in a Pool](#replace-a-disk-in-a-pool)
+* [Send Over SSH or netcat](#send-over-ssh-or-netcat)
+* [Raspberry Pi](#raspberry-pi)
+* [Unsorted](#unsorted)
 
 ### Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
@@ -107,7 +105,7 @@ chmod +x arc_summary.py
 
 * [\[ TOC \]](#table-of-contents)
 
-### 4. Useful ZFS commands
+### Useful ZFS Commands
 ```shell
 zpool status
 zfs list
@@ -141,7 +139,8 @@ zfs list -ro space
 # Access snapshot content
 ls /mountpoint/pool/.zfs/snapshot/snap-name
 ```
-### 5. Set up health monitoring script
+* [\[ TOC \]](#table-of-contents)
+### Health Monitoring Script
 
 ```
 cd /root
@@ -176,7 +175,9 @@ systemctl start systemd-timesyncd
 * Source: https://calomel.org/zfs_health_check_script.html
 * Local copy: https://github.com/cheretbe/notes/blob/master/linux/files/zfs_health_check.sh
 
-### 6. Replace a disk in a pool
+* [\[ TOC \]](#table-of-contents)
+
+### Replace a Disk in a Pool 
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
 * Planned
 ```bash
@@ -196,7 +197,8 @@ zpool replace -f zfs-data 16718377149670207017 /dev/disk/by-id/ata-VBOX_HARDDISK
 # View progress
 zpool status
 ```
-### 7. Send over SSH or netcat
+* [\[ TOC \]](#table-of-contents)
+### Send Over SSH or netcat
 
 ```shell
 # server
@@ -214,7 +216,9 @@ zfs destroy pool/path@old-snapshot
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
 * https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
 
-### 8. Rasberry Pi
+* [\[ TOC \]](#table-of-contents)
+
+### Raspberry Pi
 * https://github.com/zfsonlinux/zfs/wiki/Building-ZFS
 * https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=165247
 * (!!!!) https://github.com/zfsonlinux/zfs/wiki/Debian and https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=146108 (try [this](https://raspberrypi.stackexchange.com/questions/12258/where-is-the-archive-key-for-backports-debian-org/12266#12266) to add keys)
@@ -245,3 +249,15 @@ dkms --verbose install zfs/0.6.5.9
 dkms status
 modprobe zfs
 ```
+* [\[ TOC \]](#table-of-contents)
+
+### Unsorted
+* https://wiki.archlinux.org/index.php/ZFS
+* https://icesquare.com/wordpress/how-to-improve-zfs-performance/
+* https://github.com/zfsonlinux/zfs/wiki/Ubuntu-16.04-Root-on-ZFS
+* http://www.znapzend.org/
+* http://wiki.complete.org/ZFSAutoSnapshots
+* https://github.com/leprechau/zfs-replicate
+* http://everythingshouldbevirtual.com/zfs-replication-backups
+
+* [\[ TOC \]](#table-of-contents)
