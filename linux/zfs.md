@@ -259,5 +259,6 @@ modprobe zfs
 * http://wiki.complete.org/ZFSAutoSnapshots
 * https://github.com/leprechau/zfs-replicate
 * http://everythingshouldbevirtual.com/zfs-replication-backups
+* https://github.com/jimsalterjrs/sanoid
 
 * [\[ TOC \]](#table-of-contents)
