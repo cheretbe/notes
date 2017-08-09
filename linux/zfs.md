@@ -13,7 +13,7 @@ parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
 
 ## Table of Contents
 * [Installation](#installation)
-* [Item with ' symbol](#item-with--symbol)
+* [Performance Tuning](#performance-tuning)
 
 ### Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
@@ -52,7 +52,7 @@ systemctl enable zfs-import-scan
 
 * [\[ TOC \]](#table-of-contents)
 
-### 2. Performance tuning
+### Performance Tuning
 Memory. `/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed
 ```
 # value is in bytes!
@@ -90,6 +90,8 @@ chmod +x arc_summary.py
 * https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSScrubsOurSpeedup
 * https://www.matt-j.co.uk/2014/06/25/zfs-on-linux-resilver-scrub-performance-tuning/
 * https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel/1182488#1182488
+
+* [\[ TOC \]](#table-of-contents)
 
 ### 3. Create zpool
 ```
