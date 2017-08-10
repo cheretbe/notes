@@ -1,7 +1,11 @@
 - [ ] Timezone
 ```bash
+# CentOS 7
 timedatectl list-timezones | grep Kaliningrad
 timedatectl set-timezone Europe/Kaliningrad
+# View current settings
+date
+ls -l /etc/localtime
 ```
 
 - [ ] NTP time sync
