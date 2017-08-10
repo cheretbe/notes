@@ -184,6 +184,11 @@ ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
 * https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
 
 ## Notes
+```bash
+# RDP port forwarding
+ssh user@host.tld -L 1234:192.168.0.200:3389
+```
+
 ``` bash
 # Find out PIDs of active tunnels
 netstat -tulpn | grep sshd
