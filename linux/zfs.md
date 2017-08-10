@@ -163,14 +163,20 @@ Check if script works:
 service ntp stop
 # Ubuntu 16.04
 systemctl stop systemd-timesyncd
+# CentOS 7
+systemctl stop chronyd.service
+
 date --set="$(date) + 9 days"
 /root/zfs_health_check.sh
+
 ntpdate -s ru.pool.ntp.org
 service ntp start
 # Ubuntu 16.04
 # systemd-timesyncd changes time gradually, so we change time back manually beforehand
 date --set="$(date) - 9 days"
 systemctl start systemd-timesyncd
+# CentOS 7
+systemctl start chronyd.service
 ```
 * Source: https://calomel.org/zfs_health_check_script.html
 * Local copy: https://github.com/cheretbe/notes/blob/master/linux/files/zfs_health_check.sh
