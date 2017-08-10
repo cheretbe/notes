@@ -124,7 +124,7 @@ zfs set dedup=on zfs-storage/withdedup
 # Delete dataset (remove -n for actual deletion)
 zfs -nv destroy pool/path
 # Recursive delete all snapshots. [!!] Dangerous, remove n for actual deletion
-zfs -rnv destroy pool/path@%
+zfs destroy -nvr pool/path@%
 
 # Check compression ratio
 zfs get compressratio [dataset]
