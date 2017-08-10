@@ -10,6 +10,14 @@ To be able to add USB devices on **host** in Linux:
 sudo adduser <username> vboxusers
 ```
 
+### Sample vboxmanage commands
+```shell
+# List all VMs
+vboxmanage list vms
+# List running VMs
+vboxmanage list runningvms
+```
+
 ### Disable time sync
 ```shell
 VBoxManage setextradata <NAME> "VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled" 1
