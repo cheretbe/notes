@@ -10,6 +10,16 @@ To be able to add USB devices on **host** in Linux:
 sudo adduser <username> vboxusers
 ```
 
+### Disable time sync
+```shell
+VBoxManage setextradata <NAME> "VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled" 1
+VBoxManage setextradata <NAME> "VBoxInternal/TM/TSCTiedToExecution" 1
+
+# For some time tests it's easier to temporarily shift time like this (1 day = 86400000 ms)
+VBoxManage.exe modifyvm <NAME> --biossystemtimeoffset <OFFSET in ms>
+```
+
+
 ### Using a Physical Hard Drive with a VirtualBox VM
 
 Linux
