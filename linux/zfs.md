@@ -106,6 +106,7 @@ chmod +x arc_summary.py
 * [\[ TOC \]](#table-of-contents)
 
 ### Useful ZFS Commands
+Use `-nv` options to check what's going to be done
 ```shell
 zpool status
 zfs list
@@ -120,8 +121,10 @@ zfs set compression=on zfs-storage/compressed
 zpool scrub zfs-storage
 # turn on deduplication
 zfs set dedup=on zfs-storage/withdedup
-# remove dataset
-zfs destroy zfs-storage/share
+# Delete dataset (remove -n for actual deletion)
+zfs -nv destroy pool/path
+# Recursive delete all snapshots. [!!] Dangerous, remove n for actual deletion
+zfs -rnv destroy pool/path@%
 
 # Check compression ratio
 zfs get compressratio [dataset]
