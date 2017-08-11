@@ -1,7 +1,7 @@
 * https://github.com/jimsalterjrs/sanoid/issues/116#issuecomment-318468961
 
 ```shell
-# Ubunut
+# Ubuntu
 apt install libconfig-inifiles-perl pv lzop mbuffer
 # CentOS
 yum install perl-Config-IniFiles perl-Data-Dumper mbuffer lzop pv
