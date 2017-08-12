@@ -20,7 +20,7 @@ transmission-cli --download-dir ~/Downloads http://releases.ubuntu.com/16.04/ubu
 aria2c --seed-time 0 --dir=~/Downloads http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
 
 mkdir -p ~/temp/ubuntu-iso
-# needs root privileges
+# requires root privileges
 # mount -o loop ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
 fuseiso ~/Downloads/ubuntu-16.04.2-server-amd64.iso ~/temp/ubuntu-iso
 mkdir -p ~/temp/ubuntu-temp-iso
@@ -30,7 +30,7 @@ cp -rT ~/temp/ubuntu-iso ~/temp/ubuntu-temp-iso
 # Fix readonly CD-ROM attributes
 find ~/temp/ubuntu-temp-iso/ -type d -exec chmod 755 {} \;
 find ~/temp/ubuntu-temp-iso/ -type f -exec chmod 644 {} \;
-# needs root privileges
+# requires root privileges
 # umount ~/temp/ubuntu-iso
 fusermount -u ~/temp/ubuntu-iso
 rmdir ~/temp/ubuntu-iso
