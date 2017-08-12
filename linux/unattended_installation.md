@@ -15,8 +15,9 @@ sudo debconf-get-selections
 ```
 ISO creation
 ```bash
-# Cehck alternative: https://aria2.github.io/
 transmission-cli --download-dir ~/Downloads http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
+# or (package aria2 or https://aria2.github.io/)
+aria2c --seed-time 0 --dir=~/Downloads http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
 
 mkdir -p ~/temp/ubuntu-iso
 # needs root privileges
