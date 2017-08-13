@@ -57,7 +57,7 @@ mkisofs -D -r -V "UNATTENDED_UBUNTU" -cache-inodes -J -l -b isolinux/isolinux.bi
 
 ```
 
-http://searchitchannel.techtarget.com/feature/Performing-an-automated-Ubuntu-install-using-preseeding
+http://searchitchannel.techtarget.com/feature/Performing-an-automated-Ubuntu-install-using-preseeding (refer to the book "The Official Ubuntu Server Book", PDF)
 
 
 * http://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts
