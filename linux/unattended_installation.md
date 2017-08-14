@@ -60,6 +60,7 @@ mkisofs -D -r -V "UNATTENDED_UBUNTU" -cache-inodes -J -l -b isolinux/isolinux.bi
 http://searchitchannel.techtarget.com/feature/Performing-an-automated-Ubuntu-install-using-preseeding (refer to the book "The Official Ubuntu Server Book", PDF)
 
 * https://help.ubuntu.com/community/InstallCDCustomization
+* https://coderwall.com/p/qzpgvw/build-vagrant-box-using-veewee
 * https://coderwall.com/p/oq1xta/building-an-unattended-ubuntu-install-disc
 * http://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts
 * http://askubuntu.com/questions/595826/how-to-create-ubuntu-installation-preseed-file
