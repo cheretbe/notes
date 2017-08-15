@@ -13,6 +13,14 @@ Permissions:
 # Set permissions recursively
 find . -type f -exec chmod 644 {} \;
 find . -type d -exec chmod 755 {} \;
+
+# Set group ID permission
+# First change the group on the directory to the one you want to be used as the default:
+chgrp group /path/to/directory -R
+# Then set the group ID permission on the folder:
+chmod g+s /path/to/directory -R
+#or
+find /path/to/directory -type d -exec chmod chmod g+rwxs {} \;
 ```
 
 Add user:
