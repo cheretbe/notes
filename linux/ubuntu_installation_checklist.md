@@ -9,6 +9,10 @@ TODO:
 - [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
 - [ ] `apt install gparted mc htop`
 - [ ] Screensaver and lock settings
+- [ ] Lates Remmina client
+```bash
+sudo add-apt-repository ppa:remmina-ppa-team/remmina-next
+```
 - [ ] Change time from UTC to local (when dual-booting with Windows)
 ```bash
 timedatectl set-local-rtc 1
