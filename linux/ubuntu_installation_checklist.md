@@ -32,7 +32,7 @@ systemctl status systemd-timesyncd --no-pager -l
 # FallbackNTP=ntp.ubuntu.com
 ```
 - [ ] Tweak Tool and Unity Tweak Tool
-- [ ] [Ambiance Crunchu Theme](http://www.noobslab.com/2016/06/ambiance-crunchy-themes-suite-is-now.html)
+- [ ] [Ambiance Crunchy Theme](http://www.noobslab.com/2016/06/ambiance-crunchy-themes-suite-is-now.html)
 - [ ] Windows TTF fonts ([Download link](files/windows-ttf.zip))
 ```bash
 # Copy to /usr/share/fonts/truetype or ~/.fonts/truetype/
