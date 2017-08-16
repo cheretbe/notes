@@ -13,6 +13,8 @@ tar cvf - /with/full/path/ | pigz | nc host.domain.tld 1234
 # on server
 # -q seconds: after EOF is detected, wait the specified number of seconds and then quit
 nc -q 1 -l -p 1234 | tar xv
+# with current speed display (make sure pv is installed)
+nc -q 1 -l -p 1234 | pv | tar x
 
 # on client
 tar cv . | nc -q 1 dest-ip 1234
