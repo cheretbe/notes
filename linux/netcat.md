@@ -16,6 +16,9 @@ nc -q 1 -l -p 1234 | tar xv
 # with current speed display (make sure pv is installed)
 nc -q 1 -l -p 1234 | pv | tar x
 
+# TODO: do some mbuffer tests
+# https://unix.stackexchange.com/questions/48399/fast-way-to-copy-a-large-file-on-a-lan/48555#48555
+
 # on client
 tar cv . | nc -q 1 dest-ip 1234
 ```
