@@ -16,10 +16,11 @@ sudo add-apt-repository ppa:remmina-ppa-team/remmina-next
 - [ ] Change time from UTC to local (when dual-booting with Windows)
 ```bash
 timedatectl set-local-rtc 1
-# view current settings
-timedatectl
 # turn UTC back on
 timedatectl set-local-rtc 1
+# view current setting
+timedatectl
+
 # pre-16.04: add UTC=no to /etc/default/rcS 
 ```
 - [ ] NTP time sync
