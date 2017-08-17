@@ -3,6 +3,11 @@
 [Link](https://ya.ru) example
 ```
 
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Note with an exclamation
+```markdown
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Note with an exclamation
+```
+
 ## Table of Contents
 * [Item 1](#item-1)
 * [Item with ' symbol](#item-with--symbol)
