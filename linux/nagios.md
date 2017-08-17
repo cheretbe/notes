@@ -1,3 +1,13 @@
+```shell
+# Check SSL certificate expiration
+/usr/local/nagios/libexec/check_http --ssl -H reddit.com -C 100
+#define command{
+#        command_name    check_ssl_cert
+#        command_line    $USER1$/check_http --ssl -H $HOSTADDRESS$ -C $ARG1$
+#}
+```
+
+
 ### Client (monitored host)
 
 ```bash
@@ -113,6 +123,7 @@ systemctl start nagios
 # Create a Default User for Web Access
 htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
+chown :nagcmd /usr/local/nagios/var/rw
 chown :nagcmd /usr/local/nagios/var/rw/nagios.cmd
 ```
 
