@@ -50,17 +50,8 @@ adduser username libvirtd
 # cannot open shared object file: No such file or directory"
 apt install libgl1-mesa-glx
 ```
-~~### Swappiness
-Add `vm.swappiness = 1` to `/etc/sysctl.conf` and reboot~~
-```shell
-# Set swappiness value without a reboot
-echo 1 > /proc/sys/vm/swappiness
-# Find out current value
-cat /proc/sys/vm/swappiness
-```
-Make a link to `notes/linux/swap.md`
-
-[\[ TOC \]](#table-of-contents)
+* http://wiki.stoney-cloud.org/wiki/Workaround_unhandled_rdmsr/wrmsr
+* Swappiness: https://github.com/cheretbe/notes/blob/master/linux/swap.md#swappines
 
 ### Networking
 Add bridged network adapter to `/etc/network/interfaces`
