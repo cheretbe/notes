@@ -64,6 +64,7 @@ service network-manager restart
 # If still there is no ping to .local domain names (but nslookup works)
 apt remove libnss-mdns
 ```
+- [ ] Ublock Origin
 - [ ] Gnome terminal
   * Edit -> Preferences -> General -> Open new terminals in: Tab
   * Switch tabs with Ctrl+Tab
