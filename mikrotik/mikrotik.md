@@ -33,6 +33,8 @@ export compact file=config
 
 /ip route set [/ip route find where comment="ISP2"] disabled=yes
 
+/interface pppoe-client monitor pppoe-if-name once do={ :put $local-address }
+
 # full reset
 /system reset-configuration no-defaults=yes skip-backup=yes
 /ip dhcp-client
