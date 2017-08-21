@@ -35,6 +35,8 @@ export compact file=config
 
 /interface pppoe-client monitor pppoe-if-name once do={ :put $"local-address" }
 
+put [/ip firewall filter get [find comment="comment"] src-address]
+
 # full reset
 /system reset-configuration no-defaults=yes skip-backup=yes
 /ip dhcp-client
