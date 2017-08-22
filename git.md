@@ -6,7 +6,7 @@
 * [Branches and tags](#branches-and-tags)
 * [Github backup](#github-backup)
 
-###Unsorted
+### Unsorted
 ``` shell
 # work with a different path instead of current working directory
 git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
