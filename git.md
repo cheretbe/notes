@@ -23,7 +23,7 @@ git config --global credential.helper store
 git config --global push.default simple
 ```
 
-###Troubleshooting
+### Troubleshooting
 ``` shell
 # Increase verbosity
 git 'command' --verbose
@@ -39,7 +39,7 @@ SET GIT_TRACE_PACKET=2
 ```
 Make sure `--verbose` switch is **after the actual git command**, otherwise it won't work!
 
-###Submodules
+### Submodules
 ``` shell
 # Add submbodule
 # [!] No trailing slash or command will fail
@@ -73,7 +73,7 @@ http://stackoverflow.com/questions/1777854/git-submodules-specify-a-branch-tag/1
 Deleting a submodule
 
 http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule/21211232#21211232
-###Branches and tags
+### Branches and tags
 
 ``` shell
 # Merge back develop -> master and tag a version
