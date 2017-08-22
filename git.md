@@ -1,5 +1,6 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
+* [Cheat Sheet](#cheat-sheet)
 * [Initial setup](#initial-setup)
 * [Troubleshooting](#troubleshooting)
 * [Submodules](#submodules)
@@ -10,6 +11,39 @@
 ``` shell
 # work with a different path instead of current working directory
 git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
+```
+
+### Cheat Sheet
+```shell
+# View config
+git config [--global] –list
+
+# Add all files recursively
+git add .
+
+# Undo add
+git reset
+
+# Rename file
+git mv file new-name
+
+# Delete file
+git rm file.txt
+
+# Delete, but leave it in the local filesystem:
+git rm --cached file.txt
+
+# Remove already deleted files from index:
+git add -u .
+
+# View commit history:
+git log [-2] [--stat]
+
+# Reuse previous commit message
+git commit -c HEAD
+
+# Revert changes to tracked files:
+git reset –-hard
 ```
 
 ### Initial setup
