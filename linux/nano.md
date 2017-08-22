@@ -9,8 +9,9 @@ echo export EDITOR=/bin/nano >> ~/.bashrc
 * List keyboard shortcuts <kbd>CTRL</kbd>+<kbd>G</kbd>  
 **M** means <kbd>Meta</kbd> (<kbd>Alt</kbd> by default in Linux) - http://superuser.com/questions/581671/find-next-command-in-nano/581691#581691
 ---
-* Copy a line <kbd>ALT</kbd>+<kbd>6</kbd>
-* Cut a line <kbd>Ctrl</kbd>+<kbd>K</kbd>
+* Select <kbd>ALT</kbd>+<kbd>M</kbd>+<kbd>A</kbd>
+* Copy <kbd>ALT</kbd>+<kbd>6</kbd> (with no selection copies current line)
+* Cut <kbd>Ctrl</kbd>+<kbd>K</kbd> (with no selection cuts current line)
 * Paste <kbd>Ctrl</kbd>+<kbd>U</kbd>
 ---
 * Undo <kbd>ALT</kbd>+<kbd>U</kbd>
