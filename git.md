@@ -51,6 +51,11 @@ git submodule status
 git clone --recursive https://url
 # Download submodules in an already cloned repository (or if a submodule has been added later)
 git submodule update --init --recursive
+
+# Changing submodule URL
+# Edit .gitmodules file
+# Then run resync
+git submodule sync
 ```
 Specifying a branch/tag
 ``` shell
