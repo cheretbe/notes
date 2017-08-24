@@ -12,6 +12,15 @@ os.path.isfile(fname)
 # Normalize path separators
 os.path.normpath(fname)
 ```
+## Debugging
+```
+pip install ipdb
+```
+```python
+import ipdb
+ipdb.set_trace()
+```
+Commands: s(tep), n(ext) - http://frid.github.io/blog/2014/06/05/python-ipdb-cheatsheet/
 
 To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
