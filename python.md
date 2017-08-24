@@ -2,6 +2,13 @@
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 ```
 
+Git ignore
+```
+.cache/
+__pycache__/
+*.pyc
+```
+
 ## Code Snippets
 Paths
 ```python
