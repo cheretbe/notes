@@ -73,6 +73,16 @@ git fetch --all && git status
 
 ## Linux
 
+```shell
+# As root
+apt install python-pip
+# As user
+pip install --user --upgrade pip
+pip install --user virtualenvwrapper
+# ???
+# export PATH=~/.local/bin:$PATH 
+```
+
 Requirements
 ```bash
 pip freeze > requirements.txt
