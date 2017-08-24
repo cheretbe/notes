@@ -18,6 +18,13 @@ os.path.join(path1, path2)
 os.path.isfile(fname)
 # Normalize path separators
 os.path.normpath(fname)
+
+# Remove a file
+os.remove(path)
+# Remove an empty directory
+os.rmdir(path)
+# Remove directories recursively
+os.removedirs(name)
 ```
 ## Debugging
 ```
