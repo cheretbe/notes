@@ -2,6 +2,17 @@
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 ```
 
+## Code Snippets
+Paths
+```python
+# Join paths
+os.path.join(path1, path2)
+# Check if file exists
+os.path.isfile(fname)
+# Normalize path separators
+os.path.normpath(fname)
+```
+
 To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
