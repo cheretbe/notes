@@ -1,3 +1,6 @@
+* Jump Forward: <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd> (minus)
+* Jump Back: <kbd>Alt</kbd>+<kbd>-</kbd> (minus)
+
 * Cheat sheet: https://www.cheatography.com/tdeyle/cheat-sheets/sublime-text-3/
 * Tips & tricks: https://generalassemb.ly/blog/sublime-text-3-tips-tricks-shortcuts/
 
