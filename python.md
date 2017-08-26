@@ -80,7 +80,8 @@ apt install python-pip
 pip install --user --upgrade pip
 pip install --user virtualenvwrapper
 # ???
-# export PATH=~/.local/bin:$PATH 
+# export PATH=~/.local/bin:$PATH
+source $HOME/.local/bin/virtualenvwrapper.sh
 ```
 
 Requirements
