@@ -2,6 +2,7 @@
    * Goto Symbol: <kbd>Ctrl</kbd>+<kbd>R</kbd>
    * Jump Forward: <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd> (minus)
    * Jump Back: <kbd>Alt</kbd>+<kbd>-</kbd> (minus)
+   * Goto Definition <kbd>F12</kbd>
 * Find and Replace
    * Use Selection for Find Field <kbd>Ctrl</kbd>+<kbd>E</kbd>
 
