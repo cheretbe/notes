@@ -43,6 +43,7 @@ pprint(vars(os.environ))
 type(os.environ)
 import inspect
 pprint(inspect.getmembers(os._Environ))
+# cls’s base classes
 pprint(inspect.getmro(os._Environ))
 ```
 
