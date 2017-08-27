@@ -4,3 +4,6 @@
 XPath
 * Examples: https://docs.python.org/3/library/xml.etree.elementtree.html#elementtree-xpath
 * Generator: http://xmltoolbox.appspot.com/xpath_generator.html
+
+#### Python
+`xml.etree.ElementTree.register_namespace` works for serialization only. For "find*" methods use `namespaces` parameter.
