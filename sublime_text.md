@@ -1,8 +1,9 @@
-* Goto Symbol: <kbd>Ctrl</kbd>+<kbd>R</kbd>
-* Jump Forward: <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd> (minus)
-* Jump Back: <kbd>Alt</kbd>+<kbd>-</kbd> (minus)
-
-* Use Selection for Find Field <kbd>Ctrl</kbd>+<kbd>E</kbd>
+* Naviation
+   * Goto Symbol: <kbd>Ctrl</kbd>+<kbd>R</kbd>
+   * Jump Forward: <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd> (minus)
+   * Jump Back: <kbd>Alt</kbd>+<kbd>-</kbd> (minus)
+* Find and Replace
+   * Use Selection for Find Field <kbd>Ctrl</kbd>+<kbd>E</kbd>
 
 ------
 * Cheat sheet: https://www.cheatography.com/tdeyle/cheat-sheets/sublime-text-3/
