@@ -36,8 +36,15 @@ ipdb.set_trace()
 ```
 Commands: s(tep), n(ext), p expression, c(ont(inue)) - http://frid.github.io/blog/2014/06/05/python-ipdb-cheatsheet/
 
-To review:
-* http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
+```python
+// Inspect variable
+from pprint import pprint
+pprint(vars(os.environ))
+type(os.environ)
+import inspect
+pprint(inspect.getmembers(os._Environ))
+pprint(inspect.getmro(os._Environ))
+```
 
 ## Installation
 ### Windows
@@ -72,6 +79,9 @@ git fetch --all && git status
 * https://stackoverflow.com/questions/341184/can-i-install-python-3-x-and-2-x-on-the-same-computer
 
 ## Linux
+
+To review:
+* http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
 ```shell
 # As root
