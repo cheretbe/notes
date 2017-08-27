@@ -11,6 +11,8 @@ XPath
 import xml.etree.ElementTree
 xmlData = xml.etree.ElementTree.parse("autounattend.xml")
 namespaces = {"unattend": "urn:schemas-microsoft-com:unattend"}
-xmlData.find(".//unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).items()
-xmlData.find(".//unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).getchildren()
+xmlData.find("./unattend:settings[@pass='windowsPE']/"
+        "unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).items()
+xmlData.find("./unattend:settings[@pass='windowsPE']/"
+        "unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).getchildren()
 ```
