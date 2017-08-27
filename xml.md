@@ -3,3 +3,4 @@
 
 XPath
 * Examples: https://docs.python.org/3/library/xml.etree.elementtree.html#elementtree-xpath
+* Generator: http://xmltoolbox.appspot.com/xpath_generator.html
