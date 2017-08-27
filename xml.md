@@ -7,3 +7,10 @@ XPath
 
 #### Python
 `xml.etree.ElementTree.register_namespace` works for serialization only. For "find*" methods use `namespaces` parameter.
+```python
+import xml.etree.ElementTree
+xmlData = xml.etree.ElementTree.parse("autounattend.xml")
+namespaces = {"unattend": "urn:schemas-microsoft-com:unattend"}
+xmlData.find(".//unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).items()
+xmlData.find(".//unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).getchildren()
+```
