@@ -9,7 +9,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 ```
 
-`.gitignore` file
+` .gitattributes` file
 ```
 # Set default behaviour, in case users don't have core.autocrlf set.
 * text=auto
