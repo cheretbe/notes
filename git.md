@@ -44,6 +44,11 @@ git commit -c HEAD
 
 # Revert changes to tracked files:
 git reset –-hard
+
+# Diff with previous commit
+git diff HEAD^ HEAD
+# On Windows use ~ unstead of ^
+git diff HEAD~ HEAD
 ```
 
 ### Initial setup
