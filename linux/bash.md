@@ -26,6 +26,10 @@ do
 done
 ```
 
+```bash
+printf "Adding %s (%s) to /etc/hosts" ${other_host_name} ${other_host_ip}
+```
+
 ### Options
 #### Unofficial Strict Mode
 ```bash
