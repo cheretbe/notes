@@ -25,7 +25,7 @@ burp -c /etc/burp/burp-server.conf -t -C testclient | grep timer
 
 * https://github.com/grke/burp/wiki/Automated-deploy-and-maintenance
 
-## Client
+## Installation
 
 **Windows**
 Silent install:
@@ -63,10 +63,16 @@ apt install burp-server
 **Centos**
 Vesion 2
 * https://copr.fedorainfracloud.org/coprs/yopito/burp2/
-
+```shell
+curl -s https://copr.fedorainfracloud.org/coprs/yopito/burp2/repo/epel-7/yopito-burp2-epel-7.repo -o /etc/yum.repos.d/yopito-burp2.repo
+yum -y install burp2-server
+```
+Version 1 is in EPEL
 ``` shell
 yum install burp-client
 ```
+
+## Configuration
 
 Config is in `/etc/burp/burp.conf`
 
