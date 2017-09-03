@@ -29,7 +29,7 @@ done
 ```
 
 ```bash
-printf "Adding %s (%s) to /etc/hosts" ${other_host_name} ${other_host_ip}
+printf "Adding %s (%s) to /etc/hosts\n" ${other_host_name} ${other_host_ip}
 ```
 
 ### Options
