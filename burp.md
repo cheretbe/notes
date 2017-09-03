@@ -72,6 +72,11 @@ Version 1 is in EPEL
 ``` shell
 yum install burp-client
 ```
+Build from source
+```
+# Dependencies
+yum install openssl-devel uthash-devel librsync-devel
+```
 
 ## Configuration
 
