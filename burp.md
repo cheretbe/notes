@@ -76,6 +76,11 @@ Build from source
 ```
 # Dependencies
 yum install openssl-devel uthash-devel librsync-devel
+
+./configure --prefix=/usr --sysconfdir=/etc/burp --localstatedir=/var
+make
+make install
+make install-configs
 ```
 
 ## Configuration
