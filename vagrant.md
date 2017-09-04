@@ -18,3 +18,6 @@ To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable
 # Bash, set permanently
 echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
+
+### Plugins
+* hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
