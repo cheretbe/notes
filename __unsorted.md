@@ -1,5 +1,7 @@
-Clear terminal (putty)
-```
+Clear terminal
+```shell
+tput reset
+# PuTTY
 clear && printf '\033[3J'
 ```
 Terminal background color: #0E1C4A (R:14 G:28 B:74) or #0B1437 (R:11 G:20 B:55)
