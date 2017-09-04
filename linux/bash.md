@@ -1,4 +1,5 @@
 * http://www.bahmanm.com/blogs/command-line-options-how-to-parse-in-bash-using-getopt
+* https://github.com/ecoon/amanzi-columns/blob/master/tools/config/do-configure-netcdf
 * https://github.com/boldleadsdevelopment/lockdown/blob/master/lib/determine_linux_distro
 * http://hackaday.com/2017/07/21/linux-fu-better-bash-scripting/
 
