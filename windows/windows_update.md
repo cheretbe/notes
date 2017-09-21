@@ -1,5 +1,6 @@
 Windows Update error code list: https://support.microsoft.com/en-us/kb/938205  
 Update troubleshooter: https://support.microsoft.com/en-us/kb/971058  
+Windows Update Catalog: https://www.catalog.update.microsoft.com/Home.aspx  
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect
 
 View last update times
