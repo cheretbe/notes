@@ -18,6 +18,16 @@ GUI location on Linux: `/usr/bin/virtualbox`
 vboxmanage list vms
 # List running VMs
 vboxmanage list runningvms
+
+# Resize a disk
+# 15Gb – 15360
+# 20Gb – 20480
+# 25Gb – 25600
+# 30Gb – 30720
+# 50Gb - 51200
+# in bytes: --resizebyte
+VBoxManage modifyhd <path to vdi> --resize <new size in megabytes>
+
 ```
 
 ### Disable time sync
