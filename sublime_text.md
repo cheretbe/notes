@@ -1,10 +1,12 @@
-* Naviation
+* Navigation
    * Goto Symbol: <kbd>Ctrl</kbd>+<kbd>R</kbd>
    * Jump Forward: <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd> (minus)
    * Jump Back: <kbd>Alt</kbd>+<kbd>-</kbd> (minus)
-   * Goto Definition <kbd>F12</kbd>
+   * Goto Definition: <kbd>F12</kbd>
 * Find and Replace
-   * Use Selection for Find Field <kbd>Ctrl</kbd>+<kbd>E</kbd>
+   * Use Selection for Find Field: <kbd>Ctrl</kbd>+<kbd>E</kbd>
+* Selection
+   * (custom, BracketHighlighter) Select text in brackets: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>
 
 ------
 * Cheat sheet: https://www.cheatography.com/tdeyle/cheat-sheets/sublime-text-3/
@@ -70,7 +72,36 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 * `GitGutter`
 * `Powershell`: https://packagecontrol.io/packages/PowerShell
 * `SublimeBookmarks`: https://packagecontrol.io/packages/Sublime%20Bookmarks
-* ~~`Open URL`: https://github.com/noahcoad/open-url~~ at least until https://github.com/noahcoad/open-url/issues/33 is resolved (Ctrl+U override)
+* `BracketHighlighter`: http://facelessuser.github.io/BracketHighlighter/
+
+BracketHighlighter config  
+Add to settings
+```
+    "match_brackets": false,
+    "match_brackets_angle": false,
+    "match_brackets_braces": false,
+    "match_brackets_content": false,
+    "match_brackets_square": false,
+    "match_tags": false
+```
+Keybindings (`Preferences` > `Key Bindings`):
+```
+	// Select text between brackets
+	{
+	    "no_outside_adj": null,
+	    "keys": ["ctrl+shift+b"],
+	    "command": "bh_key",
+	    "args":
+	    {
+	        "lines" : true,
+	        "plugin":
+	        {
+	            "type": ["__all__"],
+	            "command": "bh_modules.bracketselect"
+	        }
+  }
+```
+Other examples: https://github.com/facelessuser/BracketHighlighter/blob/master/Example.sublime-keymap
 
 2check:
 * SublimeFileBrowser: https://github.com/aziz/SublimeFileBrowser
