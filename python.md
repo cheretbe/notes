@@ -92,7 +92,14 @@ pip install --user --upgrade pip
 pip install --user virtualenvwrapper
 # ???
 # export PATH=~/.local/bin:$PATH
-source $HOME/.local/bin/virtualenvwrapper.sh
+# source $HOME/.local/bin/virtualenvwrapper.sh
+source virtualenvwrapper.sh
+# Make settings permanent
+cat >>~/.bashrc <<EOL
+
+# Initialize Virtualenvwrapper
+source virtualenvwrapper.sh
+EOL
 ```
 
 Requirements
