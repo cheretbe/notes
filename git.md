@@ -132,6 +132,8 @@ git tag -a 1.0 -m "version 1.0"
 git push --follow-tags
 # View current tag
 git describe --abbrev=0 --tags
+# Switch back to develop
+git checkout develop
 ```
 ### Github backup
 http://github-backup.branchable.com/
