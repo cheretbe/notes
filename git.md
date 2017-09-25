@@ -127,8 +127,10 @@ git branch
 git checkout master
 # Merge (--no-ff skips "fast-forward")
 git merge develop --no-ff
+# View current tag
+git describe --abbrev=0 --tags
 # Add a tag
-git tag -a 1.0 -m "version 1.0"
+git tag -a 1.1 -m "version 1.1"
 git push --follow-tags
 # View current tag
 git describe --abbrev=0 --tags
