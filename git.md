@@ -132,8 +132,6 @@ git describe --abbrev=0 --tags
 # Add a tag
 git tag -a 1.1 -m "version 1.1"
 git push --follow-tags
-# View current tag
-git describe --abbrev=0 --tags
 # Switch back to develop
 git checkout develop
 ```
