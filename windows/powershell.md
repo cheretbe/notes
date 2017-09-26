@@ -6,6 +6,8 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
 
 Join-Path -Path $FilePath -ChildPath $FileName
+
+Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 ```
 
 
