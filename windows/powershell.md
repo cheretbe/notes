@@ -4,6 +4,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~
 
 ```powershell
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
+Write-Host ${Env:ProgramFiles(x86)}
 
 Join-Path -Path $FilePath -ChildPath $FileName
 
