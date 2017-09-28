@@ -1,3 +1,8 @@
+Find all hardlinks to a file
+```shell
+find . -samefile /path/to/file 
+```
+
 Fix for ncdu drawing characters in PuTTY
 ```shell
 export NCURSES_NO_UTF8_ACS=1
