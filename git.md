@@ -44,6 +44,8 @@ git commit -c HEAD
 
 # Revert changes to tracked files:
 git reset –-hard
+# For a single file
+git checkout HEAD -- file.txt
 
 # Diff with previous commit
 git diff HEAD^ HEAD
