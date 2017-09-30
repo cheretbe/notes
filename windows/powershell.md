@@ -9,7 +9,7 @@ param(
   [switch]$switchParam
 )
   $switchParam.IsPresent
-  # Pass throug the switch to another cmdlet
+  # Pass through the switch to another cmdlet
   OtherDummy -switchParam:($switchParam.IsPresent)
 }
 
