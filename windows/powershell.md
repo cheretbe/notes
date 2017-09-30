@@ -9,6 +9,8 @@ param(
   [switch]$switchParam
 )
   $switchParam.IsPresent
+  # Pass throug the switch to another cmdlet
+  OtherDummy -switchParam:($switchParam.IsPresent)
 }
 
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
