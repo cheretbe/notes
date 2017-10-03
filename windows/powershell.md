@@ -14,6 +14,8 @@ param(
 }
 
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
+[enum]::GetValues([Microsoft.Win32.RegistryValueKind])
+
 Write-Host ${Env:ProgramFiles(x86)}
 
 Join-Path -Path $FilePath -ChildPath $FileName
