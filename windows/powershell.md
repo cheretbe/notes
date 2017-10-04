@@ -11,6 +11,13 @@ $script:scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheretbe/vagrant-files/develop/windows/provision/chocolatey.ps1'))
 
+$zero = 0
+try {
+  1 / $zero
+} catch {
+  $_ | Add-Member NoteProperty writeErrorStream $True -PassThru
+}
+
 function Dummy {
 [CmdletBinding()]
 param(
