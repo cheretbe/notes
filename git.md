@@ -6,7 +6,7 @@
 * [Submodules](#submodules)
 * [Branches and tags](#branches-and-tags)
 * [Github backup](#github-backup)
-* [.gitattributes Files](#-gitattributes-files)
+* [.gitattributes Files](#\.gitattributes-files)
 
 ### Unsorted
 ``` shell
