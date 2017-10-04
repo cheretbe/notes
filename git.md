@@ -6,6 +6,7 @@
 * [Submodules](#submodules)
 * [Branches and tags](#branches-and-tags)
 * [Github backup](#github-backup)
+* [.gitattributes Files](#.gitattributes-files)
 
 ### Unsorted
 ``` shell
@@ -148,4 +149,30 @@ http://github-backup.branchable.com/
 sudo apt install haskell-stack gcc zlib1g-dev libstdc++-5-dev g++
 stack upgrade
 /home/<user>/.local/bin/stack install --install-ghc
+```
+### .gitattributes Files
+
+Powerhsell (Windows)
+```
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+*.md            text
+*.gitattributes text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.ps1    text  eol=crlf
+*.psm1   text  eol=crlf
+*.psd1   text  eol=crlf
+*.psc1   text  eol=crlf
+*.ps1xml text  eol=crlf
+*.clixml text  eol=crlf
+*.xml    text  eol=crlf
+*.txt    text  eol=crlf
+
+# Denote all files that are truly binary and should not be mergeable.
+*.dll binary
+*.exe binary
 ```
