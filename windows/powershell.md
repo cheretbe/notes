@@ -7,6 +7,8 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop
 $Host.PrivateData.VerboseForegroundColor = [ConsoleColor]::DarkCyan
 
+Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheretbe/vagrant-files/develop/windows/provision/chocolatey.ps1'))
+
 function Dummy {
 [CmdletBinding()]
 param(
