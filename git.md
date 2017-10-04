@@ -55,6 +55,10 @@ git diff HEAD~ HEAD
 
 ### Initial setup
 ```bash
+# View current config
+git config --list
+git config --list --global
+
 git config --global user.name "user name"
 git config --global user.email "email"
 # Not needed in recent versions?
