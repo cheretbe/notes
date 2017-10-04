@@ -3,6 +3,10 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~
 ```
 
 ```powershell
+Set-StrictMode -Version Latest
+$ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop
+$Host.PrivateData.VerboseForegroundColor = [ConsoleColor]::DarkCyan
+
 function Dummy {
 [CmdletBinding()]
 param(
