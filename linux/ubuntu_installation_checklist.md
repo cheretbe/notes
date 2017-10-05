@@ -87,3 +87,24 @@ apt remove libnss-mdns
 - [ ] AES Crypt
   * https://www.aescrypt.com/download/
   * PCManFM integration: https://wiki.ubuntuusers.de/AES_Crypt/
+- [ ] Mouse wheel scroll speed
+```bash
+sudo apt-get install imwheel
+nano ~/.imwheelrc
+```
+```
+".*"
+None,      Up,   Button4, 3
+None,      Down, Button5, 3
+Control_L, Up,   Control_L|Button4
+Control_L, Down, Control_L|Button5
+Shift_L,   Up,   Shift_L|Button4
+Shift_L,   Down, Shift_L|Button5
+```
+The last 4 lines in the code above are there to allow Ctrl / Shift with mouse scroll wheel up / down to work (for instance, to allow zooming in on a webpage in the web browser, etc.), which is the default behaviour.
+```shell
+# --kill kills previous instance if exists
+imwheel --kill
+```
+Open Startup Applications, click "Add" and under both "Name" and "Command" fields, add "imwheel --kill"
+* http://www.webupd8.org/2015/12/how-to-change-mouse-scroll-wheel-speed.html
