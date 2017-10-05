@@ -57,15 +57,18 @@ git diff HEAD~ HEAD
 ### Initial setup
 ```bash
 # View current config
-git config --list
-git config --list --global
+git config --list [--global]
 
-git config --global user.name "user name"
-git config --global user.email "email"
-# Not needed in recent versions?
+# Avoid trying to guess "user.email" and "user.name", and instead retrieve the values only from the	configuration
+git config --global user.useConfigOnly true
+git config [--global] user.name "user name"
+git config [--global] user.email "email"
+
+# Credentials (not needed in recent versions?)
 git config --global credential.helper wincred
 # Linux (warning: stores in plaintext!):
 git config --global credential.helper store
+
 git config --global push.default simple
 ```
 
