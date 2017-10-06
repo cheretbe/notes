@@ -11,6 +11,9 @@ $script:scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheretbe/vagrant-files/develop/windows/provision/chocolatey.ps1'))
 
+&"cmd.exe" @("/c", "ver")
+Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
+
 $zero = 0
 try {
   1 / $zero
@@ -21,7 +24,8 @@ try {
 function Dummy {
 [CmdletBinding()]
 param(
-  [switch]$switchParam
+  [switch]$switchParam,
+  [string[]]$arrayOfStringsParam
 )
   $switchParam.IsPresent
   # Pass through the switch to another cmdlet
