@@ -203,9 +203,11 @@ AllowTcpForwarding yes
 Do not forward the locale settings
 * on client: in `/etc/ssh/ssh_config` comment out the line:
 ```
-SendEnv LANG LC_*
+#SendEnv LANG LC_*
 ```
+Can't be disabled in `~/.ssh/config` (https://superuser.com/questions/485569/how-to-disable-sendenv-variables-set-in-ssh-config-from-ssh-config)
+
 * on server: in `/etc/ssh/sshd_config` comment out the line:
 ```
-AcceptEnv LANG LC_*
+#AcceptEnv LANG LC_*
 ```
