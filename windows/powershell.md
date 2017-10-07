@@ -39,6 +39,10 @@ Write-Host ${Env:ProgramFiles(x86)}
 
 Join-Path -Path $FilePath -ChildPath $FileName
 
+# Creates parent directories as needed by default
+# -Force causes New-Item not to fail if the directory already exists
+New-Item -ItemType Directory -Path $dir_to_create -Force | Out-Null 
+
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 ```
 
