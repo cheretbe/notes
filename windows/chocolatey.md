@@ -1,3 +1,7 @@
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+
 * https://github.com/chocolatey/choco/wiki/How-To-Host-Feed
 
 ```bat
