@@ -131,6 +131,8 @@ http://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule/21211232#
 
 ``` shell
 # Merge back develop -> master and tag a version
+# Update all branches
+git pull --all
 # Make sure you are on master branch
 git branch
 # If not switch to it
