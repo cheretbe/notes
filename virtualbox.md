@@ -1,3 +1,8 @@
+Packages to install before guest additions
+```
+apt install dkms build-essential linux-headers-generic
+```
+
 Change default VM location
 ```shell
 vboxmanage setproperty machinefolder /path/to/directory/
