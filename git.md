@@ -16,6 +16,9 @@ git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
 
 ### Cheat Sheet
 ```shell
+# Clone a repository and download submodules simultaneously
+git clone --recursive https://url
+
 # View config
 git config [--global] –list
 
