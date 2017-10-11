@@ -36,7 +36,7 @@ Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -Foreg
 [enum]::GetValues([Microsoft.Win32.RegistryValueKind])
 
 Write-Host ${Env:ProgramFiles(x86)}
-$cpuArch = if (${Env:ProgramFiles(x86)}) {"x64"} else {"x86"}
+$cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
 
 Join-Path -Path $FilePath -ChildPath $FileName
 
