@@ -9,6 +9,7 @@ TODO:
 - [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
 - [ ] `apt install gparted mc htop`
 - [ ] Screensaver and lock settings
+- [ ] PCManFM
 - [ ] Latest Remmina client
 ```bash
 sudo add-apt-repository ppa:remmina-ppa-team/remmina-next
