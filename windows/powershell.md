@@ -38,7 +38,7 @@ Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -Foreg
 Write-Host ${Env:ProgramFiles(x86)}
 $cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
 
-# Escape curly braces in with -f operator
+# Escape curly braces when used with -f operator
 Write-Host ("{{ {0} }}" -f "test")
 
 Join-Path -Path $FilePath -ChildPath $FileName
