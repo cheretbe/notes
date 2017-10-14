@@ -45,6 +45,13 @@ Join-Path -Path $FilePath -ChildPath $FileName
 New-Item -ItemType Directory -Path $dir_to_create -Force | Out-Null 
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
+
+# Reading key input
+$host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
+# Alternative
+[console]::ReadKey($TRUE)
+# Or better yet? (review)
+# http://stackoverflow.com/a/22362868
 ```
 
 
