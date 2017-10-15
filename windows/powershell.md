@@ -56,6 +56,7 @@ $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
 # Or better yet? (review)
 # http://stackoverflow.com/a/22362868
 
+# WMI Reference: http://www.powertheshell.com/reference/wmireference/
 $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 # for a Virtualbox VM:
 # $ComputerSystemInfo.Manufacturer: innotek GmbH
