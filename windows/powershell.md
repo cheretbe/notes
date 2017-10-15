@@ -55,6 +55,11 @@ $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
 [console]::ReadKey($TRUE)
 # Or better yet? (review)
 # http://stackoverflow.com/a/22362868
+
+$ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
+# for a Virtualbox VM:
+# $ComputerSystemInfo.Manufacturer: innotek GmbH
+# $ComputerSystemInfo.Model       : VirtualBox
 ```
 
 
