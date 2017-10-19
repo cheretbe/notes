@@ -10,7 +10,7 @@ echo export EDITOR=/bin/nano >> ~/.bashrc
 **M** means <kbd>Meta</kbd> (<kbd>Alt</kbd> by default in Linux) - http://superuser.com/questions/581671/find-next-command-in-nano/581691#581691
 ---
 * Select <kbd>ALT</kbd>+<kbd>M</kbd>+<kbd>A</kbd>
-* Copy <kbd>ALT</kbd>+<kbd>6</kbd> (with no selection copies current line)
+* Copy <kbd>ALT</kbd>+<kbd>6</kbd> (with no selection copies current line) - on Linux <kbd>ALT</kbd>+<kbd>Shift</kbd>+<kbd>6</kbd>
 * Cut <kbd>Ctrl</kbd>+<kbd>K</kbd> (with no selection cuts current line)
 * Paste <kbd>Ctrl</kbd>+<kbd>U</kbd>
 ---
