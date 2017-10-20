@@ -35,7 +35,7 @@ reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v Shu
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
 ```
 
-Force XP shutdown even if there are logged in users
+Force XP shutdown even if there are logged in users (![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) This setting forces MessageBox function to automatically choose the default button)
 ```batch
 :: Query current policy setting
 reg.exe QUERY "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /v EnableDefaultReply
