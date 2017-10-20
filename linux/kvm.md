@@ -35,6 +35,8 @@ reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v Shu
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
 ```
 
+Power option "Turn off the display" has to be set to off
+
 Force XP shutdown even if there are logged in users (![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) This setting forces MessageBox function to automatically choose the default button)
 ```batch
 :: Query current policy setting
@@ -42,6 +44,8 @@ reg.exe QUERY "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /
 :: If it is 0x0 or not present, update to 0x1
 reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /v EnableDefaultReply /t REG_DWORD /d 0x1 /f
 ```
+* http://mindref.blogspot.ru/2011/04/kvm-shutdown-windows-guest-gracefullly.html
+* https://pve.proxmox.com/wiki/Windows_2012_guest_best_practices
 
 [\[ TOC \]](#table-of-contents)
 
