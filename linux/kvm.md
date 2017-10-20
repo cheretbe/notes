@@ -21,7 +21,7 @@ Enable policy: Local Computer Policy > Computer Configuration > Windows Settings
 ```batch
 :: Query current policy setting
 reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v shutdownwithoutlogon
-If it is 0x0, update to 0x1
+:: If it is 0x0, update to 0x1
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v shutdownwithoutlogon /t REG_DWORD /d 0x1 /f
 :: Update policies
 gpupdate /force
@@ -33,6 +33,14 @@ Shutdown timeout
 reg.exe QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout
 :: If it is 0xffffffff, update to 0x00000001
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v ShutdownWarningDialogTimeout /t REG_DWORD /d 0x1 /f
+```
+
+Force XP shutdown even if there are logged in users
+```batch
+:: Query current policy setting
+reg.exe QUERY "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /v EnableDefaultReply
+:: If it is 0x0 or not present, update to 0x1
+reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /v EnableDefaultReply /t REG_DWORD /d 0x1 /f
 ```
 
 [\[ TOC \]](#table-of-contents)
