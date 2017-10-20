@@ -5,3 +5,5 @@ and set `Storage=persistent`, then restart the service
 ```bash
 systemctl restart systemd-journald
 ```
+* https://askubuntu.com/questions/765315/how-to-find-previous-boot-log-after-ubuntu-16-04-restarts
+* https://wiki.archlinux.org/index.php/Systemd#Journal
