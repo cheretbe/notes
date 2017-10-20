@@ -11,6 +11,7 @@
 ### Unsorted
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
 * https://sebastian.marsching.com/wiki/Linux/KVM
+* Shutdown script on Ubuntu 16.04: `/usr/lib/libvirt/libvirt-guests.sh`
 
 [\[ TOC \]](#table-of-contents)
 
