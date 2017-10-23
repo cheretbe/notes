@@ -88,20 +88,21 @@ Add to settings
 ```
 Keybindings (`Preferences` > `Key Bindings`):
 ```
-	// Select text between brackets
-	{
-	    "no_outside_adj": null,
-	    "keys": ["ctrl+shift+b"],
-	    "command": "bh_key",
-	    "args":
-	    {
-	        "lines" : true,
-	        "plugin":
-	        {
-	            "type": ["__all__"],
-	            "command": "bh_modules.bracketselect"
-	        }
-  }
+// Select text between brackets
+{
+    "no_outside_adj": null,
+    "keys": ["ctrl+shift+b"],
+    "command": "bh_key",
+    "args":
+    {
+        "lines" : true,
+        "plugin":
+        {
+            "type": ["__all__"],
+            "command": "bh_modules.bracketselect"
+        }
+    }
+}
 ```
 Other examples: https://github.com/facelessuser/BracketHighlighter/blob/master/Example.sublime-keymap
 
