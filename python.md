@@ -17,6 +17,8 @@ os.path.join(path1, path2)
 os.path.isfile(fname)
 # Normalize path separators
 os.path.normpath(fname)
+# Script dir
+os.path.dirname(os.path.realpath(__file__))
 
 # Remove a file
 os.remove(path)
