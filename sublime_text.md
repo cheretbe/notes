@@ -1,14 +1,16 @@
 * Navigation
-   * Goto Symbol: <kbd>Ctrl</kbd>+<kbd>R</kbd>
-   * Jump Forward: <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>-</kbd> (minus)
-   * Jump Back: <kbd>Alt</kbd>+<kbd>-</kbd> (minus)
+   * Goto Symbol: <kbd>Ctrl</kbd> + <kbd>R</kbd>
+   * Jump Forward: <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>-</kbd> (minus)
+   * Jump Back: <kbd>Alt</kbd> + <kbd>-</kbd> (minus)
    * Goto Definition: <kbd>F12</kbd>
 * Find and Replace
-   * Use Selection for Find Field: <kbd>Ctrl</kbd>+<kbd>E</kbd>
+   * Use Selection for Find Field: <kbd>Ctrl</kbd> + <kbd>E</kbd>
 * Selection
-   * (custom, BracketHighlighter) Select text in brackets: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>
+   * (custom, BracketHighlighter) Select text in brackets: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>
 * Editing
    * Join Line Below The Current Line: <kbd>CTRL</kbd> + <kbd>J</kbd>
+   * Insert Line Before <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>
+   * Insert Line After <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
 
 ------
 * Cheat sheet: https://www.cheatography.com/tdeyle/cheat-sheets/sublime-text-3/
