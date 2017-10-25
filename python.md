@@ -10,7 +10,6 @@ __pycache__/
 ```
 
 ## Code Snippets
-Paths
 ```python
 # Join paths
 os.path.join(path1, path2)
@@ -25,6 +24,14 @@ os.remove(path)
 os.rmdir(path)
 # Remove directories recursively
 os.removedirs(name)
+
+# Run external process
+import subprocess
+# check_call either returns 0 or throws an exception
+subprocess.check_call(("ls", "-lh", "."))
+# expand ~
+import os
+subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 ```
 ## Debugging
 ```
