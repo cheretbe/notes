@@ -27,6 +27,23 @@ os.rmdir(path)
 # Remove directories recursively
 os.removedirs(name)
 
+# Create a directory
+# [!] May cause a race condition in a multi-process evironment
+if not os.path.exists(directory):
+    os.makedirs(directory)
+# Python 3.2+
+os.makedirs(directory, exist_ok=True)
+# Python 2.5+
+try:
+    os.makedirs(directory)
+except OSError as exc:  # Python >2.5
+    if exc.errno == errno.EEXIST and os.path.isdir(directory):
+        pass
+    else:
+        raise
+# https://stackoverflow.com/questions/273192/how-can-i-create-a-directory-if-it-does-not-exist
+# https://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python
+
 # Run external process
 import subprocess
 # check_call either returns 0 or throws an exception
