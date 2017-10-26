@@ -24,8 +24,10 @@ os.path.dirname(os.path.realpath(__file__))
 os.remove(path)
 # Remove an empty directory
 os.rmdir(path)
-# Remove directories recursively
+# Remove directories recursively (does not work?)
 os.removedirs(name)
+# Use this instead
+shutil.rmtree(path)
 
 # Create a directory
 # [!] May cause a race condition in a multi-process evironment
