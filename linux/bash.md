@@ -38,7 +38,7 @@ printf "Adding %s (%s) to /etc/hosts\n" ${other_host_name} ${other_host_ip}
 
 ```bash
 # Alias
-alias bashrc="gs git fetch && git status"
+alias gs="git fetch && git status"
 # Apply changes
 source ~/.bashrc
 ```
