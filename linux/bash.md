@@ -34,6 +34,15 @@ done
 printf "Adding %s (%s) to /etc/hosts\n" ${other_host_name} ${other_host_ip}
 ```
 
+### .bashrc File
+
+```bash
+# Alias
+alias bashrc="gs git fetch && git status"
+# Apply changes
+source ~/.bashrc
+```
+
 ### Options
 #### Unofficial Strict Mode
 ```bash
