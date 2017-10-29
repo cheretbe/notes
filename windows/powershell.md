@@ -43,6 +43,10 @@ Write-Host ("{{ {0} }}" -f "test")
 
 Join-Path -Path $FilePath -ChildPath $FileName
 
+if (Test-Path -Path $DirPath) {
+  Remove-Item -Path $DirPath -Recurse -Force
+}
+
 # Creates parent directories as needed by default
 # -Force causes New-Item not to fail if the directory already exists
 New-Item -ItemType Directory -Path $dir_to_create -Force | Out-Null 
