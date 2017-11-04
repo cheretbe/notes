@@ -15,7 +15,12 @@ To be able to add USB devices on **host** in Linux:
 sudo adduser <username> vboxusers
 ```
 
-GUI location on Linux: `/usr/bin/virtualbox`
+GUI location (Linux): `/usr/bin/virtualbox`
+Guest Additions location (Linux): `/usr/share/virtualbox/VBoxGuestAdditions.iso`
+View:
+```shell
+list systemproperties | grep -i 'Default Guest Additions ISO'
+```
 
 ### Sample vboxmanage commands
 ```shell
