@@ -20,7 +20,10 @@ $zero = 0
 try {
   1 / $zero
 } catch {
-  $_ | Add-Member NoteProperty writeErrorStream $True -PassThru
+  $_ | Add-Member NoteProperty writeErrorStream $TRUE -PassThru
+  # Add-Member -MemberType ([System.Management.Automation.PSMemberTypes]::NoteProperty) -Name "writeErrorStream" -Value $TRUE -PassThru
+  # Won't work in PS 2.0
+  # $_ | Add-Member -NotePropertyName "writeErrorStream" -NotePropertyValue $TRUE -PassThru
 }
 
 function Dummy {
