@@ -49,7 +49,8 @@ if (Test-Path -Path $DirPath) {
 
 # Creates parent directories as needed by default
 # -Force causes New-Item not to fail if the directory already exists
-New-Item -ItemType Directory -Path $dir_to_create -Force | Out-Null 
+# ItemType is a string
+New-Item -ItemType "Directory" -Path $dir_to_create -Force | Out-Null 
 
 New-ItemProperty -Path "HKCU:\Console" -Name "FaceName" -Value "Consolas" -PropertyType ([Microsoft.Win32.RegistryValueKind]::String) -Force
 
