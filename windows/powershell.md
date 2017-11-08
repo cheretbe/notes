@@ -14,6 +14,8 @@ Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient
 &"cmd.exe" @("/c", "ver")
 Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
 
+[enum]::GetValues([System.Management.Automation.PSMemberTypes])
+
 $zero = 0
 try {
   1 / $zero
