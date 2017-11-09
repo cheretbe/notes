@@ -187,6 +187,8 @@ ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
 ```bash
 # RDP port forwarding
 ssh user@host.tld -L 1234:192.168.0.200:3389
+# Don't add host key to known_hosts
+ssh user@host.tld -o "UserKnownHostsFile /dev/null"
 ```
 
 ``` bash
