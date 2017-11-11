@@ -16,6 +16,7 @@ vagrant global-status
 vagrant box add my-box file://path/to/file.box
 # Windows
 vagrant box add my-box file:///d:/path/to/file.box
+vagrant box add my-box file:////network/share/file.box
 ```
 
 To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable needs to be set.
