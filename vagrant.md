@@ -11,6 +11,11 @@ vagrant box prune
 
 # View all know Vagrant VMs
 vagrant global-status
+
+# Add a box from a local file
+vagrant box add my-box file://path/to/file.box
+# Windows
+vagrant box add my-box file:///d:/path/to/file.box
 ```
 
 To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable needs to be set.
