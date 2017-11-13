@@ -1,3 +1,25 @@
+Collapsible details content
+<details>
+  <summary>
+    Show details
+  </summary>
+
+  * Your markdown content here
+  * Note an empty line after the `</summary>` tag (markdown parsing in details fails without it)
+</details>
+
+```markdown
+Collapsible details content
+<details>
+  <summary>
+    Show details
+  </summary>
+
+  * Your markdown content here
+  * Note an empty line after the `</summary>` tag (markdown parsing in details fails without it)
+</details>
+```
+
 [Link](https://ya.ru) example
 ```markdown
 [Link](https://ya.ru) example
