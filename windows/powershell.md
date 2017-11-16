@@ -43,6 +43,9 @@ Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -Foreg
 Write-Host ${Env:ProgramFiles(x86)}
 $cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
 
+if ([environment]::OSVersion.Version -ge ([version]"10.0"))
+  { Write-Host "Windows 10+" }
+
 # Escape curly braces when used with -f operator
 Write-Host ("{{ {0} }}" -f "test")
 
