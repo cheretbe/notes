@@ -29,6 +29,12 @@ os.removedirs(name)
 # Use this instead
 shutil.rmtree(path)
 
+# Get current temp directory
+import tempfile
+tempfile.gettempdir()
+f = tempfile.NamedTemporaryFile(delete=False)
+f.close()
+
 # Create a directory
 # [!] May cause a race condition in a multi-process evironment
 if not os.path.exists(directory):
