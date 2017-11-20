@@ -10,7 +10,7 @@ pv big_file.tar.gz | nc host.domain.tld 1234
 tar cvf - directory/ | pigz | nc host.domain.tld 1234
 tar cvf - /with/full/path/ | pigz | nc host.domain.tld 1234
 
-# on server
+# on server (receiver)
 # -q seconds: after EOF is detected, wait the specified number of seconds and then quit
 nc -q 1 -l -p 1234 | tar xv
 # with current speed display (make sure pv is installed)
@@ -19,6 +19,6 @@ nc -q 1 -l -p 1234 | pv | tar x
 # TODO: do some mbuffer tests
 # https://unix.stackexchange.com/questions/48399/fast-way-to-copy-a-large-file-on-a-lan/48555#48555
 
-# on client
+# on client (sender)
 tar cv . | nc -q 1 dest-ip 1234
 ```
