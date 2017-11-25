@@ -256,4 +256,9 @@ pytz.utc.localize(datetime.datetime.utcnow())
 datetime.datetime.now(dateutil.tz.tzoffset(None, -time.timezone))
 # Take DST in account
 datetime.datetime.now(dateutil.tz.tzoffset(None, -time.altzone))
+
+# Print localized datetime
+import locale
+locale.setlocale(locale.LC_ALL, '')
+datetime.datetime.now().strftime("%x %X")
 ```
