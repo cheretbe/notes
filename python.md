@@ -205,6 +205,12 @@ Unit tests
 * [unittests_examples.py](files/python/unittests_examples.py)
 * [test_unittests_examples.py](files/python/test_unittests_examples.py)
 
+Unsorted
+```
+Reset the call history of a mock function
+func_mock.reset_mock()
+```
+
 ```bash
 # all tests directories need to have an init.py to be discovered
 python -m unittest discover <test_directory>
