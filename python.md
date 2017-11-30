@@ -202,6 +202,9 @@ git fetch --all && git status
 ```
 
 Unit tests
+* [unittests_examples.py](files/python/unittests_examples.py)
+* [test_unittests_examples.py](files/python/test_unittests_examples.py)
+
 ```bash
 # all tests directories need to have an init.py to be discovered
 python -m unittest discover <test_directory>
