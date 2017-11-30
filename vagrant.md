@@ -25,5 +25,14 @@ To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable
 echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
 
+### API
+
+* https://www.vagrantup.com/docs/vagrant-cloud/api.html
+
+```bash
+# List all boxes for a user
+curl "https://app.vagrantup.com/api/v1/user/username"
+```
+
 ### Plugins
 * hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
