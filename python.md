@@ -10,6 +10,9 @@ __pycache__/
 ```
 
 ## Code Snippets
+* Unit tests
+    * [unittests_examples.py](files/python/unittests_examples.py)
+    * [test_unittests_examples.py](files/python/test_unittests_examples.py)
 ```python
 # Join paths
 os.path.join(path1, path2)
