@@ -148,6 +148,14 @@ pip install -r requirements.txt
 pip install pur
 pur -r requirements.txt
 ```
+```
+pyreadline; sys_platform == 'win32'
+atomac==1.1.0; sys_platform == 'darwin'
+futures>=3.0.5; python_version < '3.0'
+futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
+```
+* http://pip.readthedocs.io/en/stable/user_guide/#requirements-files
+* https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project
 
 ```bash
 sudo su -
