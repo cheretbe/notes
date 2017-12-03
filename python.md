@@ -116,7 +116,7 @@ git fetch --all && git status
 * http://timmyreilly.azurewebsites.net/setup-a-virtualenv-for-python-3-on-windows/
 * https://stackoverflow.com/questions/341184/can-i-install-python-3-x-and-2-x-on-the-same-computer
 
-## Linux
+### Linux
 
 To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
@@ -127,19 +127,28 @@ apt install python-pip
 # As user
 pip install --user --upgrade pip
 pip install --user virtualenvwrapper
-# ???
+
+# On server .local/bin might not be on PATH when .bashrc is loaded
 # export PATH=~/.local/bin:$PATH
 # source $HOME/.local/bin/virtualenvwrapper.sh
 source virtualenvwrapper.sh
+
 # Make settings permanent
 cat >>~/.bashrc <<EOL
 
 # Initialize Virtualenvwrapper
 source virtualenvwrapper.sh
 EOL
+
+# Most likely Python 2 is default
+```bash
+mkvirtualenv [-p python3] <name>
+lsvirtualenv
+rmvirtualenv <name>
+workon [<name>]
 ```
 
-Requirements
+## Requirements
 ```bash
 pip freeze > requirements.txt
 pip install -r requirements.txt
@@ -148,6 +157,7 @@ pip install -r requirements.txt
 pip install pur
 pur -r requirements.txt
 ```
+`requirements.txt` example
 ```
 pyreadline; sys_platform == 'win32'
 atomac==1.1.0; sys_platform == 'darwin'
@@ -157,47 +167,6 @@ futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
 * http://pip.readthedocs.io/en/stable/user_guide/#requirements-files
 * https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project
 
-```bash
-sudo su -
-wget "https://bootstrap.pypa.io/get-pip.py"
-python get-pip.py
-pip install virtualenv
-```
-Virtualenv
-
-```bash
-# Python 2
-virtualenv newenv
-# Python 3
-virtualenv -p python3 newenv
-source newenv/bin/activate
-deactivate
-```
-
-Virtualenvwrapper
-
-* http://virtualenvwrapper.readthedocs.io/en/latest/install.html
-
-```bash
-sudo apt install build-essential python-dev python3-dev python-pip python3-pip
-pip install --user virtualenvwrapper
-```
-add the following to `~/.bashrc`
-```
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-source $HOME/.local/bin/virtualenvwrapper.sh
-```
-Restart shell of run
-```bash
-source ~/.bashrc
-```
-Essential commands:
-```bash
-mkvirtualenv [-p python3] <name>
-lsvirtualenv
-rmvirtualenv <name>
-workon [<name>]
 
 # Set project directory
 cd ~/projects/project-dir
@@ -209,7 +178,7 @@ echo Checking git repo status...
 git fetch --all && git status
 ```
 
-Unit tests
+## Unit tests
 * [unittests_examples.py](files/python/unittests_examples.py)
 * [test_unittests_examples.py](files/python/test_unittests_examples.py)
 
