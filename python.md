@@ -146,6 +146,15 @@ mkvirtualenv [-p python3] <name>
 lsvirtualenv
 rmvirtualenv <name>
 workon [<name>]
+
+# Set project directory
+cd ~/projects/project-dir
+setvirtualenvproject $VIRTUAL_ENV $(pwd)
+
+# Post-activate commands
+nano $VIRTUAL_ENV/bin/postactivate
+echo Checking git repo status...
+git fetch --all && git status
 ```
 
 ## Requirements
@@ -167,16 +176,6 @@ futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
 * http://pip.readthedocs.io/en/stable/user_guide/#requirements-files
 * https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project
 
-
-# Set project directory
-cd ~/projects/project-dir
-setvirtualenvproject $VIRTUAL_ENV $(pwd)
-
-# Post-activate commands
-nano $VIRTUAL_ENV/bin/postactivate
-echo Checking git repo status...
-git fetch --all && git status
-```
 
 ## Unit tests
 * [unittests_examples.py](files/python/unittests_examples.py)
