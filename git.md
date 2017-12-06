@@ -149,6 +149,9 @@ git tag -a 1.1 -m "version 1.1"
 git push --follow-tags
 # Switch back to develop
 git checkout develop
+
+# View graph (a dog: -*a*ll --*d*ecorate --*o*neline --*g*raph)
+git log --all --decorate --oneline --graph
 ```
 ### Github backup
 http://github-backup.branchable.com/
