@@ -1,6 +1,8 @@
+Unsorted
 ```python
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 ```
+* https://anthony-tuininga.github.io/cx_Freeze/
 
 Git ignore
 ```
@@ -8,6 +10,10 @@ Git ignore
 __pycache__/
 *.pyc
 ```
+
+# Table of Contents
+* [Installation](#installation)
+* [Requirements](#requirements)
 
 ## Code Snippets
 * Unit tests
@@ -63,6 +69,8 @@ subprocess.check_call(("ls", "-lh", "."))
 import os
 subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 ```
+* [\[ TOC \]](#table-of-contents)
+
 ## Debugging
 ```
 pip install ipdb
@@ -83,6 +91,7 @@ pprint(inspect.getmembers(os._Environ))
 # cls’s base classes
 pprint(inspect.getmro(os._Environ))
 ```
+* [\[ TOC \]](#table-of-contents)
 
 ## Installation
 ### Windows
@@ -156,6 +165,7 @@ nano $VIRTUAL_ENV/bin/postactivate
 echo Checking git repo status...
 git fetch --all && git status
 ```
+* [\[ TOC \]](#table-of-contents)
 
 ## Requirements
 ```bash
@@ -208,6 +218,7 @@ pytest -m 'mark1 and not mark2'
 # pip install nose2
 nose2
 ```
+* [\[ TOC \]](#table-of-contents)
 
 Fix indentation
 ([!] use file path - by default it scans current directory)
