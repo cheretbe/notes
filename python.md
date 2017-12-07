@@ -127,6 +127,8 @@ git fetch --all && git status
 * http://timmyreilly.azurewebsites.net/setup-a-virtualenv-for-python-3-on-windows/
 * https://stackoverflow.com/questions/341184/can-i-install-python-3-x-and-2-x-on-the-same-computer
 
+* [\[ TOC \]](#table-of-contents)
+
 ### Linux
 
 To review:
