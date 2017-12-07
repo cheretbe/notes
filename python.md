@@ -13,6 +13,8 @@ __pycache__/
 
 # Table of Contents
 * [Installation](#installation)
+    * [Windows](#windows)
+    * [Linux](#linux)
 * [Requirements](#requirements)
 
 ## Code Snippets
