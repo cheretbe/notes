@@ -162,7 +162,7 @@ git fetch --all && git status
 * http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/
 * http://timmyreilly.azurewebsites.net/setup-a-virtualenv-for-python-3-on-windows/
 * https://stackoverflow.com/questions/341184/can-i-install-python-3-x-and-2-x-on-the-same-computer
-
+-----
 * [\[ TOC \]](#table-of-contents)
 
 ### Linux
@@ -225,7 +225,7 @@ futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
 ```
 * http://pip.readthedocs.io/en/stable/user_guide/#requirements-files
 * https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project
---
+-----
 * [\[ TOC \]](#table-of-contents)
 
 ## Unit tests
