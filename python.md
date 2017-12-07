@@ -12,6 +12,8 @@ __pycache__/
 ```
 
 # Table of Contents
+* [Code Snippets](#code-snippets)
+* [Debugging](#debugging)
 * [Installation](#installation)
     * [Windows](#windows)
     * [Linux](#linux)
