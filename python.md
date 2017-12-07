@@ -73,6 +73,38 @@ subprocess.check_call(("ls", "-lh", "."))
 import os
 subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 ```
+Datetime
+* http://techblog.thescore.com/2015/11/03/timezones-in-python/
+* http://pytz.sourceforge.net/#localized-times-and-date-arithmetic
+
+```python
+import dateutil.parser
+import dateutil.tz
+import pytz
+import time
+
+# 2016-12-31T21:25:30+00:30
+datetime.datetime(year=2016, month=12, day=31, hour=21, minute=25, second=30, tzinfo=dateutil.tz.tzoffset(None, +1800)).isoformat()
+
+# 2017-01-01T00:55:30+04:00
+dateutil.parser.parse("2016-12-31T21:25:30+00:30").astimezone(dateutil.tz.tzoffset(None, 14400)).isoformat()
+
+# 2016-12-31T21:25:30+00:00
+pytz.utc.localize(dateutil.parser.parse("2016-12-31T21:25:30")).isoformat()
+
+# tz-aware local UTC time
+pytz.utc.localize(datetime.datetime.utcnow())
+# tz-aware local time
+datetime.datetime.now(dateutil.tz.tzoffset(None, -time.timezone))
+# Take DST in account
+datetime.datetime.now(dateutil.tz.tzoffset(None, -time.altzone))
+
+# Print localized datetime
+import locale
+locale.setlocale(locale.LC_ALL, '')
+datetime.datetime.now().strftime("%x %X")
+```
+
 * [\[ TOC \]](#table-of-contents)
 
 ## Debugging
@@ -234,36 +266,4 @@ sudo apt install python3.5-examples
 sudo apt install python2.7-examples
 /usr/share/doc/python3.5/examples/scripts/reindent.py [file.py]
 /usr/share/doc/python2.7/examples/Tools/scripts/reindent.py [file.py]
-```
-
-Datetime
-* http://techblog.thescore.com/2015/11/03/timezones-in-python/
-* http://pytz.sourceforge.net/#localized-times-and-date-arithmetic
-
-```python
-import dateutil.parser
-import dateutil.tz
-import pytz
-import time
-
-# 2016-12-31T21:25:30+00:30
-datetime.datetime(year=2016, month=12, day=31, hour=21, minute=25, second=30, tzinfo=dateutil.tz.tzoffset(None, +1800)).isoformat()
-
-# 2017-01-01T00:55:30+04:00
-dateutil.parser.parse("2016-12-31T21:25:30+00:30").astimezone(dateutil.tz.tzoffset(None, 14400)).isoformat()
-
-# 2016-12-31T21:25:30+00:00
-pytz.utc.localize(dateutil.parser.parse("2016-12-31T21:25:30")).isoformat()
-
-# tz-aware local UTC time
-pytz.utc.localize(datetime.datetime.utcnow())
-# tz-aware local time
-datetime.datetime.now(dateutil.tz.tzoffset(None, -time.timezone))
-# Take DST in account
-datetime.datetime.now(dateutil.tz.tzoffset(None, -time.altzone))
-
-# Print localized datetime
-import locale
-locale.setlocale(locale.LC_ALL, '')
-datetime.datetime.now().strftime("%x %X")
 ```
