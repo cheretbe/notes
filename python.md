@@ -18,6 +18,7 @@ __pycache__/
     * [Windows](#windows)
     * [Linux](#linux)
 * [Requirements](#requirements)
+* [Unit Tests](#unit-tests)
 * [Fix Indentation](#fix-indentation)
 
 ## Code Snippets
@@ -224,7 +225,8 @@ futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
 ```
 * http://pip.readthedocs.io/en/stable/user_guide/#requirements-files
 * https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project
-
+--
+* [\[ TOC \]](#table-of-contents)
 
 ## Unit tests
 * [unittests_examples.py](files/python/unittests_examples.py)
