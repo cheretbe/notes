@@ -152,6 +152,13 @@ git checkout develop
 
 # View graph (a dog: -*a*ll --*d*ecorate --*o*neline --*g*raph)
 git log --all --decorate --oneline --graph
+
+# Push a new local branch to a remote Git repository and track it
+# 1. Create
+git checkout -b feature_branch_name
+# 2. Edit, add and commit files
+# 3. Push the branch to the remote repository:
+git push -u origin feature_branch_name
 ```
 ### Github backup
 http://github-backup.branchable.com/
