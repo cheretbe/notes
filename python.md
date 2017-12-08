@@ -6,6 +6,7 @@ path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
     * https://ptmccarthy.github.io/2016/01/22/python-cx-freeze/
 * https://github.com/squeaky-pl/portable-pypy
 * https://docs.python.org/3/distutils/sourcedist.html
+* https://github.com/pypa/pip/issues/4207#issuecomment-281236055 (+ `pip install -t`)
 
 Git ignore
 ```
