@@ -1,5 +1,9 @@
 * https://app.vagrantup.com
 
+```
+config.winrm.password = "password"
+```
+
 ```shell
 # List boxes
 vagran box list
