@@ -184,6 +184,19 @@ ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
 * https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
 
 ## Notes
+Custom connection options
+```
+touch ~/.ssh/config
+```
+```
+Host host1
+  HostName host1.domain.tld
+  User username
+  Port 1234
+  IdentityFile /path/to/a/file
+```
+
+
 ```bash
 # RDP port forwarding
 ssh user@host.tld -L 1234:192.168.0.200:3389
