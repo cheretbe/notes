@@ -9,4 +9,11 @@ IF "%ProgramFiles(x86)%"=="" (
 ) ELSE (
   ECHO x64
 )
+
+:: If PATH already ends with a ";" don't add an extra one
+IF "%PATH:~-1%"==";" (
+  SET PATH=%PATH%%HOMEPATH%\subdir
+) ELSE (
+  SET PATH=%PATH%;%HOMEPATH%\subdir
+)
 ```
