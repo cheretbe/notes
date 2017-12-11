@@ -6,6 +6,7 @@
     vb.gui = true
     vb.memory = "1024"
     vb.cpus = "1"
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
   end
 ```
 
