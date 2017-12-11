@@ -121,6 +121,8 @@ git push
 # On another copy of the repo (after pull)
 git submodule update --init --recursive
 ```
+* https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407
+
 Submodules always point to a specific commit in the linked repository. To track a branch `-b` option can be used. Submodule will still point to some specific commit, but it can be updated to the latest commit with the following command:
 ``` shell
 git submodule update --remote
