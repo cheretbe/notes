@@ -12,8 +12,8 @@ IF "%ProgramFiles(x86)%"=="" (
 
 :: If PATH already ends with a ";" don't add an extra one
 IF "%PATH:~-1%"==";" (
-  SET PATH=%PATH%%HOMEPATH%\subdir
+  SET PATH=%PATH%%HOMEDRIVE%%HOMEPATH%\subdir
 ) ELSE (
-  SET PATH=%PATH%;%HOMEPATH%\subdir
+  SET PATH=%PATH%;%HOMEDRIVE%%HOMEPATH%\subdir
 )
 ```
