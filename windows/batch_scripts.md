@@ -16,6 +16,6 @@ IF "%PATH:~-1%"==";" (
 ) ELSE (
   SET "PATH=%PATH%;%HOMEDRIVE%%HOMEPATH%\subdir"
 )
-```
 
 FOR /F "TOKENS=1,2,*" %%A IN ('REG QUERY "HKLM\SOFTWARE\TortoiseSVN" /V "Directory"') DO SET SvnRootDir=%%C
+```
