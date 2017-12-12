@@ -195,6 +195,7 @@ Host host1
   Port 1234
   IdentityFile /path/to/a/file
   ForwardX11 yes
+  LocalForward 2345 192.168.0.1:3389
 ```
 
 
