@@ -30,6 +30,8 @@ __pycache__/
     * [unittests_examples.py](files/python/unittests_examples.py)
     * [test_unittests_examples.py](files/python/test_unittests_examples.py)
 ```python
+#!/usr/bin/env python
+
 # Join paths
 os.path.join(path1, path2)
 # Check if file exists
