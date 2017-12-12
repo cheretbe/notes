@@ -16,6 +16,14 @@ git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
 
 ### Cheat Sheet
 ```shell
+# Create a new repo
+git clone https://urs
+cd repo-name
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
 # Clone a repository and download submodules simultaneously
 git clone --recursive https://url
 
