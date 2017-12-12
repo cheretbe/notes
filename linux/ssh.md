@@ -194,6 +194,7 @@ Host host1
   User username
   Port 1234
   IdentityFile /path/to/a/file
+  ForwardX11 yes
 ```
 
 
