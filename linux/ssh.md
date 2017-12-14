@@ -3,6 +3,7 @@
 * [Multiple Instances of sshd](#multiple-instances-of-sshd)
 * [Reverse SSH Tunnel](#reverse-ssh-tunnel)
 * [SSH Keys](#ssh-keys)
+* [Mount a remote SSH directory](#mount-a-remote-ssh-directory)
 * [Notes](#notes)
 
 ## Hardening SSH Access
@@ -182,6 +183,17 @@ ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
 ```
 
 * https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
+
+## Mount a remote SSH directory
+```shell
+sudo apt install sshfs
+# Create the mount point
+mkdir ~/yourmountdirectory
+# Mount remote path
+sshfs username@host:/remotepath ~/yourmountdirectory
+# Unmount
+fusermount -u ~/yourmountdirectory
+```
 
 ## Notes
 Custom connection options
