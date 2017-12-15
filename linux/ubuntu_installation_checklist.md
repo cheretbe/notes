@@ -85,6 +85,11 @@ apt remove libnss-mdns
   # Update 'Exec' parameters in  '[Desktop Entry]' and '[Desktop Action New]' sections:
   # Exec=gnome-terminal --geometry 127x43+490+290
   ```
+  * Colors
+  ```
+  Themes: 'White on black' + 'Tango'
+  Terminal background color: #0E1C4A (R:14 G:28 B:74) or #0B1437 (R:11 G:20 B:55)
+  ```
 - [ ] AES Crypt
   * https://www.aescrypt.com/download/
   * PCManFM integration: https://wiki.ubuntuusers.de/AES_Crypt/
