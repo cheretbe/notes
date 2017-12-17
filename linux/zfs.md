@@ -126,6 +126,8 @@ zfs -nv destroy pool/path
 # Recursive delete all snapshots. [!!] Dangerous, remove n for actual deletion
 zfs destroy -nvr pool/path@%
 
+# Check capacity
+zpool list -H -o capacity
 # Check compression ratio
 zfs get compressratio [dataset]
 # View dedup ratio (ZFS deduplication has pool-wide scope and dedup ratio can't be viewed for individual filesystems)
