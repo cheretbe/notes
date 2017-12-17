@@ -132,7 +132,7 @@ zpool list -H -o capacity
 zfs get compressratio [dataset]
 # View dedup ratio (ZFS deduplication has pool-wide scope and dedup ratio can't be viewed for individual filesystems)
 zpool list
-# View block statistics (can take long, use screen)
+# View block statistics (can take long time, use screen)
 zdb -b <pool>
 
 # Create snapshot
