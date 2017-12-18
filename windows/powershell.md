@@ -86,6 +86,30 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 # $ComputerSystemInfo.Model       : VirtualBox
 ```
 
+` .gitattributes` file
+```
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+*.md            text
+*.gitattributes text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.ps1    text  eol=crlf
+*.psm1   text  eol=crlf
+*.psd1   text  eol=crlf
+*.psc1   text  eol=crlf
+*.ps1xml text  eol=crlf
+*.clixml text  eol=crlf
+*.xml    text  eol=crlf
+*.txt    text  eol=crlf
+
+# Denote all files that are truly binary and should not be mergeable.
+*.dll binary
+*.exe binary
+```
 
 ### Installation
   Check installed .NET versions: http://www.powershelladmin.com/wiki/Script_for_finding_which_dot_net_versions_are_installed_on_remote_workstations
