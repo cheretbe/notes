@@ -2,13 +2,21 @@
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~n0.ps1"
 ```
 
-```powershell
+``` powershell
+#[CmdletBinding(PositionalBinding=$FALSE)]
+[CmdletBinding()]
+param(
+  [switch]$mySwitch
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop
 $Host.PrivateData.VerboseForegroundColor = [ConsoleColor]::DarkCyan
 
 $script:scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+```
 
+```powershell
 Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheretbe/vagrant-files/develop/windows/provision/chocolatey.ps1'))
 
 &"cmd.exe" @("/c", "ver")
