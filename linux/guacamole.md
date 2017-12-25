@@ -1,5 +1,6 @@
 * https://guacamole.incubator.apache.org/doc/gug/installing-guacamole.html
 * https://guacamole.incubator.apache.org/doc/gug/users-guide.html
+* https://www.chasewright.com/guacamole-with-mysql-on-ubuntu/
 
 ln -s /etc/guacamole /usr/share/tomcat8/.guacamole
  
