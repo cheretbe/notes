@@ -32,6 +32,9 @@ __pycache__/
 ```python
 #!/usr/bin/env python
 
+with open("filename", "w") as f:
+    f.write("test")
+
 # Join paths
 os.path.join(path1, path2)
 # Check if file exists
