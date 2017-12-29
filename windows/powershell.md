@@ -46,7 +46,6 @@ param(
 }
 
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
-[enum]::GetValues([Microsoft.Win32.RegistryValueKind])
 
 Write-Host ${Env:ProgramFiles(x86)}
 $cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
@@ -68,6 +67,7 @@ if (Test-Path -Path $DirPath) {
 # ItemType is a string
 New-Item -ItemType "Directory" -Path $dir_to_create -Force | Out-Null 
 
+[enum]::GetValues([Microsoft.Win32.RegistryValueKind])
 New-ItemProperty -Path "HKCU:\Console" -Name "FaceName" -Value "Consolas" -PropertyType ([Microsoft.Win32.RegistryValueKind]::String) -Force
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
