@@ -19,6 +19,10 @@ $script:scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheretbe/vagrant-files/develop/windows/provision/chocolatey.ps1'))
 
+(
+  New-Object -TypeName "Security.Principal.WindowsPrincipal" -ArgumentList ([Security.Principal.WindowsIdentity]::GetCurrent())
+).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
 &"cmd.exe" @("/c", "ver")
 Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
 
