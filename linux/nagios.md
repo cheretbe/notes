@@ -1,4 +1,5 @@
 * https://unweb.me/blog/nagios-clients-behind-paranoid-firewalls
+* https://www.techrepublic.com/blog/linux-and-open-source/remotely-monitor-servers-with-the-nagios-check-by-ssh-plugin/
 
 ```shell
 # Check SSL certificate expiration
