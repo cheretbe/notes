@@ -13,7 +13,7 @@ systemctl status systemd-timesyncd --no-pager -l
 # FallbackNTP=ntp.ubuntu.com
 ```
 - [ ] Console font `sudo dpkg-reconfigure console-setup`
-- [ ] Install `postfix` and add root mail recipient in `/etc/aliases`
+- [ ] Install `postfix` and add root mail recipient in `/etc/aliases` (to send copies to a local user: `root:	user@domain.tld,local-user`)
 ```bash
 # check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
