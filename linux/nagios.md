@@ -1,3 +1,5 @@
+* https://unweb.me/blog/nagios-clients-behind-paranoid-firewalls
+
 ```shell
 # Check SSL certificate expiration
 /usr/local/nagios/libexec/check_http --ssl -H reddit.com -C 100
