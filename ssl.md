@@ -236,6 +236,11 @@ View request (CSR) file
 openssl req -in mycsr.csr -noout -text
 ```
 
+View certificate info
+```shell
+openssl x509 -in certificate.crt -text -noout
+```
+
 View certificates on server
 ```
 openssl s_client -connect www.godaddy.com:443
