@@ -1,5 +1,5 @@
 ```shell
-youtube-dl -ci -f 137+140/299+140 -o "%(playlist_index)s-%(title)s.%(ext)s" 'url'
+youtube-dl -ci -f 137+140/299+140/best -o "%(playlist_index)s-%(title)s.%(ext)s" 'url'
 youtube-dl -ci -o "%(autonumber)s-%(title)s.%(ext)s" url
 youtube-dl --playlist-start 133 -ci -f 137+140 'url'
 
