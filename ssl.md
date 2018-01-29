@@ -248,6 +248,13 @@ View certificates on server
 openssl s_client -connect www.godaddy.com:443
 ```
 
+Check if sertificate (or CSR) matches private key
+```
+openssl pkey -in privateKey.key -pubout -outform pem | sha256sum 
+openssl x509 -in certificate.crt -pubkey -noout -outform pem | sha256sum 
+openssl req -in CSR.csr -pubkey -noout -outform pem | sha256sum
+```
+
 Extract the private key from the PFX
 ```
 openssl pkcs12 -in {site}.pfx  -nocerts -nodes -passin pass:{password} | openssl rsa -out {site}.key
