@@ -75,6 +75,8 @@ Host remote-tunnel
   Port                   12345
   RemoteForward          1234 localhost:22
   RemoteForward          1235 192.168.1.8:443
+  ServerAliveInterval    30
+  ServerAliveCountMax    3
 ```
 ```bash
 # Enable and start supervisord service
