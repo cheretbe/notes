@@ -1,4 +1,5 @@
 ```
+ln -s /etc/nginx/sites-available/www.example.org.conf /etc/nginx/sites-enabled/
 service nginx configtest
 service nginx force-reload
 ```
