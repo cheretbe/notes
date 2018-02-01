@@ -15,3 +15,10 @@ Alias /phpnuget "/www/phpnuget"
   Require all granted
 </Directory>
 ```
+
+nginx reverse proxy
+```
+  location /phpnuget {
+    proxy_pass              http://localhost:8080/phpnuget;
+  }
+```
