@@ -5,7 +5,7 @@
 apt install zip apache2 libapache2-mod-php php-curl php-zip php-xml
 a2enmod rewrite
 ```
-Change port in `/etc/apache2/ports.conf` ~~and `/etc/apache2/sites-available/000-default.conf`~~, enable `php_curl` in `/etc/php/7.0/apache2/php.ini`
+Change port in `/etc/apache2/ports.conf` ~~and `/etc/apache2/sites-available/000-default.conf`, enable `php_curl` in `/etc/php/7.0/apache2/php.ini`~~
 
 ```shell
 a2dissite 000-default
@@ -49,11 +49,19 @@ chown root /www/phpnuget/.htaccess
 nginx reverse proxy
 ```
   location /phpnuget {
-    proxy_pass              http://localhost:8080/phpnuget;
+    proxy_set_header  X-Real-IP  $remote_addr;
+    proxy_set_header  X-Forwarded-For $remote_addr;
+    proxy_set_header  Host $host
+    proxy_pass        http://localhost:8080/phpnuget;
   }
 ```
 
 ```batch
+:: Publish
 choco install Nuget.CommandLine
 nuget push package.nupkg Token -src http://host/phpnuget/upload
+
+:: Use on client
+choco source add -n=test -s=http://host/phpnuget/api/v2/
+choco install package
 ```
