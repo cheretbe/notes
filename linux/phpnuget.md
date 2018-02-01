@@ -52,3 +52,8 @@ nginx reverse proxy
     proxy_pass              http://localhost:8080/phpnuget;
   }
 ```
+
+```batch
+choco install Nuget.CommandLine
+nuget push package.nupkg Token -src http://host/phpnuget/upload
+```
