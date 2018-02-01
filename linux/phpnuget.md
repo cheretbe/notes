@@ -31,9 +31,19 @@ a2ensite phpnuget
 wget http://www.kendar.org/?p=/dotnet/phpnuget/phpnuget.zip -O phpnuget.zip
 unzip phpnuget.zip
 cp -R src/ /www/phpnuget
+chown www-data /www/phpnuget/
 chown www-data /www/phpnuget/data/ -R
 chown www-data /www/phpnuget/settings.php
 chown www-data /www/phpnuget/.htaccess
+```
+
+Got to `http://host/phpnuget/setup.php` and finish setup
+
+```
+# remove write permissions
+chown root /www/phpnuget/
+chown root /www/phpnuget/settings.php
+chown root /www/phpnuget/.htaccess
 ```
 
 nginx reverse proxy
