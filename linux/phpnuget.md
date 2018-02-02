@@ -5,6 +5,8 @@
 apt install zip apache2 libapache2-mod-php php-curl php-zip php-xml
 a2enmod rewrite
 ```
+Debian jessie: `zip apache2 libapache2-mod-php5 php5-curl php-pclzip php-xml-parser`
+
 Change port in `/etc/apache2/ports.conf` ~~and `/etc/apache2/sites-available/000-default.conf`, enable `php_curl` in `/etc/php/7.0/apache2/php.ini`~~
 
 ```shell
