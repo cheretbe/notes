@@ -16,6 +16,8 @@ a2dissite 000-default
 Create `/etc/apache2/sites-available/phpnuget.conf` with the following content
 ```apache
 <VirtualHost *:8080>
+  ServerName host.domain.tld
+  ServerAlias host1.domain.tld
   Alias /phpnuget "/www/phpnuget"
   <Directory "/www/phpnuget">
     AllowOverride All
