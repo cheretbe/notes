@@ -36,6 +36,11 @@ Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
 # Append to a file (current ANSI encoding with no BOM)
 Add-Content -Path $filePath -Value "new line"
 
+# Add line to a file if not already present
+if ($NULL -eq (Get-Content $filePath | Where-Object { $_.Contains($newText) })) {
+  Add-Content $filePath $newText
+} #if
+
 
 $zero = 0
 try {
