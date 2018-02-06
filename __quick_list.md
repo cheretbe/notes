@@ -5,4 +5,6 @@ vboxmanage list systemproperties | grep "Default machine folder:"
 vboxmanage setproperty machinefolder /home/GUR/2301/vm/
 # HDD
 vboxmanage setproperty machinefolder /mnt/vmdata/vm/
+
+ssh user@host.tld -o "UserKnownHostsFile /dev/null"
 ```
