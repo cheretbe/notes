@@ -28,6 +28,15 @@ Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
 
 [enum]::GetValues([System.Management.Automation.PSMemberTypes])
 
+# File output
+# Write file using UTF-8 with no BOM
+[System.IO.File]::WriteAllLines($filePath, $fileContent)
+# Append to a file (UTF16 with BOM)
+"new line" | Out-File -Append -FilePath $filePath
+# Append to a file (current ANSI encoding with no BOM)
+Add-Content -Path $filePath -Value "new line"
+
+
 $zero = 0
 try {
   1 / $zero
