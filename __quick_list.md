@@ -1,3 +1,5 @@
+Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
+
 ```shell
 # view setting
 vboxmanage list systemproperties | grep "Default machine folder:"
