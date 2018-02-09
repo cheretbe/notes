@@ -9,4 +9,10 @@ vboxmanage setproperty machinefolder /home/GUR/2301/vm/
 vboxmanage setproperty machinefolder /mnt/vmdata/vm/
 
 ssh user@host.tld -o "UserKnownHostsFile /dev/null"
+
+# Write speed test
+sync; dd if=/dev/zero of=tempfile bs=1M count=1024 status=progress; sync
+# Read speed test
+vm.drop_caches = 3
+dd if=tempfile of=/dev/null bs=1M count=1024 status=progress
 ```
