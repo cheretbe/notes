@@ -117,6 +117,12 @@ datetime.datetime.now(dateutil.tz.tzoffset(None, -time.altzone))
 import locale
 locale.setlocale(locale.LC_ALL, '')
 datetime.datetime.now().strftime("%x %X")
+
+# Timedelta
+datetime.timedelta(seconds=333)
+# Elapsed time
+start = time.time()
+print(str(datetime.timedelta(seconds=round(time.time() - start))))
 ```
 
 * [\[ TOC \]](#table-of-contents)
