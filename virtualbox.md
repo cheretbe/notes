@@ -40,6 +40,11 @@ VBoxManage modifyhd <path to vdi> --resize <new size in megabytes>
 
 # Run a command on guest
 vboxmanage guestcontrol testvm-2del run --wait-stdout --wait-stderr --username vagrant --password $AO_DEFAULT_VAGRANT_PASSWORD  -- "%comspec%" /c powershell \$psversiontable
+# Create a directory on guest
+vboxmanage guestcontrol testvm-2del mkdir --username vagrant --password $AO_DEFAULT_VAGRANT_PASSWORD --parents c:\\temp
+# Copy files(s) to guest
+# [!] Note forward slash for --target-directory even on Windows guests
+vboxmanage guestcontrol testvm-2del copyto --username vagrant --password $AO_DEFAULT_VAGRANT_PASSWORD --target-directory c:/temp file1.txt file2.txt
 ```
 
 ### Disable time sync
