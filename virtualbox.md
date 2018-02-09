@@ -38,6 +38,8 @@ vboxmanage list runningvms
 # in bytes: --resizebyte
 VBoxManage modifyhd <path to vdi> --resize <new size in megabytes>
 
+# Run a command on guest
+vboxmanage guestcontrol testvm-2del run --wait-stdout --wait-stderr --username vagrant --password $AO_DEFAULT_VAGRANT_PASSWORD  -- "%comspec%" /c powershell \$psversiontable
 ```
 
 ### Disable time sync
