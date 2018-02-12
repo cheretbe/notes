@@ -89,7 +89,7 @@ New-Item -ItemType "Directory" -Path $dir_to_create -Force | Out-Null
 
 [enum]::GetValues([Microsoft.Win32.RegistryValueKind])
 New-ItemProperty -Path "HKCU:\Console" -Name "FaceName" -Value "Consolas" -PropertyType ([Microsoft.Win32.RegistryValueKind]::String) -Force
-New-Item 'HKCU:\Software\Policies\Microsoft\Windows\EdgeUI' -Force | New-ItemProperty ...
+New-Item 'HKCU:\Software\Policies\Microsoft\Windows\EdgeUI' -Force | New-ItemProperty # ... (no -Path)
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 
