@@ -68,9 +68,13 @@ schtasks /change /disable /tn "\Microsoft\Windows\SkyDrive\Routine Maintenance T
 Get-AppXProvisionedPackage -online | Remove-AppxProvisionedPackage -online
 ```
 2) For all users:
+
+~~`Get-AppxPackage -AllUsers | Remove-AppxPackage`~~
+```powershell
+Get-AppxPackage -AllUsers | Where-Object PublisherId -eq "8wekyb3d8bbwe" | Remove-AppxPackage
 ```
-Get-AppxPackage -AllUsers | Remove-AppxPackage
-```
+https://support.microsoft.com/en-us/help/2769827/sysprep-fails-after-you-remove-or-update-windows-store-apps-that-inclu
+
 In Windows 10, you should use: `Get-AppXPackage -User <username> | Remove-AppxPackage` (? 2check)
 
 3) Delete files:  
