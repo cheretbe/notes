@@ -105,6 +105,8 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 # for a Virtualbox VM:
 # $ComputerSystemInfo.Manufacturer: innotek GmbH
 # $ComputerSystemInfo.Model       : VirtualBox
+# for a KVM/QEMU VM:
+# $ComputerSystemInfo.Manufacturer: QEMU
 ```
 
 ` .gitattributes` file
