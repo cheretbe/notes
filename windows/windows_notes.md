@@ -71,6 +71,9 @@ Get-AppXProvisionedPackage -online | Remove-AppxProvisionedPackage -online
 
 ~~`Get-AppxPackage -AllUsers | Remove-AppxPackage`~~
 ```powershell
+# Win8.1 only
+Get-AppxPackage -AllUsers | Where-Object Name -eq "Microsoft.SkypeApp" | Remove-AppxPackage
+# Win8.1/10
 Get-AppxPackage -AllUsers | Where-Object PublisherId -eq "8wekyb3d8bbwe" | Remove-AppxPackage
 ```
 https://support.microsoft.com/en-us/help/2769827/sysprep-fails-after-you-remove-or-update-windows-store-apps-that-inclu
