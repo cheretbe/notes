@@ -76,9 +76,8 @@ Get-AppxPackage -AllUsers | Where-Object Name -eq "Microsoft.SkypeApp" | Remove-
 # Win8.1/10
 Get-AppxPackage -AllUsers | Where-Object PublisherId -eq "8wekyb3d8bbwe" | Remove-AppxPackage
 ```
-https://support.microsoft.com/en-us/help/2769827/sysprep-fails-after-you-remove-or-update-windows-store-apps-that-inclu
-
-In Windows 10, you should use: `Get-AppXPackage -User <username> | Remove-AppxPackage` (? 2check)
+* https://support.microsoft.com/en-us/help/2769827/sysprep-fails-after-you-remove-or-update-windows-store-apps-that-inclu
+* https://superuser.com/questions/533170/how-to-fully-uninstall-a-windows-store-app/533220#533220
 
 3) Delete files:  
 TODO: Fix directory name
