@@ -25,4 +25,11 @@ Ctrl+Alt+Del menu in RDP client: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>End</kbd>
 ```powershell
 # View motherboard name
 Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product
+# Search services by display name
+Get-Service | Where-Object { $_.DisplayName -like "*media*" }
+# Get details by name
+Get-Service WMPNetworkSvc
 ```
+| Service       | English Name                                 | Russian Name                                              |
+| ------------- | -------------------------------------------- | --------------------------------------------------------- |
+| WMPNetworkSvc | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
