@@ -1,3 +1,5 @@
+#### Linux
+
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
 ```shell
@@ -16,6 +18,10 @@ sync; dd if=/dev/zero of=tempfile bs=1M count=1024 status=progress; sync
 vm.drop_caches = 3
 dd if=tempfile of=/dev/null bs=1M count=1024 status=progress
 ```
+#### Windows
+
+Ctrl+Alt+Del menu in RDP client: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>End</kbd>
+
 ```powershell
 # View motherboard name
 Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product
