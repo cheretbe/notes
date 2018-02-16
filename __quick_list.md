@@ -25,10 +25,16 @@ Ctrl+Alt+Del menu in RDP client: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>End</kbd>
 ```powershell
 # View motherboard name
 Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product
+
 # Search services by display name
 Get-Service | Where-Object { $_.DisplayName -like "*media*" }
 # Get details by name
 Get-Service WMPNetworkSvc
+```
+```batch
+:: start= <boot|system|auto|demand|disabled|delayed-auto>
+sc.exe config WinRM start= auto
+sc.exe start WinRM
 ```
 | Service       | English Name                                 | Russian Name                                              |
 | ------------- | -------------------------------------------- | --------------------------------------------------------- |
