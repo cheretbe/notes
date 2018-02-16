@@ -16,3 +16,7 @@ sync; dd if=/dev/zero of=tempfile bs=1M count=1024 status=progress; sync
 vm.drop_caches = 3
 dd if=tempfile of=/dev/null bs=1M count=1024 status=progress
 ```
+```powershell
+# View motherboard name
+Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product
+```
