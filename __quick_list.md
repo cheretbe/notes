@@ -33,3 +33,4 @@ Get-Service WMPNetworkSvc
 | Service       | English Name                                 | Russian Name                                              |
 | ------------- | -------------------------------------------- | --------------------------------------------------------- |
 | WMPNetworkSvc | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
+| wuauserv      | Windows Update                               | Центр обновления Windows                                  |
