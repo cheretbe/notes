@@ -50,3 +50,16 @@ Collapsible details content
   Text
 * [\[ TOC \]](#table-of-contents)
 ```
+
+| Col 1         | Col 2 (centered)    | Col 3 (right) |
+| ------------- |:-------------------:| -------------:|
+| line 1        | text                | text          |
+| line 2        | text                | text          |
+| line 3        | text                | text          |
+```markdown
+| Col 1         | Col 2 (centered)    | Col 3 (right) |
+| ------------- |:-------------------:| -------------:|
+| line 1        | text                | text          |
+| line 2        | text                | text          |
+| line 3        | text                | text          |
+```
