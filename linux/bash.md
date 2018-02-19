@@ -28,6 +28,16 @@ do
     rm -R "$subdir/data/0000/"
   fi
 done
+
+while true; do echo "test line"; sleep 5; done;
+while true
+do
+  echo "stdout test"
+  sleep 3
+  >&2 echo "stderr test"
+  sleep 3
+done
+
 ```
 
 ```bash
