@@ -13,3 +13,22 @@ sudo supervisorctl start service_name
 sudo supervisorctl reread
 sudo supervisorctl update
 ```
+
+```apache
+[program:dummy]
+command=/path/to/an/executable
+user=username
+autostart=true
+autorestart=true
+stdout_logfile=/var/log/supervisor/dummy.log
+redirect_stderr=true
+# Uncomment if redirect_stderr is false
+#stderr_logfile=/var/log/supervisor/dummy_err.log
+```
+
+Command with shell pipe redirection
+```apache
+command=/bin/bash -c "2>&1 /path/to/a/script.sh | /path/to/a/receiver_script.py"
+# Needed to correctly stop child processes
+stopasgroup=true
+```
