@@ -1,3 +1,5 @@
+Gitlab references (issues, commits, etc): https://docs.gitlab.com/ce/user/markdown.html#special-gitlab-references
+
 Collapsible details content
 <details>
   <summary>
