@@ -32,3 +32,16 @@ command=/bin/bash -c "2>&1 /path/to/a/script.sh | /path/to/a/receiver_script.py"
 # Needed to correctly stop child processes
 stopasgroup=true
 ```
+
+Dummy test bash "service" script
+```shell
+#!/bin/bash
+
+while true
+do
+  echo "stdout test"
+  sleep 3
+  >&2 echo "stderr test"
+  sleep 3
+done
+```
