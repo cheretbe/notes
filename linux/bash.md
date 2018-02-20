@@ -17,6 +17,11 @@ set completion-ignore-case
 ```bash
 #!/bin/bash
 
+if [ -z "$1" ]; then
+  echo "No argument supplied"
+  exit 1
+fi
+
 search_dir="/path/to/a/dir"
 
 for subdir in "$search_dir"/*
