@@ -14,6 +14,7 @@ sudo supervisorctl reread
 sudo supervisorctl update
 ```
 
+`/etc/supervisor/conf.d/dummy.conf`
 ```apache
 [program:dummy]
 command=/path/to/an/executable
