@@ -14,7 +14,7 @@
 You can only delete data on a different device if you are using the same operating system.
 For example, while seated at a Mac you cannot delete files that had been uploaded from device running Windows
 
-Purge deleted items
+Purge deleted items **older than** N days
 
 ```batch
 "C:\Program Files\SpiderOakONE\SpiderOakONE.exe" --verbose --purge-deleted-items=PURGE_DAYS
