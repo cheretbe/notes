@@ -8,4 +8,7 @@ youtube-dl --playlist-start 133 -ci -f 137+140 'url'
 youtube-dl -F <url>
 # Download example (libav-tools package is needed)
 youtube-dl -f 137+140 <url>
+
+# Extract MP3
+youtube-dl --extract-audio --audio-format mp3 '<video URL>'
 ```
