@@ -25,6 +25,10 @@ tar czvf file.tar.gz directory/
 Ctrl+Alt+Del menu in RDP client: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>End</kbd>
 
 ```powershell
+# Set network location to private
+Get-NetConnectionProfile
+Set-NetConnectionProfile -InterfaceIndex 13 -NetworkCategory Private
+
 # View motherboard name
 Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product
 
