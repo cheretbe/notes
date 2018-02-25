@@ -199,6 +199,7 @@ Powerhsell (Windows)
 *.clixml text  eol=crlf
 *.xml    text  eol=crlf
 *.txt    text  eol=crlf
+*.bat    text  eol=crlf
 
 # Denote all files that are truly binary and should not be mergeable.
 *.dll binary
