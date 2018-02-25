@@ -208,6 +208,7 @@ Powerhsell (Windows)
 ```shell
 # Determine if Git handles a file as binary or as text
 git merge-file /dev/null /dev/null file-to-test
+# Error message absence indicates NOT a binary file
 ```
 * https://stackoverflow.com/questions/6119956/how-to-determine-if-git-handles-a-file-as-binary-or-as-text
 * https://salferrarello.com/git-file-force-binary/
