@@ -205,4 +205,9 @@ Powerhsell (Windows)
 *.exe binary
 ```
 
-https://salferrarello.com/git-file-force-binary/
+```shell
+# Determine if Git handles a file as binary or as text
+git merge-file /dev/null /dev/null file-to-test
+```
+* https://stackoverflow.com/questions/6119956/how-to-determine-if-git-handles-a-file-as-binary-or-as-text
+* https://salferrarello.com/git-file-force-binary/
