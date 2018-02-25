@@ -204,3 +204,5 @@ Powerhsell (Windows)
 *.dll binary
 *.exe binary
 ```
+
+https://salferrarello.com/git-file-force-binary/
