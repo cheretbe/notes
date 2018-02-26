@@ -7,6 +7,7 @@
     vb.memory = "1024"
     vb.cpus = "1"
     vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["sharedfolder", "add", :id, "--name", "provision", "--hostpath", "/path/on/host"]
   end
 ```
 
