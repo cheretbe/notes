@@ -6,4 +6,5 @@ Command-line parameters:
 
 ```powershell
 Mock Get-Service { [pscustomobject]@{ "StartType" = ([System.ServiceProcess.ServiceStartMode]::Manual) }
+{ throw [System.IO.FileNotFoundException] "file not found" } | Should -Throw -ExceptionType ([System.IO.FileNotFoundException])
 ```
