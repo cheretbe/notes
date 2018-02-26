@@ -31,6 +31,7 @@ Collapsible details content
 ```markdown
 :warning: Note with an exclamation
 ```
+* List of GitHub markdown emoji: https://gist.github.com/rxaviers/7360908
 
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) (old) Note with an exclamation
 ```markdown
