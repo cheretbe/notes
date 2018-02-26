@@ -36,6 +36,7 @@ Settings
 ```
 {
   "show_encoding" : true,
+  "show_line_endings": true,
   "draw_white_space": "all",
   "rulers": [80],
   "tab_size": 2,
