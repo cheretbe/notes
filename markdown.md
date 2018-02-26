@@ -27,9 +27,14 @@ Collapsible details content
 [Link](https://ya.ru) example
 ```
 
-![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Note with an exclamation
+:warning: Note with an exclamation
 ```markdown
-![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Note with an exclamation
+:warning: Note with an exclamation
+```
+
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) (old) Note with an exclamation
+```markdown
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) (old) Note with an exclamation
 ```
 
 ## Table of Contents
