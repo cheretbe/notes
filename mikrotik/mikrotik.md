@@ -21,6 +21,8 @@ MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 export compact
 # .rsc extension is added automatically
 export compact file=config
+# binary backup
+/system backup save name="current.config"
 
 :put [:resolve ya.ru]
 
