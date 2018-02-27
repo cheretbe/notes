@@ -41,6 +41,8 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 /system reset-configuration no-defaults=yes skip-backup=yes
 /ip dhcp-client
 add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
-
-
 ```
+
+Seamless WiFi clients roaming (CAPsMAN):
+* https://wiki.mikrotik.com/wiki/Manual:CAPsMAN
+* https://serveradmin.ru/nastroyka-capsman-v-mikrotik/
