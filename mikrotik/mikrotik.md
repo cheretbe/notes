@@ -6,7 +6,7 @@ Installation Check-List
 - [ ] NTP+timezone
 - [ ] DNS server
 - [ ] Scheduled task to save current config
-- [ ] Disable autodiscovery on WAN (IP > Neighbours > Discovery Interfaces)
+- [ ] Disable autodiscovery on WAN (IP > Neighbours > Discovery Interfaces. New ROS uses lists, defined in Interfaces > Interface List)
 
 
 WLAN settings
