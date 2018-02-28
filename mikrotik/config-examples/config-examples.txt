@@ -45,7 +45,7 @@ add address=192.168.10.0/24 dns-server=192.168.10.1 gateway=192.168.10.1 \
 
 
 # ==========================================================================
-# Port knocking (15000, 40000, 5000)
+# Port knocking (150, 400, 50)
 
 :global wanIfName
 
@@ -54,15 +54,15 @@ add address=192.168.10.0/24 dns-server=192.168.10.1 gateway=192.168.10.1 \
 /ip firewall filter
 add action=add-src-to-address-list address-list=PORTKNOCK_STAGE_1 \
     address-list-timeout=20s chain=input comment=\
-    "Input - port knocking stage 1" dst-port=15000 in-interface=$wanIfName \
+    "Input - port knocking stage 1" dst-port=150 in-interface=$wanIfName \
     protocol=tcp
 add action=add-src-to-address-list address-list=PORTKNOCK_STAGE_2 \
     address-list-timeout=20s chain=input comment=\
-    "Input - port knocking stage 2" dst-port=40000 in-interface=$wanIfName \
+    "Input - port knocking stage 2" dst-port=400 in-interface=$wanIfName \
     protocol=tcp src-address-list=PORTKNOCK_STAGE_1
 add action=add-src-to-address-list address-list=external-white-list \
     address-list-timeout=12h chain=input comment=\
-    "Input - port knocking stage 3" dst-port=5000 in-interface=$wanIfName log=\
+    "Input - port knocking stage 3" dst-port=50 in-interface=$wanIfName log=\
     yes log-prefix="whitelisting IP (external-white-list)" protocol=tcp \
     src-address-list=PORTKNOCK_STAGE_2
 
