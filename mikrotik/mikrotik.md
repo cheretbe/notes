@@ -27,6 +27,9 @@ MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 
 # [!!] Full reset
 /system reset-configuration no-defaults=yes skip-backup=yes
+/interface ethernet print
+# VM
+/interface ethernet set ether1 mac-address=xxx
 /ip dhcp-client
 add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
 
@@ -45,7 +48,7 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 
 put [/ip firewall filter get [find comment="comment"] src-address]
 ```
-Scripts
+#### Scripts
 ```shell
 /system script add name= script1 source=[/file get script1.rsc contents]
 /system script set script1 source=[/file get script.txt contents]
@@ -75,9 +78,22 @@ Scripts
 * http://forum.mikrotik.com/viewtopic.php?f=9&t=75810
 * http://forum.mikrotik.com/viewtopic.php?t=51229
 
-Seamless WiFi clients roaming (CAPsMAN):
+#### Seamless WiFi clients roaming (CAPsMAN):
 * https://wiki.mikrotik.com/wiki/Manual:CAPsMAN
 * https://serveradmin.ru/nastroyka-capsman-v-mikrotik/
 * http://www.technotrade.com.ua/Articles/MikroTik_CAPsMAN_setup_2016-08-05.php
 * http://odnakish.ru/2016/08/12/%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-capsman-%D0%BE%D1%82-mikrotik-%D0%B1%D0%B5%D1%81%D1%88%D0%BE%D0%B2%D0%BD%D1%8B%D0%B9-%D1%80%D0%BE%D1%83%D0%BC%D0%B8%D0%BD%D0%B3-wi-fi/
 * http://ithelp21.ru/nastroyka-capsmanv2-mikrotik-besshovny-rouming/
+
+```
+/interface ppp-client
+add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
+    info-channel=2 modem-init="AT+CGDCONT=1,\"IP\",\"internet.beeline.ru\"" 
+    name=ppp-out1 password=beeline phone=*99***1# port=usb2 user=beeline
+
+/system routerboard usb power-reset duration=5s
+```
+
+Как задать статический маршрут в случае, если ppp сервер не назначает параметр "remote address": задать вручную любой удобный ip адрес в этом поле в свойствах соединения и указать его в качестве шлюза в маршруте.
+
+* http://mybroadband.co.za/vb/showthread.php/400897-MikroTik-RouterBoard-and-USB-3G-Modems/page6
