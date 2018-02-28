@@ -19,11 +19,16 @@ WLAN settings
 
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
-export compact
+/export compact
 # .rsc extension is added automatically
-export compact file=config
+/export compact file=config
 # binary backup
 /system backup save name="current.config"
+
+# [!!] Full reset
+/system reset-configuration no-defaults=yes skip-backup=yes
+/ip dhcp-client
+add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
 
 :put [:resolve ya.ru]
 
@@ -39,12 +44,36 @@ export compact file=config
 /interface pppoe-client monitor pppoe-if-name once do={ :put $"local-address" }
 
 put [/ip firewall filter get [find comment="comment"] src-address]
-
-# full reset
-/system reset-configuration no-defaults=yes skip-backup=yes
-/ip dhcp-client
-add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
 ```
+Scripts
+```shell
+/system script add name= script1 source=[/file get script1.rsc contents]
+/system script set script1 source=[/file get script.txt contents]
+/system script run script1
+/system script edit value-name=source <script name>
+
+/file edit value-name=contents test1.txt
+
+# Next line is a workaround to create a file
+/file print file=script1
+/file set script1 contents=[/system script get script1 source]
+
+# auto.rsc feature - using ftp you can upload file called <something>.auto.rsc, script
+# file will be automatically executed and log file for that will be saved on the router.
+# It might be worth noting that the script does not execute immediately upon upload. It
+# executes when the ftp connection is closed. A not so subtle detail.
+
+:put [/terminal inkey ]
+
+:set varname test
+/system script environment set $varname value=bbb
+```
+* http://mikrotik.net.pl/wiki/Scripty
+* http://wiki.mikrotik.com/wiki/Manual:Scripting
+* http://wiki.mikrotik.com/wiki/Manual:Scripting-examples
+* http://wiki.mikrotik.com/wiki/Failover_Scripting
+* http://forum.mikrotik.com/viewtopic.php?f=9&t=75810
+* http://forum.mikrotik.com/viewtopic.php?t=51229
 
 Seamless WiFi clients roaming (CAPsMAN):
 * https://wiki.mikrotik.com/wiki/Manual:CAPsMAN
