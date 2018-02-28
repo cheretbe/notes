@@ -15,20 +15,25 @@
 /ip firewall filter
 add action=drop chain=input comment="Input - drop invalid packets" \
     connection-state=invalid
-add chain=input comment="Input - allow LAN access to the router and Internet" \
-    connection-state=new in-interface=$lanIfName src-address=$lanNetwork
 add chain=input comment="Input - allow established and related connections" \
     connection-state=established,related
+add chain=input comment="Input - allow LAN access to the router" \
+    connection-state=new in-interface=$lanIfName src-address=$lanNetwork
 add action=drop chain=input comment="Input - drop everything else"
 add action=drop chain=forward comment="Forward - drop invalid packets" \
     connection-state=invalid
 add chain=forward comment=\
-    "Forward - allow LAN access to the router and Internet" connection-state=\
-    new in-interface=$lanIfName src-address=$lanNetwork
-add chain=forward comment=\
     "Forward - allow established and related connections" connection-state=\
     established,related
+add chain=forward comment=\
+    "Forward - allow LAN access to the router and Internet" connection-state=\
+    new in-interface=$lanIfName src-address=$lanNetwork
 add action=drop chain=forward comment="Forward - drop everything else"
+
+/ip firewall nat
+add action=masquerade chain=srcnat comment="NAT LAN connections to the Internet" src-address=\
+    $lanNetwork
+
 
 
 # ==========================================================================
