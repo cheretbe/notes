@@ -1,5 +1,6 @@
 Installation Check-List
 - [ ] Identity
+- [ ] Admin password
 - [ ] LAN address
 - [ ] Default firewall rules
 - [ ] NTP+timezone
