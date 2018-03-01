@@ -1,3 +1,9 @@
+tracert for Linux
+```
+apt-get install mtr-tiny
+mtr host
+```
+
 Find all hardlinks to a file
 ```shell
 find . -samefile /path/to/file 
