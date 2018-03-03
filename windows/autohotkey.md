@@ -6,12 +6,26 @@ f12::reload
 ```
 
 ```
-^F12::
-
+^F11::
   clipboard =
   Send, ^c
   ClipWait, 1
+  if ErrorLevel
+  {
+    MsgBox, The attempt to copy text onto the clipboard failed.
+    Return
+  }
 
+  selection = %clipboard%
+  Send, ^{t}
+  Sleep 500
+  SendInput http://diccionario.ru/perevod/%selection%{Enter}
+Return
+
+^F12::
+  clipboard =
+  Send, ^c
+  ClipWait, 1
   if ErrorLevel
   {
     MsgBox, The attempt to copy text onto the clipboard failed.
