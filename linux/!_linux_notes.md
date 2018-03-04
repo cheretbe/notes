@@ -4,6 +4,13 @@ apt-get install mtr-tiny
 mtr host
 ```
 
+Grep the whole filesystem
+```shell
+#  -xdev  Don't descend directories on other filesystems.
+# -H, --with-filename  print the file name for each match
+find / -xdev -type f -print0 | xargs -0 grep -H "ForceCompositionPipeline"
+```
+
 Find all hardlinks to a file
 ```shell
 find . -samefile /path/to/file 
