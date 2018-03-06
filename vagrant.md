@@ -49,6 +49,7 @@ curl "https://app.vagrantup.com/api/v1/user/username"
 
 ### Plugins
 * hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
+* https://github.com/emyl/vagrant-triggers
 
 ### Packer
 
