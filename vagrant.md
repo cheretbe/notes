@@ -53,3 +53,4 @@ curl "https://app.vagrantup.com/api/v1/user/username"
 ### Packer
 
 * VB+QEMU: https://github.com/pear2/Net_RouterOS/blob/master/tests/vm/RouterOS.packer.json
+* https://github.com/dulin/vagrant-mikrotik
