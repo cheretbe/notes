@@ -16,6 +16,12 @@ WLAN settings
 - Mode: ap-bridge
 - [Switch to advanced mode] Advanced > Distance: indoors
 
+Get latest RoS version:
+```shell
+curl http://download2.mikrotik.com/routeros/LATEST.6
+# 6.41.2 1517920142
+```
+
 
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
