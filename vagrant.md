@@ -49,3 +49,7 @@ curl "https://app.vagrantup.com/api/v1/user/username"
 
 ### Plugins
 * hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
+
+### Packer
+
+* VB+QEMU: https://github.com/pear2/Net_RouterOS/blob/master/tests/vm/RouterOS.packer.json
