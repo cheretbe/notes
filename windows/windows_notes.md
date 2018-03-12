@@ -45,6 +45,30 @@ taskkill [/f] /IM <exe name>
 tasklist /v /fi "Imagename eq robocopy.exe"
 ```
 
+## Installation from a USB drive
+
+```batch
+:: Prepare partition
+DISKPART
+:: View disks
+LIST DISK
+:: Select the drive and format it as NTFS
+SELECT DISK <N>
+CLEAN
+CREATE PARTITION PRIMARY
+SELECT PARTITION 1
+ACTIVE
+FORMAT FS=NTFS quick
+ASSIGN
+EXIT
+
+:: Make drive bootable
+CD BOOT
+BOOTSECT.EXE /NT60 <буква диска>:
+
+:: Copy installation files to the root of the drive
+```
+
 ## Fixes for Errors in Logs
 
 1. Source: **Store-Licensing**, Event ID: **512**
