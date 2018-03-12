@@ -64,7 +64,7 @@ EXIT
 
 :: Make drive bootable
 CD BOOT
-BOOTSECT.EXE /NT60 <буква диска>:
+BOOTSECT.EXE /NT60 <drive letter>:
 
 :: Copy installation files to the root of the drive
 ```
