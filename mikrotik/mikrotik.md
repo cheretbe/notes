@@ -103,3 +103,20 @@ add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
 Как задать статический маршрут в случае, если ppp сервер не назначает параметр "remote address": задать вручную любой удобный ip адрес в этом поле в свойствах соединения и указать его в качестве шлюза в маршруте.
 
 * http://mybroadband.co.za/vb/showthread.php/400897-MikroTik-RouterBoard-and-USB-3G-Modems/page6
+
+#### SNMP
+
+```
+/snmp set enabled=yes
+```
+
+```shell
+# View interface list (indices)
+snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.2.2.1.1
+# View interface names
+snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.2.2.1.2
+# View interface indices for IP addresses
+snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.4.20.1.2
+# View IP address list
+snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.4.20.1.1
+```
