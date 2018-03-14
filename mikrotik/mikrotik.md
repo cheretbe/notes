@@ -120,3 +120,7 @@ snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.4.20.1.2
 # View IP address list
 snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.4.20.1.1
 ```
+* http://oid-info.com/get/1.3.6.1.2.1.2.2.1.1
+* http://oid-info.com/get/1.3.6.1.2.1.2.2.1.2
+* http://oid-info.com/get/1.3.6.1.2.1.4.20.1.2
+* http://oid-info.com/get/1.3.6.1.2.1.4.20.1.1
