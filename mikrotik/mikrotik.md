@@ -106,6 +106,8 @@ add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
 
 #### SNMP
 
+* https://wiki.mikrotik.com/wiki/Manual:SNMP
+
 ```
 /snmp set enabled=yes
 ```
