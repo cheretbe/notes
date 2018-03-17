@@ -73,6 +73,7 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 
 **CTRL-SHIFT-P**, "Package Control: Install Package"
 
+* :heavy_check_mark: `Monokai JSON+` (then add `"color_scheme": "Packages/Monokai JSON+/Monokai JSON+.tmTheme"` to `Preferences` > `Settings - Syntax Specific` )
 * `Theme - Soda` (then add `"theme": "Soda Dark 3.sublime-theme"` to "Settings - User")
 * `GitGutter`
 * `Powershell`: https://packagecontrol.io/packages/PowerShell
