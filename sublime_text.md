@@ -68,6 +68,8 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
 
 "Open With" on Ubuntu: http://askubuntu.com/questions/732464/sublime-text-not-showing-in-nautilus-open-with-menu/755041#755041
 
+Clear stuck auto-open of no longer existing file on startup: remove `~/.config/sublime-text-3/Local/Session.sublime_session` (also clears windows position, minimap setting, etc.)
+
 Packages:
 Install [Package Control](https://packagecontrol.io/installation#st3)
 
