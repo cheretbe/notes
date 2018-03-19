@@ -67,6 +67,20 @@ if not plugins_to_install.empty?
 end
 ```
 
+Notification only
+```ruby
+required_plugins = %w( vagrant-triggers vagrant-hostmanager)
+
+plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
+if not plugins_to_install.empty?
+  puts "This Vagrantfile needs one or more additional plugins to be installed: #{plugins_to_install.join(', ')}"
+  puts "Use the following command:\n\n"
+  puts "vagrant plugin install #{plugins_to_install.join(' ')}\n\n"
+  abort "Installation of one or more additional plugins needed. Aborting."
+end
+```
+
+
 ### Packer
 
 * VB+QEMU: https://github.com/pear2/Net_RouterOS/blob/master/tests/vm/RouterOS.packer.json
