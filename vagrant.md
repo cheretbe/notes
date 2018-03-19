@@ -51,6 +51,22 @@ curl "https://app.vagrantup.com/api/v1/user/username"
 * hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
 * https://github.com/emyl/vagrant-triggers
 
+### Automatic plugins installation
+
+```ruby
+required_plugins = %w( vagrant-triggers )
+
+plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
+if not plugins_to_install.empty?
+  puts "Installing plugins: #{plugins_to_install.join(' ')}"
+  if system "vagrant plugin install #{plugins_to_install.join(' ')}"
+    exec "vagrant #{ARGV.join(' ')}"
+  else
+    abort "Installation of one or more plugins has failed. Aborting."
+  end
+end
+```
+
 ### Packer
 
 * VB+QEMU: https://github.com/pear2/Net_RouterOS/blob/master/tests/vm/RouterOS.packer.json
