@@ -35,6 +35,7 @@ MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 /system reset-configuration no-defaults=yes skip-backup=yes
 /interface ethernet print
 # VM
+/interface ethernet reset-mac-address ether1
 /interface ethernet set ether1 mac-address=xxx
 /ip dhcp-client
 add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-ntp=no
