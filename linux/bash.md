@@ -17,7 +17,10 @@ set completion-ignore-case
 ```bash
 #!/bin/bash
 
-if [ -z "$1" ]; then
+# Correct way (works with "set -euo")
+# https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash/13864829#13864829
+if [ -z ${1+x} ]; then
+# if [ -z "$1" ]; then
   echo "No argument supplied"
   exit 1
 fi
