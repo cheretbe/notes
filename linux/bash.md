@@ -62,6 +62,31 @@ alias gs="git fetch && git status"
 source ~/.bashrc
 ```
 
+### Here documents (heredocs) with indentation
+
+```bash
+# [!!!!] Heredocs partm MUST be tab-indented for <<-EOF part to work
+if [ ! -e "/etc/ppp/pppoe-server-options" ]; then
+	echo "Creating '/etc/ppp/pppoe-server-options'"
+	cat <<-EOF > /etc/ppp/pppoe-server-options
+		auth
+		require-chap
+		lcp-echo-interval 10
+		lcp-echo-failure 2
+		# DNS servers that our pppoe server will serve to clients 
+		ms-dns ${pppoe_dns_1}
+		ms-dns ${pppoe_dns_2}
+		noipdefault
+		noipx
+		nodefaultroute
+		noproxyarp
+		# Netmask that clients will receive
+		netmask 255.255.255.255
+		logfile /var/log/pppoe.log
+	EOF
+fi
+```
+
 ### Options
 #### Unofficial Strict Mode
 ```bash
