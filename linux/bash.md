@@ -65,7 +65,7 @@ source ~/.bashrc
 ### Here documents (heredocs) with indentation
 
 ```bash
-# [!!!!] Heredocs partm MUST be tab-indented for <<-EOF part to work
+# [!!!!] Heredocs part MUST be tab-indented for <<-EOF part to work
 if [ ! -e "/etc/ppp/pppoe-server-options" ]; then
 	echo "Creating '/etc/ppp/pppoe-server-options'"
 	cat <<-EOF > /etc/ppp/pppoe-server-options
