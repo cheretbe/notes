@@ -59,6 +59,11 @@ git reset –-hard
 # For a single file
 git checkout HEAD -- file.txt
 
+# Modify unpushed commit message (edit existing text in editor)
+git commit --amend
+# Set directly
+git commit --amend -m "New commit message"
+
 # Diff with previous commit
 git diff HEAD^ HEAD
 # On Windows use ~ unstead of ^
