@@ -66,6 +66,13 @@ if not plugins_to_install.empty?
   end
 end
 ```
+```ruby
+unless Vagrant.has_plugin?('vagrant-triggers')
+  system('vagrant plugin install vagrant-triggers') || raise
+  warn 'Restarting...'
+  exec($0, *ARGV)
+end
+```
 
 Notification only
 ```ruby
