@@ -66,6 +66,7 @@ source ~/.bashrc
 
 ```bash
 # [!!!!] Heredocs part MUST be tab-indented for <<-EOF part to work
+# Sublime Text setting: "translate_tabs_to_spaces": false
 if [ ! -e "/etc/ppp/pppoe-server-options" ]; then
 	echo "Creating '/etc/ppp/pppoe-server-options'"
 	cat <<-EOF > /etc/ppp/pppoe-server-options
