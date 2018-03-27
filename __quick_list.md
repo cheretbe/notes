@@ -15,7 +15,8 @@ ssh user@host.tld -o "UserKnownHostsFile /dev/null"
 # Write speed test
 sync; dd if=/dev/zero of=tempfile bs=1M count=1024 status=progress; sync
 # Read speed test
-vm.drop_caches = 3
+#~~vm.drop_caches = 3~~
+echo 3 | sudo tee /proc/sys/vm/drop_caches 
 dd if=tempfile of=/dev/null bs=1M count=1024 status=progress
 
 tar czvf file.tar.gz directory/
