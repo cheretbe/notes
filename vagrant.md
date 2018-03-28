@@ -1,13 +1,16 @@
 * https://app.vagrantup.com
 
-```
+```ruby
   config.winrm.password = "password"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
     vb.memory = "1024"
     vb.cpus = "1"
     vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    # absolute path
     vb.customize ["sharedfolder", "add", :id, "--name", "provision", "--hostpath", "/path/on/host"]
+    # relative path
+    vb.customize ["sharedfolder", "add", :id, "--name", "debug", "--hostpath", File.expand_path("../..", File.dirname(__FILE__)), "--automount"]
   end
 ```
 
