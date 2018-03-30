@@ -20,3 +20,5 @@ setfacl -b /home/test.txt
 # remove ACL only for "fedora" user on "/home/test.txt"
 setfacl -x u:ubuntu /home/test.txt
 ```
+
+:warning: Umask affects group permission: https://serverfault.com/questions/96514/how-to-set-linux-default-acls-differently-for-directories-and-files/97854#97854
