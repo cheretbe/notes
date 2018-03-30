@@ -45,7 +45,7 @@ taskkill [/f] /IM <exe name>
 tasklist /v /fi "Imagename eq robocopy.exe"
 ```
 
-:grey_question:## Installation from a USB drive
+## Installation from a USB drive
 
 ```batch
 :: Prepare partition
