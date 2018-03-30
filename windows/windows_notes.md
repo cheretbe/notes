@@ -45,7 +45,7 @@ taskkill [/f] /IM <exe name>
 tasklist /v /fi "Imagename eq robocopy.exe"
 ```
 
-## Installation from a USB drive
+:grey_question:## Installation from a USB drive
 
 ```batch
 :: Prepare partition
@@ -102,8 +102,11 @@ Get-AppxPackage -AllUsers | Where-Object PublisherId -eq "8wekyb3d8bbwe" | Remov
 ```
 * https://support.microsoft.com/en-us/help/2769827/sysprep-fails-after-you-remove-or-update-windows-store-apps-that-inclu
 * https://superuser.com/questions/533170/how-to-fully-uninstall-a-windows-store-app/533220#533220
-
-3) Delete files:  
+3) Selective deletion
+```powershell
+Get-AppxPackage -AllUsers | Select Name,PackageFamilyName,InstallLocation
+```
+4) :grey_question: Delete files:  
 TODO: Fix directory name
 ```
 SetACL -on "C:\Program Files\WindowsApps\DeletedAllUserPackages" -ot file -actn setowner -ownr "n:S-1-5-32-544" -rec cont_obj
