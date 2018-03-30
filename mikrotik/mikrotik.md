@@ -57,6 +57,11 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 ```
 #### Scripts
 ```shell
+:if ([/interface ethernet get [find mac-address="$lanMACaddr"] name] != "lan") do={
+  :put "Setting '$lanMACaddr' interface name to 'lan'"
+  /interface ethernet set [find mac-address="$lanMACaddr"] name="lan"
+}
+
 /system script add name= script1 source=[/file get script1.rsc contents]
 /system script set script1 source=[/file get script.txt contents]
 /system script run script1
