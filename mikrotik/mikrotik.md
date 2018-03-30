@@ -62,6 +62,12 @@ put [/ip firewall filter get [find comment="comment"] src-address]
   /interface ethernet set [find mac-address="$lanMACaddr"] name="lan"
 }
 
+if ([:len [/interface find name="wan1"]] != 0) do={
+  :put "'wan1' interface is present"
+} else {
+  :put "'wan1' interface is not present"
+}
+
 /system script add name= script1 source=[/file get script1.rsc contents]
 /system script set script1 source=[/file get script.txt contents]
 /system script run script1
