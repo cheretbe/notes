@@ -62,7 +62,7 @@ put [/ip firewall filter get [find comment="comment"] src-address]
   /interface ethernet set [find mac-address="$lanMACaddr"] name="lan"
 }
 
-if ([:len [/interface find name="wan1"]] != 0) do={
+:if ([:len [/interface find name="wan1"]] != 0) do={
   :put "'wan1' interface is present"
 } else {
   :put "'wan1' interface is not present"
