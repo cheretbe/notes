@@ -56,6 +56,8 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 put [/ip firewall filter get [find comment="comment"] src-address]
 ```
 #### Scripts
+
+**TODO:** add `:tostr`, `:pick` etc. examples (http://www.mikrotik-routeros.com/2014/10/scriptlet-find-default-route-interface-names-and-a-free-licence/#more-1052)
 ```shell
 :if ([/interface ethernet get [find mac-address="$lanMACaddr"] name] != "lan") do={
   :put "Setting '$lanMACaddr' interface name to 'lan'"
