@@ -1,3 +1,5 @@
+* Speed/storage converter: https://www.gbmb.org/
+
 #### Linux
 
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
