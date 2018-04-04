@@ -1,4 +1,7 @@
 ## Misc
+
+* Shell Commands: https://winaero.com/blog/list-of-shell-commands-in-windows-10/
+
 Shadow copies
 ```
 vssadmin list shadows
