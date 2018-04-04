@@ -1,6 +1,10 @@
-## Misc
+## Unsorted
 
-* Shell Commands: https://winaero.com/blog/list-of-shell-commands-in-windows-10/
+Shell Commands:
+```
+start shell:Desktop
+```
+* https://winaero.com/blog/list-of-shell-commands-in-windows-10/
 
 Shadow copies
 ```
