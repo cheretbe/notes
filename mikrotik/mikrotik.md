@@ -137,7 +137,7 @@ snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.4.20.1.2
 snmpwalk -Os -c public -v 2c ip-addr .1.3.6.1.2.1.4.20.1.1
 
 # For snmptable to work standart MIBs have to be installed:
-# https://l3net.wordpress.com/2013/05/12/installing-net-snmp-mibs-on-ubuntu-and-debian/
+# https://github.com/cheretbe/notes/blob/master/snmp.md
 # View as a table
 # Interfaces
 snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.2.2
@@ -148,6 +148,3 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 * http://oid-info.com/get/1.3.6.1.2.1.2.2.1.2
 * http://oid-info.com/get/1.3.6.1.2.1.4.20.1.2
 * http://oid-info.com/get/1.3.6.1.2.1.4.20.1.1
-
-SNMP browsers
-* http://www.ireasoning.com/download.shtml
