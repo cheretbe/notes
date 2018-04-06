@@ -52,6 +52,17 @@ taskkill [/f] /IM <exe name>
 tasklist /v /fi "Imagename eq robocopy.exe"
 ```
 
+## Fix BSOD after changing SATA <--> IDE
+
+* `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci`: Set `Start` to `0`
+* `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Pciide`: Set `Start` to `0`
+
+Registry keys locations (for offline access):
+* HKEY_LOCAL_MACHINE\SYSTEM - `%windir%\system32\config\system`
+* HKEY_LOCAL_MACHINE\SOFTWARE - `%windir%\system32\config\software`
+* HKEY_USERS\\.Default - `%windir%\system32\config\default`
+* HKEY_CURRENT_USER - `%userprofile%\ntuser.dat`
+
 ## Installation from a USB drive
 
 ```batch
