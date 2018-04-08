@@ -34,6 +34,8 @@ __pycache__/
 
 with open("filename", "w") as f:
     f.write("test")
+with open("filename", "r") as f:
+    dummy = f.read()
 
 # Join paths
 os.path.join(path1, path2)
