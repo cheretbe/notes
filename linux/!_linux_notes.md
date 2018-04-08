@@ -1,3 +1,14 @@
+Motherboard and CPU info
+```shell
+# Motherboard
+dmidecode -t 1 -t 2
+lshw -class system
+# CPU
+lscpu
+lshw -class processor
+cat /proc/cpuinfo
+```
+
 tracert for Linux
 ```
 apt-get install mtr-tiny
