@@ -21,4 +21,5 @@
      * Ubuntu 14.04.5 Server x64: http://releases.ubuntu.com/14.04.5/ubuntu-14.04.5-server-amd64.iso
      * Xubuntu 16.04.4 x64: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.4-desktop-amd64.iso
      * Xubuntu 16.04.4 x86: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.4-desktop-i386.iso
+     * Kubuntu 17.10.1 x64: http://cdimage.ubuntu.com/kubuntu/releases/17.10.1/release/kubuntu-17.10.1-desktop-amd64.iso
      * openSUSE Leap 42.3 x64: http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64.iso
