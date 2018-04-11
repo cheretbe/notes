@@ -24,3 +24,4 @@
      * Kubuntu 17.10.1 x64: http://cdimage.ubuntu.com/kubuntu/releases/17.10.1/release/kubuntu-17.10.1-desktop-amd64.iso
      * CentOS 7.4 x64 Gnome: https://mirror.yandex.ru/centos/7/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1708.iso
      * CentOS 7.4 x64 KDE: https://mirror.yandex.ru/centos/7/isos/x86_64/CentOS-7-x86_64-LiveKDE-1708.iso
+     * CentOS 6.9 i386: https://mirror.yandex.ru/centos/6.9/isos/i386/CentOS-6.9-i386-LiveDVD.iso
