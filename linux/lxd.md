@@ -6,6 +6,7 @@
 apt install lxd zfsutils-linux bridge-utils
 ```
 
+`/etc/network/interfaces`
 ```
 auto br0
 iface br0 inet dhcp
