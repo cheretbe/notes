@@ -15,7 +15,7 @@ iface br0 inet dhcp
 iface eth0 inet manual
 ```
 
-```
+```shell
 # Manually create loopback file ZFS system
 # Create a 30Gb zero-filled file	
 dd if=/dev/zero of=/path/to/lxd_zfs.img bs=1024 count=$[1024*1024*30]
