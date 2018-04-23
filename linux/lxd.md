@@ -19,6 +19,8 @@ iface eth0 inet manual
 # Manually create loopback file ZFS system
 # Create a 30Gb zero-filled file	
 dd if=/dev/zero of=/path/to/lxd_zfs.img bs=1024 count=$[1024*1024*30]
+# Or create a 30Gb sparse file
+dd if=/dev/zero of=/path/to/lxd_zfs.img bs=1 count=0 seek=30G
 # Create ZFS pool on it
 zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loop /path/to/lxd_zfs.img
 ```
