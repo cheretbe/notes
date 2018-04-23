@@ -16,3 +16,7 @@ iface eth0 inet manual
 ```
 
 * https://discuss.linuxcontainers.org/t/reclaim-unused-space-from-var-lib-lxd-zfs-img/338/3
+
+```
+zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loop /path/to/lxd_zfs.img
+```
