@@ -210,14 +210,16 @@ Host host1
   IdentityFile /path/to/a/file
   ForwardX11 yes
   LocalForward 2345 192.168.0.1:3389
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
 ```
 
 
 ```bash
 # RDP port forwarding
 ssh user@host.tld -L 1234:192.168.0.200:3389
-# Don't add host key to known_hosts
-ssh user@host.tld -o "UserKnownHostsFile /dev/null"
+# Don't check host key and don't add it to known_hosts
+ssh user@host.tld -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 ```
 
 ``` bash
