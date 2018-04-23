@@ -25,3 +25,15 @@ dd if=/dev/zero of=/path/to/lxd_zfs.img bs=1 count=0 seek=30G
 zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loop /path/to/lxd_zfs.img
 ```
 * https://discuss.linuxcontainers.org/t/reclaim-unused-space-from-var-lib-lxd-zfs-img/338/3
+
+Add to `/etc/sysctl.conf`
+```
+fs.inotify.max_queued_events = 1048576
+fs.inotify.max_user_instances = 1048576
+fs.inotify.max_user_watches = 1048576
+```
+Add to `/etc/security/limits.conf`
+```
+* soft nofile 100000
+* hard nofile 100000
+```
