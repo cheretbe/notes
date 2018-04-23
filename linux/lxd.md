@@ -22,7 +22,7 @@ dd if=/dev/zero of=/path/to/lxd_zfs.img bs=1024 count=$[1024*1024*30]
 # Or create a 30Gb sparse file
 dd if=/dev/zero of=/path/to/lxd_zfs.img bs=1 count=0 seek=30G
 # Create ZFS pool on it
-zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loop /path/to/lxd_zfs.img
+zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loopback /path/to/lxd_zfs.img
 ```
 * https://discuss.linuxcontainers.org/t/reclaim-unused-space-from-var-lib-lxd-zfs-img/338/3
 
