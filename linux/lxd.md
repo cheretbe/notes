@@ -4,6 +4,7 @@
 * https://stgraber.org/2016/10/27/network-management-with-lxd-2-3/#comment-241550
 
 ```shell
+# apt install -t xenial-backports lxd lxd-client
 apt install lxd zfsutils-linux bridge-utils
 ```
 
