@@ -7,6 +7,7 @@ Installation Check-List
 - [ ] DNS server
 - [ ] Scheduled task to save current config
 - [ ] Disable autodiscovery on WAN (`IP` > `Neighbours` > `Discovery Interfaces`. New ROS uses lists, defined in `Interfaces` > `Interface List`)
+- [ ] Review https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router
 
 
 WLAN settings
