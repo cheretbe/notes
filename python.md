@@ -86,6 +86,24 @@ subprocess.check_call(("ls", "-lh", "."))
 import os
 subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 ```
+
+Configs and dictionaries
+* https://packages.ubuntu.com/xenial/python-yaml
+* https://packages.ubuntu.com/xenial/python3-yaml
+```
+sudo apt install python-yaml
+pip install PyYAM
+```
+```python
+import yaml
+with open('config.yaml') as f:
+    # Use safe_load instead of load
+    config = yaml.safe_load(f)
+```
+
+* https://packages.ubuntu.com/xenial/python-jmespath
+* https://packages.ubuntu.com/xenial/python3-jmespath
+
 Datetime
 * http://techblog.thescore.com/2015/11/03/timezones-in-python/
 * http://pytz.sourceforge.net/#localized-times-and-date-arithmetic
