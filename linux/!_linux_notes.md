@@ -17,7 +17,7 @@ mtr host
 
 ```shell
 # Find file recursively
-# -iname 
+# -iname:  like -name, but the match is case insensitive
 find / -xdev -iname "*sql*"
 
 # Grep the whole filesystem
