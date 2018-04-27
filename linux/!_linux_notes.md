@@ -15,8 +15,12 @@ apt-get install mtr-tiny
 mtr host
 ```
 
-Grep the whole filesystem
 ```shell
+# Find file recursively
+# -iname 
+find / -xdev -iname "*sql*"
+
+# Grep the whole filesystem
 #  -xdev  Don't descend directories on other filesystems.
 # -H, --with-filename  print the file name for each match
 find / -xdev -type f -print0 | xargs -0 grep -H "ForceCompositionPipeline"
