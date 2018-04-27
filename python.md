@@ -113,6 +113,9 @@ import jmespath
 jmespath.search("domains[?domain=='domain1.tld'].token", config)
 ```
 
+(TODO) Validation
+* https://pypi.org/project/voluptuous/
+
 Datetime
 * http://techblog.thescore.com/2015/11/03/timezones-in-python/
 * http://pytz.sourceforge.net/#localized-times-and-date-arithmetic
