@@ -16,6 +16,11 @@
 [\[ TOC \]](#table-of-contents)
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
+
+```shell
+dig -t txt _acme-challenge.domain.tld @dns1.yandex.ru
+```
+
 ##### Acme-tiny
 * https://github.com/diafygi/acme-tiny
 * https://stosb.com/blog/secure-your-letsencrypt-setup-with-acme-tiny/
