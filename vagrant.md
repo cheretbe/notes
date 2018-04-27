@@ -1,5 +1,10 @@
 * https://app.vagrantup.com
 
+```shell
+vagrant ssh-config > /tmp/ssh-config-name
+scp -F /tmp/ssh-config-name default:filename .
+```
+
 ```ruby
   config.winrm.password = "password"
   config.vm.provider "virtualbox" do |vb|
