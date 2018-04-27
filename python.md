@@ -92,7 +92,7 @@ Configs and dictionaries
 * https://packages.ubuntu.com/xenial/python3-yaml
 ```shell
 sudo apt install python-yaml
-pip install PyYAM
+pip install PyYAML
 ```
 ```python
 import yaml
