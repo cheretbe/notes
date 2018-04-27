@@ -90,7 +90,7 @@ subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 Configs and dictionaries
 * https://packages.ubuntu.com/xenial/python-yaml
 * https://packages.ubuntu.com/xenial/python3-yaml
-```
+```shell
 sudo apt install python-yaml
 pip install PyYAM
 ```
@@ -101,8 +101,17 @@ with open('config.yaml') as f:
     config = yaml.safe_load(f)
 ```
 
+* http://jmespath.org/examples.html
 * https://packages.ubuntu.com/xenial/python-jmespath
 * https://packages.ubuntu.com/xenial/python3-jmespath
+```shell
+sudo apt install python-jmespath
+pip install jmespath
+```
+```python
+import jmespath
+jmespath.search("domains[?domain=='domain1.tld'].token", config)
+```
 
 Datetime
 * http://techblog.thescore.com/2015/11/03/timezones-in-python/
