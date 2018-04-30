@@ -1,4 +1,4 @@
-###Disable IPv6
+### Disable IPv6
 Check status
 ```
 cat /proc/sys/net/ipv6/conf/all/disable_ipv6
@@ -15,7 +15,7 @@ Apply changes
 ```
 sudo sysctl -p
 ```
-###Config examples
+### Config examples
 Ubuntu (/etc/network/interfaces)
 ```
 # interface without an IP address
@@ -23,4 +23,9 @@ auto eth0
 iface eth0 inet manual
   up ifconfig $IFACE 0.0.0.0 up
   down ifconfig $IFACE down
+```
+
+```
+route delete -net 192.168.101.0/24 gw 192.168.99.11
+route add -net 192.168.101.0/24 gw 192.168.100.9
 ```
