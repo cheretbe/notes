@@ -47,4 +47,5 @@ lxc profile copy default multibridge
 lxc profile edit multibridge
 #lxc delete test1 --force
 lxc launch ubuntu:xenial test1 -p multibridge
+lxc exec test1 bash
 ```
