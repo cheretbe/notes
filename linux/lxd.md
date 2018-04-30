@@ -49,5 +49,7 @@ lxc profile edit multibridge
 lxc launch ubuntu:xenial test1 -p multibridge
 lxc exec test1 bash
 
+lxc config set test1 security.privileged true
+lxc config device add test1 dev_ppp unix-char path=/dev/ppp
 lxc config edit test1
 ```
