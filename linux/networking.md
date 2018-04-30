@@ -20,7 +20,7 @@ Ubuntu (/etc/network/interfaces)
 ```
 # interface without an IP address
 auto eth0
-  iface eth0 inet manual
+iface eth0 inet manual
   up ifconfig $IFACE 0.0.0.0 up
   down ifconfig $IFACE down
 ```
