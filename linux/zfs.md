@@ -160,7 +160,7 @@ Add daily check and weekly scrub
 # Scrub ZFS pool every Sunday at 2:00
 00 02  *  *  0  /sbin/zpool scrub zfs-data
 ```
-![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) ZoL add its own scrub (check `/etc/cron.d/zfsutils-linux`)
+![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) ZoL adds its own scrub (check `/etc/cron.d/zfsutils-linux`)
 
 Check if script works:
 ```shell
