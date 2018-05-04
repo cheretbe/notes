@@ -82,9 +82,11 @@ except OSError as exc:  # Python >2.5
 import subprocess
 # check_call either returns 0 or throws an exception
 subprocess.check_call(("ls", "-lh", "."))
-# expand ~
+# Expand ~
 import os
 subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
+# Get output (throws an exception on non-zero exit code)
+output = subprocess.check_output(("ls", "-lh", "."))
 ```
 
 Configs and dictionaries
