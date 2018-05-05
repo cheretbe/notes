@@ -74,3 +74,17 @@ class examples_UnitTests(unittest.TestCase):
         # [!] Note open_mock(), not open_mock
         open_mock_handle = open_mock()
         open_mock_handle.write.assert_called_once_with("new file data")
+
+    @mock.patch("subprocess.check_output")
+    def test_external_process_example(self, check_output_mock):
+        check_output_mock.side_effect = ("root list", "home list")
+        res1, res2 = unittests_examples.external_process_example()
+        self.assertEqual(res1, "root list")
+        self.assertEqual(res2, "home list")
+
+        # https://docs.python.org/3/library/unittest.mock.html
+        calls = [mock.call(('ls', '/', '-lh')), mock.call('ls ~ -lh', shell=True)]
+        check_output_mock.assert_has_calls(calls, any_order=True)
+        check_output_mock.assert_any_call(("ls", "/", "-lh"))
+        # this applies to the last call only
+        check_output_mock.assert_called_with('ls ~ -lh', shell=True)

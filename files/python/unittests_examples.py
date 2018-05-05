@@ -1,5 +1,6 @@
 import datetime
 import requests
+import subprocess
 
 class CustomException(Exception):
     pass
@@ -33,3 +34,8 @@ def read_file_example(file_name):
 def write_file_example(file_name, file_data):
     with open(file_name, "w") as f:
         f.write(file_data)
+
+def external_process_example():
+    result1 = subprocess.check_output(("ls", "/", "-lh"))
+    result2 = subprocess.check_output("ls ~ -lh", shell=True)
+    return (result1, result2)
