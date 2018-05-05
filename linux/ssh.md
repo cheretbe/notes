@@ -236,7 +236,7 @@ AllowTcpForwarding yes
 ```shell
 # Keeping X11 display after su or sudo
 # For non-root accounts list authority file contents BEFORE su
-xauth -f ~john/.Xauthority list
+xauth -f ~/.Xauthority list
 # Note the last line, e.g:
 # host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c694102
 # After su add the same entry for a new user
