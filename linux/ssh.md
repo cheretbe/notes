@@ -233,6 +233,18 @@ X11UseLocalHost no
 # Allow port forwading
 AllowTcpForwarding yes
 ```
+```shell
+# Keeping X11 display after su or sudo
+# For non-root accounts list authority file contents BEFORE su
+xauth -f ~john/.Xauthority list
+# Note the last line, e.g:
+# host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c694102
+# After su add the same entry for a new user
+xauth add host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c694102
+
+# For root the following one-liner is enough
+xauth add $(xauth -f ~john/.Xauthority list|tail -1)
+```
 Do not forward the locale settings
 * on client: in `/etc/ssh/ssh_config` comment out the line:
 ```
