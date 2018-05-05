@@ -77,10 +77,10 @@ class examples_UnitTests(unittest.TestCase):
 
     @mock.patch("subprocess.check_output")
     def test_external_process_example(self, check_output_mock):
-        check_output_mock.side_effect = ("root list", "home list")
+        check_output_mock.side_effect = (u"root list".encode("utf-8"), u"home list".encode("utf-8"))
         res1, res2 = unittests_examples.external_process_example()
-        self.assertEqual(res1, "root list")
-        self.assertEqual(res2, "home list")
+        self.assertEqual(res1, ["root list"])
+        self.assertEqual(res2, ["home list"])
 
         # https://docs.python.org/3/library/unittest.mock.html
         calls = [mock.call(('ls', '/', '-lh')), mock.call('ls ~ -lh', shell=True)]
@@ -88,3 +88,15 @@ class examples_UnitTests(unittest.TestCase):
         check_output_mock.assert_any_call(("ls", "/", "-lh"))
         # this applies to the last call only
         check_output_mock.assert_called_with('ls ~ -lh', shell=True)
+
+        check_output_mock.side_effect = KeyError("Test error")
+        with self.assertRaises(KeyError):
+            unittests_examples.external_process_example()
+
+        # To check additional parameters of the exception a context manager needs
+        # to be used
+        check_output_mock.side_effect = unittests_examples.CustomException("Test error")
+        with self.assertRaises(unittests_examples.CustomException) as cm:
+            unittests_examples.external_process_example()
+
+        self.assertEqual(str(cm.exception), "Test error")

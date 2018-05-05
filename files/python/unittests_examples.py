@@ -36,6 +36,6 @@ def write_file_example(file_name, file_data):
         f.write(file_data)
 
 def external_process_example():
-    result1 = subprocess.check_output(("ls", "/", "-lh"))
-    result2 = subprocess.check_output("ls ~ -lh", shell=True)
+    result1 = subprocess.check_output(("ls", "/", "-lh")).decode("utf-8").splitlines()
+    result2 = subprocess.check_output("ls ~ -lh", shell=True).decode("utf-8").splitlines()
     return (result1, result2)
