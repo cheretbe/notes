@@ -284,6 +284,7 @@ futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
 * [\[ TOC \]](#table-of-contents)
 
 ## Unit tests
+* https://docs.python.org/3/library/unittest.html
 * https://docs.python.org/3/library/unittest.mock.html
 * [unittests_examples.py](files/python/unittests_examples.py)
 * [test_unittests_examples.py](files/python/test_unittests_examples.py)
