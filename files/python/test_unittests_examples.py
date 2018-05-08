@@ -55,6 +55,21 @@ class examples_UnitTests(unittest.TestCase):
             json={"param1": "value1", "param2": "value2"}
         )
         self.assertEqual(unittests_examples.http_request("https://www.google.com").json(), {"param1": "value1", "param2": "value2"})
+        # http://requests-mock.readthedocs.io/en/latest/history.html
+        self.assertEqual(req_mock.last_request.method, "GET")
+        self.assertEqual(req_mock.last_request.scheme, "https")
+        self.assertEqual(req_mock.last_request.hostname, "www.google.com")
+        # For multiple requests 'request_history' property could be used
+        self.assertEqual(req_mock.request_history[-1].method, "GET")
+
+        req_mock.request(
+            "POST",
+            "https://www.google.com/some_api",
+            json={"result": "ok"}
+        )
+        unittests_examples.http_api_request("https://www.google.com/some_api")
+        self.assertTrue("param1=1" in req_mock.last_request.url)
+        self.assertTrue("param2=2" in req_mock.last_request.url)
 
         req_mock.request(
             "GET",

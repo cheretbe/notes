@@ -26,6 +26,9 @@ def custom_exception():
 def http_request(url):
     return requests.get(url)
 
+def http_api_request(url):
+    return requests.post(url, params={"param1": 1, "param2": 2})
+
 def read_file_example(file_name):
     with open(file_name, "r") as f:
         file_contents = f.read()
