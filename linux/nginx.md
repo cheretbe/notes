@@ -1,6 +1,8 @@
 ```
 ln -s /etc/nginx/sites-available/www.example.org.conf /etc/nginx/sites-enabled/
 service nginx configtest
+# If test fails review log
+tail -f /var/log/nginx/error.log
 service nginx force-reload
 ```
 
