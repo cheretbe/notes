@@ -43,6 +43,7 @@ Add to `/etc/security/limits.conf`
 Reboot
 
 ```shell
+lxc profile list
 lxc profile copy default multibridge
 lxc profile edit multibridge
 #lxc delete test1 --force
@@ -52,4 +53,14 @@ lxc exec test1 bash
 lxc config set test1 security.privileged true
 lxc config device add test1 dev_ppp unix-char path=/dev/ppp
 lxc config edit test1
+
+lxc list
+lxc stop container_name
+lxc delete container_name
+
+# LXD key                  Correspoding LXC key   Values
+# boot.autostart           lxc.start.auto         1 enabled, 0 disabled
+# boot.autostart.delay     lxc.start.delay        delay in seconds to wait after starting container
+# boot.autostart.priority  lxc.start.order        container priority, higher values means earlier start
+lxc config set container_name boot.autostart 0
 ```
