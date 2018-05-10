@@ -59,6 +59,8 @@ nginx['real_ip_header'] = 'X-Real-IP'
 nginx['real_ip_recursive'] = 'on'
 gitlab_rails['trusted_proxies'] = ["192.168.0.1"]
 ```
+Set `nginx['hsts_max_age'] = 0` if the proxy uses `add_header Strict-Transport-Security` to set HSTS to avoid this header being added twice
+
 On the proxy use `location` settings for Nginx from here:
 https://gitlab.com/gitlab-org/gitlab-recipes/blob/master/web-server/nginx/gitlab-omnibus-ssl-nginx.conf
 
