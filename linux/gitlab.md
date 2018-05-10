@@ -42,8 +42,8 @@ Default path is `/var/opt/gitlab/backups`
 * https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
 
 ### Reverse proxy
-Settings for `/etc/gitlab/gitlab.rb`:
-```
+Settings for `/etc/gitlab/gitlab.rb` on Gitlab server:
+```ruby
 external_url 'https://yourdomain.com'
 nginx['listen_port'] = 80
 nginx['listen_https'] = false
@@ -51,13 +51,19 @@ nginx['proxy_set_headers'] = {
   "X-Forwarded-Proto" => "https",
   "X-Forwarded-Ssl" => "on"
 }
+
+# https://docs.gitlab.com/omnibus/settings/nginx.html#configuring-gitlab-trusted_proxies-and-the-nginx-real_ip-module
+nginx['real_ip_header'] = 'X-Real-IP'
+nginx['real_ip_recursive'] = 'on'
+gitlab_rails['trusted_proxies'] = ["192.168.0.1"]
 ```
+On the proxy use `location` settings for Nginx from here:
+https://gitlab.com/gitlab-org/gitlab-recipes/blob/master/web-server/nginx/gitlab-omnibus-ssl-nginx.conf
+
 ```shell
 # Apply changes
 gitlab-ctl reconfigure
 ```
-Use `location` settings for Nginx from here:
-https://gitlab.com/gitlab-org/gitlab-recipes/blob/master/web-server/nginx/gitlab-omnibus-ssl-nginx.conf
 
 References
 * https://gitlab.com/gitlab-org/gitlab-ce/issues/15574#note_12468383
