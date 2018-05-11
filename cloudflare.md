@@ -2,6 +2,8 @@
 * https://support.cloudflare.com/hc/en-us/articles/360000841472
 
 ```shell
+# Flarectl
+# https://github.com/cloudflare/cloudflare-go/blob/master/cmd/flarectl/README.md
 export CF_API_EMAIL=user@domain.tld
 export CF_API_KEY=0000000000000000000000000000000000000
 ./flarectl user info
