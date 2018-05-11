@@ -18,3 +18,7 @@ export CF_API_KEY=0000000000000000000000000000000000000
 # Delete a record
 ./flarectl dns delete --zone domain.tld --id 00000000000000000000000000000000
 ```
+
+```shell
+curl -X GET -H "X-Auth-Email: user@domain.tld" -H "X-Auth-Key: 0000000000000000000000000000000000000" https://api.cloudflare.com/client/v4/zones/00000000000000000000000000000000/dns_records | json_pp > domain_info.txt
+```
