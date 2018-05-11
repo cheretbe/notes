@@ -35,6 +35,23 @@ server {
 
 ### Reverse proxy
 
+Get client's real IP when behind NAT or a proxy/load balancer
+```
+http {
+  ...
+  set_real_ip_from 192.168.1.1;
+  set_real_ip_from 192.168.1.2;
+  real_ip_header X-Forwarded-For;
+  ...
+}
+```
+Then use on server
+```php
+<? echo $_SERVER["REMOTE_ADDR"]; ?>
+```
+* https://philio.me/showing-the-correct-client-ip-in-logs-and-scripts-when-using-nginx-behind-a-reverse-proxy/
+
+Setup:
 * https://www.techandme.se/set-up-nginx-reverse-proxy/
 * https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server
 * https://www.howtoforge.com/tutorial/how-to-install-nginx-as-reverse-proxy-for-apache-on-ubuntu-16-04/
