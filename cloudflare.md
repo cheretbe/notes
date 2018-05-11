@@ -9,8 +9,10 @@ export CF_API_KEY=0000000000000000000000000000000000000
 ./flarectl dns list --zone domain.tld
 # View record details
 ./flarectl dns list -zone domain.tld -id 00000000000000000000000000000000
-# Add new record
+# Add a new record
 # --ttl 1 means "auto"
 # add --proxy for new record's traffic to go through Cloundflare servers
 ./flarectl dns create -zone domain.tld --name test -content 0.0.0.0 --type A --ttl 900
+# Delete a record
+./flarectl dns delete --zone domain.tld --id 00000000000000000000000000000000
 ```
