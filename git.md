@@ -36,6 +36,9 @@ git add .
 # Undo add
 git reset
 
+# Undo commit that hasn't been pushed
+git reset HEAD~
+
 # Rename file
 git mv file new-name
 
