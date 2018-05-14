@@ -36,6 +36,16 @@ with open("filename", "w") as f:
     f.write("test")
 with open("filename", "r") as f:
     dummy = f.read()
+    
+# Environment variables
+import os
+print(os.environ['HOME'])
+# List all variables
+os.environ
+# using get will return `None` if a key is not present rather than raise a `KeyError`
+print(os.environ.get('KEY_THAT_MIGHT_EXIST'))
+# os.getenv is equivalent, and can also give a default value instead of `None`
+print(os.getenv('KEY_THAT_MIGHT_EXIST', default_value))
 
 # Join paths
 os.path.join(path1, path2)
