@@ -71,6 +71,8 @@ git commit --amend -m "New commit message"
 git diff HEAD^ HEAD
 # On Windows use ~ unstead of ^
 git diff HEAD~ HEAD
+# Show a word diff
+git diff --color-words 
 ```
 
 ### Initial setup
