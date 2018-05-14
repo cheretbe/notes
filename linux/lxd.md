@@ -66,3 +66,5 @@ lxc delete container_name
 # boot.autostart.priority  lxc.start.order        container priority, higher values means earlier start
 lxc config set container_name boot.autostart 0
 ```
+Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375
+:warning: Adjust permissions on host since container's root will not have access
