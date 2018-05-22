@@ -1,5 +1,10 @@
 ## Unsorted
 
+`control userpasswords2` encrypted password uses  LsaStorePrivateData?
+* https://www.snip2code.com/Snippet/1080596/Auto-Logon-Script-for-Windows
+* https://andyarismendi.blogspot.ru/2011/10/powershell-set-secureautologon.html
+
+
 Shell Commands:
 ```
 start shell:Desktop
