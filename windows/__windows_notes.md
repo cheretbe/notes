@@ -4,11 +4,6 @@
 * https://www.snip2code.com/Snippet/1080596/Auto-Logon-Script-for-Windows
 * https://andyarismendi.blogspot.ru/2011/10/powershell-set-secureautologon.html
 
-| test | test                                                                     |
-|------|--------------------------------------------------------------------------|
-| 1    |![test](https://github.com/cheretbe/notes/blob/master/images/drawing.svg) |
-
-
 Shell Commands:
 ```
 start shell:Desktop
