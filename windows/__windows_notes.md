@@ -5,6 +5,9 @@
 * https://andyarismendi.blogspot.ru/2011/10/powershell-set-secureautologon.html
 
 
+![test](https://github.com/cheretbe/notes/blob/master/images/drawing.svg)
+
+
 Shell Commands:
 ```
 start shell:Desktop
