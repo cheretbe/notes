@@ -72,6 +72,7 @@ param(
 
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
 
+Write-Host ([System.Environment]::ExpandEnvironmentVariables("%USERPROFILE%\Desktop"))
 Write-Host ${Env:ProgramFiles(x86)}
 $cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
 
