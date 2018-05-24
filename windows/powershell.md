@@ -26,6 +26,11 @@ Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient
 &"cmd.exe" @("/c", "ver")
 Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
 
+$processObj = Start-Process -FilePath "wusa.exe" -ArgumentList @($hotfixFileName, "/quiet", "/norestart") -Wait -PassThru
+# Non-zero return code means error, except for the code 3010 (reboot is needed)
+if (-not(($processObj.ExitCode -eq 0) -or ($processObj.ExitCode -eq 3010)))
+  { Throw ("wusa.exe call failed: exit code {0}" -f $processObj.ExitCode) }
+
 [enum]::GetValues([System.Management.Automation.PSMemberTypes])
 
 # File output
