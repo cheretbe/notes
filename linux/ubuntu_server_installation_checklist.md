@@ -18,6 +18,7 @@ systemctl status systemd-timesyncd --no-pager -l
 # check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
 ```
+- [ ] Check journald [settings](./journalctl.md)
 - [ ] Unattended updates (+ nagios notification)
 ```shell
 apt install unattended-upgrades
