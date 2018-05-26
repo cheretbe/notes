@@ -92,7 +92,7 @@ except OSError as exc:  # Python >2.5
 import subprocess
 # check_call either returns 0 or throws an exception
 subprocess.check_call(("ls", "-lh", "."))
-# Expand ~
+# Expand home
 import os
 subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 # Get output (throws an exception on non-zero exit code)
