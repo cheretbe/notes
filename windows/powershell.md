@@ -94,7 +94,12 @@ if (Test-Path -Path $DirPath) {
 New-Item -ItemType "Directory" -Path $dir_to_create -Force | Out-Null 
 
 [enum]::GetValues([Microsoft.Win32.RegistryValueKind])
-New-ItemProperty -Path "HKCU:\Console" -Name "FaceName" -Value "Consolas" -PropertyType ([Microsoft.Win32.RegistryValueKind]::String) -Force
+$color = (Get-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "ImageColor" -ErrorAction SilentlyContinue).ImageColor
+# Powershell 2.0 (Win7) has a bug: it returns DWORD values as int32, not uint32. I can cause an integer
+# overflow for values like 0xC4FFFFFF
+# The workaround is to compare values as hex strings:
+$color.ToString("X") -eq (0xC4FFFFFF).ToString("X")
+New-ItemProperty -Path "HKCU:\Console" -Name "FaceName" -Value "Consolas" -PropertyType ([Microsoft.Win32.RegistryValueKind]::String) -Force | Out-Null
 New-Item 'HKCU:\Software\Policies\Microsoft\Windows\EdgeUI' -Force | New-ItemProperty # ... (no -Path)
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
