@@ -65,6 +65,22 @@ lxc delete container_name
 # boot.autostart.delay     lxc.start.delay        delay in seconds to wait after starting container
 # boot.autostart.priority  lxc.start.order        container priority, higher values means earlier start
 lxc config set container_name boot.autostart 0
+
+# Snapshots
+# create
+lxc snapshot <container>
+lxc snapshot <container> <snapshot name>
+# list
+lxc info <container>
+# restore
+lxc restore <container> <snapshot name>
+# delete
+lxc delete <container>/<snapshot name>
+# rename
+lxc move <container>/<snapshot name> <container>/<new snapshot name>
+# creating a new container from a snapshot - identical except for the
+# volatile information being reset (MAC address)
+lxc copy <source container>/<snapshot name> <destination container>
 ```
 Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375
 :warning: Adjust permissions on host since container's root will not have access
