@@ -1,6 +1,7 @@
 * http://www.kendar.org/?p=/dotnet/phpnuget
 * https://www.cnblogs.com/ljzforever/p/6241490.html
 * https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-14-04-droplet
+* https://devops.profitbricks.com/tutorials/configure-nginx-as-a-reverse-proxy-for-apache-on-ubuntu-1604/
 
 ```
 apt install zip apache2 libapache2-mod-php php-curl php-zip php-xml
