@@ -35,6 +35,8 @@ server {
 
 ### Reverse proxy
 
+See [phpnuget setup](phpnuget.md) for nginx -> apache proxy example<br><br>
+
 Get client's real IP when behind NAT or a proxy/load balancer
 ```
 http {
