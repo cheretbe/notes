@@ -83,14 +83,15 @@ nginx reverse proxy
     proxy_pass        http://localhost:8080/phpnuget;
   }
 ```
-.
+:warning: **TODO: https setup here**<br>
+
 Check that php works correctly behind the proxy
 ```shell
 echo "<?php phpinfo(); ?>" | sudo tee /www/phpnuget/info.php
 ```
 Go to `https://host/phpnuget/info.php` and make sure that `HTTP_X_REAL_IP` and `HTTP_X_FORWARDED_PROTO` show correct values
 
-Got to `http://host/phpnuget/setup.php` and finish setup
+Got to `https://host/phpnuget/setup.php` and finish setup
 ```
 # remove write permissions
 chown root /www/phpnuget/
