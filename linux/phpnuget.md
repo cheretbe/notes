@@ -83,6 +83,7 @@ nginx reverse proxy
     proxy_pass        http://localhost:8080/phpnuget;
   }
 ```
+:pencil: if reverse proxy is behing NAT, the following parameter needs to be added: `set_real_ip_from  192.168.0.0/24;` (replace with actual NATed network)<br>
 :warning: **TODO: https setup here**<br>
 
 Check that php works correctly behind the proxy
