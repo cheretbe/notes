@@ -74,15 +74,6 @@ chown www-data /www/phpnuget/settings.php
 chown www-data /www/phpnuget/.htaccess
 ```
 
-Got to `http://host/phpnuget/setup.php` and finish setup
-
-```
-# remove write permissions
-chown root /www/phpnuget/
-chown root /www/phpnuget/settings.php
-chown root /www/phpnuget/.htaccess
-```
-
 nginx reverse proxy
 ```
   location /phpnuget {
@@ -91,6 +82,20 @@ nginx reverse proxy
     proxy_set_header  Host $host;
     proxy_pass        http://localhost:8080/phpnuget;
   }
+```
+.
+Check that php works correctly behind the proxy
+```shell
+echo "<?php phpinfo(); ?>" | sudo tee /www/phpnuget/info.php
+```
+Go to `https://host/phpnuget/info.php` and make sure that `HTTP_X_REAL_IP` and `HTTP_X_FORWARDED_PROTO` show correct values
+
+Got to `http://host/phpnuget/setup.php` and finish setup
+```
+# remove write permissions
+chown root /www/phpnuget/
+chown root /www/phpnuget/settings.php
+chown root /www/phpnuget/.htaccess
 ```
 
 ```batch
