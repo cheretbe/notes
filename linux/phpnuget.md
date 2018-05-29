@@ -14,6 +14,37 @@ Change port in `/etc/apache2/ports.conf` ~~and `/etc/apache2/sites-available/000
 ```shell
 a2dissite 000-default
 ```
+For apache to be able to correctly resolve client IPs from behind a proxy `mod_rpaf` is needed.
+```shell
+# [!] libapache2-mod-rpaf package in Debian/Ubuntu is outdated and doensn't support RPAF_SetHTTPS option
+# We will use a fork instead. Node syntax difference, e.g. RPAF_ProxyIPs instead of RPAFproxy_ips, etc.
+mkdir -p ~/sources
+cd ~/sources
+wget https://github.com/gnif/mod_rpaf/archive/stable.zip
+unzip stable.zip
+cd mod_rpaf-stable
+make
+sudo make install
+```
+Create `/etc/apache2/mods-available/rpaf.load` file with the following content:
+```
+LoadModule rpaf_module /usr/lib/apache2/modules/mod_rpaf.so
+```
+Create `/etc/apache2/mods-available/rpaf.conf` file with the following content:
+```
+<IfModule mod_rpaf.c>
+    RPAF_Enable             On
+    RPAF_Header             X-Real-Ip
+    RPAF_ProxyIPs           your_server_ip 
+    RPAF_SetHostName        On
+    RPAF_SetHTTPS           On
+    RPAF_SetPort            On
+</IfModule>
+```
+```shell
+# Enable module
+a2enmod rpaf
+```
 
 Create `/etc/apache2/sites-available/phpnuget.conf` with the following content
 ```apache
