@@ -23,12 +23,18 @@ curl http://download2.mikrotik.com/routeros/LATEST.6
 # 6.41.2 1517920142
 ```
 
-
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
+# View default config
+/system default-configuration print
+# .txt extension added automatically
+/system default-configuration print file=default-config
+
+# View current config
 /export compact
 # .rsc extension is added automatically
 /export compact file=config
+
 # binary backup
 /system backup save name="current.config"
 
