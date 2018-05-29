@@ -91,7 +91,7 @@ echo "<?php phpinfo(); ?>" | sudo tee /www/phpnuget/info.php
 ```
 Go to `https://host/phpnuget/info.php` and make sure that `HTTP_X_REAL_IP` and `HTTP_X_FORWARDED_PROTO` show correct values
 
-Got to `https://host/phpnuget/setup.php` and finish setup
+Go to `https://host/phpnuget/setup.php` and finish setup
 ```
 # remove write permissions
 chown root /www/phpnuget/
