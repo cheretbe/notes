@@ -111,6 +111,16 @@ $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
 # Or better yet? (review)
 # http://stackoverflow.com/a/22362868
 
+# https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.host.pshostuserinterface.promptforchoice?view=powershellsdk-1.1.0
+# Short version (no help). Use -1 for defaultChoice to not use a default choice
+$host.ui.PromptForChoice("The Choice", "What is you selection?", @("&Yes", "&No"), 0)
+# Long version with help
+$options = [System.Management.Automation.Host.ChoiceDescription[]](
+  (New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", "Yes option description"),
+  (New-Object System.Management.Automation.Host.ChoiceDescription "&No", "No option description")
+)
+$host.ui.PromptForChoice("The Choice", "What is you selection?", $options, 0)
+      
 # WMI Reference: http://www.powertheshell.com/reference/wmireference/
 $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 # for a Virtualbox VM:
