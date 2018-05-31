@@ -182,6 +182,8 @@ git push -u origin feature_branch_name
 
 # Get commit a tag points to (git rev-parse tag_name returns the SHA1 of the tag object itself)
 git rev-list -n 1 tag_name
+# Short hash
+git rev-list -n 1 --abbrev-commit tag_name
 ```
 ### Github backup
 http://github-backup.branchable.com/
