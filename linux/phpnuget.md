@@ -98,6 +98,9 @@ Go to `https://host/phpnuget/setup.php` and finish setup
 chown root /www/phpnuget/
 chown root /www/phpnuget/settings.php
 chown root /www/phpnuget/.htaccess
+
+# remove test file
+rm /www/phpnuget/info.php
 ```
 
 ```batch
