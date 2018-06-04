@@ -62,6 +62,8 @@ try {
 function Dummy {
 [CmdletBinding()]
 param(
+  [Parameter(Mandatory=$true)]
+  [string]$strParam,
   [switch]$switchParam,
   [string[]]$arrayOfStringsParam
 )
