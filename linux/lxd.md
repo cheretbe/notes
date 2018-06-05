@@ -70,6 +70,8 @@ Reboot
 ```shell
 sudo usermod --append --groups lxd non_root_user
 
+sudo lxd init
+
 lxc profile list
 lxc profile copy default multibridge
 lxc profile edit multibridge
