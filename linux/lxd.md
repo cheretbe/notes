@@ -72,6 +72,11 @@ sudo usermod --append --groups lxd non_root_user
 
 sudo lxd init
 
+# Use the existing ZFS Zpool "pool"
+lxc storage create pool1 zfs source=pool
+# Use the existing ZFS dataset "pool/path"
+lxc storage create pool1 zfs source=pool/path
+
 lxc profile list
 lxc profile copy default multibridge
 lxc profile edit multibridge
