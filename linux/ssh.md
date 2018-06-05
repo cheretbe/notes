@@ -212,6 +212,8 @@ Host host1
   LocalForward 2345 192.168.0.1:3389
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
+  ServerAliveInterval    30
+  ServerAliveCountMax    3
 ```
 
 
