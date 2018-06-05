@@ -72,6 +72,7 @@ sudo usermod --append --groups lxd non_root_user
 
 sudo lxd init
 
+# https://lxd.readthedocs.io/en/latest/storage/
 # Use the existing ZFS Zpool "pool"
 lxc storage create pool1 zfs source=pool
 # Use the existing ZFS dataset "pool/path"
