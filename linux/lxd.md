@@ -16,6 +16,25 @@ iface br0 inet dhcp
 
 iface eth0 inet manual
 ```
+Netplan (`/etc/netplan/01-netcfg.yaml`)
+```
+network:
+ version: 2
+ renderer: networkd
+ ethernets:
+   eth0:
+     dhcp4: false
+ bridges:
+   br0:
+     interfaces: [eth0]
+     dhcp4: false
+     addresses: [192.168.1.99/24]
+     gateway4: 192.168.1.1
+     nameservers:
+       addresses: [1.1.1.1,8.8.8.8]
+     parameters:
+       forward-delay: 0
+```
 
 ```shell
 # Manually create loopback file ZFS system
