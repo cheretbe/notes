@@ -35,6 +35,11 @@ network:
      parameters:
        forward-delay: 0
 ```
+Apply configuration
+```
+sudo netplan apply
+ifconfig
+```
 
 ```shell
 # Manually create loopback file ZFS system
