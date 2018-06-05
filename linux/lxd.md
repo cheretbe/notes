@@ -37,6 +37,7 @@ network:
 ```
 Apply configuration
 ```
+sudo netplan generate
 sudo netplan apply
 ifconfig
 ```
