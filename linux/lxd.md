@@ -115,5 +115,6 @@ lxc move <container>/<snapshot name> <container>/<new snapshot name>
 # volatile information being reset (MAC address)
 lxc copy <source container>/<snapshot name> <destination container>
 ```
-Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375
+Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375<br>
+`/var/lib/lxd/storage-pools/default/containers/`<br>
 :warning: Adjust permissions on host since container's root will not have access
