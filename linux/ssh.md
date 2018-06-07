@@ -221,7 +221,7 @@ Host host1
 # RDP port forwarding
 ssh user@host.tld -L 1234:192.168.0.200:3389
 # Don't check host key and don't add it to known_hosts
-ssh user@host.tld -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host.tld
 ```
 
 ``` bash
