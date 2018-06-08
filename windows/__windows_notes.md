@@ -126,7 +126,7 @@ Get-AppxPackage -AllUsers | Where-Object PublisherId -eq "8wekyb3d8bbwe" | Remov
 * https://superuser.com/questions/533170/how-to-fully-uninstall-a-windows-store-app/533220#533220
 3) Selective deletion
 ```powershell
-Get-AppxPackage -AllUsers | Select Name,PackageFamilyName,InstallLocation
+Get-AppxPackage -AllUsers | Select Name,PackageFamilyName,InstallLocation | Out-GridView
 ```
 4) :grey_question: Delete files:  
 TODO: Fix directory name
