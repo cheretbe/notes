@@ -15,4 +15,9 @@ xmlData.find("./unattend:settings[@pass='windowsPE']/"
         "unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).items()
 xmlData.find("./unattend:settings[@pass='windowsPE']/"
         "unattend:component[@name='Microsoft-Windows-International-Core-WinPE']", namespaces=namespaces).getchildren()
+
+# Unnamed namespaces
+dvdImages = xmlData.find('{http://www.virtualbox.org/}Machine/{http://www.virtualbox.org/}MediaRegistry/{http://www.virtualbox.org/}DVDImages')
+for image in dvdImages:
+    dvdImages.remove(image)
 ```
