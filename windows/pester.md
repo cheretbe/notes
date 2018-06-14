@@ -7,4 +7,10 @@ Command-line parameters:
 ```powershell
 Mock Get-Service { [pscustomobject]@{ "StartType" = ([System.ServiceProcess.ServiceStartMode]::Manual) }
 { throw [System.IO.FileNotFoundException] "file not found" } | Should -Throw -ExceptionType ([System.IO.FileNotFoundException])
+
+$originalOSVerObj = $aoOSVersion
+$aoOSVersion = $originalOSVerObj.PSObject.Copy()
+$aoOSVersion.versionShort = "6.3"
+# Usage
+$aoOSVersion = $originalOSVerObj
 ```
