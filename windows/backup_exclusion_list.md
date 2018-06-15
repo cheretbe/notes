@@ -1,6 +1,7 @@
 to check:
 ```
 C:\Users\:\AppData\Local\Microsoft\Windows\Explorer\thumbcache*
+C:\Users\:\AppData\Local\Packages\
 ```
 
 * https://support.code42.com/CrashPlan/4/Backup/Back_up_the_AppData_folder_in_Windows
