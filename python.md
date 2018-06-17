@@ -160,6 +160,10 @@ datetime.datetime.now(dateutil.tz.tzoffset(None, -time.timezone))
 # Take DST in account
 datetime.datetime.now(dateutil.tz.tzoffset(None, -time.altzone))
 
+# Format datetime
+# http://strftime.org/
+datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+
 # Print localized datetime
 import locale
 locale.setlocale(locale.LC_ALL, '')
