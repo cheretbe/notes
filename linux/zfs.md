@@ -1,3 +1,5 @@
+* https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz
+
 ## Table of Contents
 * [Installation](#installation)
 * [zpool Creation](#zpool-creation)
