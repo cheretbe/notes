@@ -17,6 +17,7 @@
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 
+* https://www.reddit.com/r/homelab/comments/8r575v/certbot_wildcard_automatic_dns_auth_with_amazon/
 ```shell
 dig -t txt _acme-challenge.domain.tld @dns1.yandex.ru
 ```
