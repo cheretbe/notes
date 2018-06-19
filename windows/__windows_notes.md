@@ -1,5 +1,13 @@
 ## Unsorted
 
+WinSxS store cleanup
+```batch
+:: Analyze
+Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
+:: Cleanup
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+```
+
 `control userpasswords2` encrypted password uses  LsaStorePrivateData?
 * https://www.snip2code.com/Snippet/1080596/Auto-Logon-Script-for-Windows
 * https://andyarismendi.blogspot.ru/2011/10/powershell-set-secureautologon.html
