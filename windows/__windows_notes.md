@@ -1,5 +1,10 @@
 ## Unsorted
 
+```batch
+:: Disable hibernation
+powercfg /h off
+```
+
 WinSxS store cleanup
 ```batch
 :: Analyze
