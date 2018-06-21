@@ -49,3 +49,5 @@ network:
         "name":
           password: "pwd"
 ```
+
+* https://netplan.io/design#complex-example
