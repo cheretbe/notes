@@ -29,3 +29,23 @@ iface eth0 inet manual
 route delete -net 192.168.101.0/24 gw 192.168.99.11
 route add -net 192.168.101.0/24 gw 192.168.100.9
 ```
+
+WLAN
+```
+iwconfig
+apt install wpasupplicant
+```
+```yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp1s0:
+      dhcp4: yes
+  wifis:
+    wlp2s0:
+      dhcp4: yes
+      access-points:
+        "name":
+          password: "pwd"
+```
