@@ -39,6 +39,7 @@ Apply configuration
 ```
 sudo netplan generate
 sudo netplan apply
+networkctl list
 ifconfig
 ```
 
