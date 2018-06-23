@@ -52,3 +52,6 @@ network:
 
 * https://netplan.io/design#complex-example
 * https://askubuntu.com/questions/63456/waiting-for-network-configuration-adding-3-to-5-minutes-to-boot-time/914479#914479
+* https://www.linuxbabe.com/command-line/ubuntu-server-16-04-wifi-wpa-supplicant
+* https://wiki.debian.org/BridgeNetworkConnections#Bridging_with_a_wireless_NIC
+* https://github.com/GNS3/gns3-gui/issues/2348
