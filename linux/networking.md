@@ -51,3 +51,4 @@ network:
 ```
 
 * https://netplan.io/design#complex-example
+* https://askubuntu.com/questions/63456/waiting-for-network-configuration-adding-3-to-5-minutes-to-boot-time/914479#914479
