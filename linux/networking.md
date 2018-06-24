@@ -1,6 +1,10 @@
 ```shell
 brctl addbr test-br
 brctl addif test-br ifname
+
+# ifdown test-br won't work since we don't use /etc/network/interfaces
+ip link set dev test-br down
+brctl delif test-br ifname
 brctl delbr test-br
 
 # Get DHCP address
