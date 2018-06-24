@@ -1,3 +1,9 @@
+```#shell
+brctl addbr test-br
+brctl addif test-br ifname
+brctl delbr test-br
+```
+
 ### Disable IPv6
 Check status
 ```
