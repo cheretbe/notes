@@ -1,4 +1,4 @@
-```#shell
+```shell
 brctl addbr test-br
 brctl addif test-br ifname
 brctl delbr test-br
