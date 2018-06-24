@@ -2,6 +2,11 @@
 brctl addbr test-br
 brctl addif test-br ifname
 brctl delbr test-br
+
+# Get DHCP address
+dhclient -v test-br
+# Release
+dhclient -v -r test-br
 ```
 
 ### Disable IPv6
