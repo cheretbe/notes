@@ -55,3 +55,5 @@ network:
 * https://www.linuxbabe.com/command-line/ubuntu-server-16-04-wifi-wpa-supplicant
 * https://wiki.debian.org/BridgeNetworkConnections#Bridging_with_a_wireless_NIC
 * https://github.com/GNS3/gns3-gui/issues/2348
+* https://askubuntu.com/questions/155041/bridging-loosing-wlan-network-connection-with-4addr-on-option-why/207588#207588
+* http://nullroute.eu.org/~grawity/journal-2011.html#post:20110826
