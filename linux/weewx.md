@@ -1,3 +1,11 @@
+Station emulator driver is called simulator
+```apache
+[Station]
+  station_type = Simulator
+[Simulator]
+  # settings
+```
+
 Change logging interval to 1 minute (weewx service has to be stopped):
 ```
 wee_device --set-interval=1
