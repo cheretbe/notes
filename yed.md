@@ -1,3 +1,5 @@
+For groups it's convenient to use `Group` object from `BPMN` palette section.
+
 ### Custom colors
 * Navy: `#003399`
 
