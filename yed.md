@@ -1,10 +1,10 @@
 https://yed.yworks.com/support/manual/index.html
-### Labels
+#### Labels
 
 * <kbd>Ctrl</kbd>+click to select label
 * Placement examples: Sides + South; Internal + Top right; Corners + North East
 
-### Custom colors
+#### Custom colors
 * Navy: `#003399`
 
 #### Unsorted
