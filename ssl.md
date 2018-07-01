@@ -49,7 +49,9 @@ ls /etc/letsencrypt/live/chere.review/privkey.pem -lh
 ./flarectl dns delete --zone domain.tld --id 00000000000000000000000000000000
 
 # Renew
-certbot renew --manual
+# "certbot renew --manual" will work only with --manual-auth-hook,
+# --manual-cleanup-hook and --manual-public-ip-logging-ok
+# For manual renewal the original command needs to be run
 ```
 
 * https://www.reddit.com/r/homelab/comments/8r575v/certbot_wildcard_automatic_dns_auth_with_amazon/
