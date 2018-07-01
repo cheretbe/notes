@@ -1,6 +1,8 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
 * [Let's Encrypt Certificate](#lets-encrypt-certificate)
+    * [wildcard](#wildcard)
+    * [acme-tiny](#acme-tiny)
 * [Hardening HTTPS server](#hardening-https-server)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
@@ -16,6 +18,7 @@
 [\[ TOC \]](#table-of-contents)
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
+##### Wildcard
 ```shell
 # Setup
 wget https://dl.eff.org/certbot-auto
