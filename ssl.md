@@ -34,7 +34,8 @@ sudo ./certbot-auto certonly \
 
 export CF_API_EMAIL=user@domain.tld
 export CF_API_KEY=0000000000000000000000000000000000000
-./flarectl dns create -zone domain.tld --name _acme-challenge -content 000000000000000000000000000-000000000000000 --type TXT
+./flarectl dns create -zone domain.tld --name _acme-challenge \
+-content 000000000000000000000000000-000000000000000 --type TXT
 
 nslookup -type=TXT _acme-challenge.domain.tld
 
