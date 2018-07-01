@@ -16,6 +16,37 @@
 [\[ TOC \]](#table-of-contents)
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
+```shell
+# Setup
+wget https://dl.eff.org/certbot-auto
+chmod +x certbot-auto
+wget https://github.com/cloudflare/cloudflare-go/releases/download/v0.8.5/flarectl.linux.amd64 -O flarectl
+chmod +x flarectl
+
+# Staging
+# https://letsencrypt.org/docs/staging-environment/
+# https://acme-staging-v02.api.letsencrypt.org/directory
+
+sudo ./certbot-auto certonly \
+--server https://acme-v02.api.letsencrypt.org/directory \
+--manual --preferred-challenges dns \
+-d *.domain.tld -d *.subdomain.domain.tld
+
+export CF_API_EMAIL=user@domain.tld
+export CF_API_KEY=0000000000000000000000000000000000000
+./flarectl dns create -zone domain.tld --name _acme-challenge -content 000000000000000000000000000-000000000000000 --type TXT
+
+nslookup -type=TXT _acme-challenge.domain.tld
+
+ls /etc/letsencrypt/live/domain.tld/fullchain.pem -lh
+ls /etc/letsencrypt/live/chere.review/privkey.pem -lh
+
+./flarectl dns list --zone domain.tld | grep _acme-challenge
+./flarectl dns delete --zone domain.tld --id 00000000000000000000000000000000
+
+# Renew
+certbot renew --manual
+```
 
 * https://www.reddit.com/r/homelab/comments/8r575v/certbot_wildcard_automatic_dns_auth_with_amazon/
 ```shell
