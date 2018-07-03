@@ -3,6 +3,7 @@
 * [Let's Encrypt Certificate](#lets-encrypt-certificate)
     * [wildcard](#wildcard)
     * [acme-tiny](#acme-tiny)
+    * [certbot](#certbot)
 * [Hardening HTTPS server](#hardening-https-server)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
@@ -111,6 +112,13 @@ https://xdeb.org/node/1614
 [\[ TOC \]](#table-of-contents)
 
 ##### Certbot
+
+```shell
+# --register-unsafely-without-email
+# https://letsencrypt.org/docs/expiration-emails/
+./certbot-auto register --agree-tos --no-eff-email --email <your@e-mail.address>
+```
+
 CentOS 7
 ```bash
 sudo yum install epel-release
