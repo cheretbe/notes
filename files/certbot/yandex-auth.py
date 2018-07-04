@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import dns.resolver
 
 google_resolver = dns.resolver.Resolver(configure=False)
