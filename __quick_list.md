@@ -1,4 +1,5 @@
 * Speed/storage converter: https://www.gbmb.org/
+* SHA1 sums: https://www.heidoc.net/php/myvsdump_directory.php?letter=W
 
 #### Linux
 
