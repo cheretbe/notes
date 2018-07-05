@@ -23,9 +23,9 @@ def main():
             raise Exception("certbot was not found. See README.md for details")
 
         if options.debug:
-            workdir_root = os.path.expanduser("~/letsencrypt")
-        else:
             workdir_root = os.path.expanduser("~/letsencrypt-staging")
+        else:
+            workdir_root = os.path.expanduser("~/letsencrypt")
         config_dir = os.path.join(workdir_root, "config")
         os.makedirs(config_dir, exist_ok=True)
         work_dir = os.path.join(workdir_root, "work")
