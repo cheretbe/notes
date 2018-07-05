@@ -1,3 +1,14 @@
+```
+-E, --tabstospaces
+Convert typed tabs to spaces.
+
+-T <#cols>, --tabsize=<#cols>
+Set the displayed tab length to #cols columns.
+The value of #cols must be greater than 0. The default value is 8.
+```
+For four spaces, the appropriate command would therefore be `nano -ET4`.
+
+---
 ```shell
 # Default editor selection
 # Ubuntu
