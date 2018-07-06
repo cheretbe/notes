@@ -14,6 +14,7 @@ def main():
         parser.add_argument('-s', '--service', dest='service', default="yandex",
             choices=["yandex", "cloudflare"], help='DNS service (default: %(default)s)')
         parser.add_argument('-d', '--debug', dest='debug', action='store_true', default=False)
+        parser.add_argument('-r', '--renew', dest='renew', action='store_true', default=False)
         options = parser.parse_args()
 
         try:
@@ -36,17 +37,21 @@ def main():
         print("Domains: {}".format(options.domains))
         print("DNS service: {}".format(options.service))
 
-        certbot_cmd = "certbot certonly --manual --preferred-challenges dns"
-        if options.debug:
-            certbot_cmd += (" --server https://acme-staging-v02.api.letsencrypt.org/directory "
-                "--agree-tos --no-eff-email --register-unsafely-without-email")
+        if options.renew:
+            certbot_cmd = "certbot renew"
+            if options.debug:
+                certbot_cmd += " --dry-run"
         else:
-            certbot_cmd += " --server https://acme-v02.api.letsencrypt.org/directory"
+            certbot_cmd = "certbot certonly --manual --preferred-challenges dns"
+            if options.debug:
+                certbot_cmd += (" --server https://acme-staging-v02.api.letsencrypt.org/directory "
+                    "--agree-tos --no-eff-email --register-unsafely-without-email")
+            else:
+                certbot_cmd += " --server https://acme-v02.api.letsencrypt.org/directory"
+            for domain in options.domains:
+                certbot_cmd += " -d {}".format(domain)
 
         certbot_cmd += (" --config-dir {0} --logs-dir {1} --work-dir {2}".format(config_dir, logs_dir, work_dir))
-
-        for domain in options.domains:
-            certbot_cmd += " -d {}".format(domain)
 
         script_dir = os.path.dirname(os.path.realpath(__file__))
         if options.service == "yandex":
