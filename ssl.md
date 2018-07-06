@@ -20,7 +20,7 @@
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 ##### Wildcard
-[Automated version](files/python/certbot)
+[Automated version](../../tree/master/files/certbot)
 
 ```shell
 # Setup
