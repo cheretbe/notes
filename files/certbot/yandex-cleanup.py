@@ -2,6 +2,7 @@
 
 import os
 import requests
+import time
 
 # Expected environment variables:
 # CERTBOT_DOMAIN (domain.tld for *.domain.tld)
@@ -32,3 +33,6 @@ for record in records:
         call_api("POST", "del", {
             "domain"   : os.environ["CERTBOT_DOMAIN"],
             "record_id": record_id})
+
+# TODO: replace with DNS lookup in a loop to ensure that DNS server does not return any records
+time.sleep(10)

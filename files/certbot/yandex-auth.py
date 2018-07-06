@@ -36,18 +36,22 @@ call_api("POST", "add", {
 
 
 google_resolver = dns.resolver.Resolver(configure=False)
-google_resolver.nameservers = ["8.8.8.8"]
+# dns1.yandex.ru, dns2.yandex.ru
+google_resolver.nameservers = ["213.180.204.213", "93.158.134.213"]
 
-print("Waiting for DNS record to propagate")
+print('Waiting for DNS record with value "{}" to propagate'.format(os.environ["CERTBOT_VALIDATION"]))
 for i in range(1, 20):
+    found_record = False
     try:
-        answer = google_resolver.query('_acme-challenge.{}'.format(os.environ["CERTBOT_DOMAIN"]), 'TXT')
-        record_value = str(answer[0])
-    except:
-        record_value = ""
-    #print(record_value, os.environ["CERTBOT_VALIDATION"])
-    print("Current value: {} (attempt {} of {})".format(record_value, i, 20))
-    # Remove double quotes
-    if record_value.strip('"') == os.environ["CERTBOT_VALIDATION"]:
+        for record in google_resolver.query('_acme-challenge.{}'.format(os.environ["CERTBOT_DOMAIN"]), 'TXT'):
+            print("  " + str(record))
+            # TXT records are double-quoted
+            if str(record).strip('"') == os.environ["CERTBOT_VALIDATION"]:
+                found_record = True
+                break
+    except Exception as e:
+        print(repr(e))
+    print("Record was found: {} (attempt {} of {})".format(found_record, i, 20))
+    if found_record:
         break
     time.sleep(10)
