@@ -1,4 +1,9 @@
-### Certbot installation
+### TODO
+* Change renew logic
+* Remove sleep in `yandex-cleanup.py`
+* Add Cloudflare support
+
+### Installation
 
 ```shell
 add-apt-repository ppa:certbot/certbot
