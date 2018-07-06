@@ -10,6 +10,7 @@ add-apt-repository ppa:certbot/certbot
 apt update
 apt install certbot python3-pip
 pip3 install dnspython
+# comment out code in /etc/cron.d/certbot
 ```
 
 ### Notes
