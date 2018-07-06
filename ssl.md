@@ -296,6 +296,11 @@ View certificate info
 openssl x509 -in certificate.crt -text -noout
 ```
 
+Verify certificate
+```shell
+openssl verify -untrusted /etc/letsencrypt/live/domain.tld/chain.pem /etc/letsencrypt/live/domain.tld/cert.pem
+```
+
 View certificates on server
 ```
 openssl s_client -connect www.godaddy.com:443
