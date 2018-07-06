@@ -20,6 +20,8 @@
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 ##### Wildcard
+[Automated version](files/python/certbot)
+
 ```shell
 # Setup
 wget https://dl.eff.org/certbot-auto
