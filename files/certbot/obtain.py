@@ -10,12 +10,15 @@ def main():
 
     try:
         parser = argparse.ArgumentParser()
-        parser.add_argument('domains', metavar='domain', nargs='+')
+        parser.add_argument('domains', metavar='domain', nargs='*')
         parser.add_argument('-s', '--service', dest='service', default="yandex",
             choices=["yandex", "cloudflare"], help='DNS service (default: %(default)s)')
         parser.add_argument('-d', '--debug', dest='debug', action='store_true', default=False)
         parser.add_argument('-r', '--renew', dest='renew', action='store_true', default=False)
         options = parser.parse_args()
+
+        if (len(options.domains) == 0) and (not options.renew):
+            raise Exception("At least one domain name must be specified when not using --renew")
 
         try:
             which_cmd = "where" if sys.platform == "win32" else "which"

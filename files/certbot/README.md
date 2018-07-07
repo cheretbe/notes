@@ -1,5 +1,4 @@
 ### TODO
-* Change renew logic
 * Remove sleep in `yandex-cleanup.py`
 * Add Cloudflare support
 
@@ -11,6 +10,15 @@ apt update
 apt install certbot python3-pip
 pip3 install dnspython
 # comment out code in /etc/cron.d/certbot
+```
+
+### Usage
+```
+export YA_DNS_TOKEN=0000000000000000000000000000000000000000000000000000
+# Obtain initial certificate
+notes/files/certbot/obtain.py domain.tld *.domain.tld
+# Renew
+notes/files/certbot/obtain.py --renew
 ```
 
 ### Notes
