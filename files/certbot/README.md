@@ -13,7 +13,7 @@ pip3 install dnspython
 ```
 
 ### Usage
-```
+```shell
 export YA_DNS_TOKEN=0000000000000000000000000000000000000000000000000000
 # Obtain initial certificate
 notes/files/certbot/obtain.py domain.tld *.domain.tld
