@@ -64,6 +64,7 @@ def main():
         else:
             auth_script = os.path.join(script_dir, "cloudflare-auth.py")
             cleanup_script = os.path.join(script_dir, "cloudflare-cleanup.py")
+            needed_env_vars = ["CF_API_EMAIL", "CF_API_KEY"]
         certbot_cmd += " --manual-auth-hook {0} --manual-cleanup-hook {1}".format(auth_script, cleanup_script)
 
         not_set_vars = []
@@ -74,7 +75,7 @@ def main():
             raise Exception("The following environment variable(s) are not set: {}".format(not_set_vars))
 
         print(certbot_cmd)
-        subprocess.check_call(certbot_cmd, shell=True)
+        #subprocess.check_call(certbot_cmd, shell=True)
 
     except Exception as e:
         print("Unhandled exception:")
