@@ -21,7 +21,7 @@ export CF_API_KEY=0000000000000000000000000000000000000
 ```
 
 ```shell
-# Get zone ID by name ("result" item contains an array of objects that shoud 
+# Get zone ID by name ("result" item contains an array of objects that 
 # have attributes like {"name": "domain.tld", "id": "00000000000000000000000000000000"})
 curl -X GET -H "X-Auth-Email: user@domain.tld" -H "X-Auth-Key: 0000000000000000000000000000000000000" https://api.cloudflare.com/client/v4/zones | json_pp
 
