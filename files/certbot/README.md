@@ -1,6 +1,5 @@
 ### TODO
 * Remove sleep in `yandex-cleanup.py`
-* Add Cloudflare support
 
 ### Installation
 
@@ -13,6 +12,7 @@ pip3 install dnspython
 ```
 
 ### Usage
+Yandex DNS
 ```shell
 export YA_DNS_TOKEN=0000000000000000000000000000000000000000000000000000
 # Obtain initial certificate
@@ -20,7 +20,15 @@ notes/files/certbot/obtain.py domain.tld *.domain.tld
 # Renew
 notes/files/certbot/obtain.py --renew
 ```
-
+Cloudflare
+```shell
+export CF_API_EMAIL=user@domain.tld
+export CF_API_KEY=0000000000000000000000000000000000000
+# Obtain initial certificate
+notes/files/certbot/obtain.py domain.tld *.domain.tld --service cloudflare
+# Renew
+notes/files/certbot/obtain.py --renew --service cloudflare
+```
 ### Notes
 
 Run as ordinary user:
