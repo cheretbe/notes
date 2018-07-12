@@ -75,7 +75,7 @@ def main():
             raise Exception("The following environment variable(s) are not set: {}".format(not_set_vars))
 
         print(certbot_cmd)
-        #subprocess.check_call(certbot_cmd, shell=True)
+        subprocess.check_call(certbot_cmd, shell=True)
 
     except Exception as e:
         print("Unhandled exception:")
