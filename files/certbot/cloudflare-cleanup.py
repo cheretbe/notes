@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-import time
 import certbot_util
 
 # Expected environment variables:
@@ -27,15 +26,5 @@ for record in records:
         certbot_util.call_cloudflare_api(email=os.environ["CF_API_EMAIL"], api_key=os.environ["CF_API_KEY"],
             call_method="DELETE", url="zones/{}/dns_records/{}".format(zone_id, record_id))
 
-print("Waiting for DNS record(s) deletion to propagate")
-for i in range(1, 5):
-    record_count = 0
-    try:
-        record_count = len(certbot_util.dns_lookup(name='_acme-challenge.{}'.format(os.environ["CERTBOT_DOMAIN"]),
-            type='TXT', nameservers=name_server_ips))
-    except:
-        pass
-    print("Record count: {} (attempt {} of {})".format(record_count, i, 5))
-    if record_count == 0:
-        break
-    time.sleep(10)
+certbot_util.wait_for_acme_records_deletion(domain=os.environ["CERTBOT_DOMAIN"],
+    nameservers=name_server_ips)

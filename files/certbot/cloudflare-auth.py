@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-import time
 import certbot_util
 
 # Expected environment variables:
@@ -26,20 +25,5 @@ certbot_util.call_cloudflare_api(email=os.environ["CF_API_EMAIL"], api_key=os.en
         "proxied": False,
         "ttl": 1})
 
-print('Waiting for DNS record with value "{}" to propagate'.format(os.environ["CERTBOT_VALIDATION"]))
-for i in range(1, 20):
-    found_record = False
-    try:
-        for record in certbot_util.dns_lookup(name='_acme-challenge.{}'.format(os.environ["CERTBOT_DOMAIN"]),
-                type='TXT', nameservers=name_server_ips):
-            print("  " + str(record))
-            # TXT records are double-quoted
-            if str(record).strip('"') == os.environ["CERTBOT_VALIDATION"]:
-                found_record = True
-                break
-    except Exception as e:
-        print(repr(e))
-    print("Record was found: {} (attempt {} of {})".format(found_record, i, 20))
-    if found_record:
-        break
-    time.sleep(10)
+certbot_util.wait_for_acme_record(record_value=os.environ["CERTBOT_VALIDATION"],
+    domain=os.environ["CERTBOT_DOMAIN"], nameservers=name_server_ips)
