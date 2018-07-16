@@ -19,3 +19,13 @@ Network interfaces and IPs
 * http://oid-info.com/get/1.3.6.1.2.1.2.2.1.2
 * http://oid-info.com/get/1.3.6.1.2.1.4.20.1.2
 * http://oid-info.com/get/1.3.6.1.2.1.4.20.1.1
+
+Public SNMP simulation service
+* http://snmplabs.com/snmpsim/public-snmp-agent-simulator.html
+
+```shell
+# List interfaces
+snmptable -c public -v 2c demo.snmplabs.com .1.3.6.1.2.1.2.2
+# List IP addresses
+snmptable -c public -v 2c demo.snmplabs.com .1.3.6.1.2.1.4.20
+```
