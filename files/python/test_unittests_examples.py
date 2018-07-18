@@ -42,7 +42,11 @@ class examples_UnitTests(unittest.TestCase):
 
         with self.assertRaises(unittests_examples.CustomException) as context:
             unittests_examples.custom_exception()
-        self.assertTrue("This is a test" in str(context.exception))
+            self.assertTrue("This is a test" in str(context.exception))
+
+        with self.assertRaisesRegex(unittests_examples.CustomException, "This is a test"):
+            unittests_examples.custom_exception()
+
 
     @requests_mock.mock()
     def test_http_request(self, req_mock):
