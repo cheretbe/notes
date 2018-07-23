@@ -242,9 +242,13 @@ To review:
 ```shell
 # As root
 apt install python-pip
+# Don't do this: pip install --user --upgrade pip
 # As user
-pip install --user --upgrade pip
 pip install --user virtualenvwrapper
+
+# Repair pip upgrade over system package
+sudo python3 -m pip uninstall pip
+sudo apt install python3-pip --reinstall
 
 # On server .local/bin might not be on PATH when .bashrc is loaded
 # export PATH=~/.local/bin:$PATH
