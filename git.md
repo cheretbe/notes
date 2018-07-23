@@ -77,6 +77,12 @@ git diff --color-words
 
 ### Initial setup
 ```bash
+source <(curl https://raw.githubusercontent.com/cheretbe/notes/master/files/git/git_intial_setup.sh)
+# or
+source <(wget -qO- https://raw.githubusercontent.com/cheretbe/notes/master/files/git/git_intial_setup.sh)
+```
+
+```bash
 # View current config
 git config --list [--global]
 
