@@ -19,7 +19,7 @@ systemctl status systemd-timesyncd --no-pager -l
 echo test | mail -s "test mail" root
 ```
 - [ ] Check journald - [settings](./journalctl.md)
-- [ ] Unattended updates (+ nagios notification) - [settings](/.unattended_upgrades.md)
+- [ ] Unattended updates (+ nagios notification) - [settings](./unattended_upgrades.md)
 - [ ] Update umask value in `/etc/login.defs` (`UMASK 002`) if default ACLs are going to be used
 - [ ] Remove mlocate (?)
 ```shell
