@@ -26,6 +26,9 @@ Unattended-Upgrade::Allowed-Origins {
         "Yandex Disk Archive:stable";
         "packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}";
 };
+
+//Uncomment and change to "true"
+//Unattended-Upgrade::Remove-Unused-Dependencies "false";
 ```
 
 3. Test settings
@@ -34,3 +37,5 @@ unattended-upgrade --debug --dry-run
 ```
 
 * https://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades
+* https://linux-audit.com/upgrading-external-packages-with-unattended-upgrade/
+* (:warning: - see comments) https://linux-audit.com/upgrading-external-packages-with-unattended-upgrade/
