@@ -18,19 +18,8 @@ systemctl status systemd-timesyncd --no-pager -l
 # check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
 ```
-- [ ] Check journald [settings](./journalctl.md)
-- [ ] Unattended updates (+ nagios notification)
-```shell
-apt install unattended-upgrades
-nano /etc/apt/apt.conf.d/50unattended-upgrades
-dpkg-reconfigure --priority=low unattended-upgrades
-unattended-upgrade --debug --dry-run
-```
-![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) Add other repositories
-* TODO: make a separate file with instructions, use:
-     * http://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades
-     * https://askubuntu.com/questions/87849/how-to-enable-silent-automatic-updates-for-any-repository
-     * :exclamation: see comments https://linux-audit.com/upgrading-external-packages-with-unattended-upgrade/
+- [ ] Check journald - [settings](./journalctl.md)
+- [ ] Unattended updates (+ nagios notification) - [settings](/.unattended_upgrades.md)
 - [ ] Update umask value in `/etc/login.defs` (`UMASK 002`) if default ACLs are going to be used
 - [ ] Remove mlocate (?)
 ```shell
