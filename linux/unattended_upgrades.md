@@ -1,6 +1,12 @@
 ### Ubuntu
 
-1. Find origin (o=) and archive (a=) (codename?) of the repository
+1. Install
+```shell
+apt install unattended-upgrades
+dpkg-reconfigure --priority=low unattended-upgrades
+```
+
+2. Custom packages. Find origin (o=) and archive (a=) (codename?) of the repository
 ```shell
 # List files
 ls /var/lib/apt/lists/*Release
@@ -16,7 +22,7 @@ head /var/lib/apt/lists/repo.yandex.ru_yandex-disk_deb_dists_stable_InRelease
 # Codename: stable
 ```
 
-2. Update `/etc/apt/apt.conf.d/50unattended-upgrades`
+3. Update `/etc/apt/apt.conf.d/50unattended-upgrades`
 ```
 Unattended-Upgrade::Allowed-Origins {
 //      ...
@@ -31,7 +37,7 @@ Unattended-Upgrade::Allowed-Origins {
 //Unattended-Upgrade::Remove-Unused-Dependencies "false";
 ```
 
-3. Test settings
+4. Test settings
 ```shell
 unattended-upgrade --debug --dry-run
 ```
