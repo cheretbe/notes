@@ -1,3 +1,5 @@
+Safe restart: [safely_restart_nginx.sh](../files/nginx/safely_restart_nginx.sh)
+
 ```shell
 ln -s /etc/nginx/sites-available/www.example.org.conf /etc/nginx/sites-enabled/
 service nginx configtest
