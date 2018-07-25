@@ -6,6 +6,7 @@ scp -F /tmp/ssh-config-name default:filename .
 ```
 
 ```ruby
+  config.vm.network "forwarded_port", guest: 80, host: 8080
   config.winrm.password = "password"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
