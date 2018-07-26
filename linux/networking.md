@@ -38,6 +38,17 @@ auto eth0
 iface eth0 inet manual
   up ifconfig $IFACE 0.0.0.0 up
   down ifconfig $IFACE down
+  
+# allow-hotplug eth1
+# auto eth1
+iface eth1 inet static
+	  address 192.168.1.4
+	  netmask 255.255.255.0
+	  network 192.168.1.0
+	  broadcast 192.168.1.255
+	  gateway 192.168.1.1
+	  # dns-* options are implemented by the resolvconf package, if installed
+	  dns-nameservers 192.168.1.1
 ```
 
 ```
