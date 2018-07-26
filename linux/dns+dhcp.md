@@ -13,4 +13,8 @@ listen-on port 5353 {any;};
 listen-on port 53 {192.168.2.17;};
 ```
 
+```shell
+dig yandex.ru @192.168.2.17 -p5353
+```
+
 * https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-caching-or-forwarding-dns-server-on-ubuntu-14-04
