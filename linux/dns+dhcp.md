@@ -1,3 +1,5 @@
+* DNS Benchmark: https://www.grc.com/dns/benchmark.htm
+
 ```shell
 apt install bind9 bind9utils bind9-doc
 ```
