@@ -19,3 +19,4 @@ nslookup -port=5353 yandex.ru 192.168.2.17
 ```
 
 * https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-caching-or-forwarding-dns-server-on-ubuntu-14-04
+* https://pujiermanto.wordpress.com/2017/06/14/how-to-view-and-clear-bind-dns-servers-cache-on-linux/
