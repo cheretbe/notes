@@ -8,7 +8,7 @@ IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
 filter-aaaa-on-v4 yes;
 
 // Listen on custom port (IPv4)
-listen-on port 5353;
+listen-on port 5353 {any;};
 // Listen on one interface only
 listen-on port 53 {192.168.2.17;};
 ```
