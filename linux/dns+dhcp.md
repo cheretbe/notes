@@ -16,6 +16,23 @@ listen-on port 53 {192.168.2.17;};
 ```
 
 ```shell
+# View cache (dumped to /var/cache/bind/named_dump.db)
+rndc dumpdb -cache
+less /var/cache/bind/named_dump.db
+grep facebook.com /var/cache/bind/named_dump.db
+
+# Flush cache
+rndc flush
+# Reload bind9
+rndc reload
+
+# The dump file should be empty if there were no DNS queries after flushing
+rndc stats
+rndc dumpdb -cache
+less /var/cache/bind/named_dump.db
+```
+
+```shell
 dig yandex.ru @192.168.2.17 -p5353
 nslookup -port=5353 yandex.ru 192.168.2.17
 ```
