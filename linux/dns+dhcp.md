@@ -16,6 +16,12 @@ listen-on port 53 {192.168.2.17;};
 ```
 
 ```shell
+# Check config and restart service
+named-checkconf
+service bind9 restart
+```
+
+```shell
 # Status and stats
 rndc status
 rndc stats
