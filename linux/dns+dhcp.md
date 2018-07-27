@@ -5,9 +5,48 @@
 apt install bind9 bind9utils bind9-doc
 ```
 
-Just disabling bind to listen on IPv6 addresses does not prevents it from querying for
-IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
 ```
+acl internals {
+    127.0.0.1;
+    192.168.33.0/24;
+};
+
+options {
+   directory "/var/cache/bind";
+
+	// dnssec-validation auto;
+   dnssec-enable yes;
+   dnssec-validation yes;
+
+	auth-nxdomain no;    # conform to RFC1035
+   listen-on-v6 { none; };
+   // Just disabling bind to listen on IPv6 addresses does not prevents it from querying for
+   // IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
+	filter-aaaa-on-v4 yes;
+
+	listen-on port 5353 {any;};
+
+	allow-query {
+		internals;
+	};
+	allow-query-cache {
+		internals;
+	};
+	recursion yes;
+	allow-recursion {
+		internals;
+	};
+	allow-transfer {
+		internals;
+	};
+};
+```
+
+Additional options
+```
+listen-on-v6 { none; };
+// Just disabling bind to listen on IPv6 addresses does not prevents it from querying for
+// IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
 filter-aaaa-on-v4 yes;
 
 // Listen on custom port (IPv4)
