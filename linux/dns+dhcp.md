@@ -53,7 +53,7 @@ nslookup -port=5353 yandex.ru 192.168.2.17
 
 # View SOA record
 dig SOA +multiline domain.tld @192.168.2.17
-nslookup -q=soa chere-tbe.net
+nslookup -q=soa domain.tld
 ```
 
 * https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-caching-or-forwarding-dns-server-on-ubuntu-14-04
