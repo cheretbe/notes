@@ -7,12 +7,12 @@ apt install bind9 bind9utils bind9-doc
 
 ```
 acl internals {
-    127.0.0.1;
-    192.168.33.0/24;
+	127.0.0.1;
+	192.168.33.0/24;
 };
 
 options {
-   directory "/var/cache/bind";
+	directory "/var/cache/bind";
 
 	// dnssec-validation auto;
    dnssec-enable yes;
