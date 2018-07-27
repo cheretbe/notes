@@ -1,4 +1,5 @@
 * DNS Benchmark: https://www.grc.com/dns/benchmark.htm
+    * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
 
 ```shell
 apt install bind9 bind9utils bind9-doc
