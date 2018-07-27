@@ -48,7 +48,7 @@ less /var/cache/bind/named_dump.db
 ```shell
 # Non-standard port
 dig yandex.ru @192.168.2.17 -p5353
-# Dosn't work on Windows, use version from BIND package (https://www.isc.org/downloads/)
+# Doesn't work on Windows, use version from BIND package (https://www.isc.org/downloads/)
 nslookup -port=5353 yandex.ru 192.168.2.17
 
 # View SOA record
