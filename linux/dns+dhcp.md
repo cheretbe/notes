@@ -16,6 +16,11 @@ listen-on port 53 {192.168.2.17;};
 ```
 
 ```shell
+# Status and stats
+rndc status
+rndc stats
+less /var/cache/bind/named.stats
+
 # View cache (dumped to /var/cache/bind/named_dump.db)
 rndc dumpdb -cache
 less /var/cache/bind/named_dump.db
@@ -28,6 +33,7 @@ rndc reload
 
 # The dump file should be empty if there were no DNS queries after flushing
 rndc stats
+less /var/cache/bind/named.stats
 rndc dumpdb -cache
 less /var/cache/bind/named_dump.db
 ```
