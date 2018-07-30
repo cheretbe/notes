@@ -68,13 +68,13 @@ Zones information is in `/etc/bind/named.conf.local`
 ```
 zone "domain.tld" {
 	type master;
-	file "/var/lib/bind/domain.tld.zone";
+	file "/etc/bind/zones/domain.tld.zone";
 	allow-update { key rndc-key; };
 };
 
 zone "2.168.192.in-addr.arpa" {
      type master;
-     file "/var/lib/bind/192.168.2.rev.zone";
+     file "/etc/bind/zones/192.168.2.rev.zone";
      allow-update { key rndc-key; };
 };
 ```
@@ -86,7 +86,7 @@ mkdir -p /etc/bind/zones
 `$ORIGIN` defines a base name from which "unqualified" names (those without a terminating dot) substitutions are made when processing the zone file. If an `$ORIGIN` directive is not defined BIND generates it automatically from the zone name.<br>
 :warning: **Note trailing full stops**
 
-`/var/lib/bind/domain.tld.zone`
+`/etc/bind/zones/domain.tld.zone`
 ```
 $ORIGIN domain.tld.
 $TTL 1h         ; default expiration time of all resource records without their own TTL value
@@ -105,8 +105,8 @@ dns-dhcp		CNAME	ns1          ; the name of the server we are building
 ```
 ```shell
 # Make sure DHCP server can update zone files
-chown bind:bind /var/lib/bind/*zone
-chmod 664 /var/lib/bind/*zone
+chown bind:bind /etc/bind/zones/*zone
+chmod 664 /etc/bind/zones/*zone
 ```
 
 ```shell
