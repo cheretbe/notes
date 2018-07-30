@@ -167,6 +167,8 @@ For a standalone server only serial number and minimum TTL are important
 ```shell
 # Install packages
 apt install isc-dhcp-server
+# Backup default configuration
+cp /etc/default/isc-dhcp-server{,.bak}
 cp /etc/dhcp/dhcpd.conf{,.bak}
 ```
 `/etc/dhcp/dhcpd.conf`
