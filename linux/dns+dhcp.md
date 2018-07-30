@@ -61,6 +61,28 @@ named-checkconf
 service bind9 restart
 ```
 
+#### SOA record
+Examples
+```
+example.com.  3600  SOA  dns.example.com. hostmaster.example.com. (
+                         1999022301   ; serial YYYYMMDDnn
+                         86400        ; refresh (  24 hours)
+                         7200         ; retry   (   2 hours)
+                         3600000      ; expire  (1000 hours)
+                         172800 )     ; minimum (   2 days)
+```
+```
+google.com.		60 IN SOA ns1.google.com. dns-admin.google.com. (
+				206526105  ; serial
+				900        ; refresh (15 minutes)
+				900        ; retry (15 minutes)
+				1800       ; expire (30 minutes)
+				60         ; minimum (1 minute)
+				)
+```
+For a standalone server only serial number and minimum TTL are important
+* https://www.ripe.net/publications/docs/ripe-203
+
 ```shell
 # Status and stats
 rndc status
