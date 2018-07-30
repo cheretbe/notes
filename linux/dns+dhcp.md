@@ -15,7 +15,7 @@ include "/etc/bind/rndc.key";
 
 acl internals {
 	127.0.0.1;
-	192.168.33.0/24;
+	192.168.2.0/24;
 };
 
 options {
