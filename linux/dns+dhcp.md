@@ -112,7 +112,7 @@ chmod 664 /etc/bind/zones/*zone
 ```shell
 # Check config, zones and restart service
 named-checkconf
-named-checkzone domain.tld /var/lib/bind/domain.tld.zone
+named-checkzone domain.tld /etc/bind/zones/domain.tld.zone
 service bind9 restart
 ```
 
