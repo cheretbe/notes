@@ -65,6 +65,19 @@ listen-on port 53 {192.168.2.17;};
 ```
 
 Zones information is in `/etc/bind/named.conf.local`
+```
+zone "domain.tld" {
+	type master;
+	file "/var/lib/bind/domain.tld.zone";
+	allow-update { key rndc-key; };
+};
+
+zone "2.168.192.in-addr.arpa" {
+     type master;
+     file "/var/lib/bind/192.168.2.rev.zone";
+     allow-update { key rndc-key; };
+};
+```
 
 ```shell
 # Directory for zone files
