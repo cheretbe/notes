@@ -103,7 +103,11 @@ router			A	192.168.2.1
 ns1			A	192.168.2.3
 dns-dhcp		CNAME	ns1          ; the name of the server we are building
 ```
-
+```shell
+# Make sure DHCP server can update zone files
+chown bind:bind /var/lib/bind/*zone
+chmod 664 /var/lib/bind/*zone
+```
 
 ```shell
 # Check config, zones and restart service
