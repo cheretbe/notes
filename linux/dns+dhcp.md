@@ -103,6 +103,22 @@ router			A	192.168.2.1
 ns1			A	192.168.2.3
 dns-dhcp		CNAME	ns1          ; the name of the server we are building
 ```
+`/etc/bind/zones/192.168.2.rev.zone`
+```
+$TTL 1h         ; default expiration time of all resource records without their own TTL value
+@                IN SOA	ns1.domain.tld. admin.domain.tld. (
+				2018073001 ; serial
+				86400      ; refresh (24 hours)
+				7200       ; retry (2 hours)
+				604800     ; expire (1 week)
+				600        ; minimum (10 minutes)
+				)
+			NS	ns1.domain.tld.
+
+1			PTR	router.domain.tld.
+3			PTR	dns-dhcp.domain.tld.
+			PTR	domain.tld.
+```
 ```shell
 # Make sure DHCP server can update zone files
 chown bind:bind /etc/bind/zones/*zone
@@ -113,6 +129,7 @@ chmod 664 /etc/bind/zones/*zone
 # Check config, zones and restart service
 named-checkconf
 named-checkzone domain.tld /etc/bind/zones/domain.tld.zone
+named-checkzone 2.168.192.in-addr.arpa /etc/bind/zones/192.168.2.rev.zone
 service bind9 restart
 ```
 
