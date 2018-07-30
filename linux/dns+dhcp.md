@@ -131,6 +131,11 @@ named-checkconf
 named-checkzone domain.tld /etc/bind/zones/domain.tld.zone
 named-checkzone 2.168.192.in-addr.arpa /etc/bind/zones/192.168.2.rev.zone
 service bind9 restart
+
+# Make sure that DNS lookups (including reverse ones) work
+dig router.domain.tld @192.168.2.3
+dig -x 192.168.2.1 @192.168.2.3
+
 ```
 
 #### SOA record
