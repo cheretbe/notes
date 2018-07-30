@@ -6,6 +6,9 @@
 ```shell
 # Install packages
 apt install bind9 bind9utils bind9-doc
+# Backup default configuration
+cp /etc/bind/named.conf.options{,.bak}
+cp /etc/bind/named.conf.local{,.bak}
 # Generate rndc authentication key
 /usr/sbin/rndc-confgen -a -b 512
 ```
@@ -159,6 +162,19 @@ google.com.		60 IN SOA ns1.google.com. dns-admin.google.com. (
 ```
 For a standalone server only serial number and minimum TTL are important
 * https://www.ripe.net/publications/docs/ripe-203
+
+#### ISC DHCP server
+```shell
+# Install packages
+apt install isc-dhcp-server
+cp /etc/dhcp/dhcpd.conf{,.bak}
+```
+`/etc/dhcp/dhcpd.conf`
+```
+#
+```
+
+#### Maintenance
 
 ```shell
 # Status and stats
