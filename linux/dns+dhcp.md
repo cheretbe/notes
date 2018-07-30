@@ -70,6 +70,8 @@ Zones information is in `/etc/bind/named.conf.local`
 # Directory for zone files
 mkdir -p /etc/bind/zones
 ```
+`$ORIGIN` defines a base name from which "unqualified" names (those without a terminating dot) substitutions are made when processing the zone file. If an `$ORIGIN` directive is not defined BIND generates it automatically from the zone name.
+
 
 ```shell
 # Check config and restart service
