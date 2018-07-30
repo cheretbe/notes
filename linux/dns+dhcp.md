@@ -67,6 +67,11 @@ listen-on port 53 {192.168.2.17;};
 Zones information is in `/etc/bind/named.conf.local`
 
 ```shell
+# Directory for zone files
+mkdir -p /etc/bind/zones
+```
+
+```shell
 # Check config and restart service
 named-checkconf
 service bind9 restart
