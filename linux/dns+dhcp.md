@@ -86,10 +86,29 @@ mkdir -p /etc/bind/zones
 `$ORIGIN` defines a base name from which "unqualified" names (those without a terminating dot) substitutions are made when processing the zone file. If an `$ORIGIN` directive is not defined BIND generates it automatically from the zone name.<br>
 :warning: **Note trailing full stops**
 
+`/var/lib/bind/domain.tld.zone`
+```
+$ORIGIN domain.tld.
+$TTL 1h         ; default expiration time of all resource records without their own TTL value
+@                IN SOA	ns1.domain.tld. admin.domain.tld. (
+				2018073001 ; serial
+				86400      ; refresh (24 hours)
+				7200       ; retry (2 hours)
+				604800     ; expire (1 week)
+				600        ; minimum (10 minutes)
+				)
+			NS	ns1
+ 
+router			A	192.168.2.1
+ns1			A	192.168.2.3
+dns-dhcp		CNAME	ns1          ; the name of the server we are building
+```
+
 
 ```shell
-# Check config and restart service
+# Check config, zones and restart service
 named-checkconf
+named-checkzone domain.tld /var/lib/bind/domain.tld.zone
 service bind9 restart
 ```
 
