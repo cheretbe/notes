@@ -1,11 +1,18 @@
 * DNS Benchmark: https://www.grc.com/dns/benchmark.htm
     * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
+    
+#### Bind9 installation and initial setup
 
 ```shell
+# Install packages
 apt install bind9 bind9utils bind9-doc
+# Generate rndc authentication key
+/usr/sbin/rndc-confgen -a -b 512
 ```
+Generated `/etc/bind/rndc.key` should have `bind:bind(640)` ownership and permissions
+```
+include "/etc/bind/rndc.key";
 
-```
 acl internals {
 	127.0.0.1;
 	192.168.33.0/24;
@@ -15,13 +22,13 @@ options {
 	directory "/var/cache/bind";
 
 	// dnssec-validation auto;
-   dnssec-enable yes;
-   dnssec-validation yes;
+	dnssec-enable yes;
+	dnssec-validation yes;
 
 	auth-nxdomain no;    # conform to RFC1035
-   listen-on-v6 { none; };
-   // Just disabling bind to listen on IPv6 addresses does not prevents it from querying for
-   // IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
+	listen-on-v6 { none; };
+	// Just disabling bind to listen on IPv6 addresses does not prevents it from querying for
+	// IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
 	filter-aaaa-on-v4 yes;
 
 	listen-on port 5353 {any;};
