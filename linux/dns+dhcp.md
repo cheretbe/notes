@@ -10,6 +10,8 @@ apt install bind9 bind9utils bind9-doc
 /usr/sbin/rndc-confgen -a -b 512
 ```
 Generated `/etc/bind/rndc.key` should have `bind:bind(640)` ownership and permissions
+
+Config is in `/etc/bind/named.conf.options`:
 ```
 include "/etc/bind/rndc.key";
 
@@ -61,6 +63,8 @@ listen-on port 5353 {any;};
 // Listen on one interface only
 listen-on port 53 {192.168.2.17;};
 ```
+
+Zones information is in `/etc/bind/named.conf.local`
 
 ```shell
 # Check config and restart service
