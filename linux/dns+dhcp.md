@@ -83,7 +83,8 @@ zone "2.168.192.in-addr.arpa" {
 # Directory for zone files
 mkdir -p /etc/bind/zones
 ```
-`$ORIGIN` defines a base name from which "unqualified" names (those without a terminating dot) substitutions are made when processing the zone file. If an `$ORIGIN` directive is not defined BIND generates it automatically from the zone name.
+`$ORIGIN` defines a base name from which "unqualified" names (those without a terminating dot) substitutions are made when processing the zone file. If an `$ORIGIN` directive is not defined BIND generates it automatically from the zone name.<br>
+:warning: **Note trailing full stops**
 
 
 ```shell
