@@ -212,5 +212,9 @@ dig SOA +multiline domain.tld @192.168.2.17
 nslookup -q=soa domain.tld
 ```
 
+#### DHCP client
+
+Leases location: `/var/lib/dhcp/dhclient.ifname.leases`
+
 * https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-caching-or-forwarding-dns-server-on-ubuntu-14-04
 * https://pujiermanto.wordpress.com/2017/06/14/how-to-view-and-clear-bind-dns-servers-cache-on-linux/
