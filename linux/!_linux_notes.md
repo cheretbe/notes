@@ -29,6 +29,7 @@ find / -xdev -iname "*sql*"
 #  -xdev  Don't descend directories on other filesystems.
 # -H, --with-filename  print the file name for each match
 find / -xdev -type f -print0 | xargs -0 grep -H "ForceCompositionPipeline"
+# -m 1 to return only the first match
 ```
 
 Find all hardlinks to a file
