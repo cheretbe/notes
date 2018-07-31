@@ -182,6 +182,11 @@ cp /etc/dhcp/dhcpd.conf{,.bak}
 #
 ```
 
+```
+# Check config without restarting server
+dhcpd -t -cf /etc/dhcp/dhcpd.conf
+```
+
 #### Maintenance
 
 ```shell
