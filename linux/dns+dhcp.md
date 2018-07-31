@@ -184,7 +184,8 @@ cp /etc/dhcp/dhcpd.conf{,.bak}
 
 ```
 # Check config without restarting server
-dhcpd -t -cf /etc/dhcp/dhcpd.conf
+# For custom path use -cf /custom/path/dhcpd.conf
+dhcpd -t
 ```
 
 #### Maintenance
