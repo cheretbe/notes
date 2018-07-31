@@ -2,6 +2,7 @@
     * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
     
 :question: `apt-get remove avahi-daemon`
+:exclamation: Check if `/etc/dhcpcd.conf` from `dhcpcd5` package interferes with `isc-dhcp-server` 
     
 #### Bind9 installation and initial setup
 
