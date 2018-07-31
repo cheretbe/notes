@@ -11,5 +11,9 @@ Set `SystemMaxUse` parameter (e.g. `SystemMaxUse=500M`) because by default it is
 * https://wiki.archlinux.org/index.php/Systemd#Journal
 
 ```shell
+# See the boots that journald knows about
 journalctl --list-boots
+# See logs from particular units
+journalctl -u nginx.service
+journalctl -u nginx.service -u php-fpm.service --since today
 ```
