@@ -214,6 +214,10 @@ dig SOA +multiline domain.tld @192.168.2.17
 nslookup -q=soa domain.tld
 ```
 
+#### Pi-hole
+
+`/etc/pihole/setupVars.conf`
+
 #### DHCP client
 
 Leases location: `/var/lib/dhcp/dhclient.ifname.leases`
