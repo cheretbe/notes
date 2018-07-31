@@ -1,6 +1,8 @@
 * DNS Benchmark: https://www.grc.com/dns/benchmark.htm
     * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
     
+:question: `apt-get remove avahi-daemon`
+    
 #### Bind9 installation and initial setup
 
 ```shell
