@@ -7,9 +7,12 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 # And re-read kernel parameters
 sysctl -p /etc/sysctl.conf
 
+# NAT
+iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
+
 # Capture ICMP packets on an interface
 # -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
-tcpdump -n -i enp0s9 icmp
+tcpdump -n -i ifname icmp
 ```
 
 ```shell
