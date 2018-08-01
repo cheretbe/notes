@@ -1,4 +1,9 @@
 ```shell
+# Enable routing
+echo 1 > /proc/sys/net/ipv4/ip_forward
+```
+
+```shell
 brctl addbr test-br
 brctl addif test-br ifname
 
