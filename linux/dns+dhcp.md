@@ -91,6 +91,10 @@ zone "2.168.192.in-addr.arpa" {
 ```shell
 # Directory for zone files
 mkdir -p /etc/bind/zones
+# /etc/bind should have setGID bit set and therefore should inherit group "bind" for
+# newly created directory. Make sure group has write access to it so that bind could
+# create .jnl files in process of updating dynamic records
+chmod g+w /etc/bind/zones
 ```
 `$ORIGIN` defines a base name from which "unqualified" names (those without a terminating dot) substitutions are made when processing the zone file. If an `$ORIGIN` directive is not defined BIND generates it automatically from the zone name.<br>
 :warning: **Note trailing full stops**
