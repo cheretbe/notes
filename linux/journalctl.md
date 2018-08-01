@@ -19,5 +19,7 @@ journalctl -u nginx.service -u php-fpm.service --since today
 # Monitor new messages
 journalctl --since now -f
 # View logs from other system (mounted on /mountpoint) -D DIR, --directory=DIR
+# This only works with "Storage=persistent", by default current boot log is
+# only temporarily stored in a place like /run/log/journal
 journalctl --directory=/mountpoint/var/log/journal/<machine-id>
 ```
