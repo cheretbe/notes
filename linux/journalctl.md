@@ -16,4 +16,6 @@ journalctl --list-boots
 # See logs from particular units
 journalctl -u nginx.service
 journalctl -u nginx.service -u php-fpm.service --since today
+# Monitor new messages
+journalctl --since now -f
 ```
