@@ -4,6 +4,7 @@
 :question: `apt-get remove avahi-daemon`
 :exclamation: Check if `/etc/dhcpcd.conf` from `dhcpcd5` package interferes with `isc-dhcp-server` 
 ```
+# -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
 tcpdump -n -i enp0s9 port bootps or port bootpc
 ```
     
