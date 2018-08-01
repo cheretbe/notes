@@ -1,6 +1,11 @@
 ```shell
-# Enable routing
+# Temporarily enable routing
 echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Permanently store the setting:
+# Uncomment 'net.ipv4.ip_forward=1' line in /etc/sysctl.conf
+# And re-read kernel parameters
+sysctl -p /etc/sysctl.conf
 ```
 
 ```shell
