@@ -37,6 +37,9 @@ Unattended-Upgrade::Allowed-Origins {
 //      "${distro_id}:${distro_codename}-backports";
         "Yandex Disk Archive:stable";
         "packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}";
+
+        "origin=Raspbian,codename=${distro_codename},label=Raspbian";
+        "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";
 };
 
 //Uncomment and change to "true"
