@@ -91,6 +91,17 @@ usermod -a -G group1,group2 username
 # Add new group
 groupadd group
 ```
+Sudo
+
+```
+# <user list> <host list> = <operator list> <tag list> <command list>
+
+# Allow user execute any command without entering password
+username ALL=(ALL) NOPASSWD: ALL
+# Allow group execute any command without entering password
+%group1	ALL=(ALL) NOPASSWD: ALL
+```
+* https://help.ubuntu.com/community/Sudoers
 
 Unsorted
 ```
