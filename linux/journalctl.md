@@ -18,4 +18,6 @@ journalctl -u nginx.service
 journalctl -u nginx.service -u php-fpm.service --since today
 # Monitor new messages
 journalctl --since now -f
+# View logs from other system (mounted on /mountpoint) -D DIR, --directory=DIR
+journalctl --directory=/mountpoint/var/log/journal/<machine-id>
 ```
