@@ -6,6 +6,10 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 # Uncomment 'net.ipv4.ip_forward=1' line in /etc/sysctl.conf
 # And re-read kernel parameters
 sysctl -p /etc/sysctl.conf
+
+# Capture ICMP packets on an interface
+# -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
+tcpdump -n -i enp0s9 icmp
 ```
 
 ```shell
