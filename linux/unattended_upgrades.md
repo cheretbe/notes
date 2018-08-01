@@ -35,6 +35,10 @@ Unattended-Upgrade::Allowed-Origins {
 
 //Uncomment and change to "true"
 //Unattended-Upgrade::Remove-Unused-Dependencies "false";
+
+// [!] Make sure update-notifier-common package is installed for the following to work
+//Unattended-Upgrade::Automatic-Reboot "false";
+//Unattended-Upgrade::Automatic-Reboot-Time "02:00";
 ```
 
 4. Test settings
