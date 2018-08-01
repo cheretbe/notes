@@ -181,15 +181,20 @@ apt install isc-dhcp-server
 cp /etc/default/isc-dhcp-server{,.bak}
 cp /etc/dhcp/dhcpd.conf{,.bak}
 ```
+If server has more than one NIC, make sure to update INTERFACESv4 (INTERFACESv6) parameters
+in `/etc/default/isc-dhcp-server`
+
 `/etc/dhcp/dhcpd.conf`
 ```
 #
 ```
 
-```
-# Check config without restarting server
+```shell
+# Check config without restarting service
 # For custom path use -cf /custom/path/dhcpd.conf
 dhcpd -t
+# Restart service
+service isc-dhcp-server restart
 ```
 
 #### Maintenance
