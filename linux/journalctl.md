@@ -22,4 +22,12 @@ journalctl --since now -f
 # This only works with "Storage=persistent", by default current boot log is
 # only temporarily stored in a place like /run/log/journal
 journalctl --directory=/mountpoint/var/log/journal/<machine-id>
+
+# Cleanup
+journalctl --vacuum-size=100M
+journalctl --vacuum-time=2d
+# Purge as much as possible
+journalctl --flush --rotate
+journalctl --vacuum-time=1s
+
 ```
