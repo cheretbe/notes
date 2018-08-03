@@ -1,6 +1,7 @@
 * https://insights.ubuntu.com/2016/03/14/the-lxd-2-0-story-prologue
      * Use ZFS
 * https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/
+* https://stgraber.org/2016/03/11/lxd-2-0-blog-post-series-012/
 * https://stgraber.org/2016/10/27/network-management-with-lxd-2-3/#comment-241550
 
 ```shell
