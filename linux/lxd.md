@@ -85,6 +85,8 @@ lxc profile list
 lxc profile copy default multibridge
 lxc profile edit multibridge
 #lxc delete test1 --force
+# List images available from LXD image store ([!] note trailing colon)
+lxc image list images:
 lxc launch ubuntu:xenial test1 -p multibridge
 lxc exec test1 bash
 
