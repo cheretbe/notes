@@ -226,6 +226,11 @@ zfs snapshot pool/path@new-snapshot
 zfs send -v -i pool/path@old-snapshot pool/path@new-snapshot | nc host.domain.tld 1234
 zfs destroy pool/path@old-snapshot
 ```
+:bulb: Snapshots can be dumped to files
+```shell
+zfs send pool/path@snapshot > file.img
+zfs receive pool/path < file.img
+```
 Sanoid: https://github.com/cheretbe/notes/blob/master/linux/sanoid.md
 
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
