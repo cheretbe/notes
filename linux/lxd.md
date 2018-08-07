@@ -127,3 +127,10 @@ lxc copy <source container>/<snapshot name> <destination container>
 Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375<br>
 `/var/lib/lxd/storage-pools/default/containers/`<br>
 :warning: Adjust permissions on host since container's root will not have access
+
+```shell
+sqlite3 /var/lib/lxd/lxd.db '.tables'
+sqlite3 /var/lib/lxd/lxd.db '.schema containers_config'
+sqlite3 /var/lib/lxd/lxd.db 'SELECT * FROM containers_config'
+sqlite3 /var/lib/lxd/lxd.db 'SELECT cont.name,conf.key,conf.value FROM containers_config AS conf INNER JOIN containers AS cont on conf.container_id = cont.id WHERE cont.name = "container-name"'
+```
