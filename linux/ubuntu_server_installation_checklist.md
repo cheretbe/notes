@@ -1,4 +1,4 @@
-- [ ] check timezone: `dpkg-reconfigure tzdata`
+- [ ] check timezone: `timedatectl`. Reconfigure with `dpkg-reconfigure tzdata`
 - [ ] advanced settings on packages configuration (`dpkg-reconfigure debconf`, select "low priority") 
 - [ ] grub settings
 ```
