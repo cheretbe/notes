@@ -165,3 +165,9 @@ config:
 #      search
 #        - domain.tld
 ```
+Config locations in container
+```
+/etc/cloud/cloud.cfg
+/var/lib/cloud/seed/nocloud-net/network-config
+/etc/netplan/50-cloud-init.yaml
+```
