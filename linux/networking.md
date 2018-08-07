@@ -72,8 +72,12 @@ iface eth1 inet static
 route delete -net 192.168.101.0/24 gw 192.168.99.11
 route add -net 192.168.101.0/24 gw 192.168.100.9
 ```
+### DNS
+```shell
+systemd-resolve --status
+```
 
-WLAN
+### WLAN
 ```
 iwconfig
 apt install wpasupplicant
