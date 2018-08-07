@@ -135,6 +135,33 @@ sqlite3 /var/lib/lxd/lxd.db 'SELECT * FROM containers_config'
 sqlite3 /var/lib/lxd/lxd.db 'SELECT cont.name,conf.key,conf.value FROM containers_config AS conf INNER JOIN containers AS cont on conf.container_id = cont.id WHERE cont.name = "container-name"'
 ```
 * https://discuss.linuxcontainers.org/t/how-to-set-public-ips-for-each-container-in-lxd-3-0-0-ubuntu-18-04/1712/7
+* https://blog.simos.info/how-to-preconfigure-lxd-containers-with-cloud-init/
 * https://packetpushers.net/cloud-init-demystified/
 * https://cloudinit.readthedocs.io/en/latest/topics/network-config-format-v1.html
 * https://github.com/lxc/lxd/blob/master/doc/cloud-init.md
+
+```shell
+lxc launch ubuntu:18.04 test --config=user.network-config="$(cat network-config.yaml)"
+
+# Edit later (how to apply?)
+lxc config set test user.network-config - < network-config.yaml
+```
+`network-config.yaml`:
+```yaml
+version: 1
+config:
+    - type: physical
+      name: eth0
+      subnets:
+          - type: static
+            ipv4: true
+            address: 192.168.1.29/24
+            gateway: 192.168.1.1
+            control: auto
+#    - type: nameserver
+#      address:
+#        - 1.1.1.1
+#        - 1.0.0.1
+#      search
+#        - domain.tld
+```
