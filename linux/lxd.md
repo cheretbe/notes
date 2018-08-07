@@ -134,3 +134,7 @@ sqlite3 /var/lib/lxd/lxd.db '.schema containers_config'
 sqlite3 /var/lib/lxd/lxd.db 'SELECT * FROM containers_config'
 sqlite3 /var/lib/lxd/lxd.db 'SELECT cont.name,conf.key,conf.value FROM containers_config AS conf INNER JOIN containers AS cont on conf.container_id = cont.id WHERE cont.name = "container-name"'
 ```
+* https://discuss.linuxcontainers.org/t/how-to-set-public-ips-for-each-container-in-lxd-3-0-0-ubuntu-18-04/1712/7
+* https://packetpushers.net/cloud-init-demystified/
+* https://cloudinit.readthedocs.io/en/latest/topics/network-config-format-v1.html
+* https://github.com/lxc/lxd/blob/master/doc/cloud-init.md
