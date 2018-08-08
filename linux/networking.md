@@ -87,6 +87,16 @@ network:
        addresses: [1.1.1.1,8.8.8.8]
      parameters:
        forward-delay: 0
+```
+```shell
+# Apply configuration
+sudo netplan generate
+sudo netplan apply
+# View debug info
+sudo netplan --debug apply
+networkctl list
+ifconfig
+```
 
 ```
 route delete -net 192.168.101.0/24 gw 192.168.99.11
