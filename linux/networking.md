@@ -67,6 +67,26 @@ iface eth1 inet static
 	  # dns-* options are implemented by the resolvconf package, if installed
 	  dns-nameservers 192.168.1.1
 ```
+Ubuntu Netplan (/etc/netplan/01-netcfg.yaml)
+```yaml
+network:
+ version: 2
+ renderer: networkd
+ ethernets:
+   eth0:
+     dhcp4: false
+   eth1:
+     dhcp4: true
+ bridges:
+   br0:
+     interfaces: [eth0]
+     dhcp4: false
+     addresses: [192.168.1.99/24]
+     gateway4: 192.168.1.1
+     nameservers:
+       addresses: [1.1.1.1,8.8.8.8]
+     parameters:
+       forward-delay: 0
 
 ```
 route delete -net 192.168.101.0/24 gw 192.168.99.11
