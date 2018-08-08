@@ -77,6 +77,8 @@ network:
      dhcp4: false
    eth1:
      dhcp4: true
+     # Disable waiting for interface to fully activate
+     optional: true
  bridges:
    br0:
      interfaces: [eth0]
