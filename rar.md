@@ -1,3 +1,4 @@
+[Full help file ](./files/rar/WinRAR_5.50_help.chm)
 ```shell
 # -ep1 - exclude base folder from names
 # -ma[4|5] - specify a version of archiving format
