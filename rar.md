@@ -1,6 +1,6 @@
 * Help file (v5.5)
    * [Original CHM](./files/rar/WinRAR_5.50_help.chm)
-   * [Converted HTML](./html_help/index.htm) (converted with https://www.aconvert.com/ebook/chm-to-html/)
+   * [Converted HTML](https://htmlpreview.github.io/?https://raw.githubusercontent.com/cheretbe/notes/master/files/rar/winrar-help.html) (converted with https://www.aconvert.com/ebook/chm-to-html/)
 ```shell
 # -ep1 - exclude base folder from names
 # -ma[4|5] - specify a version of archiving format
