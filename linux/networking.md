@@ -77,7 +77,7 @@ network:
      dhcp4: false
    eth1:
      dhcp4: true
-     # Will speed the boot if there is no DHCPv6 server available
+     # Will speed up boot process if there is no DHCPv6 server available
      dhcp6: no
      # Disable waiting for interface to fully activate
      optional: true
