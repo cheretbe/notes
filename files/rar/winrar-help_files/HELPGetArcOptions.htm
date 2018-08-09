@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Archive name and parameters dialog: options</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+
+  
+
+
+<link href="calibreHtmlOutBasicCss.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="calibreMeta">
+  <div class="calibreMetaTitle">
+  
+  
+    
+    <h1>
+      <a href="../winrar-help.html">WinRAR
+</a>
+    </h1>
+    
+    
+  
+  </div>
+  <div class="calibreMetaAuthor">
+    Unknown
+
+  </div>
+</div>
+
+<div class="calibreMain">
+
+  <div class="calibreEbookContent">
+    
+      <div class="calibreEbNavTop">
+        
+          <a href="HELPRegistering.htm" class="calibreAPrev">previous page</a>
+        
+
+        
+          <a href="HELPGetArcGeneral.htm" class="calibreANext"> next page</a>
+        
+      </div>
+    
+
+    
+<p class="title"><a name="HELPGetArcOptions" class="pcalibre calibre1 pcalibre1 pcalibre2"></a>Archive name and
+parameters dialog: options<hr class="calibre2"/></p>
+<h1 class="calibre7">Delete mode</h1>
+<p class="calibre3">All delete options listed below modify the behavior
+of "Delete files after archiving" from
+<a href="HELPGetArcGeneral.htm" class="pcalibre pcalibre2 pcalibre1">General options</a>. They have an effect
+only if "Delete files after archiving" is on. You can enable any of
+these options in the default <a href="HELPProfiles.htm" class="pcalibre pcalibre2 pcalibre1">compression
+profile</a> to change the default behavior of "Delete files after 
+archiving".</p>
+<h1 class="calibre7"><i class="calibre9">Delete files</i></h1>
+<p class="calibre3">Delete files normally. Files are deleted permanently, but not
+securely, so sometimes it may be possible to recover them using
+special software.</p>
+<h1 class="calibre7"><i class="calibre9">Move files to Recycle Bin</i></h1>
+<p class="calibre3">Deleted files are placed to Recycle Bin.</p>
+<h1 class="calibre7"><i class="calibre9">Wipe files</i></h1>
+<p class="calibre3">Before deleting file data are overwritten by zero bytes to prevent
+recovery of deleted files, file is truncated and renamed to temporary name.</p>
+<p class="calibre3">Please be aware that such approach is designed for usual hard disks,
+but may fail to overwrite the original file data on solid state disks,
+as result of SSD wear leveling technology and more complicated data
+addressing.</p>
+<h1 class="calibre7"><i class="calibre9">Wipe files if password is set</i></h1>
+<p class="calibre3">If this option is on and files are archived with a password,
+"Wipe files" mode is enabled regardless of other options
+in "Delete mode" group.</p>
+<p class="calibre3">There is no much sense to enable it directly in archiving dialog,
+because you can just turn on "Wipe files" instead. So this option
+is intended for use in compression profiles. If you prefer to always delete
+encrypted files securely, you can enable "Wipe files if password is set"
+in the default compression profile.</p>
+<h1 class="calibre7">Archive features</h1>
+<h1 id="BLAKE2" class="calibre20"><i class="calibre9">Use BLAKE2 file checksum</i></h1>
+<p class="calibre3">Store BLAKE2 file checksums. Available only for
+<a href="HELPRAR5Format.htm" class="pcalibre pcalibre2 pcalibre1">RAR 5.0</a> archive format.</p>
+<p class="calibre3">File data integrity in RAR archive is protected by checksums
+calculated and stored for every archived file. By default, WinRAR uses
+CRC32 function to calculate the checksum. RAR 5.0 archive format also allows
+to select BLAKE2sp version of BLAKE2 hash function instead of CRC32.</p>
+<p class="calibre3">CRC32 output is 32 bit length. While CRC32 properties are suitable
+to detect most of unintentional data errors, it is not reliable enough
+to verify file data identity. In other words, if two files have
+the same CRC32, it does not guarantee that file contents is the same.</p>
+<p class="calibre3">BLAKE2 output is 256 bit. Being a cryptographically strong hash function,
+it practically guarantees that if two files have the same value of BLAKE2,
+their contents is the same. BLAKE2 error detection property is also
+more reliable than in shorter CRC32.</p>
+<p class="calibre3">Since BLAKE2 output is longer, resulting archive is slightly larger,
+when this option is enabled.</p>
+<p class="calibre3">If archive headers are unencrypted (<a href="HELPArcPassword.htm" class="pcalibre pcalibre2 pcalibre1">Encrypt
+file names</a> option was not set), checksums for
+<a href="HELPArcEncryption.htm" class="pcalibre pcalibre2 pcalibre1">encrypted</a> RAR 5.0 files are modified
+using a special password dependent algorithm, to make impossible guessing
+file contents based on checksums. Do not expect encrypted file checksums
+to match usual CRC32 and BLAKE2 values.</p>
+<h1 id="ident" class="calibre7"><i class="calibre9">Save identical files as references</i></h1>
+<p class="calibre3">If this option is enabled, WinRAR analyzes the file contents before
+starting archiving. If several identical files larger than 64 KB are found,
+the first file in the set is saved as usual file and all following files
+are saved as references to this first file. It allows to reduce the archive
+size, but applies some restrictions to resulting archive. You must not delete
+or rename the first identical file in archive after the archive was created,
+because it will make extraction of following files using it as a reference
+impossible. If you modify the first file, following files will also have
+the modified contents after extracting. Extraction command must involve
+the first file to create following files successfully.</p>
+<p class="calibre3">It is recommended to use this option only if you compress a lot of
+identical files, will not modify an archive later and will extract
+an archive entirely, without necessity to unpack or skip individual files.
+If all identical files are small enough to fit into
+<a href="HELPGetArcGeneral.htm#DictSize" class="pcalibre pcalibre2 pcalibre1">compression dictionary</a>,
+<a href="HELPArcSolid.htm" class="pcalibre pcalibre2 pcalibre1">solid archiving</a> can provide more flexible
+solution than this option.</p>
+<p class="calibre3">Supported for <a href="HELPRAR5Format.htm" class="pcalibre pcalibre2 pcalibre1">RAR 5.0</a> archives only.</p>
+<h1 id="QO" class="calibre7"><i class="calibre9">Quick open information</i></h1>
+<p class="calibre3">RAR archives store every file header containing information
+such as file name, time, size and attributes immediately
+before data of described file. This approach is more damage
+resistant than storing all file headers in a single continuous
+block, which if broken or truncated would destroy the entire
+archive contents. But while being more reliable, such file
+headers scattered around the entire archive are slower to
+access if we need to quickly open the archive contents 
+in a shell like WinRAR graphical interface.</p>
+<p class="calibre3">To improve archive open speed and still not make the entire
+archive dependent on a single damaged block, 
+<a href="HELPRAR5Format.htm" class="pcalibre pcalibre2 pcalibre1">RAR 5.0</a> archives
+can include an optional quick open record. Such record is
+added to the end of archive and contains copies of file names
+and other file information stored in a single continuous block
+additionaly to normal file headers inside of archive.
+Since the block is continuous, its contents can be read quickly,
+without necessity to perform a lot of disk seek operations.
+Every file header in this block is protected with a checksum.
+If WinRAR detects that quick open information is damaged,
+it resorts to reading individual headers from inside of archive,
+so damage resistance is not lessened.</p>
+<p class="calibre3">Quick open record contains the full copy of file header,
+which may be several tens or hundreds of bytes per file,
+increasing the archive size by the same amount. This size
+increase is most noticeable for many small files, when file
+data size is comparable to file header. So by default,
+in "Add for larger files" mode, WinRAR stores copies of headers
+only for relatively large files and continues to use local
+headers for smaller files. Concrete file size threshold can
+depend on WinRAR version. Such approach provides a reasonable
+open speed to archive size tradeoff. If you prefer to have
+the maximum archive open speed regardless of size, you can use
+"Add for all files" to store copies of all file headers.
+If you need to have the smallest possible archive and do not care
+about archive open speed in different programs, set "Do not add"
+to exclude the quick open information completely.</p>
+<p class="calibre3">If you wish to measure the performance effect of this option,
+be sure that archive contents is not stored in a disk cache.
+No real disk seeks are performed for cached archive file,
+making access to file headers fast even without quick open record.</p>
+
+
+
+  </div>
+
+  
+  <div class="calibreToc">
+    <h2><a href="../winrar-help.html"> Table of contents</a></h2>
+     <div>
+  <ul>
+    <li>
+      <a href=".">About WinRAR</a>
+      <ul>
+        <li>
+          <a href="HELPRarInfo.htm">What is WinRAR</a>
+        </li>
+        <li>
+          <a href="HELPLimitations.htm">WinRAR limitations</a>
+        </li>
+        <li>
+          <a href="HELPConsoleRAR.htm">Console RAR version</a>
+        </li>
+        <li>
+          <a href="HELPAcknowledgments.htm">Acknowledgments</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Quick start for novices</a>
+      <ul>
+        <li>
+          <a href="HELPQuickStart.htm">Shell and command line modes</a>
+        </li>
+        <li>
+          <a href=".">How to extract files</a>
+          <ul>
+            <li>
+              <a href="HELPSimpleShellExtracting.htm">How to extract files using WinRAR shell mode</a>
+            </li>
+            <li>
+              <a href="HELPSimpleCommandLineExtracting.htm">How to extract files using command line</a>
+            </li>
+            <li>
+              <a href="HELPSimpleWindowsExtracting.htm">How to extract files in Explorer or Desktop</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">How to archive files</a>
+          <ul>
+            <li>
+              <a href="HELPSimpleShellArchiving.htm">How to archive files using WinRAR shell mode</a>
+            </li>
+            <li>
+              <a href="HELPSimpleCommandLineArchiving.htm">How to archive files using command line</a>
+            </li>
+            <li>
+              <a href="HELPSimpleWindowsArchiving.htm">How to archive files in Explorer or Desktop</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Archive types and parameters</a>
+      <ul>
+        <li>
+          <a href="HELPRARVersusZIP.htm">RAR versus ZIP</a>
+        </li>
+        <li>
+          <a href="HELPRAR5Format.htm">RAR 5.0 archive format</a>
+        </li>
+        <li>
+          <a href="HELPArcNonRAR.htm">Support of other archive formats</a>
+        </li>
+        <li>
+          <a href="HELPArcSolid.htm">Solid archives</a>
+        </li>
+        <li>
+          <a href="HELPArcVolumes.htm">Volumes (split archives)</a>
+        </li>
+        <li>
+          <a href="HELPArcRecVolumes.htm">Recovery volumes</a>
+        </li>
+        <li>
+          <a href="HELPArcSFX.htm">Self-extracting (SFX) archives</a>
+        </li>
+        <li>
+          <a href="HELPArcEncryption.htm">Encryption</a>
+        </li>
+        <li>
+          <a href="HELPArcComment.htm">Archive comment</a>
+        </li>
+        <li>
+          <a href="HELPArcRecovery.htm">Protecting archives from damage</a>
+        </li>
+        <li>
+          <a href="HELPArcLocking.htm">Locking archives</a>
+        </li>
+        <li>
+          <a href="HELPArcOptimal.htm">How to choose optimal archiving settings</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">WinRAR interface</a>
+      <ul>
+        <li>
+          <a href=".">Introduction</a>
+          <ul>
+            <li>
+              <a href="HELPInterfaceIntro.htm">Introduction to WinRAR interface</a>
+            </li>
+            <li>
+              <a href="HELPShellModes.htm">File management and archive management modes</a>
+            </li>
+            <li>
+              <a href="HELPInterfaceSelecting.htm">Selecting files</a>
+            </li>
+            <li>
+              <a href="HELPThemes.htm">Themes</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">Wizard</a>
+          <ul>
+            <li>
+              <a href="HELPWizard.htm">Using WinRAR Wizard</a>
+            </li>
+            <li>
+              <a href="HELPWizardOperation.htm">Wizard: Choose the operation</a>
+            </li>
+            <li>
+              <a href="HELPWizardArcExtract.htm">Wizard: Choose the archive to unpack</a>
+            </li>
+            <li>
+              <a href="HELPWizardArcAdd.htm">Wizard: Choose the archive to create or update</a>
+            </li>
+            <li>
+              <a href="HELPWizardDestFolder.htm">Wizard: Choose a folder for unpacked files</a>
+            </li>
+            <li>
+              <a href="HELPWizardArcOptions.htm">Wizard: Archiving options</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">Viewing files</a>
+          <ul>
+            <li>
+              <a href="HELPInterfaceViewing.htm">Viewing files</a>
+            </li>
+            <li>
+              <a href="HELPInterfaceInternalViewer.htm">Internal viewer</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">File and archive management commands</a>
+          <ul>
+            <li>
+              <a href="HELPCommandsAdd.htm">Add to archive</a>
+            </li>
+            <li>
+              <a href="HELPCommandsExtractTo.htm">Extract to the specified folder</a>
+            </li>
+            <li>
+              <a href="HELPCommandsTest.htm">Test files</a>
+            </li>
+            <li>
+              <a href="HELPCommandsView.htm">View file</a>
+            </li>
+            <li>
+              <a href="HELPCommandsDelete.htm">Delete files</a>
+            </li>
+            <li>
+              <a href="HELPCommandsRename.htm">Rename file</a>
+            </li>
+            <li>
+              <a href="HELPCommandsPrint.htm">Print file</a>
+            </li>
+            <li>
+              <a href="HELPCommandsExtract.htm">Extract without confirmation</a>
+            </li>
+            <li>
+              <a href="HELPCommandsComment.htm">Add archive comment</a>
+            </li>
+            <li>
+              <a href="HELPCommandsProtect.htm">Protect archive from damage</a>
+            </li>
+            <li>
+              <a href="HELPCommandsLock.htm">Lock archive</a>
+            </li>
+            <li>
+              <a href="HELPCommandsVirusScan.htm">Scan archive for viruses</a>
+            </li>
+            <li>
+              <a href="HELPCommandsConvert.htm">Convert archives</a>
+            </li>
+            <li>
+              <a href="HELPCommandsRepair.htm">Repair archive</a>
+            </li>
+            <li>
+              <a href="HELPCommandsSFX.htm">Convert archive to SFX</a>
+            </li>
+            <li>
+              <a href="HELPCommandsFind.htm">Find files</a>
+            </li>
+            <li>
+              <a href="HELPCommandsInfo.htm">Show information</a>
+            </li>
+            <li>
+              <a href="HELPCommandsReport.htm">Generate report</a>
+            </li>
+            <li>
+              <a href="HELPCommandsBenchmark.htm">Benchmark</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">WinRAR menus</a>
+          <ul>
+            <li>
+              <a href="HELPFileMenu.htm">File menu</a>
+            </li>
+            <li>
+              <a href="HELPCommandsMenu.htm">Commands menu</a>
+            </li>
+            <li>
+              <a href="HELPToolsMenu.htm">Tools menu</a>
+            </li>
+            <li>
+              <a href="HELPFavoritesMenu.htm">Favorites menu</a>
+            </li>
+            <li>
+              <a href="HELPOptionsMenu.htm">Options menu</a>
+            </li>
+            <li>
+              <a href="HELPHelpMenu.htm">Help menu</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Integration with Windows shell</a>
+      <ul>
+        <li>
+          <a href="HELPWinShellOpen.htm">How to open an archive from Windows shell</a>
+        </li>
+        <li>
+          <a href="HELPWinShellMenu.htm">Using context menus</a>
+        </li>
+        <li>
+          <a href="HELPWinShellDrag.htm">Drag and drop support</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Command line mode</a>
+      <ul>
+        <li>
+          <a href="HELPCommandLineSyntax.htm">Command line syntax</a>
+        </li>
+        <li>
+          <a href=".">Commands</a>
+          <ul>
+            <li>
+              <a href="HELPCommands.htm">Alphabetic commands list</a>
+            </li>
+            <li>
+              <a href="HELPCmdA.htm">"A" - Add to an archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdC.htm">"C" - Add an archive comment</a>
+            </li>
+            <li>
+              <a href="HELPCmdCH.htm">"CH" - Change archive parameters</a>
+            </li>
+            <li>
+              <a href="HELPCmdCV.htm">"CV" - Convert archives</a>
+            </li>
+            <li>
+              <a href="HELPCmdCW.htm">"CW" - Write an archive comment to file</a>
+            </li>
+            <li>
+              <a href="HELPCmdD.htm">"D" - Delete from an archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdE.htm">"E" - Extract from an archive ignoring paths</a>
+            </li>
+            <li>
+              <a href="HELPCmdF.htm">"F" - Freshen files within an archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdI.htm">"I" - Find string in archives</a>
+            </li>
+            <li>
+              <a href="HELPCmdK.htm">"K" - Lock an archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdM.htm">"M" - Move files and folders to an archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdR.htm">"R" - Repair a damaged archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdRC.htm">"RC" - Reconstruct missing volumes</a>
+            </li>
+            <li>
+              <a href="HELPCmdRN.htm">"RN" - Rename archived files</a>
+            </li>
+            <li>
+              <a href="HELPCmdRR.htm">"RR[N]" - Add data recovery record</a>
+            </li>
+            <li>
+              <a href="HELPCmdRV.htm">"RV[N]" - Create recovery volumes</a>
+            </li>
+            <li>
+              <a href="HELPCmdS.htm">"S[name]" - Convert an archive to a self-extracting type</a>
+            </li>
+            <li>
+              <a href="HELPCmdSm.htm">"S-" - Remove SFX module</a>
+            </li>
+            <li>
+              <a href="HELPCmdT.htm">"T" - Test archived files</a>
+            </li>
+            <li>
+              <a href="HELPCmdU.htm">"U" - Update files within an archive</a>
+            </li>
+            <li>
+              <a href="HELPCmdX.htm">"X" - Extract files from an archive with full paths</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">Switches</a>
+          <ul>
+            <li>
+              <a href="HELPSwitches.htm">Alphabetic switches list</a>
+            </li>
+            <li>
+              <a href="HELPSwMinus.htm">"--" - stop switches scanning</a>
+            </li>
+            <li>
+              <a href="HELPSwAtSign.htm">"-@[+]" - disable [enable] file lists</a>
+            </li>
+            <li>
+              <a href="HELPSwAC.htm">"-ac" - clear "Archive" attribute</a>
+            </li>
+            <li>
+              <a href="HELPSwAD.htm">"-ad" - append archive name to destination path</a>
+            </li>
+            <li>
+              <a href="HELPSwAF.htm">"-af&lt;type&gt;" - specify archive format</a>
+            </li>
+            <li>
+              <a href="HELPSwAG.htm">"-ag[format]" - generate archive name using the current date and time</a>
+            </li>
+            <li>
+              <a href="HELPSwAI.htm">"-ai" - ignore file attributes</a>
+            </li>
+            <li>
+              <a href="HELPSwAO.htm">"-ao" - add files with "Archive" attribute set</a>
+            </li>
+            <li>
+              <a href="HELPSwAP.htm">"-ap&lt;path&gt;" - set path inside archive</a>
+            </li>
+            <li>
+              <a href="HELPSwAS.htm">"-as" - synchronize archive contents</a>
+            </li>
+            <li>
+              <a href="HELPSwCFGm.htm">"-cfg-" - ignore default profile and environment variable</a>
+            </li>
+            <li>
+              <a href="HELPSwCL.htm">"-cl" - convert file names to lower case</a>
+            </li>
+            <li>
+              <a href="HELPSwCP.htm">"-cp&lt;name&gt;" - select a compression profile</a>
+            </li>
+            <li>
+              <a href="HELPSwCU.htm">"-cu" - convert file names to upper case</a>
+            </li>
+            <li>
+              <a href="HELPSwDF.htm">"-df" - delete files after archiving</a>
+            </li>
+            <li>
+              <a href="HELPSwDH.htm">"-dh" - open shared files</a>
+            </li>
+            <li>
+              <a href="HELPSwDR.htm">"-dr" - delete files to Recycle Bin</a>
+            </li>
+            <li>
+              <a href="HELPSwDS.htm">"-ds" - do not sort archiving files</a>
+            </li>
+            <li>
+              <a href="HELPSwDW.htm">"-dw" - wipe files after archiving</a>
+            </li>
+            <li>
+              <a href="HELPSwED.htm">"-ed" - do not add empty folders</a>
+            </li>
+            <li>
+              <a href="HELPSwEN.htm">"-en" - do not add "end of archive" block</a>
+            </li>
+            <li>
+              <a href="HELPSwEP.htm">"-ep" - exclude paths from names</a>
+            </li>
+            <li>
+              <a href="HELPSwEP1.htm">"-ep1" - exclude base folder from names</a>
+            </li>
+            <li>
+              <a href="HELPSwEP2.htm">"-ep2" - expand paths to full</a>
+            </li>
+            <li>
+              <a href="HELPSwEP3.htm">"-ep3" - expand paths to full including the drive letter</a>
+            </li>
+            <li>
+              <a href="HELPSwEATTR.htm">"-e[+]&lt;attr&gt;" - set file exclude and include attributes</a>
+            </li>
+            <li>
+              <a href="HELPSwF.htm">"-f" - freshen files</a>
+            </li>
+            <li>
+              <a href="HELPSwHP.htm">"-hp[pwd]" - encrypt both file data and headers</a>
+            </li>
+            <li>
+              <a href="HELPSwHT.htm">"-ht[b|c]" - select hash type [BLAKE2,CRC32] for file checksum</a>
+            </li>
+            <li>
+              <a href="HELPSwIADM.htm">"-iadm" - request administrative access for SFX archive</a>
+            </li>
+            <li>
+              <a href="HELPSwIBCK.htm">"-ibck" - run WinRAR in background</a>
+            </li>
+            <li>
+              <a href="HELPSwIEML.htm">"-ieml[.][addr]" - send archive by email</a>
+            </li>
+            <li>
+              <a href="HELPSwIICON.htm">"-iicon&lt;name&gt;" - specify SFX icon</a>
+            </li>
+            <li>
+              <a href="HELPSwIIMG.htm">"-iimg&lt;name&gt;" - specify SFX logo</a>
+            </li>
+            <li>
+              <a href="HELPSwILOG.htm">"-ilog[name]" - write errors to file</a>
+            </li>
+            <li>
+              <a href="HELPSwINUL.htm">"-inul" - disable error messages</a>
+            </li>
+            <li>
+              <a href="HELPSwIOFF.htm">"-ioff" - turn PC off</a>
+            </li>
+            <li>
+              <a href="HELPSwK.htm">"-k" - lock archive</a>
+            </li>
+            <li>
+              <a href="HELPSwKB.htm">"-kb" - keep broken extracted files</a>
+            </li>
+            <li>
+              <a href="HELPSwLOG.htm">"-log[fmt][=name]" - write names to log file</a>
+            </li>
+            <li>
+              <a href="HELPSwM.htm">"-m&lt;n&gt;" - set compression method</a>
+            </li>
+            <li>
+              <a href="HELPSwMA.htm">"-ma[4|5];" - specify a version of archiving format</a>
+            </li>
+            <li>
+              <a href="HELPSwMC.htm">"-mc&lt;par&gt;" - set advanced compression parameters</a>
+            </li>
+            <li>
+              <a href="HELPSwMD.htm">"-md&lt;n&gt;[k,m,g]" - select dictionary size</a>
+            </li>
+            <li>
+              <a href="HELPSwME.htm">"-me[par]" - set encryption parameters</a>
+            </li>
+            <li>
+              <a href="HELPSwMS.htm">"-ms[list]" - specify file types to store</a>
+            </li>
+            <li>
+              <a href="HELPSwMT.htm">"-mt&lt;threads&gt;" - set the number of threads</a>
+            </li>
+            <li>
+              <a href="HELPSwN.htm">"-n&lt;file&gt;" - additionally filter included files</a>
+            </li>
+            <li>
+              <a href="HELPSwNa.htm">"-n@&lt;listfile&gt;" - include files listed in the specified list file</a>
+            </li>
+            <li>
+              <a href="HELPSwOC.htm">"-oc" - set NTFS "Compressed" attribute</a>
+            </li>
+            <li>
+              <a href="HELPSwOH.htm">"-oh" - save hard links as the link instead of the file</a>
+            </li>
+            <li>
+              <a href="HELPSwOI.htm">"-oi[-][:&lt;minsize&gt;]" - save identical files as references</a>
+            </li>
+            <li>
+              <a href="HELPSwOL.htm">"-ol[a]" - process symbolic links as the link [absolute paths]</a>
+            </li>
+            <li>
+              <a href="HELPSwONI.htm">"-oni" - allow potentially incompatible names</a>
+            </li>
+            <li>
+              <a href="HELPSwOR.htm">"-or" - rename files automatically</a>
+            </li>
+            <li>
+              <a href="HELPSwOS.htm">"-os" - save NTFS streams</a>
+            </li>
+            <li>
+              <a href="HELPSwOW.htm">"-ow" - process file security information</a>
+            </li>
+            <li>
+              <a href="HELPSwO.htm">"-o[+|-]" - set the overwrite mode</a>
+            </li>
+            <li>
+              <a href="HELPSwP.htm">"-p[pwd]" - set password</a>
+            </li>
+            <li>
+              <a href="HELPSwQO.htm">-qo[-|+] - add quick open information [none|force]</a>
+            </li>
+            <li>
+              <a href="HELPSwR.htm">"-r" - recurse subfolders</a>
+            </li>
+            <li>
+              <a href="HELPSwRm.htm">"-r-" - disable recursion</a>
+            </li>
+            <li>
+              <a href="HELPSwR0.htm">"-r0" - recurse subfolders for wildcard names only</a>
+            </li>
+            <li>
+              <a href="HELPSwRI.htm">"-ri&lt;p&gt;[:&lt;s&gt;]" - Set priority and sleep time</a>
+            </li>
+            <li>
+              <a href="HELPSwRR.htm">"-rr[N]" - add data recovery record</a>
+            </li>
+            <li>
+              <a href="HELPSwRV.htm">"-rv[N]" - create recovery volumes</a>
+            </li>
+            <li>
+              <a href="HELPSwS.htm">"-s" - create solid archive</a>
+            </li>
+            <li>
+              <a href="HELPSwSN.htm">"-s&lt;n&gt;" - create solid groups using file count</a>
+            </li>
+            <li>
+              <a href="HELPSwSC.htm">"-sc&lt;charset&gt;[objects] - specify the character set</a>
+            </li>
+            <li>
+              <a href="HELPSwSE.htm">"-se" - create solid groups using extension</a>
+            </li>
+            <li>
+              <a href="HELPSwSL.htm">"-sl&lt;size&gt;" - process files with size less than specified</a>
+            </li>
+            <li>
+              <a href="HELPSwSM.htm">"-sm&lt;size&gt;" - process files with size more than specified</a>
+            </li>
+            <li>
+              <a href="HELPSwSV.htm">"-sv" - create independent solid volumes</a>
+            </li>
+            <li>
+              <a href="HELPSwSVm.htm">"-sv-" - create dependent solid volumes</a>
+            </li>
+            <li>
+              <a href="HELPSwSmin.htm">"-s-" - disable solid archiving</a>
+            </li>
+            <li>
+              <a href="HELPSwSFX.htm">"-sfx[name]" - create self-extracting archive</a>
+            </li>
+            <li>
+              <a href="HELPSwT.htm">"-t" - test files after archiving</a>
+            </li>
+            <li>
+              <a href="HELPSwTA.htm">"-ta&lt;date&gt;" - process files modified after the specified date</a>
+            </li>
+            <li>
+              <a href="HELPSwTB.htm">"-tb&lt;date&gt;" - process files modified before the specified date</a>
+            </li>
+            <li>
+              <a href="HELPSwTK.htm">"-tk" - keep original archive time</a>
+            </li>
+            <li>
+              <a href="HELPSwTL.htm">"-tl" - set archive time to newest file</a>
+            </li>
+            <li>
+              <a href="HELPSwTN.htm">"-tn&lt;time&gt;" - process files newer than the specified time</a>
+            </li>
+            <li>
+              <a href="HELPSwTO.htm">"-to&lt;time&gt;" - process files older than the specified time</a>
+            </li>
+            <li>
+              <a href="HELPSwTS.htm">"-ts[m|c|a][+|-|1]" - save or restore file time (modification, creation, access)</a>
+            </li>
+            <li>
+              <a href="HELPSwU.htm">"-u" - update files</a>
+            </li>
+            <li>
+              <a href="HELPSwV.htm">"-v&lt;n&gt;[k|b|f|m|M|g|G]" - create volumes</a>
+            </li>
+            <li>
+              <a href="HELPSwVD.htm">"-vd" - erase disk contents before creating volume</a>
+            </li>
+            <li>
+              <a href="HELPSwVER.htm">"-ver[n]" - file version control</a>
+            </li>
+            <li>
+              <a href="HELPSwVN.htm">"-vn" - use the old style volume naming scheme</a>
+            </li>
+            <li>
+              <a href="HELPSwVP.htm">"-vp" - pause before each volume</a>
+            </li>
+            <li>
+              <a href="HELPSwW.htm">"-w&lt;path&gt;" - set folder for temporary files</a>
+            </li>
+            <li>
+              <a href="HELPSwX.htm">"-x&lt;file&gt;" - exclude specified file</a>
+            </li>
+            <li>
+              <a href="HELPSwXa.htm">"-x@&lt;listfile&gt;" - exclude files listed in the specified list file</a>
+            </li>
+            <li>
+              <a href="HELPSwY.htm">"-y" - assume Yes on all queries</a>
+            </li>
+            <li>
+              <a href="HELPSwZ.htm">"-z&lt;file&gt;" - read archive comment from file</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href=".">WinRAR exit codes</a>
+          <ul>
+            <li>
+              <a href="HELPExitCodes.htm">List of WinRAR exit codes</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Configuration settings</a>
+      <ul>
+        <li>
+          <a href="HELPGeneralSettings.htm">General settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPCompressionSettings.htm">Compression settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPPathsSettings.htm">Paths settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPFileListSettings.htm">File list settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPViewerSettings.htm">Viewer settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPSecuritySettings.htm">Security settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPIntegrationSettings.htm">Integration settings dialog</a>
+        </li>
+        <li>
+          <a href="HELPProfiles.htm">Compression profiles</a>
+        </li>
+        <li>
+          <a href="HELPWinRARIni.htm">WinRAR.ini file</a>
+        </li>
+        <li>
+          <a href="HELPRARVar.htm">RAR environment variable</a>
+        </li>
+        <li>
+          <a href="HELPRegVar.htm">Registry variables</a>
+        </li>
+        <li>
+          <a href="HELPRARFILESLST.htm">Optimizing files sorting - rarfiles.lst file</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Self-extracting modules</a>
+      <ul>
+        <li>
+          <a href="HELPGUISFX.htm">GUI RAR and ZIP SFX modules (Default.SFX and Zip.SFX)</a>
+        </li>
+        <li>
+          <a href="HELPGUISFXScript.htm">GUI SFX modules: setup commands</a>
+        </li>
+        <li>
+          <a href="HELPGUISFXCmd.htm">GUI SFX modules: command line options</a>
+        </li>
+        <li>
+          <a href="HELPConsoleSFX.htm">Console RAR SFX module (WinCon.SFX)</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">Frequently asked questions and hints</a>
+      <ul>
+        <li>
+          <a href="HELPFAQ.htm">List of frequently asked questions</a>
+        </li>
+        <li>
+          <a href="HELPHints.htm">Hints</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href=".">License and purchasing information</a>
+      <ul>
+        <li>
+          <a href="HELPLicense.htm">WinRAR license</a>
+        </li>
+        <li>
+          <a href="HELPRegistering.htm">Purchasing information</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+  </div>
+  
+
+  <div class="calibreEbNav">
+    
+      <a href="HELPRegistering.htm" class="calibreAPrev">previous page</a>
+    
+
+    <a href="../winrar-help.html" class="calibreAHome"> start</a>
+
+    
+      <a href="HELPGetArcGeneral.htm" class="calibreANext"> next page</a>
+    
+  </div>
+
+</div>
+
+</body>
+</html>
