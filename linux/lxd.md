@@ -162,7 +162,7 @@ config:
 #      address:
 #        - 1.1.1.1
 #        - 1.0.0.1
-#      search
+#      search:
 #        - domain.tld
 ```
 Config locations in container
