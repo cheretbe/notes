@@ -47,6 +47,11 @@ Apply changes
 ```
 sudo sysctl -p
 ```
+
+Ubuntu 18.04:
+* https://askubuntu.com/questions/1046057/disabling-ipv6-in-ubuntu-18-04-server/1046648#1046648
+* https://askubuntu.com/questions/575651/what-is-the-difference-between-grub-cmdline-linux-and-grub-cmdline-linux-default
+
 ### Config examples
 Ubuntu (/etc/network/interfaces)
 ```
