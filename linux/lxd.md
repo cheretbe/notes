@@ -166,8 +166,11 @@ config:
 #        - domain.tld
 ```
 Config locations in container
-```
+```shell
 /etc/cloud/cloud.cfg
 /var/lib/cloud/seed/nocloud-net/network-config
+# 18.04
 /etc/netplan/50-cloud-init.yaml
+# 16.04
+/etc/network/interfaces.d/50-cloud-init.cfg 
 ```
