@@ -131,7 +131,7 @@ Less hackerish approach:
 ```
 lxc exec container2 -- mv /home/user/file.txt{,.bak}
 lxc file pull container1/home/user/file.txt file.txt
-lxc file push file.txt container2/home/user/file.txt --mode 644 --uid 1003
+lxc file push file.txt container2/home/user/file.txt --mode 644 --uid 1003 --gid 1003
 ```
 
 ```shell
