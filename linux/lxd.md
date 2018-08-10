@@ -126,7 +126,13 @@ lxc copy <source container>/<snapshot name> <destination container>
 ```
 Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375<br>
 `/var/lib/lxd/storage-pools/default/containers/`<br>
-:warning: Adjust permissions on host since container's root will not have access
+:warning: Adjust permissions on host since container's root will not have access<br>
+Less hackerish approach:
+```
+lxc exec container2 -- mv /home/user/file.txt{,.bak}
+lxc file pull container1/home/user/file.txt file.txt
+lxc file push file.txt container2/home/user/file.txt --mode 644 --uid 1003
+```
 
 ```shell
 sqlite3 /var/lib/lxd/lxd.db '.tables'
