@@ -238,6 +238,12 @@ nslookup -q=soa domain.tld
 
 `/etc/pihole/setupVars.conf`
 
+#### systemd-resolved
+Temporary fix for systemd-resolved not resolving `.local` names (both
+`DNSStubListener=no` and updating `/etc/resolv.conf` link are needed):
+* https://superuser.com/questions/1318220/ubuntu-18-04-disable-dnsmasq-base-and-enable-full-dnsmasq/1318279#1318279
+* https://stackoverflow.com/questions/50299241/ubuntu-18-04-server-how-to-check-dns-ip-server-setting-being-used/51060649#51060649
+
 #### DHCP client
 
 Leases location: `/var/lib/dhcp/dhclient.ifname.leases`
