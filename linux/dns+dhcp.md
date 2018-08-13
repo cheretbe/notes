@@ -239,6 +239,10 @@ nslookup -q=soa domain.tld
 `/etc/pihole/setupVars.conf`
 
 #### systemd-resolved
+```shell
+systemd-resolve --status
+
+```
 Temporary fix for systemd-resolved not resolving `.local` names (both
 `DNSStubListener=no` and updating `/etc/resolv.conf` link are needed):
 * https://superuser.com/questions/1318220/ubuntu-18-04-disable-dnsmasq-base-and-enable-full-dnsmasq/1318279#1318279
