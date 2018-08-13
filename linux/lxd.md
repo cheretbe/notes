@@ -83,6 +83,9 @@ lxc storage create pool1 zfs source=pool
 # Use the existing ZFS dataset "pool/path"
 lxc storage create pool1 zfs source=pool/path
 
+lxc network list
+lxc network edit lxdbr0 
+
 lxc profile list
 lxc profile copy default multibridge
 lxc profile edit multibridge
@@ -91,6 +94,7 @@ lxc profile edit multibridge
 lxc image list images:
 # List ubuntu images only
 lxc image list ubuntu:
+
 lxc launch ubuntu:xenial test1 -p multibridge
 lxc exec test1 bash
 
