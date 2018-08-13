@@ -30,7 +30,8 @@ PermitTunnel no
 GatewayPorts yes
 AllowAgentForwarding no
 ForceCommand echo 'This service can only be used for reverse port forwarding'
-PermitOpen locahost:1234
+# PermitOpen locahost:1234
+PermitOpen "locahost:1234" "localhost:8765" ssh-ed25519 AAAAC3NzaC1lZDI1NT...
 ClientAliveInterval 60
 ClientAliveCountMax 5
 ```
