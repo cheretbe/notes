@@ -34,6 +34,7 @@ PermitOpen locahost:1234
 ClientAliveInterval 60
 ClientAliveCountMax 5
 ```
+* https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Tunnels
 #### On client
 ```bash
 # Test tunnel creation
