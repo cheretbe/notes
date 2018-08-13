@@ -19,6 +19,8 @@ systemctl status systemd-timesyncd --no-pager -l
 ```bash
 # check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
+# May need to .bashrc for root user for "You have new mail" message to appear
+export MAIL=/var/spool/mail/root
 ```
 - [ ] Check journald - [settings](./journalctl.md)
 - [ ] Unattended updates (nagios notification)
