@@ -25,6 +25,7 @@ Create [an additional instance](#multiple-instances-of-sshd) of sshd. Restrict a
 AllowTcpForwarding yes
 X11Forwarding no
 PermitTunnel no
+PermitTTY no
 GatewayPorts no
 #GatewayPorts clientspecified
 #GatewayPorts yes
@@ -60,8 +61,8 @@ command=/usr/bin/autossh -v -M 0 -N -T remote-tunnel
 user=local-user
 autostart=true
 autorestart=true
-stderr_logfile=/var/log/supervisor/reverse-ssh-tunnel.log
 stdout_logfile=/var/log/supervisor/reverse-ssh-tunnel.log
+redirect_stderr=true
 logfile_maxbytes=50MB
 logfile_backups=3
 ```
