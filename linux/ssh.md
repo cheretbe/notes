@@ -22,6 +22,9 @@ Port <port_number>
 #### On server
 Create [an additional instance](#multiple-instances-of-sshd) of sshd. Restrict allowed options in `/etc/ssh/sshd_config_rev_tunnel`
 ```
+# Set this option to use IPv4 only (and to suppress error: bind: Cannot assign requested address)
+AddressFamily inet
+
 AllowTcpForwarding yes
 X11Forwarding no
 PermitTunnel no
