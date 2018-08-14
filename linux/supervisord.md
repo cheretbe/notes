@@ -25,6 +25,10 @@ stdout_logfile=/var/log/supervisor/dummy.log
 redirect_stderr=true
 # Uncomment if redirect_stderr is false
 #stderr_logfile=/var/log/supervisor/dummy_err.log
+# [!] logfile_maxbytes and logfile_backups are for [supervisord]
+# section of /etc/supervisor/supervisord.conf file
+stdout_logfile_maxbytes=50MB
+stdout_logfile_backups=3
 ```
 
 Command with shell pipe redirection
