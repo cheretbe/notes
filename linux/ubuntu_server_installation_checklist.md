@@ -1,4 +1,4 @@
-- [ ] packages installation: `apt install mc htop ncdu dnsutils`
+- [ ] packages installation: `apt install net-tools dnsutils mtr-tiny mc htop ncdu`
 - [ ] check timezone: `timedatectl`. Reconfigure with `dpkg-reconfigure tzdata`
 - [ ] advanced settings on packages configuration (`dpkg-reconfigure debconf`, select "low priority") 
 - [ ] grub settings
