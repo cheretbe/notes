@@ -50,7 +50,7 @@ ssh -v -i keys/tunnel-user-key.key tunnel-user@host.domain.tld -p 12345 -N -R 12
 ```
 
 Install `supervisord` and create `/etc/supervisor/conf.d/reverse-ssh-tunnel.conf` file with the following contents
-```ini
+```apache
 [program:reverse-ssh-tunnel]
 environment=AUTOSSH_GATETIME=0
 
