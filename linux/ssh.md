@@ -25,13 +25,16 @@ Create [an additional instance](#multiple-instances-of-sshd) of sshd. Restrict a
 AllowTcpForwarding yes
 X11Forwarding no
 PermitTunnel no
-#GatewayPorts no
+GatewayPorts no
 #GatewayPorts clientspecified
-GatewayPorts yes
+#GatewayPorts yes
 AllowAgentForwarding no
 ForceCommand echo 'This service can only be used for reverse port forwarding'
 # PermitOpen locahost:1234
-PermitOpen "locahost:1234" "localhost:8765" ssh-ed25519 AAAAC3NzaC1lZDI1NT...
+# PermitOpen restricts only *local* port forwarding
+# For remote ports PermitListen option has been added, but it is not supported by most
+# versions of sshd
+# https://bugzilla.mindrot.org/show_bug.cgi?id=2038
 ClientAliveInterval 60
 ClientAliveCountMax 5
 ```
