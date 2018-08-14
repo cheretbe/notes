@@ -29,9 +29,9 @@ AllowTcpForwarding yes
 X11Forwarding no
 PermitTunnel no
 PermitTTY no
-GatewayPorts no
+#GatewayPorts no
 #GatewayPorts clientspecified
-#GatewayPorts yes
+GatewayPorts yes
 AllowAgentForwarding no
 ForceCommand echo 'This service can only be used for reverse port forwarding'
 # PermitOpen locahost:1234
