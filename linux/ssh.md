@@ -129,6 +129,8 @@ Description=OpenSSH server daemon (external)
 # modify After: add sshd.service, so that the second instance starts only after the first
 # one has started (which includes key generation), remove sshd-keygen.service
 After=network.target sshd.service
+# debian/ubuntu
+After=network.target ssh.service
 # modify ExecStart (add -f /etc/ssh/sshd_config_external)
 ExecStart=/usr/sbin/sshd-external -D -f /etc/ssh/sshd_config_external $SSHD_OPTS
 
