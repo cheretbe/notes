@@ -66,8 +66,8 @@ autostart=true
 autorestart=true
 stdout_logfile=/var/log/supervisor/reverse-ssh-tunnel.log
 redirect_stderr=true
-logfile_maxbytes=50MB
-logfile_backups=3
+stdout_logfile_maxbytes=50MB
+stdout_logfile_backups=3
 ```
 
 `/home/local-user/.ssh/config` contents
