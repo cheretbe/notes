@@ -107,6 +107,9 @@ networkctl list
 ifconfig
 ```
 
+:question: Debian Jessie(8) and Stretch(9) by default use `/etc/dhcpcd.conf` instead of `/etc/network/interfaces` - https://raspberrypi.stackexchange.com/questions/39785/dhcpcd-vs-etc-network-interfaces/41187#41187
+
+### Routes
 ```
 route delete -net 192.168.101.0/24 gw 192.168.99.11
 route add -net 192.168.101.0/24 gw 192.168.100.9
