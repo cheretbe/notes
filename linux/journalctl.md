@@ -11,6 +11,17 @@ Set `SystemMaxUse` parameter (e.g. `SystemMaxUse=500M`) because by default it is
 * https://wiki.archlinux.org/index.php/Systemd#Journal
 
 ```shell
+# Filter by priority
+#   0: emerg
+#   1: alert
+#   2: crit
+#   3: err
+#   4: warning
+#   5: notice
+#   6: info
+#   7: debug
+# 0-4 from current boot
+journalctl -b --no-pager -p warning 
 # See the boots that journald knows about
 journalctl --list-boots
 # See logs from particular units
