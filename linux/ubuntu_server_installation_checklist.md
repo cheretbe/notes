@@ -1,3 +1,4 @@
+- [ ] IPv6 settings
 - [ ] packages installation: `apt install net-tools dnsutils mtr-tiny mc htop ncdu`
 - [ ] check timezone: `timedatectl`. Reconfigure with `dpkg-reconfigure tzdata`
 - [ ] check locale - [settings](./locales.md)
