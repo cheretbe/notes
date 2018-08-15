@@ -25,7 +25,6 @@ echo test | mail -s "test mail" root
 # May need to .bashrc for root user for "You have new mail" message to appear
 export MAIL=/var/spool/mail/root
 ```
-- [ ] Check journald - [settings](./journalctl.md)
 - [ ] Unattended updates (nagios notification)
 - [ ] Update umask value in `/etc/login.defs` (`UMASK 002`) if default ACLs are going to be used
 - [ ] Remove mlocate (?)
