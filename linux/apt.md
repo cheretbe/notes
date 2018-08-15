@@ -3,4 +3,6 @@
 apt-cache policy
 # Remove a PPA
 sudo add-apt-repository -r ppa:colingille/freshlight
+# Fix missing dependencies
+apt-get -f -y install
 ```
