@@ -1,5 +1,7 @@
 - [ ] packages installation: `apt install net-tools dnsutils mtr-tiny mc htop ncdu`
 - [ ] check timezone: `timedatectl`. Reconfigure with `dpkg-reconfigure tzdata`
+- [ ] check locale - [settings](./locales.md)
+- [ ] set journalctl [settings](./journalctl.md)
 - [ ] advanced settings on packages configuration (`dpkg-reconfigure debconf`, select "low priority") 
 - [ ] grub settings
 ```
