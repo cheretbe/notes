@@ -110,7 +110,7 @@ lxc delete container_name
 # boot.autostart           lxc.start.auto         1 enabled, 0 disabled
 # boot.autostart.delay     lxc.start.delay        delay in seconds to wait after starting container
 # boot.autostart.priority  lxc.start.order        container priority, higher values means earlier start
-lxc config set container_name boot.autostart 0
+lxc config set container_name boot.autostart 1
 
 # Snapshots
 # create
