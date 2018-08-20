@@ -1,7 +1,8 @@
 1. Stop http:// -> to https:// redirection for a visited site:
 
-Go to `chrome://net-internals` and select "HSTS" from the drop down. Enter `domain.tld` under "Delete domain" and
-press the **Delete** button. In newer versions select `Domain Security Policy`, delete option is under `Delete domain security policies`.
+chrome://net-internals/#hsts<br>
+~~Go to `chrome://net-internals` and select "HSTS" from the drop down. Enter `domain.tld` under "Delete domain" and
+press the **Delete** button. In newer versions select `Domain Security Policy`~~, delete option is under `Delete domain security policies`.
 
 2. Clear dns cache: `chrome://net-internals/#dns`
 
