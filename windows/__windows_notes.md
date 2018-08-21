@@ -1,5 +1,7 @@
 ## Unsorted
 
+boot-time Chkdsk results: "Application" log, event source "Wininit"
+
 ```batch
 :: Disable hibernation
 powercfg /h off
