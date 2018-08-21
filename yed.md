@@ -8,7 +8,7 @@ https://yed.yworks.com/support/manual/index.html
 * Navy: `#003399`
 
 #### Unsorted
-* For groups it's convenient to use `Group` object from `BPMN` palette section.
+* For groups it's convenient to use `Group` object from `BPMN` palette section (Select node(s) and hold <kbd>SHIFT</kbd> while dragging to move in/out of a group)
 
 ----
 * https://www.youtube.com/watch?v=7btg0ohTMIY
