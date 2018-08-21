@@ -86,6 +86,7 @@ network:
      dhcp6: no
      # Disable waiting for interface to fully activate
      optional: true
+     #dhcp-identifier: mac
  bridges:
    br0:
      interfaces: [eth0]
