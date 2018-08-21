@@ -5,6 +5,8 @@ boot-time Chkdsk results: "Application" log, event source "Wininit"
 ```batch
 :: Disable hibernation
 powercfg /h off
+:: Network trace
+netsh trace start capture=yes scenario=netconnection maxsize=1024 tracefile=C:\%computername%.etl
 ```
 
 WinSxS store cleanup
