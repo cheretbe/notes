@@ -121,6 +121,12 @@ systemd-resolve --status
 ```
 
 ### DHCP
+```shell
+# Renew leases
+# Systemd doesn't allow renewal
+# https://lists.freedesktop.org/archives/systemd-devel/2014-August/022662.html
+service systemd-networkd restart
+```
 Leases locations:
 * `/var/lib/dhcp/dhclient.ifname.leases` file
 * systemd: under `/run/systemd/netif/leases/`
