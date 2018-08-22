@@ -250,7 +250,7 @@ Temporary fix for systemd-resolved not resolving `.local` names (both
 
 #### DHCP client
 
-Leases location: `/var/lib/dhcp/dhclient.ifname.leases`
+See [notes](./linux/networking.md) in network settings
 
 * https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-caching-or-forwarding-dns-server-on-ubuntu-14-04
 * https://pujiermanto.wordpress.com/2017/06/14/how-to-view-and-clear-bind-dns-servers-cache-on-linux/
