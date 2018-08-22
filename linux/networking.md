@@ -125,6 +125,7 @@ systemd-resolve --status
 # Renew leases
 # Systemd doesn't allow renewal
 # https://lists.freedesktop.org/archives/systemd-devel/2014-August/022662.html
+# restart the service instead
 service systemd-networkd restart
 ```
 Leases locations:
