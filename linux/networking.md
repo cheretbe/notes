@@ -121,7 +121,9 @@ systemd-resolve --status
 ```
 
 ### DHCP
-Leases location: `/var/lib/dhcp/dhclient.ifname.leases` file
+Leases locations:
+* `/var/lib/dhcp/dhclient.ifname.leases` file
+* systemd: under `/run/systemd/netif/leases/`
 ```
 mv /etc/machine-id{,.bak}
 systemd-machine-id-setup
