@@ -2,6 +2,7 @@
 # CPU usage
 # https://github.com/dennyzhang/monitoring/blob/master/process/check_proc_cpu/check_proc_cpu.sh
 bash /root/temp/check_proc_cpu.sh -w 35 -c 40 --cmdpattern "SpiderOakONE --headless"
+watch -n 2 "bash /root/temp/check_proc_cpu.sh -w 35 -c 40 --cmdpattern 'SpiderOakONE --headless'"
 
 # View version
 /usr/bin/SpiderOakONE --version
