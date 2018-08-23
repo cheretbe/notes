@@ -1,3 +1,8 @@
+```shell
+# View version
+/usr/bin/SpiderOakONE --version
+```
+
 ```batch
 :: View device numbers
 "C:\Program Files\SpiderOakONE\SpiderOakONE.exe" --user-info
