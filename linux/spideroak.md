@@ -1,6 +1,19 @@
 ```shell
 # View version
 /usr/bin/SpiderOakONE --version
+
+# Running in GUI mode with X11 forwarding via su
+# [!] As the original user. Note the last line
+xauth -f ~/.Xauthority list
+# Switch user
+sudo su - spideroak-user-name
+xauth add host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c694102
+/usr/bin/SpiderOakONE
+# Shutting down (we don't have access to the tray icon)
+<Ctrl>+Z
+ps -aux | grep '/opt/SpiderOakONE/lib/SpiderOakONE'
+# Note the PID of a process without --spider option
+kill -KILL <pid>
 ```
 
 ```batch
