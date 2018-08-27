@@ -106,6 +106,10 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 * http://forum.mikrotik.com/viewtopic.php?t=51229
 
 #### Seamless WiFi clients roaming (CAPsMAN):
+```
+/interface wireless cap
+set discovery-interfaces=ether1 enabled=yes interfaces=wlan1
+```
 :warning: On the same device do not use `discovery interfaces`, set `CAPsMAN Addresses` to 127.0.0.1 and allow 5246,5247/UDP traffic (127.0.0.1 -> 127.0.0.1) in the firewall 
 
 * https://wiki.mikrotik.com/wiki/Manual:CAPsMAN
