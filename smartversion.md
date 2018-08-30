@@ -1,3 +1,7 @@
+### GUI
+
+:warning: Set temp directory if needed: `Options` > `Application Settings` > `Select a custom temporary directory`
+
 ### Command line
 
 ```shell
