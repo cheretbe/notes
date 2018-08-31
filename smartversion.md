@@ -7,6 +7,9 @@
 ```shell
 # Assuming that smv (http://www.smartversion.com) is installed in ~/bin
 
+# Build a patch
+smv BuildPatch [SvfFile] [OldFile] [NewFile]
+
 # List files
 smv l file.svf
 smv lv file.svf [-v 0]
