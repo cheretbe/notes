@@ -17,5 +17,5 @@ smv lv file.svf [-v 0]
 # Extract
 smv x file.svf -v 0
 smv x file.svf -v 1
-find -iname '*.smv' -exec smv x {} \;
+find -iname '*.smv' -exec smv x {} -br .. \;
 ```
