@@ -191,3 +191,41 @@ make install-plugin
 * http://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/install-nagios-4-1-1-ubuntu-16-04.html
 * ~~https://jamieduerden.me/post/monitoring-nginx-nagios/~~
 * ~~http://www.bogotobogo.com/DevOps/DevOps_Nginx_Nagios-Remote-Plugin-Executor-NRPE.php.NOT-Working~~
+
+### Remote SSH host monitoring 
+
+`/usr/local/nagios/etc/hosts.cfg`
+```
+define host {
+        name                    custom-remote-server
+        use                     generic-host
+        max_check_attempts      5
+        check_command           check_host_alive_ssh!--port=12345
+        contact_groups          admins
+        notification_interval   1140            ; 24h
+        register                0               ; DON'T REGISTER, THIS IS A TEMPLATE
+}
+```
+
+`/usr/local/nagios/etc/services.cfg`
+```
+define service {
+        use                     custom-service
+        hostgroup_name          custom-linux-remote-servers
+        service_description     CPU Load
+        check_command           remote_check_by_ssh!/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20!12345
+}
+
+```
+
+`/usr/local/nagios/etc/commands.cfg`
+```
+define command {
+        command_name    check_host_alive_ssh
+        command_line    $USER1$/check_ssh $ARG1$ $HOSTADDRESS$
+}
+define command {
+        command_name    remote_check_by_ssh
+        command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "$ARG1$" -p $ARG2$
+}
+```
