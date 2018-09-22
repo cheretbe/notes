@@ -16,6 +16,7 @@ WLAN settings
 - Frequency: auto
 - Mode: ap-bridge
 - [Switch to advanced mode] Advanced > Distance: indoors
+- (2check): https://blog.ligos.net/2018-01-01/Mikrotik-WiFi-Access-Point-With-VLAN.html
 
 Get latest RoS version:
 ```shell
