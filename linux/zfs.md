@@ -13,8 +13,10 @@
 
 ### Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
-```
+```shell
 apt install zfs
+# 18.04
+apt install zfsutils-linux
 ```
 
 14.04:
