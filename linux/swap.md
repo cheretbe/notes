@@ -5,6 +5,8 @@
 ```shell
 # Identify configured swap devices and files
 cat /proc/swaps
+# Memory usage in human-readable format
+free -h
 
 # Disable swap device
 swapoff /dev/sda5
