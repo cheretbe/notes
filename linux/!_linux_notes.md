@@ -88,6 +88,9 @@ getent group <group-name>
 groups [username]
 # Add to multiple groups
 usermod -a -G group1,group2 username
+# For current user
+# [!] Make sure not run this as root
+sudo usermod -aG group1,group2 ${USER}
 # Add new group
 groupadd group
 # Delete user from a group
