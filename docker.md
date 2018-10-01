@@ -32,7 +32,7 @@ service docker start
 For ZFS:<br>
 Do not move existing data<br>
 Edit `/etc/docker/daemon.json` (create if not present)
-```
+```json
 {
   "storage-driver": "zfs"
 }
