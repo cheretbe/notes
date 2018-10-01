@@ -20,3 +20,7 @@ sudo apt install docker-ce
 # [!] Do not copy/paste as root
 sudo usermod -aG docker ${USER}
 ```
+
+```
+mv /var/lib/docker/* /new/path/docker/
+```
