@@ -21,6 +21,14 @@ sudo apt install docker-ce
 sudo usermod -aG docker ${USER}
 ```
 
-```
+```shell
+service docker stop
 mv /var/lib/docker/* /new/path/docker/
+rmdir /var/lib/docker
+ln -s /new/path/docker /var/lib/docker
+service docker start
+```
+
+```
+
 ```
