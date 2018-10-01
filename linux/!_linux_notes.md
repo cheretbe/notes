@@ -90,6 +90,8 @@ groups [username]
 usermod -a -G group1,group2 username
 # Add new group
 groupadd group
+# Delete user from a group
+gpasswd -d user group
 ```
 Sudo
 
