@@ -21,6 +21,7 @@ sudo apt install docker-ce
 sudo usermod -aG docker ${USER}
 ```
 
+Move `/var/lib/docker/`
 ```shell
 service docker stop
 mv /var/lib/docker/* /new/path/docker/
@@ -28,7 +29,11 @@ rmdir /var/lib/docker
 ln -s /new/path/docker /var/lib/docker
 service docker start
 ```
-
+For ZFS:<br>
+Do not move existing data<br>
+Edit `/etc/docker/daemon.json` (create if not present)
 ```
-
+{
+  "storage-driver": "zfs"
+}
 ```
