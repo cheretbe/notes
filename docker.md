@@ -8,6 +8,8 @@ docker ps -a
 
 docker start <id or name>
 docker stop <id or name>
+# -i, --interactive  Keep STDIN open even if not attached
+# -t, --tty          Allocate a pseudo-TTY
 docker exec -it <id or name> bash
 ```
 
