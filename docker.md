@@ -8,6 +8,7 @@ docker ps -a
 
 docker start <id or name>
 docker stop <id or name>
+docker exec -it <id or name> bash
 ```
 
 Installation (18.04)
