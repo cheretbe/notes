@@ -6,7 +6,9 @@
 # View all containers, running or stopped
 docker ps -a
 
-# View restart policy for a container
+# Set restart policy for a container
+docker update --restart=always <id or name> [id or name...]
+# View current restart policy
 docker inspect --format "{{ .HostConfig.RestartPolicy }}" <id or name>
 # Format option shows '{always 0}' instead of '{"Name": "always", "MaximumRetryCount": 0}'
 # Package jq needs to be installed
