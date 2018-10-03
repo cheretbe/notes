@@ -4,6 +4,9 @@
 ```shell
 # View all containers, running or stopped
 docker ps -a
+
+docker start <id or name>
+docker stop <id or name>
 ```
 
 Installation (18.04)
