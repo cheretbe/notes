@@ -6,6 +6,12 @@
 # View all containers, running or stopped
 docker ps -a
 
+# View restart policy for a container
+docker inspect --format "{{ .HostConfig.RestartPolicy }}" <id or name>
+# Format option shows '{always 0}' instead of '{"Name": "always", "MaximumRetryCount": 0}'
+# Package jq needs to be installed
+docker inspect <id or name> | jq .[0] | jq .HostConfig.RestartPolicy
+
 docker start <id or name>
 docker stop <id or name>
 # -i, --interactive  Keep STDIN open even if not attached
