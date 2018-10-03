@@ -3,6 +3,12 @@
  * Install ImDisk from `\ImDisk\imdiskinst.exe` (**reinstall** on upgrade)
  * Run `MakePartImage.cmd` as Administrator
  
+ Suggested temporary ImDisk drive size is in MB (10^6 bytes), not MiB<br>
+ To calculate size adjustment (assuming that util directory size is 28 **MiB**
+ ```Powershell
+(28Mb - (get-WmiObject win32_logicaldisk -Filter "DeviceID='U:'").FreeSpace) / 1000 / 1000
+ ```
+ 
  Switch partitions when booting or using `_ISO\SWITCH_E2B.exe` (or `e2b\SWITCH_E2B.exe`) on Windows (works with NTFS USB drives only)
  
  ### ISO files
