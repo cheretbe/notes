@@ -6,6 +6,7 @@
 # View all containers, running or stopped
 docker ps -a
 
+# https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy
 # Set restart policy for a container
 docker update --restart=always <id or name> [id or name...]
 # View current restart policy
