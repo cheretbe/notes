@@ -13,6 +13,7 @@ docker update --restart=always <id or name> [id or name...]
 docker inspect --format "{{ .HostConfig.RestartPolicy }}" <id or name>
 # Format option shows '{always 0}' instead of '{"Name": "always", "MaximumRetryCount": 0}'
 # Package jq needs to be installed
+# (?) Check 'Get a subsection in JSON format' in https://docs.docker.com/engine/reference/commandline/inspect/
 docker inspect <id or name> | jq .[0] | jq .HostConfig.RestartPolicy
 
 docker start <id or name>
