@@ -7,13 +7,14 @@
 docker ps -a
 
 # https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy
+# https://docs.docker.com/engine/reference/commandline/inspect/
 # Set restart policy for a container
 docker update --restart=always <id or name> [id or name...]
-# View current restart policy
-docker inspect --format "{{ .HostConfig.RestartPolicy }}" <id or name>
-# Format option shows '{always 0}' instead of '{"Name": "always", "MaximumRetryCount": 0}'
-# Package jq needs to be installed
-# (?) Check 'Get a subsection in JSON format' in https://docs.docker.com/engine/reference/commandline/inspect/
+# View current restart policy (this will return just value like "always" on "no")
+docker inspect --format "{{ .HostConfig.RestartPolicy.Name }}" <id or name>
+# This will return JSON data like '{"Name": "always", "MaximumRetryCount": 0}'
+docker inspect --format "{{ json .HostConfig.RestartPolicy }}" <id or name>
+# Alternative way to get JSON (package jq needs to be installed)
 docker inspect <id or name> | jq .[0] | jq .HostConfig.RestartPolicy
 
 docker start <id or name>
