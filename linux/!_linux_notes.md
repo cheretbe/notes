@@ -11,7 +11,7 @@ cat /proc/cpuinfo
 CPU stress-test
 ```shell
 sudo apt install stress-ng
-nice -19 stress-ng -c 4 --metrics --timeout 5m
+nice -19 stress-ng -c 4 --metrics-brief --timeout 5m
 ```
 
 tracert for Linux
