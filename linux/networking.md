@@ -108,7 +108,15 @@ networkctl list
 ifconfig
 ```
 
-:question: Debian Jessie(8) and Stretch(9) by default use `/etc/dhcpcd.conf` instead of `/etc/network/interfaces` - https://raspberrypi.stackexchange.com/questions/39785/dhcpcd-vs-etc-network-interfaces/41187#41187
+:question: Debian Jessie(8) and Stretch(9) by default use `/etc/dhcpcd.conf` instead of `/etc/network/interfaces` - https://raspberrypi.stackexchange.com/questions/39785/dhcpcd-vs-etc-network-interfaces/41187#41187<br>
+`/etc/dhcpcd.conf` example:
+```
+interface eth0
+static ip_address=10.1.1.30/24
+static routers=10.1.1.1
+static domain_name_servers=10.1.1.1
+```
+
 
 ### Routes
 ```
