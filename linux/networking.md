@@ -116,6 +116,10 @@ static ip_address=10.1.1.30/24
 static routers=10.1.1.1
 static domain_name_servers=10.1.1.1
 ```
+```shell
+# Apply configuration
+service dhcpcd restart
+```
 
 
 ### Routes
