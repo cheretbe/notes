@@ -7,6 +7,11 @@ lshw -class system
 lscpu
 lshw -class processor
 cat /proc/cpuinfo
+# Memory
+dmidecode -t memory
+dmidecode -t 16
+lshw -class memory
+dmidecode -t memory | grep Size
 ```
 CPU stress-test
 ```shell
