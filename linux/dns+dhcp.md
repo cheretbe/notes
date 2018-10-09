@@ -72,6 +72,9 @@ filter-aaaa-on-v4 yes;
 listen-on port 5353 {any;};
 // Listen on one interface only
 listen-on port 53 {192.168.2.17;};
+
+// https://lists.isc.org/pipermail/bind-users/2015-September/095748.html
+no-case-compress { 10.0.0.0/8; };
 ```
 
 Zones information is in `/etc/bind/named.conf.local`
