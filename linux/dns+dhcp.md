@@ -216,8 +216,8 @@ grep facebook.com /var/cache/bind/named_dump.db
 
 # Flush cache
 rndc flush
-# Reload bind9
-rndc reload
+# Reload bind9 (not needed?)
+# rndc reload
 
 # The dump file should be empty if there were no DNS queries after flushing
 rndc stats
