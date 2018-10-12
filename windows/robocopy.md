@@ -7,4 +7,6 @@
 :: /NP  : No Progress - don’t display % copied.
 :: /NDL : No Directory List - don’t log directory names.
 robocopy "c:\src" "d:\dst" /MIR /R:1 /W:0 /NP /NDL
+
+:: /L : List only - don’t copy, timestamp or delete any files.
 ```
