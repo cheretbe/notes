@@ -9,4 +9,12 @@
 robocopy "c:\src" "d:\dst" /MIR /R:1 /W:0 /NP /NDL
 
 :: /L : List only - don’t copy, timestamp or delete any files.
+
+IF ERRORLEVEL 8 (
+  ECHO ERRORLEVEL: %ERRORLEVEL%
+  SET CopyResult=1
+) ELSE (
+  ECHO ERRORLEVEL: %ERRORLEVEL%
+  SET CopyResult=0
+)
 ```
