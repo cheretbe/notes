@@ -189,6 +189,12 @@ cp /etc/dhcp/dhcpd.conf{,.bak}
 If server has more than one NIC, make sure to update INTERFACESv4 (INTERFACESv6) parameters
 in `/etc/default/isc-dhcp-server`
 
+```shell
+cp /etc/bind/rndc.key /etc/dhcp/ddns-keys
+chown root:root /etc/dhcp/ddns-keys/rndc.key
+chmod 640 /etc/dhcp/ddns-keys/rndc.key
+```
+
 `/etc/dhcp/dhcpd.conf`
 ```
 #
