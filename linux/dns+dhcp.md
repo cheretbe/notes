@@ -252,6 +252,12 @@ service isc-dhcp-server restart
 cat /var/lib/dhcp/dhcpd.leases
 # Print active leases
 dhcp-lease-list
+
+# Release a lease
+service isc-dhcp-server stop
+# Manually delete lease entry from the file
+nano /var/lib/dhcp/dhcpd.leases
+service isc-dhcp-server start
 ```
 
 #### Pi-hole
