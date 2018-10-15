@@ -151,7 +151,7 @@ mv /etc/machine-id{,.bak}
 systemd-machine-id-setup
 reboot
 ```
-Check if `/var/lib/dbus/machine-id` is a symlink to `/etc/machine-id` on Debian. On Ubuntu 18.04.1 it is. (https://unix.stackexchange.com/questions/402999/it-is-ok-to-change-etc-machine-id/403054#403054)
+:information_source: `/var/lib/dbus/machine-id` is a symlink to `/etc/machine-id` (at least on Debian/Ubuntu it is). (https://unix.stackexchange.com/questions/402999/it-is-ok-to-change-etc-machine-id/403054#403054)
 
 ### WLAN
 ```
