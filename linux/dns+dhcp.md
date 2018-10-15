@@ -246,6 +246,14 @@ dhcpd -t
 service isc-dhcp-server restart
 ```
 
+#### Maintenance
+```shell
+# Leases location
+cat /var/lib/dhcp/dhcpd.leases
+# Print active leases
+dhcp-lease-list
+```
+
 #### Pi-hole
 
 `/etc/pihole/setupVars.conf`
