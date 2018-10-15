@@ -281,6 +281,7 @@ on commit {
     execute("/usr/local/sbin/dhcpevent", "commit", isst, clip, clhw, host-decl-name);}
 ```
 * https://linux.die.net/man/5/dhcp-eval
+* https://kb.isc.org/docs/aa-01039
 * https://github.com/dploeger/dhcp-commit-report
 
 
