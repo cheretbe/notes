@@ -261,7 +261,7 @@ subnet 192.168.20.0 netmask 255.255.255.0 {
   range 192.168.2.100 192.168.2.154;
   option subnet-mask 255.255.255.0;
   option routers 192.168.2.1;
-  option domain-name-servers 192.168.2.2;
+  option domain-name-servers 192.168.2.3;
   option domain-name "domain.tld";
   ddns-domainname "domain.tld.";
   ddns-rev-domainname "in-addr.arpa.";
