@@ -228,6 +228,7 @@ If server has more than one NIC, make sure to update INTERFACESv4 (INTERFACESv6)
 in `/etc/default/isc-dhcp-server`
 
 ```shell
+# Use a copy of the key file (to preserve original file permissions)
 cp /etc/bind/rndc.key /etc/dhcp/ddns-keys
 chown root:root /etc/dhcp/ddns-keys/rndc.key
 chmod 640 /etc/dhcp/ddns-keys/rndc.key
@@ -235,7 +236,37 @@ chmod 640 /etc/dhcp/ddns-keys/rndc.key
 
 `/etc/dhcp/dhcpd.conf`
 ```
-#
+ddns-updates on;
+ddns-update-style standard;
+authoritative;
+
+include "/etc/dhcp/ddns-keys/rndc.key";
+
+default-lease-time 604800; # 7 days
+max-lease-time 604800;
+
+allow unknown-clients;
+use-host-decl-names on;
+
+zone domain.tld. {
+  primary 192.168.2.3;  # This server is the primary DNS server for the zone
+  key rndc-key;         # Use the key we defined earlier for dynamic updates
+}
+zone 2.168.192.in-addr.arpa. {
+  primary 192.168.2.3;  # This server is the primary reverse DNS for the zone
+  key rndc-key;         # Use the key we defined earlier for dynamic updates
+}
+
+subnet 192.168.20.0 netmask 255.255.255.0 {
+  range 192.168.2.100 192.168.2.154;
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.2.1;
+  option domain-name-servers 192.168.2.2;
+  option domain-name "domain.tld";
+  ddns-domainname "domain.tld.";
+  ddns-rev-domainname "in-addr.arpa.";
+}
+
 ```
 
 ```shell
