@@ -130,6 +130,8 @@ route add -net 192.168.101.0/24 gw 192.168.100.9
 ### DNS
 ```shell
 systemd-resolve --status
+# View DNS record TTL
+nslookup -debug host.domain.tld
 ```
 
 ### DHCP
