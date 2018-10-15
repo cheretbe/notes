@@ -178,36 +178,6 @@ google.com.		60 IN SOA ns1.google.com. dns-admin.google.com. (
 For a standalone server only serial number and minimum TTL are important
 * https://www.ripe.net/publications/docs/ripe-203
 
-#### ISC DHCP server
-```shell
-# Install packages
-apt install isc-dhcp-server
-# Backup default configuration
-cp /etc/default/isc-dhcp-server{,.bak}
-cp /etc/dhcp/dhcpd.conf{,.bak}
-```
-If server has more than one NIC, make sure to update INTERFACESv4 (INTERFACESv6) parameters
-in `/etc/default/isc-dhcp-server`
-
-```shell
-cp /etc/bind/rndc.key /etc/dhcp/ddns-keys
-chown root:root /etc/dhcp/ddns-keys/rndc.key
-chmod 640 /etc/dhcp/ddns-keys/rndc.key
-```
-
-`/etc/dhcp/dhcpd.conf`
-```
-#
-```
-
-```shell
-# Check config without restarting service
-# For custom path use -cf /custom/path/dhcpd.conf
-dhcpd -t
-# Restart service
-service isc-dhcp-server restart
-```
-
 #### Maintenance
 
 ```shell
@@ -244,6 +214,36 @@ nslookup -port=5353 yandex.ru 192.168.2.17
 # View SOA record
 dig SOA +multiline domain.tld @192.168.2.17
 nslookup -q=soa domain.tld
+```
+
+#### ISC DHCP server
+```shell
+# Install packages
+apt install isc-dhcp-server
+# Backup default configuration
+cp /etc/default/isc-dhcp-server{,.bak}
+cp /etc/dhcp/dhcpd.conf{,.bak}
+```
+If server has more than one NIC, make sure to update INTERFACESv4 (INTERFACESv6) parameters
+in `/etc/default/isc-dhcp-server`
+
+```shell
+cp /etc/bind/rndc.key /etc/dhcp/ddns-keys
+chown root:root /etc/dhcp/ddns-keys/rndc.key
+chmod 640 /etc/dhcp/ddns-keys/rndc.key
+```
+
+`/etc/dhcp/dhcpd.conf`
+```
+#
+```
+
+```shell
+# Check config without restarting service
+# For custom path use -cf /custom/path/dhcpd.conf
+dhcpd -t
+# Restart service
+service isc-dhcp-server restart
 ```
 
 #### Pi-hole
