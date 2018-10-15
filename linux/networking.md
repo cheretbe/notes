@@ -137,6 +137,8 @@ nslookup -debug host.domain.tld
 ### DHCP
 ```shell
 # Renew leases
+dhclient -r; dhclient
+
 # Systemd doesn't allow renewal
 # https://lists.freedesktop.org/archives/systemd-devel/2014-August/022662.html
 # restart the service instead
