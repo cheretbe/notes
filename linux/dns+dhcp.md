@@ -265,8 +265,24 @@ subnet 192.168.20.0 netmask 255.255.255.0 {
   ddns-domainname "domain.tld.";
   ddns-rev-domainname "in-addr.arpa.";
 }
-
 ```
+
+Execute script on commit
+```
+on commit {
+    if (static) {
+        set isst = "static";
+    } else {
+        set isst = "dynamic";
+    }
+
+    set clip = binary-to-ascii(10, 8, ".", leased-address);
+    set clhw = binary-to-ascii(16, 8, ":", substring(hardware, 1, 6));
+    execute("/usr/local/sbin/dhcpevent", "commit", isst, clip, clhw, host-decl-name);}
+```
+* https://linux.die.net/man/5/dhcp-eval
+* https://github.com/dploeger/dhcp-commit-report
+
 
 ```shell
 # Check config without restarting service
