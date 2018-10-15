@@ -145,7 +145,8 @@ service systemd-networkd restart
 Leases locations:
 * `/var/lib/dhcp/dhclient.ifname.leases` file
 * systemd: under `/run/systemd/netif/leases/`
-```
+```shell
+# Change machine ID
 mv /etc/machine-id{,.bak}
 systemd-machine-id-setup
 reboot
