@@ -299,6 +299,8 @@ service isc-dhcp-server restart
 cat /var/lib/dhcp/dhcpd.leases
 # Print active leases
 dhcp-lease-list
+# To get manufacturer names
+wget -O /usr/local/etc/oui.txt http://standards-oui.ieee.org/oui/oui.txt
 
 # Release a lease
 service isc-dhcp-server stop
