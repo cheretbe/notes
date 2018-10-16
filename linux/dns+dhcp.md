@@ -283,6 +283,7 @@ on commit {
 * https://linux.die.net/man/5/dhcp-eval
 * https://kb.isc.org/docs/aa-01039
 * https://github.com/dploeger/dhcp-commit-report
+* https://stackoverflow.com/questions/24052217/may-someone-explain-the-following-os-fork-example-to-me
 
 
 ```shell
