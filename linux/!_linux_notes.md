@@ -31,9 +31,10 @@ mtr host
 find / -xdev -iname "*sql*"
 
 # Grep the whole filesystem
-#  -xdev  Don't descend directories on other filesystems.
+# -xdev  Don't descend directories on other filesystems.
 # -H, --with-filename  print the file name for each match
-find / -xdev -type f -print0 | xargs -0 grep -H "ForceCompositionPipeline"
+# -I  equivalent to --binary-files=without-match
+find / -xdev -type f -print0 | xargs -0 grep -H -I "ForceCompositionPipeline"
 # -m 1 to return only the first match
 ```
 
