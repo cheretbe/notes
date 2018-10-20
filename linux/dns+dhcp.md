@@ -227,6 +227,17 @@ If server has more than one NIC, make sure to update INTERFACESv4 (INTERFACESv6)
 in `/etc/default/isc-dhcp-server`
 
 ```shell
+# Add service unit drop-in to override restart option
+cat << EOF > /etc/systemd/system/isc-dhcp-server.service.d/enable-autorestart.conf
+[Service]
+Restart=always
+RestartSec=30
+EOF
+# Apply settings
+systemctl daemon-reload
+```
+
+```shell
 # Use a copy of the key file (to preserve original file permissions)
 cp /etc/bind/rndc.key /etc/dhcp/ddns-keys
 chown root:root /etc/dhcp/ddns-keys/rndc.key
