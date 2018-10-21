@@ -1,4 +1,5 @@
 * https://stackoverflow.com/questions/2366693/run-cron-job-only-if-it-isnt-already-running/33416116#33416116
+* https://debian-handbook.info/browse/stable/sect.task-scheduling-cron-atd.html
 
 ```
 # ------------------------------------------------------------------------------------
@@ -11,4 +12,24 @@
 #│ │ │ │ │
 #* * * * *  command to execute
 # ------------------------------------------------------------------------------------
+```
+
+```shell
+# Postpone the execution for a given duration
+# The period can be minutes, hours, days, or weeks
+# at now + 1 hour
+# at now + 3 days
+at now + 1 min <<EOF
+echo "test" \
+   | mail $USER -s "at command test"
+EOF
+
+# List scheduled tasks
+atq
+# View details of a task
+at -c <id>
+# Delete a task
+atrm <id>
+# or
+at -d <id>
 ```
