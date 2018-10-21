@@ -42,6 +42,7 @@ options {
 	// Just disabling bind to listen on IPv6 addresses does not prevents it from querying for
 	// IPv6 addresses to remote hosts. To ensure that IPv6 is completely disabled use:
 	filter-aaaa-on-v4 yes;
+	// also add "-4" to OPTIONS in /etc/default/bind9 (Debian/Ubuntu) or /etc/sysconfig/named (CentOS)
 
 	listen-on port 5353 {any;};
 
