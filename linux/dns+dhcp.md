@@ -284,18 +284,28 @@ subnet 192.168.20.0 netmask 255.255.255.0 {
 }
 ```
 
-Execute script on commit
+Execute a [script](../files/dhcp/on_dhcp_lease.py) on commit
 ```
 on commit {
     if (static) {
-        set isst = "static";
+        set is_static = "1";
     } else {
-        set isst = "dynamic";
+        set is_static = "0";
     }
-
-    set clip = binary-to-ascii(10, 8, ".", leased-address);
-    set clhw = binary-to-ascii(16, 8, ":", substring(hardware, 1, 6));
-    execute("/usr/local/sbin/dhcpevent", "commit", isst, clip, clhw, host-decl-name);}
+    execute("/root/notes/files/dhcp/on_dhcp_lease.py",
+        "/root/dhcp/known_mac_addresses",
+        binary-to-ascii (10,8,".",leased-address),
+        concat (suffix (concat ("0", binary-to-ascii (16, 8, "", substring(hardware,1,1))),2),
+          ":",suffix (concat ("0", binary-to-ascii (16, 8, "", substring(hardware,2,1))),2),
+          ":",suffix (concat ("0", binary-to-ascii (16, 8, "", substring(hardware,3,1))),2),
+          ":",suffix (concat ("0", binary-to-ascii (16, 8, "", substring(hardware,4,1))),2),
+          ":",suffix (concat ("0", binary-to-ascii (16, 8, "", substring(hardware,5,1))),2),
+          ":",suffix (concat ("0", binary-to-ascii (16, 8, "", substring(hardware,6,1))),2)),
+        option host-name,
+        pick-first-value(host-decl-name, "(none)"),
+        is_static
+    );
+}
 ```
 * https://linux.die.net/man/5/dhcp-eval
 * https://kb.isc.org/docs/aa-01039
