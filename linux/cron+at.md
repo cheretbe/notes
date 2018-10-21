@@ -15,6 +15,7 @@
 ```
 `at` command
 ```shell
+echo /bin/systemctl daemon-reload | /usr/bin/at 09:00 27.07.15
 at 09:00 27.07.15 <<EOF
 echo "test" \
    | mail $USER -s "at command test"
