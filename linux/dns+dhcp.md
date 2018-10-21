@@ -148,6 +148,7 @@ chmod 664 /etc/bind/zones/*zone
 # Check config, zones and restart service
 named-checkconf
 # Before manually editing dynamically updated zone file
+# rndc thaw domain.tld unfreezes the zone (this causes the server to reload the zone from disk)
 rndc freeze domain.tld
 named-checkzone domain.tld /etc/bind/zones/domain.tld.zone
 named-checkzone 2.168.192.in-addr.arpa /etc/bind/zones/192.168.2.rev.zone
