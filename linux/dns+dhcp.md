@@ -1,4 +1,5 @@
 * https://blogging.dragon.org.uk/dns-bind9-dhcp-ubuntu-16-04-2/
+* http://www.utternerd.org/journal-rollforward-failed-out-of-sync-with-zone
 * DNS Benchmark: https://www.grc.com/dns/benchmark.htm
     * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
     
@@ -146,6 +147,8 @@ chmod 664 /etc/bind/zones/*zone
 ```shell
 # Check config, zones and restart service
 named-checkconf
+# Before manually editing dynamically updated zone file
+rndc freeze domain.tld
 named-checkzone domain.tld /etc/bind/zones/domain.tld.zone
 named-checkzone 2.168.192.in-addr.arpa /etc/bind/zones/192.168.2.rev.zone
 service bind9 restart
