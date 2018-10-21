@@ -236,6 +236,12 @@ EOF
 # Apply settings
 systemctl daemon-reload
 ```
+To fix a warning "isc-dhcp-server.service changed on disk" (probably due to generated unit + drop-in combination) add the following
+```
+echo /bin/systemctl daemon-reload | /usr/bin/at now + 3 min
+```
+to `
+etc/rc.local`
 
 ```shell
 # Use a copy of the key file (to preserve original file permissions)
