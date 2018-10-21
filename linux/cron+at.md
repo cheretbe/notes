@@ -15,7 +15,10 @@
 ```
 `at` command
 ```shell
-at 09:00 27.07.15 echo "test" | mail $USER -s "at command test"
+at 09:00 27.07.15 <<EOF
+echo "test" \
+   | mail $USER -s "at command test"
+EOF
 # Postpone the execution for a given duration
 # The period can be minutes, hours, days, or weeks
 # at now + 1 hour
