@@ -106,6 +106,11 @@ New-Item 'HKCU:\Software\Policies\Microsoft\Windows\EdgeUI' -Force | New-ItemPro
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 
+$xmlDoc = New-Object System.Xml.XmlDocument
+$rootObj = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
+$rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child")) | Out-Null
+$xmlDoc.Save("c:\temp\test.xml")
+
 # Reading key input
 $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
 # Alternative
