@@ -106,6 +106,8 @@ New-Item 'HKCU:\Software\Policies\Microsoft\Windows\EdgeUI' -Force | New-ItemPro
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 
+# http://msdn.microsoft.com/en-us/library/system.xml.xmlelement.aspx
+# http://msdn.microsoft.com/en-us/library/system.xml.xmldocument.aspx
 $xmlDoc = New-Object System.Xml.XmlDocument
 $rootObj = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
 $rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child")) | Out-Null
