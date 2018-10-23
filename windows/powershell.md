@@ -110,7 +110,10 @@ Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 # http://msdn.microsoft.com/en-us/library/system.xml.xmldocument.aspx
 $xmlDoc = New-Object System.Xml.XmlDocument
 $rootObj = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
-$rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child")) | Out-Null
+$childObj = $rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child"))
+$attr = $childObj.OwnerDocument.CreateAttribute("AtrrName")
+$attr.Value = "AttrValue"
+$childObj.SetAttributeNode($attr) | Out-Null
 $xmlDoc.Save("c:\temp\test.xml")
 
 # Reading key input
