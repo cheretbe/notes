@@ -6,14 +6,14 @@ Command-line parameters:
 
 ```powershell
 mock Get-Thing {
-  [pscustomobject]@{
+  [PSCustomObject]@{
     Property = "Value"
-    SubObject = [pscustomobject]@{
+    SubObject = [PSCustomObject]@{
       SubProperty = "Value1"
     }
   }
 }
-Mock Get-Service { [pscustomobject]@{ "StartType" = ([System.ServiceProcess.ServiceStartMode]::Manual) }
+Mock Get-Service { [PSCustomObject]@{ "StartType" = ([System.ServiceProcess.ServiceStartMode]::Manual) }
 { throw [System.IO.FileNotFoundException] "file not found" } | Should -Throw -ExceptionType ([System.IO.FileNotFoundException])
 
 $originalOSVerObj = $aoOSVersion
