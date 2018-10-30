@@ -5,6 +5,14 @@ Command-line parameters:
 
 
 ```powershell
+mock Get-Thing {
+  [pscustomobject]@{
+    Property = "Value"
+    SubObject = [pscustomobject]@{
+      SubProperty = "Value1"
+    }
+  }
+}
 Mock Get-Service { [pscustomobject]@{ "StartType" = ([System.ServiceProcess.ServiceStartMode]::Manual) }
 { throw [System.IO.FileNotFoundException] "file not found" } | Should -Throw -ExceptionType ([System.IO.FileNotFoundException])
 
