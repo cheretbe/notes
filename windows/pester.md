@@ -16,6 +16,9 @@ mock Get-Thing {
 Mock Get-Service { [PSCustomObject]@{ "StartType" = ([System.ServiceProcess.ServiceStartMode]::Manual) }
 { throw [System.IO.FileNotFoundException] "file not found" } | Should -Throw -ExceptionType ([System.IO.FileNotFoundException])
 
+Assert-MockCalled Get-Thing -Exactly 1 -Scope It
+Assert-MockCalled Get-Thing -Exactly 1 -Scope It -ParameterFilter { $InputObject -eq "dummy" }
+
 $originalOSVerObj = $aoOSVersion
 $aoOSVersion = $originalOSVerObj.PSObject.Copy()
 $aoOSVersion.versionShort = "6.3"
