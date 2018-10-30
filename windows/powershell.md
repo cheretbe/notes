@@ -117,7 +117,7 @@ $childObj = $rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child"))
 #$attr = $childObj.OwnerDocument.CreateAttribute("AtrrName")
 #$attr.Value = "AttrValue"
 #$childObj.SetAttributeNode($attr) | Out-Null
-$childObj.SetAttributeNode("AttrName", "AttrValue")
+$childObj.SetAttribute("AttrName", "AttrValue")
 $xmlDoc.Save("c:\temp\test.xml")
 
 # Reading key input
