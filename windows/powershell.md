@@ -114,9 +114,10 @@ Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 $xmlDoc = New-Object System.Xml.XmlDocument
 $rootObj = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
 $childObj = $rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child"))
-$attr = $childObj.OwnerDocument.CreateAttribute("AtrrName")
-$attr.Value = "AttrValue"
-$childObj.SetAttributeNode($attr) | Out-Null
+#$attr = $childObj.OwnerDocument.CreateAttribute("AtrrName")
+#$attr.Value = "AttrValue"
+#$childObj.SetAttributeNode($attr) | Out-Null
+$childObj.SetAttributeNode("AttrName", "AttrValue")
 $xmlDoc.Save("c:\temp\test.xml")
 
 # Reading key input
