@@ -77,6 +77,10 @@ param(
 
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
 
+Join-Path -Path "dir" -ChildPath "subdir"
+[system.io.path]::Combine("dir", "subdir")
+[system.io.path]::Combine("dir", "subdir1", "subdir2", "subdir3", "subdir4")
+
 Write-Host ([System.Environment]::ExpandEnvironmentVariables("%USERPROFILE%\Desktop"))
 Write-Host ${Env:ProgramFiles(x86)}
 $cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
