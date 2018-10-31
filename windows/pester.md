@@ -5,6 +5,13 @@ Command-line parameters:
 
 
 ```powershell
+"Actual value" | Should -Be "actual value"
+"Actual value" | Should -BeExactly "Actual value"
+6 | Should -Not -Be 5
+```
+* https://github.com/pester/Pester/wiki/Should
+
+```powershell
 mock Get-Thing {
   [PSCustomObject]@{
     Property = "Value"
