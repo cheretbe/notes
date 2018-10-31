@@ -88,6 +88,11 @@ $cpuArch = if (${Env:ProgramFiles(x86)}) { "x64" } else { "x86" }
 if ([environment]::OSVersion.Version -ge ([version]"10.0"))
   { Write-Host "Windows 10+" }
 
+# https://ss64.com/ps/syntax-f-operator.html
+# Format examples
+# parameter 0: round float to 3 decimal places after the point
+# parameter 1: 4-digit integer (padded with leading zeroes)
+("{0:n3} {1:d4}" -f 3.141592, 5)
 # Escape curly braces when used with -f operator
 Write-Host ("{{ {0} }}" -f "test")
 
