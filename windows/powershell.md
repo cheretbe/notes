@@ -108,6 +108,10 @@ New-ItemProperty -Path "HKCU:\Console" -Name "FaceName" -Value "Consolas" -Prope
 New-Item 'HKCU:\Software\Policies\Microsoft\Windows\EdgeUI' -Force | New-ItemProperty # ... (no -Path)
 
 Get-Date -Format "dd.MM.yyyy HH:mm:ss"
+# ISO 8601 format
+[DateTime]"1993-11-15T00:12:44"
+[DateTime]::ParseExact("12 07 2012 18 02", "HH mm yyyy dd MM", $NULL)
+[DateTime]::ParseExact("12 07 2012 18 02", "HH mm yyyy dd MM", [System.Globalization.CultureInfo]::InvariantCulture)
 
 # http://msdn.microsoft.com/en-us/library/system.xml.xmlelement.aspx
 # http://msdn.microsoft.com/en-us/library/system.xml.xmldocument.aspx
