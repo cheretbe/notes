@@ -26,6 +26,12 @@ Mock Get-Service { [PSCustomObject]@{ "StartType" = ([System.ServiceProcess.Serv
 Assert-MockCalled Get-Thing -Exactly 1 -Scope It
 Assert-MockCalled Get-Thing -Exactly 1 -Scope It -ParameterFilter { $InputObject -eq "dummy" }
 
+$pathOne = "TestDrive:\somefile.txt"
+$pathTwo = Join-Path $TestDrive "somefile.txt"
+# $TestDrive holds the actual filesystem path
+# Convert-Path "TestDrive:\"
+
+
 $originalOSVerObj = $aoOSVersion
 $aoOSVersion = $originalOSVerObj.PSObject.Copy()
 $aoOSVersion.versionShort = "6.3"
