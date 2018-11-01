@@ -127,15 +127,15 @@ Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 $xmlDoc = [System.Xml.XmlDocument]::new()
 $xmlDoc = New-Object System.Xml.XmlDocument
 
-$rootObj = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
+$rootNode = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
 # $xmlDoc.Load("test.xml")
-# $rootObj = $xmlDoc.DocumentElement
+# $rootNode = $xmlDoc.DocumentElement
 
-$childObj = $rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child"))
-#$attr = $childObj.OwnerDocument.CreateAttribute("AtrrName")
+$childNode = $rootNode.AppendChild($rootNode.OwnerDocument.CreateElement("Child"))
+#$attr = $childNode.OwnerDocument.CreateAttribute("AtrrName")
 #$attr.Value = "AttrValue"
-#$childObj.SetAttributeNode($attr) | Out-Null
-$childObj.SetAttribute("AttrName", "AttrValue")
+#$childNode.SetAttributeNode($attr) | Out-Null
+$childNode.SetAttribute("AttrName", "AttrValue")
 $xmlDoc.Save("c:\temp\test.xml")
 
 # Reading key input
