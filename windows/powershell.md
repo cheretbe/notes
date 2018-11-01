@@ -131,7 +131,8 @@ $rootNode = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
 # $xmlDoc.Load("test.xml")
 # $rootNode = $xmlDoc.DocumentElement
 
-$nodeName = $xmlDoc.DocumentElement.SelectSingleNode('Directory[@Name="DirName"]').LocalName
+# XPath examples
+$nodeName = $xmlDoc.DocumentElement.SelectSingleNode('Directory[@Name="DirName"]/File[@Name="FileName"]').LocalName
 
 $childNode = $rootNode.AppendChild($rootNode.OwnerDocument.CreateElement("Child"))
 #$attr = $childNode.OwnerDocument.CreateAttribute("AtrrName")
