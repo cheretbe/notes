@@ -126,7 +126,11 @@ Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 # http://msdn.microsoft.com/en-us/library/system.xml.xmldocument.aspx
 $xmlDoc = [System.Xml.XmlDocument]::new()
 $xmlDoc = New-Object System.Xml.XmlDocument
+
 $rootObj = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
+# $xmlDoc.Load("test.xml")
+# $rootObj = $xmlDoc.DocumentElement
+
 $childObj = $rootObj.AppendChild($rootObj.OwnerDocument.CreateElement("Child"))
 #$attr = $childObj.OwnerDocument.CreateAttribute("AtrrName")
 #$attr.Value = "AttrValue"
