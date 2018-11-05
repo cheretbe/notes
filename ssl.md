@@ -10,7 +10,7 @@
     * [OpenSSL unable to write 'random state' error](#openssl-unable-to-write-random-state-error)
     * [Import, export, convert between formats](#import-export-convert-between-formats)
 * [Own SSL Certificate Authority](#own-ssl-certificate-authority)
-* [Adding a CA to Debian/Ubuntu]()
+* [Adding a CA to Debian/Ubuntu](#adding-a-ca-to-debianubuntu)
 
 ### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
