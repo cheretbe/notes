@@ -7,6 +7,8 @@
 * [Hardening HTTPS server](#hardening-https-server)
 * [Simple HTTPS Server in Python](#simple-https-server-in-python)
 * [OpenSSL Commands](#openssl-commands)
+    * [OpenSSL unable to write 'random state' error](#openssl-unable-to-write-random-state-error)
+    * [Import, export, convert between formats](#import-export-convert-between-formats)
 * [Own SSL Certificate Authority](#own-ssl-certificate-authority)
 
 ### Unsorted
@@ -268,7 +270,7 @@ python3 -m http.server [port]
 ### OpenSSL Commands
 The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
 
-#### OpenSSL unable to write 'random state' error <a name="openssl-random-state-error"></a>
+#### OpenSSL unable to write 'random state' error
 When running non-elevated on Windows openssl.exe shows the following error: `unable to write 'random state'`. 
 OpenSSL on Windows tries to save the 'random state' file in the following order:
   1. Path taken from RANDFILE environment variable
