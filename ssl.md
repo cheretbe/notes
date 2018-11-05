@@ -334,6 +334,17 @@ openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -cacerts -ou
 # and used when creating a PKCS12 keystore
 openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | openssl x509 -chain -out bundle.crt
 ```
+
+#### Import, export, convert between formats
+```shell
+# Convert PEM to DER
+openssl x509 -outform der -in certificate.pem -out certificate.der
+# Convert DER to PEM
+openssl x509 -inform der -in certificate.cer -out certificate.pem
+```
+
+* https://www.sslshopper.com/ssl-converter.html
+
 [\[ TOC \]](#table-of-contents)
 
 ### Own SSL Certificate Authority
