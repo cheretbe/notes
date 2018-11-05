@@ -10,6 +10,7 @@
     * [OpenSSL unable to write 'random state' error](#openssl-unable-to-write-random-state-error)
     * [Import, export, convert between formats](#import-export-convert-between-formats)
 * [Own SSL Certificate Authority](#own-ssl-certificate-authority)
+* [Adding a CA to Debian/Ubuntu]()
 
 ### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
@@ -391,4 +392,17 @@ Sources:
 * https://datacenteroverlords.com/2012/03/01/creating-your-own-ssl-certificate-authority/
 * http://blog.endpoint.com/2014/10/openssl-csr-with-alternative-names-one.html
 
+[\[ TOC \]](#table-of-contents)
+
+### Adding a CA to Debian/Ubuntu
+```shell
+# Copy certificate to /usr/share/ca-certificates/ (use some custom subdirectory)
+mkdir /usr/share/ca-certificates/custom
+cp RapidSSLECCCA2018.crt /usr/share/ca-certificates/custom/RapidSSLECCCA2018.crt
+# Edit /etc/ca-certificates.conf adding the following line
+# custom/RapidSSLECCCA2018.crt
+nano /etc/ca-certificates.conf
+# Update CA certificates in /etc/ssl/certs/
+update-ca-certificates --fresh
+```
 [\[ TOC \]](#table-of-contents)
