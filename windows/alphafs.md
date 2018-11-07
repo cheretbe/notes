@@ -1,9 +1,16 @@
 * https://github.com/alphaleonis/AlphaFS
+* https://github.com/alphaleonis/AlphaFS/wiki/PowerShell
 
 `Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions`: `None` (do not use), `Files`, `Folders`, `FilesAndFolders`,
   `AsLongPath`, `SkipReparsePoints`, `ContinueOnException`, `Recursive`, `BasicSearch` (no short names), `LargeCache`
 
-```
-$dummy = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', [System.IO.SearchOption]::AllDirectories)
+```powershell
+$searchOptions = [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Folders -bor `
+  [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::SkipReparsePoints -bor `
+  [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Recursive -bor `
+  [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::ContinueOnException
+$list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', $searchOptions)
+# or
+$list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', [System.IO.SearchOption]::AllDirectories)
 
 ```
