@@ -3,5 +3,5 @@
 
 ```bash
 # Pre-requisites
-apt install libncursesw5:i386 libstdc++6:i386
+apt install libncursesw5:i386 libstdc++6:i386 dialog:i386
 ```
