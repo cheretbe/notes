@@ -1,8 +1,9 @@
 * https://github.com/alphaleonis/AlphaFS
 * https://github.com/alphaleonis/AlphaFS/wiki/PowerShell
-
-`Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions`: `None` (do not use), `Files`, `Folders`, `FilesAndFolders`,
+---
+* `Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions`: `None` (do not use), `Files`, `Folders`, `FilesAndFolders`,
   `AsLongPath`, `SkipReparsePoints`, `ContinueOnException`, `Recursive`, `BasicSearch` (no short names), `LargeCache`
+* `System.IO.SearchOption`: `AllDirectories`, `TopDirectoryOnly`
 
 ```powershell
 $searchOptions = [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Folders -bor `
