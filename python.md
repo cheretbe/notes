@@ -38,6 +38,7 @@ __pycache__/
 print("{:03d}".format(1))
 print("{0:03d}".format(1))
 print("{num:03d}".format(num=1))
+print(format(1, "03d"))
 
 with open("filename", "w") as f:
     f.write("test")
