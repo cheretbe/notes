@@ -75,6 +75,21 @@ param(
   OtherDummy -switchParam:($switchParam.IsPresent)
 }
 
+# Passing variable by reference
+function Test {
+[CmdletBinding()]
+param(
+  [ref]$byRefParam
+)
+  # [!!!] Note .Value usage, not $byRefParam itself
+  $byRefParam.Value = $TRUE
+}
+
+$byRefTest = $FALSE
+Test -byRefParam ([ref]$byRefTest)
+Write-Host ("byRefTest: {0}" -f $byRefTest)
+
+
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
 
 Join-Path -Path "dir" -ChildPath "subdir"
