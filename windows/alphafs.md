@@ -23,5 +23,138 @@ foreach ($path in $list) {
 # PathFormat usage actually slightly increases performance (cursory tests show ~10% less time)
 [Alphaleonis.Win32.Filesystem.Directory]::EnumerateDirectories("c:\temp", ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
 [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFiles("c:\temp", ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
+```
 
+Access methods comparison
+```powershell
+Set-StrictMode -Version Latest
+$ErrorActionPreference = "Stop"
+$Host.PrivateData.VerboseForegroundColor = [ConsoleColor]::DarkCyan
+
+Import-Module (Join-Path -Path (Split-Path -Parent $MyInvocation.MyCommand.Path) -ChildPath "AlphaFS\lib\net40\AlphaFS.dll")
+
+Function Invoke-GenericMethod {
+Param(
+  [Object]$Instance,
+  [String]$MethodName,
+  [Type[]]$TypeParameters,
+  [Object[]]$MethodParameters
+)
+  Process {
+    [Collections.ArrayList]$Private:parameterTypes = @{}
+    ForEach ($Private:paramType In $MethodParameters) { [Void]$parameterTypes.Add($paramType.GetType()) }
+    $Private:method = $Instance.GetMethod($methodName, "Instance, Static, Public", $Null, $parameterTypes, $Null)
+    If ($Null -eq $method) { Throw ('Method not found: {0}.{1}' -f $Instance.ToString(), $methodName) }
+    $method = $method.MakeGenericMethod($TypeParameters)
+    $method.Invoke($Instance, $MethodParameters)
+  }
+}
+
+function CalcDirectorySize1 {
+[CmdletBinding()]
+param(
+  [string]$Path,
+  [ref]$TotalDirs,
+  [ref]$TotalFiles,
+  [ref]$TotalSize
+)
+  $fsInfos = Invoke-GenericMethod `
+    -Instance ([Alphaleonis.Win32.Filesystem.Directory]) `
+    -MethodName "EnumerateFileSystemEntryInfos" `
+    -TypeParameters @(([Alphaleonis.Win32.Filesystem.FileSystemEntryInfo])) `
+    -MethodParameters (
+      $path,
+      ([Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::FilesAndFolders),
+      ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath)
+    )
+  foreach ($fsInfo in $fsInfos) {
+    if ($fsInfo.IsDirectory) {
+      $TotalDirs.Value += 1
+      CalcDirectorySize1 -Path $fsInfo.FullPath -TotalDirs $TotalDirs -TotalFiles $TotalFiles -TotalSize $TotalSize
+    } else {
+      $TotalFiles.Value += 1
+      $TotalSize.Value += $fsInfo.FileSize
+    } #if
+  } #foreach
+}
+
+function CalcDirectorySize2 {
+[CmdletBinding()]
+param(
+  [string]$Path,
+  [ref]$TotalDirs,
+  [ref]$TotalFiles,
+  [ref]$TotalSize
+)
+  foreach ($Dir in [Alphaleonis.Win32.Filesystem.Directory]::EnumerateDirectories($Path, ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))) {
+    $TotalDirs.Value += 1
+    CalcDirectorySize2 -Path $Dir -TotalDirs $TotalDirs -TotalFiles $TotalFiles -TotalSize $TotalSize
+  } #foreach
+
+  foreach ($File in [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFiles($Path, ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))) {
+    $TotalFiles.Value += 1
+    $TotalSize.Value += ([Alphaleonis.Win32.Filesystem.File]::GetFileSystemEntryInfo($File)).FileSize
+  } #foreach
+}
+
+function CalcDirectorySize3 {
+[CmdletBinding()]
+param(
+  [string]$Path,
+  [ref]$TotalDirs,
+  [ref]$TotalFiles,
+  [ref]$TotalSize
+)
+  foreach ($Entry in [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries($Path, '*', [System.IO.SearchOption]::TopDirectoryOnly, [Alphaleonis.Win32.Filesystem.PathFormat]::FullPath)) {
+    $EntryInfo = New-Object -TypeName "Alphaleonis.Win32.Filesystem.FileInfo" -ArgumentList @($Entry, ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
+    if ($EntryInfo.Attributes -band [System.IO.FileAttributes]::Directory) {
+      $TotalDirs.Value += 1
+      CalcDirectorySize3 -Path $Entry -TotalDirs $TotalDirs -TotalFiles $TotalFiles -TotalSize $TotalSize
+    } else {
+      $TotalFiles.Value += 1
+      $TotalSize.Value += $EntryInfo.Length
+    } #if
+  } #foreach
+}
+
+$TestPath = "c:\temp"
+
+$TotalDirs = 0
+$TotalFiles = 0
+$TotalSize = ([int64]0)
+$startTime = Get-Date
+
+CalcDirectorySize1 -Path $TestPath -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)
+
+Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)
+Write-Host ((Get-Date) - $startTime)
+
+$TotalDirs = 0
+$TotalFiles = 0
+$TotalSize = ([int64]0)
+$startTime = Get-Date
+
+CalcDirectorySize2 -Path $TestPath -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)
+
+Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)
+Write-Host ((Get-Date) - $startTime)
+
+$TotalDirs = 0
+$TotalFiles = 0
+$TotalSize = ([int64]0)
+$startTime = Get-Date
+
+CalcDirectorySize3 -Path $TestPath -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)
+
+Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)
+Write-Host ((Get-Date) - $startTime)
+```
+Sample output
+```
+Directories: 36898, files: 406153, total size: 204,18 GB (219239243191)
+00:00:30.8880000
+Directories: 36898, files: 406153, total size: 204,18 GB (219239243191)
+00:01:21.1668000
+Directories: 36898, files: 406153, total size: 204,18 GB (219239243191)
+00:02:05.2680000
 ```
