@@ -10,9 +10,9 @@ $searchOptions = [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Fol
   [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::SkipReparsePoints -bor `
   [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Recursive -bor `
   [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::ContinueOnException
-$list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', $searchOptions)
+$list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', $searchOptions, [Alphaleonis.Win32.Filesystem.PathFormat]::FullPath)
 # or
-$list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', [System.IO.SearchOption]::AllDirectories)
+$list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', [System.IO.SearchOption]::AllDirectories, [Alphaleonis.Win32.Filesystem.PathFormat]::FullPath)
 
 foreach ($path in $list) {
   $info = New-Object -TypeName "Alphaleonis.Win32.Filesystem.FileInfo" -ArgumentList (@$path, ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
