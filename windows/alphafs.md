@@ -15,7 +15,7 @@ $list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:
 $list = [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFileSystemEntries("c:\temp", '*', [System.IO.SearchOption]::AllDirectories)
 
 foreach ($path in $list) {
-  $info = New-Object -TypeName "Alphaleonis.Win32.Filesystem.FileInfo" -ArgumentList $path
+  $info = New-Object -TypeName "Alphaleonis.Win32.Filesystem.FileInfo" -ArgumentList (@$path, ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
   if ($info.Attributes -band [System.IO.FileAttributes]::Directory)
     { Write-Host ("Dir: " + $path) }
 }
