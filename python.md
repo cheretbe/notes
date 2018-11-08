@@ -26,7 +26,7 @@ __pycache__/
 * [Fix Indentation](#fix-indentation)
 
 ## Code Snippets
-* `argparse` examples: [script](files/python/argparse_example.py)
+* `argparse` example: [argparse_example.py](files/python/argparse_example.py)
 * Unit tests
     * [unittests_examples.py](files/python/unittests_examples.py)
     * [test_unittests_examples.py](files/python/test_unittests_examples.py)
