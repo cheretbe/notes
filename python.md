@@ -33,6 +33,12 @@ __pycache__/
 ```python
 #!/usr/bin/env python
 
+# Format examples
+# Pad a number with leading zeros
+print("{:03d}".format(1))
+print("{0:03d}".format(1))
+print("{num:03d}".format(num=1))
+
 with open("filename", "w") as f:
     f.write("test")
 with open("filename", "r") as f:
