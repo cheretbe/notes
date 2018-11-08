@@ -20,7 +20,8 @@ foreach ($path in $list) {
     { Write-Host ("Dir: " + $path) }
 }
 
-[Alphaleonis.Win32.Filesystem.Directory]::EnumerateDirectories("c:\temp")
-[Alphaleonis.Win32.Filesystem.Directory]::EnumerateFiles("c:\temp")
+# PathFormat usage actually slightly increases performance (cursory tests show ~10% less time)
+[Alphaleonis.Win32.Filesystem.Directory]::EnumerateDirectories("c:\temp", ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
+[Alphaleonis.Win32.Filesystem.Directory]::EnumerateFiles("c:\temp", ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
 
 ```
