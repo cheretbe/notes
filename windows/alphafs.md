@@ -1,6 +1,10 @@
 * https://github.com/alphaleonis/AlphaFS
 * https://github.com/alphaleonis/AlphaFS/wiki/PowerShell
 ---
+```powershell
+Import-Module (Join-Path -Path (Split-Path -Parent $MyInvocation.MyCommand.Path) -ChildPath "AlphaFS\lib\net40\AlphaFS.dll")
+```
+
 * `Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions`: `None` (do not use), `Files`, `Folders`, `FilesAndFolders`,
   `AsLongPath`, `SkipReparsePoints`, `ContinueOnException`, `Recursive`, `BasicSearch` (no short names), `LargeCache`
 * `System.IO.SearchOption`: `AllDirectories`, `TopDirectoryOnly`
