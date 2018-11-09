@@ -89,6 +89,15 @@ $byRefTest = $FALSE
 Test -byRefParam ([ref]$byRefTest)
 Write-Host ("byRefTest: {0}" -f $byRefTest)
 
+# Add custom enum type
+# PS 5.0+
+enum MyEnum { aaa; bbb; ccc }
+# Earlier versions
+try {
+  [void][MyEnum]
+} catch {
+  Add-Type -TypeDefinition "public enum MyEnum { aaa, bbb, ccc }"
+}
 
 Write-Host ((Get-ChildItem "c:\")[0] | Format-List * -Force | Out-String) -ForegroundColor Cyan
 
