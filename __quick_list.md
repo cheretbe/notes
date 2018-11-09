@@ -18,11 +18,13 @@ vboxmanage setproperty machinefolder /mnt/vmdata/vm/
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host.tld
 
 # Write speed test
-sync; dd if=/dev/zero of=tempfile bs=1M count=1024 status=progress; sync
+# 20GiB, 1KiB block: bs=1k count=$((20*1024*1024))
+# 20GiB, 1MiB block:
+sync; dd if=/dev/zero of=tempfile bs=1M count=$((20*1024)) status=progress; sync
 # Read speed test
 #~~vm.drop_caches = 3~~
 echo 3 | sudo tee /proc/sys/vm/drop_caches 
-dd if=tempfile of=/dev/null bs=1M count=1024 status=progress
+dd if=tempfile of=/dev/null bs=1M count=$((10*1024)) status=progress
 
 tar czvf file.tar.gz directory/
 
