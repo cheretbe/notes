@@ -65,14 +65,18 @@ try {
 function Dummy {
 [CmdletBinding()]
 param(
-  [Parameter(Mandatory=$true)]
-  [string]$strParam,
+  [Parameter(Mandatory=$TRUE,ValueFromPipeline=$TRUE)][string]$strParam,
   [switch]$switchParam,
   [string[]]$arrayOfStringsParam
 )
-  $switchParam.IsPresent
-  # Pass through the switch to another cmdlet
-  OtherDummy -switchParam:($switchParam.IsPresent)
+  Begin {}
+  # We need this because of a pipeline parameter
+  Process {
+    $switchParam.IsPresent
+    # Pass through the switch to another cmdlet
+    OtherDummy -switchParam:($switchParam.IsPresent)
+  }
+  End {}
 }
 
 # Passing variable by reference
