@@ -4,6 +4,12 @@
 ```powershell
 Import-Module (Join-Path -Path (Split-Path -Parent $MyInvocation.MyCommand.Path) -ChildPath "AlphaFS\lib\net40\AlphaFS.dll")
 ```
+Code snippets
+```powershell
+[Alphaleonis.Win32.Filesystem.File]::WriteAllLines("c:\temp\test.txt", "line1`r`nline2")
+$dummy = [Alphaleonis.Win32.Filesystem.File]::ReadAllLines("c:\temp\test.txt")
+```
+afEnumerateFSEntryInfos
 ```powershell
 # revision 1; 10.11.2018
 try {
