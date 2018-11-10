@@ -8,6 +8,7 @@ Code snippets
 ```powershell
 [Alphaleonis.Win32.Filesystem.File]::WriteAllLines("c:\temp\test.txt", "line1`r`nline2")
 $dummy = [Alphaleonis.Win32.Filesystem.File]::ReadAllLines("c:\temp\test.txt")
+$dummy1 = [Alphaleonis.Win32.Filesystem.File]::ReadBytes("c:\temp\test.txt")
 ```
 afEnumerateFSEntryInfos
 ```powershell
