@@ -4,6 +4,52 @@
 ```powershell
 Import-Module (Join-Path -Path (Split-Path -Parent $MyInvocation.MyCommand.Path) -ChildPath "AlphaFS\lib\net40\AlphaFS.dll")
 ```
+```powershell
+# revision 1; 10.11.2018
+try {
+  [void][afDirEnumOptions]
+} catch {
+  Add-Type -TypeDefinition "public enum afDirEnumOptions { Files, Folders, FilesAndFolders }"
+}
+
+function afEnumerateFSEntryInfos {
+[CmdletBinding()]
+param(
+  [Parameter(Mandatory=$TRUE,ValueFromPipeline=$TRUE)][string]$Path,
+  [Alphaleonis.Win32.Filesystem.PathFormat]$PathFormat = [Alphaleonis.Win32.Filesystem.PathFormat]::FullPath,
+  [afDirEnumOptions]$DirEnumOptions = [afDirEnumOptions]::FilesAndFolders,
+  [switch]$SkipReparsePoints,
+  [switch]$ContinueOnException,
+  [switch]$Recursive
+)
+  Process {
+    switch ($DirEnumOptions) {
+      ([afDirEnumOptions]::Files)
+        { $FullDirEnumOptions = [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Files }
+      ([afDirEnumOptions]::Folders)
+        { $FullDirEnumOptions = [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Folders }
+      ([afDirEnumOptions]::FilesAndFolders)
+        { $FullDirEnumOptions = [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::FilesAndFolders }
+    } #switch
+    if ($SkipReparsePoints.IsPresent)
+      { $FullDirEnumOptions = $FullDirEnumOptions -bor [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::SkipReparsePoints}
+    if ($ContinueOnException.IsPresent)
+      { $FullDirEnumOptions = $FullDirEnumOptions -bor [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::ContinueOnException}
+    if ($Recursive.IsPresent)
+      { $FullDirEnumOptions = $FullDirEnumOptions -bor [Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions]::Recursive}
+
+    $Instance = ([Alphaleonis.Win32.Filesystem.Directory])
+    $MethodParameters = @($Path, $FullDirEnumOptions, $PathFormat)
+    [Collections.ArrayList]$Private:ParameterTypes = @{}
+    foreach ($private:ParamType in $MethodParameters)
+      { [void]$ParameterTypes.Add($ParamType.GetType()) }
+    $private:Method = $Instance.GetMethod("EnumerateFileSystemEntryInfos",
+      "Instance, Static, Public", $NULL, $ParameterTypes, $NULL)
+    $Method = $Method.MakeGenericMethod(@(([Alphaleonis.Win32.Filesystem.FileSystemEntryInfo])))
+    $Method.Invoke($Instance, $MethodParameters)
+  } #Process
+}
+```
 
 * `Alphaleonis.Win32.Filesystem.DirectoryEnumerationOptions`: `None` (do not use), `Files`, `Folders`, `FilesAndFolders`,
   `AsLongPath`, `SkipReparsePoints`, `ContinueOnException`, `Recursive`, `BasicSearch` (no short names), `LargeCache`
