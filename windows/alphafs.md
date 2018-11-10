@@ -17,7 +17,7 @@ $dummy1 = [Alphaleonis.Win32.Filesystem.File]::ReadBytes("c:\temp\test.txt")
   [Alphaleonis.Win32.Filesystem.PathFormat]::LongFullPath
 )
 ```
-afEnumerateFSEntryInfos
+##### afEnumerateFSEntryInfos
 ```powershell
 # revision 1; 10.11.2018
 try {
