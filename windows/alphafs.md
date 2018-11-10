@@ -13,7 +13,7 @@ $dummy1 = [Alphaleonis.Win32.Filesystem.File]::ReadBytes("c:\temp\test.txt")
 $ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
 [Alphaleonis.Win32.Filesystem.File]::WriteAllBytes(
   "\\?\c:\temp\test.txt:Zone.Identifier",
-  $ansiEncoding.GetBytes("[ZoneTransfer]`r`nZoneId=3"),
+  [System.Text.Encoding]::ASCII.GetBytes("[ZoneTransfer]`r`nZoneId=3"),
   [Alphaleonis.Win32.Filesystem.PathFormat]::LongFullPath
 )
 ```
