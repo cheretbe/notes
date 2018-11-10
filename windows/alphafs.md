@@ -9,6 +9,13 @@ Code snippets
 [Alphaleonis.Win32.Filesystem.File]::WriteAllLines("c:\temp\test.txt", "line1`r`nline2")
 $dummy = [Alphaleonis.Win32.Filesystem.File]::ReadAllLines("c:\temp\test.txt")
 $dummy1 = [Alphaleonis.Win32.Filesystem.File]::ReadBytes("c:\temp\test.txt")
+
+$ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
+[Alphaleonis.Win32.Filesystem.File]::WriteAllBytes(
+  "\\?\c:\temp\test.txt:Zone.Identifier",
+  $ansiEncoding.GetBytes("[ZoneTransfer]`r`nZoneId=3"),
+  [Alphaleonis.Win32.Filesystem.PathFormat]::LongFullPath
+)
 ```
 afEnumerateFSEntryInfos
 ```powershell
