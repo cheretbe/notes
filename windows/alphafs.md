@@ -10,7 +10,6 @@ Code snippets
 $dummy = [Alphaleonis.Win32.Filesystem.File]::ReadAllLines("c:\temp\test.txt")
 $dummy1 = [Alphaleonis.Win32.Filesystem.File]::ReadBytes("c:\temp\test.txt")
 
-$ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
 [Alphaleonis.Win32.Filesystem.File]::WriteAllBytes(
   "\\?\c:\temp\test.txt:Zone.Identifier",
   [System.Text.Encoding]::ASCII.GetBytes("[ZoneTransfer]`r`nZoneId=3"),
