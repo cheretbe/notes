@@ -51,6 +51,16 @@ if ($NULL -eq (Get-Content $filePath | Where-Object { $_.Contains($newText) })) 
   Add-Content $filePath $newText
 } #if
 
+# [System.Text.Encoding]::ASCII
+# [System.Text.Encoding]::Unicode (UTF-16 LE)
+# [System.Text.Encoding]::UTF32 (UTF-32 LE)
+# [System.Text.Encoding]::BigEndianUnicode (UTF-16 BE)
+$oemEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.OEMCodePage)
+$ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
+# Powershell expects the output of a console command to be OEM-encoded and translates it to ANSI.
+# But winrm.cmd is a wrapper around c:\windows\system32\winrm.vbs that already outputs ANSI text
+& "winrm" | ForEach-Object { $ansiEncoding.GetString($oemEncoding.GetBytes($_)) }
+
 
 $zero = 0
 try {
