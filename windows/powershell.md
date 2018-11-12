@@ -179,6 +179,28 @@ $childNode = $rootNode.AppendChild($rootNode.OwnerDocument.CreateElement("Child"
 $childNode.SetAttribute("AttrName", "AttrValue")
 $xmlDoc.Save("c:\temp\test.xml")
 
+# Remoting
+# On server
+# winrm quickconfig
+Enable-PSRemoting
+# No prompts
+Enable-PSRemoting -Force
+# Enable even if public network is present
+Enable-PSRemoting -SkipNetworkProfileCheck -Force
+# Test if a computer can run remote commands
+Test-WSMan [-ComputerName SRV1]
+
+# On client
+Set-Item "wsman:\localhost\Client\TrustedHosts" -Value "*" -Force
+# Default WinRM port: 5985
+# Enter-PSSession -ComputerName localhost -port 1111 -Credential vagrant
+# This will prompt for a password
+Enter-PSSession -ComputerName "hostname" -Credential "vagrant"
+# This will not
+$pwd = ConvertTo-SecureString "vagrant" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential @("vagrant", $pwd)
+Enter-PSSession -ComputerName "hostname" -Credential $credential
+
 # Reading key input
 $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
 # Alternative
