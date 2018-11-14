@@ -95,8 +95,12 @@ arcstat.py
 echo $((6*1024*1024*1024)) > /sys/module/zfs/parameters/zfs_arc_max
 ```
 #### Scrub speed
+* zfs_resilver_delay: Number of ticks to delay resilver
+* zfs_top_maxinflight: Max I/Os per top-level
+* https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters#zfs_resilver_min_time_ms
 ```
-options zfs zfs_resilver_delay=0
+# options zfs zfs_resilver_delay=0
+options zfs zfs_resilver_delay=0 zfs_top_maxinflight=64 zfs_resilver_min_time_ms=5000 
 # Combine with other options
 options zfs zfs_arc_max=4294967296 zfs_resilver_delay=0
 ```
