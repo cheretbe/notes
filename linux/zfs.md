@@ -232,7 +232,7 @@ zfs destroy pool/path@old-snapshot
 zfs send pool1/path1@snapshot | zfs receive -F pool2/path2
 # check out results
 zfs list -t snapshot -r pool2
-[!] This will overwrite current data in pool2/path2
+# [!!] This will overwrite current data in pool2/path2
 fs rollback pool2/path2@snapshot
 # remove snapshots
 zfs destroy pool1/path1@snapshot
