@@ -69,7 +69,9 @@ zfs set mountpoint=/mountpoint pool/filesystem
 * [\[ TOC \]](#table-of-contents)
 
 ### Performance Tuning
-Memory. `/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed
+##### Memory
+`/etc/modprobe.d/zfs.conf` – may be needed in Linux, since ZFS ARC (Advanced Replacement Cache) can release memory with a delay. If the machine is a dedicated file server, this setting may not be needed.<br>
+:warning: Not anymore. By default now it uses 50% of memory, not 3/4 (https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters#zfs_arc_max)
 ```
 # value is in bytes!
 # 16GB=17179869184, 8GB=8589934592, 4GB=4294967296, 2GB=2147483648, 1GB=1073741824
@@ -92,7 +94,7 @@ arcstat.py
 # To force the RAM to be released it is needed to export the zpool
 echo $((6*1024*1024*1024)) > /sys/module/zfs/parameters/zfs_arc_max
 ```
-Scrub speed.
+#### Scrub speed
 ```
 options zfs zfs_resilver_delay=0
 # Combine with other options
