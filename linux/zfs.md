@@ -85,6 +85,7 @@ sudo grep size /proc/spl/kstat/zfs/arcstats
 # In GiB
 awk '/^size/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 awk '/^c_max/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
+arc_summary.py | grep zfs_arc_max
 arcstat.py
 
 # Set the c_max at runtime. However the ARC size will not be released automatically
