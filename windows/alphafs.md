@@ -181,44 +181,62 @@ param(
   } #foreach
 }
 
+function CalcDirectorySize4 {
+[CmdletBinding()]
+param(
+  [string]$Path,
+  [ref]$TotalDirs,
+  [ref]$TotalFiles,
+  [ref]$TotalSize
+)
+  $dirInfo = New-Object -TypeName "Alphaleonis.Win32.Filesystem.DirectoryInfo" `
+    -ArgumentList (@($Path, ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath)))
+  foreach ($fsInfo in $dirInfo.EnumerateFileSystemInfos()) {
+    if ($fsInfo.Attributes -band [System.IO.FileAttributes]::Directory) {
+      $TotalDirs.Value += 1
+      CalcDirectorySize4 -Path $fsInfo.FullName -TotalDirs $TotalDirs -TotalFiles $TotalFiles -TotalSize $TotalSize
+    } else {
+      $TotalFiles.Value += 1
+      $TotalSize.Value += $fsInfo.Length
+    } #if
+  } #foreach
+}
+
 $TestPath = "c:\temp"
 
-$TotalDirs = 0
-$TotalFiles = 0
-$TotalSize = ([int64]0)
-$startTime = Get-Date
+for ($i = 1; $i -le 4; $i++) {
+  Write-Host ('CalcDirectorySize{0}' -f $i)
+  $CodeStr = '
+    $TotalDirs = 0
+    $TotalFiles = 0
+    $TotalSize = ([int64]0)
+    $startTime = Get-Date
+  '
+  $CodeStr += (("`r`nCalcDirectorySize{0}" -f $i) + (' -Path "{0}"' -f $TestPath) + `
+    ' -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)')
+  $CodeStr += ("`r`n" + 'Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)')
+  $CodeStr += ("`r`n" + 'Write-Host ((Get-Date) - $startTime)')
+  $CodeStr += ("`r`n" + 'Write-Host "-----------------------------"')
 
-CalcDirectorySize1 -Path $TestPath -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)
-
-Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)
-Write-Host ((Get-Date) - $startTime)
-
-$TotalDirs = 0
-$TotalFiles = 0
-$TotalSize = ([int64]0)
-$startTime = Get-Date
-
-CalcDirectorySize2 -Path $TestPath -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)
-
-Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)
-Write-Host ((Get-Date) - $startTime)
-
-$TotalDirs = 0
-$TotalFiles = 0
-$TotalSize = ([int64]0)
-$startTime = Get-Date
-
-CalcDirectorySize3 -Path $TestPath -TotalDirs ([ref]$TotalDirs) -TotalFiles ([ref]$TotalFiles) -TotalSize ([ref]$TotalSize)
-
-Write-Host ("Directories: {0}, files: {1}, total size: {2:n2} GB ({3})" -f $TotalDirs, $TotalFiles, ($TotalSize / 1Gb), $TotalSize)
-Write-Host ((Get-Date) - $startTime)
+  Invoke-Command -ScriptBlock ([scriptblock]::Create($CodeStr))
+} #for
 ```
 Sample output
 ```
-Directories: 36898, files: 406153, total size: 204,18 GB (219239243191)
-00:00:30.8880000
-Directories: 36898, files: 406153, total size: 204,18 GB (219239243191)
-00:01:21.1668000
-Directories: 36898, files: 406153, total size: 204,18 GB (219239243191)
-00:02:05.2680000
+CalcDirectorySize1
+Directories: 37007, files: 407451, total size: 205,24 GB (220379608852)
+00:00:32.2306000
+-----------------------------
+CalcDirectorySize2
+Directories: 37007, files: 407451, total size: 205,24 GB (220379608852)
+00:01:37.8310000
+-----------------------------
+CalcDirectorySize3
+Directories: 37007, files: 407451, total size: 205,24 GB (220379608852)
+00:02:22.4818000
+-----------------------------
+CalcDirectorySize4
+Directories: 37007, files: 407451, total size: 205,24 GB (220379608852)
+00:00:30.4376000
+-----------------------------
 ```
