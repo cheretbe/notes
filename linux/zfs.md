@@ -89,6 +89,7 @@ awk '/^size/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 awk '/^c_max/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 arc_summary.py | grep zfs_arc_max
 arcstat.py
+arcstat.py 1 10
 
 # Set the c_max at runtime. However the ARC size will not be released automatically
 # To force the RAM to be released it is needed to export the zpool
