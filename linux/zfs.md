@@ -147,6 +147,7 @@ zfs list -t snapshot
 zfs list -ro space
 # Access snapshot content
 ls /mountpoint/pool/.zfs/snapshot/snap-name
+ls /mountpoint/pool/path/.zfs/snapshot/snap-name
 ```
 * [\[ TOC \]](#table-of-contents)
 ### Health Monitoring Script
