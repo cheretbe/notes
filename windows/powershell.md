@@ -200,6 +200,14 @@ Enter-PSSession -ComputerName "hostname" -Credential "vagrant"
 $pwd = ConvertTo-SecureString "vagrant" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential @("vagrant", $pwd)
 Enter-PSSession -ComputerName "hostname" -Credential $credential
+# Run scriptblock
+Invoke-Command -ComputerName "hostname" -Credential $credential -ScriptBlock { & cmd /c set }
+# Save/load credentials
+$credential | Export-CliXml -Path "C:\My\Path\cred.xml"
+$credential = Import-CliXml -Path "C:\My\Path\cred.xml"
+# or
+$credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
+$pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 
 # Reading key input
 $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
