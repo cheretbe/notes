@@ -97,9 +97,12 @@ options zfs zfs_arc_max=4294967296 zfs_resilver_delay=0
 update-initramfs -u -k all
 reboot
 # View current options
-wget https://github.com/zfsonlinux/zfs/raw/master/cmd/arc_summary/arc_summary.py
-chmod +x arc_summary.py
-./arc_summary.py | grep zfs_resilver_delay
+# wget https://github.com/zfsonlinux/zfs/raw/master/cmd/arc_summary/arc_summary.py
+# chmod +x arc_summary.py
+# ./arc_summary.py | grep zfs_resilver_delay
+# No need to download, just use the version installed by OS package
+arc_summary.py | grep zfs_resilver_delay
+arcstat.py 1 10
 ```
 * http://arstechnica.com/information-technology/2014/02/ars-walkthrough-using-the-zfs-next-gen-filesystem-on-linux/
 * https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel/1137417#1137417
