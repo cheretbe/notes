@@ -4,7 +4,7 @@
 ```powershell
 Import-Module (Join-Path -Path (Split-Path -Parent $MyInvocation.MyCommand.Path) -ChildPath "AlphaFS\lib\net40\AlphaFS.dll")
 ```
-Code snippets
+##### Code snippets
 ```powershell
 [Alphaleonis.Win32.Filesystem.File]::WriteAllLines("c:\temp\test.txt", "line1`r`nline2")
 $dummy = [Alphaleonis.Win32.Filesystem.File]::ReadAllLines("c:\temp\test.txt")
@@ -88,8 +88,11 @@ foreach ($path in $list) {
 [Alphaleonis.Win32.Filesystem.Directory]::EnumerateDirectories("c:\temp", ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
 [Alphaleonis.Win32.Filesystem.Directory]::EnumerateFiles("c:\temp", ([Alphaleonis.Win32.Filesystem.PathFormat]::FullPath))
 ```
+##### Alternate Data Streams (ADS)
+* https://en.wikipedia.org/wiki/NTFS#Alternate_data_streams_.28ADS.29
+* http://www.hexacorn.com/blog/2012/03/26/good-alternate-data-streams-ads/
 
-Access methods comparison
+##### Access methods comparison
 ```powershell
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
