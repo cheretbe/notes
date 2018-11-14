@@ -91,6 +91,7 @@ foreach ($path in $list) {
 ##### Alternate Data Streams (ADS)
 * https://en.wikipedia.org/wiki/NTFS#Alternate_data_streams_.28ADS.29
 * http://www.hexacorn.com/blog/2012/03/26/good-alternate-data-streams-ads/
+* https://blog.didierstevens.com/2017/01/30/quickpost-dropbox-alternate-data-streams/
 
 ##### Access methods comparison
 ```powershell
