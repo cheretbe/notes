@@ -126,7 +126,7 @@ zpool scrub zfs-storage
 # turn on deduplication
 zfs set dedup=on zfs-storage/withdedup
 # Delete dataset (remove -n for actual deletion)
-zfs -nv destroy pool/path
+zfs destroy -nv pool/path
 # Recursive delete all snapshots. [!!] Dangerous, remove n for actual deletion
 zfs destroy -nvr pool/path@%
 
@@ -230,6 +230,8 @@ zfs destroy pool/path@old-snapshot
 
 # send locally
 zfs send pool1/path1@snapshot | zfs receive -F pool2/path2
+# with progress
+zfs send pool1/path1@snapshot | pv | zfs receive -F pool2/path2
 # check out results
 zfs list -t snapshot -r pool2
 # [!!] This will overwrite current data in pool2/path2
