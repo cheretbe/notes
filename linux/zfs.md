@@ -227,6 +227,16 @@ zfs send -v pool/path@snapshot | nc host.domain.tld 1234
 zfs snapshot pool/path@new-snapshot
 zfs send -v -i pool/path@old-snapshot pool/path@new-snapshot | nc host.domain.tld 1234
 zfs destroy pool/path@old-snapshot
+
+# send locally
+zfs send pool1/path1@snapshot | zfs receive -F pool2/path2
+# check out results
+zfs list -t snapshot -r pool2
+[!] This will overwrite current data in pool2/path2
+fs rollback pool2/path2@snapshot
+# remove snapshots
+zfs destroy pool1/path1@snapshot
+zfs destroy pool2/path2@snapshot
 ```
 :bulb: Snapshots can be dumped to files
 ```shell
