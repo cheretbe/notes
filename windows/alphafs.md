@@ -92,6 +92,7 @@ foreach ($path in $list) {
 * https://en.wikipedia.org/wiki/NTFS#Alternate_data_streams_.28ADS.29
 * http://www.hexacorn.com/blog/2012/03/26/good-alternate-data-streams-ads/
 * https://blog.didierstevens.com/2017/01/30/quickpost-dropbox-alternate-data-streams/
+* http://woshub.com/how-windows-determines-that-the-file-has-been-downloaded-from-the-internet/
 
 ##### Access methods comparison
 ```powershell
