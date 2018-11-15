@@ -44,6 +44,9 @@ vagrant box add my-box file://path/to/file.box
 # Windows
 vagrant box add my-box file:///d:/path/to/file.box
 vagrant box add my-box file:////network/share/file.box
+
+# Create a box from a Virtualbox VM
+vagrant package --base my_test --output my_test.box --vagrantfile vagrantfile-my_test.template
 ```
 
 To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable needs to be set.
