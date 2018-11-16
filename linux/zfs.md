@@ -55,7 +55,7 @@ systemctl enable zfs-import-scan
 # If not using the whole device partition type is zfs
 parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
 
-# [!] consider compression: -o compression=lz4
+# [!] consider compression: -o feature@lz4_compress=enabled and -o compression=lz4
 zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
 ```
 * **-f** option forces creation on errors (like existing data on disk etc.)
@@ -69,8 +69,9 @@ zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/
     * https://github.com/zfsonlinux/zfs/blob/master/cmd/zpool/zpool_vdev.c#L107
 * **-o atime=off** Disables access time updates
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
-* **-o compression=lz4** by default (`-o compression=on`) it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
+* **-o feature@lz4_compress=enabled** by default (`-o compression=on`) it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
     * https://github.com/zfsonlinux/zfs/blob/master/man/man8/zfs.8 search for `default compression`
+* **-o compression=lz4** 
 
 Change mount point after creation
 ```shell
@@ -86,6 +87,9 @@ zdb -e pool
 zfs get xattr pool
 zfs get atime pool
 zfs get mountpoint pool
+
+# lz4_compress (2check)
+zfs get all pool | grep 'feature@lz4_compress'
 ```
 * [\[ TOC \]](#table-of-contents)
 
@@ -158,7 +162,7 @@ zfs create zfs-storage/compressed
 zfs set acltype=posixacl <dataset>
 # turn compression on
 # Don't use compression=on, set compression algorithm explicitly
-# See also comments to compression=lz4 option is zpool creation section
+# See also comments to feature@lz4_compress option is zpool creation section
 zfs set compression=lz4 zfs-storage/compressed
 # check dataset
 zpool scrub zfs-storage
