@@ -69,7 +69,7 @@ zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/
     * https://github.com/zfsonlinux/zfs/blob/master/cmd/zpool/zpool_vdev.c#L107
 * **-o atime=off** Disables access time updates
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
-* **-o compression=lz4** by default it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
+* **-o compression=lz4** by default (`-o compression=on`) it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
     * https://github.com/zfsonlinux/zfs/blob/master/man/man8/zfs.8 search for `default compression`
 
 Change mount point after creation
@@ -158,6 +158,7 @@ zfs create zfs-storage/compressed
 zfs set acltype=posixacl <dataset>
 # turn compression on
 # Don't use compression=on, set compression algorithm explicitly
+# See also comments to compression=lz4 option is zpool creation section
 zfs set compression=lz4 zfs-storage/compressed
 # check dataset
 zpool scrub zfs-storage
