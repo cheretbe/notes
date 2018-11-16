@@ -55,11 +55,14 @@ systemctl enable zfs-import-scan
 # If not using the whole device partition type is zfs
 parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
 
-zpool create -f -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
+zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
 ```
-* **-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)
-* **-O atime=off** Disables access time updates
 * **-f** option forces creation on errors (like existing data on disk etc.)
+* **-o xattr=sa** stores xattr as system attributes (increases performance on Linux, not portable to other platforms)
+    * https://github.com/zfsonlinux/zfs/issues/443
+    * https://www.reddit.com/r/zfs/comments/89xe9u/zol_xattrsa/
+* **-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)
+* **-o atime=off** Disables access time updates
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
 
 Change mount point after creation
