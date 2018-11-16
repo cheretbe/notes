@@ -66,8 +66,20 @@ zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
 
 Change mount point after creation
-```
+```shell
 zfs set mountpoint=/mountpoint pool/filesystem
+```
+View current values
+```shell
+# ashift
+zdb -CC [pool]
+# for non-imported pool
+zdb -e pool
+
+zfs get atime pool
+zfs get mountpoint pool
+zdb
+
 ```
 * [\[ TOC \]](#table-of-contents)
 
