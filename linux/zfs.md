@@ -71,7 +71,9 @@ zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
 * **-o feature@lz4_compress=enabled** by default (`-o compression=on`) it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
     * https://github.com/zfsonlinux/zfs/blob/master/man/man8/zfs.8 search for `default compression`
-* **-o compression=lz4** 
+* **-o compression=lz4**
+    * Use `lz4` for compressed/mixed/unknown data
+    * https://www.servethehome.com/the-case-for-using-zfs-compression/
 
 Change mount point after creation
 ```shell
