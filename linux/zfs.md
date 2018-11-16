@@ -260,6 +260,21 @@ zpool status
 * [\[ TOC \]](#table-of-contents)
 ### Send Over SSH or netcat
 
+* https://forums.freenas.org/index.php?threads/lz4-compression-and-replication.17890/
+    * Replication retains the compression
+        * uncompressed -> uncompressed: obviously no change
+        * compressed -> compressed: compression retains
+        * uncompressed -> compressed: destination performs compression
+        * compressed -> uncompressed: compression reatains (there can be both compressed and uncompressed blocks in the same filesystem)
+    * Deduplication
+        * The stream is normally always "non-deduped", even when you are replicating between two deduplicated pools
+        * There is a zfs send option (-D) to generate a deduplicated stream (it controls the stream itself, not destination)
+        * -D option allows to even send a deduplicated stream between two non-dedup pools
+        * non-dedup -> dedup: data is deduplicated on the destination.
+        * dedup -> non-dedup: data is NOT deduplicated on the destination (even if with -D option)
+
+:question: Do some tests to find out how ZoL handles compression/deduplication
+
 ```shell
 # server
 nc -l -p 1234 | zfs receive -v pool/path
