@@ -301,7 +301,7 @@ zfs rollback pool2/path2@snapshot
 zfs destroy pool1/path1@snapshot
 zfs destroy pool2/path2@snapshot
 ```
-:bulb: Snapshots can be dumped to files
+:bulb: Snapshots can be dumped to files (use pigz for compression)
 ```shell
 zfs send pool/path@snapshot > file.img
 zfs receive pool/path < file.img
