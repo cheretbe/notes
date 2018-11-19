@@ -362,3 +362,23 @@ See [notes](./networking.md#dhcp) in network settings
 
 * https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-caching-or-forwarding-dns-server-on-ubuntu-14-04
 * https://pujiermanto.wordpress.com/2017/06/14/how-to-view-and-clear-bind-dns-servers-cache-on-linux/
+
+#### DNS client
+
+Disable systemd-resolve (tested on Ubuntu server 18.04.1)
+```shell
+# systemd-resolve dynamically creates /run/systemd/resolve/stub-resolv.conf
+# /etc/resolv.conf is a link to it
+systemd-resolve --status
+
+# Install resolvconf package
+apt install resolvconf
+
+# Stop and disable systemd-resolved service 
+systemctl disable systemd-resolved.service
+systemctl stop systemd-resolved.service
+
+# Remove systemd-resolved comments from /etc/resolvconf/resolv.conf.d/head
+nano /etc/resolvconf/resolv.conf.d/head
+
+```
