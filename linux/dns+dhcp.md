@@ -383,5 +383,6 @@ systemctl disable --now systemd-resolved.service
 # Remove systemd-resolved comments from /etc/resolvconf/resolv.conf.d/head and
 # add custom nameservers
 # TODO: This works for static IP, what about DHCP?
+#       https://askubuntu.com/questions/1078011/unable-to-start-resolvconf-pull-resolved
 nano /etc/resolvconf/resolv.conf.d/head
 ```
