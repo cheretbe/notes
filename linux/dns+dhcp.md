@@ -377,6 +377,8 @@ apt install resolvconf
 # Stop and disable systemd-resolved service 
 systemctl disable systemd-resolved.service
 systemctl stop systemd-resolved.service
+# or just
+systemctl disable --now systemd-resolved.service
 
 # Remove systemd-resolved comments from /etc/resolvconf/resolv.conf.d/head and
 # add custom nameservers
