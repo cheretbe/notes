@@ -20,7 +20,7 @@ new-name
 5. If rename is the result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
 
 #### CentOS
-```
+```shell
 vi /etc/hostname
 vi /etc/hosts
 # CentOS, check for HOSTNAME=value presence
