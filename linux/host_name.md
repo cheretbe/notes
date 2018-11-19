@@ -1,5 +1,5 @@
 ### Change host name
-##### Ubuntu
+#### Ubuntu
 Assuming we are setting the name `new-name.domain.tld`
 1. Edit `/etc/hostname` file and update **short name**:
 ```
@@ -19,7 +19,7 @@ new-name
 * `lxc move old-name new-name` doesn't seem to update anything in the container itself
 5. If rename is the result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
 
-##### CentOS
+#### CentOS
 ```
 vi /etc/hostname
 vi /etc/hosts
