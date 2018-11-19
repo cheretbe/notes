@@ -378,7 +378,8 @@ apt install resolvconf
 systemctl disable systemd-resolved.service
 systemctl stop systemd-resolved.service
 
-# Remove systemd-resolved comments from /etc/resolvconf/resolv.conf.d/head
+# Remove systemd-resolved comments from /etc/resolvconf/resolv.conf.d/head and
+# add custom nameservers
+# TODO: This works for static IP, what about DHCP?
 nano /etc/resolvconf/resolv.conf.d/head
-
 ```
