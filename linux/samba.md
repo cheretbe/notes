@@ -119,23 +119,16 @@ apt install samba smbclient winbind libnss-winbind libpam-winbind
 # Make sure that NTP syncs time with a DC
 systemctl status systemd-timesyncd --no-pager -l
 
-# Install Heimdal Kerberos:
-apt install heimdal-clients
-
-# Test Kerberos authentication with a domain admin account
-# Enter your AD administrator password when prompted, it should just return to command prompt
-kinit administrator
-# Show your Kerberos ticket for administrator@TEST.LOCAL
-klist
-
 # Update /etc/nsswitch.conf to pull users and groups from Winbind
 cp /etc/nsswitch.conf{,.bak}
 sed -i 's/passwd:\s*compat/passwd: compat winbind/' /etc/nsswitch.conf
 sed -i 's/group:\s*compat/group:  compat winbind/' /etc/nsswitch.conf
 
 cp /etc/samba/smb.conf{,.bak}
+echo > /etc/samba/smb.conf
+nano /etc/samba/smb.conf
 ```
-Set `/etc/samba/smb.conf` to the following (ensuring you replace the bold TEST and TEST.LOCAL with your own AD NetBIOS and domain names):
+Set `/etc/samba/smb.conf` to the following (ensuring you replace the TEST and TEST.LOCAL with your own AD NetBIOS and domain names):
 ```ini
 [global]
     workgroup = TEST
@@ -180,6 +173,50 @@ To be able to login as domain user add the following option:
 ```ini
 template shell = /bin/bash
 ```
+```shell
+cp /etc/krb5.conf{,.bak}
+echo > /etc/krb5.conf
+nano /etc/krb5.conf
+```
+Set `/etc/krb5.conf` to the following:
+```
+[logging]
+    default = FILE:/var/log/krb5libs.log
+    kdc = FILE:/var/log/krb5kdc.log
+    admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+    default_realm = TEST.LOCAL
+    ticket_lifetime = 24h
+    forwardable = yes
+
+    # tests
+
+
+[appdefaults]
+    pam = {
+        debug = true
+        ticket_lifetime = 36000
+        renew_lifetime = 36000
+        forwardable = true
+        krb4_convert = false
+    }
+
+#[realms]
+#        TEST.LOCAL = {
+#                kdc = dc1.test.local
+#        }
+```
+
+```shell
+# Test Kerberos authentication with a domain admin account
+# Enter your AD administrator password when prompted, it should just return to command prompt
+kinit administrator
+# Show your Kerberos ticket for administrator@TEST.LOCAL
+klist
+```
+
+
 Join your SAMBA server to the domain:
 ```shell
 # Should return:
@@ -223,36 +260,6 @@ account required pam_access.so
 and the following to `/etc/security/access.conf`:
 ```
 -:ALL EXCEPT root local-admin (ad-admins):ALL
-```
- 
-`/etc/krb5.conf`:
-```
-[logging]
-    default = FILE:/var/log/krb5libs.log
-    kdc = FILE:/var/log/krb5kdc.log
-    admin_server = FILE:/var/log/kadmind.log
-
-[libdefaults]
-    default_realm = GUR.LOCAL
-    ticket_lifetime = 24h
-    forwardable = yes
-
-    # tests
-
-
-[appdefaults]
-    pam = {
-        debug = true
-        ticket_lifetime = 36000
-        renew_lifetime = 36000
-        forwardable = true
-        krb4_convert = false
-    }
-
-[realms]
-        GUR.LOCAL = {
-                kdc = AD-KGD-01.GUR.local
-        }
 ```
 
 Source:
