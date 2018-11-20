@@ -113,8 +113,9 @@ apt purge avahi-daemon
 systemd-resolve --status
 
 # Install packages
+# smbclient is not needed for a server
 apt update
-apt install samba smbclient winbind libnss-winbind libpam-winbind
+apt install samba krb5-user winbind libnss-winbind libpam-winbind
 
 # Make sure that NTP syncs time with a DC
 systemctl status systemd-timesyncd --no-pager -l
