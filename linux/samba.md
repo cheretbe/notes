@@ -102,6 +102,14 @@ directory mask = 0775
 ### Domain member
 
 ```bash
+# Check if DNS is working and host names resolve correctly (especially if domain uses .local TLD)
+nslookup dc1.test.local
+# If not, make sure there is no Avahi daemon
+apt purge avahi-daemon
+# Check if systemd-resolve is running and try disabling it
+# https://github.com/cheretbe/notes/blob/master/linux/dns+dhcp.md#dns-client
+systemd-resolve --status
+
 # Install packages
 apt update
 apt install samba smbclient winbind libnss-winbind libpam-winbind
