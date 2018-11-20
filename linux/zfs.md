@@ -284,6 +284,8 @@ zpool status
 # Sender with -v option every second outputs status records that look like this:
 # 16:13:54   43.9G   pool/path@snapshot
 
+[!] Check filesystem properties on receiver (e.g. zfs get acltype etc.)
+
 # Receiver (-F option is needed if pool/path exists)
 nc -l -p 1234 | pv | zfs receive -v pool/path
 
