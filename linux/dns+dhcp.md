@@ -385,7 +385,7 @@ systemctl disable --now systemd-resolved.service
 # TODO: This works for static IP, what about DHCP?
 #       https://askubuntu.com/questions/1078011/unable-to-start-resolvconf-pull-resolved
 nano /etc/resolvconf/resolv.conf.d/head
-# Remove link to the original (dynamic an non-existing) config
+# Remove link to the original (non-existing when systemd-resolved is stopped) config
 rm /etc/resolvconf/resolv.conf.d/original
 # Apply changes
 service resolvconf restart
