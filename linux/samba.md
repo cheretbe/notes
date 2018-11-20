@@ -265,6 +265,7 @@ and the following to `/etc/security/access.conf`:
 ```
 # Allow members of domain-admins-group (TEST.local domain) to execute any command
 %domain-admins-group       ALL=(ALL:ALL) ALL
+%group\ with\ a\ space     ALL=(ALL:ALL) ALL
 ```
 
 
