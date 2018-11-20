@@ -106,7 +106,7 @@ directory mask = 0775
 nslookup dc1.test.local
 # If not, make sure there is no Avahi daemon
 apt purge avahi-daemon
-# Check if systemd-resolve is running and try disabling it
+# Check if systemd-resolved is running and try disabling it
 # https://github.com/cheretbe/notes/blob/master/linux/dns+dhcp.md#dns-client
 systemd-resolve --status
 
