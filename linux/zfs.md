@@ -55,11 +55,13 @@ systemctl enable zfs-import-scan
 # If not using the whole device partition type is zfs
 parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
 
-# [!] consider compression: -o feature@lz4_compress=enabled and -o compression=lz4
-zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
+# -o property=value               Sets the given pool properties
+# -O file-system-property=value   Sets the given file system properties in the root file system of the pool
+# [!] consider compression: -o feature@lz4_compress=enabled and -O compression=lz4
+zpool create -O xattr=sa -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
 ```
 * **-f** option forces creation on errors (like existing data on disk etc.)
-* **-o xattr=sa** stores xattr as system attributes (increases performance on Linux, not portable to other platforms)
+* **-O xattr=sa** stores xattr as system attributes (increases performance on Linux, not portable to other platforms)
     * https://github.com/zfsonlinux/zfs/issues/443
     * https://www.reddit.com/r/zfs/comments/89xe9u/zol_xattrsa/
 * **-o ashift=12** uses 4K blocks instead of 512K (this increases performance especially on large disks)
@@ -67,11 +69,11 @@ zpool create -o xattr=sa -o ashift=12 -o atime=off zfs-storage raidz1 /dev/disk/
     * https://github.com/zfsonlinux/zfs/wiki/faq#advanced-format-disks
     * https://habr.com/post/314506/
     * https://github.com/zfsonlinux/zfs/blob/master/cmd/zpool/zpool_vdev.c#L107
-* **-o atime=off** Disables access time updates
+* **-O atime=off** Disables access time updates
 * **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
 * **-o feature@lz4_compress=enabled** by default (`-o compression=on`) it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
     * https://github.com/zfsonlinux/zfs/blob/master/man/man8/zfs.8 search for `default compression`
-* **-o compression=lz4**
+* **-O compression=lz4**
     * Use `lz4` for compressed/mixed/unknown data
     * https://www.servethehome.com/the-case-for-using-zfs-compression/
 
