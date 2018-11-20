@@ -9,7 +9,9 @@ nmap -sn 192.168.1.0/24
 nmap -sP 192.168.1.0/24
 # Use ARP ping instead (takes long time)
 nmap -PR 192.168.1.0/24
-
 # View all IPs (including those who didn't reply on ping)
 arp -a -n
+
+# arp-scan if much faster and sorts output by IP
+arp-scan 192.168.1.0/24
 ```
