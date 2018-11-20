@@ -261,6 +261,12 @@ and the following to `/etc/security/access.conf`:
 ```
 -:ALL EXCEPT root local-admin (ad-admins):ALL
 ```
+`/etc/sudoers` entry example
+```
+# Allow members of domain-admins-group (TEST.local domain) to execute any command
+%domain-admins-group       ALL=(ALL:ALL) ALL
+```
+
 
 Source:
 * https://samba.ninja/2016/10/ubuntu-16-04-samba-ad-member-server/
