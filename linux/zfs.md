@@ -280,10 +280,14 @@ zpool status
 :question: Do some tests to find out how ZoL handles compression/deduplication
 
 ```shell
-# server
-nc -l -p 1234 | zfs receive -v pool/path
+# We use pv only on the receiving end since it outputs status only on start and finish.
+# Sender with -v option every second outputs status records that look like this:
+# 16:13:54   43.9G   pool/path@snapshot
 
-# client
+# Sender (-F option is needed if pool/path exists)
+nc -l -p 1234 | pv | zfs receive -v pool/path
+
+# Receiver
 zfs send -v pool/path@snapshot | nc host.domain.tld 1234
 
 # incremental
