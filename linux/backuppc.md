@@ -64,6 +64,9 @@ cd ../BackupPC-4.2.1/
 # When upgrading, use this instead:
 ./configure.pl --batch --config-path /etc/BackupPC/config.pl
 
+```
+Only for new installation, skip this for upgrade
+```shell
 # The following is good also when upgrading, unless the file contains custom modifications.
 # Allows to connect to web UI from anywhere, not only from 127.0.0.1 by removing the following lines:
 # order deny,allow
@@ -73,4 +76,14 @@ cp httpd/BackupPC.conf /etc/apache2/conf-available/backuppc.conf
 sed -i "/deny\ from\ all/d" /etc/apache2/conf-available/backuppc.conf
 sed -i "/deny\,allow/d" /etc/apache2/conf-available/backuppc.conf
 sed -i "/allow\ from/d" /etc/apache2/conf-available/backuppc.conf
+
+# Note that changing the apache user and group (next two commands) could cause other services
+# provided by apache to fail. There are alternatives if you don't want to change the apache
+# user: use SCGI or a setuid BackupPC_Admin script - see the docs.
+sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=backuppc/" /etc/apache2/envvars
+sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=backuppc/" /etc/apache2/envvars
+
+echo '<html><head><meta http-equiv="refresh" content="0; url=/BackupPC_Admin"></head></html>' > /var/www/html/index.html
+
+a2enconf backuppc
 ```
