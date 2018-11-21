@@ -7,9 +7,25 @@ Only for new installation, skip this for upgrade
 ```shell
 apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient sendmail libapache2-mod-scgi \
     libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl
-    
+
 adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
+
+rmdir /var/lib/backuppc/
+mkdir /path/to/backup/dir
+chown backuppc:backuppc /path/to/backup/dir
+ln -s /path/to/backup/dir /var/lib/backuppc
+
+mkdir -p /var/lib/backuppc/.ssh
+chmod 700 /var/lib/backuppc/.ssh
+# [!] 'StrictHostKeyChecking no' parameter is optional, it allows connecting to any host
+# without explicityly adding it to .ssh/known_hosts
+echo -e "BatchMode yes\nStrictHostKeyChecking no" > /var/lib/backuppc/.ssh/config
+ssh-keygen -q -t rsa -b 4096 -N '' -C "BackupPC key" -f /var/lib/backuppc/.ssh/id_rsa
+chmod 600 /var/lib/backuppc/.ssh/id_rsa
+chmod 644 /var/lib/backuppc/.ssh/id_rsa.pub
+chown -R backuppc:backuppc /var/lib/backuppc/.ssh
 ```
+
 Check and download the lastest released versions:
 * https://github.com/backuppc/backuppc-xs/releases/
 * https://github.com/backuppc/rsync-bpc/releases/
