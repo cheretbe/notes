@@ -77,6 +77,7 @@ sed -i "/deny\ from\ all/d" /etc/apache2/conf-available/backuppc.conf
 sed -i "/deny\,allow/d" /etc/apache2/conf-available/backuppc.conf
 sed -i "/allow\ from/d" /etc/apache2/conf-available/backuppc.conf
 
+cp /etc/apache2/envvars{,.bak}
 # Note that changing the apache user and group (next two commands) could cause other services
 # provided by apache to fail. There are alternatives if you don't want to change the apache
 # user: use SCGI or a setuid BackupPC_Admin script - see the docs.
