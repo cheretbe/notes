@@ -7,6 +7,11 @@ Only for new installation, skip this for upgrade
 ```shell
 apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient sendmail libapache2-mod-scgi \
     libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl
+    
+# Check if sendmail is installed
+which sendmail
+# Remove it if installed (note the trailing '*')
+apt purge sendmail*
 
 adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
 
@@ -112,4 +117,11 @@ chown -R backuppc:backuppc /etc/BackupPC
 htpasswd /etc/BackupPC/BackupPC.users backuppc
 
 service backuppc start
+```
+
+### Maintenance
+```
+# Check email delivery
+# [!] as user backuppc
+/usr/local/BackupPC/bin/BackupPC_sendEmail -u notifications@rs-kgr.local
 ```
