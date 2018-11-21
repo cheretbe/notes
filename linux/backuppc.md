@@ -84,7 +84,25 @@ cp /etc/apache2/envvars{,.bak}
 sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=backuppc/" /etc/apache2/envvars
 sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=backuppc/" /etc/apache2/envvars
 
+cp /var/www/html/index.html{,.bak}
 echo '<html><head><meta http-equiv="refresh" content="0; url=/BackupPC_Admin"></head></html>' > /var/www/html/index.html
 
 a2enconf backuppc
+a2enmod cgid
+service apache2 restart
+
+cp systemd/backuppc.service /etc/systemd/system
+sed -i "s/#Group=backuppc/Group=backuppc/" /etc/systemd/system/backuppc.service
+systemctl daemon-reload
+systemctl enable backuppc.service
+
+chmod u-s /var/www/cgi-bin/BackupPC/BackupPC_Admin
+touch /etc/BackupPC/BackupPC.users
+sed -i "s/$Conf{CgiAdminUserGroup}.*/$Conf{CgiAdminUserGroup} = 'backuppc';/" /etc/BackupPC/config.pl
+sed -i "s/$Conf{CgiAdminUsers}.*/$Conf{CgiAdminUsers} = 'backuppc';/" /etc/BackupPC/config.pl
+chown -R backuppc:backuppc /etc/BackupPC
+
+htpasswd -i /etc/BackupPC/BackupPC.users backuppc
+
+service backuppc start
 ```
