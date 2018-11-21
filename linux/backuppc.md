@@ -22,3 +22,16 @@ tar -xzvf BackupPC-XS-0.57.tar.gz
 tar -xzvf rsync-bpc-3.0.9.12.tar.gz
 tar -xzvf BackupPC-4.2.1.tar.gz
 ```
+Install dependencies
+```shell
+cd BackupPC-XS-0.57/
+perl Makefile.PL
+make
+make test
+make install
+
+cd ../rsync-bpc-3.0.9.12/
+./configure
+make
+make install
+```
