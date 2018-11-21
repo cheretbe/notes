@@ -120,6 +120,12 @@ chown -R backuppc:backuppc /etc/BackupPC
 htpasswd /etc/BackupPC/BackupPC.users backuppc
 
 service backuppc start
+
+# Configure mail delivery
+# Add alias for backuppc user
+nano /etc/aliases
+newaliases
+# Or change in 'Edit Config' > 'Email' > 'EMailAdminUserName' ($Conf{EMailAdminUserName} in /etc/BackupPC/config.pl)
 ```
 
 ### Maintenance
@@ -127,4 +133,8 @@ service backuppc start
 # Check email delivery
 # [!] as user backuppc
 /usr/local/BackupPC/bin/BackupPC_sendEmail -u user[@domain.tld]
+# or stop backuppc service and then run
+/usr/local/BackupPC/bin/BackupPC_sendEmail -c
+# It will check if BackupPC is running, and should send an email to $Conf{EMailAdminUserName} if it is not
+# [!] Don't forget to start backuppc service
 ```
