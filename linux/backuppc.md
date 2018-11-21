@@ -129,7 +129,7 @@ newaliases
 ```
 
 ### Maintenance
-```
+```shell
 # Check email delivery
 # [!] as user backuppc
 /usr/local/BackupPC/bin/BackupPC_sendEmail -u user[@domain.tld]
