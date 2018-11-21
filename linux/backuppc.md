@@ -12,6 +12,9 @@ apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient sendmail li
 dpkg -l sendmail*
 # Remove it if installed
 apt purge sendmail*
+# Install and configure postfix
+apt install postfix
+dpkg-reconfigure postfix --priority low
 
 adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
 
@@ -123,5 +126,5 @@ service backuppc start
 ```
 # Check email delivery
 # [!] as user backuppc
-/usr/local/BackupPC/bin/BackupPC_sendEmail -u notifications@rs-kgr.local
+/usr/local/BackupPC/bin/BackupPC_sendEmail -u user[@domain.tld]
 ```
