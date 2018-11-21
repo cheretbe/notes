@@ -8,9 +8,9 @@ Only for new installation, skip this for upgrade
 apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient sendmail libapache2-mod-scgi \
     libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl
     
-# Check if sendmail is installed
-which sendmail
-# Remove it if installed (note the trailing '*')
+# Check if sendmail is installed (note the trailing '*')
+dpkg -l sendmail*
+# Remove it if installed
 apt purge sendmail*
 
 adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
