@@ -109,7 +109,7 @@ nano /etc/BackupPC/config.pl
 
 chown -R backuppc:backuppc /etc/BackupPC
 
-htpasswd -i /etc/BackupPC/BackupPC.users backuppc
+htpasswd /etc/BackupPC/BackupPC.users backuppc
 
 service backuppc start
 ```
