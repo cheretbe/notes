@@ -98,8 +98,15 @@ systemctl enable backuppc.service
 
 chmod u-s /var/www/cgi-bin/BackupPC/BackupPC_Admin
 touch /etc/BackupPC/BackupPC.users
-sed -i "s/$Conf{CgiAdminUserGroup}.*/$Conf{CgiAdminUserGroup} = 'backuppc';/" /etc/BackupPC/config.pl
-sed -i "s/$Conf{CgiAdminUsers}.*/$Conf{CgiAdminUsers} = 'backuppc';/" /etc/BackupPC/config.pl
+cp /etc/BackupPC/config.pl{,.bak}
+nano /etc/BackupPC/config.pl
+# Replace
+#    $Conf{CgiAdminUserGroup} = '';
+#    $Conf{CgiAdminUsers}     = '';
+# with
+#    $Conf{CgiAdminUserGroup} = 'backuppc';
+#    $Conf{CgiAdminUsers}     = 'backuppc';
+
 chown -R backuppc:backuppc /etc/BackupPC
 
 htpasswd -i /etc/BackupPC/BackupPC.users backuppc
