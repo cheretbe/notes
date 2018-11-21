@@ -63,4 +63,14 @@ cd ../BackupPC-4.2.1/
 
 # When upgrading, use this instead:
 ./configure.pl --batch --config-path /etc/BackupPC/config.pl
+
+# The following is good also when upgrading, unless the file contains custom modifications.
+# Allows to connect to web UI from anywhere, not only from 127.0.0.1 by removing the following lines:
+# order deny,allow
+# deny from all
+# allow from 127.0.0.1
+cp httpd/BackupPC.conf /etc/apache2/conf-available/backuppc.conf
+sed -i "/deny\ from\ all/d" /etc/apache2/conf-available/backuppc.conf
+sed -i "/deny\,allow/d" /etc/apache2/conf-available/backuppc.conf
+sed -i "/allow\ from/d" /etc/apache2/conf-available/backuppc.conf
 ```
