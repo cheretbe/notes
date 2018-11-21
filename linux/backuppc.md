@@ -35,3 +35,14 @@ cd ../rsync-bpc-3.0.9.12/
 make
 make install
 ```
+Install BackupPC
+```shell
+cd ../BackupPC-4.2.1/
+# [!] When installing, use this
+# ./configure.pl --batch --cgi-dir /var/www/cgi-bin/BackupPC --data-dir /var/lib/backuppc \
+#   --hostname backuppc --html-dir /var/www/html/BackupPC --html-dir-url /BackupPC \
+#   --install-dir /usr/local/BackupPC
+
+# When upgrading, use this instead:
+./configure.pl --batch --config-path /etc/BackupPC/config.pl
+```
