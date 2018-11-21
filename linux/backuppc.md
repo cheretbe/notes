@@ -136,5 +136,5 @@ newaliases
 # or stop backuppc service and then run
 /usr/local/BackupPC/bin/BackupPC_sendEmail -c
 # It will check if BackupPC is running, and should send an email to $Conf{EMailAdminUserName} if it is not
-# [!] Don't forget to start backuppc service
+# [!] Don't forget to start backuppc service back
 ```
