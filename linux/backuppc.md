@@ -72,6 +72,7 @@ cd ../BackupPC-4.2.1/
 # When upgrading, use this instead:
 service backuppc stop
 ./configure.pl --batch --config-path /etc/BackupPC/config.pl
+service backuppc start
 ```
 Only for new installation, skip this for upgrade
 ```shell
