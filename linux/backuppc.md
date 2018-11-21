@@ -3,10 +3,12 @@
 * https://github.com/backuppc/backuppc/wiki/Installing-BackupPC-4-from-tarball-or-git-on-Ubuntu
 
 ### Installation
-
+Only for new installation, skip this for upgrade
 ```shell
 apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient sendmail libapache2-mod-scgi \
     libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl
+    
+adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
 ```
 Check and download the lastest released versions:
 * https://github.com/backuppc/backuppc-xs/releases/
