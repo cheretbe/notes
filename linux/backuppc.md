@@ -1,6 +1,9 @@
 * http://backuppc.sourceforge.net/
 * https://github.com/backuppc/backuppc
 * https://github.com/backuppc/backuppc/wiki/Installing-BackupPC-4-from-tarball-or-git-on-Ubuntu
+* Review:
+    * https://sourceforge.net/p/backuppc/mailman/message/33596562/
+    * http://www.guyrutenberg.com/2014/01/14/restricting-ssh-access-to-rsync/
 
 ### Installation
 Only for new installation, skip this for upgrade
