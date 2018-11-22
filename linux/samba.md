@@ -38,6 +38,8 @@ acl allow execute always = yes
 
 ### Client
 ```shell
+sudo apt install smbclient cifsutils
+
 mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_server/shares ~/mnt/share
 ```
 
