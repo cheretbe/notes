@@ -40,7 +40,9 @@ acl allow execute always = yes
 ```shell
 sudo apt install smbclient cifsutils
 
-mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_server/shares ~/mnt/share
+sudo mount -t cifs -o username=USERNAME,password=PASSWD,domain=DOMAIN //smb_server/share /mnt/share
+# Doesn't work?
+mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_server/share ~/mnt/share
 
 # ,credentials=/root/.smbcredentials
 ```
