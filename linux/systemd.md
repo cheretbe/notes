@@ -40,5 +40,23 @@ To check if the file is in use view service status:
   Drop-In: /etc/systemd/system/isc-dhcp-server.service.d
            └─enable-autorestart.conf
 ```
-
 * https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+
+#### Sample simple service unit file
+```
+[Unit]
+Description=My Miscellaneous Service
+After=network.target
+
+[Service]
+# Another Type option: forking
+Type=simple
+User=username
+WorkingDirectory=/home/username
+ExecStart=/home/username/my_daemon --option=123
+# Other Restart options: always, on-abort, etc.
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
