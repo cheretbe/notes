@@ -38,7 +38,7 @@ acl allow execute always = yes
 
 ### Client
 ```shell
-sudo apt install smbclient cifsutils
+sudo apt install smbclient cifs-utils
 
 sudo mount -t cifs -o username=USERNAME,password=PASSWD,domain=DOMAIN //smb_server/share /mnt/share
 # Doesn't work?
