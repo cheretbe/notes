@@ -6,7 +6,8 @@
 * https://samba.ninja/2014/10/ubuntu-14-samba-active-directory-member-server/
 * https://community.spiceworks.com/topic/157949-only-allow-certain-ad-groups-to-log-in
 
-### Useful commands
+### Misc. info
+#### Useful commands
 ``` shell
 # Everything as root
 # View stats
@@ -29,10 +30,15 @@ testparm -s
 sudo pdbedit -L -v
 ```
 
-### Executable bit
+#### smb.conf
 ```
-# Allow execute files
+# Allow execute files (executable bit)
 acl allow execute always = yes
+```
+
+### Client
+```shell
+mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_server/shares ~/mnt/share
 ```
 
 ### Standalone server
