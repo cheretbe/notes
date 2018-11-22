@@ -60,3 +60,9 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
+Unit file registration
+```shell
+nano /etc/systemd/system/myservice.service
+systemctl daemon-reload
+systemctl enable myservice.service
+```
