@@ -197,11 +197,11 @@ Set-Item "wsman:\localhost\Client\TrustedHosts" -Value "*" -Force
 # Default WinRM port: 5985
 # Enter-PSSession -ComputerName localhost -port 1111 -Credential vagrant
 # This will prompt for a password
-Enter-PSSession -ComputerName "hostname" -Credential "vagrant"
+Enter-PSSession -ComputerName "hostname" -Credential "vagrant" 2>&1
 # This will not
 $pwd = ConvertTo-SecureString "vagrant" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential @("vagrant", $pwd)
-Enter-PSSession -ComputerName "hostname" -Credential $credential
+Enter-PSSession -ComputerName "hostname" -Credential $credential 2>&1
 # Run scriptblock
 Invoke-Command -ComputerName "hostname" -Credential $credential -ScriptBlock { & cmd /c set }
 # Save/load credentials
