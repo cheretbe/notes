@@ -41,6 +41,13 @@ acl allow execute always = yes
 sudo apt install smbclient cifsutils
 
 mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_server/shares ~/mnt/share
+
+# ,credentials=/root/.smbcredentials
+```
+`.smbcredentials` example
+```
+username=myusername
+password=mypassword
 ```
 
 ### Standalone server
