@@ -181,7 +181,9 @@ $xmlDoc.Save("c:\temp\test.xml")
 
 # Remoting
 # On server
-# winrm quickconfig
+# -quiet: no prompts
+# -force: enable even if public network is present
+# winrm quickconfig [-quiet] [-force]
 Enable-PSRemoting
 # No prompts
 Enable-PSRemoting -Force
