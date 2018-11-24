@@ -122,6 +122,9 @@ import yaml
 with open('config.yaml') as f:
     # Use safe_load instead of load
     config = yaml.safe_load(f)
+import json
+with open("config.json") as f:
+    config = json.load(f)
 ```
 
 * http://jmespath.org/examples.html
