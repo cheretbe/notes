@@ -14,7 +14,7 @@ scp -F /tmp/ssh-config-name default:filename .
     vb.cpus = "1"
     vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     # absolute path
-    vb.customize ["sharedfolder", "add", :id, "--name", "provision", "--hostpath", "/path/on/host", "--automount", "--transient"]
+    vb.customize ["sharedfolder", "add", :id, "--name", "provision", "--hostpath", "/path/on/host", "--automount"]
     # relative path
     vb.customize ["sharedfolder", "add", :id, "--name", "debug", "--hostpath", File.expand_path("../..", File.dirname(__FILE__)), "--automount"]
   end
