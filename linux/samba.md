@@ -32,13 +32,21 @@ sudo pdbedit -L -v
 
 #### smb.conf
 ```
-# Allow execute files (executable bit)
+[global]
+; Allow execute files (executable bit)
 acl allow execute always = yes
+
+; https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#CLIENTMAXPROTOCOL
+; default is 'CORE' (MS-DOS era)
+client min protocol = CORE
+; default is 'NT1' (aka CIFS)
+client max protocol = NT1
 ```
 
 ### Client
 * SMB dialect versions: https://wiki.samba.org/index.php/SMB3_kernel_status
 * Notes on cifs.ko: https://superuser.com/questions/1297724/linux-force-default-mount-cifs-version-to-3-0/1323578#1323578
+* If `vers` option is not specified, `mount.cifs` uses `vers=default`, where `default` is hard-coded in `cifs.ko` and therefore depends on kernel version.
 ```shell
 sudo apt install smbclient cifs-utils
 
