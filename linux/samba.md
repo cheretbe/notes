@@ -37,6 +37,8 @@ acl allow execute always = yes
 ```
 
 ### Client
+* SMB dialect versions: https://wiki.samba.org/index.php/SMB3_kernel_status
+* Notes on cifs.ko: https://superuser.com/questions/1297724/linux-force-default-mount-cifs-version-to-3-0/1323578#1323578
 ```shell
 sudo apt install smbclient cifs-utils
 
