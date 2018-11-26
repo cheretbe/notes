@@ -41,8 +41,11 @@ acl allow execute always = yes
 sudo apt install smbclient cifs-utils
 
 sudo mount -t cifs -o username=USERNAME,password=PASSWD,domain=DOMAIN //smb_server/share /mnt/share
-# Doesn't work?
+# Doesn't work as non-root?
 mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_server/share ~/mnt/share
+
+# -o is not needed in /etc/fstab
+# https://askubuntu.com/questions/922682/specify-smb-3-0-in-etc-fstab/963907#963907
 
 # ,credentials=/root/.smbcredentials
 ```
