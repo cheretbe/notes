@@ -15,6 +15,9 @@ vboxmanage setproperty machinefolder /home/GUR/2301/vm/
 # HDD
 vboxmanage setproperty machinefolder /mnt/vmdata/vm/
 
+# check mail delivery ('mailutils' package needs to be installed)
+echo test | mail -s "test mail" root
+
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host.tld
 
 # Write speed test
