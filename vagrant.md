@@ -29,10 +29,16 @@ scp -F /tmp/ssh-config-name default:filename .
 # List boxes
 vagran box list
 
+# Add latest version of a box
+# --clean Clean any temporary download files
+vagrant box add --clean centos/7 --provider virtualbox
+
 # List updates
 vagrant box outdated --global
-# Add latest version of a box
-vagrant box add --clean centos/7 --provider virtualbox
+
+# Update a specific box (not tied to a Vagrant environment) 
+vagrant box update --box centos/7
+
 # Remove all old versions
 vagrant box prune
 
