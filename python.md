@@ -359,3 +359,9 @@ sudo apt install python2.7-examples
 /usr/share/doc/python2.7/examples/Tools/scripts/reindent.py [file.py]
 ```
 * [\[ TOC \]](#table-of-contents)
+
+## GUI
+* https://pygobject.readthedocs.io/en/latest/getting_started.html
+* https://gitlab.gnome.org/World/lollypop/tree/master
+* https://mesonbuild.com/
+* https://github.com/slytomcat/yandex-disk-indicator
