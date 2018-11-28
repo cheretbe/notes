@@ -270,6 +270,9 @@ zpool replace -f zfs-data 16718377149670207017 /dev/disk/by-id/ata-VBOX_HARDDISK
 # View progress
 zpool status
 ```
+* Notes
+    * Pool devices are stored in the binary file `/etc/zfs/zpool.cache`
+    * To change `/dev/sdX` device names to `/dev/disk/by-id`: `zpool export pool-name && zpool import -d /dev/disk/by-id poolname`
 * [\[ TOC \]](#table-of-contents)
 ### Send Over SSH or netcat
 
