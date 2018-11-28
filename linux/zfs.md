@@ -157,6 +157,7 @@ arcstat.py 1 10
 ### Useful ZFS Commands
 * http://manpages.ubuntu.com/manpages/bionic/man8/zpool.8.html
 * http://manpages.ubuntu.com/manpages/bionic/man8/zfs.8.html
+
 :warning: Use `-nv` options to check what's going to be done
 ```shell
 zpool status
