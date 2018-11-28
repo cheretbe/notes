@@ -86,7 +86,7 @@ View current values
 # ashift
 zdb -CC [pool]
 # for non-imported pool
-zdb -e pool
+zdb -CC -e pool
 
 zfs get xattr pool
 zfs get atime pool
@@ -195,6 +195,11 @@ zfs list -ro space
 # Access snapshot content
 ls /mountpoint/pool/.zfs/snapshot/snap-name
 ls /mountpoint/pool/path/.zfs/snapshot/snap-name
+
+# View pools to import
+zpool import
+# Import pool
+zpool import pool-name
 ```
 * [\[ TOC \]](#table-of-contents)
 ### Health Monitoring Script
@@ -300,7 +305,7 @@ zfs destroy pool/path@old-snapshot
 # send locally
 zfs send pool1/path1@snapshot | zfs receive -F pool2/path2
 # with progress
-zfs send pool1/path1@snapshot | pv | zfs receive -F pool2/path2
+zfs send pool1/path1@snapshot | pv | zfs -v receive -F pool2/path2
 # check out results
 zfs list -t snapshot -r pool2
 # [!!] This will overwrite current data in pool2/path2
