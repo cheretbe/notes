@@ -202,6 +202,7 @@ ls /mountpoint/pool/path/.zfs/snapshot/snap-name
 # View pools to import
 zpool import
 # Import pool
+# -d dir  Searches for devices or files in dir. The -d option can be specified multiple times.
 zpool import -d [/dev/disk/by-id] pool-name
 ```
 * [\[ TOC \]](#table-of-contents)
