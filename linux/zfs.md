@@ -272,7 +272,7 @@ zpool status
 ```
 * Notes
     * Pool devices are stored in the binary file `/etc/zfs/zpool.cache`
-    * To change `/dev/sdX` device names to `/dev/disk/by-id`: `zpool export pool-name && zpool import -d /dev/disk/by-id poolname`
+    * To change `/dev/sdX` device names to `/dev/disk/by-id`: `zpool export pool-name && zpool import -d /dev/disk/by-id pool-name`
 * [\[ TOC \]](#table-of-contents)
 ### Send Over SSH or netcat
 
