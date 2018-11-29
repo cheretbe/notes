@@ -174,6 +174,9 @@ $nodeName = $xmlDoc.DocumentElement.SelectSingleNode('Directory[@Name="DirName"]
 
 $childNode = $rootNode.AppendChild($rootNode.OwnerDocument.CreateElement("Child"))
 $childNode.InnerText = "child node value"
+# or
+$rootNode.AppendChild($rootNode.OwnerDocument.CreateElement("Child")).InnerText = "child node value"
+
 #$attr = $childNode.OwnerDocument.CreateAttribute("AtrrName")
 #$attr.Value = "AttrValue"
 #$childNode.SetAttributeNode($attr) | Out-Null
