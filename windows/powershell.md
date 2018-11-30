@@ -162,8 +162,9 @@ Get-Date -Format "dd.MM.yyyy HH:mm:ss"
 
 # http://msdn.microsoft.com/en-us/library/system.xml.xmlelement.aspx
 # http://msdn.microsoft.com/en-us/library/system.xml.xmldocument.aspx
-$xmlDoc = [System.Xml.XmlDocument]::new()
 $xmlDoc = New-Object System.Xml.XmlDocument
+# (?) does the following work?
+#$xmlDoc = [System.Xml.XmlDocument]::new()
 
 $rootNode = $xmlDoc.AppendChild($xmlDoc.CreateElement("root"))
 # $xmlDoc.Load("test.xml")
