@@ -11,3 +11,6 @@ Extensions
 * uBlock Origin: https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
 * New Tab Redirect: https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna
 * Hoxx VPN Proxy: https://chrome.google.com/webstore/detail/hoxx-vpn-proxy/nbcojefnccbanplpoffopkoepjmhgdgh
+* Selection Search: https://chrome.google.com/webstore/detail/selection-search/gipnlpdeieaidmmeaichnddnmjmcakoe?hl=en
+    * https://diccionario.ru/perevod/%s
+    * http://www.spanishdict.com/translate/%s
