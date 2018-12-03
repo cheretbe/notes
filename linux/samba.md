@@ -59,10 +59,11 @@ mount -t cifs -o username=USERNAME,password=PASSWD,uid=$USER,gid=$USER //smb_ser
 
 # ,credentials=/root/.smbcredentials
 ```
-`.smbcredentials` example
+`.smbcredentials` example (domain is optional)
 ```
 username=myusername
 password=mypassword
+domain=WORKGROUP
 ```
 
 ### Standalone server
