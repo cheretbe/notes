@@ -9,7 +9,8 @@
 Only for new installation, skip this for upgrade
 ```shell
 apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient sendmail libapache2-mod-scgi \
-    libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl libacl1 libacl1-dev
+    libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl make gcc par2 \
+    libacl1 libacl1-dev
     
 # Check if sendmail is installed (note the trailing '*')
 dpkg -l sendmail*
