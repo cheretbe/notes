@@ -40,7 +40,7 @@ chown -R backuppc:backuppc /var/lib/backuppc/.ssh
 Check and download the lastest released versions:
 * https://github.com/backuppc/backuppc-xs/releases/
 * https://github.com/backuppc/rsync-bpc/releases/
-* https://github.com/backuppc/rsync-bpc/releases/
+* https://github.com/backuppc/backuppc/releases/
 ```shell
 mkdir -p sources
 cd sources
