@@ -70,7 +70,7 @@ Install BackupPC
 cd ../BackupPC-4.2.1/
 # [!] When installing, use this. Change '--hostname backuppc' to the actual host name
 # ./configure.pl --batch --cgi-dir /var/www/cgi-bin/BackupPC --data-dir /var/lib/backuppc \
-#   --hostname backuppc --html-dir /var/www/html/BackupPC --html-dir-url /BackupPC \
+#   --hostname $(hostname -f) --html-dir /var/www/html/BackupPC --html-dir-url /BackupPC \
 #   --install-dir /usr/local/BackupPC
 
 # When upgrading, use this instead:
