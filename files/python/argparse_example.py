@@ -8,6 +8,7 @@ parser.add_argument("required_arg", help="Required argument")
 parser.add_argument("optional_arg_1", nargs="?", default="", help="Optional argument 1")
 parser.add_argument("optional_arg_2", nargs="?", default="", help="Optional argument 2")
 
+parser.add_argument("-v", "--verbosity", type=int, choices=[0, 1, 2], help="increase output verbosity")
 parser.add_argument('-d', '--dont-do-something', dest='dont_do_something', action='store_true',
     default=False, help='Do not do something')
 
