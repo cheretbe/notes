@@ -61,6 +61,31 @@ To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable
 echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
 
+### Triggers
+```ruby
+  config.trigger.after :provision do |trigger|
+    trigger.info = "provision test"
+    trigger.ruby do |env,machine|
+      #puts env.to_yaml
+      #File.open("output.yml", "w") { |file| file.write(env.to_yaml) }
+      #puts machine.ssh_info
+
+      #puts ARGV.to_yaml
+      #ARGV.each do |arg|
+      #  puts (" argument: " + arg)
+      #end
+
+      env.ui.say(:error, "error test")
+      env.ui.say(:detail, "detail test")
+      env.ui.say(:info, "info test")
+      env.ui.say(:success, "success test")
+    end
+  end
+```
+
+* https://www.vagrantup.com/docs/plugins/development-basics.html
+* https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/ui.rb
+
 ### API
 
 * https://www.vagrantup.com/docs/vagrant-cloud/api.html
