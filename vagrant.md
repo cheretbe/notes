@@ -86,8 +86,10 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
 
 * https://www.vagrantup.com/docs/plugins/development-basics.html
+* https://www.vagrantup.com/docs/plugins/commands.html
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/ui.rb
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/environment.rb
+* https://github.com/hashicorp/vagrant/blob/master/plugins/commands/up/command.rb
 
 ### API
 
