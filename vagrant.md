@@ -79,6 +79,8 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
       env.ui.say(:detail, "detail test")
       env.ui.say(:info, "info test")
       env.ui.say(:success, "success test")
+
+      env.cli("ssh", "--", "hostname", "-f"
     end
   end
 ```
