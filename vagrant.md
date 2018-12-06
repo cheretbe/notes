@@ -90,6 +90,7 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/ui.rb
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/environment.rb
 * https://github.com/hashicorp/vagrant/blob/master/plugins/commands/up/command.rb
+* https://stackoverflow.com/questions/21890104/run-code-in-vagrantfile-only-if-provisioning
 
 ### API
 
