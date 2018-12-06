@@ -90,6 +90,7 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/ui.rb
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/environment.rb
 * https://github.com/hashicorp/vagrant/blob/master/plugins/commands/up/command.rb
+* https://www.rubydoc.info/github/mitchellh/vagrant/Vagrant/Environment
 * https://stackoverflow.com/questions/21890104/run-code-in-vagrantfile-only-if-provisioning
 * https://stackoverflow.com/questions/24855635/check-if-vagrant-provisioning-has-been-done/38203497#38203497
 
