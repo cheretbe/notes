@@ -1,5 +1,6 @@
 * http://backuppc.sourceforge.net/
 * https://github.com/backuppc/backuppc
+* https://sourceforge.net/p/backuppc/mailman/
 * https://github.com/backuppc/backuppc/wiki/Installing-BackupPC-4-from-tarball-or-git-on-Ubuntu
 * Review:
     * https://sourceforge.net/p/backuppc/mailman/message/33596562/
