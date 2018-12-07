@@ -125,6 +125,13 @@ add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
     info-channel=2 modem-init="AT+CGDCONT=1,\"IP\",\"internet.beeline.ru\"" 
     name=ppp-out1 password=beeline phone=*99***1# port=usb2 user=beeline
 
+# newer version
+# note "dial-on-demaind" when testing
+/interface ppp-client
+add add-default-route=no apn=internet.beeline.ru data-channel=1 dial-on-demand=\
+    no info-channel=2 name=ppp-beeline password=beeline phone=*99# port=usb1 \
+    use-peer-dns=no user=beeline
+
 /system routerboard usb power-reset duration=5s
 ```
 View modem/operator info
