@@ -135,14 +135,14 @@ system serial-terminal port=usb1 channel=2
 AT+ZCDRUN=4
 # enable:
 AT+ZCDRUN=9
-# disabled
+# disable:
 AT+ZCDRUN=8
 
 # View download mode (most likely not needed)
 AT+ZCDRUN=G
-# enabled
+# enable:
 AT+ZCDRUN=E
-# disabled
+# disable:
 AT+ZCDRUN=F
 ```
 * https://habr.com/post/188424/
