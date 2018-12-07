@@ -127,6 +127,7 @@ add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
 
 /system routerboard usb power-reset duration=5s
 ```
+View modem/operator info: "Info" button in ppp interface properties
 
 Как задать статический маршрут в случае, если ppp сервер не назначает параметр "remote address": задать вручную любой удобный ip адрес в этом поле в свойствах соединения и указать его в качестве шлюза в маршруте.
 
