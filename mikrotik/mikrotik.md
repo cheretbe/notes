@@ -127,7 +127,11 @@ add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
 
 /system routerboard usb power-reset duration=5s
 ```
-View modem/operator info: "Info" button in ppp interface properties
+View modem/operator info
+```
+/interface ppp-client info ppp-client1
+# or "Info" button in ppp interface properties
+```
 ```
 # Set/view CD mode
 system serial-terminal port=usb1 channel=2
