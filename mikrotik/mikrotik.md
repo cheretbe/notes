@@ -128,7 +128,25 @@ add apn=internet.beeline.ru data-channel=1 dial-on-demand=no disabled=no \
 /system routerboard usb power-reset duration=5s
 ```
 View modem/operator info: "Info" button in ppp interface properties
+```
+# Set/view CD mode
+system serial-terminal port=usb1 channel=2
+# View autorun state:
+AT+ZCDRUN=4
+# enable:
+AT+ZCDRUN=9
+# disabled
+AT+ZCDRUN=8
+
+# View download mode (most likely not needed)
+AT+ZCDRUN=G
+# enabled
+AT+ZCDRUN=E
+# disabled
+AT+ZCDRUN=F
+```
 * https://habr.com/post/188424/
+* https://christian.amsuess.com/tutorials/zte_mf180/
 
 Как задать статический маршрут в случае, если ppp сервер не назначает параметр "remote address": задать вручную любой удобный ip адрес в этом поле в свойствах соединения и указать его в качестве шлюза в маршруте.
 
