@@ -84,7 +84,9 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
     end
   end
 ```
-
+* https://github.com/hashicorp/vagrant/blob/master/website/source/docs/triggers/index.html.md
+* https://github.com/hashicorp/vagrant/blob/master/website/source/docs/triggers/usage.html.md
+* https://github.com/hashicorp/vagrant/blob/master/website/source/docs/triggers/configuration.html.md
 * https://www.vagrantup.com/docs/plugins/development-basics.html
 * https://www.vagrantup.com/docs/plugins/commands.html
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/ui.rb
