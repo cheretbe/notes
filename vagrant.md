@@ -96,6 +96,23 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 * https://stackoverflow.com/questions/21890104/run-code-in-vagrantfile-only-if-provisioning
 * https://stackoverflow.com/questions/24855635/check-if-vagrant-provisioning-has-been-done/38203497#38203497
 
+### Debugging
+```shell
+cp /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/vagrant.gemspec{,.bak}
+nano /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/vagrant.gemspec
+
+# Add these lines
+s.add_dependency 'pry'
+s.add_dependency 'pry-byebug'
+
+/opt/vagrant/embedded/bin/gem install pry pry-byebug --install-dir /opt/vagrant/embedded/gems/2.2.2
+
+# In Vagrant file
+# require "pry"
+# binding.pry
+
+```
+
 ### API
 
 * https://www.vagrantup.com/docs/vagrant-cloud/api.html
