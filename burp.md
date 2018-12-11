@@ -40,6 +40,8 @@ schtasks /change /disable /tn "burp cron"
 schtasks /change /enable /tn "burp cron"
 schtasks /run /tn "burp cron"
 schtasks /end /tn "burp cron"
+
+schtasks /change /enable /tn "burp cron" && schtasks /run /tn "burp cron" && schtasks /change /disable /tn "burp cron"
 ```
 **Ubuntu**
 
