@@ -21,16 +21,21 @@ tcpdump -n -i ifname icmp
 ```
 
 ```shell
+ifconfig ifname 0.0.0.0 up
 brctl addbr test-br
 brctl addif test-br ifname
+brctl show
 
-# Get DHCP address
+ifconfig test-br 172.24.0.1 up
+# Or get DHCP address
 dhclient -v test-br
 # Release
 dhclient -v -r test-br
 
 # ifdown test-br won't work since we don't use /etc/network/interfaces
+ifconfig test-br down
 ip link set dev test-br down
+
 brctl delif test-br ifname
 brctl delbr test-br
 ```
