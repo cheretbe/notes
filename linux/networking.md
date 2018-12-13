@@ -26,7 +26,7 @@ brctl addbr test-br
 brctl addif test-br ifname
 brctl show
 
-ifconfig test-br 172.24.0.1 up
+ifconfig test-br 172.24.0.1/24 up
 # Or get DHCP address
 dhclient -v test-br
 # Release
