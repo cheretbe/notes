@@ -14,6 +14,8 @@ sysctl -p /etc/sysctl.conf
 
 # NAT
 iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
+iptables --table nat --list
+iptables --table nat --delete POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
 
 # Capture ICMP packets on an interface
 # -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
