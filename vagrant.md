@@ -17,6 +17,8 @@ scp -F /tmp/ssh-config-name default:filename .
     vb.customize ["sharedfolder", "add", :id, "--name", "provision", "--hostpath", "/path/on/host", "--automount"]
     # relative path
     vb.customize ["sharedfolder", "add", :id, "--name", "debug", "--hostpath", File.expand_path("../..", File.dirname(__FILE__)), "--automount"]
+    # deny|allow-vms|allow-all
+    vb.customize [ "modifyvm", :id, "--nicpromisc2", "allow-all" ]
   end
   config.vm.network "private_network", virtualbox__intnet: "vagrant-intnet-1", auto_config: false
   config.vm.network "private_network", ip: "172.24.0.1", virtualbox__intnet: "vagrant-intnet-2"
