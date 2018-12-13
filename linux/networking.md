@@ -18,6 +18,8 @@ iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifna
 # Capture ICMP packets on an interface
 # -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
 tcpdump -n -i ifname icmp
+# On all interfaces
+tcpdump -n -i any icmp
 ```
 
 ```shell
