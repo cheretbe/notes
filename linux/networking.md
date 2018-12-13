@@ -135,7 +135,7 @@ service dhcpcd restart
 
 
 ### Routes
-```
+```shell
 route delete -net 192.168.101.0/24 gw 192.168.99.11
 route add -net 192.168.101.0/24 gw 192.168.100.9
 # add a route via an interface
