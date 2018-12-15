@@ -76,6 +76,11 @@ Access to auto-mounted shared folders is only granted to the user group vboxsf, 
 sudo adduser <username> vboxsf
 # or
 usermod -a -G vboxsf <username>
+
+# manually mount a shared folder in guest
+sudo mount -t vboxsf <sharename> /mont/point
+# set the default file owner user and group
+sudo mount -t vboxsf <sharename> /mont/point -o uid=vagrant,gid=vagrant
 ```
 ### Compacting VDI
 #### Linux
