@@ -65,7 +65,10 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 ```
 #### Scripts
 
-**TODO:** add `:tostr`, `:pick` etc. examples (http://www.mikrotik-routeros.com/2014/10/scriptlet-find-default-route-interface-names-and-a-free-licence/#more-1052)
+* **TODO:** add `:tostr`, `:pick` etc. examples (http://www.mikrotik-routeros.com/2014/10/scriptlet-find-default-route-interface-names-and-a-free-licence/#more-1052)
+* 2check: Как таковой отладки в RouterOS нет. Но можно воспользоваться командой, которая подсветит ошибки скрипта в терминале. код 
+`/system script> print from=<your script name>`
+
 ```shell
 :if ([/interface ethernet get [find mac-address="$lanMACaddr"] name] != "lan") do={
   :put "Setting '$lanMACaddr' interface name to 'lan'"
