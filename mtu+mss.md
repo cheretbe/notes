@@ -16,3 +16,10 @@ The first and last of the three bullets here are uncommon and are usually the re
 ```
 
 There are other techniques that can be used in order to help alleviate the problem of ICMP being completely blocked.
+
+* http://packetlife.net/blog/2008/aug/18/path-mtu-discovery/
+
+```
+tracepath -n 192.168.1.2
+```
+On Windows try https://elifulkerson.com/projects/mturoute.php
