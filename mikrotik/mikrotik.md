@@ -66,8 +66,6 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 #### Scripts
 
 * **TODO:** add `:tostr`, `:pick` etc. examples (http://www.mikrotik-routeros.com/2014/10/scriptlet-find-default-route-interface-names-and-a-free-licence/#more-1052)
-* 2check: Как таковой отладки в RouterOS нет. Но можно воспользоваться командой, которая подсветит ошибки скрипта в терминале. код 
-`/system script> print from=<your script name>`
 
 ```shell
 :if ([/interface ethernet get [find mac-address="$lanMACaddr"] name] != "lan") do={
@@ -79,6 +77,16 @@ put [/ip firewall filter get [find comment="comment"] src-address]
   :put "'wan1' interface is present"
 } else {
   :put "'wan1' interface is not present"
+}
+
+:if ([:len [/routing ospf interface find interface="inter_isp"]] = 0) do={
+  :put "Adding OSPF with hello-interval of 1s on interface 'inter_isp'"
+  /routing ospf interface add hello-interval=1s interface=inter_isp
+} else={
+  if ([/routing ospf interface get [find interface="inter_isp"] hello-interval] != "00:00:01") do={
+    :put "Changing OSPF hello-interval to 1s on interface 'inter_isp'"
+    /routing ospf interface set [find interface="inter_isp"] hello-interval=1s
+  }
 }
 
 /system script add name= script1 source=[/file get script1.rsc contents]
