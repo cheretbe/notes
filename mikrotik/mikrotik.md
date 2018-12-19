@@ -62,6 +62,9 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 /interface pppoe-client monitor pppoe-if-name once do={ :put $"local-address" }
 
 put [/ip firewall filter get [find comment="comment"] src-address]
+
+:put [/ip firewall nat find action=masquerade and out-interface="wan"]
+:put [/ip firewall nat find action=masquerade or out-interface="wan"]
 ```
 #### Scripts
 
