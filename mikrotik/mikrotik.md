@@ -207,3 +207,7 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 * http://oid-info.com/get/1.3.6.1.2.1.2.2.1.2
 * http://oid-info.com/get/1.3.6.1.2.1.4.20.1.2
 * http://oid-info.com/get/1.3.6.1.2.1.4.20.1.1
+
+#### OSPF
+* https://mum.mikrotik.com/presentations/CR18/presentation_5632_1532409246.pdf
+* https://youtu.be/u_V2FdcpQLM
