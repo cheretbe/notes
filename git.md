@@ -38,6 +38,17 @@ git reset
 
 # Undo commit that hasn't been pushed
 git reset HEAD~
+# Reverting changes to tracked files:
+git reset --hard HEAD~
+# [!] Previous command is dangerous. Review what will be reset
+git log -3 --stat
+git reset --hard previous_commit_hash
+
+# Undo merge commit after "git pull" if remote has new commits
+# http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/
+git log -3 --stat
+git reset --hard previous_commit_hash
+git pull --rebase
 
 # Rename file
 git mv file new-name
