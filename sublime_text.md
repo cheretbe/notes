@@ -16,6 +16,11 @@
 * Cheat sheet: https://www.cheatography.com/tdeyle/cheat-sheets/sublime-text-3/
 * Tips & tricks: https://generalassemb.ly/blog/sublime-text-3-tips-tricks-shortcuts/
 
+Run from console on Linux
+```shell
+subl filename
+```
+
 Icon in context menu on Windows
 ```
 reg.exe add "HKCR\*\shell\Open with Sublime Text" /v Icon /t REG_SZ /d "c:\Program Files\Sublime Text 3\sublime_text.exe" /f
