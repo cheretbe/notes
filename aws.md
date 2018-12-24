@@ -1,3 +1,8 @@
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 
 CNAME for S3 (www.johnsmith.net -> www.johnsmith.net.s3.amazonaws.com): http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html
+
+* https://rzn.id.au/tech/converting-an-ova-to-an-amazon-ami/
+* https://stackoverflow.com/questions/14511202/error-importing-vmdk-files-using-ec2-developer-tools
+* https://blog.zhaw.ch/icclab/walk-through-importing-virtual-machine-images-into-ec2/
+* https://wiki.mikrotik.com/wiki/Manual:CHR_AWS_installation
