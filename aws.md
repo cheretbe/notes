@@ -2,6 +2,7 @@
 
 CNAME for S3 (www.johnsmith.net -> www.johnsmith.net.s3.amazonaws.com): http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html
 
+* https://docs.aws.amazon.com/vm-import/latest/userguide/what-is-vmimport.html
 * https://rzn.id.au/tech/converting-an-ova-to-an-amazon-ami/
 * https://stackoverflow.com/questions/14511202/error-importing-vmdk-files-using-ec2-developer-tools
 * https://blog.zhaw.ch/icclab/walk-through-importing-virtual-machine-images-into-ec2/
