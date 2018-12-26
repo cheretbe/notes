@@ -292,7 +292,7 @@ zpool status
 :question: Do some tests to find out how ZoL handles compression/deduplication
 
 ```shell
-# We use pv only on the receiving end since it outputs status only on start and finish.
+# We use -v only on the receiving end since it outputs status only on start and finish.
 # Sender with -v option every second outputs status records that look like this:
 # 16:13:54   43.9G   pool/path@snapshot
 
