@@ -62,6 +62,13 @@ To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable
 # Bash, set permanently
 echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
+### AWS
+```shell
+cat .vagrant/machines/default/aws/id
+aws ec2 describe-instances \
+--instance-id $(cat .vagrant/machines/default/aws/id) \
+--query 'Reservations[0].Instances[0].PublicIpAddress'
+```
 
 ### Triggers
 ```ruby
