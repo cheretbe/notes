@@ -63,6 +63,7 @@ To move data from `%USERPROFILE%\.vagrant.d` `VAGRANT_HOME` environment variable
 echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
 ### AWS
+* https://github.com/mitchellh/vagrant-aws
 ```shell
 echo $(cat .vagrant/machines/default/aws/id)
 aws ec2 describe-instances \
