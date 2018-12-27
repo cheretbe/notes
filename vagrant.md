@@ -64,7 +64,7 @@ echo export VAGRANT_HOME=/path/to/home >> ~/.bashrc
 ```
 ### AWS
 ```shell
-cat .vagrant/machines/default/aws/id
+echo $(cat .vagrant/machines/default/aws/id)
 aws ec2 describe-instances \
 --instance-id $(cat .vagrant/machines/default/aws/id) \
 --query 'Reservations[0].Instances[0].PublicIpAddress'
