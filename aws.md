@@ -1,6 +1,8 @@
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 
+* CHR RouterOS 6.34.1: `ami-4e739221`
+
 CNAME for S3 (www.johnsmith.net -> www.johnsmith.net.s3.amazonaws.com): http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html
 
 * https://docs.aws.amazon.com/vm-import/latest/userguide/what-is-vmimport.html
