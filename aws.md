@@ -11,3 +11,8 @@ CNAME for S3 (www.johnsmith.net -> www.johnsmith.net.s3.amazonaws.com): http://d
 * https://stackoverflow.com/questions/14511202/error-importing-vmdk-files-using-ec2-developer-tools
 * https://blog.zhaw.ch/icclab/walk-through-importing-virtual-machine-images-into-ec2/
 * https://wiki.mikrotik.com/wiki/Manual:CHR_AWS_installation
+
+Move to TODO/2read: https://www.blog.labouardy.com/
+
+* Networking
+    * https://www.blog.labouardy.com/create-a-aws-vpc-with-terraform/
