@@ -16,3 +16,4 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 
 * Networking
     * https://www.blog.labouardy.com/create-a-aws-vpc-with-terraform/
+    * https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html
