@@ -19,3 +19,10 @@ Move to TODO/2read: https://www.blog.labouardy.com/
     * https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html
 * Terraform
     * https://hackernoon.com/introduction-to-aws-with-terraform-7a8daf261dc0
+    
+```bash
+# Find latest Ubuntu Xenial AMI
+aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial*" --query "sort_by(Images, &CreationDate)[-1].[ImageId,Name]" --output text
+# Get ID
+imageId=$(aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial*" --query "sort_by(Images, &CreationDate)[-1].ImageId" --output text)
+```
