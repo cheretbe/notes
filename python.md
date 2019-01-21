@@ -280,6 +280,12 @@ lsvirtualenv
 rmvirtualenv <name>
 workon [<name>]
 
+# Check sys.path
+python -m site
+
+# Run python directly in virtualenv (without virtualenvwrapper.sh and workon)
+ ~/.virtualenvs/virt-env-name/bin/python -m site
+
 # Set project directory
 cd ~/projects/project-dir
 setvirtualenvproject $VIRTUAL_ENV $(pwd)
