@@ -257,7 +257,13 @@ apt install python-pip
 # As user
 pip install --user virtualenvwrapper
 
-# Repair pip upgrade over system package
+# Python3 version
+apt install python3-pip
+pip3 install --user virtualenvwrapper
+# [!!] set this before running virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PYTHON="$(command \which python3)"
+
+# Repair accidental pip upgrade over system package
 sudo python3 -m pip uninstall pip
 sudo apt install python3-pip --reinstall
 
