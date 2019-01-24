@@ -6,6 +6,10 @@ scp -F /tmp/ssh-config-name default:filename .
 ```
 
 ```ruby
+
+  # Multi-machine with autostart disabled
+  config.vm.define :client, autostart: false do |client|
+
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.winrm.password = "password"
   config.vm.provider "virtualbox" do |vb|
