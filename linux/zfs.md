@@ -92,8 +92,10 @@ zfs get xattr pool
 zfs get atime pool
 zfs get mountpoint pool
 
-# lz4_compress (2check)
-zfs get all pool | grep 'feature@lz4_compress'
+# lz4_compress
+zpool get all [pool] | grep 'feature@lz4_compress'
+# or
+zpool get feature@lz4_compress [pool]
 ```
 * [\[ TOC \]](#table-of-contents)
 
