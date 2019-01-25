@@ -8,10 +8,19 @@ scp -F /tmp/ssh-config-name default:filename .
 ```ruby
 
   # Multi-machine with autostart disabled
-  config.vm.define :client, autostart: false do |client|
+  Vagrant.configure("2") do |config|
+    config.vm.define :host1, autostart: false do |host1|
+      host1.vm.box = "ubuntu/xenial64"
+      # etc
+    end
+  end
+  
+  # SecondHDD = "/full/path/to/vm-name_second_hdd.vdi"
+  SecondHDD = "./vm-name_second_hdd.vdi"
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.winrm.password = "password"
+
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
     vb.memory = "1024"
@@ -23,7 +32,14 @@ scp -F /tmp/ssh-config-name default:filename .
     vb.customize ["sharedfolder", "add", :id, "--name", "debug", "--hostpath", File.expand_path("../..", File.dirname(__FILE__)), "--automount"]
     # deny|allow-vms|allow-all
     vb.customize [ "modifyvm", :id, "--nicpromisc2", "allow-all" ]
+    
+    unless File.exist?(SecondHDD)
+      vb.customize ['createhd', '--filename', SecondHDD, '--variant', 'Standard', '--size', 20*1024]
+    end
+    # "SATAController", "--port", 1
+    vb.customize ['storageattach', :id,  '--storagectl', 'SCSI', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', SecondHDD]
   end
+
   config.vm.network "private_network", virtualbox__intnet: "vagrant-intnet-1", auto_config: false
   config.vm.network "private_network", ip: "172.24.0.1", virtualbox__intnet: "vagrant-intnet-2"
   config.vm.network "private_network", type: "dhcp", virtualbox__intnet: "vagrant-intnet-3"
