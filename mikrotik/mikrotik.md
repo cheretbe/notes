@@ -17,6 +17,7 @@ WLAN settings
 - Mode: ap-bridge
 - [Switch to advanced mode] Advanced > Distance: indoors
 - (2check): https://blog.ligos.net/2018-01-01/Mikrotik-WiFi-Access-Point-With-VLAN.html
+- Ppoint-to-point bridge: https://www.technotrade.com.ua/Articles/mikrotik_wifi_bridge_setup_2013-09-08.php
 
 Get latest RoS version:
 ```shell
