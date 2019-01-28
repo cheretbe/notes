@@ -10,4 +10,5 @@ phoronix-test-suite install pts/compilebench
 phoronix-test-suite run pts/compilebench
 ```
 
-phoronix-cmd.md: https://gist.github.com/anshula/728a76297e4a4ee7688d
+* phoronix-cmd.md: https://gist.github.com/anshula/728a76297e4a4ee7688d
+* https://www.phoronix.com/forums/forum/phoronix/phoronix-test-suite/901127-documentation-confusion-getting-started
