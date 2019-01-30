@@ -1,8 +1,11 @@
 ```shell
+# View interfaces
+ipconfig -a
+ip link show
+
 # view IP(s)
 hostname -I
 ip addr
-
 
 # Temporarily enable routing
 echo 1 > /proc/sys/net/ipv4/ip_forward
