@@ -70,6 +70,26 @@ Ubuntu 18.04:
 * https://askubuntu.com/questions/575651/what-is-the-difference-between-grub-cmdline-linux-and-grub-cmdline-linux-default
 
 ### Config examples
+Opensuse (/etc/sysconfig/network)
+```
+# /etc/sysconfig/network/ifcfg-eth1
+# DHCP
+BOOTPROTO='dhcp'
+STARTMODE='auto'
+DEVICE='eth1'
+
+# Static
+BOOTPROTO='static'
+IPADDR='172.24.0.1'
+NETMASK='255.255.255.0'
+DEVICE='eth1'
+PEERDNS='no'
+STARTMODE='auto'
+USERCONTROL='no'
+
+
+```
+
 Ubuntu (/etc/network/interfaces)
 ```
 # interface without an IP address
