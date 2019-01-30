@@ -17,6 +17,9 @@ scp -F /tmp/ssh-config-name default:filename .
   
   # SecondHDD = "/full/path/to/vm-name_second_hdd.vdi"
   SecondHDD = "./vm-name_second_hdd.vdi"
+  
+  # Disable the default /vagrant share
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.winrm.password = "password"
