@@ -199,6 +199,9 @@ reboot
 iwconfig
 apt install wpasupplicant
 ```
+
+* Diagnostics: https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
+
 ```yaml
 network:
   version: 2
