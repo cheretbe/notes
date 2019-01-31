@@ -201,6 +201,7 @@ apt install wpasupplicant
 ```
 
 * Diagnostics: https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
+* https://play.google.com/store/apps/details?id=com.vrem.wifianalyzer&hl=en_GB
 
 ```yaml
 network:
