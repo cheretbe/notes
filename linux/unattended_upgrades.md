@@ -16,6 +16,10 @@ head /var/lib/apt/lists/packages.gitlab.com_gitlab_gitlab-ce_ubuntu_dists_xenial
 # Origin: packages.gitlab.com/gitlab/gitlab-ce
 # Codename: xenial
 
+# for Docker
+# Origin: Docker
+# Suite: bionic
+
 # for Yandex Disk
 head /var/lib/apt/lists/repo.yandex.ru_yandex-disk_deb_dists_stable_InRelease
 # Origin: Yandex Disk Archive
@@ -37,6 +41,7 @@ Unattended-Upgrade::Allowed-Origins {
 //      "${distro_id}:${distro_codename}-backports";
         "Yandex Disk Archive:stable";
         "packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}";
+        "Docker:${distro_codename}";
 
         "origin=Raspbian,codename=${distro_codename},label=Raspbian";
         "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";
