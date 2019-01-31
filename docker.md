@@ -39,6 +39,8 @@ apt-cache policy docker-ce
 # Install Docker
 sudo apt install docker-ce
 
+# [!!] Don't forget to update /etc/apt/apt.conf.d/50unattended-upgrades
+
 # Execute Docker commands as a non-root user (optional)
 # [!] Do not copy/paste as root
 sudo usermod -aG docker ${USER}
