@@ -2,6 +2,7 @@ Unsorted
 ```python
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 ```
+* Python environment: https://xkcd.com/1987/
 * Detect Linux distro: https://github.com/nir0s/distro
 * https://anthony-tuininga.github.io/cx_Freeze/
     * https://ptmccarthy.github.io/2016/01/22/python-cx-freeze/
