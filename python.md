@@ -6,6 +6,7 @@ path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 pex -v --python-shebang="/usr/bin/env python3.6" -r requirements.txt -o test.pex
 ```
 * Python environment: https://xkcd.com/1987/
+* https://devguide.python.org/#status-of-python-branches
 * Detect Linux distro: https://github.com/nir0s/distro
 * https://anthony-tuininga.github.io/cx_Freeze/
     * https://ptmccarthy.github.io/2016/01/22/python-cx-freeze/
