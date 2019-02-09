@@ -97,6 +97,8 @@ source <(wget -qO- https://raw.githubusercontent.com/cheretbe/notes/master/files
 # View current config
 git config --list [--global]
 
+git config --global color.ui auto
+
 # Avoid trying to guess "user.email" and "user.name", and instead retrieve the values only from the configuration
 git config --global user.useConfigOnly true
 git config [--global] user.name "user name"
