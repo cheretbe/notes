@@ -26,6 +26,10 @@ apt-get install firefox=45.0.2+build1-0ubuntu1
 apt-mark hold firefox
 # Unhold
 apt-mark unhold firefox
+# List held packages
+apt-mark showhold
+# or
+dpkg -l | grep "^hi"
 ```
 
 * apt-listchanges: http://jxf.me/entries/better-apt-ubuntu/
