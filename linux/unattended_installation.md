@@ -20,7 +20,7 @@ transmission-cli --download-dir ~/Downloads http://releases.ubuntu.com/16.04/ubu
 # --max-overall-download-limit=2500K (1K = 1024, 1M = 1024K)
 aria2c --seed-time 0 --dir=~/Downloads http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
 # Magnet link
-aria2c --enable-dht=true "magnet:?xt=urn:btih:2D..."
+aria2c --enable-dht=true --seed-time 0 "magnet:?xt=urn:btih:2D..."
 
 mkdir -p ~/temp/ubuntu-iso
 # requires root privileges
