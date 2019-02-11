@@ -17,9 +17,9 @@ dpkg -S libstdc++.so.6
 # Check currently installed version
 dpkg -l firefox
 # View available versions
-apt-cache showpkg firefox
-# or
 apt-cache policy firefox
+# or
+apt-cache showpkg firefox
 # Downgrade
 apt-get install firefox=45.0.2+build1-0ubuntu1
 # Hold the downgraded version
