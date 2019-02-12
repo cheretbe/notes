@@ -15,3 +15,12 @@ sudo apt install mp3splt
 # this will produce files named "file_0000m_00s__0030m_00s.mp3", "file_0030m_00s__0060m_00s.mp3" etc.
 mp3splt -t 30.0 file.mp3
 ```
+
+Reduce bitrate
+```shell
+ffmpeg -i file.mp3 -ab 64k -threads 4 file_64.mp3
+# libmp3lame doesn't support multi-threading, so -threads n option is ignored
+ffmpeg -h encoder=libmp3lame
+...
+Threading capabilities: none
+```
