@@ -22,6 +22,11 @@ docker stop <id or name>
 # -i, --interactive  Keep STDIN open even if not attached
 # -t, --tty          Allocate a pseudo-TTY
 docker exec -it <id or name> bash
+
+docker run -v /home/vagrant:/test:rw -d -t -i --name test centos /sbin/init
+docker exec -it test yum -y update
+docker stop test
+docker rm test
 ```
 
 Installation (18.04)
