@@ -1,6 +1,8 @@
 * https://www.reddit.com/r/homelab/comments/8qlii3/how_do_you_distribute_you_dockers/
 * https://www.reddit.com/r/selfhosted/comments/9b4ej2/docker_organizational_best_practices/
 * http://blog.thoward37.me/articles/where-are-docker-images-stored/
+----
+https://developers.redhat.com/cheat-sheets/containers/
 
 ```shell
 # View all containers, running or stopped
