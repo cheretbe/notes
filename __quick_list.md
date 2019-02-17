@@ -20,6 +20,17 @@ echo test | mail -s "test mail" root
 
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host.tld
 
+# Find file recursively
+# -iname:  like -name, but the match is case insensitive
+find / -xdev -iname "*sql*"
+
+# Grep the whole filesystem
+# -xdev  Don't descend directories on other filesystems.
+# -H, --with-filename  print the file name for each match
+# -I  equivalent to --binary-files=without-match
+find / -xdev -type f -print0 | xargs -0 grep -H -I "ForceCompositionPipeline"
+# -m 1 to return only the first match
+
 # Write speed test
 # 20GiB, 1KiB block: bs=1k count=$((20*1024*1024))
 # 20GiB, 1MiB block:
