@@ -64,7 +64,7 @@ apt install libgl1-mesa-glx
 ```
 * http://wiki.stoney-cloud.org/wiki/Workaround_unhandled_rdmsr/wrmsr
 * Swappiness: https://github.com/cheretbe/notes/blob/master/linux/swap.md#swappines
-
+* `SHUTDOWN_TIMEOUT` in `/etc/default/libvirt-guests`
 ### Networking
 Add bridged network adapter to `/etc/network/interfaces`
 ```
