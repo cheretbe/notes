@@ -48,6 +48,18 @@ reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /v 
 * http://mindref.blogspot.ru/2011/04/kvm-shutdown-windows-guest-gracefullly.html
 * https://pve.proxmox.com/wiki/Windows_2012_guest_best_practices
 
+```shell
+# Check last shutdown status
+journalctl -b -1 -u 'libvirt-guests'
+```
+Failed shutdown log example
+```
+Feb 17 17:40:29 ubuntu-test libvirt-guests.sh[1726]: Timeout expired while shutting down domains
+Feb 17 17:40:29 ubuntu-test systemd[1]: libvirt-guests.service: Control process exited, code=exited status=1
+Feb 17 17:40:29 ubuntu-test systemd[1]: libvirt-guests.service: Failed with result 'exit-code'.
+Feb 17 17:40:29 ubuntu-test systemd[1]: Stopped Suspend/Resume Running libvirt Guests.
+```
+
 [\[ TOC \]](#table-of-contents)
 
 ### Installation
