@@ -49,6 +49,7 @@ reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Control\Error Message Instrument" /v 
 * https://pve.proxmox.com/wiki/Windows_2012_guest_best_practices
 
 ```shell
+# SHUTDOWN_TIMEOUT is in /etc/default/libvirt-guests
 # Check last shutdown status
 journalctl -b -1 -u 'libvirt-guests'
 ```
@@ -76,7 +77,7 @@ apt install libgl1-mesa-glx
 ```
 * http://wiki.stoney-cloud.org/wiki/Workaround_unhandled_rdmsr/wrmsr
 * Swappiness: https://github.com/cheretbe/notes/blob/master/linux/swap.md#swappines
-* `SHUTDOWN_TIMEOUT` in `/etc/default/libvirt-guests`
+* Adjust `SHUTDOWN_TIMEOUT` in `/etc/default/libvirt-guests` as needed
 ### Networking
 Add bridged network adapter to `/etc/network/interfaces`
 ```
