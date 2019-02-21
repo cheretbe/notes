@@ -5,3 +5,4 @@
 * https://www.tutorialspoint.com/saltstack/saltstack_quick_guide.htm
 * https://bencane.com/2016/03/22/self-managing-servers-with-masterless-saltstack-minions/
 * https://www.linode.com/docs/applications/configuration-management/automate-a-static-site-deployment-with-salt/
+* https://github.com/saltstack/salt-bootstrap#install-using-curl
