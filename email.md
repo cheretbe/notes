@@ -1,3 +1,13 @@
+* https://blog.woodpecker.co/cold-email/reputation-domain-ip/
+* https://www.mail-tester.com/
+* https://ismyemailworking.com/AdvancedTest/
+* https://analyze.email/
+* https://fraudguard.io/
+* https://blog.rebrandly.com/domain-reputation-links/
+* https://www.spamhaus.org/statistics/tlds/
+----
+* https://www.hostinger.ru/poctovij-hosting
+
 ```shell
 echo "Message test" | mailx -v -r "someone@example.com" \
   -s "Test subject" -S smtp="mail.example.com:587" \
