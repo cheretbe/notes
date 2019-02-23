@@ -6,6 +6,7 @@
 * https://blog.rebrandly.com/domain-reputation-links/
 * https://www.spamhaus.org/statistics/tlds/
 ----
+* https://hostripples.com/business-email.php
 * https://www.hostinger.ru/poctovij-hosting
 
 ```shell
