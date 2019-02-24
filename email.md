@@ -9,6 +9,7 @@
 * https://hostripples.com/business-email.php
 * https://www.hostinger.ru/poctovij-hosting
 * https://www.mailcheap.co/email-shared.html
+* https://www.servermx.com/en/index.html
 
 ```shell
 echo "Message test" | mailx -v -r "someone@example.com" \
