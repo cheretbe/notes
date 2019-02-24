@@ -10,6 +10,7 @@
 * https://www.hostinger.ru/poctovij-hosting
 * https://www.mailcheap.co/email-shared.html
 * https://www.servermx.com/en/index.html
+* https://www.zoho.com/mail/
 
 ```shell
 echo "Message test" | mailx -v -r "someone@example.com" \
