@@ -7,13 +7,13 @@ scp -F /tmp/ssh-config-name default:filename .
 
 ```ruby
 
-  # Multi-machine with autostart disabled
-  Vagrant.configure("2") do |config|
-    config.vm.define :host1, autostart: false do |host1|
-      host1.vm.box = "ubuntu/xenial64"
-      # etc
-    end
+# Multi-machine with autostart disabled
+Vagrant.configure("2") do |config|
+  config.vm.define :host1, autostart: false do |host1|
+    host1.vm.box = "ubuntu/xenial64"
+    # etc
   end
+end
   
   # SecondHDD = "/full/path/to/vm-name_second_hdd.vdi"
   SecondHDD = "./vm-name_second_hdd.vdi"
