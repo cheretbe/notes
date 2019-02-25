@@ -1,5 +1,6 @@
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
+* IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
 
 * CHR RouterOS 6.34.1: `ami-4e739221`
 
@@ -21,6 +22,9 @@ Move to TODO/2read: https://www.blog.labouardy.com/
     * https://hackernoon.com/introduction-to-aws-with-terraform-7a8daf261dc0
     
 ```bash
+# Configure (this creates/updates .aws/config and .aws/credentials)
+aws configure
+
 # Find latest Ubuntu Xenial AMI
 aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial*" --query "sort_by(Images, &CreationDate)[-1].[ImageId,Name]" --output text
 # Get ID
