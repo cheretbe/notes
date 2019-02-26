@@ -22,7 +22,7 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 * Terraform
     * https://hackernoon.com/introduction-to-aws-with-terraform-7a8daf261dc0
 * AWS CLI
-    * The [JMESPath](http://jmespath.org/) language is used for filtering on client side (--query)
+    * The [JMESPath](http://jmespath.org/) language is used for filtering **on client side** (--query)
     * https://cloudonaut.io/6-tips-and-tricks-for-aws-command-line-ninjas/
     
 ```bash
