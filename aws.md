@@ -21,6 +21,8 @@ Move to TODO/2read: https://www.blog.labouardy.com/
     * https://medium.com/@brad.simonin/create-an-aws-vpc-and-subnet-using-the-aws-cli-and-bash-a92af4d2e54b
 * Terraform
     * https://hackernoon.com/introduction-to-aws-with-terraform-7a8daf261dc0
+* AWS CLI
+    * https://cloudonaut.io/6-tips-and-tricks-for-aws-command-line-ninjas/
     
 ```bash
 # Configure (this creates/updates .aws/config and .aws/credentials)
