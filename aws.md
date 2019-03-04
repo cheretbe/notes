@@ -15,6 +15,8 @@ CNAME for S3 (www.johnsmith.net -> www.johnsmith.net.s3.amazonaws.com): http://d
 
 Move to TODO/2read: https://www.blog.labouardy.com/
 
+* Images
+    * https://stackoverflow.com/questions/40835953/how-to-find-ami-id-of-centos-7-image-in-aws-marketplace
 * Networking
     * https://www.blog.labouardy.com/create-a-aws-vpc-with-terraform/
     * https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html
