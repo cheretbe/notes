@@ -30,6 +30,9 @@ Move to TODO/2read: https://www.blog.labouardy.com/
     * The [JMESPath](http://jmespath.org/) language is used for filtering **on client side** (--query)
     * http://blog.xi-group.com/2015/01/small-tip-how-to-use-aws-cli-filter-parameter/
     * https://cloudonaut.io/6-tips-and-tricks-for-aws-command-line-ninjas/
+* Metadata
+    * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+    * https://stackoverflow.com/questions/42314029/whats-special-about-169-254-169-254-ip-address-for-aws
     
 ```bash
 # Configure (this creates/updates .aws/config and .aws/credentials)
