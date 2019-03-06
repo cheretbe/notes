@@ -31,6 +31,8 @@ iptables --table nat --append PREROUTING --in-interface ifname --protocol tcp --
 tcpdump -n -i ifname icmp
 # On all interfaces
 tcpdump -n -i any icmp
+# On port 80
+tcpdump -n -i eth0 'tcp port 80'
 ```
 
 ```shell
