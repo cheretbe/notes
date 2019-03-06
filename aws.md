@@ -24,6 +24,7 @@ Move to TODO/2read: https://www.blog.labouardy.com/
     * https://www.assistanz.com/creating-vpc-with-nat-instance/
     * https://medium.com/@brad.simonin/create-an-aws-vpc-and-subnet-using-the-aws-cli-and-bash-a92af4d2e54b
     * https://serverfault.com/questions/406351/how-to-configure-a-custom-nat-for-use-in-amazon-vpc/406508
+    * https://medium.com/@rakeshkanagaraj1990/aws-nat-instance-port-forwarding-475fbcf2585f
 * Terraform
     * https://hackernoon.com/introduction-to-aws-with-terraform-7a8daf261dc0
 * AWS CLI
