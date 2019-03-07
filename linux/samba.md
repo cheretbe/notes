@@ -1,3 +1,4 @@
+* https://wiki.debian.org/AuthenticatingLinuxWithActiveDirectorySssd
 * https://samba.ninja/2018/08/ubuntu-18-active-directory-member-server/
 * ~~https://samba.ninja/2016/10/ubuntu-16-04-samba-ad-member-server/~~
 * ~~https://samba.ninja/2015/10/centos-7-samba-ad-member-server/~~
