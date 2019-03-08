@@ -18,7 +18,7 @@ vboxmanage setproperty machinefolder /mnt/vmdata/vm/
 # check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
 
-ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@host.tld
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=2 user@host.tld
 
 # Find file recursively
 # -iname:  like -name, but the match is case insensitive
