@@ -44,3 +44,8 @@ aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu
 # Get ID
 imageId=$(aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial*" --query "sort_by(Images, &CreationDate)[-1].ImageId" --output text)
 ```
+CloudWatch filter examples
+```
+[version, accountid, interfaceid, srcaddr, dstaddr, srcport, dstport=22, protocol, packets, bytes, start, end, action, logstatus]
+[srcaddr, dstaddr, srcport, dstport=22, protocol, action]
+```
