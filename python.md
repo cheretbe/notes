@@ -39,6 +39,9 @@ __pycache__/
 ```python
 #!/usr/bin/env python
 
+# Throw an exception
+raise Exception("Test")
+
 # Format examples
 # Pad a number with leading zeros
 print("{:03d}".format(1))
