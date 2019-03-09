@@ -7,6 +7,9 @@ ip link show
 hostname -I
 ip addr
 
+# Test port access
+nc -l -p 1234
+echo "Test" | nc host.domain.tld 1234
 # Test UDP broadcast
 echo "UDP broadcast" | socat - UDP4-DATAGRAM:192.168.1.255:12345,so-broadcast
 nc -l -u 12345
