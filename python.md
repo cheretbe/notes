@@ -42,6 +42,13 @@ __pycache__/
 # Throw an exception
 raise Exception("Test")
 
+# https://stackoverflow.com/questions/363944/python-idiom-to-return-first-item-or-none/365934#365934
+# Return first item of a list or None
+next(iter(your_list), None)
+# If your_list can be None:
+next(iter(your_list or []), None)
+
+
 # Format examples
 # Pad a number with leading zeros
 print("{:03d}".format(1))
