@@ -108,6 +108,12 @@ zpool get feature@lz4_compress [pool]
 # 16GB=17179869184, 8GB=8589934592, 4GB=4294967296, 2GB=2147483648, 1GB=1073741824
 options zfs zfs_arc_max=4294967296
 ```
+:warning: On 18.04 arc_summary.py is not installed (https://bugs.launchpad.net/ubuntu/+source/zfs-linux/+bug/1574342)
+```shell
+# Manual download
+wget https://raw.githubusercontent.com/zfsonlinux/zfs/master/cmd/arc_summary/arc_summary3
+chmod +x arc_summary3
+```
 Check current in-use values:
 ```shell
 # c      is the target size of the ARC in bytes
