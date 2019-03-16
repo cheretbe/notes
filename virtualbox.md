@@ -1,3 +1,6 @@
+* https://slackblogs.blogspot.com/2019/02/kernel-44172-breaking-some-application.html
+------
+
 Packages to install before guest additions
 ```
 apt install dkms build-essential linux-headers-generic
