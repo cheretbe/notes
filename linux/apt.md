@@ -1,4 +1,6 @@
 ```shell
+# Enable the 'universe' repository
+add-apt-repository universe
 # View the list of configured repos and PPAs
 apt-cache policy
 # Remove a PPA
