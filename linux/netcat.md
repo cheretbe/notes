@@ -7,9 +7,6 @@ nc -l -p 1234 > /path/big_file.tar.gz
 sudo apt install netcat pv
 pv big_file.tar.gz | nc host.domain.tld 1234
 
-tar cvf - directory/ | pigz | nc host.domain.tld 1234
-tar cvf - /with/full/path/ | pigz | nc host.domain.tld 1234
-
 # on server (receiver)
 # -q seconds: after EOF is detected, wait the specified number of seconds and then quit
 nc -q 1 -l -p 1234 | tar xv
@@ -21,4 +18,8 @@ nc -q 1 -l -p 1234 | pv | tar x
 
 # on client (sender)
 tar cv . | nc -q 1 dest-ip 1234
+
+# With pigz it's better to use pv on sender
+tar cvf - directory/ | pv | pigz | nc host.domain.tld 1234
+tar cvf - /with/full/path/ | pv | pigz | nc host.domain.tld 1234
 ```
