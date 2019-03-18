@@ -19,7 +19,8 @@ nc -q 1 -l -p 1234 | pv | tar x
 # on client (sender)
 tar cv . | nc -q 1 dest-ip 1234
 
-# With pigz it's better to use pv on sender
-tar cvf - directory/ | pv | pigz | nc host.domain.tld 1234
-tar cvf - /with/full/path/ | pv | pigz | nc host.domain.tld 1234
+# With pigz it's better to use pv on sender and -v on receiver
+nc -q 1 -l -p 1234 | tar xvz
+tar cf - directory/ | pv | pigz | nc host.domain.tld 1234
+tar cf - /with/full/path/ | pv | pigz | nc host.domain.tld 1234
 ```
