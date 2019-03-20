@@ -5,6 +5,8 @@ import argparse
 parser = argparse.ArgumentParser(description="Program description")
 parser.add_argument("required_arg", help="Required argument")
 
+# For list use nargs="+" or nargs="*"
+# nargs="+" takes 1 or more arguments, nargs="*" takes zero or more
 parser.add_argument("optional_arg_1", nargs="?", default="", help="Optional argument 1")
 parser.add_argument("optional_arg_2", nargs="?", default="", help="Optional argument 2")
 
