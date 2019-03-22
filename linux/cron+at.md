@@ -39,9 +39,11 @@ atrm <id>
 at -d <id>
 ```
 
+```shell
 # schedule a reboot
 at 23:00 27.07.15 <<EOF
 echo "$(date) - Rebooting $(hostname -f)" \
    | mail $USER -s "Scheduled reboot of $(hostname -f)"
 /sbin/reboot
 EOF
+```
