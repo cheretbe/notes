@@ -11,6 +11,8 @@ https://yed.yworks.com/support/manual/index.html
 * For groups it's convenient to use `Group` object from `BPMN` palette section (Select node(s) and hold <kbd>SHIFT</kbd> while dragging to move in/out of a group)
 
 ----
+* https://material-ui.com/style/color/
+* https://aws.amazon.com/architecture/icons/
 * https://www.youtube.com/watch?v=7btg0ohTMIY
 * http://www.vrt.com.au/downloads/vrt-network-equipment
 * http://www.cisco.com/c/en/us/about/brand-center/network-topology-icons.html
