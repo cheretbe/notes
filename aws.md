@@ -18,6 +18,7 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 * Images
     * https://aws.amazon.com/marketplace
     * https://stackoverflow.com/questions/40835953/how-to-find-ami-id-of-centos-7-image-in-aws-marketplace
+    * https://access.redhat.com/solutions/15356
 * Networking
     * https://www.blog.labouardy.com/create-a-aws-vpc-with-terraform/
     * https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html
