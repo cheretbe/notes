@@ -46,6 +46,10 @@ aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu
 imageId=$(aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial*" --query "sort_by(Images, &CreationDate)[-1].ImageId" --output text)
 # To find out available filters use help command
 aws ec2 describe-images help
+# View image info by ID
+aws ec2 describe-images --region eu-central-1 --filters "Name=image-id,Values=ami-09de4a4c670389e4b" --query "Images[*].[ImageId,Name,OwnerId]" --output text
+# List images by owner ordered by date
+aws ec2 describe-images --region eu-central-1 --owners 309956199498 --query "sort_by(Images, &CreationDate)[*].[ImageId,Name,CreationDate]" --output text
 ```
 CloudWatch filter examples
 ```
