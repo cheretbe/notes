@@ -264,6 +264,7 @@ git fetch --all && git status
 ### Linux
 
 To review:
+* https://docs.python.org/3/library/venv.html
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
 ```shell
