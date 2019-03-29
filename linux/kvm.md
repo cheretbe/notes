@@ -69,7 +69,7 @@ To check if hardware acceleration is enabled install package `cpu-checker` and r
 apt update
 apt install bridge-utils qemu-kvm virt-manager
 # Add a user to kvm and libvirtd groups (logoff/logon to take effect)
-usermod -a -G kvm,libvirtd username
+usermod -a -G kvm,libvirt username
 # https://bugs.launchpad.net/ubuntu/+source/virt-manager/+bug/1550983
 # If virt-manager fails to start with error message "Couldn't open libGL.so.1: libGL.so.1:
 # cannot open shared object file: No such file or directory"
