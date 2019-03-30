@@ -2,6 +2,11 @@
 * https://www.reddit.com/r/selfhosted/comments/9b4ej2/docker_organizational_best_practices/
 * http://blog.thoward37.me/articles/where-are-docker-images-stored/
 ----
+```shell
+docker run -dti --name centos-6 centos:6 /bin/bash
+docker exec -ti centos-6 /bin/bash
+```
+----
 https://developers.redhat.com/cheat-sheets/containers/
 
 ```shell
