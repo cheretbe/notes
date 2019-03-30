@@ -19,15 +19,20 @@ docker inspect --format "{{ json .HostConfig.RestartPolicy }}" <id or name>
 # Alternative way to get JSON (package jq needs to be installed)
 docker inspect <id or name> | jq .[0] | jq .HostConfig.RestartPolicy
 
+# -d, --detach        Run container in background and print container ID
+# -t, --tty           Allocate a pseudo-TTY
+# -i, --interactive   Keep STDIN open even if not attached
+# -v, --volume list   Bind mount a volume
+docker run -v /home/vagrant:/test:rw -d -t -i --name test centos /sbin/init
+
 docker start <id or name>
 docker stop <id or name>
+
 # -i, --interactive  Keep STDIN open even if not attached
 # -t, --tty          Allocate a pseudo-TTY
 docker exec -it <id or name> bash
-
-docker run -v /home/vagrant:/test:rw -d -t -i --name test centos /sbin/init
 docker exec -it test yum -y update
-docker stop test
+
 docker rm test
 ```
 
