@@ -4,7 +4,7 @@
 1. Add ebook to the library
 2. Edit (Right click -> Edit book)
 3. Turn on CSS preview (View -> Live CSS)
-4. Open some chapter HTML file, click on preview panel, analyse CSS inheritance
+4. Open some chapter HTML file, click on "File preview", analyse CSS inheritance
 5. Edit CSS using `color` and `background-color` tags (file preview panel updates dynamically)
 ```
   background-color: #B8BBA4;
