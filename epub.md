@@ -12,3 +12,6 @@
 ```
 6. Save file
 7. Make a copy (Right click -> Save to disk -> Save only EPUB format to disk in a single directory)
+
+##### Change multiple CSS styles
+`Tools` -> `Transform styles`
