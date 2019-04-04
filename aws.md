@@ -17,6 +17,7 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 
 * Images
     * https://aws.amazon.com/marketplace
+    * https://askubuntu.com/questions/53582/how-do-i-know-what-ubuntu-ami-to-launch-on-ec2/53586#53586
     * https://stackoverflow.com/questions/40835953/how-to-find-ami-id-of-centos-7-image-in-aws-marketplace
     * https://access.redhat.com/solutions/15356
 * Networking
