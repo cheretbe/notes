@@ -3,6 +3,10 @@
 ipconfig -a
 ip link show
 
+# Bring an interface up/down
+ip link set dev <ifname> up
+ip link set dev <ifname> down
+
 # view IP(s)
 hostname -I
 ip addr
