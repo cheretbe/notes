@@ -1,7 +1,11 @@
+* `ip` command cheatsheet: https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
+
 ```shell
-# View interfaces
+# View interfaces (note "state UP" or "state DOWN")
 ipconfig -a
 ip link show
+# Display information only for one device
+ip link show dev <ifname>
 
 # Bring an interface up/down
 ip link set dev <ifname> up
