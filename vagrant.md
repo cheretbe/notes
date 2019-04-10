@@ -198,13 +198,11 @@ end
 ```ruby
 env_vars = ["VAR1", "VAR2"]
 
+# This code is executed on every Vagrant command, therefore, we don't check
+# anything and don't echo any messages here. All necessary checks should be
+# done in the provision script
 env_vars_with_values = Hash.new
 env_vars.each do |env_var|
-  if not ENV.has_key?(env_var) then
-    puts "Environment variable '#{env_var}' is not defined"
-    abort "For this Vagrantfile to work correctly the following " +
-      "environment variables need to be defined: " + env_vars.join(", ")
-  end
   env_vars_with_values[env_var] = ENV[env_var]
 end
 
@@ -217,16 +215,26 @@ end
 # http://redsymbol.net/articles/unofficial-bash-strict-mode/
 set -euo pipefail
 
-grep -qxF 'source ~/custom_env_vars.sh' ~/.bashrc || printf "\nsource ~/custom_env_vars.sh\n" >> ~/.bashrc
+grep -qxF 'source ~/custom_env_vars.sh' ~/.profile || printf "\nsource ~/custom_env_vars.sh\n" >> ~/.profile
 
 echo "Setting custom environment variables"
-echo "# Custom env variables" > ~/custom_env_vars.sh
+echo "# Custom environment variables" > ~/custom_env_vars.sh
 for env_var in ${1}; do
   echo "  ${env_var}"
+  if [ -z "${!env_var}" ]; then
+    >&2 echo "Environment variable '${env_var}' is not defined"
+    >&2 echo "For this Vagrantfile to work correctly the following " \
+      "environment variables need to be defined: ${1}"
+    exit 1
+  fi
   echo "export ${env_var}=${!env_var}" >>~/custom_env_vars.sh
 done
 
 exit 0
+```
+Use with non-interactive shell
+```shell
+vagrant ssh -- bash -lc export
 ```
 
 ### Packer
