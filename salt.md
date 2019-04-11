@@ -1,3 +1,4 @@
+* https://medium.com/@Joachim8675309/vagrant-provisioning-with-saltstack-50dab12ce6c7
 * https://github.com/hbokh/awesome-saltstack
 * https://medium.com/@timlwhite/the-simplest-way-to-learn-saltstack-cd9f5edbc967
 * https://github.com/aldevar/Zabbix_SaltState/blob/master/init.sls
