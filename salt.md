@@ -7,3 +7,13 @@
 * https://bencane.com/2016/03/22/self-managing-servers-with-masterless-saltstack-minions/
 * https://www.linode.com/docs/applications/configuration-management/automate-a-static-site-deployment-with-salt/
 * https://github.com/saltstack/salt-bootstrap#install-using-curl
+
+Masterless
+
+```shell
+wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" >/etc/apt/sources.list.d/saltstack.list
+apt update
+apt install salt-minion
+```
+/etc/salt/minion.d/masterless.conf
