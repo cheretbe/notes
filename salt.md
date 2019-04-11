@@ -1,3 +1,4 @@
+* **https://www.linode.com/docs/applications/configuration-management/beginners-guide-to-salt/**
 * https://medium.com/@Joachim8675309/vagrant-provisioning-with-saltstack-50dab12ce6c7
 * https://github.com/hbokh/awesome-saltstack
 * https://medium.com/@timlwhite/the-simplest-way-to-learn-saltstack-cd9f5edbc967
@@ -17,3 +18,11 @@ apt update
 apt install salt-minion
 ```
 /etc/salt/minion.d/masterless.conf
+
+
+* https://docs.saltstack.com/en/latest/topics/tutorials/states_pt3.html
+* https://github.com/harkx/saltstack-cheatsheet#grains
+```
+salt-call --local grains.ls
+salt-call --local grains.item os
+```
