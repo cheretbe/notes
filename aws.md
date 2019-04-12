@@ -15,6 +15,8 @@ CNAME for S3 (www.johnsmith.net -> www.johnsmith.net.s3.amazonaws.com): http://d
 
 Move to TODO/2read: https://www.blog.labouardy.com/
 
+* Billing
+    * https://www.reddit.com/r/aws/comments/6bgmul/is_there_a_way_of_seeing_what_resource_is/
 * Images
     * https://aws.amazon.com/marketplace
     * https://askubuntu.com/questions/53582/how-do-i-know-what-ubuntu-ami-to-launch-on-ec2/53586#53586
