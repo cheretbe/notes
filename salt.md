@@ -18,6 +18,13 @@ apt update
 apt install salt-minion
 ```
 /etc/salt/minion.d/masterless.conf
+```
+file_client: local
+```
+
+```shell
+salt-call --local state.highstate
+```
 
 
 * https://docs.saltstack.com/en/latest/topics/tutorials/states_pt3.html
