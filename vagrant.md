@@ -194,6 +194,8 @@ if not plugins_to_install.empty?
   abort "Installation of one or more additional plugins needed. Aborting."
 end
 ```
+* https://github.com/dotless-de/vagrant-vbguest#global-configuration
+
 ### Environment variables transfer
 ```ruby
 env_vars = ["VAR1", "VAR2"]
