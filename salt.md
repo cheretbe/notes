@@ -9,6 +9,7 @@
 * https://bencane.com/2016/03/22/self-managing-servers-with-masterless-saltstack-minions/
 * https://www.linode.com/docs/applications/configuration-management/automate-a-static-site-deployment-with-salt/
 * https://github.com/saltstack/salt-bootstrap#install-using-curl
+* https://stackoverflow.com/questions/52746217/call-a-salt-state-from-another-salt-state/52756463#52756463
 
 Masterless
 
