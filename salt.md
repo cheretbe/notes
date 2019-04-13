@@ -19,6 +19,11 @@ wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG
 echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" >/etc/apt/sources.list.d/saltstack.list
 apt update
 apt install salt-minion
+
+# This does the same
+wget https://raw.githubusercontent.com/saltstack/salt-bootstrap/stable/bootstrap-salt.sh
+bootstrap-salt.sh stable
+
 salt-minion --version
 ```
 /etc/salt/minion.d/masterless.conf
