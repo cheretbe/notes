@@ -22,7 +22,7 @@ apt install salt-minion
 
 # This does the same
 wget https://raw.githubusercontent.com/saltstack/salt-bootstrap/stable/bootstrap-salt.sh
-bootstrap-salt.sh stable
+bash bootstrap-salt.sh stable
 
 salt-minion --version
 ```
