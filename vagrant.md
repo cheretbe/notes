@@ -221,6 +221,7 @@ grep -qxF 'source ~/custom_env_vars.sh' ~/.profile || printf "\nsource ~/custom_
 
 echo "Setting custom environment variables"
 echo "# Custom environment variables" > ~/custom_env_vars.sh
+chmod 600 ~/custom_env_vars.sh
 for env_var in ${1}; do
   echo "  ${env_var}"
   if [ -z "${!env_var}" ]; then
