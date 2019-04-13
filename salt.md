@@ -30,6 +30,7 @@ salt-call --local state.highstate
 * https://docs.saltstack.com/en/latest/topics/tutorials/states_pt3.html
 * https://github.com/harkx/saltstack-cheatsheet#grains
 ```
+salt-call --local -g
 salt-call --local grains.ls
 salt-call --local grains.item os
 ```
