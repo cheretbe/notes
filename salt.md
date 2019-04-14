@@ -25,6 +25,7 @@ wget https://raw.githubusercontent.com/saltstack/salt-bootstrap/stable/bootstrap
 bash bootstrap-salt.sh stable
 
 salt-minion --version
+service salt-minion stop
 ```
 /etc/salt/minion.d/masterless.conf
 ```
