@@ -1,3 +1,5 @@
+* Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
+
 ```shell
 # Enable the 'universe' repository
 add-apt-repository universe
