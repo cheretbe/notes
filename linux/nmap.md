@@ -13,7 +13,8 @@ nmap -PR 192.168.1.0/24
 arp -a -n
 
 # arp-scan if much faster and sorts output by IP
-arp-scan 192.168.1.0/24
+sudo arp-scan 192.168.1.0/24
+sudo arp-scan --interface=eth0 --local
 # then just use nmap to find out more about particular host
 nmap 192.168.1.1
 ```
