@@ -1,6 +1,8 @@
 ```shell
 # 1472(1500)
 ping -c 1 host -M do -s 1472
+# Mikrotik
+/ping count=1 host do-not-fragment size=1500
 ```
 
 * **https://support.ispsupplies.com/hc/en-us/articles/115009659067-PMTU-and-MSS-Discovery-Issues-Resolved-with-MikroTik**
