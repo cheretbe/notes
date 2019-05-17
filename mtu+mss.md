@@ -3,6 +3,8 @@
 ping -c 1 host -M do -s 1472
 # Mikrotik
 /ping count=1 host do-not-fragment size=1500
+# Windows
+ping -n 1 -f -l 1472 host
 
 # Test download
 # -p,  --page-requisites    get all images, etc. needed to display HTML page.
