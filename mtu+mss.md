@@ -15,6 +15,7 @@ wget -p URL -O /dev/null
 ```
 * :warning: **https://habr.com/ru/post/136871/**
 * :warning: **https://forums.clavister.com/viewtopic.php?t=11915**
+* **https://jamesdobson.name/post/mtu/**
 * **https://toster.ru/q/502322**
 * **https://support.ispsupplies.com/hc/en-us/articles/115009659067-PMTU-and-MSS-Discovery-Issues-Resolved-with-MikroTik**
 * http://www.oznetnerd.com/mtu-vs-mss-part-two/
