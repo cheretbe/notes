@@ -8,6 +8,7 @@ ip route get 8.8.8.8
 # Windows
 ping -n 1 -f -l 1472 host
 netsh interface ipv4 show destinationcache
+netsh interface ipv4 show destinationcache address=8.8.8.8
 netsh interface ipv4 delete destinationcache
 
 
