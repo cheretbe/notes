@@ -11,6 +11,10 @@ netsh interface ipv4 show destinationcache
 netsh interface ipv4 show destinationcache address=8.8.8.8
 netsh interface ipv4 delete destinationcache
 
+# Check for ICMP type 3 code 4 message
+# -p          Don't put the interface into promiscuous mode.
+# -s snaplen  Snarf snaplen bytes of data from each packet rather than the default of 262144 bytes
+tcpdump -s0 -p -ni eth0 'icmp and icmp[0] == 3 and icmp[1] == 4'
 
 # Test download
 # -p,  --page-requisites    get all images, etc. needed to display HTML page.
