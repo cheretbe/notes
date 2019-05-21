@@ -40,6 +40,9 @@ MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 # binary backup
 /system backup save name="current.config"
 
+# Quick sniffer
+/tool sniffer quick ip-protocol=icmp ip-address=192.168.0.129,192.168.0.1
+
 # [!!] Full reset
 /system reset-configuration no-defaults=yes skip-backup=yes
 /interface ethernet print
