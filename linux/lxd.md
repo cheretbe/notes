@@ -118,6 +118,16 @@ lxc delete container_name
 # boot.autostart.priority  lxc.start.order        container priority, higher values means earlier start
 lxc config set container_name boot.autostart 1
 
+# Copy a container without enabling remote access
+lxc stop test1
+lxc publish test1 --alias test1-export
+lxc image export test1-export test1-export
+lxc image delete test1-export
+# Copy test1-export.tar.gz file manually
+lxc image import test1-export --alias test1-imported
+lxc init test1-imported test1 [-p custom-profile]
+lxc image delete test1-imported
+
 # Snapshots
 # create
 lxc snapshot <container>
