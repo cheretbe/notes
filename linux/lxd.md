@@ -100,6 +100,8 @@ lxc image list images: "centos/6/amd64"
 lxc launch images:centos/7/amd64 test
 
 lxc launch ubuntu:xenial test1 -p multibridge
+# Create a container without launching it
+lxc init ubuntu:xenial test1 -p multibridge
 lxc exec test1 bash
 
 lxc config set test1 security.privileged true
