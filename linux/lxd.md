@@ -62,11 +62,8 @@ zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loopback /path/to/lxd_
 # Image file: /var/lib/lxd/disks/default.img
 
 # Temporarily import an offline pool without mounting it
-losetup /dev/loop0 /path/to/file.img
-zpool import
-zpool import -o readonly=on -N pool-name
+zpool import -d /path/to/image/file -N pool-name
 zpool export pool-name
-losetup -d /dev/loop0
 ```
 * https://discuss.linuxcontainers.org/t/reclaim-unused-space-from-var-lib-lxd-zfs-img/338/3
 
