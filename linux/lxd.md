@@ -83,6 +83,9 @@ lxc storage create pool1 zfs source=pool
 # Use the existing ZFS dataset "pool/path"
 lxc storage create pool1 zfs source=pool/path
 
+# Growing a loop-backed ZFS pool
+# https://github.com/lxc/lxd/blob/master/doc/storage.md#growing-a-loop-backed-zfs-pool
+
 lxc network list
 lxc network edit lxdbr0 
 
