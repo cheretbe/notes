@@ -154,6 +154,7 @@ lxc file pull container1/home/user/file.txt file.txt
 lxc file push file.txt container2/home/user/file.txt --mode 644 --uid 1003 --gid 1003
 ```
 
+Config is in `/var/lib/lxd/lxd.db`
 ```shell
 sqlite3 /var/lib/lxd/lxd.db '.tables'
 sqlite3 /var/lib/lxd/lxd.db '.schema containers_config'
