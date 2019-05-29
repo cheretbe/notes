@@ -9,7 +9,7 @@ sudo service supervisor start
 # start/stop only one service
 sudo supervisorctl stop service_name
 sudo supervisorctl start service_name
-# re-read config and restart changed services
+# re-read config and restart olny services that have changed
 sudo supervisorctl reread
 sudo supervisorctl update
 ```
