@@ -18,7 +18,7 @@ xauth add host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c6941
 <Ctrl>+Z
 ps -aux | grep '/opt/SpiderOakONE/lib/SpiderOakONE'
 # Note the PID of a process without --spider option
-kill -s TERM <pid>
+# kill -s TERM <pid> doesn't work
 # Forcibly kill
 kill -KILL <pid>
 ```
