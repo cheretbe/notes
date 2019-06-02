@@ -244,6 +244,10 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 ```
 ### Remoting
 
+```powershell
+Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
+```
+
 #### Unencrypted
 ```powershell
 # On server
