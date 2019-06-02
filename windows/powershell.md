@@ -6,6 +6,8 @@ Unsorted
 * [Remoting](#remoting)
 * [Installation](#installation)
 
+## Code Snippets
+
 ```batch
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~n0.ps1"
 ```
