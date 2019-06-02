@@ -281,6 +281,44 @@ $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 #### HTTP with a self-signed SSL certificate
 * https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 
+By default `New-SelfSignedCertificate` creates a certificate that is valid for one year. To create a certificate that lasts longer use `-NotAfter (Get-Date).AddYears(5)` parameter. The problem is that this parameter doesn't work on Win8.1/Win2012R2 (even with PS 5.1 installed):  https://social.technet.microsoft.com/Forums/windowsserver/en-US/cd5bba06-5931-42ee-afad-1e438b3df759/problem-generating-a-certificate-for-ldaps-using-newselfsignedcertificate-quota-parameter?forum=winserver8gen
+
+The solution is to use openssl:
+
+```shell
+# EKU should contain serverAuth and this parameter can't be passed as a command-line option
+# We create a temporary config file to add it
+cp /usr/lib/ssl/openssl.cnf ./ext_config.cnf
+```
+Add the following to `ext_config.cnf`:
+```
+[myextensions]
+extendedKeyUsage = serverAuth,clientAuth
+```
+```shell
+# Create a self-signed certificate
+openssl req \
+       -newkey rsa:2048 -nodes -keyout domain.key \
+       -x509 -days 3650 -out domain.crt \
+       -extensions myextensions -config ext_config.cnf
+# Take a private key (domain.key) and a certificate (domain.crt), and combine them into a PKCS12 file (domain.pfx):
+openssl pkcs12 \
+       -inkey domain.key \
+       -in domain.crt \
+       -export -out domain.pfx
+```
+Copy `domain.pfx` to a Windows machine
+```powershell
+# Import the certificate
+Import-PfxCertificate -FilePath "c:\temp\domain.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
+# View certificate list to find out the thumbprint
+Get-ChildItem "Cert:\LocalMachine\My" | Format-List
+# Delete a certificate (in case something went wrong)
+Get-ChildItem "Cert:\LocalMachine\My" |
+  Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
+```
+Everything is else should be done as described in the linked howto
+
 ### Installation
   Check installed .NET versions: http://www.powershelladmin.com/wiki/Script_for_finding_which_dot_net_versions_are_installed_on_remote_workstations
   * Powershell 5.1
