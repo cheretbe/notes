@@ -244,6 +244,7 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 ```
 ### Remoting
 
+#### Unencrypted
 ```powershell
 # On server
 # -quiet: no prompts
@@ -276,6 +277,9 @@ $credential = Import-CliXml -Path "C:\My\Path\cred.xml"
 $credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
 $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 ```
+
+#### HTTP with a self-signed SSL certificate
+* https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 
 ### Installation
   Check installed .NET versions: http://www.powershelladmin.com/wiki/Script_for_finding_which_dot_net_versions_are_installed_on_remote_workstations
