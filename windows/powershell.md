@@ -1,6 +1,11 @@
 Unsorted
 * https://superuser.com/questions/468782/show-human-readable-file-sizes-in-the-default-powershell-ls-command/468907#468907
 
+## Table of Contents
+* [Code Snippets](#code-snippets)
+* [Remoting](#remoting)
+* [Installation](#installation)
+
 ```batch
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~n0.ps1"
 ```
@@ -184,38 +189,6 @@ $rootNode.AppendChild($rootNode.OwnerDocument.CreateElement("Child")).InnerText 
 $childNode.SetAttribute("AttrName", "AttrValue")
 $xmlDoc.Save("c:\temp\test.xml")
 
-# Remoting
-# On server
-# -quiet: no prompts
-# -force: enable even if public network is present
-# winrm quickconfig [-quiet] [-force]
-Enable-PSRemoting
-# No prompts
-Enable-PSRemoting -Force
-# Enable even if public network is present
-Enable-PSRemoting -SkipNetworkProfileCheck -Force
-# Test if a computer can run remote commands
-Test-WSMan [-ComputerName SRV1]
-
-# On client
-Set-Item "wsman:\localhost\Client\TrustedHosts" -Value "*" -Force
-# Default WinRM port: 5985
-# Enter-PSSession -ComputerName localhost -port 1111 -Credential vagrant
-# This will prompt for a password
-Enter-PSSession -ComputerName "hostname" -Credential "vagrant" 2>&1
-# This will not
-$pwd = ConvertTo-SecureString "vagrant" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential @("vagrant", $pwd)
-Enter-PSSession -ComputerName "hostname" -Credential $credential 2>&1
-# Run scriptblock
-Invoke-Command -ComputerName "hostname" -Credential $credential -ScriptBlock { & cmd /c set }
-# Save/load credentials
-$credential | Export-CliXml -Path "C:\My\Path\cred.xml"
-$credential = Import-CliXml -Path "C:\My\Path\cred.xml"
-# or
-$credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
-$pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
-
 # Reading key input
 $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown"):
 # Alternative
@@ -266,6 +239,40 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 # Denote all files that are truly binary and should not be mergeable.
 *.dll binary
 *.exe binary
+```
+### Remoting
+
+```powershell
+# On server
+# -quiet: no prompts
+# -force: enable even if public network is present
+# winrm quickconfig [-quiet] [-force]
+Enable-PSRemoting
+# No prompts
+Enable-PSRemoting -Force
+# Enable even if public network is present
+Enable-PSRemoting -SkipNetworkProfileCheck -Force
+# Test if a computer can run remote commands
+Test-WSMan [-ComputerName SRV1]
+
+# On client
+Set-Item "wsman:\localhost\Client\TrustedHosts" -Value "*" -Force
+# Default WinRM port: 5985
+# Enter-PSSession -ComputerName localhost -port 1111 -Credential vagrant
+# This will prompt for a password
+Enter-PSSession -ComputerName "hostname" -Credential "vagrant" 2>&1
+# This will not
+$pwd = ConvertTo-SecureString "vagrant" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential @("vagrant", $pwd)
+Enter-PSSession -ComputerName "hostname" -Credential $credential 2>&1
+# Run scriptblock
+Invoke-Command -ComputerName "hostname" -Credential $credential -ScriptBlock { & cmd /c set }
+# Save/load credentials
+$credential | Export-CliXml -Path "C:\My\Path\cred.xml"
+$credential = Import-CliXml -Path "C:\My\Path\cred.xml"
+# or
+$credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
+$pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 ```
 
 ### Installation
