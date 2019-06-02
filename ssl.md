@@ -356,6 +356,7 @@ openssl x509 -inform der -in certificate.cer -out certificate.pem
 ```
 
 * https://www.sslshopper.com/ssl-converter.html
+* https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
 
 [\[ TOC \]](#table-of-contents)
 
