@@ -44,7 +44,7 @@ Check and download the lastest released versions:
 * https://github.com/backuppc/rsync-bpc/releases/
 * https://github.com/backuppc/backuppc/releases/
 ```shell
-mkdir -p source
+mkdir -p sources
 cd sources
 wget https://github.com/backuppc/backuppc-xs/releases/download/0.57/BackupPC-XS-0.57.tar.gz
 wget https://github.com/backuppc/rsync-bpc/releases/download/3.0.9.12/rsync-bpc-3.0.9.12.tar.gz
