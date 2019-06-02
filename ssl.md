@@ -1,5 +1,6 @@
 ## Table of Contents
 * [Unsorted](#unsorted)
+* [Container and Certificate types](#container-and-certificate-types)
 * [Let's Encrypt Certificate](#lets-encrypt-certificate)
     * [wildcard](#wildcard)
     * [acme-tiny](#acme-tiny)
@@ -18,6 +19,14 @@
 * https://github.com/diafygi/acme-tiny
 * Online SSL test: https://www.ssllabs.com/ssltest/
 
+
+[\[ TOC \]](#table-of-contents)
+
+### Container and Certificate types
+
+* https://myonlineusb.wordpress.com/2011/06/19/what-are-the-differences-between-pem-der-p7bpkcs7-pfxpkcs12-certificates/
+* https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
+* https://stackoverflow.com/questions/1722181/how-to-determine-certificate-type-from-file/1726728#1726728
 
 [\[ TOC \]](#table-of-contents)
 
