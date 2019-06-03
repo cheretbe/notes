@@ -246,6 +246,8 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 
 ```powershell
 Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
+Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) `
+  -ComputerName "localhost" -Credential $credential -ScriptBlock { & cmd /c set }
 ```
 
 #### Unencrypted
