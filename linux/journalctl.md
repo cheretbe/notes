@@ -29,6 +29,10 @@ journalctl -u nginx.service
 journalctl -u nginx.service -u php-fpm.service --since today
 # Time window
 journalctl --since "2015-01-14" --until "2015-01-15 03:00"
+journalctl --since "15 min ago"
+journalctl --since yesterday
+journalctl --since today
+
 # Monitor new messages
 journalctl --since now -f
 # View logs from other system (mounted on /mountpoint) -D DIR, --directory=DIR
