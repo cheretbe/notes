@@ -42,6 +42,7 @@ Unattended-Upgrade::Allowed-Origins {
         "Yandex Disk Archive:stable";
         "packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}";
         "Docker:${distro_codename}";
+        "Sublime Text:apt/stable";
 
         "origin=Raspbian,codename=${distro_codename},label=Raspbian";
         "origin=Raspberry Pi Foundation,codename=${distro_codename},label=Raspberry Pi Foundation";
@@ -57,6 +58,7 @@ Unattended-Upgrade::Allowed-Origins {
 
 5. Test settings
 ```shell
+unattended-upgrade -v --dry-run
 unattended-upgrade --debug --dry-run
 ```
 
