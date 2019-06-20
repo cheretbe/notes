@@ -6,6 +6,10 @@
     * https://sourceforge.net/p/backuppc/mailman/message/33596562/
     * http://www.guyrutenberg.com/2014/01/14/restricting-ssh-access-to-rsync/
 
+
+:warning: For SMB and tar, BackupPC uses the modification time (mtime) to determine which files have changed since the last backup. That means SMB and tar incrementals **are not able to detect** deleted files, renamed files or new files whose modification time is prior to the last lower-level backup.
+* https://backuppc.github.io/backuppc/BackupPC.html#Backup-basics
+
 ### Installation
 Only for new installation, skip this for upgrade
 ```shell
