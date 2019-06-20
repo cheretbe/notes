@@ -22,3 +22,8 @@ setfacl -x u:ubuntu /home/test.txt
 ```
 
 :warning: Umask affects group permission: https://serverfault.com/questions/96514/how-to-set-linux-default-acls-differently-for-directories-and-files/97854#97854
+```
+# 2check
+# Fix it with
+setfacl -d -m mask:rwx directory
+```
