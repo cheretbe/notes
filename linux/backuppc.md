@@ -2,6 +2,7 @@
 * https://github.com/backuppc/backuppc
 * https://sourceforge.net/p/backuppc/mailman/
 * https://github.com/backuppc/backuppc/wiki/Installing-BackupPC-4-from-tarball-or-git-on-Ubuntu
+* https://serverfault.com/questions/662027/backuppc-schedule-advanced-settings/662150#662150
 * Review:
     * https://sourceforge.net/p/backuppc/mailman/message/33596562/
     * http://www.guyrutenberg.com/2014/01/14/restricting-ssh-access-to-rsync/
