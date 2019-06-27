@@ -274,6 +274,8 @@ Enter-PSSession -ComputerName "hostname" -Credential "vagrant" 2>&1
 $pwd = ConvertTo-SecureString "vagrant" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential @("vagrant", $pwd)
 Enter-PSSession -ComputerName "hostname" -Credential $credential 2>&1
+# Prompt for credential and save it for later use
+$credential = Get-Credential
 # Run scriptblock
 Invoke-Command -ComputerName "hostname" -Credential $credential -ScriptBlock { & cmd /c set }
 # Save/load credentials
