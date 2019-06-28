@@ -55,6 +55,11 @@ print("{:03d}".format(1))
 print("{0:03d}".format(1))
 print("{num:03d}".format(num=1))
 print(format(1, "03d"))
+# Hex as string
+print("0x{:0x}".format(1064))
+print("0x{:04x}".format(1064))
+print(format(1064, "0X"))
+print(format(1064, "04X"))
 
 with open("filename", "w") as f:
     f.write("test")
