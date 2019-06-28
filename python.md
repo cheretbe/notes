@@ -60,6 +60,17 @@ with open("filename", "w") as f:
     f.write("test")
 with open("filename", "r") as f:
     dummy = f.read()
+
+# Change file encoding
+with open("filename", "rb") as f:
+    filedata = f.read()
+filetext = filedata.decode("utf-8")
+with open("other_filename", "wb") as f:
+    # Check if we need this (for existing files)
+    f.truncate()
+    f.write(filetext.encode("utf-16"))
+
+#filedata = filedata.decode("utf-8")
     
 # Environment variables
 import os
