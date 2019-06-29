@@ -79,6 +79,7 @@ Get-SmbConnection
 Get-SmbSession | Select-Object -Property *
 ```
 * https://www.itprotoday.com/windows-server/checking-your-smb-version
+* https://blogs.technet.microsoft.com/josebda/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-are-you-using/
 
 
 ### Standalone server
