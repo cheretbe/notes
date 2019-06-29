@@ -75,6 +75,8 @@ Checking SMB Version used (Windows)
 ```powershell
 # Need to be run as Administrator on client
 Get-SmbConnection
+# On server
+Get-SmbSession | Select-Object -Property *
 ```
 * https://www.itprotoday.com/windows-server/checking-your-smb-version
 
