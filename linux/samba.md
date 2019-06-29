@@ -66,6 +66,10 @@ username=myusername
 password=mypassword
 domain=WORKGROUP
 ```
+* :warning: CIFS bug causing SMBv2+ not to show all files/directories
+    * https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1572132
+    * https://bugzilla.samba.org/show_bug.cgi?id=13107
+    * https://serverfault.com/questions/955606/mounted-windows-disk-incomplete-directory-listing
 
 ### Standalone server
 No LDAP, no Windows domain, local users.
