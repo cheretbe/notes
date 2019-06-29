@@ -71,6 +71,14 @@ domain=WORKGROUP
     * https://bugzilla.samba.org/show_bug.cgi?id=13107
     * https://serverfault.com/questions/955606/mounted-windows-disk-incomplete-directory-listing
 
+Checking SMB Version used (Windows)
+```powershell
+# Need to be run as Administrator
+Get-SmbConnection
+```
+* https://www.itprotoday.com/windows-server/checking-your-smb-version
+
+
 ### Standalone server
 No LDAP, no Windows domain, local users.
 Install `samba` package and edit default `/etc/samba/smb.conf`. Run `testparm` after each edit.
