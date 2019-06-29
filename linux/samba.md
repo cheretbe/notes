@@ -73,7 +73,7 @@ domain=WORKGROUP
 
 Checking SMB Version used (Windows)
 ```powershell
-# Need to be run as Administrator
+# Need to be run as Administrator on client
 Get-SmbConnection
 ```
 * https://www.itprotoday.com/windows-server/checking-your-smb-version
