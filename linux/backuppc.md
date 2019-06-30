@@ -63,6 +63,7 @@ $Conf{BackupFilesExclude} = {
     '/Users/*/AppData/Local/Google/Chrome/User Data/*/Code Cache',
     '/Users/*/AppData/Local/Google/Chrome/User Data/*/GPUCache',
     '/Users/*/AppData/Local/Google/Chrome/User Data/*/History Provider Cache',
+    '/Users/*/AppData/Local/Google/Chrome/User Data/*/IndexedDB',
     '/Users/*/AppData/Local/History',
     '/Users/*/AppData/Local/Microsoft/Windows/INetCache',
     '/Users/*/AppData/Local/Microsoft/Windows/Temporary Internet Files',
