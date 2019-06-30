@@ -17,7 +17,17 @@
 [$Conf{FullKeepCnt}](https://backuppc.github.io/backuppc/BackupPC.html#_conf_fullkeepcnt_): `1*$Conf{FillCycle}, 2*$Conf{FillCycle}, 4*$Conf{FillCycle}, 8*$Conf{FillCycle}, etc.`<br>
 With defaults `$Conf{FillCycle} = 0;` and `$Conf{FullPeriod} = 6.97;` this gives us the following exponential sequence:<br>
 `1 week, 2 weeks, 1 month, 2 months, 4 months, 8 months, etc.`
-
+```perl
+$Conf{FullKeepCnt} = [
+  4,
+  6,
+  12,
+  12,
+  5
+];
+$Conf{FullAgeMax} = 1240;
+$Conf{IncrKeepCnt} = 30;
+```
 
 :warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
 :warning: Note double qoutes on non-iso-8859-1 strings
