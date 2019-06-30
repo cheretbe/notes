@@ -70,6 +70,13 @@ domain=WORKGROUP
     * https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1572132
     * https://bugzilla.samba.org/show_bug.cgi?id=13107
     * https://serverfault.com/questions/955606/mounted-windows-disk-incomplete-directory-listing
+```shell
+# Check missing files
+# Mount with vers=1.0 and calc checksums
+md5deep -r -s /mountpoint > checksums
+# Then remount and compare checksums
+md5deep -r -X checksums /mountpoint
+```
 
 Checking SMB Version used (Windows)
 ```powershell
