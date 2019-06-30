@@ -15,7 +15,7 @@
 ### Config
 
 :warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
-:warning: Note double qoutes on non-iso-8859-1 characters
+:warning: Note double qoutes on non-iso-8859-1 strings
 ```perl
 # Typical Windows exculdes
 $Conf{BackupFilesExclude} = {
