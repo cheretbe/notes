@@ -51,7 +51,7 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Microsoft/Diagnosis',
     '/ProgramData/Microsoft/Network/Downloader',
     '/ProgramData/Microsoft/RAC',
-    '/ProgramData/Microsoft/Windows Defender/Scans/History/CacheManager',
+    '/ProgramData/Microsoft/Windows Defender',
     '/ProgramData/Microsoft/Windows/LocationProvider',
     '/ProgramData/Microsoft/Windows/SystemData',
     '/ProgramData/Microsoft/Windows/WER',
