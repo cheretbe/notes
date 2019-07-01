@@ -288,6 +288,7 @@ $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 
 #### HTTP with a self-signed SSL certificate
 * https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
+* http://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure
 
 By default `New-SelfSignedCertificate` creates a certificate that is valid for one year. To create a certificate that lasts longer use `-NotAfter (Get-Date).AddYears(5)` parameter. The problem is that this parameter doesn't work on Win8.1/Win2012R2 (even with PS 5.1 installed):  https://social.technet.microsoft.com/Forums/windowsserver/en-US/cd5bba06-5931-42ee-afad-1e438b3df759/problem-generating-a-certificate-for-ldaps-using-newselfsignedcertificate-quota-parameter?forum=winserver8gen
 
