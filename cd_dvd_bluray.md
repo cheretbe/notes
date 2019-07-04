@@ -11,6 +11,12 @@
 | Mini disc size, single layer | 8             | 1      | 7,791,181,824     |
 | Mini disc size, dual layer   | 8             | 2      | 15,582,363,648    |
 
+Track sizes
+
+| Disk type            |                Track Size |   Space Available|
+|----------------------|--------------------------:|-----------------:|
+| 25Gb BD-R            | 12219392*2KiB=25025314816 |          23.3GiB |
+| Formatted 25Gb BD-RE | 11826176*2KiB=24220008448 |:warning: 22.6GiB |
 * 1 sector is 2,048 bytes
 
 ```shell
