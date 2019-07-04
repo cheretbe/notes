@@ -1,6 +1,7 @@
 * https://en.wikipedia.org/wiki/Blu-ray
 * http://gimmor.blogspot.com/2012/10/blu-ray-ubuntu-linux.html
 * http://fy.chalmers.se/~appro/linux/DVD+RW/Blu-ray/
+* http://www.hughsnews.ca/faqs/authoritative-blu-ray-disc-bd-faq/9-disc-capacity
 
 | Type                         | Diameter (cm) | Layers |	Capacity (bytes)  |
 | ---------------------------- | ------------: | -----: | ----------------: |
@@ -8,3 +9,9 @@
 | Standard size, dual layer	   | 12            | 2      | 50,050,629,632    |
 | Mini disc size, single layer | 8             | 1      | 7,791,181,824     |
 | Mini disc size, dual layer   | 8             | 2      | 15,582,363,648    |
+
+* 1 sector is 2,048 bytes
+
+```shell
+dvd+rw-mediainfo /dev/sr0
+```
