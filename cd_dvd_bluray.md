@@ -2,6 +2,7 @@
 * http://gimmor.blogspot.com/2012/10/blu-ray-ubuntu-linux.html
 * http://fy.chalmers.se/~appro/linux/DVD+RW/Blu-ray/
 * http://www.hughsnews.ca/faqs/authoritative-blu-ray-disc-bd-faq/9-disc-capacity
+* https://wiki.gentoo.org/wiki/CD/DVD/BD_Writing
 
 | Type                         | Diameter (cm) | Layers |	Capacity (bytes)  |
 | ---------------------------- | ------------: | -----: | ----------------: |
