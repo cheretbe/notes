@@ -4,7 +4,7 @@
 
 ## Notes
 
-Mailing [list](https://sourceforge.net/p/burp/mailman/burp-users/):
+[Mailing list](https://sourceforge.net/p/burp/mailman/burp-users/):
 
 * [Intro](https://sourceforge.net/p/burp/mailman/message/36334451/)
 * [Bare-metal Windows 2008 R2 restore with secure key storage & without a Windows install disc](https://sourceforge.net/p/burp/mailman/message/35612245/)
