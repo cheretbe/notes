@@ -12,6 +12,11 @@
 :warning: For SMB and tar, BackupPC uses the modification time (mtime) to determine which files have changed since the last backup. That means SMB and tar incrementals **are not able to detect** deleted files, renamed files or new files whose modification time is prior to the last lower-level backup.
 * https://backuppc.github.io/backuppc/BackupPC.html#Backup-basics
 
+```
+# zlib-compressed log file
+printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
+```
+
 ### Config
 
 [$Conf{FullKeepCnt}](https://backuppc.github.io/backuppc/BackupPC.html#_conf_fullkeepcnt_): `1*$Conf{FillCycle}, 2*$Conf{FillCycle}, 4*$Conf{FillCycle}, 8*$Conf{FillCycle}, etc.`<br>
