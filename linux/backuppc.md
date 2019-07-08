@@ -12,7 +12,7 @@
 :warning: For SMB and tar, BackupPC uses the modification time (mtime) to determine which files have changed since the last backup. That means SMB and tar incrementals **are not able to detect** deleted files, renamed files or new files whose modification time is prior to the last lower-level backup.
 * https://backuppc.github.io/backuppc/BackupPC.html#Backup-basics
 
-```
+```shell
 # zlib-compressed log file
 printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 # or use BackupPC_zcat - as backuppc user (!)
