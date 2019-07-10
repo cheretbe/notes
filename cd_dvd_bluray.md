@@ -17,6 +17,7 @@ Track sizes
 |----------------------|--------------------------:|-----------------:|
 | 25Gb BD-R            | 12219392*2KiB=25025314816 |          23.3GiB |
 | Formatted 25Gb BD-RE | 11826176*2KiB=24220008448 |:warning: 22.6GiB |
+| Formatted 50Gb BD-RE | 23652352*2KiB=48440016896 |:warning: 45.1GiB |
 * 1 sector is 2,048 bytes
 
 ```shell
