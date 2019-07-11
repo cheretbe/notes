@@ -215,3 +215,12 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 #### OSPF
 * https://mum.mikrotik.com/presentations/CR18/presentation_5632_1532409246.pdf
 * https://youtu.be/u_V2FdcpQLM
+
+### RoMON
+```
+/ip neighbor print
+/tool mac-telnet 00:00:00:00:00:00
+/tool romon print
+/tool romon set enabled=yes
+```
+* https://wiki.mikrotik.com/wiki/Manual:RoMON
