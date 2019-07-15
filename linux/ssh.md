@@ -134,6 +134,11 @@ After=network.target ssh.service
 # modify ExecStart (add -f /etc/ssh/sshd_config_external)
 ExecStart=/usr/sbin/sshd-external -D -f /etc/ssh/sshd_config_external $SSHD_OPTS
 
+# 18.04
+ExecStartPre=/usr/sbin/sshd-external -t -f /etc/ssh/sshd_config_external
+ExecReload=/usr/sbin/sshd-external -t -f /etc/ssh/sshd_config_external
+RuntimeDirectory=sshd-external
+
 # debian/ubuntu only
 [Install]
 Alias=sshd-external.service
