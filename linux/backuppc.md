@@ -277,3 +277,13 @@ newaliases
 # It will check if BackupPC is running, and should send an email to $Conf{EMailAdminUserName} if it is not
 # [!] Don't forget to start backuppc service back
 ```
+
+### Client config
+```
+visudo -f /etc/sudoers.d/backuppc
+```
+`/etc/sudoers.d/backuppc` content
+```
+# Allow backuppc to read files with rsync over SSH
+backuppc ALL=NOPASSWD: /usr/bin/rsync
+```
