@@ -15,6 +15,7 @@
 
 ```bash
 apt install nagios-plugins nagios-nrpe-server
+cp /etc/nagios/nrpe.cfg{,.bak}
 nano /etc/nagios/nrpe.cfg
 # Configure Allowed Hosts
 # allowed_hosts=127.0.0.1, nagios.domain.tld
