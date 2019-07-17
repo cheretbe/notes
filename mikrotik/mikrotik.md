@@ -70,6 +70,19 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 :put [/ip firewall nat find action=masquerade and out-interface="wan"]
 :put [/ip firewall nat find action=masquerade or out-interface="wan"]
 ```
+#### Logging
+```
+:log warning "Warning test"
+:log debug "Debug test"
+
+
+/log print where topics~"script"
+/log print where topics="script;debug"
+
+:foreach entry in=[/log find topics~"script;debug"] do={:put [/log get $entry] }
+:foreach entry in=[/log find topics~"script"] do={:put [/log get $entry] }
+:foreach entry in=[/log find topics~"script"] do={:put [/log get $entry message] }
+```
 #### Scripts
 
 * **TODO:** add `:tostr`, `:pick` etc. examples (http://www.mikrotik-routeros.com/2014/10/scriptlet-find-default-route-interface-names-and-a-free-licence/#more-1052)
