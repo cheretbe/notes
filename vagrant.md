@@ -48,6 +48,9 @@ end
   config.vm.network "private_network", type: "dhcp", virtualbox__intnet: "vagrant-intnet-3"
   # [!] Host-only network
   config.vm.network "private_network", type: "dhcp", auto_config: false
+  # Bridged adapter
+  # https://www.vagrantup.com/docs/networking/public_network.html
+  config.vm.network "public_network", ip: "192.168.1.17"
 ```
 
 ```shell
