@@ -72,9 +72,11 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 ```
 #### Logging
 ```
+:if ([:len [/system logging find topics="script;debug"]] = 0) do={ /system logging add topics=script,debug }
+:if ([/system logging get [find topics="script;debug"] disabled]) do={ /system logging set [find topics="script;debug"] disabled=no }
+
 :log warning "Warning test"
 :log debug "Debug test"
-
 
 /log print where topics~"script"
 /log print where topics="script;debug"
