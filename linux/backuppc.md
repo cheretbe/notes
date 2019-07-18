@@ -56,6 +56,7 @@ $Conf{BackupFilesExclude} = {
     '/Documents and Settings',
     '/Program Files/AVAST Software/Avast',
     '/ProgramData/Application Data',
+    '/ProgramData/AVAST Software/Avast',
     '/ProgramData/Desktop',
     '/ProgramData/Documents',
     '/ProgramData/Favorites',
