@@ -5,6 +5,11 @@
 > firing up a partitioning program, seeing unpartitioned disks, and concluding that the drive is corrupt.
 * https://serverfault.com/questions/439022/does-lvm-need-a-partition-table/439026#439026
 
+```shell
+vgs
+lvs
+```
+
 parted
 ```
 mklabel gpt
@@ -12,6 +17,7 @@ mkpart primary 1M 100%
 set 1 lvm on
 ```
 
+creation
 ```shell
 apt install lvm2
 
