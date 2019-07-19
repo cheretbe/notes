@@ -6,6 +6,7 @@
 * https://serverfault.com/questions/439022/does-lvm-need-a-partition-table/439026#439026
 
 ```shell
+pvs
 vgs
 lvs
 ```
