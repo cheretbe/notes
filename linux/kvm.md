@@ -9,7 +9,8 @@
 * [virsh Commands](#virsh-commands)
 
 ### Unsorted
-* https://jrs-s.net/2013/05/17/kvm-io-benchmarking/
+* `2read`: https://www.reddit.com/r/zfs/comments/514k2r/kvm_zfs_best_practices/d79fdzi/
+* `2read`: https://jrs-s.net/2013/05/17/kvm-io-benchmarking/
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
 * https://sebastian.marsching.com/wiki/Linux/KVM
 * Shutdown script on Ubuntu 16.04: `/usr/lib/libvirt/libvirt-guests.sh` (uses settings from `/etc/default/libvirt-guests`)
