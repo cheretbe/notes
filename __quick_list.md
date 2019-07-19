@@ -8,6 +8,9 @@
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
 ```shell
+# Continuously updated iostat
+watch -n 1 iostat -xy --human 1 1
+
 # view setting
 vboxmanage list systemproperties | grep "Default machine folder:"
 # SSD
