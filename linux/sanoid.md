@@ -12,6 +12,7 @@ cp sanoid-1.4.14/sanoid.defaults.conf /etc/sanoid/
 cp sanoid-1.4.14/sanoid.conf /etc/sanoid/
 
 # Nagios monitoring
+/opt/sanoid/sanoid --monitor-health
 /opt/sanoid/sanoid --monitor-snapshots
 ```
 
