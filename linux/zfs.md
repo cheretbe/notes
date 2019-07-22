@@ -1,4 +1,5 @@
 * https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz
+* `2read`: http://www.openoid.net/zfs-practicing-failures/
 
 ## Table of Contents
 * [Installation](#installation)
