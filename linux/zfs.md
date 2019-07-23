@@ -1,6 +1,12 @@
 * https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz
 * `2read`: http://www.openoid.net/zfs-practicing-failures/
 
+:warning: Clear ZFS metadata at the end(!) of a disk
+```shell
+# https://superuser.com/questions/1248905/how-to-delete-some-zfs-metadata-from-hard-drive
+dd if=/dev/zero of=/dev/sda seek=$(($(blockdev --getsz "/dev/sda") - 1024))
+```
+
 ## Table of Contents
 * [Installation](#installation)
 * [zpool Creation](#zpool-creation)
