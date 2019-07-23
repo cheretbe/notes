@@ -37,3 +37,9 @@ cp sanoid-1.4.14/sanoid.conf /etc/sanoid/
         hourly_warn = 0
         hourly_crit = 0
 ```
+
+Hourly `/etc/cron.d/sanoid` example
+```
+# Run Sanoid every hour
+05 * * * * root /opt/sanoid/sanoid --cron
+```
