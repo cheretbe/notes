@@ -15,4 +15,17 @@ dpkg -i zabbix-release_4.0-2+bionic_all.deb
 apt update
 
 apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent zabbix-get
+
+cp /etc/zabbix/apache.conf{,.bak}
+nano /etc/zabbix/apache.conf
+# Uncomment and edit php_value date.timezone in <IfModule mod_php7.c>
+# php_value date.timezone Europe/Kaliningrad
+
+cp /etc/php/7.2/apache2/php.ini{,.bak}
+nano /etc/php/7.2/apache2/php.ini
+# Uncomment and edit date.timezone
+# date.timezone = Europe/Kaliningrad
+
+systemctl reload apache2
+
 ```
