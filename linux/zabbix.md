@@ -28,4 +28,10 @@ nano /etc/php/7.2/apache2/php.ini
 
 systemctl reload apache2
 
+mysql -u root -p
+
+create database zabbixdb character set utf8 collate utf8_bin;
+grant all privileges on zabbixdb.* to zabbixuser@localhost identified by 'Password';
+flush privileges;
+exit;
 ```
