@@ -11,7 +11,7 @@ new-name
 127.0.1.1	new-name.domain.tld	new-name
 ```
 * `127.0.1.1` is a replacement for static IP address ([more details here](http://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_hostname_resolution))
-* Use the host has a static IP, use it instead of `127.0.1.1`
+* If the host has a static IP, use it instead of `127.0.1.1`
 3. Run `hostname new-name` or just reboot for good measure.
 4. :question: Check if `/etc/cloud/cloud.cfg` settings affect the host name (vagrant, LXD, etc.)
 * [This guide](https://linuxconfig.org/how-to-change-hostname-on-ubuntu-18-04-bionic-beaver-linux) suggests changing `preserve_hostname: false`
