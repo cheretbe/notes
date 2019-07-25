@@ -58,8 +58,9 @@ Unattended-Upgrade::Allowed-Origins {
 
 5. Test settings
 ```shell
-unattended-upgrade -v --dry-run
 unattended-upgrade --debug --dry-run
+# Less verbose output
+unattended-upgrade -v --dry-run
 ```
 
 * https://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades
