@@ -34,4 +34,17 @@ create database zabbixdb character set utf8 collate utf8_bin;
 grant all privileges on zabbixdb.* to zabbixuser@localhost identified by 'Password';
 flush privileges;
 exit;
+
+zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -u zabbixuser -p zabbixdb
+
+cp /etc/zabbix/zabbix_server.conf{,.bak}
+nano /etc/zabbix/zabbix_server.conf
+# Uncomment and edit the following parameters
+DBHost=localhost
+DBName=zabbixdb
+DBUser=zabbixuser
+DBPassword=Password
 ```
+
+systemctl enable zabbix-server && systemctl start zabbix-server
+systemctl enable zabbix-agent && systemctl start zabbix-agent
