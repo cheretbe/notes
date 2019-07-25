@@ -44,7 +44,7 @@ DBHost=localhost
 DBName=zabbixdb
 DBUser=zabbixuser
 DBPassword=Password
-```
 
 systemctl enable zabbix-server && systemctl start zabbix-server
 systemctl enable zabbix-agent && systemctl start zabbix-agent
+```
