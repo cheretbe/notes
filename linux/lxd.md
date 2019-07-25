@@ -107,6 +107,9 @@ lxc image list images:
 # List ubuntu images only
 lxc image list ubuntu:
 
+lxc launch ubuntu:xenial test1
+lxc launch ubuntu:bionic test2
+
 lxc image list images: "centos"
 lxc image list images: "centos/6/amd64"
 lxc launch images:centos/7/amd64 test
