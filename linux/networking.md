@@ -184,6 +184,12 @@ route delete -net 192.168.101.0/24 gw 192.168.99.11
 route add -net 192.168.101.0/24 gw 192.168.100.9
 # add a route via an interface
 route add -net 172.24.0.0/24 dev eth0
+
+ip route add 192.168.1.0/24 via 192.168.0.1
+# Change metric
+# It's not possible to modify metric. Delete and recreate the route
+ip route delete default via 192.168.1.1
+ip route add default via 192.168.1.1 metric 90
 ```
 ### DNS
 ```shell
