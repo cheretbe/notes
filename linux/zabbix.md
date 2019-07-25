@@ -48,3 +48,11 @@ DBPassword=Password
 systemctl enable zabbix-server && systemctl start zabbix-server
 systemctl enable zabbix-agent && systemctl start zabbix-agent
 ```
+Navigate to `http://ip_address/zabbix` or `http://host_name/zabbix` and finish configuration <br>
+Leave default values except for the following
+* Database name: zabbixdb
+* User: zabbixuser
+* Password: Password
+* Name: My Zabbix Server
+
+ The default user name is `Admin` and the password is `zabbix`
