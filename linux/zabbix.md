@@ -4,7 +4,7 @@
 ```shell
 apt install apache2 libapache2-mod-php \
             php php-pear php-cgi php-common libapache2-mod-php php-mbstring php-net-socket php-gd \
-            php-xml-util php-mysql php-gettext php-bcmath \
+            php-mysql php-gettext php-bcmath \
             mariadb-server
 # Ubuntu 18.04
 wget https://repo.zabbix.com/zabbix/4.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_4.0-2+bionic_all.deb
