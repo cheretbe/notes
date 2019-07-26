@@ -83,3 +83,9 @@ HostnameItem=system.hostname
 # Restart agent
 systemctl restart zabbix-agent
 ```
+
+Add host to Zabbix Server
+* Login to Zabbix server interface, and go to `Configuration` > `Hosts` > `Create host`
+* Set Hostname
+* Set IP address or DNS name
+* Got to the `Templates` tab and select templates you want to use (:warning: `Add` then `Update`)
