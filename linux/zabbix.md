@@ -76,6 +76,10 @@ nano /etc/zabbix/zabbix_agentd.conf
 # Server=192.168.10.2
 # For active checks:
 # ServerActive=192.168.10.2
-# Hostname reported by Zabbix agent to the server
-Hostname=server1.example.com
+# [!] Comment out Hostname parameter (and use HostnameItem instead)
+# Hostname=server1.example.com
+HostnameItem=system.hostname
+
+# Restart agent
+systemctl restart zabbix-agent
 ```
