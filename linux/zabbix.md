@@ -68,4 +68,14 @@ wget https://repo.zabbix.com/zabbix/4.0/ubuntu/pool/main/z/zabbix-release/zabbix
 dpkg -i zabbix-release_4.0-2+bionic_all.deb
 apt update
 apt install zabbix-agent zabbix-sender
+
+# Configure agent
+cp /etc/zabbix/zabbix_agentd.conf{,.bak}
+nano /etc/zabbix/zabbix_agentd.conf
+# Edit the following lines
+# Server=192.168.10.2
+# For active checks:
+# ServerActive=192.168.10.2
+# Hostname reported by Zabbix agent to the server
+Hostname=server1.example.com
 ```
