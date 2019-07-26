@@ -1,6 +1,7 @@
 ### Templates
 
 * https://superuser.com/questions/1016290/how-to-edit-a-zabbix-trigger-for-a-specific-host
+* https://www.zabbix.com/documentation/4.0/manual/config/macros/usermacros
 
 ### Agent Installation
 
