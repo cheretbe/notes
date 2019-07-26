@@ -33,6 +33,14 @@ Add host to Zabbix Server
 * Set IP address or DNS name
 * Got to the `Templates` tab and select templates you want to use (:warning: `Add` then `Update`)
 
+Debugging
+```shell
+# On server
+zabbix_get -s ip-of-your-agent -k agent.ping
+zabbix_get -s ip-of-your-agent -k agent.version
+zabbix_get -s ip-of-your-agent -k agent.hostname
+```
+
 ### Server Installation
 
 * https://www.zabbix.com/life_cycle_and_release_policy
