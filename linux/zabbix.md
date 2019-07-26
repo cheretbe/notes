@@ -1,7 +1,41 @@
-* https://www.zabbix.com/life_cycle_and_release_policy
-* https://www.zabbix.com/documentation/4.0/manual/installation/install_from_packages/debian_ubuntu
+### Templates
+
+* https://superuser.com/questions/1016290/how-to-edit-a-zabbix-trigger-for-a-specific-host
+
+### Agent Installation
+
+```shell
+# Ubuntu 18.04
+mkdir -p ~/temp && cd ~/temp
+wget https://repo.zabbix.com/zabbix/4.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_4.0-2+bionic_all.deb
+dpkg -i zabbix-release_4.0-2+bionic_all.deb
+apt update
+apt install zabbix-agent zabbix-sender
+
+# Configure agent
+cp /etc/zabbix/zabbix_agentd.conf{,.bak}
+nano /etc/zabbix/zabbix_agentd.conf
+# Edit the following lines
+# Server=192.168.10.2
+# For active checks:
+# ServerActive=192.168.10.2
+# [!] Comment out Hostname parameter (and use HostnameItem instead)
+# Hostname=server1.example.com
+HostnameItem=system.hostname
+
+# Restart agent
+systemctl restart zabbix-agent
+```
+Add host to Zabbix Server
+* Login to Zabbix server interface, and go to `Configuration` > `Hosts` > `Create host`
+* Set Hostname
+* Set IP address or DNS name
+* Got to the `Templates` tab and select templates you want to use (:warning: `Add` then `Update`)
 
 ### Server Installation
+
+* https://www.zabbix.com/life_cycle_and_release_policy
+* https://www.zabbix.com/documentation/4.0/manual/installation/install_from_packages/debian_ubuntu
 
 ```shell
 # Ubuntu 18.04
@@ -58,34 +92,3 @@ Leave default values except for the following
 * Name: My Zabbix Server
 
  The default user name is `Admin` and the password is `zabbix`
- 
-### Agent Installation
-
-```shell
-# Ubuntu 18.04
-mkdir -p ~/temp && cd ~/temp
-wget https://repo.zabbix.com/zabbix/4.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_4.0-2+bionic_all.deb
-dpkg -i zabbix-release_4.0-2+bionic_all.deb
-apt update
-apt install zabbix-agent zabbix-sender
-
-# Configure agent
-cp /etc/zabbix/zabbix_agentd.conf{,.bak}
-nano /etc/zabbix/zabbix_agentd.conf
-# Edit the following lines
-# Server=192.168.10.2
-# For active checks:
-# ServerActive=192.168.10.2
-# [!] Comment out Hostname parameter (and use HostnameItem instead)
-# Hostname=server1.example.com
-HostnameItem=system.hostname
-
-# Restart agent
-systemctl restart zabbix-agent
-```
-
-Add host to Zabbix Server
-* Login to Zabbix server interface, and go to `Configuration` > `Hosts` > `Create host`
-* Set Hostname
-* Set IP address or DNS name
-* Got to the `Templates` tab and select templates you want to use (:warning: `Add` then `Update`)
