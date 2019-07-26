@@ -1,6 +1,8 @@
 * https://www.zabbix.com/life_cycle_and_release_policy
 * https://www.zabbix.com/documentation/4.0/manual/installation/install_from_packages/debian_ubuntu
 
+### Server Installation
+
 ```shell
 # Ubuntu 18.04
 apt install apache2 libapache2-mod-php \
@@ -56,3 +58,14 @@ Leave default values except for the following
 * Name: My Zabbix Server
 
  The default user name is `Admin` and the password is `zabbix`
+ 
+### Agent Installation
+
+```shell
+# Ubuntu 18.04
+mkdir -p ~/temp && cd ~/temp
+wget https://repo.zabbix.com/zabbix/4.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_4.0-2+bionic_all.deb
+dpkg -i zabbix-release_4.0-2+bionic_all.deb
+apt update
+apt install zabbix-agent zabbix-sender
+```
