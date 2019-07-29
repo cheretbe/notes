@@ -56,7 +56,11 @@ zfs allow -u syncoid-backup-user compression,mountpoint,create,mount,receive,des
 * https://askubuntu.com/questions/843585/how-to-let-non-root-user-take-zfs-snapshot
 * https://dan.langille.org/2015/02/16/zfs-send-zfs-receive-as-non-root/
 
-
+`/etc/sudoers.d/syncoid` as a workaround
+```
+# Allow ZFS operations during sync
+syncoid-backup ALL=(ALL) NOPASSWD: /sbin/zfs
+```
 
 ```shell
 # on client
