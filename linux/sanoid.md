@@ -1,5 +1,11 @@
 * https://github.com/jimsalterjrs/sanoid/issues/116#issuecomment-318468961
 
+`TODO`: Check syncoid's `--no-privilege-elevation` option:
+* https://github.com/jimsalterjrs/sanoid/pull/140
+* https://github.com/zfsonlinux/zfs/pull/4487
+* https://askubuntu.com/questions/843585/how-to-let-non-root-user-take-zfs-snapshot
+* https://dan.langille.org/2015/02/16/zfs-send-zfs-receive-as-non-root/
+
 ```shell
 # Ubuntu
 apt install libconfig-inifiles-perl pv lzop mbuffer
