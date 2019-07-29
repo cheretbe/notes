@@ -45,6 +45,10 @@ Hourly `/etc/cron.d/sanoid` example
 ```
 
 Daily backup script example
+```
+# Backup daily at 15:00
+00 15  *  *  *    root /path/to/offsite_backup.sh >>/path/to/offsite_backup.log 2>&1
+```
 ```bash
 #!/bin/bash
 
