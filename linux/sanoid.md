@@ -50,6 +50,13 @@ Hourly `/etc/cron.d/sanoid` example
 05 * * * * root /opt/sanoid/sanoid --cron
 ```
 
+### Syncoid
+
+```shell
+# on client
+apt install lzop mbuffer
+```
+
 Daily backup script example
 ```
 # Backup daily at 15:00
