@@ -72,6 +72,27 @@ Daily backup script example
 # Backup daily at 15:00
 00 15  *  *  *    root /path/to/offsite_backup.sh >>/path/to/offsite_backup.log 2>&1
 ```
+:warning: Change `/path/to/offsite_backup.log` to actual log file path
+```shell
+# Log rotation
+cat >/etc/logrotate.d/zfs-offsite-backup <<EOL
+/path/to/offsite_backup.log {
+  monthly
+  rotate 3
+  size 50M
+  compress
+  delaycompress
+  missingok
+  notifempty
+}
+EOL
+
+# Don't allow group writing to the file in order to avoid logrotate skipping rotation
+chmod 644 /etc/logrotate.d/zfs-offsite-backup
+# Check log rotation status
+logrotate -d /etc/logrotate.d/zfs-offsite-backup
+```
+
 ```bash
 #!/bin/bash
 
