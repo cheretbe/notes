@@ -8,8 +8,8 @@ yum install perl-Config-IniFiles perl-Data-Dumper mbuffer lzop pv
 
 # Copy sample configs
 mkdir -p /etc/sanoid
-cp sanoid-1.4.14/sanoid.defaults.conf /etc/sanoid/
-cp sanoid-1.4.14/sanoid.conf /etc/sanoid/
+cp /opt/sanoid/sanoid.defaults.conf /etc/sanoid/
+cp /opt/sanoid/sanoid.conf /etc/sanoid/
 
 # Nagios monitoring
 /opt/sanoid/sanoid --monitor-health
