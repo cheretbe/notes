@@ -46,6 +46,10 @@ Hourly `/etc/cron.d/sanoid` example
 
 ### Syncoid
 
+```shell
+/opt/sanoid/syncoid pool/path syncoid-backup@host.tld:pool/path --recursive --sshkey /path/to/syncoid-backup.key
+```
+
 :warning: Syncoid's `--no-privilege-elevation` option would have worked, but linux can't mount newly created datasets
 ```shell
 # 
