@@ -27,3 +27,12 @@ ffmpeg -h encoder=libmp3lame
 ...
 Threading capabilities: none
 ```
+
+Edit tracks: audacity<br>
+https://www.audacityteam.org/
+```shell
+add-apt-repository ppa:ubuntuhandbook1/audacity
+apt update
+# Make sure it is the latest version
+apt install audacity -s
+```
