@@ -6,6 +6,7 @@
 * https://www.zabbix.com/documentation/4.0/manual/config/items/item
 * https://github.com/v-zhuravlev/zbx-smartctl
 * https://habr.com/ru/company/zabbix/blog/337856/
+* https://bitbucket.org/sivann/runcached/src/master/
 
 RegEx
 * https://www.zabbix.com/documentation/3.4/manual/regular_expressions
