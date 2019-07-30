@@ -3,6 +3,9 @@ Mikrotik OIDs
 /interface print oid
 /system identity print oid
 /system resource print oid
+
+SNMPv2-MIB::sysDescr.0 = STRING: RouterOS RB4011iGS+
+SNMPv2-SMI::mib-2.47.1.1.1.1.2.65536 = STRING: "RouterOS 6.44.3 (stable) on RB4011iGS+"
 ```
 
 ```shell
