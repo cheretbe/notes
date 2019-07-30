@@ -4,6 +4,7 @@
 * https://www.zabbix.com/documentation/4.0/manual/config/macros/usermacros
 * https://www.zabbix.com/documentation/4.0/manual/api/reference/template/update
 * https://github.com/v-zhuravlev/zbx-smartctl
+* https://habr.com/ru/company/zabbix/blog/337856/
 
 ### Agent Installation
 
