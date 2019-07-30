@@ -6,6 +6,10 @@
 * https://github.com/v-zhuravlev/zbx-smartctl
 * https://habr.com/ru/company/zabbix/blog/337856/
 
+RegEx
+* `^(?:\S+\s){2}(\S+)`: `RouterOS 6.44.3 (stable) on RB4011iGS+` ==> `6.44.3`
+
+
 ### Agent Installation
 
 ```shell
