@@ -3,10 +3,12 @@
 * https://superuser.com/questions/1016290/how-to-edit-a-zabbix-trigger-for-a-specific-host
 * https://www.zabbix.com/documentation/4.0/manual/config/macros/usermacros
 * https://www.zabbix.com/documentation/4.0/manual/api/reference/template/update
+* https://www.zabbix.com/documentation/4.0/manual/config/items/item
 * https://github.com/v-zhuravlev/zbx-smartctl
 * https://habr.com/ru/company/zabbix/blog/337856/
 
 RegEx
+* https://www.zabbix.com/documentation/3.4/manual/regular_expressions
 * `^(?:\S+\s){2}(\S+)`: `RouterOS 6.44.3 (stable) on RB4011iGS+` ==> `6.44.3`
 
 
