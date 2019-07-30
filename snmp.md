@@ -1,3 +1,10 @@
+Mikrotik OIDs
+```
+/interface print oid
+/system identity print oid
+/system resource print oid
+```
+
 ```shell
 sudo apt-get install snmp snmp-mibs-downloader
 # Looks like this is called during snmp-mibs-downloader installation
