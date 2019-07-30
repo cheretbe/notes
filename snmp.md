@@ -14,6 +14,12 @@ https://l3net.wordpress.com/2013/05/12/installing-net-snmp-mibs-on-ubuntu-and-de
 SNMP browsers
 * http://www.ireasoning.com/download.shtml
 
+```
+snmpwalk -v 2c -c public 192.168.0.1
+# On error "OID not increasing" use -Cc option
+snmpwalk -Cc -v 2c -c public 192.168.0.1
+```
+
 Network interfaces and IPs
 * http://oid-info.com/get/1.3.6.1.2.1.2.2.1.1
 * http://oid-info.com/get/1.3.6.1.2.1.2.2.1.2
