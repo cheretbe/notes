@@ -17,6 +17,12 @@ Name: Zabbix MySQL DB Size
 Key: mysql.size[zabbixdb]
 Units: b
 Update interval: 1d
+
+Make sure /var/lib/zabbix/.my.cnf file exists, has attr 600 and contains
+[mysql]
+user=zabbixuser
+password=Password
+host=localhost
 ```
 
 
