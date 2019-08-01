@@ -67,7 +67,9 @@ Get-Service WMPNetworkSvc
 ```batch
 powershell "Get-Service | Where-Object { $_.DisplayName -like '*registry*' }"
 powershell "Get-Service | Where-Object { $_.Name -like '*remote*' }"
-powershell "Get-WmiObject win32_service | Where-Object {$_.PathName -like '*exename*'}" | Select Name, DisplayName, State, PathName"
+:: System.ServiceProcess.ServiceController does not containg PathName, so it
+:: is necessary to use WMI
+powershell "Get-WmiObject win32_service | Where-Object {$_.PathName -like '*exename*'} | Select Name, DisplayName, State, PathName"
 :: start= <boot|system|auto|demand|disabled|delayed-auto>
 sc.exe config WinRM start= auto
 sc.exe start WinRM
