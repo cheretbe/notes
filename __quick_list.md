@@ -65,6 +65,8 @@ Get-Service | Where-Object { $_.DisplayName -like "*media*" }
 Get-Service WMPNetworkSvc
 ```
 ```batch
+powershell "Get-Service | Where-Object { $_.DisplayName -like '*registry*' }"
+powershell "Get-Service | Where-Object { $_.Name -like '*remote*' }"
 :: start= <boot|system|auto|demand|disabled|delayed-auto>
 sc.exe config WinRM start= auto
 sc.exe start WinRM
