@@ -69,7 +69,8 @@ Get-Service WMPNetworkSvc
 sc.exe config WinRM start= auto
 sc.exe start WinRM
 ```
-| Service       | English Name                                 | Russian Name                                              |
-| ------------- | -------------------------------------------- | --------------------------------------------------------- |
-| WMPNetworkSvc | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
-| wuauserv      | Windows Update                               | Центр обновления Windows                                  |
+| Service        | English Name                                 | Russian Name                                              |
+| -------------- | -------------------------------------------- | --------------------------------------------------------- |
+| WMPNetworkSvc  | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
+| wuauserv       | Windows Update                               | Центр обновления Windows                                  |
+| RemoteRegistry | Remote Registry                              | Удаленный реестр                                          |
