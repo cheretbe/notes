@@ -33,7 +33,7 @@ file_client: local
 ```
 
 ```shell
-salt-call --local state.highstate
+salt-call --local state.highstate -l debug
 ```
 
 
