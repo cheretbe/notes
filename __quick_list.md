@@ -57,7 +57,7 @@ Get-NetConnectionProfile
 Set-NetConnectionProfile -InterfaceIndex 13 -NetworkCategory Private
 
 # View motherboard name
-Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product
+Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Product 
 
 # Search services by display name
 Get-Service | Where-Object { $_.DisplayName -like "*media*" }
@@ -67,6 +67,7 @@ Get-Service WMPNetworkSvc
 ```batch
 powershell "Get-Service | Where-Object { $_.DisplayName -like '*registry*' }"
 powershell "Get-Service | Where-Object { $_.Name -like '*remote*' }"
+powershell "Get-WmiObject win32_service | Where-Object {$_.PathName -like '*exename*'}" | Select Name, DisplayName, State, PathName"
 :: start= <boot|system|auto|demand|disabled|delayed-auto>
 sc.exe config WinRM start= auto
 sc.exe start WinRM
