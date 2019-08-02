@@ -15,6 +15,8 @@ nc -q 1 -l -p 1234 | pv | tar x
 
 # TODO: do some mbuffer tests
 # https://unix.stackexchange.com/questions/48399/fast-way-to-copy-a-large-file-on-a-lan/48555#48555
+# Prototype:
+tar c . | mbuffer -m 1024M | nc -q 1 dest-ip 1234
 
 # on client (sender)
 tar cv . | nc -q 1 dest-ip 1234
