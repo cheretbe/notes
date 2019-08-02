@@ -51,6 +51,13 @@ end
   # Bridged adapter
   # https://www.vagrantup.com/docs/networking/public_network.html
   config.vm.network "public_network", ip: "192.168.1.17"
+  
+  config.vm.provision "shell", name: "Multiple command test",
+    keep_color: true, privileged: false,
+    inline: <<-SHELL
+      ls -lha /
+      uname -a
+    SHELL
 ```
 
 ```shell
