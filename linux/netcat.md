@@ -1,3 +1,11 @@
+:warning: 2test:
+```shell
+# receiver
+mbuffer -4 -s 128k -m 1G -I 1234 | zfs receive -F pool/path
+# sender
+zfs send -R pool/path@snapshot | mbuffer -s 128k -m 1G -O dest-ip:1234
+```
+
 ```shell
 # on server
 sudo apt install netcat
@@ -17,6 +25,8 @@ nc -q 1 -l -p 1234 | pv | tar x
 # https://unix.stackexchange.com/questions/48399/fast-way-to-copy-a-large-file-on-a-lan/48555#48555
 # Prototype:
 tar c . | mbuffer -m 1024M | nc -q 1 dest-ip 1234
+# [!!!] No need to use nc with mbuffer's -I key
+# https://www.reddit.com/r/zfs/comments/buuugd/protip_ive_discovered_want_to_zfs_send_a_huge/es7ir7d/
 
 # on client (sender)
 tar cv . | nc -q 1 dest-ip 1234
