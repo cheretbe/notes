@@ -2,6 +2,22 @@
 
 boot-time Chkdsk results: "Application" log, event source "Wininit"
 
+KMS activateion
+```batch
+:: In the Office dir (e.g. C:\Program Files\Microsoft Office\Office14):
+cscript ospp.vbs /sethst:kms.domain.tld
+cscript ospp.vbs /setprt:portno
+cscript ospp.vbs /act
+:: Check license status
+cscript ospp.vbs /dstatus
+
+script slmgr.vbs -skms kms.domain.tld:portno
+cscript slmgr.vbs -ato
+:: Check status
+cscript slmgr.vbs -dlv
+cscript slmgr.vbs -xpr
+```
+
 ```batch
 :: Disable hibernation
 powercfg /h off
