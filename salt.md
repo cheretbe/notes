@@ -1,4 +1,6 @@
 * **https://www.linode.com/docs/applications/configuration-management/beginners-guide-to-salt/**
+* https://www.linode.com/docs/applications/configuration-management/introduction-to-jinja-templates-for-salt/
+* https://www.linode.com/docs/applications/configuration-management/introduction-to-jinja-templates-for-salt/#salt-and-jinja-best-practices
 * **https://implement.pt/2018/10/a-comprehensive-introduction-to-salt/**
 * **https://www.reddit.com/r/saltstack/comments/4hfe2q/use_saltstack_to_update_linux_hosts/d2qx7pa?utm_source=share&utm_medium=web2x**
 * https://medium.com/@Joachim8675309/vagrant-provisioning-with-saltstack-50dab12ce6c7
