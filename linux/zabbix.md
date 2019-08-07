@@ -75,6 +75,21 @@ curl -i -X POST -H 'Content-Type:application/json' -d'{"jsonrpc": "2.0","method"
 curl -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend","filter":{"host":"Zabbix server"}},"auth":"00000000000000000000000000000000","id":1}' http://127.0.0.1/zabbix/api_jsonrpc.php | json_pp
 ```
 
+* https://pypi.org/project/zabbix-api/
+* https://github.com/gescheit/scripts/tree/master/zabbix
+```python
+#!/usr/bin/env python3
+
+import zabbix_api
+import pprint
+
+z_api = zabbix_api.ZabbixAPI(server="http://localhost/zabbix")
+z_api.login("Admin", "zabbix")
+pprint.pprint(z_api.host.get([]))
+
+
+```
+
 ### Server Installation
 
 * https://www.zabbix.com/life_cycle_and_release_policy
