@@ -65,6 +65,7 @@ zabbix_get -s ip-of-your-agent -k agent.hostname
 ```
 
 ### API
+* https://www.zabbix.com/documentation/4.0/manual/api
 ```shell
 curl -i -X POST -H 'Content-Type:application/json' -d'{"jsonrpc": "2.0","method":"user.login","params":{"user":"Admin","password":"zabbix"},"auth": null,"id":1}' http://127.0.0.1/zabbix/api_jsonrpc.php
 # Note the result, for example
