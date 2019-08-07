@@ -73,6 +73,10 @@ curl -i -X POST -H 'Content-Type:application/json' -d'{"jsonrpc": "2.0","method"
 
 # Get information on host named "Zabbix server"
 curl -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend","filter":{"host":"Zabbix server"}},"auth":"00000000000000000000000000000000","id":1}' http://127.0.0.1/zabbix/api_jsonrpc.php | json_pp
+
+# Log out
+curl -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","method":"user.logout","params":{},"auth":"00000000000000000000000000000000","id":1}' http://127.0.0.1/zabbix/api_jsonrpc.php | json_pp
+# Should return { "id": 1, "jsonrpc": "2.0", "result": true }
 ```
 
 * https://pypi.org/project/zabbix-api/
