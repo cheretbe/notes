@@ -91,6 +91,8 @@ z_api = zabbix_api.ZabbixAPI(server="http://localhost/zabbix")
 z_api.login("Admin", "zabbix")
 pprint.pprint(z_api.host.get([]))
 
+z_api.host.get({'search':{'name': "Zabbix Server"}, 'output': ["hostid", "host"]})
+
 z_api.logout()
 ```
 
