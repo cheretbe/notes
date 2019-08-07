@@ -93,6 +93,8 @@ pprint.pprint(z_api.host.get([]))
 
 z_api.host.get({'search':{'name': "Zabbix Server"}, 'output': ["hostid", "host"]})
 
+z_api.configuration.export({"format": "xml", "options": {"templates": [10001]}})
+
 z_api.logout()
 ```
 
