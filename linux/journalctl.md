@@ -24,9 +24,14 @@ Set `SystemMaxUse` parameter (e.g. `SystemMaxUse=500M`) because by default it is
 journalctl -b --no-pager -p warning 
 # See the boots that journald knows about
 journalctl --list-boots
+
 # See logs from particular units
 journalctl -u nginx.service
 journalctl -u nginx.service -u php-fpm.service --since today
+
+# See messages by PID
+journalctl -b 0 _PID=9400
+
 # Time window
 journalctl --since "2015-01-14" --until "2015-01-15 03:00"
 journalctl --since "15 min ago"
