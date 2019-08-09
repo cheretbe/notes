@@ -23,6 +23,13 @@ to make it work.
 ```
 burp -c /etc/burp/burp-server.conf -t -C testclient | grep timer
 ```
+Identify forked process for client
+```shell
+# View burp process tree
+ps axf | grep /usr/sbin/burp
+# View log by forked PID
+journalctl -b 0 _PID=4809
+```
 
 * https://github.com/grke/burp/wiki/Automated-deploy-and-maintenance
 
