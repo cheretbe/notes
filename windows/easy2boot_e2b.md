@@ -29,6 +29,7 @@
      * ~~Ubuntu 17.10.1 Desktop x64: http://releases.ubuntu.com/17.10.1/ubuntu-17.10.1-desktop-amd64.iso~~
      * Ubuntu 18.04.3 Desktop x64: http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso
      * Ubuntu 16.04.4 Desktop x64: http://releases.ubuntu.com/16.04.4/ubuntu-16.04.4-desktop-amd64.iso
+     * Ubuntu 18.04.3 Server x64 (live CD): http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-live-server-amd64.iso
      * Ubuntu 16.04.4 Server x64: http://releases.ubuntu.com/16.04.4/ubuntu-16.04.4-server-amd64.iso
      * Ubuntu 14.04.5 Server x64: http://releases.ubuntu.com/14.04.5/ubuntu-14.04.5-server-amd64.iso
      * Xubuntu 16.04.4 x64: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.4-desktop-amd64.iso
