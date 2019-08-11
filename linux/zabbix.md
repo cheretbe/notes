@@ -7,6 +7,7 @@
 * https://github.com/v-zhuravlev/zbx-smartctl
 * https://habr.com/ru/company/zabbix/blog/337856/
 * https://bitbucket.org/sivann/runcached/src/master/
+* http://sirlagz.net/2015/05/11/snmp-agent-unresponsive-alerts-in-zabbix/
 
 RegEx
 * https://www.zabbix.com/documentation/3.4/manual/regular_expressions
