@@ -36,8 +36,8 @@
      * Ubuntu 18.04.3 Server x64: http://cdimage.ubuntu.com/releases/18.04.3/release/ubuntu-18.04.3-server-amd64.iso
      * Ubuntu 16.04.6 Server x64: http://releases.ubuntu.com/16.04.6/ubuntu-16.04.6-server-amd64.iso
      * ~~Ubuntu 14.04.5 Server x64: http://releases.ubuntu.com/14.04.5/ubuntu-14.04.5-server-amd64.iso~~
-     * Xubuntu 16.04.4 x64: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.4-desktop-amd64.iso
-     * Xubuntu 16.04.4 x86: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.4-desktop-i386.iso
+     * Xubuntu 16.04.6 x64: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-amd64.iso
+     * Xubuntu 16.04.6 x86: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-i386.iso
      * Kubuntu 17.10.1 x64: http://cdimage.ubuntu.com/kubuntu/releases/17.10.1/release/kubuntu-17.10.1-desktop-amd64.iso
      * CentOS 7.4 x64 Gnome: https://mirror.yandex.ru/centos/7/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1708.iso
      * CentOS 7.4 x64 KDE: https://mirror.yandex.ru/centos/7/isos/x86_64/CentOS-7-x86_64-LiveKDE-1708.iso
