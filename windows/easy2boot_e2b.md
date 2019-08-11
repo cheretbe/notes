@@ -25,6 +25,7 @@
      * GParted: https://gparted.org/download.php
      * TeraByte Image for Linux: https://www.terabyteunlimited.com/image-for-linux.htm
  * Linux
+     * List of releases: https://wiki.ubuntu.com/Releases
      * Ubuntu release cycle: https://ubuntu.com/about/release-cycle
      * Ubuntu Releases: http://releases.ubuntu.com/
      * Ubuntu 19.04 Desktop x64: http://releases.ubuntu.com/19.04/ubuntu-19.04-desktop-amd64.iso
