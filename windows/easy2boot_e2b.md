@@ -37,7 +37,6 @@
      * Ubuntu 16.04.6 Server x64: http://releases.ubuntu.com/16.04.6/ubuntu-16.04.6-server-amd64.iso
      * ~~Ubuntu 14.04.5 Server x64: http://releases.ubuntu.com/14.04.5/ubuntu-14.04.5-server-amd64.iso~~
      * Xubuntu 18.04.3 x64: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/18.04/release/xubuntu-18.04.3-desktop-amd64.iso
-     * Xubuntu 16.04.3 x86: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/18.04/release/xubuntu-18.04.3-desktop-i386.iso
      * Xubuntu 16.04.6 x64: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-amd64.iso
      * Xubuntu 16.04.6 x86: https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/16.04/release/xubuntu-16.04.6-desktop-i386.iso
      * Kubuntu 18.04.3 x64: https://mirror.yandex.ru/ubuntu-cdimage/kubuntu/releases/18.04.3/release/kubuntu-18.04.3-desktop-amd64.iso
