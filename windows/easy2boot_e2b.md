@@ -1,6 +1,6 @@
  * http://www.easy2boot.com/download/
  * http://www.easy2boot.com/make-an-easy2boot-usb-drive/make-using-linux/
- * [Custom background](../images/test.jpg) (save as `_ISO\MyBackground.jpg`)
+ * [Custom background](../images/MyBackground.jpg) (save as `_ISO\MyBackground.jpg`)
  
  ### .imgPTN Files
  * Download MPI Tool Kit: http://www.easy2boot.com/add-payload-files/makepartimage
