@@ -1,4 +1,5 @@
  * http://www.easy2boot.com/download/
+ * http://www.easy2boot.com/make-an-easy2boot-usb-drive/make-using-linux/
  
  ### .imgPTN Files
  * Download MPI Tool Kit: http://www.easy2boot.com/add-payload-files/makepartimage
