@@ -43,6 +43,7 @@
      * Kubuntu 18.04.3 x64: https://mirror.yandex.ru/ubuntu-cdimage/kubuntu/releases/18.04.3/release/kubuntu-18.04.3-desktop-amd64.iso
      * ~~Kubuntu 17.10.1 x64: http://cdimage.ubuntu.com/kubuntu/releases/17.10.1/release/kubuntu-17.10.1-desktop-amd64.iso~~
      * CentOS release "end of life": https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d
+     * CentOS-7 (1810) Release Notes: https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1810?action=show&redirect=Manuals%2FReleaseNotes%2FCentOS7
      * CentOS 7.6 x64 Gnome: https://mirror.yandex.ru/centos/7/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1810.iso
      * CentOS 7.6 x64 KDE: https://mirror.yandex.ru/centos/7/isos/x86_64/CentOS-7-x86_64-LiveKDE-1810.iso
      * CentOS 6.9 i386: https://mirror.yandex.ru/centos/6.9/isos/i386/CentOS-6.9-i386-LiveDVD.iso
