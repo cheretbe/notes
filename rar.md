@@ -7,4 +7,8 @@
 # -m<n> - set compression method (0-5, 0 - store, 3 - default, 5 -best)
 # -ap<path> - set path inside archive
 rar a -ep1 -ma5 -m5 -apsubdir-name ~/path/to/archive.rar ~/path/to/directory/
+
+# Test RAR file showing only errors
+# -idq turns on the quiet mode, so only error messages and questions are displayed.
+rar t archive.rar -idq
 ```
