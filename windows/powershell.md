@@ -2,9 +2,19 @@ Unsorted
 * https://superuser.com/questions/468782/show-human-readable-file-sizes-in-the-default-powershell-ls-command/468907#468907
 
 ## Table of Contents
+* [Useful Interactive Commands](#useful-interactive-commands)
 * [Code Snippets](#code-snippets)
 * [Remoting](#remoting)
 * [Installation](#installation)
+
+## Useful Interactive Commands
+```powershell
+# Disks info
+Get-PhysicalDisk
+
+Get-WmiObject Win32_LogicalDisk | ?{$_.DriveType -eq 3}
+Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3"
+```
 
 ## Code Snippets
 
