@@ -14,6 +14,13 @@ Get-PhysicalDisk
 
 Get-WmiObject Win32_LogicalDisk | ?{$_.DriveType -eq 3}
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3"
+
+Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
+  Select-Object DeviceId, VolumeName,
+     @{Name="Size (GB)";Expression={[math]::round($_.size/1GB,2)}},
+     @{Name="Free (GB)";Expression={[math]::round($_.FreeSpace/1GB,2)}},
+     @{Name="Use (%)";Expression={[math]::round(($_.size - $_.FreeSpace) * 100 / $_.size,1)}} |
+  Format-Table -AutoSize
 ```
 
 ## Code Snippets
