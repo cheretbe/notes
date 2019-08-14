@@ -41,7 +41,7 @@ sync; dd if=/dev/zero of=tempfile bs=1M count=$((20*1024)) status=progress; sync
 # Read speed test
 #~~vm.drop_caches = 3~~
 echo 3 | sudo tee /proc/sys/vm/drop_caches 
-dd if=tempfile of=/dev/null bs=1M count=$((10*1024)) status=progress
+dd if=tempfile of=/dev/null bs=1M count=$((20*1024)) status=progress
 
 tar czvf file.tar.gz directory/
 
