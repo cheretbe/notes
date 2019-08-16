@@ -1,4 +1,5 @@
 * **https://www.linode.com/docs/applications/configuration-management/beginners-guide-to-salt/**
+* **https://serverfault.com/questions/590755/hostname-of-minion-in-salt-command/615852#615852**
 * https://www.linode.com/docs/applications/configuration-management/introduction-to-jinja-templates-for-salt/
 * https://www.linode.com/docs/applications/configuration-management/introduction-to-jinja-templates-for-salt/#salt-and-jinja-best-practices
 * **https://implement.pt/2018/10/a-comprehensive-introduction-to-salt/**
