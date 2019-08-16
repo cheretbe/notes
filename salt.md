@@ -15,6 +15,15 @@
 * https://github.com/saltstack/salt-bootstrap#install-using-curl
 * https://stackoverflow.com/questions/52746217/call-a-salt-state-from-another-salt-state/52756463#52756463
 
+```shell
+salt-run manage.up
+salt-run manage.status
+salt-run manage.down
+salt-run manage.versions
+# Gives a full list of all the modules you can run with salt-run
+salt-run -d
+```
+
 Masterless
 
 ```shell
