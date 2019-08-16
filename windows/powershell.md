@@ -265,6 +265,7 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 ### Remoting
 
 * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
+* https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
 
 ```powershell
 Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
