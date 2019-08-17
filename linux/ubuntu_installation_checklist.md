@@ -3,6 +3,8 @@ TODO:
 * http://www.noobslab.com/p/themes-icons.html
 * http://www.webupd8.org/2016/03/mailnag-email-notifier-12-released-with.html
 * http://mark.orbum.net/2012/05/14/disabling-dnsmasq-as-your-local-dns-server-in-ubuntu/
+* 18.04
+    * https://www.gnome-look.org/p/1207034/
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
