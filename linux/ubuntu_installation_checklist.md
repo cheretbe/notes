@@ -6,6 +6,7 @@ TODO:
 * 18.04
     * https://www.gnome-look.org/p/1207034/
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
+    * Ctrl+Shift setiing is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
