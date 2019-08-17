@@ -5,7 +5,7 @@ TODO:
 * http://mark.orbum.net/2012/05/14/disabling-dnsmasq-as-your-local-dns-server-in-ubuntu/
 * 18.04
     * https://www.gnome-look.org/p/1207034/
-    * Move the clock: http://frippery.org/extensions/
+    * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
