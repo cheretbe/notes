@@ -10,6 +10,7 @@ TODO:
     * https://itsfoss.com/ubuntu-shortcuts/
     * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
     * `2check`: https://askubuntu.com/questions/1048774/disabling-lock-screen-18-04/1064704#1064704
+    * Click to minimize: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
