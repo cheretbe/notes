@@ -5,3 +5,4 @@
 * https://www.unixarena.com/2019/03/ansible-tower-awx-creating-workflow-template.html/
 * https://medium.com/@ripon.banik/getting-started-with-ansible-tower-awx-part2-74ad8e380d34
 * https://pypi.org/project/ansible-tower-cli/
+* **https://www.redhat.com/en/blog/adding-remediation-zabbix-using-ansible-tower**
