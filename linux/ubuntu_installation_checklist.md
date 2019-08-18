@@ -8,6 +8,8 @@ TODO:
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
     * Ctrl+Shift setting is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
     * https://itsfoss.com/ubuntu-shortcuts/
+    * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
+    * `2check`: https://askubuntu.com/questions/1048774/disabling-lock-screen-18-04/1064704#1064704
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
