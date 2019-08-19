@@ -39,6 +39,7 @@ Collapsible details content
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) (old) Note with an exclamation
 ```
 
+:warning: review this TOC generator: https://github.com/thlorenz/doctoc
 ## Table of Contents
 * [Item 1](#item-1)
 * [Item with ' symbol](#item-with--symbol)
