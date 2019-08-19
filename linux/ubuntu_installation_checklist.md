@@ -13,6 +13,11 @@ TODO:
     * Click to minimize: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
     * Move apps button to the top: `gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true`
     * ClickAction `minimize-or-previews`: wait for [this commit](https://github.com/micheleg/dash-to-dock/commit/b2e9bb7ca2d92f7e36cda236248913a237525d6a) to be included in a release
+    * Show appc on Win key press
+        * https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/
+        * `unzip start-overlay-in-application-view@cis.net.v2.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/start-overlay-in-application-view@cis.net`
+        * <kbd>Alt</kbd>+<kbd>F2</kbd>, `r`, <kbd>Enter</kbd>
+        * Restart `GNOME Tweak Tool` if it was running, then enable the extension
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
