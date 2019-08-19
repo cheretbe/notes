@@ -11,6 +11,7 @@ TODO:
     * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
     * `2check`: https://askubuntu.com/questions/1048774/disabling-lock-screen-18-04/1064704#1064704
     * Click to minimize: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
+    * Move apps button to the top: `gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true`
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
