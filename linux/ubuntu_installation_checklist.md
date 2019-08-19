@@ -4,6 +4,7 @@ TODO:
 * http://www.webupd8.org/2016/03/mailnag-email-notifier-12-released-with.html
 * http://mark.orbum.net/2012/05/14/disabling-dnsmasq-as-your-local-dns-server-in-ubuntu/
 * 18.04
+    * Move windows to other monitor: <kbd>Win</kbd>+<kbd>Shift</kbd>+arrows
     * https://www.gnome-look.org/p/1207034/
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
     * Ctrl+Shift setting is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
