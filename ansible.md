@@ -7,3 +7,4 @@
 * https://medium.com/@ripon.banik/getting-started-with-ansible-tower-awx-part2-74ad8e380d34
 * https://pypi.org/project/ansible-tower-cli/
 * **https://www.redhat.com/en/blog/adding-remediation-zabbix-using-ansible-tower**
+* **https://docs.ansible.com/ansible-tower/latest/html/administration/tipsandtricks.html**
