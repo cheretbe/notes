@@ -1,5 +1,7 @@
-* https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz
-* `2read`: http://www.openoid.net/zfs-practicing-failures/
+* 2read
+    * https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz
+    * http://www.openoid.net/zfs-practicing-failures/
+    * https://calomel.org/zfs_raid_speed_capacity.html
 
 :warning: Clear ZFS metadata at the end(!) of a disk
 ```shell
