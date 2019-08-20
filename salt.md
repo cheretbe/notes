@@ -39,6 +39,17 @@ sudo apt update
 sudo apt -y install salt-api salt-cloud salt-master salt-minion salt-ssh salt-syndic
 
 # Config is in /etc/salt/master
+# Default config is OK
+
+nano /etc/salt/minion
+# Change master to
+# master: localhost
+systemctl restart salt-minion
+
+salt-key -L
+salt-key --accept=saltstack.domain.tld
+# or just
+salt-key -A
 ```
 
 ### Masterless
