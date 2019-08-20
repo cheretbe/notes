@@ -24,13 +24,15 @@ salt-run manage.versions
 salt-run -d
 ```
 
-### Server
+### Master
 
 ```shell
 wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
 echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
-# 2chekc: do we need salt-cloud and salt-syndic?
+# 2check: do we need salt-cloud and salt-syndic?
 sudo apt -y install salt-api salt-cloud salt-master salt-minion salt-ssh salt-syndic
+
+# Config is in /etc/salt/master
 ```
 
 ### Masterless
