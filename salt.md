@@ -53,6 +53,16 @@ salt-key --accept=saltstack.domain.tld
 salt-key -A
 ```
 
+Git repo backend. Edit `/etc/salt/master`:
+```
+fileserver_backend:
+  - roots
+  - git
+
+gitfs_remotes:
+  - https://github.com/cheretbe/saltstack-formulas.git
+```
+
 ### Masterless
 
 ```shell
