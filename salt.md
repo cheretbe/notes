@@ -54,6 +54,7 @@ salt-key -A
 ```
 
 Git repo backend.
+* https://www.linode.com/docs/applications/configuration-management/automate-a-static-site-deployment-with-salt/
 ```shell
 apt install python-pygit2
 
