@@ -53,7 +53,13 @@ salt-key --accept=saltstack.domain.tld
 salt-key -A
 ```
 
-Git repo backend. Edit `/etc/salt/master`:
+Git repo backend.
+```shell
+apt install python-pygit2
+
+```
+
+Edit `/etc/salt/master`:
 ```
 fileserver_backend:
   - roots
@@ -61,6 +67,10 @@ fileserver_backend:
 
 gitfs_remotes:
   - https://github.com/cheretbe/saltstack-formulas.git
+```
+```shell
+# Apply changes
+service salt-master restart
 ```
 
 ### Masterless
