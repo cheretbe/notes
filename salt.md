@@ -71,6 +71,12 @@ gitfs_remotes:
 ```shell
 # Apply changes
 service salt-master restart
+
+# Default update interval is 60 seconds
+# https://docs.saltstack.com/en/latest/ref/configuration/master.html#std:conf_master-gitfs_update_interval
+# Manually fetch git repo
+sudo salt-run fileserver.update
+
 ```
 
 ### Masterless
