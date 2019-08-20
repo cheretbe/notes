@@ -26,6 +26,11 @@ salt-run -d
 
 ### Master
 
+:warning: 2check:
+```
+/usr/lib/python2.7/dist-packages/salt/scripts.py:198: DeprecationWarning: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date.  Salt will drop support for Python 2.7 in the Sodium release or later.
+```
+
 ```shell
 wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
 echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
