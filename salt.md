@@ -41,6 +41,7 @@ sudo apt -y install salt-api salt-cloud salt-master salt-minion salt-ssh salt-sy
 # Config is in /etc/salt/master
 # Default config is OK
 
+cp /etc/salt/minion{,.bak}
 nano /etc/salt/minion
 # Change master to
 # master: localhost
