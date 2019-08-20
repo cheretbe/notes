@@ -8,3 +8,4 @@
 * https://pypi.org/project/ansible-tower-cli/
 * **https://www.redhat.com/en/blog/adding-remediation-zabbix-using-ansible-tower**
 * **https://docs.ansible.com/ansible-tower/latest/html/administration/tipsandtricks.html**
+* https://github.com/debops/debops-tools/issues/120
