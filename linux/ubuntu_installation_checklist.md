@@ -131,5 +131,5 @@ The last 4 lines in the code above are there to allow Ctrl / Shift with mouse sc
 # --kill kills previous instance if exists
 imwheel --kill
 ```
-Open Startup Applications, click "Add" and under both "Name" and "Command" fields, add "imwheel --kill"
+Open Startup Applications (search for "startup app"), click "Add" and under both "Name" and "Command" fields, add "imwheel --kill"
 * http://www.webupd8.org/2015/12/how-to-change-mouse-scroll-wheel-speed.html
