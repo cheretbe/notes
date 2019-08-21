@@ -1,4 +1,3 @@
-* http://www.juliosblog.com/ansible-and-ansible-tower-best-practices-from-the-field/
 * https://www.redhat.com/en/blog/system-administrators-guide-getting-started-ansible-fast
 * http://codeheaven.io/15-things-you-should-know-about-ansible/
 * https://github.com/ansible/awx
@@ -9,10 +8,13 @@
 * https://pypi.org/project/ansible-tower-cli/
 * **https://www.redhat.com/en/blog/adding-remediation-zabbix-using-ansible-tower**
 * **https://docs.ansible.com/ansible-tower/latest/html/administration/tipsandtricks.html**
-* :question: https://github.com/enginyoyen/ansible-best-practises
 * https://github.com/debops/debops-tools/issues/120
 ---------
 * https://stackoverflow.com/questions/41535838/how-to-run-apt-update-and-upgrade-via-ansible-shell/41537418#41537418
 ---------
-
-* Do not manage external roles in your repository manually, use ansible-galaxy
+* https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
+* http://www.juliosblog.com/ansible-and-ansible-tower-best-practices-from-the-field/
+* :question: https://github.com/enginyoyen/ansible-best-practises
+```
+- (?) Do not manage external roles in your repository manually, use ansible-galaxy
+```
