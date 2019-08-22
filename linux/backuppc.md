@@ -37,6 +37,7 @@ $Conf{FullKeepCnt} = [
 ];
 $Conf{FullAgeMax} = 1240;
 $Conf{IncrKeepCnt} = 30;
+$Conf{IncrAgeMax} = 60;
 ```
 
 :warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
