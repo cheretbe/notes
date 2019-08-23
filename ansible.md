@@ -19,3 +19,4 @@
 * https://blog.theodo.com/2015/10/best-practices-to-build-great-ansible-playbooks/
     * Put the community’s roles in a separate folder
 * http://www.markusz.io/posts/2017/11/24/ansible-playbook-roles/
+* https://opencredo.com/blogs/reusing-ansible-roles-with-private-git-repos-and-dependencies/
