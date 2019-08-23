@@ -18,5 +18,6 @@
     * Do not manage external roles in your repository manually, use ansible-galaxy
 * https://blog.theodo.com/2015/10/best-practices-to-build-great-ansible-playbooks/
     * Put the community’s roles in a separate folder
+    * Explore Ansible Galaxy. There are many great roles over there. Instead of rewriting everything go forking! 
 * http://www.markusz.io/posts/2017/11/24/ansible-playbook-roles/
 * https://opencredo.com/blogs/reusing-ansible-roles-with-private-git-repos-and-dependencies/
