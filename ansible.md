@@ -15,6 +15,6 @@
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
 * http://www.juliosblog.com/ansible-and-ansible-tower-best-practices-from-the-field/
 * :question: https://github.com/enginyoyen/ansible-best-practises
-```
-- (?) Do not manage external roles in your repository manually, use ansible-galaxy
-```
+    * Do not manage external roles in your repository manually, use ansible-galaxy
+* https://blog.theodo.com/2015/10/best-practices-to-build-great-ansible-playbooks/
+    * Put the community’s roles in a separate folder
