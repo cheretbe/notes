@@ -18,3 +18,4 @@
     * Do not manage external roles in your repository manually, use ansible-galaxy
 * https://blog.theodo.com/2015/10/best-practices-to-build-great-ansible-playbooks/
     * Put the community’s roles in a separate folder
+* http://www.markusz.io/posts/2017/11/24/ansible-playbook-roles/
