@@ -11,6 +11,9 @@
 * https://github.com/debops/debops-tools/issues/120
 ---------
 * https://stackoverflow.com/questions/41535838/how-to-run-apt-update-and-upgrade-via-ansible-shell/41537418#41537418
+* https://github.com/crazed014/bootstrap-awx/blob/master/deploy_awx_ubuntu1804.sh
+* https://www.reddit.com/r/ansible/comments/9r2gwh/awx_stuck_in_awx_upgrading_phase/
+* https://stackoverflow.com/questions/25230376/how-to-automatically-install-ansible-galaxy-roles
 ---------
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html
 * http://www.juliosblog.com/ansible-and-ansible-tower-best-practices-from-the-field/
