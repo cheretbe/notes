@@ -42,4 +42,6 @@ sudo add-apt-repository \
      
 sudo apt-get update
 sudo apt-get install docker-ce
+
+git clone --depth 1 https://github.com/ansible/awx
 ```
