@@ -47,4 +47,7 @@ apt-get install python-pip
 pip install docker docker-compose
 
 git clone --depth 1 https://github.com/ansible/awx
+
+cd awx/installer/
+ansible-playbook -i inventory install.yml
 ```
