@@ -46,6 +46,9 @@ apt-get install docker-ce
 apt-get install python-pip
 pip install docker docker-compose
 
+apt install nodejs npm -y
+npm install npm --global
+
 git clone --depth 1 https://github.com/ansible/awx
 
 cd awx/installer/
