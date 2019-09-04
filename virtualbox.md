@@ -13,6 +13,7 @@ vboxmanage setproperty machinefolder /path/to/directory/
 vboxmanage list systemproperties | grep "Default machine folder:"
 
 # k, m, g suffix are for Ki, Mi, Gi
+sudo mkdir -p /mnt/ramdrive
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdrive
 vboxmanage setproperty machinefolder /mnt/ramdrive
 
