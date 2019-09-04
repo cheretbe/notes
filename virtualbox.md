@@ -11,6 +11,13 @@ Change default VM location
 vboxmanage setproperty machinefolder /path/to/directory/
 # View current setting
 vboxmanage list systemproperties | grep "Default machine folder:"
+
+# k, m, g suffix are for Ki, Mi, Gi
+sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdrive
+vboxmanage setproperty machinefolder /mnt/ramdrive
+
+# Restore default setting
+vboxmanage setproperty machinefolder "~/VirtualBox VMs"
 ```
 
 To be able to add USB devices on **host** in Linux:
