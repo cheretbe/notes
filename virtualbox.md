@@ -18,7 +18,7 @@ sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdrive
 vboxmanage setproperty machinefolder /mnt/ramdrive
 
 # Restore default setting
-vboxmanage setproperty machinefolder "~/VirtualBox VMs"
+vboxmanage setproperty machinefolder "${HOME}/VirtualBox VMs"
 ```
 
 To be able to add USB devices on **host** in Linux:
