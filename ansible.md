@@ -57,3 +57,5 @@ git clone --depth 1 https://github.com/ansible/awx
 cd awx/installer/
 ansible-playbook -i inventory install.yml
 ```
+* http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
+* https://github.com/geerlingguy/ansible-vagrant-examples/issues/48
