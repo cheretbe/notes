@@ -167,6 +167,9 @@ curl "https://app.vagrantup.com/api/v1/user/username"
 ```
 
 ### Plugins
+* https://github.com/dotless-de/vagrant-vbguest#global-configuration
+     * https://github.com/dotless-de/vagrant-vbguest/issues/226
+     * https://github.com/dotless-de/vagrant-vbguest#global-configuration
 * hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
 * https://github.com/emyl/vagrant-triggers
 
