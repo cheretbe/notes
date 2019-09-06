@@ -58,6 +58,8 @@ npm install npm --global
 git clone --depth 1 https://github.com/ansible/awx
 
 cd awx/installer/
+sed -i 's+ansible_python_interpreter="/usr/bin/env python"+ansible_python_interpreter="/usr/bin/env python3"+' inventory
+cat inventory | grep -v "#" |sort -n | grep .
 ansible-playbook -i inventory install.yml
 ```
 * http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
