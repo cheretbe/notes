@@ -38,8 +38,11 @@ Collapsible details content
 | ----------------------------- | ---------------------- |
 | `:information_source:`        | :information_source:   |
 | `:warning:`                   | :warning:              | 
+| `:exclamation:`               | :exclamation:          |
+| `:question:`                  | :question:             |
+| `:grey_exclamation:`          | :grey_exclamation:     |
+| `:grey_question:`             | :grey_question:        |
 
-:information_source:
 
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) (old) Note with an exclamation
 ```markdown
