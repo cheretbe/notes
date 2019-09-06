@@ -42,6 +42,13 @@ Collapsible details content
 | `:question:`                  | :question:             |
 | `:grey_exclamation:`          | :grey_exclamation:     |
 | `:grey_question:`             | :grey_question:        |
+| `:point_right:`               | :point_right:          |
+| `:pencil2:`                   | :pencil2:              |
+| `:memo:`                      | :memo:                 |
+| `:bangbang:`                  | :bangbang:             |
+| `:heavy_check_mark:`          | :heavy_check_mark:     |
+| `:x:`                         | :x:                    |
+| `:white_check_mark:`          | :white_check_mark:     |
 
 
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) (old) Note with an exclamation
