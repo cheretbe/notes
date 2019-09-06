@@ -26,6 +26,9 @@
 * https://opencredo.com/blogs/reusing-ansible-roles-with-private-git-repos-and-dependencies/
 * https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions
 
+
+`export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
+
 ### AWX
 Installation
 ```
