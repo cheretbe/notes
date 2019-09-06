@@ -5,6 +5,8 @@ path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 ```shell
 pex -v --python-shebang="/usr/bin/env python3.6" -r requirements.txt -o test.pex
 ```
+* TUI for Python: https://github.com/urwid/urwid
+    * https://stackoverflow.com/questions/34633447/urwid-make-cursor-invisible
 * Python environment: https://xkcd.com/1987/
 * https://devguide.python.org/#status-of-python-branches
 * Detect Linux distro: https://github.com/nir0s/distro
