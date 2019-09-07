@@ -55,6 +55,7 @@ pip install docker docker-compose
 apt install nodejs npm -y
 npm install npm --global
 
+# https://github.com/ansible/awx/blob/devel/INSTALL.md
 git clone --depth 1 https://github.com/ansible/awx
 
 cd awx/installer/
