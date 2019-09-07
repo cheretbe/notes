@@ -67,5 +67,19 @@ ansible-playbook -i inventory install.yml
 # Wait for migration to complete
 docker logs -f awx_task
 ```
+Tower CLI
+```shell
+pip3 install ansible-tower-cli
+tower-cli config host http://localhost:80
+tower-cli config verify_ssl false
+tower-cli config username admin
+tower-cli config password password
+
+# View current config
+tower-cli config
+
+# Backup AWS config
+tower-cli receive --all > backup.json
+```
 * http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
 * https://github.com/geerlingguy/ansible-vagrant-examples/issues/48
