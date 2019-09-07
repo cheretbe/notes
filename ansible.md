@@ -59,6 +59,8 @@ git clone --depth 1 https://github.com/ansible/awx
 
 cd awx/installer/
 sed -i 's+ansible_python_interpreter="/usr/bin/env python"+ansible_python_interpreter="/usr/bin/env python3"+' inventory
+sed -i 's+docker_compose_dir=/tmp/awxcompose+docker_compose_dir=/opt/awx/awxcompose+' inventory
+sed -i 's+postgres_data_dir=/tmp/pgdocker+postgres_data_dir=/opt/awx/pgdocker+' inventory
 cat inventory | grep -v "#" |sort -n | grep .
 ansible-playbook -i inventory install.yml
 ```
