@@ -63,6 +63,8 @@ sed -i 's+docker_compose_dir=/tmp/awxcompose+docker_compose_dir=/opt/awx/awxcomp
 sed -i 's+postgres_data_dir=/tmp/pgdocker+postgres_data_dir=/opt/awx/pgdocker+' inventory
 cat inventory | grep -v "#" |sort -n | grep .
 ansible-playbook -i inventory install.yml
+# Wait for migration to complete
+docker logs -f awx_task
 ```
 * http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
 * https://github.com/geerlingguy/ansible-vagrant-examples/issues/48
