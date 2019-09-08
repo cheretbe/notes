@@ -45,6 +45,7 @@ docker exec -it test yum -y update
 # [!] the container does not have to be running to use the cp command
 docker cp <containerId>:/file/path/within/container /host/path/target
 docker cp /host/path/source <containerId>:/file/path/within/container
+docker cp -L my_container:/link/to/a/file .
 
 docker rm test
 ```
