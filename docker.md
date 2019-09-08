@@ -38,6 +38,14 @@ docker stop <id or name>
 docker exec -it <id or name> bash
 docker exec -it test yum -y update
 
+# Copy file(s) from/to container
+# -L, --follow-link   follow symbolic link
+# -a, --archive       archive mode (copy all uid/gid information)
+# [!] copies directory trees as well
+# [!] the container does not have to be running to use the cp command
+docker cp <containerId>:/file/path/within/container /host/path/target
+docker cp /host/path/source <containerId>:/file/path/within/container
+
 docker rm test
 ```
 
