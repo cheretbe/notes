@@ -67,6 +67,13 @@ ansible-playbook -i inventory install.yml
 # Wait for migration to complete
 docker logs -f awx_task
 ```
+
+Uninstallation
+```shell
+docker rm -f $(docker ps -a -q)
+docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
+```
+
 Tower CLI
 ```shell
 pip3 install ansible-tower-cli
@@ -82,6 +89,11 @@ tower-cli config
 tower-cli receive --all > backup.json
 # Restore config from the backup
 tower-cli send backup.json
+```
+
+Backup
+```shell
+docker exec awx_postgres pg_dump -U awx -F t awx > /tmp/awx_backup.sql
 ```
 * http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
 * https://github.com/geerlingguy/ansible-vagrant-examples/issues/48
