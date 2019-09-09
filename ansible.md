@@ -123,7 +123,7 @@ Backup/restore
 tower-cli version > /awx_backup/version.txt
 docker exec awx_postgres pg_dump -U awx -F t awx > /awx_backup/awx_backup.sql
 # JSON version just in case (it is missing statistics, logs and some credential info)
-tower-cli receive --all > assets.json
+tower-cli receive --all > /awx_backup/assets.json
 
 # Restore
 # Install correspondent version and wait for migration to complete
