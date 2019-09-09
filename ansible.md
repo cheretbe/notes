@@ -1,3 +1,5 @@
+* Review when time permits: https://github.com/ekultails/rootpages/blob/master/src/automation/ansible.rst
+------
 * https://www.redhat.com/en/blog/system-administrators-guide-getting-started-ansible-fast
 * http://codeheaven.io/15-things-you-should-know-about-ansible/
 * https://github.com/ansible/awx
