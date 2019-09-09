@@ -93,9 +93,17 @@ tower-cli receive --all > backup.json
 tower-cli send backup.json
 ```
 
-Backup
+Backup/restore
 ```shell
-docker exec awx_postgres pg_dump -U awx -F t awx > /tmp/awx_backup.sql
+tower-cli version > /awx_backup/version.txt
+docker exec awx_postgres pg_dump -U awx -F t awx > /awx_backup/awx_backup.sql
+# JSON version just in case (it is missing statistics, logs and some credential info)
+tower-cli receive --all > assets.json
+
+# Restore
+# Install correspondent version and wait for migration to complete
+docker cp /awx_backup/awx_backup.sql awx_postgres:/tmp/awx_backup.sql
+docker exec awx_postgres sh -c "pg_restore -U awx -c -d awx /tmp/awx_backup.sql"
 ```
 * http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
 * https://github.com/geerlingguy/ansible-vagrant-examples/issues/48
