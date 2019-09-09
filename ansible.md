@@ -36,6 +36,15 @@
 * https://www.unixarena.com/2018/10/ansible-how-to-install-and-configure-awx.html/
 * https://www.unixarena.com/2018/11/ansible-tower-awx-organization-team-users-hierarchy.html/
 
+Upgrade
+
+According to [this FAQ](https://www.ansible.com/products/awx-project/faq) direct in-place upgrade isn't possible (See "Q: CAN I UPGRADE FROM ONE VERSION OF AWX TO ANOTHER?). But it looks like in latest versions the upgrade does work. At least 6.1.0 -> 7.0.0 migration went fine.
+```shell
+docker rm -f $(docker ps -a -q)
+docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
+# Then run installer/install.yml from a new version
+```
+
 Installation
 ```
 apt-get install \
