@@ -32,6 +32,8 @@
 `export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 
 ### AWX
+* https://github.com/ansible/awx
+
 Installation
 ```
 apt-get install \
