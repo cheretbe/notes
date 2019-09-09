@@ -72,6 +72,8 @@ Uninstallation
 ```shell
 docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
+rm -rf /opt/awx/awxcompose
+rm -rf /opt/awx/pgdocker
 ```
 
 Tower CLI
