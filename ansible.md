@@ -42,11 +42,13 @@ According to [this FAQ](https://www.ansible.com/products/awx-project/faq) direct
 ```shell
 docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
-# Then run installer/install.yml from a new version
+# Then run installer/install.yml from a new version using /opt/awx/inventory
+# Rewview default inventory changes before installation
+diff awx-6.1.0/installer/inventory awx-7.0.0/installer/inventory
 ```
 
 Installation
-```
+```shell
 apt-get install \
      apt-transport-https \
      ca-certificates \
@@ -71,14 +73,22 @@ apt install nodejs npm -y
 npm install npm --global
 
 # https://github.com/ansible/awx/blob/devel/INSTALL.md
-git clone --depth 1 https://github.com/ansible/awx
+#git clone --depth 1 https://github.com/ansible/awx
+#cd awx/installer/
 
-cd awx/installer/
-sed -i 's+ansible_python_interpreter="/usr/bin/env python"+ansible_python_interpreter="/usr/bin/env python3"+' inventory
-sed -i 's+docker_compose_dir=/tmp/awxcompose+docker_compose_dir=/opt/awx/awxcompose+' inventory
-sed -i 's+postgres_data_dir=/tmp/pgdocker+postgres_data_dir=/opt/awx/pgdocker+' inventory
-cat inventory | grep -v "#" |sort -n | grep .
-ansible-playbook -i inventory install.yml
+# The repo doesn't use Github release API, so this fails
+# awx_ver=$(curl -s https://api.github.com/repos/ansible/awx/releases/latest | jq -r '.tarball_url')
+
+wget https://github.com/ansible/awx/archive/7.0.0.tar.gz
+tar xzvf 7.0.0.tar.gz
+mkdir -p /opt/awx
+cp awx-7.0.0/installer/inventory /opt/awx/
+
+sed -i 's+ansible_python_interpreter="/usr/bin/env python"+ansible_python_interpreter="/usr/bin/env python3"+' /opt/awx/inventory
+sed -i 's+docker_compose_dir=/tmp/awxcompose+docker_compose_dir=/opt/awx/awxcompose+' /opt/awx/inventory
+sed -i 's+postgres_data_dir=/tmp/pgdocker+postgres_data_dir=/opt/awx/pgdocker+' /opt/awx/inventory
+cat /opt/awx/inventory | grep -v "#" |sort -n | grep .
+ansible-playbook -i /opt/awx/inventory install.yml
 # Wait for migration to complete
 docker logs -f awx_task
 ```
