@@ -33,6 +33,7 @@
 
 ### AWX
 * https://github.com/ansible/awx
+* https://www.unixarena.com/2018/11/ansible-tower-awx-organization-team-users-hierarchy.html/
 
 Installation
 ```
@@ -109,6 +110,3 @@ tower-cli receive --all > assets.json
 docker cp /awx_backup/awx_backup.sql awx_postgres:/tmp/awx_backup.sql
 docker exec awx_postgres sh -c "pg_restore -U awx -c -d awx /tmp/awx_backup.sql"
 ```
-* http://elatov.github.io/2018/12/setting-up-and-using-awx-with-docker-compose/
-* https://github.com/geerlingguy/ansible-vagrant-examples/issues/48
-* Credentials backup/restore: https://github.com/ansible/tower-cli/issues/529
