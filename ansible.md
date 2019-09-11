@@ -33,6 +33,7 @@
 
 ### Roles and playbooks
 
+* https://galaxy.ansible.com/docs/finding/content_types.html#ansible-roles
 * https://linuxacademy.com/blog/linux-academy/ansible-roles-explained/
 
 ### AWX
