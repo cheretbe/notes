@@ -31,6 +31,10 @@
 
 `export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 
+### Roles and playbooks
+
+* https://linuxacademy.com/blog/linux-academy/ansible-roles-explained/
+
 ### AWX
 * https://github.com/ansible/awx
 * https://www.unixarena.com/2018/10/ansible-how-to-install-and-configure-awx.html/
