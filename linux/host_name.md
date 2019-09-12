@@ -1,4 +1,7 @@
 ### Change host name
+* Cloud-init uses own mechanism and can override settings
+    * https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/
+    * Disable cloud-init: `touch /etc/cloud/cloud-init.disabled`
 #### Ubuntu
 Assuming we are setting the name `new-name.domain.tld`
 1. Edit `/etc/hostname` file and update **short name**:
