@@ -4,6 +4,8 @@ Ubuntu 16.04, if there are no records from previous boots (for example `journalc
 and set `Storage=persistent`, then restart the service
 ```bash
 systemctl restart systemd-journald
+
+journalctl --disk-usage
 ```
 Set `SystemMaxUse` parameter (e.g. `SystemMaxUse=500M`) because by default it is set to 10% of the size of the respective file system.
 
