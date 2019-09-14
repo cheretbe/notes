@@ -275,6 +275,8 @@ Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNC
 
 #### Unencrypted
 
+:bangbang: For testing environments only, don't use these settings in production
+
 On server
 ```powershell
 # Windows 7 doesn't have Get-NetConnectionProfile and Set-NetConnectionProfile
