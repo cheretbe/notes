@@ -36,6 +36,10 @@
 * https://galaxy.ansible.com/docs/finding/content_types.html#ansible-roles
 * https://linuxacademy.com/blog/linux-academy/ansible-roles-explained/
 
+### Windows
+
+* https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#inventory-options
+
 ### AWX
 * https://github.com/ansible/awx
 * https://www.unixarena.com/2018/10/ansible-how-to-install-and-configure-awx.html/
