@@ -274,8 +274,18 @@ Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNC
 ```
 
 #### Unencrypted
+
+On server
 ```powershell
-# On server
+# Windows 7 doesn't have Get-NetConnectionProfile and Set-NetConnectionProfile
+# Need to download custom script first
+# https://www.peppercrew.nl/index.php/2016/02/change-network-connection-category-using-powershell/
+(New-Object -TypeName System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ITMicaH/Powershell-functions/master/Windows/Network/NetConnectionProfiles.ps1", "$env:temp\NetConnectionProfiles.ps1")
+. "$env:temp\NetConnectionProfiles.ps1"
+
+# Set all network connections to private
+Get-NetConnectionProfile -NetworkCategory Public | Set-NetConnectionProfile -NetworkCategory Private
+
 # -quiet: no prompts
 # -force: enable even if public network is present
 # winrm quickconfig [-quiet] [-force]
@@ -287,7 +297,16 @@ Enable-PSRemoting -SkipNetworkProfileCheck -Force
 # Test if a computer can run remote commands
 Test-WSMan [-ComputerName SRV1]
 
-# On client
+# Test connection on localhost
+# winrs seems to work without setting winrm/config/client
+winrs -r:http://localhost:5985/wsman -u:vagrant -p:vagrant ipconfig
+
+winrm set winrm/config/client @{AllowUnencrypted="true"}
+Enter-PSSession -ComputerName "localhost" -Credential vagrant -Authentication basic 2>&1
+```
+
+On client
+```powershell
 Set-Item "wsman:\localhost\Client\TrustedHosts" -Value "*" -Force
 # Default WinRM port: 5985
 # Enter-PSSession -ComputerName localhost -port 1111 -Credential vagrant
