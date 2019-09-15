@@ -330,7 +330,7 @@ $credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
 $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 ```
 
-#### HTTP with a self-signed SSL certificate
+#### HTTPS with a self-signed SSL certificate
 * https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 * http://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure
 
@@ -360,7 +360,7 @@ openssl pkcs12 \
        -in domain.crt \
        -export -out domain.pfx
 ```
-When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the fololowing content
+When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the following content
 ```
 [client_server_ssl]
 extendedKeyUsage = serverAuth,clientAuth
