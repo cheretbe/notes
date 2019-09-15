@@ -24,6 +24,7 @@
 
 ### Container and Certificate types
 
+* https://info.ssl.com/how-to-der-vs-crt-vs-cer-vs-pem-certificates-and-how-to-conver-them/
 * https://myonlineusb.wordpress.com/2011/06/19/what-are-the-differences-between-pem-der-p7bpkcs7-pfxpkcs12-certificates/
 * https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
 * https://stackoverflow.com/questions/1722181/how-to-determine-certificate-type-from-file/1726728#1726728
