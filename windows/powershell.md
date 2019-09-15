@@ -360,6 +360,16 @@ openssl pkcs12 \
        -in domain.crt \
        -export -out domain.pfx
 ```
+When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the fololowing content
+```
+[client_server_ssl]
+extendedKeyUsage = serverAuth,clientAuth
+```
+and use `-extensions` and `-extfile` options on signing 
+```shell
+openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in domain.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out domain.crt -days 3650 -sha256
+```
+
 Copy `domain.pfx` to a Windows machine
 ```powershell
 # Import the certificate
