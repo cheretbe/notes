@@ -402,6 +402,14 @@ New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -Certificat
 New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint "0000000000000000000000000000000000000000" –Force
 # View listeners
 dir wsman:\localhost\listener
+
+# Enable HTTPS port in the firewall
+New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "Windows Remote Management (HTTPS-In)" -Profile Any -LocalPort 5986 -Protocol TCP
+# Disable HTTP port (optional)
+Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
+
+# Windows 7 doesn't have New-NetFirewallRule, use netsh instead
+netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
 ```
 
 ### Installation
