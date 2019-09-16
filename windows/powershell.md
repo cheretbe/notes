@@ -411,6 +411,8 @@ Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 
 # Windows 7 doesn't have New-NetFirewallRule, use netsh instead
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
+
+Test-WSMan -useSSL myhost
 ```
 
 On a client computer
