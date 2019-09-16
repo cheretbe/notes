@@ -339,7 +339,7 @@ $Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsN
 # or
 $Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myHost" -NotAfter (Get-Date).AddYears(10)
 
-Export-Certificate -Cert $Cert -FilePath C:\temp\cert
+Export-Certificate -Cert $Cert -FilePath C:\temp\myhost.cer
 ```
 By default `New-SelfSignedCertificate` creates a certificate that is valid for one year. To create a certificate that lasts longer use `-NotAfter (Get-Date).AddYears(5)` parameter. The problem is that this parameter doesn't work on Win8.1/Win2012R2 (even with PS 5.1 installed):  https://social.technet.microsoft.com/Forums/windowsserver/en-US/cd5bba06-5931-42ee-afad-1e438b3df759/problem-generating-a-certificate-for-ldaps-using-newselfsignedcertificate-quota-parameter?forum=winserver8gen
 
@@ -410,6 +410,11 @@ Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 
 # Windows 7 doesn't have New-NetFirewallRule, use netsh instead
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
+```
+
+On a client computer
+```powershell
+Import-Certificate -Filepath "C:\temp\myhost.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
 ```
 
 ### Installation
