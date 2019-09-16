@@ -389,7 +389,20 @@ Get-ChildItem "Cert:\LocalMachine\My" |
 ```
 Windows 7 doesn't have `Import-PfxCertificate`, use Certificates MMC snap-in (Certificates(Local Computer) > Personal)
 
-Everything is else should be done as described in the linked howto
+```powershell
+Enable-PSRemoting -SkipNetworkProfileCheck -Force
+
+# Delete HTTP listener (optional)
+Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
+# Delete all listeners
+Remove-Item -Path WSMan:\Localhost\listener\listener* -Recurse
+
+New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint –Force
+# or
+New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint "0000000000000000000000000000000000000000" –Force
+# View listeners
+dir wsman:\localhost\listener
+```
 
 ### Installation
   Check installed .NET versions: http://www.powershelladmin.com/wiki/Script_for_finding_which_dot_net_versions_are_installed_on_remote_workstations
