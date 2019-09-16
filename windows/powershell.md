@@ -283,6 +283,7 @@ On server
 # Need to download custom script first
 # https://www.peppercrew.nl/index.php/2016/02/change-network-connection-category-using-powershell/
 (New-Object -TypeName System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ITMicaH/Powershell-functions/master/Windows/Network/NetConnectionProfiles.ps1", "$env:temp\NetConnectionProfiles.ps1")
+Set-ExecutionPolicy Bypass -Scope Process -Force
 . "$env:temp\NetConnectionProfiles.ps1"
 
 # Set all network connections to private
