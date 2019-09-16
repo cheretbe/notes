@@ -387,6 +387,8 @@ Get-ChildItem "Cert:\LocalMachine\My" | Format-List
 Get-ChildItem "Cert:\LocalMachine\My" |
   Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
 ```
+Windows 7 doesn't have `Import-PfxCertificate`, use Certificates MMC snap-in (Certificates(Local Computer) > Personal)
+
 Everything is else should be done as described in the linked howto
 
 ### Installation
