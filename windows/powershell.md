@@ -413,6 +413,7 @@ Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
 
 Test-WSMan -useSSL myhost
+winrs -r:https://myhost:5986/wsman -u:vagrant -p:vagrant ipconfig
 ```
 
 On a client computer
