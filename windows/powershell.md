@@ -415,6 +415,7 @@ netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" 
 On a client computer
 ```powershell
 Import-Certificate -Filepath "C:\temp\myhost.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
+Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
 ```
 
 ### Installation
