@@ -6,6 +6,9 @@ and set `Storage=persistent`, then restart the service
 systemctl restart systemd-journald
 
 journalctl --disk-usage
+
+# The service outputs storage limits on start 
+systemctl status systemd-journald
 ```
 Set `SystemMaxUse` parameter (e.g. `SystemMaxUse=500M`) because by default it is set to 10% of the size of the respective file system.
 
