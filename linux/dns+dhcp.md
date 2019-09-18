@@ -350,7 +350,7 @@ service isc-dhcp-server start
 ```shell
 systemd-resolve --status
 ```
-:warning: This section and [networking.md](https://github.com/cheretbe/notes/blob/master/linux/networking.md) need to be complete restructured
+:warning: This section and [networking.md](https://github.com/cheretbe/notes/blob/master/linux/networking.md) need a complete revision/restructure
 
 * How to take back control of /etc/resolv.conf (useful for static IPs): https://www.ctrl.blog/entry/resolvconf-tutorial.html
 
