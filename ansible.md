@@ -36,6 +36,14 @@
 * https://galaxy.ansible.com/docs/finding/content_types.html#ansible-roles
 * https://linuxacademy.com/blog/linux-academy/ansible-roles-explained/
 
+```yaml
+- name: populate service facts
+  service_facts:
+
+- debug:
+    var: ansible_facts.services
+```
+
 ### Windows
 
 * https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#inventory-options
