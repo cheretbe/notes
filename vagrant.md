@@ -1,4 +1,11 @@
 * https://app.vagrantup.com
+* https://github.com/dotless-de/vagrant-vbguest/issues/298
+
+```ruby
+# Manually setting box version
+config.vm.box = "centos/7"
+config.vm.box_version=1804.02
+```
 
 ```shell
 vagrant ssh-config > /tmp/ssh-config-name
