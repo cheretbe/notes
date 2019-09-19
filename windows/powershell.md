@@ -423,6 +423,8 @@ winrs -r:https://myhost:5986/wsman -u:vagrant -p:vagrant ipconfig
 On a client computer
 ```powershell
 Import-Certificate -Filepath "C:\temp\myhost.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
+# When using own CA import CA certificate instead
+Import-Certificate -Filepath "C:\temp\ca.cert.crt" -CertStoreLocation "Cert:\LocalMachine\Root"
 Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
 ```
 
