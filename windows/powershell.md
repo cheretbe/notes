@@ -350,6 +350,9 @@ The solution is to use openssl:
 # EKU should contain serverAuth and this parameter can't be passed as a command-line option
 # We create a temporary config file to add it
 cp /usr/lib/ssl/openssl.cnf ./ext_config.cnf
+
+# Windows version
+copy "C:\Program Files\Common Files\SSL\openssl.cnf" ext_config.cnf
 ```
 Add the following to `ext_config.cnf`:
 ```
