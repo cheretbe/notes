@@ -42,6 +42,8 @@
 
 - debug:
     var: ansible_facts.services
+
+  when: some_fact_that_contains_a_string|bool
 ```
 
 ### Windows
