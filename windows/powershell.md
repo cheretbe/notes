@@ -394,7 +394,8 @@ Get-ChildItem "Cert:\LocalMachine\My" |
 Windows 7 doesn't have `Import-PfxCertificate`, use Certificates MMC snap-in (Certificates(Local Computer) > Personal)
 
 ```powershell
-Enable-PSRemoting -SkipNetworkProfileCheck -Force
+#  -SkipNetworkProfileCheck -Force
+Enable-PSRemoting
 
 # Delete HTTP listener (optional)
 Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
