@@ -336,9 +336,9 @@ $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 * http://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure
 
 ```powershell
-$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myHost"
+$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myhost"
 # or
-$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myHost" -NotAfter (Get-Date).AddYears(10)
+$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myhost" -NotAfter (Get-Date).AddYears(10)
 
 Export-Certificate -Cert $Cert -FilePath C:\temp\myhost.cer
 ```
@@ -362,14 +362,14 @@ extendedKeyUsage = serverAuth,clientAuth
 ```shell
 # Create a self-signed certificate
 openssl req \
-       -newkey rsa:2048 -nodes -keyout domain.key \
-       -x509 -days 3650 -out domain.crt \
+       -newkey rsa:2048 -nodes -keyout myhost.key \
+       -x509 -days 3650 -out myhost.crt \
        -extensions myextensions -config ext_config.cnf
-# Take a private key (domain.key) and a certificate (domain.crt), and combine them into a PKCS12 file (domain.pfx):
+# Take a private key (myhost.key) and a certificate (myhost.crt), and combine them into a PKCS12 file (myhost.pfx):
 openssl pkcs12 \
-       -inkey domain.key \
-       -in domain.crt \
-       -export -out domain.pfx
+       -inkey myhost.key \
+       -in myhost.crt \
+       -export -out myhost.pfx
 ```
 When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the following content
 ```
@@ -378,20 +378,20 @@ extendedKeyUsage = serverAuth,clientAuth
 ```
 and use `-extensions` and `-extfile` options on signing 
 ```shell
-openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in domain.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out domain.crt -days 3650 -sha256
+openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in myhost.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out myhost.crt -days 3650 -sha256
 ```
 
-Copy `domain.pfx` to a Windows machine
+Copy `myhost.pfx` to a Windows machine
 ```powershell
-# Import the certificate
-Import-PfxCertificate -FilePath "c:\temp\domain.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
+# Import the certificate to "Certificates (Local Computer)" > "Personal"
+Import-PfxCertificate -FilePath "c:\temp\myhost.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
 # View certificate list to find out the thumbprint
 Get-ChildItem "Cert:\LocalMachine\My" | Format-List
 # Delete a certificate (in case something went wrong)
 Get-ChildItem "Cert:\LocalMachine\My" |
   Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
 ```
-Windows 7 doesn't have `Import-PfxCertificate`, use Certificates MMC snap-in (Certificates(Local Computer) > Personal)
+Windows 7 doesn't have `Import-PfxCertificate`, use `certutil -importpfx c:\temp\myhost.pfx`
 
 ```powershell
 #  -SkipNetworkProfileCheck -Force
