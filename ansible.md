@@ -49,6 +49,7 @@
 ### Windows
 
 * https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#inventory-options
+* https://docs.ansible.com/ansible-tower/latest/html/administration/kerberos_auth.html
 
 ### AWX
 * https://github.com/ansible/awx
