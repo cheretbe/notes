@@ -16,7 +16,8 @@
 </unattend>
 ```
 * Change processorArchitecture="amd64" to "x86" and cpi:source="wim:**E:**/sources/install.wim#**Windows 8.1 PROFESSIONAL**" to HOMEBASIC, HOMEPREMIUM, PROFESSIONAL, ULTIMATE or ENTERPRISE if needed
-    * `dism.exe /Get-ImageInfo /imagefile:c:\path\to\iso\contents\install.wim`
+    * `dism.exe /Get-ImageInfo /imagefile:e:\sources\install.wim`
+    * Make sure the file has UTF-8 encoding
 * Run sysprep.exe
 ``` batch
 cd %SystemRoot%\System32\Sysprep
