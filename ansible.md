@@ -35,6 +35,7 @@
 
 * https://galaxy.ansible.com/docs/finding/content_types.html#ansible-roles
 * https://linuxacademy.com/blog/linux-academy/ansible-roles-explained/
+* https://docs.ansible.com/ansible/latest/modules/blockinfile_module.html#examples
 
 ```yaml
 - name: populate service facts
