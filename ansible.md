@@ -46,6 +46,7 @@
     var: ansible_facts.services
 
   when: some_fact_that_contains_a_string|bool
+  when: ansible_distribution_version|version_compare('15.04', '>=')
 ```
 
 ### Windows
