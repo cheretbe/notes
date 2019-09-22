@@ -37,6 +37,7 @@
 * https://linuxacademy.com/blog/linux-academy/ansible-roles-explained/
 * https://docs.ansible.com/ansible/latest/modules/blockinfile_module.html#examples
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_blocks.html
+* **https://molecule.readthedocs.io/en/stable/**
 
 ```yaml
 - name: populate service facts
