@@ -49,6 +49,11 @@
 
   when: some_fact_that_contains_a_string|bool
   when: ansible_distribution_version|version_compare('15.04', '>=')
+  
+- name: Assertion
+  assert:
+    that:
+      - result.images | length == 2
 ```
 
 ### Windows
