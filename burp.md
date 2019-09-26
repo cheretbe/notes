@@ -55,6 +55,8 @@ taskkill /f /IM burp.exe
 ```
 **Ubuntu**
 
+:warning: Set `RUN=yes` in `/etc/default/burp-client`
+
 * https://ziirish.info/repos/README.txt
 ```shell
 # 16.04
