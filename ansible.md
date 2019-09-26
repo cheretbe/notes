@@ -54,6 +54,10 @@
   assert:
     that:
       - result.images | length == 2
+      
+- name: Cancel
+  fail:
+    msg: "Debug"
 ```
 
 ### Windows
