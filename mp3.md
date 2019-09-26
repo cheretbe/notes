@@ -36,3 +36,10 @@ apt update
 # Make sure it is the latest version
 apt install audacity -s
 ```
+
+https://github.com/dpayne/cli-visualizer
+* run `install.sh` as an ordinary user (it asks for sudo password), this way you get a default config in `~/.config/vis`
+* `cp cli-visualizer/examples/old_rainbow ~/.config/vis/colors/`
+* `nano ~/.config/vis/config`
+* `audio.stereo.enabled=false`
+* `colors.scheme=old_rainbow`
