@@ -39,6 +39,12 @@
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_blocks.html
 * 15 Things You Should Know About Ansible: https://habr.com/ru/post/306998/
 * **https://molecule.readthedocs.io/en/stable/**
+```yaml
+# Useful host variables
+
+# Allows to connect using IP instead of host's name
+ansible_host=10.10.10.10
+```
 
 ```yaml
 - name: populate service facts
