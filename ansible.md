@@ -43,7 +43,7 @@
 # Useful host variables
 
 # Allows to connect using IP instead of host's name
-ansible_host=10.10.10.10
+ansible_host: 10.10.10.10
 ```
 
 ```yaml
