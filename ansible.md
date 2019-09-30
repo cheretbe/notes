@@ -66,6 +66,22 @@ ansible_host: 10.10.10.10
     msg: "Debug"
 ```
 
+### Installation
+
+* https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu
+```
+apt update
+apt install software-properties-common
+apt-add-repository --yes --update ppa:ansible/ansible
+apt install ansible
+```
+`/etc/ansible/ansible.cfg`
+```
+[defaults]
+# https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html
+interpreter_python = auto
+```
+
 ### Windows
 
 * https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#inventory-options
