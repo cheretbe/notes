@@ -142,6 +142,7 @@ rm -rf /opt/awx/pgdocker
 ```
 
 Tower CLI
+* https://tower-cli.readthedocs.io/en/latest/index.html
 ```shell
 pip3 install ansible-tower-cli
 tower-cli config host http://localhost:80
