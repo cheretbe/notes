@@ -122,8 +122,8 @@ add-apt-repository \
 apt-get update
 apt-get install docker-ce
 
-apt-get install python-pip
-pip install docker docker-compose
+apt-get install python3-pip
+pip3 install docker docker-compose
 
 apt install nodejs npm -y
 npm install npm --global
