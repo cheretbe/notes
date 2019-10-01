@@ -147,6 +147,8 @@ cat /opt/awx/inventory | grep -v "#" |sort -n | grep .
 ansible-playbook -i /opt/awx/inventory awx-7.0.0/installer/install.yml
 # Wait for migration to complete
 docker logs -f awx_task
+
+docker exec -ti awx_task /bin/bash
 ```
 
 Uninstallation
