@@ -194,6 +194,8 @@ ssh-keygen -C "test-comment" -f test.key
 ssh-keygen -lf key_file
 # Retrieve the public key
 ssh-keygen -yf key_file
+
+ssh-copy-id -i ~/.ssh/mykey user@host
 ```
 To add a comment in `authorized_keys` just use a space and a comment after the key:
 ```
