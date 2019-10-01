@@ -22,6 +22,7 @@ vboxmanage setproperty machinefolder /mnt/vmdata/vm/
 echo test | mail -s "test mail" root
 
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=2 user@host.tld
+ssh-copy-id -i ~/.ssh/key_name.pub user@host.tld
 
 # Find file recursively
 # -iname:  like -name, but the match is case insensitive
