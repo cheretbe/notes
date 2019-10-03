@@ -109,6 +109,8 @@ DISKPART
 LIST DISK
 :: Select the drive and format it as NTFS
 SELECT DISK <N>
+:: Verify that the correct drive has been selected
+DETAIL DISK
 CLEAN
 CREATE PARTITION PRIMARY
 SELECT PARTITION 1
