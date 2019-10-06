@@ -42,6 +42,12 @@ gitlab-ctl reconfigure
 Default path is `/var/opt/gitlab/backups`
 
 * https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md
+```shell
+# View available version
+apt-cache policy gitlab-ce
+# Install specific version
+apt install -s gitlab-ce=12.3.3-ce.0
+```
 
 ### Reverse proxy
 Settings for `/etc/gitlab/gitlab.rb` on Gitlab server:
