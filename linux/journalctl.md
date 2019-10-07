@@ -34,8 +34,12 @@ journalctl --list-boots
 journalctl -u nginx.service
 journalctl -u nginx.service -u php-fpm.service --since today
 
+# View the list of field names for match arguments (_PID, _COMM, etc.)
+man systemd.journal-fields
 # See messages by PID
 journalctl -b 0 _PID=9400
+# See messages by process name
+journalctl -b 0 _COMM=mailnag
 
 # Time window
 journalctl --since "2015-01-14" --until "2015-01-15 03:00"
