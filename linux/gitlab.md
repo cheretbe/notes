@@ -28,6 +28,12 @@ sudo gitlab-ctl reconfigure
 * Visit server URL in a web browser and set password for the user `root`
 * Disable sign-up: Admin area > Settings (under the gear button) > Sign-up Restrictions > Sign-up enabled
 * Add users without email: https://stackoverflow.com/questions/29704546/gitlab-signup-users-without-email-conformation/34525936#34525936
+* Custom password length limits
+    * `cd /opt/gitlab/embedded/service/gitlab-rails/config/initializers`
+    * `cp devise_password_length.rb.example devise_password_length.rb`
+    * Edit `config.password_length` parameter
+    * Restart Gitlab
+    * https://docs.gitlab.com/ee/security/password_length_limits.html
 
 ### Backup/restore
 ```
