@@ -8,6 +8,15 @@
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
 ```shell
+# Reboot today at 23:00
+at $(date +"23:00 %Y-%m-%d") <<EOF
+echo "\$(date) - Rebooting $(hostname -f)" \
+   | mail $USER -s "Scheduled reboot of $(hostname -f)"
+/sbin/reboot
+EOF
+```
+
+```shell
 # Continuously updated iostat
 watch -n 1 iostat -xy --human 1 1
 
