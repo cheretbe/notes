@@ -17,6 +17,10 @@ EOF
 ```
 
 ```shell
+# Kill background unattended upgrades script
+# (repeat a couple of times)
+lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-if-empty kill
+
 # Continuously updated iostat
 watch -n 1 iostat -xy --human 1 1
 
