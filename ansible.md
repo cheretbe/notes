@@ -40,7 +40,7 @@
 * 15 Things You Should Know About Ansible: https://habr.com/ru/post/306998/
 * **https://molecule.readthedocs.io/en/stable/**
 
-``bash
+```bash
 # https://docs.ansible.com/ansible/latest/modules/setup_module.html#parameters
 ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
