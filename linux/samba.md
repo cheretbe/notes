@@ -8,6 +8,13 @@
 * https://community.spiceworks.com/topic/157949-only-allow-certain-ad-groups-to-log-in
 
 ### Misc. info
+
+* No guest access to share list in Windows 10
+  * https://support.microsoft.com/en-us/help/4046019/guest-access-in-smb2-disabled-by-default-in-windows-10-and-windows-ser
+  * Computer configuration > administrative templates > network > Lanman Workstation: "Enable insecure guest logons"
+  * Конфигурация компьютера > Административные шаблоны > Сеть > Рабочая станция Lanman: "Включить небезопасные гостевые входы"
+  * Or change `map to guest = bad user` to `map to guest = never` in `/etc/samba/smb.conf`
+
 #### Useful commands
 ``` shell
 # Everything as root
