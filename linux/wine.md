@@ -14,3 +14,5 @@ Comment=c:\winbox.exe
 Icon=4A33_totalcmd64.0
 StartupWMClass=winbox.exe
 ```
+
+* `gtk-update-icon-cache` ~~Restart gnome-shell: <kbd>Alt</kbd>+<kbd>F2</kbd>, `restart` or `r`~~
