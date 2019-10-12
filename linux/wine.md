@@ -1,5 +1,5 @@
-* `.local/share/icons/hicolor/48x48/apps/winbox_100.png`
-* `.local/share/applications/winbox.desktop`
+* `~/.local/share/icons/hicolor/48x48/apps/winbox_100.png`
+* `~/.local/share/applications/winbox.desktop`
 * http://www.ubuntugeek.com/wl-creator-creates-linux-desktop-launchers-for-windows-programs.html
 * https://www.nirsoft.net/utils/iconsext.html
 
