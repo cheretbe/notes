@@ -11,11 +11,13 @@
 
 * No guest access to share list in Windows 10
   * https://support.microsoft.com/en-us/help/4046019/guest-access-in-smb2-disabled-by-default-in-windows-10-and-windows-ser
-  * Computer configuration > administrative templates > network > Lanman Workstation: "Enable insecure guest logons"
-  * Конфигурация компьютера > Административные шаблоны > Сеть > Рабочая станция Lanman: "Включить небезопасные гостевые входы"
-  * Or change `map to guest = bad user` to `map to guest = never` in `/etc/samba/smb.conf`
-  * `cmd /c reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth`
-  * `cmd /c reg add HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth /t REG_DWORD /d 1 /f`
+      * Computer configuration > administrative templates > network > Lanman Workstation: "Enable insecure guest logons"
+      * Конфигурация компьютера > Административные шаблоны > Сеть > Рабочая станция Lanman: "Включить небезопасные гостевые входы"
+  * or
+      * change `map to guest = bad user` to `map to guest = never` in `/etc/samba/smb.conf`
+  * or
+      * `cmd /c reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth`
+      * `cmd /c reg add HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth /t REG_DWORD /d 1 /f`
 
 #### Useful commands
 ``` shell
