@@ -3,6 +3,7 @@ Unsorted
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 ```
 ```shell
+virtualenv -p python3 ~/virtenv/py3
 pex -v --python-shebang="/usr/bin/env python3.6" -r requirements.txt -o test.pex
 ```
 * TUI for Python: https://github.com/urwid/urwid
