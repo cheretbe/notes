@@ -52,8 +52,8 @@ find / -xdev -iname "*sql*"
 # -xdev  Don't descend directories on other filesystems.
 # -H, --with-filename  print the file name for each match
 # -I  equivalent to --binary-files=without-match
-find / -xdev -type f -print0 | xargs -0 grep -H -I "ForceCompositionPipeline"
-# -m 1 to return only the first match
+# -m 1 return only the first match
+find / -xdev -type f -print0 | xargs -0 grep -H -m 1 -I "ForceCompositionPipeline"
 
 # Write speed test
 # 20GiB, 1KiB block: bs=1k count=$((20*1024*1024))
