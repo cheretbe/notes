@@ -1,3 +1,9 @@
+* https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_hostname_resolution
+* **https://serverfault.com/questions/331936/setting-the-hostname-fqdn-or-short-name**
+* https://serverfault.com/questions/363095/why-does-my-hostname-appear-with-the-address-127-0-1-1-rather-than-127-0-0-1-in
+* https://linuxconfig.org/how-to-change-hostname-on-ubuntu-18-04-bionic-beaver-linux
+
+
 ### Change host name
 * Cloud-init uses own mechanism and can override settings
     * https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/
@@ -30,9 +36,3 @@ vi /etc/hosts
 vi /etc/sysconfig/network
 hostname new-name
 ```
-
-* https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_the_hostname_resolution
-* http://serverfault.com/questions/331936/setting-the-hostname-fqdn-or-short-name
-* https://serverfault.com/questions/363095/why-does-my-hostname-appear-with-the-address-127-0-1-1-rather-than-127-0-0-1-in
-* https://linuxconfig.org/how-to-change-hostname-on-ubuntu-18-04-bionic-beaver-linux
-
