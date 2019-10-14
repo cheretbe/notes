@@ -3,6 +3,9 @@
 * http://blog.thoward37.me/articles/where-are-docker-images-stored/
 ----
 ```shell
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+
 docker run -dti --name centos-6 centos:6 /bin/bash
 docker exec -ti centos-6 /bin/bash
 ```
