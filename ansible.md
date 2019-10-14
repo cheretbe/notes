@@ -151,6 +151,8 @@ cp awx-7.0.0/installer/inventory /opt/awx/
 sed -i 's+ansible_python_interpreter="/usr/bin/env python"+ansible_python_interpreter="/usr/bin/env python3"+' /opt/awx/inventory
 sed -i 's+docker_compose_dir=/tmp/awxcompose+docker_compose_dir=/opt/awx/awxcompose+' /opt/awx/inventory
 sed -i 's+postgres_data_dir=/tmp/pgdocker+postgres_data_dir=/opt/awx/pgdocker+' /opt/awx/inventory
+# If custom hosthame is needed
+sed -i 's+awx_task_hostname=awx+awx_task_hostname=host.domain.tld+' /opt/awx/inventory
 cat /opt/awx/inventory | grep -v "#" |sort -n | grep .
 ansible-playbook -i /opt/awx/inventory awx-7.0.0/installer/install.yml
 # Wait for migration to complete
