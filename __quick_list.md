@@ -17,6 +17,13 @@ EOF
 ```
 
 ```shell
+# Download torrent
+cd ~/Downloads
+aria2c --seed-time 0 http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
+# Magnet link
+aria2c --enable-dht=true --seed-time 0 "magnet:?xt=urn:btih:2D..."
+
+
 # Kill background unattended upgrades script
 # (repeat a couple of times)
 lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-if-empty kill
