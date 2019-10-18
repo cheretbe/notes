@@ -1,4 +1,4 @@
-* Editor: https://calibre-ebook.com/
+* Editor: https://calibre-ebook.com/ (no repo, use VM)
 
 ##### Change color
 1. Add ebook to the library
