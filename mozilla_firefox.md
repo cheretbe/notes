@@ -1,3 +1,4 @@
+* https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
 * https://addons.mozilla.org/en-US/firefox/addon/hoxx-vpn-proxy/
 * https://addons.mozilla.org/en-US/firefox/addon/selection-context-search/
 
