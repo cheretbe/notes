@@ -9,3 +9,9 @@ Product ID
 * For an installed MSI
     * `get-wmiobject Win32_Product | Format-Table IdentifyingNumber, Name, LocalPackage -AutoSize`
     * Product ID is in IdentifyingNumber column
+    
+```powershell
+$processObj = Start-Process msiexec.exe -Wait -PassThru -ArgumentList "c:\temp\package.msi /install /passive /norestart SERVER=dummy SERVERACTIVE=dummy"
+if ($processObj.ExitCode -ne 0)
+    { Throw ("msiexec.exe call failed: exit code {0}" -f $processObj.ExitCode) }
+```
