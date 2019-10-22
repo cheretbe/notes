@@ -60,6 +60,8 @@ end
   # https://www.vagrantup.com/docs/networking/public_network.html
   config.vm.network "public_network", ip: "192.168.1.17"
   
+  # https://www.vagrantup.com/docs/provisioning/shell.html
+  # [!!] Works with Powershell (with additional options powershell_elevated_interactive and powershell_args)
   config.vm.provision "shell", name: "test", keep_color: true, inline: "apt-get -y -q update && apt-get -y -q install git"
   config.vm.provision "shell", name: "Multi-line command test",
     keep_color: true, privileged: false,
