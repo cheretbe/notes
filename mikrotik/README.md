@@ -19,6 +19,8 @@ WLAN settings
 - (2check): https://blog.ligos.net/2018-01-01/Mikrotik-WiFi-Access-Point-With-VLAN.html
 - Ppoint-to-point bridge: https://www.technotrade.com.ua/Articles/mikrotik_wifi_bridge_setup_2013-09-08.php
 
+Winbox settings location: ` %USERPROFILE%\AppData\Roaming\Mikrotik\Winbox`
+
 Get latest RoS version:
 ```shell
 curl http://download2.mikrotik.com/routeros/LATEST.6
