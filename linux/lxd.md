@@ -194,6 +194,19 @@ lxc file push file.txt container2/home/user/file.txt --mode 644 --uid 1003 --gid
 * https://cloudinit.readthedocs.io/en/latest/topics/network-config-format-v1.html
 * https://github.com/lxc/lxd/blob/master/doc/cloud-init.md
 
+
+Network config
+
+Static address (2check):
+```shell
+lxc exec container /bin/bash
+echo 'network: {config: disabled}' > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+vim /etc/netplan/50-cloud-init.yaml
+netplan apply # or just reboot to be sure.
+```
+* https://finalx.nl/en/articles/ubuntu-rdp
+
+Doesn't work?:
 ```shell
 lxc launch ubuntu:18.04 test --config=user.network-config="$(cat network-config.yaml)"
 
