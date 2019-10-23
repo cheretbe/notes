@@ -1,3 +1,6 @@
+2review:
+* https://wiki.mikrotik.com/wiki/Manual:VRRP-examples
+
 Installation Check-List
 - [ ] Identity
 - [ ] Admin username/password
