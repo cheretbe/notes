@@ -62,7 +62,8 @@ zpool create -f -o ashift=12 -O atime=off -m none lxd-zfs-loopback /path/to/lxd_
 # Image file: /var/lib/lxd/disks/default.img
 
 # Temporarily import an offline pool without mounting it
-zpool import -d /path/to/image/file -N pool-name
+# Use file's parent directory (not full file path)
+zpool import -d /path/to/image/dir -N pool-name
 zpool export pool-name
 ```
 * https://discuss.linuxcontainers.org/t/reclaim-unused-space-from-var-lib-lxd-zfs-img/338/3
@@ -94,6 +95,8 @@ lxc storage create pool1 zfs source=pool/path
 
 # Growing a loop-backed ZFS pool
 # https://github.com/lxc/lxd/blob/master/doc/storage.md#growing-a-loop-backed-zfs-pool
+
+# Moving a loop-backed pool file to another location: see below
 
 lxc network list
 lxc network edit lxdbr0 
@@ -240,4 +243,25 @@ Config locations in container
 /etc/netplan/50-cloud-init.yaml
 # 16.04
 /etc/network/interfaces.d/50-cloud-init.cfg 
+```
+
+Moving loop-backed ZFS pool file:
+```
+# This most likely will fail with 'pool is busy' message
+# -f option doesn't work on Linux:
+# https://github.com/zfsonlinux/zfs/issues/2435
+zpool export lxd-default
+
+# Stopping LXD services doesn't help
+# We need to temporarily disable them and reboot
+systemctl disable lxd-containers.service lxd.socket
+reboot
+
+# Move file to a new location and import it back
+# Use file's parent directory (not full file path)
+zpool import -d /new/path/ -N lxd-default
+
+systemctl enable lxd-containers.service lxd.socket
+systemctl is-enabled lxd-containers.service lxd.socket
+systemctl start lxd
 ```
