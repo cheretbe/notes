@@ -256,6 +256,7 @@ zpool export lxd-default
 # We need to temporarily disable them and reboot
 systemctl disable lxd-containers.service lxd.socket
 reboot
+zpool export lxd-default
 
 # Move file to a new location and import it back
 # Use file's parent directory (not full file path)
