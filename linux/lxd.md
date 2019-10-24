@@ -246,7 +246,7 @@ Config locations in container
 ```
 
 Moving loop-backed ZFS pool file:
-```
+```shell
 # This most likely will fail with 'pool is busy' message
 # -f option doesn't work on Linux:
 # https://github.com/zfsonlinux/zfs/issues/2435
