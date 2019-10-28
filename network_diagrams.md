@@ -7,3 +7,5 @@
 * https://www.auvik.com/franklymsp/blog/effective-network-diagrams/
     * https://www.auvik.com/lp/network-topology-free-ebook/
 * https://habr.com/ru/post/273679/
+* https://packetpushers.net/network-documentation-best-practices-whats-important-how-to-track-it/
+* https://packetpushers.net/how-to-draw-clear-l3-logical-network-diagrams/
