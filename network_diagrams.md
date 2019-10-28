@@ -6,3 +6,4 @@
 * **http://networkdiagram101.com/?page_id=66**
 * https://www.auvik.com/franklymsp/blog/effective-network-diagrams/
     * https://www.auvik.com/lp/network-topology-free-ebook/
+* https://habr.com/ru/post/273679/
