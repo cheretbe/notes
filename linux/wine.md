@@ -2,6 +2,7 @@
 * `~/.local/share/applications/winbox.desktop`
 * http://www.ubuntugeek.com/wl-creator-creates-linux-desktop-launchers-for-windows-programs.html
 * https://www.nirsoft.net/utils/iconsext.html
+* https://convertico.com/ico-to-png/
 * Wrong icon when running: https://ubuntuforums.org/showthread.php?t=2360326
     * Run `xprop WM_CLASS`
     * Set `StartupWMClass` correctly
