@@ -101,6 +101,8 @@ sudo usermod -aG group1,group2 ${USER}
 groupadd group
 # Delete user from a group
 gpasswd -d user group
+# Delete group
+groupdel group-name
 ```
 Sudo
 
