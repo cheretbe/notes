@@ -10,3 +10,4 @@
 * https://packetpushers.net/network-documentation-best-practices-whats-important-how-to-track-it/
 * https://packetpushers.net/how-to-draw-clear-l3-logical-network-diagrams/
 * https://packetpushers.net/scalable-network-diagram-layouts-tips-ms-visio/
+* **https://etherealmind.com/network-diagrams-vlan-with-ip-layer-3-detail/**
