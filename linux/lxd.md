@@ -184,7 +184,7 @@ lxc config device add mycontainer myport443 proxy listen=tcp:0.0.0.0:443 connect
 **Mounting local directory in a container**
 
 1. Expand the range of uid and gid available by editing /etc/subuid and /etc/subgid
-```
+```shell
 cp /etc/subuid{,.bak}
 cp /etc/subgid{,.bak}
 
@@ -198,6 +198,11 @@ lxd:100000:1000000000
 root:100000:1000000000
 ...
 ```
+2. Restart lxd to apply changes
+```shell
+sudo systemctl restart lxd
+```
+
 * https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
 * https://dacrib.net/rant/2018/06/07/how-to-mount-a-local-directory-or-volume-with-lxd/
 
