@@ -170,7 +170,7 @@ sqlite3 /var/lib/lxd/lxd.db 'SELECT * FROM containers_config'
 sqlite3 /var/lib/lxd/lxd.db 'SELECT cont.name,conf.key,conf.value FROM containers_config AS conf INNER JOIN containers AS cont on conf.container_id = cont.id WHERE cont.name = "container-name"'
 ```
 
-Port forwarding
+**Port forwarding**
 ```shell
 # 1. Add a proxy device on container mycontainer, giving it an arbitrary name (myport80)
 # 2. Set it up to listen on all (0.0.0.0) network interfaces on the host, port 80. Could be changed to something more specific
@@ -180,6 +180,26 @@ lxc config device add mycontainer myport443 proxy listen=tcp:0.0.0.0:443 connect
 ```
 * https://discuss.linuxcontainers.org/t/forward-port-80-and-443-from-wan-to-container/2042/2
 * https://lxd.readthedocs.io/en/latest/containers/#type-proxy
+
+**Mounting local directory in a container**
+
+1. Expand the range of uid and gid available by editing /etc/subuid and /etc/subgid
+```
+cp /etc/subuid{,.bak}
+cp /etc/subgid{,.bak}
+
+cat /etc/subuid
+lxd:100000:1000000000
+root:100000:1000000000
+...
+
+cat /etc/subgid
+lxd:100000:1000000000
+root:100000:1000000000
+...
+```
+* https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
+* https://dacrib.net/rant/2018/06/07/how-to-mount-a-local-directory-or-volume-with-lxd/
 
 Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375<br>
 `/var/lib/lxd/storage-pools/default/containers/`<br>
