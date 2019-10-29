@@ -1,6 +1,10 @@
 * Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
 
 ```shell
+# Kill background unattended upgrades script that prevents apt from running
+# (repeat a couple of times)
+lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-if-empty kill
+
 # Enable the 'universe' repository
 add-apt-repository universe
 # View the list of configured repos and PPAs
