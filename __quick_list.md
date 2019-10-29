@@ -24,7 +24,7 @@ aria2c --seed-time 0 http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd6
 aria2c --enable-dht=true --seed-time 0 "magnet:?xt=urn:btih:2D..."
 
 
-# Kill background unattended upgrades script
+# Kill background unattended upgrades script that prevents apt from running
 # (repeat a couple of times)
 lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-if-empty kill
 
