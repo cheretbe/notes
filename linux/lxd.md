@@ -250,6 +250,7 @@ Moving loop-backed ZFS pool file:
 # This most likely will fail with 'pool is busy' message
 # -f option doesn't work on Linux:
 # https://github.com/zfsonlinux/zfs/issues/2435
+# [!!!] Note the pool name, we will need it on import
 zpool export lxd-default
 
 # Stopping LXD services doesn't help
