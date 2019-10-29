@@ -183,8 +183,8 @@ lxc config device add mycontainer myport443 proxy listen=tcp:0.0.0.0:443 connect
 
 **Mounting local directory in a container**
 
-1. Expand the range of uid and gid available by editing /etc/subuid and /etc/subgid
 ```shell
+# 1. Expand the range of uid and gid available by editing /etc/subuid and /etc/subgid
 cp /etc/subuid{,.bak}
 cp /etc/subgid{,.bak}
 
@@ -197,10 +197,18 @@ cat /etc/subgid
 lxd:100000:1000000000
 root:100000:1000000000
 ...
-```
-2. Restart lxd to apply changes
-```shell
+
+# 2. Restart lxd to apply changes
+shell
 sudo systemctl restart lxd
+
+# 3. Enable isolated idmap for a container
+lxc config set container-name security.idmap.isolated true
+lxc restart container-name
+
+# 4. Allow LXD’s use of user uid and gid
+printf "lxd:$(id -u username):1\nroot:$(id -u username):1\n" | sudo tee -a /etc/subuid
+printf "lxd:$(id -g username):1\nroot:$(id -g username):1\n" | sudo tee -a /etc/subgid
 ```
 
 * https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
