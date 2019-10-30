@@ -203,16 +203,31 @@ root:600200000:100000000
 ...
 
 # 2. Restart lxd to apply changes
-shell
 sudo systemctl restart lxd
 
 # 3. Enable isolated idmap for a container
+# [!!!] Make sure the container is created under root
+sudo lxc launch ubuntu:bionic container-name
 lxc config set container-name security.idmap.isolated true
 lxc restart container-name
 
 # 4. Allow LXD’s use of user uid and gid
-printf "lxd:$(id -u username):1\nroot:$(id -u username):1\n" | sudo tee -a /etc/subuid
-printf "lxd:$(id -g username):1\nroot:$(id -g username):1\n" | sudo tee -a /etc/subgid
+user_to_map=username
+printf "lxd:$(id -u ${user_to_map}):1\nroot:$(id -u ${user_to_map}):1\n" | sudo tee -a /etc/subuid
+printf "lxd:$(id -g ${user_to_map}):1\nroot:$(id -g ${user_to_map}):1\n" | sudo tee -a /etc/subgid
+sudo systemctl restart lxd
+
+# 5. Map local uid and gid to container's uid and gid
+# Replace 1000 with actual uid and gid in the container (e.g. 0 for root)
+printf "uid $(id -u ${user_to_map}) 1000\ngid $(id -g ${user_to_map}) 1000" | lxc config set container-name raw.idmap -
+# Make sure the mapping is correct
+lxc config get container-name raw.idmap
+lxc restart container-name
+
+# 6. Add 'device' entry
+sudo mkdir /dir/on/host
+sudo chown ${user_to_map}:${user_to_map} /dir/on/host
+lxc config device add container-name new-device-name disk source=/dir/on/host path=/dir/in/the/container
 ```
 
 * https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
