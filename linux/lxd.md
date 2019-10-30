@@ -198,6 +198,8 @@ lxd:100000:1000000000
 root:100000:1000000000
 ...
 
+cat /etc/login.defs | grep -v "#" |  grep -v "^$"
+
 # 2. Restart lxd to apply changes
 shell
 sudo systemctl restart lxd
