@@ -185,20 +185,22 @@ lxc config device add mycontainer myport443 proxy listen=tcp:0.0.0.0:443 connect
 
 ```shell
 # 1. Expand the range of uid and gid available by editing /etc/subuid and /etc/subgid
+# Range 100000:1000000000 suggested by Stéphane Graber looks wrong for two reasons:
+#  - it overlaps with existing mappings, added by useradd (see man useradd on SUB_UID_MIN, SUB_GID_MIN etc.)
+#  - it breaks useradd since this range exceeds default SUB_UID_MAX of 600100000
+# Therefore we are going to use 600200000:100000000 instead
 cp /etc/subuid{,.bak}
 cp /etc/subgid{,.bak}
 
 cat /etc/subuid
-lxd:100000:1000000000
-root:100000:1000000000
+lxd:600200000:100000000
+root:600200000:100000000
 ...
 
 cat /etc/subgid
-lxd:100000:1000000000
-root:100000:1000000000
+lxd:600200000:100000000
+root:600200000:100000000
 ...
-
-cat /etc/login.defs | grep -v "#" |  grep -v "^$"
 
 # 2. Restart lxd to apply changes
 shell
