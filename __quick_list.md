@@ -17,6 +17,9 @@ EOF
 ```
 
 ```shell
+# Viev a config without comments and empty lines
+cat /etc/login.defs | grep -v "#" |  grep -v "^$"
+
 # Download torrent
 cd ~/Downloads
 aria2c --seed-time 0 http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
