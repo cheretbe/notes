@@ -213,6 +213,7 @@ printf "lxd:$(id -g username):1\nroot:$(id -g username):1\n" | sudo tee -a /etc/
 
 * https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
 * https://dacrib.net/rant/2018/06/07/how-to-mount-a-local-directory-or-volume-with-lxd/
+* https://discuss.linuxcontainers.org/t/looking-for-clarification-about-subuid-gid/630
 
 Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375<br>
 `/var/lib/lxd/storage-pools/default/containers/`<br>
