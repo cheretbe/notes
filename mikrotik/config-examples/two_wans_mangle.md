@@ -36,14 +36,12 @@ add action=mark-connection chain=forward connection-state=new in-interface=wan2 
     out-interface=$lanIfName new-connection-mark=wan2-pfw passthrough=no \
     comment="Mark connections forwarded from WAN2"
 
-add action=mark-routing chain=prerouting comment=\
-    "Force connections originated from WAN1 to be routed through WAN1" \
-    connection-mark=wan1-pfw in-interface=$lanIfName \
-    new-routing-mark=wan1 passthrough=no
-add action=mark-routing chain=prerouting comment=\
-    "Force connections originated from WAN2 to be routed through WAN2" \
-    connection-mark=wan2-pfw in-interface=$lanIfName \
-    new-routing-mark=wan2 passthrough=no
+add action=mark-routing chain=prerouting connection-mark=wan1-pfw \
+    in-interface=$lanIfName new-routing-mark=wan1 passthrough=no \
+    comment="Force connections originated from WAN1 to be routed through WAN1"
+add action=mark-routing chain=prerouting connection-mark=wan2-pfw \
+    in-interface=$lanIfName new-routing-mark=wan2 passthrough=no \
+    comment="Force connections originated from WAN2 to be routed through WAN2"
 
 /ip route
 add comment="Force wan1" distance=30 gateway=$wan1GW routing-mark=wan1
