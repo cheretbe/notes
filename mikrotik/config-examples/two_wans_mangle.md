@@ -17,12 +17,10 @@ add comment=wan2 distance=20 gateway=192.168.1.1
 :global wan2GW 192.168.2.1
 
 /ip firewall mangle
-add action=mark-connection chain=input comment=\
-    "Mark input connections from WAN1" in-interface=wan1 new-connection-mark=\
-    wan1-input
-add action=mark-connection chain=input comment=\
-    "Mark input connections from WAN2" in-interface=wan2 new-connection-mark=\
-    wan2-input
+add action=mark-connection chain=input in-interface=wan1 new-connection-mark=wan1-input \
+    comment="Mark input connections from WAN1"
+add action=mark-connection chain=input in-interface=wan2 new-connection-mark=wan2-input \
+    comment="Mark input connections from WAN2"
 add action=mark-routing chain=output comment="Force output connections origin\
     ated from WAN1 to be routed through WAN1" connection-mark=wan1-input \
     new-routing-mark=wan1 passthrough=no
