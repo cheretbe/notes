@@ -21,18 +21,21 @@ add action=mark-connection chain=input in-interface=wan1 new-connection-mark=wan
     comment="Mark input connections from WAN1"
 add action=mark-connection chain=input in-interface=wan2 new-connection-mark=wan2-input \
     comment="Mark input connections from WAN2"
+
 add action=mark-routing chain=output connection-mark=wan1-input \
     new-routing-mark=wan1 passthrough=no \
     comment="Force output connections originated from WAN1 to be routed through WAN1"
 add action=mark-routing chain=output connection-mark=wan2-input \
     new-routing-mark=wan2 passthrough=no \
     comment="Force output connections originated from WAN2 to be routed through WAN2"
-add action=mark-connection chain=forward comment=\
-    "Mark connections forwarded from WAN1" connection-state=new in-interface=\
-    wan1 out-interface=$lanIfName new-connection-mark=wan1-pfw passthrough=no
-add action=mark-connection chain=forward comment=\
-    "Mark connections forwarded from WAN2" connection-state=new in-interface=\
-    wan2 out-interface=$lanIfName new-connection-mark=wan2-pfw passthrough=no
+
+add action=mark-connection chain=forward connection-state=new in-interface=wan1 \
+    out-interface=$lanIfName new-connection-mark=wan1-pfw passthrough=no \
+    comment="Mark connections forwarded from WAN1"
+add action=mark-connection chain=forward connection-state=new in-interface=wan2 \
+    out-interface=$lanIfName new-connection-mark=wan2-pfw passthrough=no \
+    comment="Mark connections forwarded from WAN2"
+
 add action=mark-routing chain=prerouting comment=\
     "Force connections originated from WAN1 to be routed through WAN1" \
     connection-mark=wan1-pfw in-interface=$lanIfName \
