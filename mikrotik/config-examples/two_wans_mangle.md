@@ -1,6 +1,6 @@
 #### Set up external access from more than one wan interface
 
-:question: When interface name can be used? Works for pppoe and l2tp connections. Check for dynamic routes
+:question: When interface name can be used? Works for pppoe and l2tp connections. Check for dynamic routes, acquired via DHCP
 
 Pre-requisites
 ```
