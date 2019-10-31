@@ -1,13 +1,21 @@
-Set up external access from more than one wan interface
+#### Set up external access from more than one wan interface
+
+:question: When interface name can be used? Works for pppoe and l2tp connections. Check for dynamic routes
+
+Pre-requisites
 ```
-#add comment=wan1 distance=10 gateway=wan1
-#add comment=wan2 distance=20 gateway=wan2
-#/ip route rule
-#add action=lookup-only-in-table routing-mark=wan2 table=wan2
-#add action=lookup-only-in-table routing-mark=wan1 table=wan1
+add comment=wan1 distance=10 gateway=wan1
+add comment=wan2 distance=20 gateway=wan2
+# or
+add comment=wan1 distance=10 gateway=192.168.0.1
+add comment=wan2 distance=20 gateway=192.168.1.1
 ```
 
 ```
+:global lanIfName lan-bridge
+:global wan1GW 192.168.1.1
+:global wan2GW 192.168.2.1
+
 /ip firewall mangle
 add action=mark-connection chain=input comment=\
     "Mark input connections from WAN1" in-interface=wan1 new-connection-mark=\
@@ -29,14 +37,14 @@ add action=mark-connection chain=forward comment=\
     wan2 new-connection-mark=wan2-pfw passthrough=no
 add action=mark-routing chain=prerouting comment=\
     "Force connections originated from WAN1 to be routed through WAN1" \
-    connection-mark=wan1-pfw in-interface=lan-bridge new-routing-mark=wan1 \
-    passthrough=no
+    connection-mark=wan1-pfw in-interface=$lanIfName \
+    new-routing-mark=wan1 passthrough=no
 add action=mark-routing chain=prerouting comment=\
     "Force connections originated from WAN2 to be routed through WAN2" \
-    connection-mark=wan2-pfw in-interface=lan-bridge new-routing-mark=wan2 \
-    passthrough=no
+    connection-mark=wan2-pfw in-interface=$lanIfName \
+    new-routing-mark=wan2 passthrough=no
 
 /ip route
-add comment=wan2 distance=30 gateway=wan2 routing-mark=wan2
-add comment=wan1 distance=30 gateway=wan1 routing-mark=wan1
+add comment="Force wan1" distance=30 gateway=$wan1GW routing-mark=wan1
+add comment="Force wan2" distance=30 gateway=$wan2GW routing-mark=wan2
 ```
