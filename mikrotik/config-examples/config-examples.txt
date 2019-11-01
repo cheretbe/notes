@@ -31,9 +31,8 @@ add chain=forward comment=\
 add action=drop chain=forward comment="Forward - drop everything else"
 
 /ip firewall nat
-add action=masquerade chain=srcnat comment="NAT LAN connections to the Internet" src-address=\
-    $lanNetwork
-
+add action=masquerade chain=srcnat comment="NAT LAN connections to the Internet" \
+    ipsec-policy=out,none out-interface-list=WAN src-address=$lanNetwork
 
 
 # ==========================================================================
