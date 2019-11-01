@@ -1,7 +1,10 @@
 * http://attic.owncloud.org/download/repositories/
-* digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-ubuntu-18-04
+* https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-ubuntu-18-04
 
 ```shell
 sudo su - www-data -s /bin/bash
 /var/www/owncloud/occ app:disable files_videoplayer
 ```
+
+* https://doc.owncloud.com/server/admin_manual/configuration/server/reverse_proxy_configuration.html
+* https://doc.owncloud.com/server/admin_manual/configuration/server/harden_server.html
