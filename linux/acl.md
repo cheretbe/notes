@@ -22,6 +22,11 @@ setfacl -x u:ubuntu /home/test.txt
 ```
 
 :warning: Umask affects group permission: https://serverfault.com/questions/96514/how-to-set-linux-default-acls-differently-for-directories-and-files/97854#97854
+```shell
+umask
+# UMASK 002
+nano /etc/login.defs
+```
 ```
 # 2check
 # Fix it with
