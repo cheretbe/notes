@@ -1,3 +1,18 @@
+Use mbuffer instead
+```shell
+# Small compressable files
+# Receiver
+mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xvz
+# Sender
+tar cf - directory/ | pigz | mbuffer -q -s 128k -m 1G -O host.tld:1234
+
+# No compression
+# Receiver
+mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xv
+# Sender
+tar cf - directory/ | mbuffer -q -s 128k -m 1G -O host.tld:1234
+```
+
 :warning: 2test:
 ```shell
 # receiver
