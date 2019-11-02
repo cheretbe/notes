@@ -1,4 +1,4 @@
-Use mbuffer instead
+:bulb: Use mbuffer instead
 ```shell
 # Small compressable files
 # Receiver
@@ -35,13 +35,6 @@ pv big_file.tar.gz | nc host.domain.tld 1234
 nc -q 1 -l -p 1234 | tar xv
 # with current speed display (make sure pv is installed)
 nc -q 1 -l -p 1234 | pv | tar x
-
-# TODO: do some mbuffer tests
-# https://unix.stackexchange.com/questions/48399/fast-way-to-copy-a-large-file-on-a-lan/48555#48555
-# Prototype:
-tar c . | mbuffer -m 1024M | nc -q 1 dest-ip 1234
-# [!!!] No need to use nc with mbuffer's -I key
-# https://www.reddit.com/r/zfs/comments/buuugd/protip_ive_discovered_want_to_zfs_send_a_huge/es7ir7d/
 
 # on client (sender)
 tar cv . | nc -q 1 dest-ip 1234
