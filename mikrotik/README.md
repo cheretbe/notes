@@ -74,6 +74,8 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 
 :put [/ip firewall nat find action=masquerade and out-interface="wan"]
 :put [/ip firewall nat find action=masquerade or out-interface="wan"]
+
+# Minimal valid date is Jan/01/1970
 ```
 #### Logging
 ```
