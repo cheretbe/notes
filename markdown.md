@@ -43,6 +43,7 @@ Collapsible details content
 | `:grey_exclamation:`          | :grey_exclamation:     |
 | `:grey_question:`             | :grey_question:        |
 | `:point_right:`               | :point_right:          |
+| `:bulb:`                      | :bulb:                 |
 | `:pencil2:`                   | :pencil2:              |
 | `:memo:`                      | :memo:                 |
 | `:bangbang:`                  | :bangbang:             |
