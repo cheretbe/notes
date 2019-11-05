@@ -1,6 +1,8 @@
 * http://attic.owncloud.org/download/repositories/
 * https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-ubuntu-18-04
 
+Use `https://download.owncloud.org/download/repositories/production/`
+
 ```shell
 sudo su - www-data -s /bin/bash
 /var/www/owncloud/occ app:disable files_videoplayer
