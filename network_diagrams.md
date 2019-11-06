@@ -11,3 +11,4 @@
 * https://packetpushers.net/how-to-draw-clear-l3-logical-network-diagrams/
 * https://packetpushers.net/scalable-network-diagram-layouts-tips-ms-visio/
 * **https://etherealmind.com/network-diagrams-vlan-with-ip-layer-3-detail/**
+* https://mum.mikrotik.com/presentations/BU19/presentation_7012_1559918854.pdf
