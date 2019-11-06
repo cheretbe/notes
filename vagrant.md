@@ -171,6 +171,18 @@ require "pry"
 # or /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/plugins/commands/ssh/command.rb
 binding.pry
 ```
+Using pry
+```
+# To view variable's value just type its name
+my_var
+# List methods
+ls my_var
+
+next -- execute next line
+step -- step into next function call
+continue -- continue through stack
+```
+* https://gist.github.com/lfender6445/9919357
 
 ### API
 
