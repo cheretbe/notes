@@ -152,7 +152,8 @@ aws ec2 describe-instances \
 
 ### Debugging
 ```shell
-cp /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/vagrant.gemspec{,.bak}
+cp -a /opt/vagrant/embedded/gems/2.2.2{,.bak}
+
 nano /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/vagrant.gemspec
 
 # Add these lines
@@ -160,11 +161,15 @@ s.add_dependency 'pry'
 s.add_dependency 'pry-byebug'
 
 /opt/vagrant/embedded/bin/gem install pry pry-byebug --install-dir /opt/vagrant/embedded/gems/2.2.2
-
+```
+```ruby
 # In Vagrant file
-# require "pry"
-# binding.pry
+require "pry"
 
+# Add breakpoint
+# in Vagrant file or in some module e.g. /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/lib/vagrant/util/ssh.rb
+# or /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/plugins/commands/ssh/command.rb
+binding.pry
 ```
 
 ### API
