@@ -11,6 +11,10 @@ config.vm.box_version=1804.02
 ```shell
 vagrant ssh-config > /tmp/ssh-config-name
 scp -F /tmp/ssh-config-name default:filename .
+
+echo $(cat .vagrant/machines/default/virtualbox/id)
+# For multi-machine Vagrantfile
+echo $(cat .vagrant/machines/machine-name/virtualbox/id)
 ```
 
 ```ruby
