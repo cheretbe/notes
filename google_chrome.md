@@ -19,3 +19,4 @@ Extensions
 [["-1","Multitran","https://www.multitran.ru/c/m.exe?CL=1&s=TESTSEARCH&l1=1",true],["-1","Wikipedia [RU]","https://ru.wikipedia.org/wiki/TESTSEARCH",true],["-1","Wikipedia [EN]","https://en.wikipedia.org/wiki/TESTSEARCH",true],["-1","Wikipedia [ES]","https://es.wikipedia.org/wiki/TESTSEARCH",true],["-1","diccionario.ru","https://diccionario.ru/perevod/TESTSEARCH",true],["-1","spanishdict.com","http://www.spanishdict.com/translate/TESTSEARCH",true]]
 ```
 * Quick Tabs: https://chrome.google.com/webstore/detail/quick-tabs/jnjfeinjfmenlddahdjdmgpbokiacbbb?hl=en
+* Tab Modifier: https://chrome.google.com/webstore/detail/tab-modifier/hcbgadmbdkiilgpifjgcakjehmafcjai?hl=en
