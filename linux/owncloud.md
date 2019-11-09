@@ -10,3 +10,6 @@ sudo su - www-data -s /bin/bash
 
 * https://doc.owncloud.com/server/admin_manual/configuration/server/reverse_proxy_configuration.html
 * https://doc.owncloud.com/server/admin_manual/configuration/server/harden_server.html
+
+Headless linux client
+* https://blog.caroga.net/how-to-synchronize-your-files-with-transips-stack-using-the-commandline/
