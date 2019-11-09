@@ -13,3 +13,4 @@ sudo su - www-data -s /bin/bash
 
 Headless linux client
 * https://blog.caroga.net/how-to-synchronize-your-files-with-transips-stack-using-the-commandline/
+  * Uses webdav, is any good for large files (??)
