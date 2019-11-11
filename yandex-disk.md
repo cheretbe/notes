@@ -1,5 +1,9 @@
 * https://yandex.ru/support/disk/cli-clients.html
 
+```shell
+yandex-disk setup
+```
+
 `/etc/supervisor/conf.d/yandex-disk.conf`
 ```
 [program:yandex-disk]
