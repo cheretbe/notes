@@ -30,7 +30,6 @@ umask
 nano /etc/login.defs
 ```
 ```
-# 2check
-# Fix it with
 setfacl -d -m mask:rwx directory
+setfacl -R -d -m other::--- directory
 ```
