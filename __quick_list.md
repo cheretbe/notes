@@ -2,6 +2,10 @@
     * https://wintelguy.com/filesizeconv.pl
     * https://www.gbmb.org/
 * SHA1 sums: https://www.heidoc.net/php/myvsdump_directory.php?letter=W
+* Subnets:
+    * http://www.gestioip.net/cgi-bin/subnet_calculator.cgi
+    * http://jodies.de/ipcalc
+    * https://docs.netgate.com/pfsense/en/latest/book/network/understanding-cidr-subnet-mask-notation.html
 
 #### Linux
 
