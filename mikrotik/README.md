@@ -66,6 +66,9 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 # Need to iterate through items like this
 :foreach sc in=[/system script find] do={ :put [/system script get $sc name] }
 
+# Delete all firewall rules
+/ip firewall filter remove [/ip firewall filter find]
+
 /ip route set [/ip route find where comment="ISP2"] disabled=yes
 
 /interface pppoe-client monitor pppoe-if-name once do={ :put $"local-address" }
