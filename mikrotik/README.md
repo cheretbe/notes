@@ -69,6 +69,14 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 # Delete all firewall rules
 /ip firewall filter remove [/ip firewall filter find]
 
+foreach ff in=[/ip firewall filter find] do={ :put [/ip firewall filter get $ff src-address] }
+# All properties
+foreach ff in=[/ip firewall filter find] do={ :put [/ip firewall filter get $ff] }
+
+:local lastRuleIdx
+:set lastRuleIdx ([:len [/ip firewall filter find]] - 1)  
+:put [:pick [/ip firewall filter find] $lastRuleIdx]
+
 /ip route set [/ip route find where comment="ISP2"] disabled=yes
 
 /interface pppoe-client monitor pppoe-if-name once do={ :put $"local-address" }
