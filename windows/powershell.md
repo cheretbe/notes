@@ -426,6 +426,8 @@ Import-Certificate -Filepath "C:\temp\myhost.cer" -CertStoreLocation "Cert:\Loca
 # When using own CA import CA certificate instead
 Import-Certificate -Filepath "C:\temp\ca.cert.crt" -CertStoreLocation "Cert:\LocalMachine\Root"
 Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
+# Windows 7
+certutil -addstore "Root" "C:\temp\ca.cert.crt"
 ```
 
 ### Installation
