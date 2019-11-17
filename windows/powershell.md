@@ -280,6 +280,9 @@ r = s.run_cmd('ipconfig', ['/all'])
 # print(r.std_out.decode("windows-1251"))
 print(r.std_out.decode("cp866"))
 ```
+```powershell
+[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
+```
 
 #### Unencrypted
 
