@@ -210,7 +210,7 @@ root:600200000:100000000
 sudo systemctl restart lxd
 
 # 3. Enable isolated idmap for a container
-# [!!!] Make sure the container is created under root
+# [???] Make sure the container is created under root
 sudo lxc launch ubuntu:bionic container-name
 lxc config set container-name security.idmap.isolated true
 lxc restart container-name
