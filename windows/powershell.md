@@ -272,6 +272,14 @@ Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
 Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) `
   -ComputerName "localhost" -Credential $credential -ScriptBlock { & cmd /c set }
 ```
+pywinrm (https://github.com/diyan/pywinrm)
+```python
+import winrm
+s = winrm.Session('https://host.domain.tld:5986', auth=('user', 'password'), ca_trust_path='/etc/ssl/certs', transport='ntlm')
+r = s.run_cmd('ipconfig', ['/all'])
+# print(r.std_out.decode("windows-1251"))
+print(r.std_out.decode("cp866"))
+```
 
 #### Unencrypted
 
@@ -428,14 +436,6 @@ Import-Certificate -Filepath "C:\temp\ca.cert.crt" -CertStoreLocation "Cert:\Loc
 Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
 # Windows 7
 certutil -addstore "Root" "C:\temp\ca.cert.crt"
-```
-pywinrm (https://github.com/diyan/pywinrm)
-```python
-import winrm
-s = winrm.Session('https://host.domain.tld:5986', auth=('user', 'password'), ca_trust_path='/etc/ssl/certs', transport='ntlm')
-r = s.run_cmd('ipconfig', ['/all'])
-# print(r.std_out.decode("windows-1251"))
-print(r.std_out.decode("cp866"))
 ```
 
 ### Installation
