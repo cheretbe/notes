@@ -22,6 +22,8 @@ script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Set test to a variable without echoing it
 read -s -p "Password: " my_pwd
+# Optional export to expose the var to other processes
+export my_pwd
 
 # Correct way (works with "set -euo")
 # https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash/13864829#13864829
