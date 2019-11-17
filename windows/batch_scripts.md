@@ -1,4 +1,6 @@
 ```bat
+echo:Press any key to continue... & pause >NUL
+
 IF EXIST "%FileName%" (
   ECHO Deleting existing '%FileName%'
   DEL /Q /F "%FileName%"
