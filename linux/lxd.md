@@ -112,6 +112,8 @@ lxc image list ubuntu:
 
 lxc launch ubuntu:xenial test1
 lxc launch ubuntu:bionic test2
+# Set autostart
+lxc config set container-name boot.autostart 1
 # Change default bridge on eth0
 lxc config device add container-name eth0 nic name=eth0 nictype=bridged parent=enp4s0-br
 
