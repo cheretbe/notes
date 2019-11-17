@@ -330,15 +330,6 @@ $credential = Import-CliXml -Path "C:\My\Path\cred.xml"
 $credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
 $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
 ```
-pywinrm (https://github.com/diyan/pywinrm)
-```python
-import winrm
-s = winrm.Session('https://host.domain.tld:5986', auth=('user', 'password'), ca_trust_path='/etc/ssl/certs', transport='ntlm')
-r = s.run_cmd('ipconfig', ['/all'])
-# print(r.std_out.decode("windows-1251"))
-print(r.std_out.decode("cp866"))
-```
-
 #### HTTPS with a self-signed SSL certificate
 * https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 * http://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure
@@ -437,6 +428,14 @@ Import-Certificate -Filepath "C:\temp\ca.cert.crt" -CertStoreLocation "Cert:\Loc
 Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
 # Windows 7
 certutil -addstore "Root" "C:\temp\ca.cert.crt"
+```
+pywinrm (https://github.com/diyan/pywinrm)
+```python
+import winrm
+s = winrm.Session('https://host.domain.tld:5986', auth=('user', 'password'), ca_trust_path='/etc/ssl/certs', transport='ntlm')
+r = s.run_cmd('ipconfig', ['/all'])
+# print(r.std_out.decode("windows-1251"))
+print(r.std_out.decode("cp866"))
 ```
 
 ### Installation
