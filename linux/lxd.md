@@ -232,6 +232,11 @@ lxc restart container-name
 sudo mkdir /dir/on/host
 sudo chown ${user_to_map}:${user_to_map} /dir/on/host
 lxc config device add container-name new-device-name disk source=/dir/on/host path=/dir/in/the/container
+
+# Fix for old containers now being able to start with old id maps
+# Create temporary container and copy its idmap settings
+lxc config set old-container volatile.idmap.next `lxc config get id-fix-temp volatile.idmap.next`
+lxc config set old-container volatile.last_state.idmap `lxc config get id-fix-temp volatile.last_state.idmap`
 ```
 
 * https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
