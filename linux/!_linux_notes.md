@@ -67,6 +67,16 @@ chmod g+s /path/to/directory -R
 #or
 find /path/to/directory -type d -exec chmod chmod g+rwxs {} \;
 ```
+```
+Umask   Created Files       Created Directories
+-------------------------------------------------
+000     666 (rw-rw-rw-)     777     (rwxrwxrwx)
+002     664 (rw-rw-r--)     775     (rwxrwxr-x)
+022     644 (rw-r--r--)     755     (rwxr-xr-x)
+027     640 (rw-r-----)     750     (rwxr-x---)
+077     600 (rw-------)     700     (rwx------)
+277     400 (r--------)     500     (r-x------)
+```
 
 Add user:
 ``` bash
