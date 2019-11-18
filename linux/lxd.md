@@ -235,8 +235,33 @@ lxc config device add container-name new-device-name disk source=/dir/on/host pa
 
 # Fix for old containers now being able to start with old id maps
 # Create temporary container and copy its idmap settings
+lxc launch ubuntu:bionic id-fix-temp
+lxc stop old-container
 lxc config set old-container volatile.idmap.next `lxc config get id-fix-temp volatile.idmap.next`
 lxc config set old-container volatile.last_state.idmap `lxc config get id-fix-temp volatile.last_state.idmap`
+
+zfs mount lxd-default/containers/old-container
+
+# Backup current FS
+tar -czvf /root/temp/old-container.tar.gz /var/lib/lxd/storage-pools/default/containers/old-container/
+# Command to restore from backup
+tar --numeric-owner -xzvf /root/temp/old-container.tar.gz -C /
+
+# Error: Failed to change ACLs on /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/var/log/journal
+# Fix
+setfacl -R -b /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/
+
+# View old UID/GID (100000 in this case)
+ls -lha /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/
+
+apt install lxd-tools
+
+# Test and apply
+fuidshift /var/lib/lxd/storage-pools/default/containers/old-container/rootfs b:100000:600200000:65536 -t
+fuidshift /var/lib/lxd/storage-pools/default/containers/old-container/rootfs b:100000:600200000:65536
+chown 600200000:600200000 /var/lib/lxd/storage-pools/default/containers/old-container
+
+zfs unmount lxd-default/containers/old-container
 ```
 
 * https://ubuntu.com/blog/custom-user-mappings-in-lxd-containers
