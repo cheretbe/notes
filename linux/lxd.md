@@ -111,7 +111,7 @@ lxc image list images:
 lxc image list ubuntu:
 
 lxc launch ubuntu:xenial test1
-lxc launch ubuntu:bionic test2
+lxc launch ubuntu:bionic test2 -c boot.autostart=true
 # Set autostart
 lxc config set container-name boot.autostart 1
 # Change default bridge on eth0
