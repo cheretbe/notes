@@ -86,7 +86,7 @@ apt install ansible
 `/etc/ansible/ansible.cfg`
 ```
 [defaults]
-# https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html
+# https://docs.ansible.com/ansible/latest/reference_appendices/interpreter_discovery.html
 interpreter_python = auto
 ```
 
