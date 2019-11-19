@@ -69,6 +69,9 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 # Delete all firewall rules
 /ip firewall filter remove [/ip firewall filter find]
 
+# Move last rule to the top
+/ip firewall nat move ([:len [/ip firewall nat find]] - 1) 0
+
 foreach ff in=[/ip firewall filter find] do={ :put [/ip firewall filter get $ff src-address] }
 # All properties
 foreach ff in=[/ip firewall filter find] do={ :put [/ip firewall filter get $ff] }
