@@ -247,10 +247,6 @@ tar -czvf /root/temp/old-container.tar.gz /var/lib/lxd/storage-pools/default/con
 # Command to restore from backup
 tar --numeric-owner -xzvf /root/temp/old-container.tar.gz -C /
 
-# Error: Failed to change ACLs on /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/var/log/journal
-# Fix
-setfacl -R -b /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/
-
 # View old UID/GID (100000 in this case)
 ls -lha /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/
 
@@ -259,6 +255,11 @@ apt install lxd-tools
 # Test and apply
 fuidshift /var/lib/lxd/storage-pools/default/containers/old-container/rootfs b:100000:600200000:65536 -t
 fuidshift /var/lib/lxd/storage-pools/default/containers/old-container/rootfs b:100000:600200000:65536
+
+# Error: Failed to change ACLs on /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/var/log/journal
+# Fix
+setfacl -R -b /var/lib/lxd/storage-pools/default/containers/old-container/rootfs/
+
 chown 600200000:600200000 /var/lib/lxd/storage-pools/default/containers/old-container
 
 zfs unmount lxd-default/containers/old-container
