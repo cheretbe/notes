@@ -22,6 +22,8 @@ EOF
 
 ```shell
 # Viev a config without comments and empty lines
+grep "^[^#;]" --color=never /etc/ansible/ansible.cfg
+# Another option
 cat /etc/login.defs | grep -v "#" |  grep -v "^$"
 
 # Download torrent
