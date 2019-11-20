@@ -29,7 +29,9 @@
 * https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions
 
 
-`export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
+### Config
+* https://docs.ansible.com/ansible/latest/reference_appendices/config.html
+Local config: `~/.ansible.cfg`
 
 ### Inventory
 * https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
@@ -37,6 +39,7 @@
 ```shell
 ansible-inventory -i demo.aws_ec2.yml --graph
 ```
+`export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 
 ### Roles and playbooks
 
