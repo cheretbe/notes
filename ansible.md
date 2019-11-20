@@ -31,6 +31,13 @@
 
 `export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 
+### Inventory
+* https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+* https://docs.ansible.com/ansible/latest/plugins/inventory.html#inventory-plugins
+```shell
+ansible-inventory -i demo.aws_ec2.yml --graph
+```
+
 ### Roles and playbooks
 
 * https://galaxy.ansible.com/docs/finding/content_types.html#ansible-roles
