@@ -37,7 +37,7 @@ server {
 
 ### Reverse proxy
 
-* https://www.daveperrett.com/articles/2009/08/10/passing-ips-to-apache-with-nginx-proxy/
+* **https://www.daveperrett.com/articles/2009/08/10/passing-ips-to-apache-with-nginx-proxy/** (test with nextcloud/owncloud)
 * https://philio.me/showing-the-correct-client-ip-in-logs-and-scripts-when-using-nginx-behind-a-reverse-proxy/
 * Setup:
     * https://www.techandme.se/set-up-nginx-reverse-proxy/
