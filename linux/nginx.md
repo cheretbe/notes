@@ -37,6 +37,17 @@ server {
 
 ### Reverse proxy
 
+* https://www.daveperrett.com/articles/2009/08/10/passing-ips-to-apache-with-nginx-proxy/
+* https://philio.me/showing-the-correct-client-ip-in-logs-and-scripts-when-using-nginx-behind-a-reverse-proxy/
+* Setup:
+    * https://www.techandme.se/set-up-nginx-reverse-proxy/
+    * https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server
+    * https://www.howtoforge.com/tutorial/how-to-install-nginx-as-reverse-proxy-for-apache-on-ubuntu-16-04/
+    * https://www.techandme.se/set-up-nginx-reverse-proxy/
+    * https://forum.nginx.org/read.php?2,234641,234641#msg-234641
+    * https://www.ssltrust.com.au/blog/nginx-reverse-proxy-setup-guide/
+
+
 See [phpnuget setup](phpnuget.md) for nginx -> apache proxy example<br><br>
 
 Get client's real IP when behind NAT or a proxy/load balancer
@@ -77,12 +88,3 @@ Then use on server
   </body>
 </html>
 ```
-* https://philio.me/showing-the-correct-client-ip-in-logs-and-scripts-when-using-nginx-behind-a-reverse-proxy/
-
-Setup:
-* https://www.techandme.se/set-up-nginx-reverse-proxy/
-* https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-16-04-server
-* https://www.howtoforge.com/tutorial/how-to-install-nginx-as-reverse-proxy-for-apache-on-ubuntu-16-04/
-* https://www.techandme.se/set-up-nginx-reverse-proxy/
-* https://forum.nginx.org/read.php?2,234641,234641#msg-234641
-* https://www.ssltrust.com.au/blog/nginx-reverse-proxy-setup-guide/
