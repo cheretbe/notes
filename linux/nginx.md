@@ -50,8 +50,32 @@ http {
 }
 ```
 Then use on server
-```php
-<? echo $_SERVER["REMOTE_ADDR"]; ?>
+```html
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <title>Test Page</title>
+    <style>
+      info-text {
+        /* https://stackoverflow.com/questions/38781089/font-family-monospace-monospace */
+        font-family: monospace, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <info-text>
+      <?php
+        echo "HTTP_HOST: " . $_SERVER['HTTP_HOST'] . "<br>";
+        echo "REMOTE_ADDR: " . $_SERVER['REMOTE_ADDR'] . "<br>";
+        echo "HTTP_X_REAL_IP: " . $_SERVER['HTTP_X_REAL_IP'] . "<br>";
+        echo "HTTP_USER_AGENT: " . $_SERVER['HTTP_USER_AGENT'] . "<br>";
+        echo "---------------------------------------------";
+      ?>
+    </info-text>
+    <?php phpinfo(); ?>
+  </body>
+</html>
 ```
 * https://philio.me/showing-the-correct-client-ip-in-logs-and-scripts-when-using-nginx-behind-a-reverse-proxy/
 
