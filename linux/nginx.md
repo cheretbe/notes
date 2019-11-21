@@ -18,6 +18,18 @@ service nginx force-reload
 * How To Set Up Nginx Server Blocks (Virtual Hosts) on Ubuntu 16.04: https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
 ### SSL
+http -> https redirection
+```
+server {
+    listen       80 default_server;
+    server_name  _;
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+```
+
 ```shell
 sudo mkdir /etc/nginx/ssl
 cp domain.com.bundle.crt /etc/nginx/ssl
