@@ -17,6 +17,10 @@ service nginx force-reload
 * Serving static content: https://www.nginx.com/resources/admin-guide/serving-static-content/
 * How To Set Up Nginx Server Blocks (Virtual Hosts) on Ubuntu 16.04: https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
+### Server blocks
+* https://nginx.org/en/docs/http/request_processing.html
+* https://nginx.org/en/docs/http/ngx_http_core_module.html#listen
+
 ### SSL
 http -> https redirection
 ```
