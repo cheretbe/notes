@@ -1,3 +1,7 @@
+```
+server_name _;
+```
+
 Safe restart: [safely_restart_nginx.sh](../files/nginx/safely_restart_nginx.sh)
 
 ```shell
