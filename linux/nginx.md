@@ -21,6 +21,12 @@ service nginx force-reload
 * https://nginx.org/en/docs/http/ngx_http_core_module.html#listen
 * https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
+### PHP
+```
+apt install php-fpm
+service php7.2-fpm status
+```
+
 ### SSL
 http -> https redirection
 ```
