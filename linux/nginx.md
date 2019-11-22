@@ -15,11 +15,11 @@ service nginx force-reload
 * https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
 * https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7
 * https://www.nginx.com/resources/admin-guide/serving-static-content/
-* https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
 ### Server blocks
 * https://nginx.org/en/docs/http/request_processing.html
 * https://nginx.org/en/docs/http/ngx_http_core_module.html#listen
+* https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
 ### SSL
 http -> https redirection
