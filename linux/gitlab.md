@@ -6,6 +6,8 @@ https://about.gitlab.com/downloads/
 
 ### Installation
 
+* https://about.gitlab.com/install/#ubuntu
+
 Install packages
 ```shell
 # Prerequisites
