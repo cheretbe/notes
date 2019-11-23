@@ -22,9 +22,25 @@ service nginx force-reload
 * https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
 ### PHP
-```
+```shell
 apt install php-fpm
 service php7.2-fpm status
+```
+Modified example from `/etc/nginx/sites-available/default` (adjust phpX.X instead php7.2 as needed)
+```
+    location / {
+        #set_real_ip_from  192.168.0.1;
+        #real_ip_header    X-Forwarded-For;
+
+        index chere_one_index.php;
+        location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+        }
+        location ~ /\.ht {
+            deny all;
+        }
+    }
 ```
 
 ### SSL
