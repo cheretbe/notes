@@ -32,7 +32,7 @@ Modified example from `/etc/nginx/sites-available/default` (adjust phpX.X instea
         #set_real_ip_from  192.168.0.1;
         #real_ip_header    X-Forwarded-For;
 
-        index chere_one_index.php;
+        index domain_tld_index.php;
         location ~ \.php$ {
             include snippets/fastcgi-php.conf;
             fastcgi_pass unix:/run/php/php7.2-fpm.sock;
