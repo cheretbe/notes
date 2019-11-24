@@ -4,7 +4,7 @@ Microsoft's support cycles:
 
 SHA1 sums: https://www.heidoc.net/php/myvsdump_directory.php?letter=W
 
-Windows 10 (business edition), version 1903 (updated June 2019)
+**Windows 10 (business edition), version 1903 (updated June 2019)**
 ```
 ff547868bc224d41b61517119008caa869a78a8f *cn_windows_10_business_edition_version_1903_updated_june_2019_x64_dvd_830837d9.iso
 f0193b298805c84de9cf973b6cc7b9afe47fe5f5 *cn_windows_10_business_edition_version_1903_updated_june_2019_x86_dvd_d28c2eff.iso
