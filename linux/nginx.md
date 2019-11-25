@@ -92,6 +92,18 @@ server {
 
 See [phpnuget setup](phpnuget.md) for nginx -> apache proxy example<br><br>
 
+:bulb: Consider disabling access log
+* Set `access_log off;` in `/etc/nginx/nginx.conf`
+* Or disable access log for a specific server block or website
+```
+server {
+    listen       80;
+    server_name  domain.tld;
+    access_log   off;
+    # ...
+}
+```
+
 Get client's real IP when behind NAT or a proxy/load balancer
 ```
 http {
