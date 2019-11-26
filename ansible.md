@@ -41,6 +41,23 @@ ansible-inventory -i demo.aws_ec2.yml --graph
 ```
 `export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 
+
+```shell
+read -s -p "Password: " TOWER_PASSWORD; echo ""; export TOWER_PASSWORD
+ansible-inventory -i my_inventory.tower.yml --graph --vars
+```
+`my_inventory.tower.yml`
+
+```yml
+---
+plugin: tower
+host: http://localhost
+username: your_ansible_tower_username
+#password: your_ansible_tower_password
+inventory_id: Inventory%20Name%20With%20A%20Space++Organization%20Name
+#validate_certs: False
+```
+
 ### Roles and playbooks
 
 * https://galaxy.ansible.com/docs/finding/content_types.html#ansible-roles
