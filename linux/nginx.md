@@ -114,7 +114,7 @@ http {
   ...
 }
 ```
-Then use on server
+Then use on server (:warning: PHP 7+)
 ```html
 <!doctype html>
 <html lang=en>
@@ -134,7 +134,7 @@ Then use on server
         echo "HTTP_HOST: " . $_SERVER['HTTP_HOST'] . "<br>";
         echo "REMOTE_ADDR: " . $_SERVER['REMOTE_ADDR'] . "<br>";
         echo "HTTP_X_REAL_IP: " . $_SERVER['HTTP_X_REAL_IP'] . "<br>";
-        echo "HTTP_USER_AGENT: " . $_SERVER['HTTP_USER_AGENT'] . "<br>";
+        echo "HTTP_USER_AGENT: " . ($_SERVER['HTTP_USER_AGENT'] ?? "") . "<br>";
         echo "---------------------------------------------";
       ?>
     </info-text>
