@@ -268,6 +268,8 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
 
 ```powershell
+$credential = Get-Credential
+Enter-PSSession -ComputerName "host.domain.tld" -Credential $credential
 Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
 Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) `
   -ComputerName "localhost" -Credential $credential -ScriptBlock { & cmd /c set }
