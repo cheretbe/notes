@@ -17,5 +17,6 @@ smv lv file.svf [-v 0]
 # Extract
 smv x file.svf -v 0
 smv x file.svf -v 1
-find -iname '*.smv' -exec smv x {} -br .. \;
+# When in a subdir of *.svf and *.iso
+find .. -iname '*.svf' -exec smv x {} -br .. \;
 ```
