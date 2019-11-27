@@ -160,6 +160,12 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 * http://forum.mikrotik.com/viewtopic.php?f=9&t=75810
 * http://forum.mikrotik.com/viewtopic.php?t=51229
 
+#### SSTP
+```
+/certificate add common-name=CA_name days-valid=3650 name=CA key-usage=crl-sign,key-cert-sign
+/certificate sign CA
+```
+
 #### Seamless WiFi clients roaming (CAPsMAN):
 ```
 /interface wireless cap
