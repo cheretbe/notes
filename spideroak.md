@@ -14,7 +14,12 @@ xauth -f ~/.Xauthority list
 sudo su - spideroak-user-name
 xauth add host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c694102
 /usr/bin/SpiderOakONE
-# Shutting down (we don't have access to the tray icon)
+# (2check) Shutdown: Ctrl+C (and wait for all processes to stop)
+# Check with
+ps -aux | grep '/opt/SpiderOakONE/lib/SpiderOakONE'
+
+
+# (wrong?) Shutting down (we don't have access to the tray icon)
 <Ctrl>+Z
 ps -aux | grep '/opt/SpiderOakONE/lib/SpiderOakONE'
 # Note the PID of a process without --spider option
