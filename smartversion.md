@@ -18,5 +18,5 @@ smv lv file.svf [-v 0]
 smv x file.svf -v 0
 smv x file.svf -v 1
 # When in a subdir of *.svf and *.iso
-find .. -iname '*.svf' -exec smv x {} -br .. \;
+find .. -iname '*.svf' -exec echo {} \; -exec smv x {} -br .. \;
 ```
