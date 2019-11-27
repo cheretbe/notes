@@ -8,7 +8,7 @@
 # Assuming that smv (http://www.smartversion.com) is installed in ~/bin
 
 # Build a patch
-date; time smv BuildPatch [SvfFile] [OldFile] [NewFile]
+date; time smv BuildPatch [SvfFile] [OldFile] [NewFile] -nbhashbits 24 -compressratio 49 -sha1 -sha25
 
 # List files
 smv l file.svf
