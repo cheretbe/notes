@@ -4,6 +4,20 @@ Microsoft's support cycles:
 
 SHA1 sums: https://www.heidoc.net/php/myvsdump_directory.php?letter=W
 
+**Windows 10 Enterprise LTSC 2019 17763.316**
+```
+24b59706d5eded392423936c82ba5a83596b50cc  cn_windows_10_enterprise_ltsc_2019_x64_dvd_9c09ff24.iso
+ba2169edd94f123211cd4aaca68352f1ab6195d9  cn_windows_10_enterprise_ltsc_2019_x86_dvd_1814dbab.iso
+615a77ecd40e82d5d69dc9da5c6a6e1265f88e28  en_windows_10_enterprise_ltsc_2019_x64_dvd_5795bb03.iso
+88af607f1e752761577d21f2b7aa98692809bf66  en_windows_10_enterprise_ltsc_2019_x86_dvd_892869c9.iso
+066e4a43abf50e3ed9afbb3b6e3347ff9a6c30c9  es-mx_windows_10_enterprise_ltsc_2019_x64_dvd_686cdfbe.iso
+e1aff35b5cfa5e188015afaa2b6bded8fbb09219  es-mx_windows_10_enterprise_ltsc_2019_x86_dvd_a706f07d.iso
+4469f0ad9cde3be56c1f83fbefc0e35b5812fad5  es_windows_10_enterprise_ltsc_2019_x64_dvd_44a5b896.iso
+f98f6259f91f471155ba80f0de9a11362f223ef2  es_windows_10_enterprise_ltsc_2019_x86_dvd_84f6ff1d.iso
+5acb51472bb4380614c9c32ff354f0cc697c03f8  ru_windows_10_enterprise_ltsc_2019_x64_dvd_78e7853a.iso
+a562732d85f4f78f5bb3b333d4f595693ba10cc6  ru_windows_10_enterprise_ltsc_2019_x86_dvd_196b5dad.iso
+```
+
 **Windows 10 (business edition), version 1903 (updated June 2019)**
 ```
 ff547868bc224d41b61517119008caa869a78a8f *cn_windows_10_business_edition_version_1903_updated_june_2019_x64_dvd_830837d9.iso
