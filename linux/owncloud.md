@@ -21,7 +21,12 @@ sudo apt-get update
 sudo apt-get install owncloud-client
 ```
 
+Explorer links location example
+```
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{fe31c68c-fc3e-48a8-88fb-8dd3a6178fb4}
+```
+
 
 #### Headless linux client
 * https://blog.caroga.net/how-to-synchronize-your-files-with-transips-stack-using-the-commandline/
-  * Uses webdav, is any good for large files (??)
+  * Uses webdav, is it any good for large files (??)
