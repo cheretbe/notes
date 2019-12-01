@@ -89,6 +89,9 @@ usermod -aG wheel newuser
 adduser newuser sudo
 # Disable user login
 sudo passwd -l root
+# Check if password is locked
+# L: locked password, NP: no password, P: usable password
+passwd -S [user]
 ```
 Delete user:
 ``` bash
