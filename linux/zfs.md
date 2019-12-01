@@ -117,7 +117,7 @@ zpool get feature@lz4_compress [pool]
 # 16GB=17179869184, 8GB=8589934592, 4GB=4294967296, 2GB=2147483648, 1GB=1073741824
 options zfs zfs_arc_max=4294967296
 ```
-:warning: On 18.04 arc_summary.py is not installed (https://bugs.launchpad.net/ubuntu/+source/zfs-linux/+bug/1574342)
+~~:warning: On 18.04 arc_summary is not installed (https://bugs.launchpad.net/ubuntu/+source/zfs-linux/+bug/1574342)~~
 ```shell
 # Manual download
 wget https://raw.githubusercontent.com/zfsonlinux/zfs/master/cmd/arc_summary/arc_summary3
@@ -133,9 +133,9 @@ sudo grep size /proc/spl/kstat/zfs/arcstats
 # In GiB
 awk '/^size/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
 awk '/^c_max/ { print $1 " " $3 / 1073741824 }' < /proc/spl/kstat/zfs/arcstats
-arc_summary.py | grep zfs_arc_max
-arcstat.py
-arcstat.py 1 10
+arc_summary | grep zfs_arc_max
+arcstat
+arcstat 1 10
 
 # Set the c_max at runtime. However the ARC size will not be released automatically
 # To force the RAM to be released it is needed to export the zpool
@@ -156,12 +156,8 @@ options zfs zfs_arc_max=4294967296 zfs_resilver_delay=0
 update-initramfs -u -k all
 reboot
 # View current options
-# wget https://github.com/zfsonlinux/zfs/raw/master/cmd/arc_summary/arc_summary.py
-# chmod +x arc_summary.py
-# ./arc_summary.py | grep zfs_resilver_delay
-# No need to download, just use the version installed by OS package
-arc_summary.py | grep zfs_resilver_delay
-arcstat.py 1 10
+arc_summary | grep zfs_resilver_delay
+arcstat 1 10
 ```
 * http://arstechnica.com/information-technology/2014/02/ars-walkthrough-using-the-zfs-next-gen-filesystem-on-linux/
 * https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel/1137417#1137417
