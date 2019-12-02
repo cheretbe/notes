@@ -294,7 +294,21 @@ print(r.std_out.decode("cp866"))
 s = winrm.Session('host.domain.tld', auth=('', ''), transport='kerberos')
 ```
 ```powershell
-[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::UTF8
+#[System.Text.Encoding]::Default
+```
+
+```shell
+pip install pypsrp
+# For Kerberos auth
+pip install pypsrp[kerberos]
+```
+
+```python
+from pypsrp.client import Client
+client = Client("host.domain.tld", ssl=False, auth='kerberos')
+stdout, stderr, rc = client.execute_cmd("cmd /c ver")
+client.copy("/path/to/script.ps1", 'c:\\temp\\script.ps1')
 ```
 
 #### Unencrypted
