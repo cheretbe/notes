@@ -284,6 +284,9 @@ pip install pywinrm requests_kerberos
 import winrm
 s = winrm.Session('https://host.domain.tld:5986', auth=('user', 'password'), ca_trust_path='/etc/ssl/certs', transport='ntlm')
 r = s.run_cmd('ipconfig', ['/all'])
+r = s.run_ps("""
+  & cmd /c ver
+""")
 # print(r.std_out.decode("windows-1251"))
 print(r.std_out.decode("cp866"))
 
