@@ -306,8 +306,13 @@ pip install pypsrp[kerberos]
 
 ```python
 from pypsrp.client import Client
+# Domain member
 client = Client("host.domain.tld", ssl=False, auth='kerberos')
-stdout, stderr, rc = client.execute_cmd("cmd /c ver")
+# Self-signed SSL
+os.environ['REQUESTS_CA_BUNDLE']="/etc/ssl/certs"
+client = Client("host.domain.tld", username="user", password="pwd")
+
+stdout, stderr, rc = client.execute_cmd("cmd /c ver", encoding="1251")
 client.copy("/path/to/script.ps1", 'c:\\temp\\script.ps1')
 ```
 
