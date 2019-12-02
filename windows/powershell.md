@@ -275,12 +275,20 @@ Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNC
   -ComputerName "localhost" -Credential $credential -ScriptBlock { & cmd /c set }
 ```
 pywinrm (https://github.com/diyan/pywinrm)
+```shell
+pip install pywinrm
+# For Kerberos auth
+pip install pywinrm requests_kerberos
+```
 ```python
 import winrm
 s = winrm.Session('https://host.domain.tld:5986', auth=('user', 'password'), ca_trust_path='/etc/ssl/certs', transport='ntlm')
 r = s.run_cmd('ipconfig', ['/all'])
 # print(r.std_out.decode("windows-1251"))
 print(r.std_out.decode("cp866"))
+
+# Domain member
+s = winrm.Session('host.domain.tld', auth=('', ''), transport='kerberos')
 ```
 ```powershell
 [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
