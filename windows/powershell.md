@@ -78,6 +78,7 @@ if ($NULL -eq (Get-Content $filePath | Where-Object { $_.Contains($newText) })) 
   Add-Content $filePath $newText
 } #if
 
+# [System.Text.Encoding]::Default
 # [System.Text.Encoding]::ASCII
 # [System.Text.Encoding]::Unicode (UTF-16 LE)
 # [System.Text.Encoding]::UTF32 (UTF-32 LE)
