@@ -223,6 +223,12 @@ datetime.timedelta(seconds=333)
 # Elapsed time
 start = time.time()
 print(str(datetime.timedelta(seconds=round(time.time() - start))))
+
+# Parsing date/time
+# pip install python-dateutil
+import dateutil.parser
+# https://dateutil.readthedocs.io/en/stable/parser.html
+dateutil.parser.parse("04.12.2019", dayfirst=True).month
 ```
 
 * [\[ TOC \]](#table-of-contents)
