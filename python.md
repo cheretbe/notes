@@ -68,6 +68,9 @@ with open("filename", "w") as f:
     f.write("test")
 with open("filename", "r") as f:
     dummy = f.read()
+with open("filename", "r") as f:
+    for line in f:
+        print(line.decode('utf-8').rstrip())
 
 # Change file encoding
 with open("filename", "rb") as f:
