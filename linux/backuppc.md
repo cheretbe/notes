@@ -193,6 +193,10 @@ tar -xzvf BackupPC-4.2.1.tar.gz
 ```
 Install dependencies
 ```shell
+/usr/local/bin/rsync_bpc --version
+```
+
+```shell
 cd BackupPC-XS-0.57/
 perl Makefile.PL
 make
