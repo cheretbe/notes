@@ -21,6 +21,8 @@
 | €    | Cyrillic (Windows)         | 1251      | Direct mapping | `0x88`                |`0x88` (1 byte)     |
 | €    | Western European (Windows) | 1252      | Direct mapping | `0x80`                |`0x80` (1 byte)     |
 
+### Powershell
+
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
 
 There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-output-from-powershell/22363632#22363632) with Powershell caching the output handle (Console.Out)
