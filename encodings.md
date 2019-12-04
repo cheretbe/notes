@@ -21,6 +21,17 @@
 | €    | Cyrillic (Windows)         | 1251      | Direct mapping | `0x88`                |`0x88` (1 byte)     |
 | €    | Western European (Windows) | 1252      | Direct mapping | `0x80`                |`0x80` (1 byte)     |
 
+## BOM
+* https://en.wikipedia.org/wiki/Byte_order_mark
+
+| Encoding    | Hex           | Decimal     | Bytes as CP1252 chars |
+|-------------|---------------|-------------|-----------------------|
+| UTF-8       | `EF BB BF`    | 239 187 191 | `ï»¿`                 |
+| UTF-16 (BE) | `FE FF`	      | 254 255     | `þÿ`                  |
+| UTF-16 (LE) | `FF FE`       | 255 254     | `ÿþ`                  |
+| UTF-32 (BE) | `00 00 FE FF` | 0 0 254 255 | `^@^@þÿ`              |
+| UTF-32 (LE) | `FF FE 00 00` | 255 254 0 0 | `ÿþ^@^@ `             |
+   (`^@` is the null character)
 ### Powershell
 
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
