@@ -8,9 +8,12 @@
 
 [Good article](https://medium.com/@joffrey.bion/charset-encoding-encryption-same-thing-6242c3f9da0c) on charset and encoding difference. *Before the invention of Unicode, the code points defined by the charsets always directly matched their representation in bytes, thus there was no need to make a difference between charset and encoding. Therefore, ASCII, Latin1, Cp1252 etc. can be considered as character sets and encodings at the same time, hence the confusion.*
 
-| Char | Charset    | Code Page | Encoding | Codepoint<br>(number)    | Binary           |
-|------|------------|-----------|----------|-------------------------:|------------------|
-| Ы    | Unicode    | 65001     | UTF-8    | `U+042B`                 |`0xD0AB` (2 bytes)|
+| Char | Charset            | Code Page | Encoding       | Codepoint<br>(number) | Binary           |
+|------|--------------------|-----------|----------------|----------------------:|------------------|
+| Ы    | Unicode            | 65001     | UTF-8          | `U+042B`              |`0xD0AB` (2 bytes)|
+| Ы    | Unicode            | 1200      | UTF-16         | `U+042B`              |`0x042B` (2 bytes)|
+| Ы    | Cyrillic (DOS)     | 866       | Direct mapping | `0x9B`                |`0x9B` (1 byte)   |
+| Ы    | Cyrillic (Windows) | 1251      | Direct mapping | `0xDB`                |`0xDB` (1 byte)   |
 
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
 
