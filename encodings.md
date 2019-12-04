@@ -31,7 +31,7 @@
 | UTF-16 (LE) | `FF FE`       | 255 254     | `ÿþ`                  |
 | UTF-32 (BE) | `00 00 FE FF` | 0 0 254 255 | `^@^@þÿ`              |
 | UTF-32 (LE) | `FF FE 00 00` | 255 254 0 0 | `ÿþ^@^@ `             |
-   (`^@` is the null character)
+   * (`^@` is the null character)
 ### Powershell
 
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
