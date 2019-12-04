@@ -8,6 +8,10 @@
 
 [Good article](https://medium.com/@joffrey.bion/charset-encoding-encryption-same-thing-6242c3f9da0c) on charset and encoding difference. *Before the invention of Unicode, the code points defined by the charsets always directly matched their representation in bytes, thus there was no need to make a difference between charset and encoding. Therefore, ASCII, Latin1, Cp1252 etc. can be considered as character sets and encodings at the same time, hence the confusion.*
 
+| Char | Charset    | Code Page | Encoding | Codepoint<br>(number)    | Binary           |
+|------|------------|-----------|----------|-------------------------:|------------------|
+| Ы    | Unicode    | 65001     | UTF-8    | `U+042B`                 |`0xD0AB` (2 bytes)|
+
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
 
 There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-output-from-powershell/22363632#22363632) with Powershell caching the output handle (Console.Out)
