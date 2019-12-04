@@ -30,3 +30,22 @@ There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-outpu
 [Console]::OutputEncoding.CodePage
 [Console]::Out.Encoding.CodePage
 ```
+```powershell
+[System.Text.Encoding]::GetEncodings() | Format-Table -AutoSize
+
+[System.Text.Encoding]::Default
+[System.Text.Encoding]::ASCII
+[System.Text.Encoding]::UTF8
+# UTF-16 LE
+[System.Text.Encoding]::Unicode
+# UTF-32 LE
+[System.Text.Encoding]::UTF32
+# UTF-16 BE
+[System.Text.Encoding]::BigEndianUnicode
+
+$oemEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.OEMCodePage)
+$ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
+# Powershell expects the output of a console command to be OEM-encoded and translates it to ANSI.
+# But winrm.cmd is a wrapper around c:\windows\system32\winrm.vbs that already outputs ANSI text
+& "winrm" | ForEach-Object { $ansiEncoding.GetString($oemEncoding.GetBytes($_)) }
+```
