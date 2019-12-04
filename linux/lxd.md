@@ -6,6 +6,7 @@
 * https://stgraber.org/2016/10/27/network-management-with-lxd-2-3/#comment-241550
 * https://github.com/lxc/lxd/blob/master/doc/cloud-init.md
 
+#### Installation
 ```shell
 # apt install -t xenial-backports lxd lxd-client
 apt install lxd zfsutils-linux bridge-utils
@@ -48,6 +49,25 @@ networkctl list
 ifconfig
 ```
 
+:warning: In order to enable swap accounting the boot argument `swapaccount=1` must be set. This can be done by appending it to the `GRUB_CMDLINE_LINUX_DEFAULT` variable in `/etc/default/grub`, then running `update-grub` as root and rebooting.
+```shell
+# View current parameters
+cat /proc/cmdline
+```
+
+Add to `/etc/sysctl.conf`
+```
+fs.inotify.max_queued_events = 1048576
+fs.inotify.max_user_instances = 1048576
+fs.inotify.max_user_watches = 1048576
+```
+Add to `/etc/security/limits.conf`
+```
+* soft nofile 100000
+* hard nofile 100000
+```
+Reboot
+
 ```shell
 # Manually create loopback file ZFS system
 # Create a 30Gb zero-filled file	
@@ -68,20 +88,6 @@ zpool export pool-name
 ```
 * https://discuss.linuxcontainers.org/t/reclaim-unused-space-from-var-lib-lxd-zfs-img/338/3
 
-Add to `/etc/sysctl.conf`
-```
-fs.inotify.max_queued_events = 1048576
-fs.inotify.max_user_instances = 1048576
-fs.inotify.max_user_watches = 1048576
-```
-Add to `/etc/security/limits.conf`
-```
-* soft nofile 100000
-* hard nofile 100000
-```
-
-Reboot
-
 ```shell
 sudo usermod --append --groups lxd non_root_user
 
@@ -92,7 +98,10 @@ sudo lxd init
 lxc storage create pool1 zfs source=pool
 # Use the existing ZFS dataset "pool/path"
 lxc storage create pool1 zfs source=pool/path
+```
 
+#### Usage
+```
 # Growing a loop-backed ZFS pool
 # https://github.com/lxc/lxd/blob/master/doc/storage.md#growing-a-loop-backed-zfs-pool
 
