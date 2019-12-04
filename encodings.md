@@ -1,3 +1,4 @@
+* https://en.wikipedia.org/wiki/Character_encoding
 * https://p0w3rsh3ll.wordpress.com/2013/04/16/viewing-code-pages/
 * https://devblogs.microsoft.com/powershell/outputencoding-to-the-rescue/
     * The reason we convert to ASCII when piping to existing executables is that most commands today do not process UNICODE correctly.  Some do, most don’t. 
