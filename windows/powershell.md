@@ -80,7 +80,7 @@ if ($NULL -eq (Get-Content $filePath | Where-Object { $_.Contains($newText) })) 
 
 # [System.Text.Encoding], ASCII, Unicode, UTF-8, UTF-16
 # Ansi -> OEM
-# https://github.com/cheretbe/notes/edit/master/encodings.md
+# https://github.com/cheretbe/notes/blob/master/encodings.md#powershell
 
 $zero = 0
 try {
