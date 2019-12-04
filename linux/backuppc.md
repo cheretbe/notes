@@ -193,11 +193,9 @@ tar -xzvf BackupPC-4.2.1.tar.gz
 ```
 Install dependencies
 ```shell
-# perl -e 'print $];'
 /usr/local/bin/rsync_bpc --version
-# this fails
-perl -e 'use lib "/usr/local/BackupPC/lib"; use BackupPC::Lib; use BackupPC::XS; echo $BackupPC::XS::VERSION'
-# Review code in /usr/local/BackupPC/bin/BackupPC
+perl -e 'use lib "/usr/local/BackupPC/lib"; use BackupPC::Lib; use BackupPC::XS; print $BackupPC::XS::VERSION'
+# Search for string like "# Version 4.3.0, released 25 Nov 2018." in /usr/local/BackupPC/bin/BackupPC
 ```
 
 ```shell
