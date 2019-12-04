@@ -56,3 +56,13 @@ $ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInf
 # But winrm.cmd is a wrapper around c:\windows\system32\winrm.vbs that already outputs ANSI text
 & "winrm" | ForEach-Object { $ansiEncoding.GetString($oemEncoding.GetBytes($_)) }
 ```
+
+### Python
+```python
+"€".encode("cp1251")
+b"\x88".decode("cp1251")
+
+b"\xE2\x82\xAC".decode("utf8").encode("cp1252")
+# Replace missing characters with "?"
+b"\xE2\x82\xAC".decode("utf8").encode("cp866", errors="replace")
+```
