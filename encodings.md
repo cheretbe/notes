@@ -31,6 +31,11 @@ There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-outpu
 [Console]::Out.Encoding.CodePage
 ```
 ```powershell
+[system.Text.Encoding]::UTF8.GetBytes("€")
+[System.Text.Encoding]::GetEncoding(1251).GetString([byte]0x88)
+[System.Text.Encoding]::UTF8.GetString(([byte]0xE2,0x82,0xAC))
+
+
 [System.Text.Encoding]::GetEncodings() | Format-Table -AutoSize
 
 [System.Text.Encoding]::Default
