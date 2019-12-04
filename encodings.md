@@ -17,6 +17,9 @@
 | Ы    | Western European (Windows) | 1252      | :x: No mapping | No character in this charset               |
 | €    | Unicode                    | 65001     | UTF-8          | `U+20AC`              |`0xE282AC` (3 bytes)|
 | €    | Unicode                    | 1200      | UTF-16         | `U+20AC`              |`0x20AC` (2 bytes)  |
+| €    | Cyrillic (DOS)             | 866       | :x: No mapping | No character in this charset               |
+| €    | Cyrillic (Windows)         | 1251      | Direct mapping | `0x88`                |`0x88` (1 byte)     |
+| €    | Western European (Windows) | 1252      | Direct mapping | `0x80`                |`0x80` (1 byte)     |
 
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
 
