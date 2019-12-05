@@ -5,6 +5,9 @@
     * Old version with some comments: https://blogs.msdn.microsoft.com/powershell/2006/12/11/outputencoding-to-the-rescue/
 * https://stackoverflow.com/questions/22349139/utf-8-output-from-powershell
 * https://habr.com/ru/post/321076/
+* https://serverfault.com/questions/80635/how-can-i-manually-determine-the-codepage-and-locale-of-the-current-os
+* https://stackoverflow.com/questions/49476326/displaying-unicode-in-powershell
+
 
 [Good article](https://medium.com/@joffrey.bion/charset-encoding-encryption-same-thing-6242c3f9da0c) on charset and encoding difference. *Before the invention of Unicode, the code points defined by the charsets always directly matched their representation in bytes, thus there was no need to make a difference between charset and encoding. Therefore, ASCII, Latin1, Cp1252 etc. can be considered as character sets and encodings at the same time, hence the confusion.*
 
@@ -34,7 +37,7 @@
    * (`^@` is the null character)
 ### Powershell
 
-Very good [summary](https://stackoverflow.com/questions/49476326/displaying-unicode-in-powershell/49481797#49481797) on encodings in Powershell.
+Very good [summary](https://stackoverflow.com/questions/49476326/displaying-unicode-in-powershell/49481797#49481797) on encodings in Powershell. Another great [summary](https://serverfault.com/questions/80635/how-can-i-manually-determine-the-codepage-and-locale-of-the-current-os/836221#836221) on locales and encodings in Windows in general.
 
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
 
