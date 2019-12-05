@@ -34,6 +34,8 @@
    * (`^@` is the null character)
 ### Powershell
 
+Very good [summary](https://stackoverflow.com/questions/49476326/displaying-unicode-in-powershell/49481797#49481797) on encodings in Powershell.
+
 Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
 
 There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-output-from-powershell/22363632#22363632) with Powershell caching the output handle (Console.Out)
