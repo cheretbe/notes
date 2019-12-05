@@ -69,8 +69,8 @@ There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-outpu
 [System.Text.Encoding]::BigEndianUnicode
 
 $cpInfo = Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage
-$oemEncoding = $cpInfo.OEMCP
-$ansiEncoding = $cpInfo.ACP
+$oemEncoding = [System.Text.Encoding]::GetEncoding([int]$cpInfo.OEMCP)
+$ansiEncoding = [System.Text.Encoding]::GetEncoding([int]$cpInfo.ACP)
 # or
 $oemEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.OEMCodePage)
 $ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
