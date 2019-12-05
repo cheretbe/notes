@@ -39,7 +39,7 @@
 
 Very good [summary](https://stackoverflow.com/questions/49476326/displaying-unicode-in-powershell/49481797#49481797) on encodings in Powershell. Another great [summary](https://serverfault.com/questions/80635/how-can-i-manually-determine-the-codepage-and-locale-of-the-current-os/836221#836221) on locales and encodings in Windows in general.
 
-Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native applications, there’s an automatic variable called `$OutputEncoding`.
+Powershell uses 3 code pages. 1 for the input and 2 for the output. Standard console input/output encoding are `[console]::InputEncoding` and `[console]::OutputEncoding`, but for the output being sent through the pipeline to native (legacy console?) applications, there’s an automatic variable called `$OutputEncoding`.
 
 There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-output-from-powershell/22363632#22363632) with Powershell caching the output handle (Console.Out)
 ```powershell
