@@ -68,6 +68,10 @@ There is (was?) [a bug](https://stackoverflow.com/questions/22349139/utf-8-outpu
 # UTF-16 BE
 [System.Text.Encoding]::BigEndianUnicode
 
+$cpInfo = Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage
+$oemEncoding = $cpInfo.OEMCP
+$ansiEncoding = $cpInfo.ACP
+# or
 $oemEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.OEMCodePage)
 $ansiEncoding = [System.Text.Encoding]::GetEncoding($Host.CurrentCulture.TextInfo.ANSICodePage)
 # Powershell expects the output of a console command to be OEM-encoded and translates it to ANSI.
