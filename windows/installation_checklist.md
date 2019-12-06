@@ -7,13 +7,13 @@
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Control Panel\International`: BlockUserInputMethodsForSignIn = 1
 
-Disable the lock screen
+* [ ] Disable the lock screen<br>
 `Local Group Policy` > `Computer Configuration` > `Administrative Templates` > `Control Panel` > `Personalization`<br>
 `Do not display the lock screen` -> `Enabled`
 `Политика "Локальный компьютер"` > `Конфигурация компьютера` > `Админстративные шаблоны` > `Панель управления` > `Персонализация`<br>
 `Запрет отображения экрана блокировки` -> `Включено`
 
-Disable first sign-in animation
+* [ ] Disable first sign-in animation<br>
 `Local Group Policy` > `Computer Configuration` > `Administrative Templates` > `System` > `Logon`<br>
 `Show first sign-in animation` -> `Disabled`
 `Политика "Локальный компьютер"` > `Конфигурация компьютера` > `Админстративные шаблоны` > `Система` > `Вход в систему`<br>
