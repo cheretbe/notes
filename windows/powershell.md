@@ -257,6 +257,7 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 ```
 ### Remoting
 
+* **https://github.com/PowerShell/PowerShell/issues/3708**
 * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
 * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
 
