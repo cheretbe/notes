@@ -287,7 +287,12 @@ newaliases
 /usr/local/BackupPC/bin/BackupPC_sendEmail -c
 # It will check if BackupPC is running, and should send an email to $Conf{EMailAdminUserName} if it is not
 # [!] Don't forget to start backuppc service back
+
+# delete an entire backup, or a directory path within a backup
+/usr/local/BackupPC/bin/BackupPC_backupDelete
 ```
+* Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
+* Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
 
 ### Client config
 ```
