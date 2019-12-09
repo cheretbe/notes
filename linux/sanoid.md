@@ -2,7 +2,7 @@
 
 ```shell
 # Ubuntu
-apt install libconfig-inifiles-perl pv lzop mbuffer
+apt install libconfig-inifiles-perl pv lzop mbuffer libcapture-tiny-perl
 # CentOS
 yum install perl-Config-IniFiles perl-Data-Dumper mbuffer lzop pv
 
