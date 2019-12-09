@@ -21,6 +21,13 @@ EOF
 ```
 
 ```shell
+# Set test to a variable without echoing it
+read -s -p "Password: " my_pwd; echo ""
+# Optional export to expose the var to other processes
+read -s -p "Password: " my_pwd; echo ""; export my_pwd
+```
+
+```shell
 # Viev a config without comments and empty lines
 grep "^[^#;]" --color=never /etc/ansible/ansible.cfg
 # Another option
