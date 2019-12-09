@@ -166,6 +166,8 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 /certificate sign CA
 /certificate add name="SSTP Server" days-valid=3650 common-name=host1.domain.tld subject-alt-name=DNS:host2.domain.tld,IP:192.168.0.1,IP:192.168.1.1 key-usage=digital-signature,key-encipherment,tls-server
 /certificate sign "SSTP Server" ca=CA
+
+/certificate import file-name=ca.crt passphrase=""
 ```
 
 #### Seamless WiFi clients roaming (CAPsMAN):
