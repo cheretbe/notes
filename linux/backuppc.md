@@ -290,6 +290,10 @@ newaliases
 
 # delete an entire backup, or a directory path within a backup
 /usr/local/BackupPC/bin/BackupPC_backupDelete
+
+# Try this (add a space after the share name, and add quotes around the path
+# since it contains a space):
+./BackupPC_backupDelete -h n6850.local -n 4 -s Backup-Data-Folder "/Time Machine"
 ```
 * Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
 * Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
