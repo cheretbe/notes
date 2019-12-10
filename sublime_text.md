@@ -72,7 +72,7 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
 ```
 
 Printing. Not implemented and is not going to be at least in ST3. Workaround: http://facelessuser.github.io/ExportHtml/<br>
-Install package `ExportHtml`, than use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and look for `Export HTML: Show Export Menu`
+Install package `ExportHtml`, than use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and look for `Export HTML: Show Export Menu`. Press Enter **here** for menu
 
 "Open With" on Ubuntu: http://askubuntu.com/questions/732464/sublime-text-not-showing-in-nautilus-open-with-menu/755041#755041
 
