@@ -46,7 +46,10 @@ end
     # relative path
     vb.customize ["sharedfolder", "add", :id, "--name", "debug", "--hostpath", File.expand_path("../..", File.dirname(__FILE__)), "--automount"]
     # deny|allow-vms|allow-all
-    vb.customize [ "modifyvm", :id, "--nicpromisc2", "allow-all" ]
+    vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+    # Virtio supports VLAN tagging in guests
+    vb.customize ["modifyvm", :id, "--nictype2", "virtio"]
+
     
     unless File.exist?(SecondHDD)
       vb.customize ['createhd', '--filename', SecondHDD, '--variant', 'Standard', '--size', 20*1024]
