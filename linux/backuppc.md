@@ -184,8 +184,14 @@ Check and download the lastest released versions:
 ```shell
 mkdir -p sources
 cd sources
-backuppc_xs_latest=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest | jq -r '.tarball_url')
-echo ${backuppc_xs_latest}
+
+release_data=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest)
+backuppc_xs_ver=$(echo ${release_data} | jq -r ".tag_name")
+backuppc_xs_tar=$(echo ${release_data} | jq -r ".assets[0].name")
+wget $(echo ${release_data} | jq -r ".assets[0].browser_download_url")
+tar -xzvf ${backuppc_xs_tar}
+cd BackupPC-XS-${backuppc_xs_ver}
+
 wget https://github.com/backuppc/backuppc-xs/releases/download/0.57/BackupPC-XS-0.57.tar.gz
 wget https://github.com/backuppc/rsync-bpc/releases/download/3.0.9.12/rsync-bpc-3.0.9.12.tar.gz
 wget https://github.com/backuppc/backuppc/releases/download/4.2.1/BackupPC-4.2.1.tar.gz
