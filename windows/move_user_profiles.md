@@ -1,4 +1,4 @@
-Existing installation (2check): https://www.sevenforums.com/tutorials/87555-user-profile-change-default-location.html
+Existing installation (2check): https://www.sevenforums.com/tutorials/87555-user-profile-change-default-location.html<br>
 At least this should work (also check): Default user profile location for newly created accounts  `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList` > `ProfilesDirectory`
 
 
