@@ -260,6 +260,7 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 * **https://github.com/PowerShell/PowerShell/issues/3708**
 * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
 * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
+* https://blog.ipswitch.com/the-infamous-double-hop-problem-in-powershell
 
 ```powershell
 $credential = Get-Credential
@@ -267,6 +268,13 @@ Enter-PSSession -ComputerName "host.domain.tld" -Credential $credential
 Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
 Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) `
   -ComputerName "localhost" -Credential $credential -ScriptBlock { & cmd /c set }
+  
+Invoke-Command -ComputerName "host.domain.tld" -ScriptBlock { Register-PSSessionConfiguration -Name "domain_user" -RunAsCredential "domain\user" -Force }
+Enter-PSSession -ComputerName "host.domain.tld" -ConfigurationName "domain_user"
+
+# On a remote host
+Get-PSSessionConfiguration
+Unregister-PSSessionConfiguration "domain_user"
 ```
 pywinrm (https://github.com/diyan/pywinrm)
 ```shell
