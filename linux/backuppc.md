@@ -294,12 +294,15 @@ newaliases
 # It will check if BackupPC is running, and should send an email to $Conf{EMailAdminUserName} if it is not
 # [!] Don't forget to start backuppc service back
 
+# -R - recursive, -i - view inode
+/usr/local/BackupPC/bin/BackupPC_ls [-iR] [-h host] [-n bkupNum] [-s shareName] dirs/files... 
+
 # delete an entire backup, or a directory path within a backup
 /usr/local/BackupPC/bin/BackupPC_backupDelete
 
-# Try this (add a space after the share name, and add quotes around the path
-# since it contains a space):
-./BackupPC_backupDelete -h n6850.local -n 4 -s Backup-Data-Folder "/Time Machine"
+# [!] Use screen utility
+# Use quotes for path with spaces
+./BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder "/path/with a space"
 ```
 * Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
 * Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
