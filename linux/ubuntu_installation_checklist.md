@@ -4,7 +4,7 @@ TODO:
 * http://www.webupd8.org/2016/03/mailnag-email-notifier-12-released-with.html
 * http://mark.orbum.net/2012/05/14/disabling-dnsmasq-as-your-local-dns-server-in-ubuntu/
 * 18.04
-    * DNS fix + `apt purge avahi-daemon`?
+    * DNS fix + `apt purge avahi-daemon`? (check if removing avahi-daemon is enough for 18.04.03)
     * Move windows to other monitor: <kbd>Win</kbd>+<kbd>Shift</kbd>+arrows
     * Themes
         * https://www.gnome-look.org/p/1207034/
