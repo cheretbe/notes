@@ -97,6 +97,12 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 
   when: some_fact_that_contains_a_string|bool
   when: ansible_distribution_version|version_compare('15.04', '>=')
+ 
+# In 2.5 version_compare was renamed to version
+# This test also accepts a 3rd parameter, strict
+- debug:
+    msg: "{% if '1.05' is version('1.04', '<=') %} less-or-equal {%else%} not-less {%endif%}"
+    when: "'10' is version('1.04', '<=')"
   
 - name: Assertion
   assert:
