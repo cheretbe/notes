@@ -183,7 +183,7 @@ Check and download the lastest released versions:
 * https://github.com/backuppc/backuppc/releases/
 ```shell
 /usr/local/bin/rsync_bpc --version
-perl -e 'use lib "/usr/local/BackupPC/lib"; use BackupPC::Lib; use BackupPC::XS; print $BackupPC::XS::VERSION'
+perl -e 'use lib "/usr/local/BackupPC/lib"; use BackupPC::XS; print $BackupPC::XS::VERSION'
 # Search for string like "# Version 4.3.0, released 25 Nov 2018." in /usr/local/BackupPC/bin/BackupPC
 
 mkdir -p sources
