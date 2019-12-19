@@ -81,6 +81,12 @@ ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra
 # Allows to connect using IP instead of host's name
 ansible_host: 10.10.10.10
 ```
+Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html
+```yaml
+- name: Failed command example
+  command: false
+  debugger: on_failed
+```
 
 ```yaml
 - name: populate service facts
