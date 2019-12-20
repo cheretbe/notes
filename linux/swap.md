@@ -14,6 +14,14 @@ swapoff /dev/sda5
 # Turn off all swap devices
 swapoff -a
 ```
+#### Find out processes that use max swap
+
+`htop` [doesn't show swap](https://hisham.hm/htop/index.php?page=faq) column. Yes, it's not 100% accurate, but most of the time it doesn't matter: I just need to quickly see what eats my swap. Approximate numbers are fine, just don't show this column by default (and possibly warn user if they turn this column on). Anyway, thankfully `top` does exactly that (without a warning part).
+
+in `top` turn on swap display an sort by this column:
+<kbd>f</kbd>, move cursor to `SWAP`, press <kbd>space</kbd>, then <kbd>s</kbd>, <kbd>q</kbd> to close fields management.
+
+Then use `htop` to view process tree (to find a process by PID just start typing digits).
 
 #### Swappines
 Add to `/etc/sysctl.conf`:
