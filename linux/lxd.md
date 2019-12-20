@@ -125,6 +125,8 @@ lxc launch ubuntu:bionic test2 -c boot.autostart=true
 lxc config set container-name boot.autostart 1
 # Change default bridge on eth0
 lxc config device add container-name eth0 nic name=eth0 nictype=bridged parent=enp4s0-br
+# Set memory limit
+lxc config set container-name limits.memory 4GB
 
 lxc image list images: "centos"
 lxc image list images: "centos/6/amd64"
