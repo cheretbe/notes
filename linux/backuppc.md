@@ -237,9 +237,11 @@ Only for new installation, skip this for upgrade
 # deny from all
 # allow from 127.0.0.1
 cp httpd/BackupPC.conf /etc/apache2/conf-available/backuppc.conf
-sed -i "/deny\ from\ all/d" /etc/apache2/conf-available/backuppc.conf
-sed -i "/deny\,allow/d" /etc/apache2/conf-available/backuppc.conf
-sed -i "/allow\ from/d" /etc/apache2/conf-available/backuppc.conf
+#sed -i "/deny\ from\ all/d" /etc/apache2/conf-available/backuppc.conf
+#sed -i "/deny\,allow/d" /etc/apache2/conf-available/backuppc.conf
+#sed -i "/allow\ from/d" /etc/apache2/conf-available/backuppc.conf
+# Actually it's better to replace 'allow from 127.0.0.1' with something
+# like 'allow from 127.0.0.1 192.168.0.1/24' or 'allow from all'
 
 cp /etc/apache2/envvars{,.bak}
 # Note that changing the apache user and group (next two commands) could cause other services
@@ -261,7 +263,9 @@ systemctl daemon-reload
 systemctl enable backuppc.service
 
 chmod u-s /var/www/cgi-bin/BackupPC/BackupPC_Admin
+
 touch /etc/BackupPC/BackupPC.users
+
 cp /etc/BackupPC/config.pl{,.bak}
 nano /etc/BackupPC/config.pl
 # Replace
@@ -269,7 +273,8 @@ nano /etc/BackupPC/config.pl
 #    $Conf{CgiAdminUsers}     = '';
 # with
 #    $Conf{CgiAdminUserGroup} = 'backuppc';
-#    $Conf{CgiAdminUsers}     = 'backuppc';
+#    $Conf{CgiAdminUsers} = 'backuppc';
+# Actually we need only CgiAdminUsers, do we?
 
 chown -R backuppc:backuppc /etc/BackupPC
 
