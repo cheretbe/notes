@@ -27,4 +27,6 @@ Exec=env WINEPREFIX="/home/npa/.wine" wine C:\\\\windows\\\\command\\\\start.exe
 
 ```shell
 env LC_ALL=ru_RU.CP1251 wine "C:\Program Files\1Cv77\BIN\1cv7.exe"
+env WINEPREFIX="/home/GUR/2301/.wine" LC_ALL=ru_RU.CP1251 wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/user/.wine/dosdevices/c:/temp/DM/osdm.bat
+
 ```
