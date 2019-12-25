@@ -24,3 +24,7 @@ Exec=env WINEPREFIX="/home/npa/.wine" wine C:\\\\windows\\\\command\\\\start.exe
 ```
 
 * `gtk-update-icon-cache` ~~Restart gnome-shell: <kbd>Alt</kbd>+<kbd>F2</kbd>, `restart` or `r`~~
+
+```shell
+env LC_ALL=ru_RU.CP1251 wine "C:\Program Files\1Cv77\BIN\1cv7.exe"
+```
