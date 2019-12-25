@@ -16,3 +16,11 @@ phoronix-test-suite run pts/compilebench
 
 * phoronix-cmd.md: https://gist.github.com/anshula/728a76297e4a4ee7688d
 * https://www.phoronix.com/forums/forum/phoronix/phoronix-test-suite/901127-documentation-confusion-getting-started
+
+
+## Other tests
+* http://uditagarwal.in/index.php/2018/05/19/comparing-io-benchmarks-fio-iozone-and-bonnie/
+* bonnie++ lastest versions: https://doc.coker.com.au/projects/bonnie/
+* https://thesanguy.com/2018/01/24/storage-performance-benchmarking-with-fio/
+* http://blog.vadmin.ru/2018/02/sds.html
+* https://haydenjames.io/linux-benchmark-scripts-tools/
