@@ -263,6 +263,20 @@ systemctl start chronyd.service
 
 * [\[ TOC \]](#table-of-contents)
 
+### Move single disk file system to another drive
+
+```shell
+# use 'zfs create' to create a new pool
+# [!] Carefully examine existing pool's properties and make sure new pool's setup is same
+# - xattr
+# - atime
+# - compression and lz4_compress
+# - acltype
+# [!!] TODO: what about 
+```
+
+* [\[ TOC \]](#table-of-contents)
+
 ### Replace a Disk in a Pool 
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
 * Planned
