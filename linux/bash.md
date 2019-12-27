@@ -126,15 +126,25 @@ fi
 # Each command must be properly terminated, either by a newline or a semi-colon
 if [ $? -ne 0 ] ; then echo 1; else echo 0 ; fi
 
+if [ $? -ne 0 ]
+then
+      echo 1
+else
+      echo 0
+fi
+
+# Negation
 if [ ! -f /path/to/file ]; then echo "File not found!"; fi
 ```
 #### Primary expressions
-| Expression    | Meaning                                     |
-|---------------|---------------------------------------------|
-| `[ -a FILE ]` | True if `FILE` exists (deprecated according to [this](https://stackoverflow.com/a/321352)) |
-| `[ -e FILE ]`	| True if `FILE` exists                       |
-| `[ -f FILE ]`	| True if `FILE` exists and is a regular file |
-| `[ -d FILE ]`	| True if `FILE` exists and is a directory    |
+| Expression        | Meaning                                     |
+|-------------------|---------------------------------------------|
+| `[ -a FILE ]`     | True if `FILE` exists (deprecated according to [this](https://stackoverflow.com/a/321352)) |
+| `[ -e FILE ]`	    | True if `FILE` exists                       |
+| `[ -f FILE ]`	    | True if `FILE` exists and is a regular file |
+| `[ -d FILE ]`	    | True if `FILE` exists and is a directory    |
+| `[ -z "${var}" ]` | True if variable is unset or empty          |
+| `[ -z ${var+x} ]` | True if variable is unset (:warning: use this on rare occasions where it matters) |
 
 #### Combining expressions
 
