@@ -272,6 +272,8 @@ systemctl start chronyd.service
 zpool get feature@lz4_compress pool_name
 zfs get -s local,temporary,received -r all pool_name
 ```
+* https://github.com/zfsonlinux/zfs/issues/2121
+-----
 
 * [\[ TOC \]](#table-of-contents)
 
