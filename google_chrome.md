@@ -1,3 +1,9 @@
+Change user agent string:
+* Developer Tools (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>)
+* Hamburger menu (vertical dots) > More tools > Network conditions
+* disable the option `Select automatically` and choose `Chrome - Windows` from drop-down menu
+
+
 1. Stop http:// -> to https:// redirection for a visited site:
 
 chrome://net-internals/#hsts<br>
