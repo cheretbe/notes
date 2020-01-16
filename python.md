@@ -114,8 +114,16 @@ shutil.rmtree(path)
 # Get current temp directory
 import tempfile
 tempfile.gettempdir()
+
 f = tempfile.NamedTemporaryFile(delete=False)
 f.close()
+
+fd, filename = tempfile.mkstemp()
+try:
+    os.close(fd)
+    # use filename in an external process
+finally:
+    os.remove(filename)
 
 # Create a directory
 # [!] May cause a race condition in a multi-process evironment
