@@ -70,6 +70,7 @@ inventory_id: Inventory%20Name%20With%20A%20Space++Organization%20Name
 
 ```bash
 # https://docs.ansible.com/ansible/latest/modules/setup_module.html#parameters
+ansible-playbook --connection=local localhost playbook.yml
 ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
