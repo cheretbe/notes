@@ -132,6 +132,10 @@ put [/ip firewall filter get [find comment="comment"] src-address]
   }
 }
 
+# Download a script and run it without saving to file
+# (seems to work with files > 4096 bytes in size)
+[:parse ([/tool fetch mode=https url="https://raw.githubusercontent.com/cheretbe/mikrotik-scripts/master/failover/failover_setup.rsc" output=user as-value]->"data")]
+
 /system script add name= script1 source=[/file get script1.rsc contents]
 /system script set script1 source=[/file get script.txt contents]
 /system script run script1
