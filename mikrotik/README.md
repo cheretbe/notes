@@ -63,8 +63,12 @@ add add-default-route=no disabled=no interface=ifname use-peer-dns=no use-peer-n
 :put [/ip dhcp-server lease get [find host-name="host"] active-mac-address]
 # Doesn't work if find returns several items
 # :put [/system script get [/system script find] name]
-# Need to iterate through items like this
+# Need to iterate through items like this (use
+# (view value names with /ip address print detail)
 :foreach sc in=[/system script find] do={ :put [/system script get $sc name] }
+# or
+:foreach addr in=[/ip address print as-value] do={ :put (($addr->"address") . " [" . ($addr->"interface") . "]") } 
+:foreach addr in=[/ip address print as-value where interface~"^wan"] do={ :put (($addr->"address") . " [" . ($addr->"interface") . "]") }
 
 # Delete all firewall rules
 /ip firewall filter remove [/ip firewall filter find]
