@@ -7,7 +7,7 @@ https://yed.yworks.com/support/manual/index.html
 #### Custom colors
 * Navy: `#003399`
 
-#### High-quality export to JPG
+#### High-quality export to PNG
 Built-in export produces a picture with poor text quality even with "anti-aliasing" turned on. The solution is to export in SVN format, then open it in [Inkscape](https://inkscape.org/) editor. Export to PNG there using `File` > `Export PNG Image...`. :bulb: It might appear at first sight that nothing happens, but look carefully to the right: there should appear a docked tab with export options :).
 * Important options:
     * in `Export area` click `Drawing` button to set correct export size
