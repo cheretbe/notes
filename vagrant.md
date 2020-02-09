@@ -251,7 +251,7 @@ end
 * https://github.com/dotless-de/vagrant-vbguest#global-configuration
 
 ### Plugin develpment
-
+* https://www.vagrantup.com/docs/plugins/
 * https://github.com/hashicorp/vagrant/tree/master/website/source/docs/plugins
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/plugin/v2/provisioner.rb
 * https://www.vagrantup.com/docs/plugins/guest-capabilities.html
