@@ -256,6 +256,7 @@ end
 * https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/plugin/v2/provisioner.rb
 * https://www.vagrantup.com/docs/plugins/guest-capabilities.html
 * https://github.com/mogproject/mog-infra/blob/master/docker-host/Vagrantfile
+* https://blog.eduonix.com/system-programming/learn-implement-custom-provisioner/
 
 ### Environment variables transfer
 ```ruby
