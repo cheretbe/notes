@@ -250,6 +250,13 @@ end
 ```
 * https://github.com/dotless-de/vagrant-vbguest#global-configuration
 
+### Plugin develpment
+
+* https://github.com/hashicorp/vagrant/tree/master/website/source/docs/plugins
+* https://github.com/hashicorp/vagrant/blob/master/lib/vagrant/plugin/v2/provisioner.rb
+* https://www.vagrantup.com/docs/plugins/guest-capabilities.html
+* https://github.com/mogproject/mog-infra/blob/master/docker-host/Vagrantfile
+
 ### Environment variables transfer
 ```ruby
 env_vars = ["VAR1", "VAR2"]
