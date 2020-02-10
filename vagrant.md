@@ -141,7 +141,24 @@ aws ec2 describe-instances \
       env.ui.say(:info, "info test")
       env.ui.say(:success, "success test")
 
+      # will not return control back
       env.cli("ssh", "--", "hostname", "-f")
+    end
+  end
+  
+  config.trigger.after :"Vagrant::Action::Builtin::Provision", type: "action" do |trigger|
+    trigger.ruby do |env,machine|
+      # this fires too early when there is no network configured
+      machine.ui.warn("after Vagrant::Action::Builtin::Provision")
+    end
+  end
+  
+  config.vm.provision "shell", inline: "uname -a"
+
+  config.trigger.after :provisioner_run, type: "hook" do |trigger|
+    trigger.ruby do |env,machine|
+      # this needs some other provisioner configured (with no provisioners it isn't triggered)
+      machine.ui.warn("after provisioner_run")
     end
   end
 ```
