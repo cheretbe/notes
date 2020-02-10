@@ -145,7 +145,11 @@ aws ec2 describe-instances \
       env.cli("ssh", "--", "hostname", "-f")
     end
   end
-  
+
+# For now trigger types is an experimental feature. Activate it by
+# setting VAGRANT_EXPERIMENTAL variable to 1
+# VAGRANT_EXPERIMENTAL="1" vagrant up --provision
+ 
   config.trigger.after :"Vagrant::Action::Builtin::Provision", type: "action" do |trigger|
     trigger.ruby do |env,machine|
       # this fires too early when there is no network configured
