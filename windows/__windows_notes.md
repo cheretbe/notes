@@ -1,8 +1,11 @@
 ## Unsorted
 
+Show desktop shortcut: `%windir%\explorer.exe shell:::{3080F90D-D7AD-11D9-BD98-0000947B0257}`<br>
+Icon file: `%windir%\explorer.exe`
+
 boot-time Chkdsk results: "Application" log, event source "Wininit"
 
-KMS activateion
+KMS activation
 ```batch
 :: In the Office dir (e.g. C:\Program Files\Microsoft Office\Office14):
 cscript ospp.vbs /sethst:kms.domain.tld
