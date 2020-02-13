@@ -5,7 +5,7 @@ Icon file: `%windir%\explorer.exe`
 
 boot-time Chkdsk results: "Application" log, event source "Wininit"
 
-[New wallpaper](../files/windows/Windows10_1903_4K_wallpaper.zip) ([direct link](https://github.com/cheretbe/notes/raw/master/files/windows/Windows10_1903_4K_wallpaper.zip))
+[New wallpaper](../files/windows/Windows10_1903_4K_wallpaper.zip) ([direct link](https://github.com/cheretbe/notes/raw/master/files/windows/Windows10_1903_4K_wallpaper.zip)) for 1080p use 3840x2160, it's 16:9
 
 KMS activation
 ```batch
