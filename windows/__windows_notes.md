@@ -5,6 +5,8 @@ Icon file: `%windir%\explorer.exe`
 
 boot-time Chkdsk results: "Application" log, event source "Wininit"
 
+[New wallpaper](../files/windows/Windows10_1903_4K_wallpaper.zip) ([direct link](https://github.com/cheretbe/notes/raw/master/files/windows/Windows10_1903_4K_wallpaper.zip))
+
 KMS activation
 ```batch
 :: In the Office dir (e.g. C:\Program Files\Microsoft Office\Office14):
