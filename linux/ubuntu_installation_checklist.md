@@ -64,6 +64,8 @@ mkdir -p ~/.fonts/truetype/
 unzip ~/Downloads/windows-ttf.zip -d ~/.fonts/truetype/
 fc-cache -fv
 ```
+check out: https://github.com/sdushantha/fontpreview
+
 - [ ] Infinality
 ```
 add-apt-repository ppa:no1wantdthisname/ppa
