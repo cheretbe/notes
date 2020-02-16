@@ -2,7 +2,7 @@
 * https://github.com/dotless-de/vagrant-vbguest/issues/298
 * :warning: **https://dzone.com/articles/environment-variable-with-vagrant-and-ansible**
 
-`.gitignore`:
+`.gitignore` contents:
 ```
 /.vagrant/
 ```
