@@ -33,8 +33,13 @@ net status sessions
 net status shares
 # List current samba group map to local groups
 net groupmap list
+
 # Change password
 smbpasswd -a <username>
+# List users
+# -L to list users, -v to be verbose
+sudo pdbedit -L -v
+
 # Test smb.conf
 testparm
 testparm -s
