@@ -26,6 +26,15 @@ Winbox settings location: ` %USERPROFILE%\AppData\Roaming\Mikrotik\Winbox`
 
 Get latest RoS version:
 ```shell
+# long-term
+curl curl http://upgrade.mikrotik.com/routeros/LATEST.6fix
+# stable
+curl http://upgrade.mikrotik.com/routeros/LATEST.6
+# testing
+curl http://upgrade.mikrotik.com/routeros/LATEST.6rc
+# development
+curl http://upgrade.mikrotik.com/routeros/LATEST.7	
+
 curl http://download2.mikrotik.com/routeros/LATEST.6
 # 6.41.2 1517920142
 ```
