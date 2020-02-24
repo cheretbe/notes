@@ -62,4 +62,15 @@ sudo swapon /dev/sda3
 # blkid or blkid /dev/sda1 to find out UUID
 UUID=373be9e0-fc6e-4b4f-b2f3-4b608146bc00 /mnt/mountpoint ext4 defaults 0 2
 ```
+```shell
+# Protect ummounted mount point ([!] when umounted)
+# i - immutable: it makes a file immutable, which goes a step beyond simply disabling
+# write access to the file. The file can’t be deleted, links to it can’t be created,
+# and the file can’t be renamed.
+chattr +i /mnt/mountpoint
+
+# View current attributes
+lsattr /mnt
+```
+
 (?) Add new disk without reboot - scsiadd (package scsiadd)
