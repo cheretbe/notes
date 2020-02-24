@@ -70,7 +70,8 @@ UUID=373be9e0-fc6e-4b4f-b2f3-4b608146bc00 /mnt/mountpoint ext4 defaults 0 2
 chattr +i /mnt/mountpoint
 
 # View current attributes
-lsattr /mnt
+# -d     List directories like other files, rather than listing their contents.
+lsattr -d /mnt/mountpoint
 ```
 
 (?) Add new disk without reboot - scsiadd (package scsiadd)
