@@ -18,10 +18,11 @@ dd if=/dev/sdX of=sdX_mbr.dat count=1 bs=512
 sfdisk -d /dev/sdX > sdX_partitions.sfdisk
 
 # Restore
-# [!!] Double-check disk name
+# [!] Check disk name
 # MBR
 dd if=sdX_mbr.dat of=/dev/sdX
 # Partitions
+# [!!!] Double-check disk name IN THE FILE
 sfdisk /dev/sdX < sdX_partitions.sfdisk
 ```
 
