@@ -38,6 +38,11 @@ curl http://upgrade.mikrotik.com/routeros/LATEST.7
 curl http://download2.mikrotik.com/routeros/LATEST.6
 # 6.41.2 1517920142
 ```
+```
+/ip firewall filter add action=log chain=input comment="[!!!] DEBUG: Input ICMP" disabled=yes protocol=icmp
+/ip firewall filter add action=log chain=forward comment="[!!!] DEBUG: Forward ICMP" disabled=yes protocol=icmp
+/ip firewall filter add action=log chain=output comment="[!!!] DEBUG: Output ICMP" disabled=yes protocol=icmp
+```
 
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
