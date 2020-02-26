@@ -183,7 +183,7 @@ virsh autostart <vmname> --disable
 virsh list --autostart --all
 
 qemu-img create -f qcow2 /mnt/backup/backup-rescue.qcow2 3449633080320
-# [!] Check -o preallocation=off|meta|full|falloc option (falloc)
+# Use -o preallocation=off|meta|full|falloc option (falloc)
 # Specify -f raw for raw disks
 qemu-img resize /var/lib/libvirt/images/test-0.img +10G
 ```
