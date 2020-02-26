@@ -130,6 +130,8 @@ BOOTSECT.EXE /NT60 <drive letter>:
 
 :: Copy installation files to the root of the drive
 ```
+* https://www.howtogeek.com/196817/how-to-create-a-windows-to-go-usb-drive-without-the-enterprise-edition/
+* https://neosmart.net/wiki/fix-mbr/
 
 ## Fixes for Errors in Logs
 
