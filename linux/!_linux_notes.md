@@ -24,6 +24,10 @@ tracert for Linux
 apt-get install mtr-tiny
 mtr host
 ```
+fsck with progress
+```
+sudo fsck -C -V /dev/sdbX
+```
 
 ```shell
 # Find file recursively
