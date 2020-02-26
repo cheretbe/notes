@@ -7,6 +7,23 @@ dd if=/dev/zero of=/dev/sdX bs=512 count=2
 # https://superuser.com/questions/1248905/how-to-delete-some-zfs-metadata-from-hard-drive
 dd if=/dev/zero of=/dev/sdX seek=$(($(blockdev --getsz "/dev/sdX") - 1024))
 ```
+Backup and restore MBR and partition table
+```shell
+# MBR is 512 bytes long:
+# 1 - the boot code (446 bytes)
+# 2 - the partition table (64 bytes)
+# 3 - the boot code signature (2 bytes)
+dd if=/dev/sdX of=sdX_mbr.dat count=1 bs=512
+# Save extended partitions information
+sfdisk -d /dev/sdX > sdX_partitions.sfdisk
+
+# Restore
+# [!!] Double-check disk name
+# MBR
+dd if=sdX_mbr.dat of=/dev/sdX
+# Partitions
+sfdisk /dev/sdX < sdX_partitions.sfdisk
+```
 
 Frequently used fdisk partition types: swap partition (type 82) linux partition (type 83).
 
