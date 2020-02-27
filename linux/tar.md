@@ -1,3 +1,4 @@
+Compare speed with lz4: https://stackoverflow.com/questions/24063846/how-to-use-tar-with-lz4
 ```shell
 tar --selinux --acls --xattrs  -cvf file.tar /path/to/a/dir/
 
