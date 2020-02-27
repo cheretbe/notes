@@ -213,6 +213,13 @@ zfs list -ro space
 ls /mountpoint/pool/.zfs/snapshot/snap-name
 ls /mountpoint/pool/path/.zfs/snapshot/snap-name
 
+# Unmount dataset
+zfs unmount pool/path
+# Mount dataset
+zfs mount pool/path
+# View current mounts
+zfs mount
+
 # View pools to import
 zpool import
 # Import pool
