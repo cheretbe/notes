@@ -49,7 +49,6 @@ https://github.com/dpayne/cli-visualizer
 [Desktop Entry]
 Type=Application
 Terminal=false
-#Exec=gnome-terminal --class=CliVisualizer --geometry=157x17 --hide-menubar --zoom=0.2 -e /usr/local/bin/vis
 Exec=gnome-terminal --class=CliVisualizer --title "Command Line Visualizer" --geometry=130x17 --hide-menubar --zoom=0.3 --profile cli-visualizer -- /usr/local/bin/vis
 StartupWMClass=CliVisualizer
 Name=Command Line Visualizer
@@ -57,3 +56,4 @@ Icon=/home/npa/.local/share/icons/hicolor/48x48/apps/Apps-Volume-Equalizer-icon.
 ```
 * :warning: Don't forget to create `cli-visualizer` profile (disabling scrollbar, for example)
 * [Apps-Volume-Equalizer-icon.png](https://github.com/cheretbe/notes/blob/master/files/icons/Apps-Volume-Equalizer/Apps-Volume-Equalizer-icon.png)
+* use `--geometry=130x17+3394+160` to set an exact window position (use `xwininfo` to find out current position and geometry)
