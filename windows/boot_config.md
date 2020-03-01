@@ -6,3 +6,4 @@ Repair
 Bootable USB
 * https://sites.google.com/site/godunder/windows-build-files/how-to-create-a-custom-winpe-8-winpe-8-1-5-0-5-1-boot-cd-iso-or-usb-boot-key
 * https://www.aomeitech.com/pe-builder.html
+* https://www.nextofwindows.com/how-to-re-create-a-bootable-iso-from-extracted-windows-installation-files/
