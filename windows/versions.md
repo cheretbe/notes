@@ -33,3 +33,4 @@ df3c77398541083527dd766b58f9c38ef4982856 *en_windows_10_business_edition_version
 ```
 
 * http://www.nextofwindows.com/how-to-download-official-windows-8-1-iso/
+* https://www.nextofwindows.com/how-to-re-create-a-bootable-iso-from-extracted-windows-installation-files/
