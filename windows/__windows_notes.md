@@ -1,5 +1,7 @@
 ## Unsorted
 
+How To Exam Memory Dump File to Find the Cause of BSOD: https://www.nextofwindows.com/how-to-exam-memory-dump-file-to-find-the-cause-of-blue-screen-of-death/
+
 Show desktop shortcut: `%windir%\explorer.exe shell:::{3080F90D-D7AD-11D9-BD98-0000947B0257}`<br>
 Icon file: `%windir%\explorer.exe`
 
