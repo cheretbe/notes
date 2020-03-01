@@ -31,3 +31,5 @@ df3c77398541083527dd766b58f9c38ef4982856 *en_windows_10_business_edition_version
 5b0c6d1dd1011bd3affe1f67ae9cf3394254817b *ru_windows_10_business_edition_version_1903_updated_june_2019_x64_dvd_dc83451b.iso
 79b2dc0bb09d3af208f9b1576cd809f1d293cd80 *ru_windows_10_business_edition_version_1903_updated_june_2019_x86_dvd_6d830154.iso
 ```
+
+* http://www.nextofwindows.com/how-to-download-official-windows-8-1-iso/
