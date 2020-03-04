@@ -7,6 +7,7 @@ watch -n 2 "bash /root/temp/check_proc_cpu.sh -w 35 -c 40 --cmdpattern 'SpiderOa
 # View version
 /usr/bin/SpiderOakONE --version
 
+# the shell is /usr/sbin/nologin
 adduser --system --group --disabled-password spideroak-user-name
 
 # Running in GUI mode with X11 forwarding via su
