@@ -1,3 +1,16 @@
+`/etc/supervisor/conf.d/spideroak.conf`
+```
+[program:spideroak]
+command=/usr/bin/SpiderOakONE --verbose --headless
+#command=/usr/bin/SpiderOakONE --headless
+user=spideroak-user-name
+autostart=true
+autorestart=true
+stdout_logfile = /var/log/supervisor/spideroak.log
+redirect_stderr=true
+environment = HOME="/home/spideroak-user-name"
+```
+
 ```shell
 # CPU usage
 # https://github.com/dennyzhang/monitoring/blob/master/process/check_proc_cpu/check_proc_cpu.sh
