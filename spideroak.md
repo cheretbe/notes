@@ -7,6 +7,8 @@ watch -n 2 "bash /root/temp/check_proc_cpu.sh -w 35 -c 40 --cmdpattern 'SpiderOa
 # View version
 /usr/bin/SpiderOakONE --version
 
+adduser --system --group --disabled-password spideroak-user-name
+
 # Running in GUI mode with X11 forwarding via su
 # [!] As the original user. Note the last line
 xauth -f ~/.Xauthority list
