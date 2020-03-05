@@ -293,6 +293,8 @@ Join your SAMBA server to the domain:
 # Should return:
 # Using short domain name -- TEST
 # Joined 'SERVER-NAME' to dns domain 'test.local'
+# 
+# [!] test createcomputer option: createcomputer=Servers/UNIX
 net ads join test.local -U administrator
 
 # Should return "OK"
