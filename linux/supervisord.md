@@ -38,6 +38,10 @@ Command with shell pipe redirection
 command=/bin/bash -c "2>&1 /path/to/a/script.sh | /path/to/a/receiver_script.py"
 # Needed to correctly stop child processes
 stopasgroup=true
+
+# apt install moreutils
+command=/bin/bash -c "/usr/bin/SpiderOakONE --verbose --headless | ts '[%%Y-%%m-%%d %%H:%%M:%%S]'"
+stopasgroup=true
 ```
 
 Dummy test bash "service" script
