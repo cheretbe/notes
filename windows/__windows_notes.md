@@ -98,45 +98,6 @@ taskkill [/f] /IM <exe name>
 tasklist /v /fi "Imagename eq robocopy.exe"
 ```
 
-## Fix BSOD after changing SATA <--> IDE
-
-* `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci`: Set `Start` to `0`
-* `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Pciide`: Set `Start` to `0`
-
-Registry keys locations (for offline access):
-* HKEY_LOCAL_MACHINE\SYSTEM - `%windir%\system32\config\system`
-* HKEY_LOCAL_MACHINE\SOFTWARE - `%windir%\system32\config\software`
-* HKEY_USERS\\.Default - `%windir%\system32\config\default`
-* HKEY_CURRENT_USER - `%userprofile%\ntuser.dat`
-
-## Installation from a USB drive
-
-```batch
-:: Prepare partition
-DISKPART
-:: View disks
-LIST DISK
-:: Select the drive and format it as NTFS
-SELECT DISK <N>
-:: Verify that the correct drive has been selected
-DETAIL DISK
-CLEAN
-CREATE PARTITION PRIMARY
-SELECT PARTITION 1
-ACTIVE
-FORMAT FS=NTFS quick
-ASSIGN
-EXIT
-
-:: Make drive bootable
-CD BOOT
-BOOTSECT.EXE /NT60 <drive letter>:
-
-:: Copy installation files to the root of the drive
-```
-* https://www.howtogeek.com/196817/how-to-create-a-windows-to-go-usb-drive-without-the-enterprise-edition/
-* https://neosmart.net/wiki/fix-mbr/
-
 ## Fixes for Errors in Logs
 
 1. Source: **Store-Licensing**, Event ID: **512**
