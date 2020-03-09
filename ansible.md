@@ -141,18 +141,19 @@ interpreter_python = auto
 * https://www.unixarena.com/2018/10/ansible-how-to-install-and-configure-awx.html/
 * https://www.unixarena.com/2018/11/ansible-tower-awx-organization-team-users-hierarchy.html/
 
-Upgrade
-
-According to [this FAQ](https://www.ansible.com/products/awx-project/faq) direct in-place upgrade isn't possible (See "Q: CAN I UPGRADE FROM ONE VERSION OF AWX TO ANOTHER?). But it looks like in latest versions the upgrade does work. At least 6.1.0 -> 7.0.0 migration went fine.
-```shell
-docker rm -f $(docker ps -a -q)
-docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
-# Then run installer/install.yml from a new version using /opt/awx/inventory
-# Rewview default inventory changes before installation
+#### Upgrade
+Just run the new installer
+```diff
+- docker rm -f $(docker ps -a -q)
+- docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
+```
+```
+# Review default inventory changes before installation
 diff awx-6.1.0/installer/inventory awx-7.0.0/installer/inventory
 ```
+* https://github.com/ansible/awx/blob/devel/INSTALL.md#upgrading-from-previous-versions
 
-Installation
+#### Installation
 ```shell
 apt-get install \
      apt-transport-https \
@@ -215,7 +216,7 @@ ansible-playbook -i /opt/awx/inventory awx-7.0.0/installer/install.yml
 ```
 * https://github.com/geerlingguy/ansible-vagrant-examples/issues/48#issuecomment-517740305
 
-Uninstallation
+#### Uninstallation
 ```shell
 docker rm -f $(docker ps -a -q)
 docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
@@ -223,7 +224,7 @@ rm -rf /opt/awx/awxcompose
 rm -rf /opt/awx/pgdocker
 ```
 
-Tower CLI
+#### Tower CLI
 * https://tower-cli.readthedocs.io/en/latest/index.html
 ```shell
 pip3 install ansible-tower-cli
