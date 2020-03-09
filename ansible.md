@@ -201,6 +201,19 @@ docker logs -f awx_task
 
 docker exec -ti awx_task /bin/bash
 ```
+Installation troubleshooting
+* Stuck on "AWX is Upgrading"
+```
+cd /opt/awx/awxcompose
+docker-compose logs -f
+# if there is an endless loop with message like this
+# awx_task | psycopg2.ProgrammingError: relation "main_instance" does not exist
+
+# Stop containers and re-run installer
+docker-compose stop
+ansible-playbook -i /opt/awx/inventory awx-7.0.0/installer/install.yml
+```
+* https://github.com/geerlingguy/ansible-vagrant-examples/issues/48#issuecomment-517740305
 
 Uninstallation
 ```shell
