@@ -15,7 +15,7 @@ Registry keys locations (for offline access):
 * HKEY_CURRENT_USER - `%userprofile%\ntuser.dat`
 
 ## Bootable USB
-* https://www.howtogeek.com/196817/how-to-create-a-windows-to-go-usb-drive-without-the-enterprise-edition/
+* **https://www.howtogeek.com/196817/how-to-create-a-windows-to-go-usb-drive-without-the-enterprise-edition/**
 * https://neosmart.net/wiki/fix-mbr/
 * https://sites.google.com/site/godunder/windows-build-files/how-to-create-a-custom-winpe-8-winpe-8-1-5-0-5-1-boot-cd-iso-or-usb-boot-key
 * https://www.aomeitech.com/pe-builder.html
