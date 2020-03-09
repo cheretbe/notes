@@ -144,6 +144,7 @@ interpreter_python = auto
 #### Upgrade
 Just run the new installer
 ```diff
+# No need to remove docker containers
 - docker rm -f $(docker ps -a -q)
 - docker rmi -f $(docker images | grep awx | awk '{ print $3 }')
 ```
