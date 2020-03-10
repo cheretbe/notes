@@ -54,6 +54,10 @@ docker rm test
 ```
 
 Installation (18.04)
+* `docker.io` vs `docker-ce`
+    * https://github.com/docker/for-linux/issues/833#issuecomment-549062829
+    * https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee/57678382#57678382
+    * https://www.collabora.com/news-and-blog/blog/2018/07/04/docker-io-debian-package-back-to-life/
 ```shell
 # Install prerequisites
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
