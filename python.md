@@ -1,3 +1,6 @@
+2review
+* https://softwareengineering.stackexchange.com/questions/349740/in-python-3-4-why-should-i-use-namedtuple-over-simplenamespace-when-not-using
+
 Unsorted
 ```python
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
