@@ -174,6 +174,11 @@ with open('config.yaml') as f:
 import json
 with open("config.json") as f:
     config = json.load(f)
+with open('config.json', 'w') as f:
+    json.dump(config, f)
+# On a modern system (i.e. Python 3 and UTF-8 support), you can write a nicer file with
+with open('config.json', 'w', encoding='utf-8') as f:
+    json.dump(config, f, ensure_ascii=False, indent=4)
 ```
 
 * http://jmespath.org/examples.html
