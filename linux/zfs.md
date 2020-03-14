@@ -189,6 +189,9 @@ zfs set compression=lz4 zfs-storage/compressed
 zpool scrub zfs-storage
 # turn on deduplication
 zfs set dedup=on zfs-storage/withdedup
+
+# [!] Deletes happen asynchronously, so AVAIL (zfs) and FREE (zpool) take time
+# to update after deletion
 # Delete dataset (remove -n for actual deletion)
 zfs destroy -nv pool/path
 # Recursive delete all snapshots. [!!] Dangerous, remove n for actual deletion
