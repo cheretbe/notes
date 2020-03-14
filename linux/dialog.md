@@ -1,4 +1,4 @@
-`whiptail` is less powerful, but has an advantage of it's package being installed on most boxes by default
+`whiptail` is less powerful, but has an advantage of its package being installed on most boxes by default
 
 ```bash
 # The following swaps stdout and stderr
@@ -7,4 +7,11 @@
 # 2>&3 - Redirect FD 2 to FD 3. Now FDs 1 and 2 are switched.
 # 3>&- - Close FD 3
 3>&1 1>&2 2>&3 3>&-
+```
+```bash
+echo $(dialog --keep-tite --title "window title" \
+  --form "form name" 0 0 0 \
+  "item 1" 1 1 "default1" 1 15 10 0 \
+  "item 2" 2 1 "default2" 2 15 10 0 \
+  3>&1 1>&2 2>&3 3>&-)
 ```
