@@ -9,6 +9,9 @@
 3>&1 1>&2 2>&3 3>&-
 ```
 ```bash
+# By default dialog returns 255 on ESC. It gets mixed up with error code -1
+# converted to unsigned 8-bit. We set DIALOG_ESC variable to use the same
+# code as Cancel since we don't need to distinguish ESC and Cancel.
 result=$(DIALOG_ESC=1 dialog --keep-tite --title "window title" \
   --form "form name" 0 0 0 \
   "item 1" 1 1 "default1" 1 15 10 0 \
