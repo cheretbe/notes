@@ -69,6 +69,14 @@ brctl delif test-br ifname
 brctl delbr test-br
 ```
 
+### NetworkManager
+
+Ubuntu 18.04. GUI doesn't have a menu to add VLANs
+```shell
+apt install vlan
+nmcli con add type vlan ifname VLAN11-description dev enp0s31f6 id 11
+```
+
 ### Disable IPv6
 Check status
 ```
