@@ -12,6 +12,14 @@
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
 ```shell
+# Update existing symlink to a directory
+# -f, --force
+# -n, --no-dereference   treat LINK_NAME as a normal file if it is a symbolic link to a directory
+#                        Means: do not resolve an existing link
+ln -sfn TARGET LINK_NAME
+```
+
+```shell
 # Reboot today at 23:00
 at $(date +"23:00 %Y-%m-%d") <<EOF
 echo "\$(date) - Rebooting $(hostname -f)" \
