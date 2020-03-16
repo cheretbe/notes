@@ -211,7 +211,7 @@ docker exec -ti awx_task /bin/bash
 ```
 Installation troubleshooting
 * Stuck on "AWX is Upgrading"
-```
+```shell
 cd /opt/awx/awxcompose
 docker-compose logs -f
 # if there is an endless loop with message like this
