@@ -45,6 +45,7 @@ ansible-inventory -i demo.aws_ec2.yml --graph
 
 ```shell
 read -s -p "Password: " TOWER_PASSWORD; echo ""; export TOWER_PASSWORD
+# [!] inventory file has to have .tower.yml extension
 ansible-inventory -i my_inventory.tower.yml --graph --vars
 ```
 `my_inventory.tower.yml`
