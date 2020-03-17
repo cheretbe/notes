@@ -80,6 +80,9 @@ end
     inline: <<-SHELL
       ls -lha /
       uname -a
+      # note double backlash here
+      ls /dir1 && \\
+      ls /dir2
     SHELL
 ```
 
