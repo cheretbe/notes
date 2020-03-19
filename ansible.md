@@ -149,6 +149,7 @@ interpreter_python = auto
 * https://docs.ansible.com/ansible-tower/latest/html/administration/kerberos_auth.html
 
 ### AWX
+* **Discussion:** https://groups.google.com/forum/#!forum/awx-project
 * https://github.com/ansible/awx
 * https://www.unixarena.com/2018/10/ansible-how-to-install-and-configure-awx.html/
 * https://www.unixarena.com/2018/11/ansible-tower-awx-organization-team-users-hierarchy.html/
