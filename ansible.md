@@ -103,7 +103,9 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
     var: ansible_facts.services
 
   when: some_fact_that_contains_a_string|bool
-  when: ansible_distribution_version|version_compare('15.04', '>=')
+  # version_compare is removed
+  # when: ansible_distribution_version|version_compare('15.04', '>=')
+  when: ansible_distribution_version is version ('15.04', '>=')
  
 # In 2.5 version_compare was renamed to version
 # This test also accepts a 3rd parameter, strict
