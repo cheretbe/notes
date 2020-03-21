@@ -167,6 +167,8 @@ Just run the new installer
 diff awx-6.1.0/installer/inventory awx-7.0.0/installer/inventory
 ```
 * https://github.com/ansible/awx/blob/devel/INSTALL.md#upgrading-from-previous-versions
+* **https://github.com/ansible/awx/issues/5228**
+* https://github.com/ansible/awx/blob/devel/installer/roles/local_docker/templates/docker-compose.yml.j2#L144
 
 #### Installation
 ```shell
