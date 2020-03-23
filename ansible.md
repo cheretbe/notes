@@ -164,6 +164,9 @@ Just run the new installer
 ```
 # Review default inventory changes before installation
 diff awx-6.1.0/installer/inventory awx-7.0.0/installer/inventory
+
+# cleanup space after upgrade (/var/lib/docker/overlay2/)
+sudo docker system prune -a -f
 ```
 * https://github.com/ansible/awx/blob/devel/INSTALL.md#upgrading-from-previous-versions
 * **https://github.com/ansible/awx/issues/5228**
