@@ -118,6 +118,17 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 - name: Cancel
   fail:
     msg: "Debug"
+
+# This ends playbook without any message at all
+- name: Debug
+  meta: end_play
+
+# This shows both task name and message
+- block:
+  - name: Debug
+    debug:
+      msg: End playbook with a message
+  - meta: end_play
 ```
 
 ### Molecule
