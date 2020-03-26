@@ -61,6 +61,19 @@ printf "Adding %s (%s) to /etc/hosts\n" ${other_host_name} ${other_host_ip}
 echo "$(date -Iseconds) line with current timestamp"
 ```
 
+```bash
+echo "Waiting for AWX web interface to become available"
+SECONDS=0
+while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:80)" -ne "200" ]]; do
+    if [ $SECONDS -gt 300 ]; then
+      >&2 echo "ERROR: Timeout waiting for AWX web interface (300s)"
+      exit 1
+    fi
+    sleep 5
+done
+echo "Done"
+```
+
 ### .bashrc File
 
 ```bash
