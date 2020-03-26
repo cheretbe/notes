@@ -131,4 +131,9 @@ On a client add the following to `/etc/docker/daemon.json` (create if doesn't ex
 
 ```shell
 systemctl restart docker
+
+# The info should contain
+# Registry Mirrors:
+#  http://hostname:5000/
+docker info
 ```
