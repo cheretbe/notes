@@ -95,3 +95,14 @@ Edit `/etc/docker/daemon.json` (create if not present)
   "storage-driver": "zfs"
 }
 ```
+
+#### Local cache
+
+* https://dev.to/mayeu/saving-time-and-bandwidth-by-caching-docker-images-with-a-local-registry-98b
+* https://docs.docker.com/registry/recipes/mirror/
+
+```shell
+# as root
+mkdir /var/lib/docker-registry
+
+```
