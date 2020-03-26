@@ -115,3 +115,20 @@ Add the following to `/var/lib/docker-registry/config.yml`:
 proxy:
   remoteurl: https://registry-1.docker.io
 ```
+```shell
+docker run --restart=always -p 5000:5000 \
+         --name v2-mirror -v /var/lib/docker-registry:/var/lib/registry \
+         --detach registry:2 serve /var/lib/registry/config.yml
+# Check if running (should return empty list)
+curl http://localhost:5000/v2/_catalog
+```
+On a client add the following to `/etc/docker/daemon.json` (create if doesn't exist):
+```json
+{
+    "registry-mirrors": ["http://hostname:5000"]
+}
+```
+
+```shell
+systemctl restart docker
+```
