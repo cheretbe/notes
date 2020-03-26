@@ -105,4 +105,13 @@ Edit `/etc/docker/daemon.json` (create if not present)
 # as root
 mkdir /var/lib/docker-registry
 
+docker run -it --rm registry:2 cat \
+       /etc/docker/registry/config.yml > /var/lib/docker-registry/config.yml
+       
+nano /var/lib/docker-registry/config.yml
+```
+Add the following to `/var/lib/docker-registry/config.yml`:
+```yaml
+proxy:
+  remoteurl: https://registry-1.docker.io
 ```
