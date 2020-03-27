@@ -62,6 +62,12 @@ echo "$(date -Iseconds) line with current timestamp"
 ```
 
 ```bash
+# retry 5 times
+# A subshell is used to keep $max out of the current shell
+(max=5; for n in `seq 1 $max`; do your_command && break; done)
+# or just
+for n in `seq 1 5`; do your_command && break; done
+
 echo "Waiting for AWX web interface to become available"
 SECONDS=0
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:80)" -ne "200" ]]; do
