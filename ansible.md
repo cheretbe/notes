@@ -152,6 +152,11 @@ apt install ansible
 # https://docs.ansible.com/ansible/latest/reference_appendices/interpreter_discovery.html
 interpreter_python = auto
 ```
+On managed machines
+```
+[py3-hosts:vars]
+ansible_python_interpreter=/usr/bin/python3
+```
 
 ### Windows
 
