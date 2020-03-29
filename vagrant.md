@@ -86,9 +86,46 @@ end
     SHELL
 ```
 
+Ansible provision
+```ruby
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "ansible/provision.yml"
+    ansible.compatibility_mode = "2.0"
+  end
+```
+```yaml
+---
+
+- name: Zabbix server provision
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Checkout shared playbooks repo
+      git:
+        repo: "https://github.com/cheretbe/ansible-playbooks.git"
+        dest: "/ansible-playbooks"
+
+    - include_role: name="/ansible-playbooks/zabbix-repo"
+    - include_role: name="/ansible-playbooks/zabbix-server"
+
+    - name: Install 'python3-pip' package
+      apt:
+        name: "python3-pip"
+        # Fix for warning message "Could not find aptitude. Using apt-get instead"
+        force_apt_get: yes
+        update_cache: no
+
+    - name: Install Python 3 'zabbix_api' package
+      pip:
+        name: zabbix_api
+        executable: pip3
+```
+
+Command examples
 ```shell
 # List boxes
-vagran box list
+vagrant box list
 
 # Add latest version of a box
 # --clean Clean any temporary download files
