@@ -136,6 +136,7 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 * https://opensource.com/article/18/12/testing-ansible-roles-molecule
 * https://molecule.readthedocs.io/en/latest/
 * https://github.com/ansible-community/molecule
+* **https://www.toptechskills.com/ansible-tutorials-courses/rapidly-build-test-ansible-roles-molecule-docker/**
 
 ### Installation
 
