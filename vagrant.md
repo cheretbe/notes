@@ -91,6 +91,9 @@ Ansible provision
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "ansible/provision.yml"
     ansible.compatibility_mode = "2.0"
+    ansible.extra_vars = {
+      "ansible_python_interpreter": "/usr/bin/python3"
+    }
   end
 ```
 ```yaml
