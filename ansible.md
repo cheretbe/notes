@@ -138,6 +138,9 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 * https://github.com/ansible-community/molecule
 * **https://www.toptechskills.com/ansible-tutorials-courses/rapidly-build-test-ansible-roles-molecule-docker/**
 
+-------
+* :warning: https://github.com/ansible-community/molecule-lxd/issues/1
+
 ### Installation
 
 * https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu
