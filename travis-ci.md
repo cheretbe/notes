@@ -1,5 +1,7 @@
 * https://blog.travis-ci.com/2017-09-12-build-stages-order-and-conditions
 * https://docs.travis-ci.com/user/build-stages/matrix-expansion/
+* :warning: https://fnordahl.com/2017/04/08/continuous-deployment-testing-of-github-hosted-code/
+    * https://github.com/fnordahl/travis-lxd
 ------
 * Add "[ci skip]" to a commit message, and Travis will automatically skip that build
 
