@@ -2,6 +2,7 @@
 * https://docs.travis-ci.com/user/build-stages/matrix-expansion/
 * :warning: https://fnordahl.com/2017/04/08/continuous-deployment-testing-of-github-hosted-code/
     * https://github.com/fnordahl/travis-lxd
+    * https://github.com/juju-solutions/charm-mysql/blob/master/.travis.yml
 ------
 * Add "[ci skip]" to a commit message, and Travis will automatically skip that build
 
