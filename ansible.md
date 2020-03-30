@@ -141,6 +141,12 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 -------
 * :warning: https://github.com/ansible-community/molecule-lxd/issues/1
     * https://github.com/ansible-community/molecule/pull/2329
+    
+```shell
+# Initialize Molecule within an existing role
+cd role-directory
+molecule init scenario
+```
 
 ### Installation
 
