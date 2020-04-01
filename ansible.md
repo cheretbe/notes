@@ -138,6 +138,9 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 * https://github.com/ansible-community/molecule
 * https://groups.google.com/forum/#!forum/molecule-users
 * **https://www.toptechskills.com/ansible-tutorials-courses/rapidly-build-test-ansible-roles-molecule-docker/**
+* https://www.ansible.com/hubfs//AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf
+    * https://www.ansible.com/practical-ansible-testing-with-molecule
+    * https://github.com/fabianvf/practical-testing-with-molecule
 
 -------
 * https://github.com/ansible-community/molecule-vagrant
