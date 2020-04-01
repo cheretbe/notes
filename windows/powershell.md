@@ -29,7 +29,7 @@ Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
 ## Code Snippets
 
 ```batch
-powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~n0.ps1"
+powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~n0.ps1" %*
 ```
 
 ``` powershell
