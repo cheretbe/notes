@@ -132,7 +132,6 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 ```
 
 ### Molecule
-* https://www.ansible.com/hubfs//AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf
 * https://opensource.com/article/18/12/testing-ansible-roles-molecule
 * https://molecule.readthedocs.io/en/latest/
 * https://github.com/ansible-community/molecule
