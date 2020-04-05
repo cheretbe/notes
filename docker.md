@@ -8,6 +8,7 @@ sudo usermod -aG docker $USER
 
 docker run -dti --name centos-6 centos:6 /bin/bash
 docker exec -ti centos-6 /bin/bash
+docker stats [container]
 ```
 ----
 https://developers.redhat.com/cheat-sheets/containers/
