@@ -76,7 +76,7 @@ inventory_id: Inventory%20Name%20With%20A%20Space++Organization%20Name
 # --limit ubuntu-xenial   Run only on selected hosts
 # Run locally (note the trailing comma after 'localhost')
 # -i localhost, --connection=local
-ansible-playbook --connection=local localhost, playbook.yml
+ansible-playbook --connection=local -i localhost, playbook.yml
 ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
