@@ -312,6 +312,12 @@ To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
 ```shell
+# one more alternative
+sudo apt install python3-venv
+python3 -m venv venv-name
+. venv-name/bin/activate
+pip install wheel
+
 # As root
 apt install python-pip
 # Don't do this: pip install --user --upgrade pip
