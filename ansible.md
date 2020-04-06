@@ -80,6 +80,10 @@ ansible-playbook --connection=local -i localhost, playbook.yml
 ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
+
+ansible-playbook -i container-name, --connection=docker \
+  --extra-vars "ansible_user=ansible ansible_python_interpreter=/usr/bin/python3" \
+  playbook.yml
 ```
 
 ```yaml
