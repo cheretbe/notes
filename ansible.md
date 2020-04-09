@@ -156,7 +156,8 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 pip install molecule ansible-lint flake8 molecule-vagrant
 # Initialize Molecule within an existing role
 cd role-directory
-molecule init scenario
+# if scenario-name is empty, 'default' is used
+molecule init scenario [scenario-name]
 molecule init scenario -d vagrant
 ```
 
