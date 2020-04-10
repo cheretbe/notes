@@ -21,6 +21,31 @@ Registry keys locations (for offline access):
 * https://www.aomeitech.com/pe-builder.html
 * https://www.nextofwindows.com/how-to-re-create-a-bootable-iso-from-extracted-windows-installation-files/
 
+#### Windows To Go
+```shell
+# Make sure the MBR is clean
+dd if=/dev/zero of=/dev/sdX bs=512 count=2
+```
+* Windows Disk Management
+    * Create partition table and NTFS partition
+    * Mark it active
+
+Download and run GImageX: https://www.autoitconsulting.com/site/software/gimagex/
+
+* Select "Apply" tab.
+    * source: `sources\install.wim`
+    * Destination: USB drive letter
+    * Select "Check" just in case
+* Click "Apply" button
+
+```batch
+:: Change to USB drive letter
+X:
+cd Windows\system32
+:: [!] Replace X two times :)
+bcdboot.exe X:\Windows /s X: /f ALL
+```
+
 #### Installation from a USB drive
 
 ```batch
