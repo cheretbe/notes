@@ -1,3 +1,5 @@
+TAP adapter to try on Windows 7 with driver signature problems: https://build.openvpn.net/downloads/releases/tap-windows-9.21.2.exe
+
 ```bat
 :: List TAP adapters
 "C:\Program Files\TAP-Windows\bin\tapinstall.exe" hwids tap*
