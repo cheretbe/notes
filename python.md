@@ -9,6 +9,7 @@ path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 virtualenv -p python3 ~/virtenv/py3
 pex -v --python-shebang="/usr/bin/env python3.6" -r requirements.txt -o test.pex
 ```
+* Local PyPi mirror: https://github.com/pypa/bandersnatch/
 * TUI for Python: https://github.com/urwid/urwid
     * https://stackoverflow.com/questions/34633447/urwid-make-cursor-invisible
 * Python environment: https://xkcd.com/1987/
