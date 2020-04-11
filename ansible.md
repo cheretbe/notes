@@ -161,6 +161,22 @@ molecule init scenario [scenario-name]
 molecule init scenario -d vagrant
 ```
 
+Default test matrix
+* dependency
+* lint
+* cleanup
+* destroy
+* syntax
+* create
+* prepare
+* converge
+* idempotence
+* side_effect
+* verify
+* cleanup
+* destroy
+
+
 ### Installation
 
 * https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu
