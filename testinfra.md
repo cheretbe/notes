@@ -13,3 +13,17 @@ def test_os_release(host):
     # print(host.ansible.get_variables())
     # assert host.file("/etc/os-release").contains("Fedora")
 ```
+
+```shell
+pytest -s --ansible-inventory=ansible_docker_inventory.yml --hosts='ansible://all'
+```
+
+`ansible_docker_inventory.yml`:
+```yaml
+all:
+  hosts:
+    ubuntu-bionic
+  vars:
+    ansible_connection: docker
+    ansible_python_interpreter: python3
+```
