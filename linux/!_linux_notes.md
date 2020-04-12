@@ -63,6 +63,15 @@ Permissions:
 find . -type f -exec chmod 644 {} \;
 find . -type d -exec chmod 755 {} \;
 
+# List permissions as octal numbers
+# -c  --format=FORMAT
+#           use  the  specified  FORMAT instead of the default; output a newline after
+#           each use of FORMAT
+# %A     access rights in human readable form
+# %a     Access rights in octal
+# %n     File name
+stat -c '%A %a %n' /home/*
+
 # Set group ID permission
 # First change the group on the directory to the one you want to be used as the default:
 chgrp group /path/to/directory -R
