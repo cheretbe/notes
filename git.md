@@ -9,6 +9,10 @@
 * [.gitattributes Files](#gitattributes-files)
 
 ### Unsorted
+* https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf/20653073#20653073
+```batch
+subl "%ProgramFiles%\git\etc\gitconfig"
+```
 ``` shell
 # work with a different path instead of current working directory
 git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
