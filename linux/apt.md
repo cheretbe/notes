@@ -41,3 +41,7 @@ dpkg -l | grep "^hi"
 ```
 
 * apt-listchanges: http://jxf.me/entries/better-apt-ubuntu/
+
+Local apt mirror
+* https://computingforgeeks.com/creating-ubuntu-mirrors-using-apt-mirror/
+* https://linuxconfig.org/how-to-create-a-ubuntu-repository-server
