@@ -36,6 +36,9 @@ read -s -p "Password: " my_pwd; echo ""; export my_pwd
 ```
 
 ```shell
+# Sudo as a user with disabled shell
+sudo su - username -s /bin/bash
+
 # Viev a config without comments and empty lines
 grep "^[^#;]" --color=never /etc/ansible/ansible.cfg
 # Another option
