@@ -75,6 +75,12 @@ Ubuntu 18.04. GUI doesn't have a menu to add VLANs
 ```shell
 apt install vlan
 nmcli con add type vlan ifname VLAN11-description dev enp0s31f6 id 11
+
+nmcli con show
+nmcli con show --active
+
+nmcli con down conn-name
+nmcli con up conn-name
 ```
 
 ### Disable IPv6
