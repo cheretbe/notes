@@ -1,6 +1,8 @@
 `whiptail` is less powerful, but has an advantage of its package being installed on most boxes by default
 
 * https://github.com/Archivists/ltfs-console/tree/master/samples
+* https://bash.cyberciti.biz/guide/Main_Page
+    * Chapter 10: Interactive Scripts > Bash display dialog boxes
 
 ```bash
 # The following swaps stdout and stderr
