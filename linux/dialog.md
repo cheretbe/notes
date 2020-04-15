@@ -1,5 +1,7 @@
 `whiptail` is less powerful, but has an advantage of its package being installed on most boxes by default
 
+* https://github.com/Archivists/ltfs-console/tree/master/samples
+
 ```bash
 # The following swaps stdout and stderr
 # 3>&1 - Create a file descriptor 3 and point to FD 1.
