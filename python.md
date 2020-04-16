@@ -320,7 +320,7 @@ To review:
 
 ```shell
 # one more alternative
-sudo apt install python3-venv
+sudo apt install python3-venv build-essential python3-dev
 python3 -m venv venv-name
 . venv-name/bin/activate
 pip install wheel
