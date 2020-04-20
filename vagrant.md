@@ -12,6 +12,10 @@
 config.vm.box = "centos/7"
 config.vm.box_version=1804.02
 ```
+`/etc/fstab` example:
+```
+share_name  /path/to/mountpoint  vboxsf  rw,exec,uid=vagrant,gid=vboxsf,dmode=775,fmode=664  0   0
+```
 
 ```shell
 vagrant ssh-config > /tmp/ssh-config-name
