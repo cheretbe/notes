@@ -91,7 +91,11 @@ usermod -a -G vboxsf <username>
 # manually mount a shared folder in guest
 sudo mount -t vboxsf <sharename> /mont/point
 # set the default file owner user and group
-sudo mount -t vboxsf <sharename> /mont/point -o uid=vagrant,gid=vagrant
+sudo mount -t vboxsf <sharename> /mount/point -o uid=vagrant,gid=vagrant
+```
+`/etc/fstab` entry example:
+```
+share_name  /path/to/mountpoint  vboxsf  rw,exec,uid=vagrant,gid=vboxsf,dmode=775,fmode=664  0   0
 ```
 ### Compacting VDI
 #### Linux
