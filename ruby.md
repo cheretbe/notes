@@ -16,3 +16,11 @@ rvm install ruby
 # Run interactive Ruby shell
 irb
 ```
+
+```ruby
+# The load method includes the named Ruby source file every time the method is executed
+load 'filename.rb'  
+
+# The more commonly used require method loads any given file only once
+require 'filename'
+```
