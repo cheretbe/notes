@@ -9,6 +9,10 @@
 # Add your user to the docker group
 sudo usermod -aG docker $USER
 
+# Run bash in container and delete the container on exit
+# change ro->rw to mount the volume in read-write mode
+docker run --rm -ti -v /host/dir:/container/dir:ro ubuntu:18.04 /bin/bash
+
 docker run -dti --name centos-6 centos:6 /bin/bash
 docker exec -ti centos-6 /bin/bash
 docker stats [container]
