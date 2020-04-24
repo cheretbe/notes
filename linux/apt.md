@@ -42,6 +42,31 @@ dpkg -l | grep "^hi"
 
 * apt-listchanges: http://jxf.me/entries/better-apt-ubuntu/
 
+Programmatically check if a package is not installed
+```bash
+# -W|--show [<pattern> ...] Show information on package(s)
+# -f changes the format of the output
+# db:Status-abbrev contains the abbreviated package status (as three characters),
+#   such as "ii " or "iHR" (since dpkg 1.16.2) See the --list command example below
+#   for more details.
+
+if ! dpkg-query -Wf'${db:Status-abbrev}' "htop" 2>/dev/null | grep -q '^.i'; then
+  echo "htop is not installed"
+fi
+```
+Tools like aptitude can mark some packages for removal, some for purge and some others for install,
+downgrade, etc. Then with a single command do all necessary stuff to trigger pending actions. The
+desired field is used to determine what should be done with a package.
+```
+dpkg-query -l htop
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                      Version           Architecture      Description
++++-=========================-=================-=================-========================================================
+ii  htop                      2.1.0-3           amd64             interactive processes viewer
+```
+
 Local apt mirror
 * https://computingforgeeks.com/creating-ubuntu-mirrors-using-apt-mirror/
 * https://linuxconfig.org/how-to-create-a-ubuntu-repository-server
