@@ -50,6 +50,7 @@ Programmatically check if a package is not installed
 #   such as "ii " or "iHR" (since dpkg 1.16.2) See the --list command example below
 #   for more details.
 
+# So here we are checking for presence of "i" at position 2 of three-char output
 if ! dpkg-query -Wf'${db:Status-abbrev}' "htop" 2>/dev/null | grep -q '^.i'; then
   echo "htop is not installed"
 fi
