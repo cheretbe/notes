@@ -23,7 +23,7 @@ result=$(DIALOG_ESC=1 dialog --keep-tite --title "window title" \
   3>&1 1>&2 2>&3 3>&-); echo $?; printf "$result\n"
   
 result=$(DIALOG_ESC=1 dialog --keep-tite --title "window title" \
-  --default-item 2 \
+  --no-tags --default-item 2 \
   --menu "Select an item" 0 0 0 \
   1 "item 1" \
   2 "item 2" \
