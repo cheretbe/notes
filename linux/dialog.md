@@ -20,5 +20,14 @@ result=$(DIALOG_ESC=1 dialog --keep-tite --title "window title" \
   --form "form name" 0 0 0 \
   "item 1" 1 1 "default1" 1 15 10 0 \
   "item 2" 2 1 "default2" 2 15 10 0 \
-  3>&1 1>&2 2>&3 3>&-); echo $?; printf "$result"
+  3>&1 1>&2 2>&3 3>&-); echo $?; printf "$result\n"
+  
+result=$(DIALOG_ESC=1 dialog --keep-tite --title "window title" \
+  --default-item 2 \
+  --menu "Select an item" 0 0 0 \
+  1 "item 1" \
+  2 "item 2" \
+  3 "item 3" \
+  3>&1 1>&2 2>&3 3>&-); echo $?; printf "$result\n"
+
 ```
