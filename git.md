@@ -14,6 +14,9 @@
 subl "%ProgramFiles%\git\etc\gitconfig"
 ```
 ``` shell
+# View added, but not committed changes
+git diff --cached [myfile.txt]
+
 # work with a different path instead of current working directory
 git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
 ```
