@@ -71,6 +71,12 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
 }
 ```
 
+Linters
+* <kbd>Ctl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Install Packages" > "SublimeLinter"
+* pylint
+  * Install pylint system-wide (for example with `pip3 install pylint` as root)
+  * <kbd>Ctl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Install Packages" > SublimeLinter-pylint
+
 Printing. Not implemented and is not going to be at least in ST3. Workaround: http://facelessuser.github.io/ExportHtml/<br>
 Install package `ExportHtml`. For export use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and look for `Export HTML: Show Export Menu`. It does actual export, not enables some export menu in ST :)
 
