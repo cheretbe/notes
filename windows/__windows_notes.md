@@ -1,5 +1,7 @@
 ## Unsorted
 
+Edge in Russian: https://www.microsoft.com/ru-ru/edge/
+
 Helge´s Profile Toolkit: https://helgeklein.com/blog/2011/05/helges-profile-toolkit/
 
 How To Exam Memory Dump File to Find the Cause of BSOD: https://www.nextofwindows.com/how-to-exam-memory-dump-file-to-find-the-cause-of-blue-screen-of-death/
