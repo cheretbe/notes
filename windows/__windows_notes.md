@@ -1,6 +1,7 @@
 ## Unsorted
 
-Edge in Russian: https://www.microsoft.com/ru-ru/edge/
+Edge in Russian: https://www.microsoft.com/ru-ru/edge/<br>
+https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&source=EdgeStablePage&Channel=Stable&language=ru
 
 Helge´s Profile Toolkit: https://helgeklein.com/blog/2011/05/helges-profile-toolkit/
 
