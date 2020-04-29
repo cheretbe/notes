@@ -162,7 +162,11 @@ subprocess.check_call(("cat", os.path.expanduser("~/path/to/a/file")))
 # Get output (throws an exception on non-zero exit code)
 output = subprocess.check_output(("ls", "-lh", "."))
 # shell parameter allows to handle Ctrl+C (?)
+
 for line in subprocess.check_output("ls -lh /", shell=True).decode("utf-8").splitlines():
+    print(line)
+# or use universal_newlines=True (text=True for Python 3.7+)
+for line in subprocess.check_output(["ls", "-lh", "/"], text=True).splitlines():
     print(line)
 ```
 
