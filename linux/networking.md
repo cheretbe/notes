@@ -82,6 +82,10 @@ nmcli con show --active
 nmcli con down conn-name
 nmcli con up conn-name
 ```
+OpenVPN plugin
+```shell
+apt-get install network-manager-openvpn
+```
 
 ### Disable IPv6
 Check status
