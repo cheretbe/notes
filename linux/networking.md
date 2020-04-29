@@ -82,7 +82,8 @@ nmcli con show --active
 nmcli con down conn-name
 nmcli con up conn-name
 ```
-OpenVPN plugin
+OpenVPN plugin<br>
+:warning: logon/logoff is needed
 ```shell
 apt-get install network-manager-openvpn network-manager-openvpn-gnome
 ```
