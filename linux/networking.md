@@ -84,7 +84,7 @@ nmcli con up conn-name
 ```
 OpenVPN plugin
 ```shell
-apt-get install network-manager-openvpn
+apt-get install network-manager-openvpn network-manager-openvpn-gnome
 ```
 
 ### Disable IPv6
