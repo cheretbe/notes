@@ -86,6 +86,7 @@ OpenVPN plugin
 ```shell
 apt-get install network-manager-openvpn network-manager-openvpn-gnome
 ```
+To import `.ovpn` file don't select `OpenVPN` menu item, use `Import from file...` at the bottom
 
 ### Disable IPv6
 Check status
