@@ -1,3 +1,10 @@
+```shell
+# Find system boot-up performance statistics
+systemd-analyze
+systemd-analyze blame
+systemd-analyze critical-chain
+```
+
 * Nginx
     * CentOS `/usr/lib/systemd/system/nginx.service`
     * Debian `/lib/systemd/system/nginx.service`
