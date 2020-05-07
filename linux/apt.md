@@ -18,7 +18,7 @@ apt-get -f -y install
 apt install libncursesw5:i386
 
 # Find out which package provides a file
-# (apt-file also could be used, but it is not installed by default and see notes on list files size)
+# (apt-file also could be used, but it is not installed by default and see notes below on list files size)
 dpkg -S libstdc++.so.6
 
 # List files, that were installed by a package
