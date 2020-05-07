@@ -18,8 +18,24 @@ apt-get -f -y install
 apt install libncursesw5:i386
 
 # Find out which package provides a file
-# (apt-file also could be used, but it is not installed by default and seem to use its own cache)
+# (apt-file also could be used, but it is not installed by default and see notes on list files size)
 dpkg -S libstdc++.so.6
+
+# List files, that were installed by a package
+dpkg -L package
+
+# List files, that WILL be installed by a package BEFORE installing it
+# Note on apt-file disk usage:
+# It installs /etc/apt/apt.conf.d/50apt-file.conf file, that contains settings
+# to download Contents files on update. Due to these settings the size of
+# /var/lib/apt/lists/ directory increases significantly. Purging apt-file package
+# and updating list of packages reduces it back
+apt install apt-file
+apt update
+apt-file list package
+
+# List DEB package contents
+dpkg --contents package.deb
 
 # Downgrade a package
 # Check currently installed version
