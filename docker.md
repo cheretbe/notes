@@ -1,7 +1,7 @@
 * https://www.reddit.com/r/homelab/comments/8qlii3/how_do_you_distribute_you_dockers/
 * https://www.reddit.com/r/selfhosted/comments/9b4ej2/docker_organizational_best_practices/
 * http://blog.thoward37.me/articles/where-are-docker-images-stored/
-* Docker build wrapper: https://github.com/rancher/dapperprobably (probably makes no sense - one more dependency, copy is done in dockerfile, no matrix support)
+* Docker build wrapper: https://github.com/rancher/dapper (probably makes no sense - one more dependency, copy is done in dockerfile, no matrix support)
 * **A minimal Ubuntu base image modified for Docker-friendliness:** https://github.com/phusion/baseimage-docker
     * Use `phusion/baseimage:master` until [version scheme](https://github.com/phusion/baseimage-docker/issues/543) is changed
 ----
