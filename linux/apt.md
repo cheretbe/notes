@@ -21,6 +21,10 @@ apt install libncursesw5:i386
 # (apt-file also could be used, but it is not installed by default and see notes below on list files size)
 dpkg -S libstdc++.so.6
 
+# Download package file to current directory (doesn't require root privileges)
+apt download package
+apt-get download package
+
 # List files, that were installed by a package
 dpkg -L package
 
