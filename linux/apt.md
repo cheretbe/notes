@@ -30,6 +30,7 @@ apt install libncursesw5:i386
 dpkg -S libstdc++.so.6
 
 # Download package file to current directory (doesn't require root privileges)
+# When run as root just ignore "Download is performed unsandboxed as root as file etc..." warning
 apt download package
 apt-get download package
 
