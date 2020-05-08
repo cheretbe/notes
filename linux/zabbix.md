@@ -13,6 +13,8 @@ RegEx
 * https://www.zabbix.com/documentation/3.4/manual/regular_expressions
 * `^(?:\S+\s){2}(\S+)`: `RouterOS 6.44.3 (stable) on RB4011iGS+` ==> `6.44.3`
 
+Default credentials: `Admin`, `zabbix`
+
 ```shell
 # View server version
 zabbix_server --version
