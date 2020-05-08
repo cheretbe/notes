@@ -7,8 +7,16 @@ lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-i
 
 # Enable the 'universe' repository
 add-apt-repository universe
+
 # View the list of configured repos and PPAs
 apt-cache policy
+
+# View the list of packages provided by a repository
+apt update
+ls /var/lib/apt/lists/*_Packages
+# Find out repo name, e.g. "repo.zabbix.com_zabbix_"
+grep ^Package /var/lib/apt/lists/repository-name*_Packages | awk '{print $2}' | sort -u
+
 # Remove a PPA
 sudo add-apt-repository -r ppa:colingille/freshlight
 # Fix missing dependencies
