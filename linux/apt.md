@@ -50,6 +50,10 @@ apt-file list package
 # List DEB package contents
 dpkg --contents package.deb
 
+# Extract DEB package conents without installing
+# [!] Directory to extract is NOT optional. Will be created if doesn't exist
+dpkg-deb -xv package.deb /path/to/extract
+
 # Downgrade a package
 # Check currently installed version
 dpkg -l firefox
