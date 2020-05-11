@@ -10,8 +10,11 @@
 sudo usermod -aG docker $USER
 
 # Run bash in container and delete the container on exit
-# change ro->rw to mount the volume in read-write mode
-docker run --rm -ti -v /host/dir:/container/dir:ro ubuntu:18.04 /bin/bash
+# Mount a volume (change ro->rw to mount in read-write mode)
+#    -v /host/dir:/container/dir:ro
+# Forward host's IP port to container
+#    --publish=80:8080 
+docker run --rm -ti ubuntu:18.04 /bin/bash
 
 docker run -dti --name centos-6 centos:6 /bin/bash
 docker exec -ti centos-6 /bin/bash
