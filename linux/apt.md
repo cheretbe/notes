@@ -73,6 +73,9 @@ apt-mark showhold
 dpkg -l | grep "^hi"
 ```
 
+dpkg options are in `/etc/dpkg/dpkg.cfg.d` (for example, Docker container may have some
+`path-exclude` settings in `/etc/dpkg/dpkg.cfg.d/excludes`)
+
 * apt-listchanges: http://jxf.me/entries/better-apt-ubuntu/
 
 Programmatically check if a package is not installed
