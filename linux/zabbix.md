@@ -9,6 +9,8 @@
 * https://bitbucket.org/sivann/runcached/src/master/
 * http://sirlagz.net/2015/05/11/snmp-agent-unresponsive-alerts-in-zabbix/
 
+The Yum configuration file `/etc/yum.conf` of CentOS Docker image contains `tsflags=nodocs` which stops the documentation from installing. `create.sql.gz` file is installed as part of the documentation and this is the reason why it's missing.
+
 RegEx
 * https://www.zabbix.com/documentation/3.4/manual/regular_expressions
 * `^(?:\S+\s){2}(\S+)`: `RouterOS 6.44.3 (stable) on RB4011iGS+` ==> `6.44.3`
