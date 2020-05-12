@@ -10,6 +10,7 @@
 * http://sirlagz.net/2015/05/11/snmp-agent-unresponsive-alerts-in-zabbix/
 
 The Yum configuration file `/etc/yum.conf` of CentOS Docker image contains `tsflags=nodocs` which stops the documentation from installing. `create.sql.gz` file is installed as part of the documentation and this is the reason why it's missing.
+For Ubuntu it's `/etc/dpkg/dpkg.cfg.d/excludes`.
 
 RegEx
 * https://www.zabbix.com/documentation/3.4/manual/regular_expressions
