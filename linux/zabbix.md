@@ -111,8 +111,19 @@ z_api.logout()
 
 ### Server Installation
 
+#### Upgrade
+
+* What's new
+  * https://www.zabbix.com/whats_new_5_0
+  * https://www.zabbix.com/documentation/current/manual/introduction/whatsnew500
+* Upgrade instructions
+    * https://www.zabbix.com/documentation/current/manual/installation/upgrade/packages/debian_ubuntu
+
+
+#### New installation
+
 * https://www.zabbix.com/life_cycle_and_release_policy
-* https://www.zabbix.com/documentation/4.0/manual/installation/install_from_packages/debian_ubuntu
+* https://www.zabbix.com/download?zabbix=5.0&os_distribution=ubuntu&os_version=20.04_focal&db=mysql&ws=apache
 
 ```shell
 # Ubuntu 18.04
