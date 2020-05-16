@@ -2,6 +2,11 @@
 * https://github.com/dotless-de/vagrant-vbguest/issues/298
 * :warning: **https://dzone.com/articles/environment-variable-with-vagrant-and-ansible**
 
+```
+route add default gw 192.168.0.1 metric 10
+route delete default gw 192.168.0.1 metric 10
+```
+
 `.gitignore` contents:
 ```
 /.vagrant/
