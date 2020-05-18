@@ -50,6 +50,8 @@ Settings
   "remember_open_files": false,
   "hot_exit": false,
   "auto_complete": false,
+	"bold_folder_labels": true,
+	"highlight_line": true,
   "indent_guide_options":
     [
       "draw_normal",
