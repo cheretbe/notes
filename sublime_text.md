@@ -1,8 +1,8 @@
 * Multi-selection
-   * <kbd>Ctrl</kbd> + <kbd>U</kbd>
+   * <kbd>Ctrl</kbd> + <kbd>D</kbd>
    * Skip a match: <kbd>Ctrl</kbd> + <kbd>K</kbd>
        * :warning: It's actually a **3-step** process
-       * **1\.** Select with <kbd>Ctrl</kbd> + <kbd>U</kbd> **2.** Mark for skipping with <kbd>Ctrl</kbd> + <kbd>K</kbd> **3.** Press <kbd>Ctrl</kbd> + <kbd>D</kbd> **once again**
+       * **1\.** Select with <kbd>Ctrl</kbd> + <kbd>D</kbd> **2.** Mark for skipping with <kbd>Ctrl</kbd> + <kbd>K</kbd> **3.** Press <kbd>Ctrl</kbd> + <kbd>D</kbd> **once again**
    * If you go too far, use <kbd>Ctrl</kbd> + <kbd>U</kbd> (Undo Selection)
 * Navigation
    * Goto Symbol: <kbd>Ctrl</kbd> + <kbd>R</kbd>
