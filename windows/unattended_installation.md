@@ -2,9 +2,9 @@
 Answer files for Windows installer are prepared with `Windows System Image Manager`, which is a part of
 Windows Assessment and Deployment Kit (Windows ADK).
 
-Links for download:
-Windows 8.1 version: http://www.microsoft.com/en-us/download/details.aspx?id=39982
-Windows 10 version: https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
+* Links for download:
+    * Windows 8.1 version: http://www.microsoft.com/en-us/download/details.aspx?id=39982
+    * Windows 10 version: https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
 
 Only "Deployment Tools"  need to be installed in order to use WSIM.
 
