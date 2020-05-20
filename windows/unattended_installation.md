@@ -56,3 +56,12 @@ Examples (`Key` and `Value` parameters **are case-sensitive**)
   <Value>Windows 7 Enterprise</Value>
 </MetaData>
 ```
+
+### Passwords
+Passwords hashes are Base64-encoded representatios of the actual password concatened with `Password` string (:warning: `AdministratorPassword` is added for [AdministratorPassword](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts-administratorpassword) parameter)
+```powershell
+# ThePassw0rd ==> ThePassw0rdAdministratorPassword => VABoAGUAUABhAHMAcwB3ADAAcgBkAEEAZABtAGkAbgBpAHMAdAByAGEAdABvAHIAUABhAHMAcwB3AG8AcgBkAA==
+[System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes("ThePassw0rdAdministratorPassword"))
+# Convert back
+[System.Text.Encoding]::Unicode.GetString([System.Convert]::Frombase64string("VABoAGUAUABhAHMAcwB3ADAAcgBkAEEAZABtAGkAbgBpAHMAdAByAGEAdABvAHIAUABhAHMAcwB3AG8AcgBkAA=="))
+```
