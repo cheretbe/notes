@@ -4,7 +4,7 @@ Use the `MetaData\Key` and `MetaData\Value` settings together to select an image
 
 Use the `DISM /Get-WimInfo` command to determine which images and editions are included:
 ```bat
-dism.exe /Get-ImageInfo /ImageFile:c:\path\to\iso\contents\install.wim
+dism.exe /Get-ImageInfo /ImageFile:c:\path\to\iso\contents\sources\install.wim
 :: or
 dism.exe /Get-WimInfo /WimFile:install.wim
 
