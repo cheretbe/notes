@@ -13,10 +13,21 @@ dism.exe /Get-WimInfo /WimFile:install.wim
 dism.exe /Get-WimInfo /WimFile:install.wim /Index:1
 dism.exe /Get-ImageInfo /ImageFile:install.wim "/Name:Windows 10 Enterprise LTSC"
 ```
-Examples
+Examples (`Key` and `Value` paramaters **are case-sensitive**)
 ```xml
+<!--Index-->
 <MetaData wcm:action="add">
   <Key>/IMAGE/INDEX</Key>
   <Value>1</Value>
+</MetaData>
+<!--Name-->
+<MetaData wcm:action="add">
+  <Key>/IMAGE/NAME</Key>
+  <Value>Windows 7 Enterprise</Value>
+</MetaData>
+<!--Description-->
+<MetaData wcm:action="add">
+  <Key>/IMAGE/DESCRIPTION</Key>
+  <Value>Windows 7 Enterprise</Value>
 </MetaData>
 ```
