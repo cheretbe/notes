@@ -1,3 +1,19 @@
+### Answer files
+Answer files for Windows installer are prepared with `Windows System Image Manager`, which is a part of
+Windows Assessment and Deployment Kit (Windows ADK).
+
+Links for download:
+Windows 8.1 version: http://www.microsoft.com/en-us/download/details.aspx?id=39982
+Windows 10 version: https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
+
+Only "Deployment Tools"  need to be installed in order to use WSIM.
+
+Then run WSIM, select `Tools` > `Create Catalog`, point to
+`sources\install.wim` file from windows installation DVD. This will create a catalog (.clg) file alongside the .wim file.
+Only this file is needed later on for editing the answer file.
+
+* https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend
+
 ### InstallFrom
 
 * https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-dataimage-installfrom-metadata
