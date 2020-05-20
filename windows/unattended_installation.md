@@ -17,7 +17,7 @@ dism.exe /Get-WimInfo /WimFile:install.wim
 dism.exe /Get-WimInfo /WimFile:install.wim /Index:1
 dism.exe /Get-ImageInfo /ImageFile:install.wim "/Name:Windows 10 Enterprise LTSC"
 ```
-Examples (`Key` and `Value` paramaters **are case-sensitive**)
+Examples (`Key` and `Value` parameters **are case-sensitive**)
 ```xml
 <!--Index-->
 <MetaData wcm:action="add">
