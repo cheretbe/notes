@@ -33,6 +33,11 @@ dism.exe /Get-WimInfo /WimFile:install.wim
 dism.exe /Get-WimInfo /WimFile:install.wim /Index:1
 dism.exe /Get-ImageInfo /ImageFile:install.wim "/Name:Windows 10 Enterprise LTSC"
 ```
+:warning: Gotcha: For Windows 10 LTSC 2019 both `/Get-WimInfo` and `/Get-ImageInfo` show image name
+as `Windows 10 Enterprise LTSC`. But installer works only when `Windows 10 Enterprise LTSC 2019` is specified.
+(WSIM `File` > `Select Windows Image` > `Select an Image` shows correct value).
+
+
 Examples (`Key` and `Value` parameters **are case-sensitive**)
 ```xml
 <!--Index-->
