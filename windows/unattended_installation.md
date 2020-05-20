@@ -58,7 +58,7 @@ Examples (`Key` and `Value` parameters **are case-sensitive**)
 ```
 
 ### Passwords
-Passwords hashes are Base64-encoded representatios of the actual password concatened with `Password` string (:warning: `AdministratorPassword` is added for [AdministratorPassword](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts-administratorpassword) parameter)
+Passwords hashes are Base64-encoded representatios of the actual password concatenated with `Password` string (:warning: `AdministratorPassword` string is added for [AdministratorPassword](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts-administratorpassword) parameter)
 ```powershell
 # ThePassw0rd ==> ThePassw0rdAdministratorPassword => VABoAGUAUABhAHMAcwB3ADAAcgBkAEEAZABtAGkAbgBpAHMAdAByAGEAdABvAHIAUABhAHMAcwB3AG8AcgBkAA==
 [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes("ThePassw0rdAdministratorPassword"))
