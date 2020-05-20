@@ -2,7 +2,7 @@
 image in a Windows image (.wim) file.
 Use the `MetaData\Key` and `MetaData\Value` settings together to select an image based on the index, the name, or the description of the data image.
 
-Use the DISM /Get-WimInfo command to determine which images and editions are included:
+Use the `DISM /Get-WimInfo` command to determine which images and editions are included:
 ```bat
 dism.exe /Get-ImageInfo /ImageFile:c:\path\to\iso\contents\install.wim
 :: or
