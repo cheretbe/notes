@@ -1,3 +1,7 @@
+### InstallFrom
+
+* https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-dataimage-installfrom-metadata
+
 `/unattend/settings[@pass='windowsPE']/component[@name='Microsoft-Windows-Setup']/ImageInstall/OSImage/InstallFrom/MetaData[@wcm:action="add"]` specifies a data
 image in a Windows image (.wim) file.
 Use the `MetaData\Key` and `MetaData\Value` settings together to select an image based on the index, the name, or the description of the data image.
