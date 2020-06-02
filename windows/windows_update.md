@@ -3,6 +3,27 @@
 * Windows Update Catalog: https://www.catalog.update.microsoft.com/Home.aspx  
 * https://i.imgur.com/MBRIMMX.png
 
+
+### PSWindowsUpdate
+```powershell
+Install-PackageProvider -Name NuGet -Force
+Install-Module -Name PSWindowsUpdate -Force
+
+get-command -Module PSWindowsUpdate
+get-help Get-WindowsUpdate
+
+Set-ExecutionPolicy Unrestricted -Force -Scope Process
+$progressPreference = "SilentlyContinue"
+Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
+Get-WURebootStatus -Silent
+
+
+Add-WUServiceManager -MicrosoftUpdate -Confirm:$FALSE
+Get-WindowsUpdate -MicrosoftUpdate -Install -AcceptAll -IgnoreReboot
+```
+* https://www.powershellgallery.com/packages/PSWindowsUpdate/
+* http://woshub.com/pswindowsupdate-module/
+
 View last update times
 ```cmd
 reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\Results\Detect" /v LastSuccessTime
