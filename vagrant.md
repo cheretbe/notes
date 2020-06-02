@@ -1,4 +1,3 @@
-[[_TOC_]]
 
 * https://app.vagrantup.com
 * https://github.com/dotless-de/vagrant-vbguest/issues/298
