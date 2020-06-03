@@ -10,6 +10,7 @@ Install-PackageProvider -Name NuGet -Force
 Install-Module -Name PSWindowsUpdate -Force
 
 get-command -Module PSWindowsUpdate
+# [!] Set execution policy to "unrestricted" to view help
 get-help Get-WindowsUpdate
 
 Set-ExecutionPolicy Unrestricted -Force -Scope Process
