@@ -16,6 +16,8 @@ vboxmanage list systemproperties | grep "Default machine folder:"
 sudo mkdir -p /mnt/ramdrive
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdrive
 vboxmanage setproperty machinefolder /mnt/ramdrive
+# change size without losing data
+mount -o remount,defaults,noatime,size=32g /mnt/ramdrive/
 
 # Restore default setting
 vboxmanage setproperty machinefolder "${HOME}/VirtualBox VMs"
