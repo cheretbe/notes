@@ -15,6 +15,7 @@ get-help Get-WindowsUpdate
 
 Set-ExecutionPolicy Unrestricted -Force -Scope Process
 $progressPreference = "SilentlyContinue"
+Set-Service -Name "wuauserv" -StartupType Manual
 Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
 Get-WURebootStatus -Silent
 
