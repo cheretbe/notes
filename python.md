@@ -252,6 +252,11 @@ datetime.timedelta(seconds=333)
 start = time.time()
 print(str(datetime.timedelta(seconds=round(time.time() - start))))
 
+# Or use time.monotonic()
+# (returns the value (in fractional seconds) of a monotonic clock, i.e. a clock that cannot go backwards)
+start = time.monotonic()
+print(str(datetime.timedelta(seconds=round(time.monotonic() - start))))
+
 # Parsing date/time
 # pip install python-dateutil
 import dateutil.parser
