@@ -250,6 +250,7 @@ datetime.datetime.now().strftime("%x %X")
 datetime.timedelta(seconds=333)
 # Elapsed time
 start = time.time()
+# We use round to remove fractions of seconds
 print(str(datetime.timedelta(seconds=round(time.time() - start))))
 
 # Or use time.monotonic()
