@@ -1,3 +1,5 @@
+* https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep-process-overview
+
 ### Answer files
 Answer files for Windows installer are prepared with `Windows System Image Manager`, which is a part of
 Windows Assessment and Deployment Kit (Windows ADK).
