@@ -1,4 +1,5 @@
 * https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep-process-overview
+* https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work
 
 ### Answer files
 Answer files for Windows installer are prepared with `Windows System Image Manager`, which is a part of
