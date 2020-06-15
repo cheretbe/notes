@@ -1,6 +1,8 @@
 Microsoft's support cycles:
 * Desktop: http://windows.microsoft.com/en-us/windows/lifecycle
 * Server: https://support.microsoft.com/en-us/lifecycle/search?alpha=Windows%20Server
+* Server LTSC vs Semi-annual: https://docs.microsoft.com/en-us/windows-server/get-started-19/servicing-channels-19
+    * Current LTSC version is Windows Server 2019
 
 SHA1 sums: https://www.heidoc.net/php/myvsdump_directory.php?letter=W
 
@@ -43,6 +45,11 @@ df3c77398541083527dd766b58f9c38ef4982856 *en_windows_10_business_edition_version
 9f88baf7c5c0a615de92cf5ff8aa68c4855aac4f *es_windows_10_business_edition_version_1903_updated_june_2019_x86_dvd_a947e266.iso
 5b0c6d1dd1011bd3affe1f67ae9cf3394254817b *ru_windows_10_business_edition_version_1903_updated_june_2019_x64_dvd_dc83451b.iso
 79b2dc0bb09d3af208f9b1576cd809f1d293cd80 *ru_windows_10_business_edition_version_1903_updated_june_2019_x86_dvd_6d830154.iso
+```
+
+** Windows Server 1909 **
+```
+...
 ```
 
 * http://www.nextofwindows.com/how-to-download-official-windows-8-1-iso/
