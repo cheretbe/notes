@@ -5,6 +5,7 @@
 ```batch
 md c:\mount
 
+dism /Get-ImageInfo /ImageFile:e:\sources\install.wim
 dism /Mount-Image /ImageFile:e:\sources\install.wim /Index:1 /MountDir:c:\mount /ReadOnly
 
 :: [!] Run ProduKey as Administrator
