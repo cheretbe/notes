@@ -34,7 +34,7 @@ a153526cdd406a249a93f30b447b259fed560c1d *cn_windows_10_business_editions_versio
 e5c5cff499312092adbcb200e924c5870e1d8e02 *ru_windows_10_business_editions_version_1909_x86_dvd_27bee830.iso
 ```
 
-**Windows 10 (business editions), version 1903 (updated June 2019)**
+**Windows 10 (business editions, non-VLSC), version 1903 (updated June 2019)**
 ```
 ff547868bc224d41b61517119008caa869a78a8f *cn_windows_10_business_edition_version_1903_updated_june_2019_x64_dvd_830837d9.iso
 f0193b298805c84de9cf973b6cc7b9afe47fe5f5 *cn_windows_10_business_edition_version_1903_updated_june_2019_x86_dvd_d28c2eff.iso
