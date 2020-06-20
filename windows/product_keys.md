@@ -14,7 +14,7 @@ dism /Mount-Image /ImageFile:e:\sources\install.wim /Index:1 /MountDir:c:\mount 
 dism /Unmount-Image /MountDir:c:\mount /Discard
 ```
 
-To change image to a higher edition and optionally enter a product key
+Change image to a higher edition and optionally enter a product key
 ```batch
 dism /Mount-Image /ImageFile:e:\sources\install.wim /Index:1 /MountDir:c:\mount
 
