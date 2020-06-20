@@ -13,3 +13,15 @@ dism /Mount-Image /ImageFile:e:\sources\install.wim /Index:1 /MountDir:c:\mount 
 
 dism /Unmount-Image /MountDir:c:\mount /Discard
 ```
+
+To change image to a higher edition and optionally enter a product key
+```batch
+dism /Mount-Image /ImageFile:e:\sources\install.wim /Index:1 /MountDir:c:\mount
+
+dism /Image:c:\mount /Get-CurrentEdition
+dism /Image:c:\mount /Get-TargetEditions
+
+Dism /Image:c:\mount /Set-Edition:ServerDatacenterCor /AcceptEula /ProductKey:WMDGN-G9PQG-XVVXX-R3X43-63DFG
+
+dism /Unmount-Image /MountDir:c:\mount /Commit
+```
