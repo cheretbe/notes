@@ -23,6 +23,8 @@ dism /Image:c:\mount /Get-CurrentEdition
 dism /Image:c:\mount /Get-TargetEditions
 
 Dism /Image:c:\mount /Set-Edition:ServerDatacenterCor /AcceptEula /ProductKey:WMDGN-G9PQG-XVVXX-R3X43-63DFG
+:: Set product key without changing edition
+Dism /Image:c:\mount /Set-ProductKey:N69G4-B89J2-4G8F4-WWYCC-J464C
 
 dism /Unmount-Image /MountDir:c:\mount /Commit
 ```
