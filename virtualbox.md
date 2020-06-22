@@ -50,6 +50,9 @@ vboxmanage list runningvms
 # 50Gb - 51200
 # in bytes: --resizebyte
 VBoxManage modifyhd <path to vdi> --resize <new size in megabytes>
+# VBoxManage won't resize VMDK files. The workaround is to clone to VDI
+# and then resize
+# https://stackoverflow.com/questions/11659005/how-to-resize-a-virtualbox-vmdk-file/12456219#12456219
 
 # Run a command on guest
 vboxmanage guestcontrol testvm-2del run --wait-stdout --wait-stderr --username vagrant --password $AO_DEFAULT_VAGRANT_PASSWORD  -- "%comspec%" /c powershell \$psversiontable
