@@ -4,6 +4,7 @@ Microsoft's support cycles:
 * Server LTSC vs SAC(semi-annual channel): https://docs.microsoft.com/en-us/windows-server/get-started-19/servicing-channels-19
     * Current LTSC version is Windows Server 2019
     * SAC comes with core-only editions: https://docs.microsoft.com/en-us/windows-server/get-started-19/servicing-channels-19#why-do-semi-annual-channel-releases-offer-only-the-server-core-installation-option
+    * View current SAC release: https://docs.microsoft.com/en-us/windows/release-information/
 
 SHA1 sums: https://www.heidoc.net/php/myvsdump_directory.php?letter=W
 
