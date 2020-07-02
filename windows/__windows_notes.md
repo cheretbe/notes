@@ -1,5 +1,9 @@
 ## Unsorted
 
+* Office proofing tools
+   * 2013: https://www.microsoft.com/en-us/download/details.aspx?id=35400
+   * 2016: https://www.microsoft.com/en-us/download/details.aspx?id=52668
+
 Edge in Russian: https://www.microsoft.com/ru-ru/edge/<br>
 https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&source=EdgeStablePage&Channel=Stable&language=ru
 
