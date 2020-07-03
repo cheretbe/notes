@@ -3,6 +3,10 @@
 * https://www.ansible.com/blog/active-directory-ansible-tower
 * https://docs.ansible.com/ansible/latest/modules/list_of_windows_modules.html
 
+To be able to delete protected objects in `Active Directory Users and Computers` snap-in, select
+`View` > `Advanced Features`. This shows (among other things) `Protect object from accidental deletion`
+option in `Object` tab.
+
 Create an OU
 ```powershell
 # New-ADOrganizationalUnit doesn't support parent creation
