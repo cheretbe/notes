@@ -337,6 +337,10 @@ python3 -m venv venv-name
 . venv-name/bin/activate
 pip install wheel
 
+python3 -m venv ~/.cache/venv/py3
+# ~/.bashrc entry
+alias py3='. ~/.cache/venv/py3/bin/activate'
+
 # As root
 apt install python-pip
 # Don't do this: pip install --user --upgrade pip
