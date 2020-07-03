@@ -332,6 +332,7 @@ To review:
 ```shell
 # one more alternative
 # Where to store venvs? ~/.cache/venv? E.g. ~/.cache/venv/py3
+# [!] Note wheel package installation below
 sudo apt install python3-venv build-essential python3-dev
 python3 -m venv venv-name
 . venv-name/bin/activate
