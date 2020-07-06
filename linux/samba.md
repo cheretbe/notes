@@ -345,3 +345,9 @@ and the following to `/etc/security/access.conf`:
 Source:
 * https://samba.ninja/2016/10/ubuntu-16-04-samba-ad-member-server/
 * https://samba.ninja/2015/10/centos-7-samba-ad-member-server/
+
+
+:warning: **TODO:** Test sssd variant
+
+* https://www.redhat.com/en/blog/sssd-vs-winbind
+* https://sssd.io/docs/users/ad_provider.html
