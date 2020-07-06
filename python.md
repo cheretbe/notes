@@ -180,16 +180,20 @@ pip install PyYAML
 ```
 ```python
 import yaml
-with open('config.yaml') as f:
+with open("config.yaml") as f:
     # Use safe_load instead of load
     config = yaml.safe_load(f)
+with open("config.yaml", "w") as f:
+    # default_flow_style=False generates human-readable text
+    f.write(yaml.dump(config, default_flow_style=False))
+
 import json
 with open("config.json") as f:
     config = json.load(f)
-with open('config.json', 'w') as f:
+with open("config.json", "w") as f:
     json.dump(config, f)
 # On a modern system (i.e. Python 3 and UTF-8 support), you can write a nicer file with
-with open('config.json', 'w', encoding='utf-8') as f:
+with open("config.json", "w", encoding="utf-8") as f:
     json.dump(config, f, ensure_ascii=False, indent=4)
 ```
 
