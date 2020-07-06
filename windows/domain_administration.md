@@ -16,3 +16,17 @@ New-ADOrganizationalUnit -Name 'level1' -Path 'DC=dummy,DC=local'
 New-ADOrganizationalUnit -Name 'level2' -Path 'OU=level1,DC=dummy,DC=local'
 New-ADOrganizationalUnit -Name 'level3' -Path 'OU=level2,OU=level1,DC=dummy,DC=local'
 ```
+
+##### Avoid registering unwanted NIC(s) in DNS on a Mulithomed Domain Controller
+Original link: https://support.microsoft.com/en-us/help/2023004/steps-to-avoid-registering-unwanted-nic-s-in-dns-on-a-mulithomed-domai
+
+Extract (in case the link dies):<br>
+To avoid this problem perform the following 3 steps (It is important that you follow all the steps to avoid the issue).
+1. Under Network Connections Properties:
+On the Unwanted NIC `TCP/IP Properties` > `Advanced` > `DNS` > Uncheck `Register this connections Address in DNS`
+
+2. Open the DNS server console:  highlight the server on the left pane `Action` > `Properties` and on the `Interfaces` tab select `listen on only the following IP addresses`. Remove unwanted IP address from the list
+
+3. On the Zone properties, select `Name` server tab. Along with FQDN of the DC, you will see the IP address associated with the DC. Remove unwanted IP address if it is listed.
+
+After performing this delete the existing unwanted Host A record of the DC.
