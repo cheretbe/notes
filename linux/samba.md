@@ -191,6 +191,8 @@ apt install samba krb5-user winbind libnss-winbind libpam-winbind
 systemctl status systemd-timesyncd --no-pager -l
 
 # Update /etc/nsswitch.conf to pull users and groups from Winbind
+# passwd: compat systemd   =>   passwd: compat winbind systemd
+# group:  compat systemd   =>   group:  compat winbind systemd
 cp /etc/nsswitch.conf{,.bak}
 sed -i 's/passwd:\s*compat/passwd: compat winbind/' /etc/nsswitch.conf
 sed -i 's/group:\s*compat/group:  compat winbind/' /etc/nsswitch.conf
