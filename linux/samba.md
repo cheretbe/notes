@@ -208,7 +208,7 @@ Set `/etc/samba/smb.conf` to the following (ensuring you replace the TEST and TE
     server string = Samba Server Version %v
     security = ads
     realm = TEST.LOCAL
-    socket options = TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072
+    #socket options = TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072
     use sendfile = true
 	 
     idmap config * : backend = tdb
@@ -290,22 +290,26 @@ klist
 ```
 
 
-Join your SAMBA server to the domain:
+Add your SAMBA server to the domain:
 ```shell
 # Should return:
 # Using short domain name -- TEST
 # Joined 'SERVER-NAME' to dns domain 'test.local'
 # 
-# [!] test createcomputer option: createcomputer=Servers/UNIX
+# Add to a specific container: createcomputer=Servers/UNIX
 net ads join test.local -U administrator
-
-# Should return "OK"
-sudo net ads testjoin
+# or using current Kerberos ticket
+net ads join test.local -k
+# To prevent net ads join adding multiple DNS entries when several ethernet interfaces are present,
+# add interfaces option to /etc/samba/smb.conf
+# interfaces = enp0s9
 
 # Restart SAMBA services
 systemctl restart winbind smbd nmbd
 
 # Test domain join and Winbind AD user/group resolution:
+# Should return "OK"
+sudo net ads testjoin
 # Should list your AD users
 wbinfo -u
 # Should list your AD groups
@@ -314,6 +318,11 @@ wbinfo -g
 getent passwd
 # Should list AD groups with UIDS in the 10000+ range
 getent group
+
+# Leaving domain
+net ads leave test.local -U administrator
+# [!] leave does NOT unregister DNS entries
+net ads dns unregister dummy.test.local -U administrator
 ```
 
 Create the location your SAMBA share will be stored:
