@@ -85,6 +85,14 @@ Linters
   * Install pylint system-wide (for example with `pip3 install pylint` as root)
   * <kbd>Ctl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Install Packages" > SublimeLinter-pylint
 
+`~/.pylintrc` example:
+```
+[MESSAGES CONTROL]
+
+disable=missing-module-docstring,
+        missing-function-docstring
+```
+
 Printing. Not implemented and is not going to be at least in ST3. Workaround: http://facelessuser.github.io/ExportHtml/<br>
 Install package `ExportHtml`. For export use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and look for `Export HTML: Show Export Menu`. It does actual export, not enables some export menu in ST :)
 
