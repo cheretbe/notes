@@ -362,3 +362,4 @@ Source:
 
 * https://www.redhat.com/en/blog/sssd-vs-winbind
 * https://sssd.io/docs/users/ad_provider.html
+* (proxy) https://jackwozny.com/post/joining-ubuntu-to-ad/
