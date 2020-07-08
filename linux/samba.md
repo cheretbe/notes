@@ -215,7 +215,7 @@ Set `/etc/samba/smb.conf` to the following (ensuring you replace the TEST and TE
     idmap config * : range = 100000-299999
     idmap config TEST : backend = rid
     idmap config TEST : range = 10000-99999
-    winbind separator = +
+    #winbind separator = +
     winbind enum users = yes
     winbind enum groups = yes
     winbind use default domain = yes
