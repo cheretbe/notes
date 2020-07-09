@@ -46,6 +46,7 @@ ansible-inventory -i demo.aws_ec2.yml --graph
 ```shell
 read -s -p "Password: " TOWER_PASSWORD; echo ""; export TOWER_PASSWORD
 # [!] inventory file has to have .tower.yml extension
+# see ~/.ansible.cfg below to use without -i option
 ansible-inventory -i my_inventory.tower.yml --graph --vars
 ```
 `my_inventory.tower.yml`
@@ -58,6 +59,11 @@ username: your_ansible_tower_username
 #password: your_ansible_tower_password
 inventory_id: Inventory%20Name%20With%20A%20Space++Organization%20Name
 #validate_certs: False
+```
+`~/.ansible.cfg` example for AWX:
+```
+[defaults]
+inventory=./awx_inventory.tower.yml
 ```
 
 ### Roles and playbooks
