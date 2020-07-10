@@ -179,7 +179,7 @@ nslookup dc1.test.local
 # If not, make sure there is no Avahi daemon
 apt purge avahi-daemon
 # Check if systemd-resolved is running and try disabling it
-# https://github.com/cheretbe/notes/blob/master/linux/dns+dhcp.md#dns-client
+# https://github.com/cheretbe/notes/blob/master/linux/dns+dhcp.md#systemd-resolved
 systemd-resolve --status
 
 # Install packages
