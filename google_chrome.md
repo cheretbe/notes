@@ -3,6 +3,12 @@ Change user agent string:
 * Hamburger menu (vertical dots) > More tools > Network conditions
 * disable the option `Select automatically` and choose `Chrome - Windows` from drop-down menu
 
+Show full URL in the address bar
+* `chrome://flags/#omnibox-context-menu-show-full-urls`
+* Set "Context menu show full URLs" to `Enabled`
+* Reload (restart) Chrome
+* Right click on the address bar and select "Always show full URLs" option in the context menu
+
 
 1. Stop http:// -> to https:// redirection for a visited site:
 
