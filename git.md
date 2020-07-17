@@ -9,6 +9,15 @@
 * [.gitattributes Files](#gitattributes-files)
 
 ### Unsorted
+
+* Github webhooks (for read-only copy update automation)
+    * https://docs.github.com/en/developers/webhooks-and-events/webhooks
+    * https://blog.bearer.sh/consume-webhooks-with-python/
+    * Sinatra appears to be more simple to setup: http://sinatrarb.com/
+        * See "Configuring your server to receive payloads" section in Github docs
+        * https://stackoverflow.com/questions/30027248/running-ruby-sinatra-inside-a-docker-container-not-able-to-connect-via-mac-host
+------
+
 * https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf/20653073#20653073
 ```batch
 subl "%ProgramFiles%\git\etc\gitconfig"
