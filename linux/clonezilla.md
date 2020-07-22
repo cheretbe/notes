@@ -5,5 +5,5 @@ on destination doesn't offer advanced settings). To solve this problem run `ocs-
 # on destination
 # [!] timeout option is useful on systems with multiple network cards (default is 30s per adapter)
 ocs-live-netcfg -t 5
-ocs-onthefly -s 192.168.1.1 -t /dev/sda -icds
+ocs-onthefly -i cat -s 192.168.1.1 -t /dev/sda -icds
 ```
