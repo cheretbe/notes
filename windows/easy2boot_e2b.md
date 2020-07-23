@@ -2,6 +2,13 @@
  * http://www.easy2boot.com/make-an-easy2boot-usb-drive/make-using-linux/
  * [Custom background](../images/MyBackground.jpg) (save as `_ISO\MyBackground.jpg`)
  
+ ### UEFI (2check)
+ 
+ * http://www.rodsbooks.com/refind/
+ * https://rodsbooks.com/refind/using.html
+ * https://www.easy2boot.com/add-payload-files/adding-uefi-images/
+ * https://www.easy2boot.com/uefi-mbr-a1ive-grub2-file-manager/
+ 
  ### .imgPTN Files
  * Download MPI Tool Kit: http://www.easy2boot.com/add-payload-files/makepartimage
  * Install ImDisk from `\ImDisk\imdiskinst.exe` (**reinstall** on upgrade)
