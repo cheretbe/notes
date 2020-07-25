@@ -4,6 +4,17 @@
 * Docker build wrapper: https://github.com/rancher/dapper (probably makes no sense - one more dependency, copy is done in dockerfile, no matrix support)
 * **A minimal Ubuntu base image modified for Docker-friendliness:** https://github.com/phusion/baseimage-docker
     * Use `phusion/baseimage:master` until [version scheme](https://github.com/phusion/baseimage-docker/issues/543) is changed
+    
+#### Ansible tests
+Possible strategies for Molecule test
+* Keep using `geerlingguy/docker-ubuntu1804-ansible` etc. (easiest, but takes time to update packages)
+* Rebuild geerlingguy's containers and publish them independently (most logical, but also most work to be done)
+    * Will need some kind of automation (in a separate KVM VM, using a scheduled task on AWX)
+* Use custom Dockerfile
+    * At first glance seems the least appealing. But actually it could be a good compromize. Use `geerlingguy/docker-ubuntu1804-ansible`,
+      just adding `apt update`. This needs to be done only once for testing session, then Docker will use local cached image.
+    * Check out Molecule's docs/examples on local Dockerfile usage
+
 ----
 ```shell
 # Add your user to the docker group
