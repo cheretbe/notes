@@ -141,6 +141,14 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
   - meta: end_play
 ```
 
+### Vault
+
+* https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#best-practices-for-variables-and-vaults
+* Working with ansible-vault: https://gist.github.com/tristanfisher/e5a306144a637dc739e7
+* https://serverfault.com/questions/878320/how-to-use-existing-vault-files-in-ansible-tower/935778#935778
+    * https://github.com/AlanCoding/Ansible-inventory-file-examples/tree/master/vault/single_var_file
+* https://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html#vault
+
 ### Molecule
 * https://opensource.com/article/18/12/testing-ansible-roles-molecule
 * https://molecule.readthedocs.io/en/latest/
