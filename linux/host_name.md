@@ -23,7 +23,7 @@ new-name
 * If the host has a static IP, use it instead of `127.0.1.1`
 3. Run `hostname new-name` or just reboot for good measure.
 4. :question: Check if `/etc/cloud/cloud.cfg` settings affect the host name (vagrant, LXD, etc.)
-* [This guide](https://linuxconfig.org/how-to-change-hostname-on-ubuntu-18-04-bionic-beaver-linux) suggests changing `preserve_hostname: false`
+* [This guide](https://linuxconfig.org/how-to-change-hostname-on-ubuntu-18-04-bionic-beaver-linux) suggests changing `preserve_hostname: false` (also here: https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/)
  to `preserve_hostname: true`
 * `lxc move old-name new-name` doesn't seem to update anything in the container itself
 5. If rename is the result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
