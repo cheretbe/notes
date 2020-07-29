@@ -10,6 +10,7 @@
 ```shell
 # apt install -t xenial-backports lxd lxd-client
 apt install lxd zfsutils-linux bridge-utils
+# install btrfs-progs to be able to use btrfs
 ```
 
 `/etc/network/interfaces`
