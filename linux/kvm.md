@@ -82,6 +82,10 @@ apt install libgl1-mesa-glx
 * Swappiness: https://github.com/cheretbe/notes/blob/master/linux/swap.md#swappines
 * Adjust `SHUTDOWN_TIMEOUT` in `/etc/default/libvirt-guests` as needed
 ### Networking
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-managing_guest_virtual_machines_with_virsh-managing_virtual_networks
+
+#### Bridged
 Add bridged network adapter to `/etc/network/interfaces`
 ```
 auto eth0
@@ -106,6 +110,43 @@ iface br0 inet static
 Some info on bridge parameters:
 * http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
 * http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
+
+#### Isolated
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/configuring-virtual-machine-network-connections_configuring-and-managing-virtualization#virtual-networking-isolated-mode_types-of-virtual-machine-network-connections
+
+
+Method 1 - just click "+" in "Virtual Networks" tab and enter parameters
+
+Method 2 - Manual
+
+```bash
+# Generate randomized MAC address
+printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))
+# Generate UUID (uuid-runtime package)
+uuidgen
+```
+
+```xml
+<network>
+  <name>intnet1</name>
+  <uuid>00000000-0000-0000-0000-000000000000</uuid>
+  <bridge name="virbr1" stp="on" delay="0"/>
+  <mac address="00:00:00:00:00:00"/>
+  <domain name="intnet1"/>
+  <ip address="192.168.144.1" netmask="255.255.255.0">
+  </ip>
+</network>
+```
+
+```bash
+virsh net-list --all
+virsh net-dumpxml default
+
+virsh net-define intnet1.xml
+virsh net-start intnet1
+virsh net-autostart intnet1
+```
 
 [\[ TOC \]](#table-of-contents)
 
