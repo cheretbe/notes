@@ -227,6 +227,9 @@ qemu-img create -f qcow2 /mnt/backup/backup-rescue.qcow2 3449633080320
 # Use -o preallocation=off|meta|full|falloc option (falloc)
 # Specify -f raw for raw disks
 qemu-img resize /var/lib/libvirt/images/test-0.img +10G
+
+# Convert qcow2 to VDI
+qemu-img convert -f qcow2 image.qcow2 -O vdi image.vdi
 ```
 
 [\[ TOC \]](#table-of-contents)
