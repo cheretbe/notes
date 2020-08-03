@@ -19,6 +19,7 @@ press the **Delete** button. In newer versions select `Domain Security Policy`~~
 2. Clear dns cache: `chrome://net-internals/#dns`
 
 Extensions
+* Tab Activate: https://chrome.google.com/webstore/detail/tab-activate/jlmadbnpnnolpaljadgakjilggigioaj/related
 * Cookie AutoDelete: https://chrome.google.com/webstore/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
 * uBlock Origin: https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
 * New Tab Redirect: https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna
