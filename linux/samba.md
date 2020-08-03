@@ -83,6 +83,11 @@ username=myusername
 password=mypassword
 domain=WORKGROUP
 ```
+```
+# /etc/fstab entry example
+//smb_server/C$  /mnt/share  cifs  uid=user,gid=user,credentials=/root/.smbcredentials  0  0
+```
+
 * :warning: CIFS bug causing SMBv2+ not to show all files/directories
     * https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1572132
     * https://bugzilla.samba.org/show_bug.cgi?id=13107
