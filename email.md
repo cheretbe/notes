@@ -25,3 +25,40 @@ user email@my-best-domain.com
 pass my-password
 quit
 ```
+
+### Configure Postfix to use Gmail as a Mail Relay
+
+* https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
+
+:warning: Enable "Less Secure Apps" In Gmail. Double check if it's on, since Google turns this feature off after awhile if it not being used.
+
+```shell
+# select "no configuration"
+apt install postfix mailutils
+
+nano /etc/postfix/sasl_passwd
+```
+
+```
+[smtp.gmail.com]:587    username@gmail.com:password
+```
+
+```shell
+chmod 600 /etc/postfix/sasl_passwd
+
+nano /etc/postfix/main.cf
+```
+The host is enclosed in brackets to specify that no MX lookup is required.
+```
+relayhost = [smtp.gmail.com]:587
+smtp_use_tls = yes
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options =
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+```
+
+```shell
+postmap /etc/postfix/sasl_passwd
+service postfix restart
+```
