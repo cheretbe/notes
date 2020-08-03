@@ -27,6 +27,9 @@ TODO:
         * `unzip start-overlay-in-application-view@cis.net.v2.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/start-overlay-in-application-view@cis.net`
         * <kbd>Alt</kbd>+<kbd>F2</kbd>, `r`, <kbd>Enter</kbd>
         * Restart `GNOME Tweak Tool` if it was running, then enable the extension
+    * Close the Overview with a single ESC press when searchbox is empty
+        * https://extensions.gnome.org/extension/3204/escape-overview/
+        * `unzip escape-overviewraelgc.v1.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/escape-overview@raelgc`
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
