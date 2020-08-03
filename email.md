@@ -61,4 +61,5 @@ smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 ```shell
 postmap /etc/postfix/sasl_passwd
 service postfix restart
+echo test | mail -s "test mail" user@domain.tld
 ```
