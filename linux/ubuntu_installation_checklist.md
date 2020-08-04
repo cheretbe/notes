@@ -120,7 +120,11 @@ apt remove libnss-mdns
  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
  ```
    * Position
-   
+```shell
+cp /usr/share/applications/org.gnome.Terminal.desktop ~/.local/share/applications/custom-gnome-terminal.desktop
+```
+  TryExec is used to determine if the program is actually installed. If the file is not present or if it is not executable, the entry may be ignored (not be used in menus, for example). It does not actually execute it's own value. 
+
   use `--geometry=WxH+X+Y` to set an exact window position (use `xwininfo` to find out current position and geometry)
  ```diff
  [Desktop Entry]
