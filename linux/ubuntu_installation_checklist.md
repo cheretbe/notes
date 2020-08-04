@@ -120,6 +120,39 @@ apt remove libnss-mdns
  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
  ```
    * Position
+   
+  use `--geometry=127x43+490+290` to set an exact window position (use `xwininfo` to find out current position and geometry)
+ ```diff
+ [Desktop Entry]
+ # VERSION=3.36.2
+-Name=Terminal
++Name=Custom Terminal
+ Comment=Use the command line
+ Keywords=shell;prompt;command;commandline;cmd;
+ TryExec=gnome-terminal
+-Exec=gnome-terminal
++Exec=gnome-terminal --class=CustomTerminal --geometry 127x43+490+290
++StartupWMClass=CustomTerminal
+ Icon=org.gnome.Terminal
+ Type=Application
+ Categories=GNOME;GTK;System;TerminalEmulator;
+ StartupNotify=true
+ X-GNOME-SingleWindow=false
+ OnlyShowIn=GNOME;Unity;
+-Actions=new-window;preferences;
++Actions=new-window
+ X-Ubuntu-Gettext-Domain=gnome-terminal
+ 
+ [Desktop Action new-window]
+ Name=New Window
+-Exec=gnome-terminal --window
+-
+-[Desktop Action preferences]
+-Name=Preferences
+-Exec=gnome-terminal --preferences
++Exec=gnome-terminal --window --class=CustomTerminal
+```
+  Old version   
   ``` bash
   cp /usr/share/applications/gnome-terminal.desktop{,.bak}
   # Update 'Exec' parameters in  '[Desktop Entry]' and '[Desktop Action New]' sections:
