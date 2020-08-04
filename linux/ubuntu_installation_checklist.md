@@ -3,7 +3,17 @@ TODO:
 * http://www.noobslab.com/p/themes-icons.html
 * http://www.webupd8.org/2016/03/mailnag-email-notifier-12-released-with.html
 * http://mark.orbum.net/2012/05/14/disabling-dnsmasq-as-your-local-dns-server-in-ubuntu/
-* 18.04
+--------
+```shell
+# List the installed (non-relocatable) schemas
+gsettings list-schemas
+# List keys in a schema
+gsettings list-keys org.gnome.shell.extensions.dash-to-dock
+# Query the range (or possible values) of a key
+gsettings range org.gnome.shell.extensions.dash-to-dock click-action
+```
+--------
+* 18.04/20.04
     * DNS fix + `apt purge avahi-daemon`? (check if removing avahi-daemon is enough for 18.04.03)
     * Move windows to other monitor: <kbd>Win</kbd>+<kbd>Shift</kbd>+arrows
     * Themes
@@ -17,7 +27,7 @@ TODO:
     * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
     * `2check`: https://askubuntu.com/questions/1048774/disabling-lock-screen-18-04/1064704#1064704
     * Click to minimize: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'`
-        * view available actions: `gsettings range org.gnome.shell.extensions.dash-to-dock click-action`
+        * view available actions: ``
         * 18.04: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
         * https://launchpad.net/ubuntu/+source/gnome-shell-extension-ubuntu-dock
         * ClickAction `minimize-or-previews`: wait for [this commit](https://github.com/micheleg/dash-to-dock/commit/b2e9bb7ca2d92f7e36cda236248913a237525d6a) to be included in a release
