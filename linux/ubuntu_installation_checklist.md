@@ -121,7 +121,7 @@ apt remove libnss-mdns
  ```
    * Position
    
-  use `--geometry=127x43+490+290` to set an exact window position (use `xwininfo` to find out current position and geometry)
+  use `--geometry=WxH+X+Y` to set an exact window position (use `xwininfo` to find out current position and geometry)
  ```diff
  [Desktop Entry]
  # VERSION=3.36.2
