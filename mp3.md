@@ -39,7 +39,7 @@ apt install audacity -s
 
 https://github.com/dpayne/cli-visualizer
 ```shell
-apt install cmake libncurses-dev libfftw3-dev
+apt install cmake libncursesw5-dev libpulse-dev libfftw3-dev
 ```
 * run `install.sh` as an ordinary user (it asks for sudo password), this way you get a default config in `~/.config/vis`
 * `cp cli-visualizer/examples/old_rainbow ~/.config/vis/colors/`
