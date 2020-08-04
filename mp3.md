@@ -51,11 +51,13 @@ apt install cmake libncursesw5-dev libpulse-dev libfftw3-dev
 ```
 [Desktop Entry]
 Type=Application
+Comment=Command Line Visualizer
 Terminal=false
 Exec=gnome-terminal --class=CliVisualizer --title "Command Line Visualizer" --geometry=130x17 --hide-menubar --zoom=0.3 --profile cli-visualizer -- /usr/local/bin/vis
 StartupWMClass=CliVisualizer
 Name=Command Line Visualizer
 Icon=/home/user/.local/share/icons/hicolor/48x48/apps/Apps-Volume-Equalizer-icon.png
+X-Ubuntu-Gettext-Domain=cli-visualizer
 ```
 * :warning: Don't forget to create `cli-visualizer` profile (disabling scrollbar, for example)
 * [Apps-Volume-Equalizer-icon.png](./files/icons/Apps-Volume-Equalizer/Apps-Volume-Equalizer-icon.png)
