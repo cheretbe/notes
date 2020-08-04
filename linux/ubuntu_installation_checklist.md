@@ -144,9 +144,10 @@ cp /usr/share/applications/org.gnome.Terminal.desktop ~/.local/share/application
  X-GNOME-SingleWindow=false
  OnlyShowIn=GNOME;Unity;
 -Actions=new-window;preferences;
+-X-Ubuntu-Gettext-Domain=gnome-terminal
 +Actions=new-window
- X-Ubuntu-Gettext-Domain=gnome-terminal
- 
++X-Ubuntu-Gettext-Domain=custom-gnome-terminal
+
  [Desktop Action new-window]
  Name=New Window
 -Exec=gnome-terminal --window
