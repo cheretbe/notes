@@ -19,6 +19,9 @@ vboxmanage setproperty machinefolder /mnt/ramdrive
 # change size without losing data
 mount -o remount,defaults,noatime,size=32g /mnt/ramdrive/
 
+# fstab entry
+# tmpfs  /mnt/ramdrive  tmpfs  defaults,noatime,nodiratime,size=16g  0  0
+
 # Restore default setting
 vboxmanage setproperty machinefolder "${HOME}/VirtualBox VMs"
 ```
