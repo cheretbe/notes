@@ -1,5 +1,9 @@
 :bulb: Use mbuffer instead
 ```shell
+# mbuffer is in 'universe' repo
+add-apt-repository universe
+apt install mbuffer
+
 # Small compressable files
 # Receiver
 mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xvz
