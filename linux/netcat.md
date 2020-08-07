@@ -8,13 +8,19 @@ apt install mbuffer
 # Receiver
 mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xvz
 # Sender
-tar cf - directory/ | pigz | mbuffer -q -s 128k -m 1G -O host.tld:1234
+tar -cf - directory/ | pigz | mbuffer -q -s 128k -m 1G -O host.tld:1234
 
 # No compression
 # Receiver
 mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xv
 # Sender
-tar cf - directory/ | mbuffer -q -s 128k -m 1G -O host.tld:1234
+tar -cf - directory/ | pv | mbuffer -q -s 128k -m 1G -O host.tld:1234
+
+# Fix "socket ignored" and subsequent "Exiting with failure status due to previous errors" when
+# copying whole filesystems.
+# "socket ignored" error is harmless, but to make sure other errors don't creep in, sockets could be excluded
+find directory/ -type s -print > /tmp/sockets-to-exclude
+tar -X /tmp/sockets-to-exclude -cf - directory/ | pv | ..
 ```
 
 :warning: 2test:
