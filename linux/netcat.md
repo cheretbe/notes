@@ -19,8 +19,9 @@ tar -cf - directory/ | pv | mbuffer -q -s 128k -m 1G -O host.tld:1234
 # Fix "socket ignored" and subsequent "Exiting with failure status due to previous errors" when
 # copying whole filesystems.
 # "socket ignored" error is harmless, but to make sure other errors don't creep in, sockets could be excluded
+# Exclude /dev also is a good idea
 find directory/ -type s -print > /tmp/sockets-to-exclude
-tar -X /tmp/sockets-to-exclude -cf - directory/ | pv | ..
+tar --exclude=directory/dev/* -X /tmp/sockets-to-exclude -cf - directory/ | pv | ..
 ```
 
 :warning: 2test:
