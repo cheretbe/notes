@@ -92,6 +92,12 @@ try {
   # $_ | Add-Member -NotePropertyName "writeErrorStream" -NotePropertyValue $TRUE -PassThru
 }
 
+# File redirection
+. {
+  Write-Output "Directory list:"
+  Get-ChildItem "C:\"
+} *>&1 | Tee-Object -Append -FilePath "test.log"
+
 function Dummy {
 [CmdletBinding()]
 param(
