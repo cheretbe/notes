@@ -60,6 +60,7 @@ end
     vb.customize ["sharedfolder", "add", :id, "--name", "provision", "--hostpath", "/path/on/host", "--automount"]
     # relative path
     vb.customize ["sharedfolder", "add", :id, "--name", "debug", "--hostpath", File.expand_path("../..", File.dirname(__FILE__)), "--automount"]
+    # NICs are 1-based (--nicpromisc<1-N>, --nictype<1-N>, etc.)
     # deny|allow-vms|allow-all
     vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     # Virtio supports VLAN tagging in guests
