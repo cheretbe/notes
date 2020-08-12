@@ -97,6 +97,14 @@ ps aux | grep python
 ```
 #### Windows
 
+WinSxS store cleanup
+```batch
+:: Analyze
+Dism.exe /Online /Cleanup-Image /AnalyzeComponentStore
+:: Cleanup
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+```
+
 Ctrl+Alt+Del menu in RDP client: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>End</kbd>
 
 ```powershell
