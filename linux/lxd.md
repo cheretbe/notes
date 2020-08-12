@@ -102,7 +102,7 @@ lxc storage create pool1 zfs source=pool/path
 ```
 
 #### Usage
-```
+```shell
 # Growing a loop-backed ZFS pool
 # https://github.com/lxc/lxd/blob/master/doc/storage.md#growing-a-loop-backed-zfs-pool
 
