@@ -6,9 +6,20 @@ service smokeping restart
 # [!!!] when changing step (ping frequncy) parameter in /etc/smokeping/config.d/Probes
 # see note on old RRD files deletion in https://oss.oetiker.ch/smokeping/probe/FPing.en.html
 # By default RRD files are in `/var/lib/smokeping`
-
 ```
 
+`/etc/smokeping/config.d/Probes`
+```
+*** Probes ***
+
++ FPing
+
+binary = /usr/bin/fping
+
+step = 25
+```
+
+`/etc/smokeping/config.d/Targets`
 ```
 *** Targets ***
 
