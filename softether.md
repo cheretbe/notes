@@ -35,4 +35,8 @@ subnet 192.168.2.0 netmask 255.255.255.0 {
 ```
 INTERFACESv4="eth4"
 ```
+```shell
+# Apply changes
+systemctl restart isc-dhcp-server.service
+```
 
