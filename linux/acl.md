@@ -36,3 +36,36 @@ nano /etc/login.defs
 setfacl -d -m mask:rwx directory
 setfacl -R -d -m other::--- directory
 ```
+
+#### AD domain example
+
+```shell
+mkdir /share/test_dir
+
+setfacl mask:rwx /share/test_dir
+setfacl -d -m mask:rwx /share/test_dir
+
+setfacl -m other::--- /share/test_dir
+setfacl -d -m other::--- /share/test_dir
+
+# 000 has the same effect as ---
+# Could have used numerical gid instead of quoting group name
+# getent group "domain users"
+setfacl -m "g:domain users:000" /share/test_dir
+setfacl -d -m "g:domain users:000" /share/test_dir
+
+setfacl -m g:domain-admins:rwx /share/test_dir
+setfacl -d -m g:domain-admins:rwx /share/test_dir
+
+setfacl -m g:read-only-group:r-x /share/test_dir
+setfacl -d -m g:read-only-group:r-x /share/test_dir
+```
+`/etc/samba/smb.conf` entry:
+```
+[test_dir]
+    path = /share/test_dir
+    public = no
+    valid users = "@domain-admins", "@read-only-group"
+    read list = "@domain-admins", "@read-only-group"
+    write list = "@domain-admins"
+```
