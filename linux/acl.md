@@ -1,5 +1,10 @@
 * https://www.server-world.info/en/note?os=Ubuntu_14.04&p=acl
 
+:bulb: Copy existing ACLs
+```shell
+getfacl file-or-dir1 | setfacl --set-file=- file-or-dir2
+```
+
 ```shell
 apt install acl
 # check for acl option
