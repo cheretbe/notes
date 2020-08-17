@@ -305,7 +305,7 @@ Add your SAMBA server to the domain:
 # Add to a specific container: createcomputer=Servers/UNIX
 net ads join test.local -U administrator
 # or using current Kerberos ticket
-net ads join test.local -k
+net ads join test.local -k createcomputer=Servers/UNIX
 # To prevent net ads join adding multiple DNS entries when several ethernet interfaces are present,
 # add interfaces option to /etc/samba/smb.conf
 # interfaces = enp0s9
