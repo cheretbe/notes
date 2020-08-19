@@ -20,13 +20,13 @@ StartupWMClass=winbox.exe
 
 [Desktop Action new-window]
 Name=New Window
-Exec=env WINEPREFIX="/home/npa/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/npa/.wine/dosdevices/ c:/winbox.exe
+Exec=env WINEPREFIX="/home/user/.wine" wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/npa/.wine/dosdevices/ c:/winbox.exe
 ```
 
 * `gtk-update-icon-cache` ~~Restart gnome-shell: <kbd>Alt</kbd>+<kbd>F2</kbd>, `restart` or `r`~~
 
 ```shell
 env LC_ALL=ru_RU.CP1251 wine "C:\Program Files\1Cv77\BIN\1cv7.exe"
-env WINEPREFIX="/home/GUR/2301/.wine" LC_ALL=ru_RU.CP1251 wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/user/.wine/dosdevices/c:/temp/DM/osdm.bat
+env WINEPREFIX="/home/user/.wine" LC_ALL=ru_RU.CP1251 wine C:\\\\windows\\\\command\\\\start.exe /Unix /home/user/.wine/dosdevices/c:/temp/DM/osdm.bat
 
 ```
