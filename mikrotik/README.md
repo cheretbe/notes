@@ -292,3 +292,21 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 /tool romon set enabled=yes
 ```
 * https://wiki.mikrotik.com/wiki/Manual:RoMON
+
+### Netinstall
+* https://vedernikoff.ru/mikrotik-netinstall/
+* 
+
+```shell
+# (2test) Under wine run as root or allow Wine to bind low ports as non-root
+# https://www.winehq.org/pipermail/wine-bugs/2014-July/391739.html
+# /usr/bin/wine64-preloader and /usr/bin/wine-preloader are symlinks
+setcap CAP_NET_BIND_SERVICE+ep /opt/wine-stable/bin/wine64-preloader
+setcap CAP_NET_BIND_SERVICE+ep /opt/wine-stable/bin/wine-preloader
+# View capabilities
+getcap /opt/wine-stable/bin/wine64-preloader
+getcap /opt/wine-stable/bin/wine-preloader
+# Remove capabilities
+setcap -r /opt/wine-stable/bin/wine-preloader
+setcap -r /opt/wine-stable/bin/wine64-preloader
+```
