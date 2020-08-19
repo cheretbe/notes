@@ -294,12 +294,16 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 * https://wiki.mikrotik.com/wiki/Manual:RoMON
 
 ### Netinstall
+* https://wiki.mikrotik.com/wiki/Manual:Netinstall
 * https://vedernikoff.ru/mikrotik-netinstall/
-* 
+* https://www.umgum.com/mikrotik-netinstall-linux
 
 ```shell
 # (2test) Under wine run as root or allow Wine to bind low ports as non-root
 # https://www.winehq.org/pipermail/wine-bugs/2014-July/391739.html
+# (?) Looks like everything works with stock Wine from Ubuntu 20.04 repo, but fails
+# when using winehq-stable
+
 # /usr/bin/wine64-preloader and /usr/bin/wine-preloader are symlinks
 setcap CAP_NET_BIND_SERVICE+ep /opt/wine-stable/bin/wine64-preloader
 setcap CAP_NET_BIND_SERVICE+ep /opt/wine-stable/bin/wine-preloader
