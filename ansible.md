@@ -150,6 +150,7 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 * https://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html#vault
 
 ```shell
+# [!] use space to prevent the command showing up in history
 ansible-vault encrypt_string 'string-value' --name 'parameter-name'
 ```
 
