@@ -149,6 +149,10 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
     * https://github.com/AlanCoding/Ansible-inventory-file-examples/tree/master/vault/single_var_file
 * https://docs.ansible.com/ansible-tower/latest/html/userguide/credentials.html#vault
 
+```shell
+ansible-vault encrypt_string 'string-value' --name 'parameter-name'
+```
+
 ### Molecule
 * https://opensource.com/article/18/12/testing-ansible-roles-molecule
 * https://molecule.readthedocs.io/en/latest/
