@@ -47,8 +47,8 @@ echo "\$(date) - Rebooting $(hostname -f)" \
 /sbin/reboot
 EOF
 
-# Reboot in 5 minutes
-at $(date -d "today +5 min" +"%H:%M:%S %Y-%m-%d") <<EOF
+# Reboot in ~5 minutes (at doesn't use seconds)
+at $(date -d "today +5 min" +"%H:%M %Y-%m-%d") <<EOF
 echo "\$(date) - Rebooting $(hostname -f)" \
    | mail $USER -s "Scheduled reboot of $(hostname -f)"
 /sbin/reboot
