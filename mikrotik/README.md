@@ -23,7 +23,7 @@ WLAN settings
 - Ppoint-to-point bridge: https://www.technotrade.com.ua/Articles/mikrotik_wifi_bridge_setup_2013-09-08.php
 
 
-Scheduled task to save current config
+Scheduled task to save current config (:warning: check if `flash` directory is present)
 ```
 /system script add dont-require-permissions=no name=SaveCurrentBackup \
   source=":log info \"Backing up current config\"\r\
