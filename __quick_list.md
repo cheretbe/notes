@@ -34,6 +34,7 @@ echo "\$(date) - Rebooting $(hostname -f)" \
 /sbin/reboot
 EOF
 ```
+[More examples](./linux/cron+at.md#at-command)
 
 ```shell
 # Set test to a variable without echoing it
