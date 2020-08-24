@@ -147,6 +147,12 @@ $Conf{BackupFilesExclude} = {
 ### Installation
 Only for new installation, skip this for upgrade
 ```shell
+# 20.04
+apt install apache2 apache2-utils libapache2-mod-perl2 smbclient \
+  rrdtool libarchive-zip-perl libfile-listing-perl \
+  libxml-rss-perl libcgi-session-perl make gcc par2 \
+  libacl1 libacl1-dev
+
 apt-get install apache2 apache2-utils libapache2-mod-perl2 smbclient rrdtool libapache2-mod-scgi \
     libarchive-zip-perl libfile-listing-perl libxml-rss-perl libcgi-session-perl make gcc par2 \
     libacl1 libacl1-dev
