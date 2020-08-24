@@ -165,11 +165,11 @@ apt purge sendmail*
 apt install postfix
 dpkg-reconfigure postfix --priority low
 
-adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc
+adduser --system --home /var/lib/backuppc --group --disabled-password --shell /bin/false backuppc-server
 
 rmdir /var/lib/backuppc/
 mkdir /path/to/backup/dir
-chown backuppc:backuppc /path/to/backup/dir
+chown backuppc-server:backuppc-server /path/to/backup/dir
 ln -s /path/to/backup/dir /var/lib/backuppc
 
 mkdir -p /var/lib/backuppc/.ssh
@@ -180,7 +180,7 @@ echo -e "BatchMode yes\nStrictHostKeyChecking no" > /var/lib/backuppc/.ssh/confi
 ssh-keygen -q -t rsa -b 4096 -N '' -C "BackupPC key" -f /var/lib/backuppc/.ssh/id_rsa
 chmod 600 /var/lib/backuppc/.ssh/id_rsa
 chmod 644 /var/lib/backuppc/.ssh/id_rsa.pub
-chown -R backuppc:backuppc /var/lib/backuppc/.ssh
+chown -R backuppc-server:backuppc-server /var/lib/backuppc/.ssh
 ```
 
 Check and download the lastest released versions:
@@ -226,9 +226,9 @@ Install BackupPC
 ```shell
 cd ../BackupPC-4.2.1/
 # [!] When installing, use this. Change '--hostname backuppc' to the actual host name
-# ./configure.pl --batch --cgi-dir /var/www/cgi-bin/BackupPC --data-dir /var/lib/backuppc \
-#   --hostname $(hostname -f) --html-dir /var/www/html/BackupPC --html-dir-url /BackupPC \
-#   --install-dir /usr/local/BackupPC
+./configure.pl --batch --cgi-dir /var/www/cgi-bin/BackupPC --data-dir /var/lib/backuppc \
+  --hostname $(hostname -f) --html-dir /var/www/html/BackupPC --html-dir-url /BackupPC \
+  --install-dir /usr/local/BackupPC --backuppc-user=backuppc-server
 
 # When upgrading, use this instead:
 service backuppc stop
@@ -253,8 +253,8 @@ cp /etc/apache2/envvars{,.bak}
 # Note that changing the apache user and group (next two commands) could cause other services
 # provided by apache to fail. There are alternatives if you don't want to change the apache
 # user: use SCGI or a setuid BackupPC_Admin script - see the docs.
-sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=backuppc/" /etc/apache2/envvars
-sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=backuppc/" /etc/apache2/envvars
+sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=backuppc-server/" /etc/apache2/envvars
+sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=backuppc-server/" /etc/apache2/envvars
 
 cp /var/www/html/index.html{,.bak}
 echo '<html><head><meta http-equiv="refresh" content="0; url=/BackupPC_Admin"></head></html>' > /var/www/html/index.html
@@ -282,7 +282,7 @@ nano /etc/BackupPC/config.pl
 #    $Conf{CgiAdminUsers} = 'backuppc';
 # Actually we need only CgiAdminUsers, do we?
 
-chown -R backuppc:backuppc /etc/BackupPC
+chown -R backuppc-server:backuppc-server /etc/BackupPC
 
 htpasswd /etc/BackupPC/BackupPC.users backuppc
 
