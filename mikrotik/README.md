@@ -22,6 +22,17 @@ WLAN settings
 - (2check): https://blog.ligos.net/2018-01-01/Mikrotik-WiFi-Access-Point-With-VLAN.html
 - Ppoint-to-point bridge: https://www.technotrade.com.ua/Articles/mikrotik_wifi_bridge_setup_2013-09-08.php
 
+
+Scheduled task to save current config
+```
+/system script add dont-require-permissions=no name=SaveCurrentBackup \
+  source=":log info \"Backing up current config\"\r\
+  \n/system backup save name=\"flash/current.config\"\r\
+  \n/export compact file=\"flash/current.config\""
+
+/system scheduler add interval=1d name=SheduledBackup on-event=SaveCurrentBackup start-date=jan/01/1970 start-time=04:00:00
+```
+
 Winbox settings location: ` %USERPROFILE%\AppData\Roaming\Mikrotik\Winbox`
 
 Get latest RoS version:
