@@ -76,6 +76,7 @@ vboxmanage setproperty machinefolder /mnt/vmdata/vm/
 # check mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
 
+# Local forwarding (connect to a remote server vi localhost): -L:8080:192.168.0.1:80
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=5 -o ServerAliveCountMax=2 user@host.tld
 ssh-copy-id -i ~/.ssh/key_name.pub user@host.tld
 
