@@ -13,7 +13,9 @@ systemctl status softether-vpnserver
 
 vpncmd
 ```
-DHCP server
+Config is in `/usr/libexec/softether/vpnserver/vpn_server.config`
+
+### DHCP server
 ```shell
 apt install isc-dhcp-server
 cp /etc/dhcp/dhcpd.conf{,.bak}
