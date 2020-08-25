@@ -18,6 +18,14 @@ boot-time Chkdsk results: "Application" log, event source "Wininit"
 
 [New wallpaper](../files/windows/Windows10_1903_4K_wallpaper.zip) ([direct link](https://github.com/cheretbe/notes/raw/master/files/windows/Windows10_1903_4K_wallpaper.zip)) for 1080p use 3840x2160, it's 16:9
 
+Administrative share access
+```batch
+:: Query current setting
+cmd /c reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy
+:: Enable
+cmd /c reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+```
+
 KMS activation
 ```batch
 :: In the Office dir (e.g. C:\Program Files\Microsoft Office\Office14):
