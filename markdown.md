@@ -6,6 +6,7 @@
 ```shell
 # https://github.com/jgm/pandoc/releases/latest
 # Markdown to docx
+# gfm (GitHub-Flavored Markdown)
 pandoc -f gfm -o vagrant.docx vagrant.md
 
 # Markdown to PDF
