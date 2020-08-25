@@ -2,6 +2,18 @@
 * Github Syntax highlighting list: https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 * Gitlab references (issues, commits, etc): https://docs.gitlab.com/ce/user/markdown.html#special-gitlab-references
 
+
+```shell
+# https://github.com/jgm/pandoc/releases/latest
+# Markdown to docx
+pandoc -f gfm -o vagrant.docx vagrant.md
+
+# Markdown to PDF
+apt install texlive-latex-recommended texlive-latex-extra
+# Install texlive-xetex package for --pdf-engine=xelatex
+pandoc -f gfm -o test.pdf test.md -V geometry:a4paper -V geometry:margin=2cm -V mainfont="Calibri" --pdf-engine=xelatex
+```
+
 Collapsible details content
 <details>
   <summary>
