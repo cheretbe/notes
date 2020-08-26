@@ -1,3 +1,8 @@
+```shell
+# Re-read partition table from a drive
+partprobe /dev/sdX
+```
+
 Clear MBR and partition table
 ```shell
 # 2 blocks of 512 bytes (for GPT)
