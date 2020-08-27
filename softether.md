@@ -31,6 +31,13 @@ max-lease-time 86400;
 subnet 192.168.2.0 netmask 255.255.255.0 {
   range 192.168.2.10 192.168.2.100;
 }
+
+# Fixed address for a host
+host my-host {
+  hardware ethernet 00:00:00:00:00:00;
+  fixed-address 192.168.2.101;
+}
+# 
 ```
 
 `/etc/default/isc-dhcp-server`:
