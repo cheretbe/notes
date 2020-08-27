@@ -37,7 +37,6 @@ host my-host {
   hardware ethernet 00:00:00:00:00:00;
   fixed-address 192.168.2.101;
 }
-# 
 ```
 
 `/etc/default/isc-dhcp-server`:
