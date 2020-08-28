@@ -1,3 +1,8 @@
+```bash
+# View info for all drives
+smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -i " $1) }'
+```
+
 ### Smartd settings
 
 Uncomment the line in `/etc/default/smartmontools`:
