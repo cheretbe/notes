@@ -24,7 +24,7 @@ Administrative share access
 cmd /c reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy
 :: Enable
 cmd /c reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
-:: Remove setting (default)
+:: Remove setting (default), use '/f' to suppress confirmation
 cmd /c reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy
 ```
 
