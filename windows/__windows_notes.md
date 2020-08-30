@@ -18,6 +18,8 @@ boot-time Chkdsk results: "Application" log, event source "Wininit"
 
 [New wallpaper](../files/windows/Windows10_1903_4K_wallpaper.zip) ([direct link](https://github.com/cheretbe/notes/raw/master/files/windows/Windows10_1903_4K_wallpaper.zip)) for 1080p use 3840x2160, it's 16:9
 
+Windows Users in Administrators Group without Administrator rights – How to Fix: https://www.ryadel.com/en/windows-users-administrators-group-without-admin-rights-uac-fix/
+
 Administrative share access
 ```batch
 :: Query current setting
