@@ -1,6 +1,15 @@
 ```bash
 # View info for all drives
 smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -i " $1) }'
+smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -A " $1 "| grep -i sector") }'
+
+# Or use check_smart script
+check_smart_ver=$(curl -s https://api.github.com/repos/Napsty/check_smart/releases/latest | jq -r ".tag_name")
+wget https://github.com/Napsty/check_smart/archive/${check_smart_ver}.tar.gz
+tar -xzvf ${check_smart_ver}.tar.gz
+cd check_smart-${check_smart_ver}/
+
+check_smart.pl -g '/dev/sd[a-g]' -i auto
 ```
 
 ### Smartd settings
