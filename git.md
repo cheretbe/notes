@@ -10,6 +10,16 @@
 
 ### Unsorted
 
+Get latest release
+```shell
+release_data=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest)
+backuppc_xs_ver=$(echo ${release_data} | jq -r ".tag_name")
+backuppc_xs_tar=$(echo ${release_data} | jq -r ".assets[0].name")
+wget $(echo ${release_data} | jq -r ".assets[0].browser_download_url")
+tar -xzvf ${backuppc_xs_tar}
+cd BackupPC-XS-${backuppc_xs_ver}
+```
+------
 * Github webhooks (for read-only copy update automation)
     * https://docs.github.com/en/developers/webhooks-and-events/webhooks
     * https://blog.bearer.sh/consume-webhooks-with-python/
