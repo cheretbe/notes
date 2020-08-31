@@ -1,7 +1,11 @@
 * `markdown-it` demo: https://markdown-it.github.io/
 * Github Syntax highlighting list: https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 * Gitlab references (issues, commits, etc): https://docs.gitlab.com/ce/user/markdown.html#special-gitlab-references
-
+------
+* http://ctan.altspu.ru/macros/latex/contrib/fancyhdr/fancyhdr.pdf
+* https://tex.stackexchange.com/questions/139139/adding-headers-and-footers-using-pandoc
+* https://tex.stackexchange.com/questions/91353/how-to-write-date-and-time-in-footer
+* example: ooo tim
 
 ```shell
 # https://github.com/jgm/pandoc/releases/latest
