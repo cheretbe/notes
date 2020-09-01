@@ -130,6 +130,9 @@ git config --global user.useConfigOnly true
 git config [--global] user.name "user name"
 git config [--global] user.email "email"
 
+# Don't quote cyrillic symbols
+git config --global core.quotepath false
+
 # Credentials (not needed in recent versions?)
 git config --global credential.helper wincred
 # Linux (warning: stores in plaintext!):
