@@ -6,6 +6,7 @@
 * https://tex.stackexchange.com/questions/139139/adding-headers-and-footers-using-pandoc
 * https://tex.stackexchange.com/questions/91353/how-to-write-date-and-time-in-footer
 * **https://github.com/Wandmalfarbe/pandoc-latex-template**
+* https://dev.to/learnbyexample/customizing-pandoc-to-generate-beautiful-pdfs-from-markdown-3lbj
 * example: ooo tim
 
 ```shell
