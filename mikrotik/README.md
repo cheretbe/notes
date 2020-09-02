@@ -55,6 +55,15 @@ curl http://download2.mikrotik.com/routeros/LATEST.6
 /ip firewall filter add action=log chain=output comment="[!!!] DEBUG: Output ICMP" disabled=yes protocol=icmp
 ```
 
+Reboot today at 23:00<br>
+:warning: Disabled by default
+```
+/system scheduler
+add disabled=yes name="Reboot at specified time" on-event="/system reboot" \
+    start-date=[/system clock get date] start-time=23:00:00
+```
+
+
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
 # View default config
