@@ -226,6 +226,7 @@ virsh list --autostart --all
 qemu-img create -f qcow2 /mnt/backup/backup-rescue.qcow2 3449633080320
 # Use -o preallocation=off|meta|full|falloc option (falloc)
 # Specify -f raw for raw disks
+# [!] Use screen if connected via SSH
 qemu-img resize /var/lib/libvirt/images/test-0.img +10G
 
 # Convert qcow2 to VDI
