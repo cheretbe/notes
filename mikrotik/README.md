@@ -48,6 +48,13 @@ curl http://upgrade.mikrotik.com/routeros/LATEST.7
 
 curl http://download2.mikrotik.com/routeros/LATEST.6
 # 6.41.2 1517920142
+
+:global result [/tool fetch url=http://upgrade.mikrotik.com/routeros/LATEST.6fix as-value output=user];
+:global rosVersion [:pick ($result->"data") 0 [:find ($result->"data") " "]]
+# OR
+:global rosVersion "6.45"
+
+/tool fetch url=("https://download.mikrotik.com/routeros/".($rosVersion)."/routeros-".[/system resource get architecture-name]."-6.45.npk")  
 ```
 ```
 /ip firewall filter add action=log chain=input comment="[!!!] DEBUG: Input ICMP" disabled=yes protocol=icmp
