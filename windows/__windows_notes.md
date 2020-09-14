@@ -1,5 +1,8 @@
 ## Unsorted
 
+
+Disable Windows Defender in 2019 LTSC (Disabling SecurityHealthService is the key?): https://forums.mydigitallife.net/threads/windows-10-ltsc-2019-disabling-removing-windows-defender.79246/#post-1511094
+
 * Office proofing tools
    * 2013: https://www.microsoft.com/en-us/download/details.aspx?id=35400
    * 2016: https://www.microsoft.com/en-us/download/details.aspx?id=52668
