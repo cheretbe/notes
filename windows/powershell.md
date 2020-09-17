@@ -52,6 +52,10 @@ Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient
 (
   New-Object -TypeName "Security.Principal.WindowsPrincipal" -ArgumentList ([Security.Principal.WindowsIdentity]::GetCurrent())
 ).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+# or
+(
+  [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
+).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 &"cmd.exe" @("/c", "ver")
 Write-Host ("ERRORLEVEL: {0}" -f $LASTEXITCODE)
