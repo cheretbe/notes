@@ -87,6 +87,10 @@ ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
 
+read -s -p "Password: " ANSIBLE_PWD; echo ""; export ANSIBLE_PWD
+ansible-playbook -i host.domain.tld, -u username check_if_reachable.yml \
+  --extra-vars "ansible_python_interpreter=/usr/bin/python3 ansible_password=$ANSIBLE_PWD"
+
 ansible-playbook -i container-name, --connection=docker \
   --extra-vars "ansible_user=ansible ansible_python_interpreter=/usr/bin/python3" \
   playbook.yml
