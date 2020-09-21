@@ -90,7 +90,8 @@ ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra
 read -s -p "Password: " ANSIBLE_PWD; echo ""; export ANSIBLE_PWD
 ansible-playbook -i host.domain.tld, -u username check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3 ansible_password=$ANSIBLE_PWD"
-  
+
+apt install libkrb5-dev
 pip install pywinrm
 ansible-playbook -i host.domain.tld, -u user@domain.tld check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3" \
