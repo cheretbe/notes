@@ -30,5 +30,5 @@ domain=DOMAIN
 # -k, --kerberos                Use kerberos (active directory) authentication
 # -d, --debuglevel=DEBUGLEVEL   Set debug level
 # -m, --max-protocol=LEVEL      Set the max protocol level
-smbclient -L 121-main.gur.local -k -m SMB3 -d 3
+smbclient -L srv-name.domain.tld -k -m SMB3 -d 3
 ```
