@@ -5,7 +5,7 @@
 
 `--ghost` option is deprecated, use `[no]browse` instead
 
-options are in `/etc/autofs.conf` on Ubuntu (` /etc/sysconfig/autofs` on RHEL (?))
+options are in `/etc/autofs.conf` on Ubuntu (` /etc/sysconfig/autofs` on RHEL)
 ```
 # default is none
 logging = debug
@@ -13,7 +13,7 @@ logging = debug
 
 `/etc/auto.master` entry example
 ```
-/mnt/smb /etc/auto.srv-name --timeout=500 --ghost
+/mnt/smb /etc/auto.srv-name --timeout=500 -browse
 ```
 `/etc/auto.srv-name` example
 ```
