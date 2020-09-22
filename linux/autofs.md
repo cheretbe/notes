@@ -1,3 +1,4 @@
+* https://www.man7.org/linux/man-pages/man5/auto.master.5.html
 * https://www.systutorials.com/docs/linux/man/5-autofs.conf/
 
 :warning: for CIFS make sure `cifs-utils` package is installed
