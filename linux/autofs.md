@@ -3,6 +3,8 @@
 
 :warning: for CIFS make sure `cifs-utils` package is installed
 
+`--ghost` option is deprecated, use `[no]browse` instead
+
 options are in `/etc/autofs.conf` on Ubuntu (` /etc/sysconfig/autofs` on RHEL (?))
 ```
 # default is none
