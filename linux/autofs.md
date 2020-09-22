@@ -11,6 +11,15 @@ options are in `/etc/autofs.conf` on Ubuntu (` /etc/sysconfig/autofs` on RHEL (?
 logging = debug
 ```
 
+`/etc/auto.master` entry example
+```
+/mnt/smb /etc/auto.srv-name --timeout=500 --ghost
+```
+`/etc/auto.srv-name` example
+```
+srv-name -fstype=cifs,credentials=/root/.srv-name_credentials,dir_mode=0755,file_mode=0755,uid=username,rw /share1 ://srv-name.domain.tld/share1 /share2 ://srv-name.domain.tld/share2
+```
+
 ```shell
 # -k, --kerberos                Use kerberos (active directory) authentication
 # -d, --debuglevel=DEBUGLEVEL   Set debug level
