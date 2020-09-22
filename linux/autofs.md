@@ -19,6 +19,12 @@ logging = debug
 ```
 srv-name -fstype=cifs,credentials=/root/.srv-name_credentials,dir_mode=0755,file_mode=0755,uid=username,rw /share1 ://srv-name.domain.tld/share1 /share2 ://srv-name.domain.tld/share2
 ```
+`/root/.srv-name_credentials` example
+```
+username=user
+password=pwd
+domain=DOMAIN
+```
 
 ```shell
 # -k, --kerberos                Use kerberos (active directory) authentication
