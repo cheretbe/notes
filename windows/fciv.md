@@ -11,6 +11,9 @@ LANG=ru_RU.UTF-8 wine cmd
 ```batch
 :: Create index
 c:\fciv\fciv.exe -add c:\windows -r -bp c:\windows -exc c:\temp\exclude.txt -xml c:\temp\index.xml
+:: Check files
+cd c:\windows
+c:\fciv\fciv.exe -v -xml c:\temp\index.xml
 ```
 exclude file exampld (:warning: Note trailing `<cr><lf>` at the end of file)
 ```
