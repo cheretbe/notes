@@ -6,11 +6,13 @@
 ```shell
 LANG=ru_RU.UTF-8 wine cmd
 ```
+* :warning: output XML file is updated, not overwritten
+* :warning: "Errors have been reported to fciv.err" is displayed regardless of errors presence. Just check the file contents every time
 ```batch
-c:\fciv\fciv.exe -add z:\mnt\data\yandexDisk\data\docs -r -bp z:\mnt\data\yandexDisk\data\docs -xml z:\home\orlov\temp\index.xml
+:: Create index
 c:\fciv\fciv.exe -add c:\windows -r -bp c:\windows -exc c:\temp\exclude.txt -xml c:\temp\index.xml
 ```
-exclude file exampld (:warning: Note trailing <cr><lf> at the end of file)
+exclude file exampld (:warning: Note trailing `<cr><lf>` at the end of file)
 ```
 c:\windows\syswow64
 
