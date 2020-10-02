@@ -13,7 +13,10 @@ logging = debug
 
 `/etc/auto.master` entry example
 ```
-/mnt/smb /etc/auto.srv-name --timeout=500 -browse
+# unmount after 10 minutes of inactivity, default is 300 seconds (5 minutes)
+# browse option pre-creates mount point directories for indirect mount maps so
+# the map keys can be seen in a directory listing without being mounted
+/mnt/smb /etc/auto.srv-name --timeout=600 -browse
 ```
 `/etc/auto.srv-name` example
 ```
