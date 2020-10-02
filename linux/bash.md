@@ -15,6 +15,21 @@ set completion-ignore-case
 
 
 ```bash
+# -z switch tests if the expansion of "$1" is a null string or not
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+    exit 1
+fi
+
+if [ -z "$1" ]
+  then
+    echo "No argument supplied"
+    exit 1
+fi
+```
+
+```bash
 #!/bin/bash
 
 # Get script path
