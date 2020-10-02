@@ -8,3 +8,7 @@ cd Favorites
 :: Check md5 sums
 md5sum -c d:\temp\md5sum.txt
 ```
+Linux
+```shell
+find . -type f -not -path "./sync/*" -exec md5sum -b {} \; | tee /mnt/data/temp/md5sum.txt
+```
