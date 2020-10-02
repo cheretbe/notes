@@ -30,7 +30,7 @@ fi
 
 if ! command -v ansible --version &> /dev/null
 then
-  >&2 echo "Ansbile could not be found. Make shure the script runs in a virtualenv"
+  >&2 echo "Ansbile could not be found. Make shure the script is executed in a virtualenv"
   exit 1
 fi
 ```
