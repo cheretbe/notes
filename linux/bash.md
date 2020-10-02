@@ -27,6 +27,12 @@ if [ -z "$1" ]
     echo "No argument supplied"
     exit 1
 fi
+
+if ! command -v ansible --version &> /dev/null
+then
+  >&2 echo "Ansbile could not be found. Make shure the script runs in a virtualenv"
+  exit 1
+fi
 ```
 
 ```bash
