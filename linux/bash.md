@@ -33,6 +33,14 @@ then
   >&2 echo "Ansbile could not be found. Make shure the script is executed in a virtualenv"
   exit 1
 fi
+
+echo "Waiting for SSH to become available"
+timeout 1m bash -c 'until ssh root@mynewvm; do sleep 10; done'
+if [ $? -ne 0 ]; then
+    >&2 echo "Timeout waiting for SSH to become available"
+    exit 1
+fi
+
 ```
 
 ```bash
