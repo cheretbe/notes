@@ -59,6 +59,7 @@ done
 ```bash
 printf "Adding %s (%s) to /etc/hosts\n" ${other_host_name} ${other_host_ip}
 echo "$(date -Iseconds) line with current timestamp"
+echo "Custom-formatted current date: $(date +'%Y-%m-%d')"
 ```
 
 ```bash
