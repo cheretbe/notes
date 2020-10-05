@@ -6,6 +6,9 @@ cd Favorites
 "C:\Program Files\Git\usr\bin\find.exe" . -not -path "./Links/*" -type f -exec md5sum -b {} ; | tee d:\temp\md5sum.txt
 
 :: Check md5 sums
+:: NOTE:
+:: Each file's status lines (including failed ones) are sent to stdout.
+:: However, the final warning line (if present) is sent to stderr.
 md5sum -c d:\temp\md5sum.txt
 :: Don't print OK for each successfully verified file
 md5sum -c d:\temp\md5sum.txt --quiet
