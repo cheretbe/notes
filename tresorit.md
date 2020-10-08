@@ -1,3 +1,5 @@
+* Exclude specific file types from sync (advanced): https://support.tresorit.com/hc/en-us/articles/217103697-Exclude-specific-file-types-from-sync-advanced-
+
 ```shell
 .local/share/tresorit/tresorit-cli status
 .local/share/tresorit/tresorit-cli sync --start tresor-name --path /path/to/tresors/tresor-name
