@@ -1,3 +1,8 @@
+```shell
+.local/share/tresorit/tresorit-cli status
+.local/share/tresorit/tresorit-cli sync --start tresor-name --path /path/to/tresors/tresor-name
+```
+
 ```
 [Unit]
 Description=Tresorit daemon example
