@@ -218,6 +218,14 @@ zfs list -ro space
 ls /mountpoint/pool/.zfs/snapshot/snap-name
 ls /mountpoint/pool/path/.zfs/snapshot/snap-name
 
+# -H             No header
+# -o name        Display snapshot name only
+# -s creation    Sort by creation time (use -S for reverse order)
+# -d1 pool/path  Recursively display any children of the dataset, limiting
+#                the recursion to depth. A depth of 1 will display only the
+#                dataset and its direct children.
+zfs list -H -t snapshot -o name -s creation -d1 pool/path
+
 # Unmount dataset
 zfs unmount pool/path
 # Mount dataset
