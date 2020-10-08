@@ -1,6 +1,9 @@
 ```shell
 .local/share/tresorit/tresorit-cli status
 .local/share/tresorit/tresorit-cli sync --start tresor-name --path /path/to/tresors/tresor-name
+.local/share/tresorit/tresorit-cli transfers
+.local/share/tresorit/tresorit-cli transfers --files
+.local/share/tresorit/tresorit-cli transfers --files --tresor tresor-name
 ```
 
 ```
