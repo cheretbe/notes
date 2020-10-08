@@ -280,7 +280,8 @@ systemctl start chronyd.service
 
 ```shell
 # use 'zfs create' to create a new pool
-# [!] Carefully examine existing pool's properties and make sure new pool's setup is same
+# [!] Carefully examine existing pool's (non-default and non-inherited) properties
+# and make sure new pool's setup is the same
 zpool get feature@lz4_compress pool_name
 zfs get -s local,temporary,received -r all pool_name
 ```
