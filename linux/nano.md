@@ -6,7 +6,12 @@ Convert typed tabs to spaces.
 Set the displayed tab length to #cols columns.
 The value of #cols must be greater than 0. The default value is 8.
 ```
-For four spaces, the appropriate command would therefore be `nano -ET4`.
+For four spaces, the appropriate command would therefore be `nano -ET4`.<br>
+Permanent setting: add to `~/.nanorc`
+```
+set tabsize 4
+set tabstospaces
+```
 
 ---
 ```shell
@@ -24,6 +29,10 @@ echo export EDITOR=/bin/nano >> ~/.bashrc
 * Copy <kbd>ALT</kbd>+<kbd>6</kbd> (with no selection copies current line) - on Linux <kbd>ALT</kbd>+<kbd>Shift</kbd>+<kbd>6</kbd>
 * Cut <kbd>Ctrl</kbd>+<kbd>K</kbd> (with no selection cuts current line)
 * Paste <kbd>Ctrl</kbd>+<kbd>U</kbd>
+---
+* Indent <kbd>ALT</kbd>+<kbd>Shift</kbd>+<kbd>}</kbd> (not the key, but whatever key combination is necessary to produce a closing curly bracket)
+* Unindent <kbd>ALT</kbd>+<kbd>Shift</kbd>+<kbd>{</kbd>
+* :bulb: For tab to spaces setting see comment on the top of file
 ---
 * Undo <kbd>ALT</kbd>+<kbd>U</kbd>
 * Redo <kbd>ALT</kbd>+<kbd>E</kbd>
