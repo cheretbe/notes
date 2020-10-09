@@ -32,7 +32,7 @@ echo export EDITOR=/bin/nano >> ~/.bashrc
 ---
 * Indent <kbd>ALT</kbd>+<kbd>Shift</kbd>+<kbd>}</kbd> (not the key, but whatever key combination is necessary to produce a closing curly bracket)
 * Unindent <kbd>ALT</kbd>+<kbd>Shift</kbd>+<kbd>{</kbd>
-* :bulb: For tab to spaces setting see comment on the top of file
+* :bulb: For tab to spaces setting see comment on the top of the file
 ---
 * Undo <kbd>ALT</kbd>+<kbd>U</kbd>
 * Redo <kbd>ALT</kbd>+<kbd>E</kbd>
