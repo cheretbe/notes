@@ -31,6 +31,13 @@
 * https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
 * https://stackoverflow.com/questions/1722181/how-to-determine-certificate-type-from-file/1726728#1726728
 
+[X.509](https://en.wikipedia.org/wiki/X.509) is a standard defining the format of public key certificates.
+There are several commonly used filename extensions for X.509 certificates. 
+* `.p12` – [PKCS#12](https://en.wikipedia.org/wiki/PKCS_12), an archive file format for storing many cryptography objects as a single file. It is commonly used to bundle a private key with its X.509 certificate or to bundle all the members of a chain of trust.
+    * may contain certificate(s) (public) and private keys (password protected)
+    * PKCS #12 is the successor to Microsoft's "PFX"; however, the terms "PKCS #12 file" and "PFX file" are sometimes used interchangeably
+    * simpler, alternative format to PKCS #12 is PEM which just lists the certificates and possibly private keys as Base 64 strings in a text file
+
 [\[ TOC \]](#table-of-contents)
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
