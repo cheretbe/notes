@@ -32,7 +32,7 @@
 * https://stackoverflow.com/questions/1722181/how-to-determine-certificate-type-from-file/1726728#1726728
 
 [X.509](https://en.wikipedia.org/wiki/X.509) is a standard defining the format of public key certificates.
-There are several commonly used filename extensions for X.509 certificates. 
+There are several commonly used filename extensions for X.509 certificates. :warning: There is some overlap and other extensions are used, so one can’t always tell what kind of file they are working with just from looking at the file extension; one may need to open it and take a look for themselves.
 * `.pem` – ([Privacy-enhanced Electronic Mail](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)) Base64-encoded [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding) certificate, enclosed between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`
     * the PEM format solves the problem of transmitting binary files through systems, like electronic mail, that only support ASCII, by encoding the binary data using base64
     * PEM also defines a one-line header, consisting of `-----BEGIN `, a label, and `-----`, and a one-line footer, consisting of `-----END `, a label, and `-----`. The label determines the type of message encoded. Common labels include `CERTIFICATE`, `CERTIFICATE REQUEST`, `PRIVATE KEY` and `X509 CRL`
@@ -44,6 +44,9 @@ There are several commonly used filename extensions for X.509 certificates.
     * may contain certificate(s) (public) and private keys (password protected)
     * PKCS #12 is the successor to Microsoft's "PFX"; however, the terms "PKCS #12 file" and "PFX file" are sometimes used interchangeably
     * simpler, alternative format to PKCS #12 is PEM which just lists the certificates and possibly private keys as Base 64 strings in a text file
+* `.p7b`, `.p7c` – [PKCS#7](https://en.wikipedia.org/wiki/PKCS_7) SignedData structure without data, just certificate(s) or CRL(s)
+* `.pfx` – PFX, predecessor of PKCS#12
+    * usually contains data in PKCS#12 format, e.g., with PFX files generated in IIS
 
 [\[ TOC \]](#table-of-contents)
 
