@@ -319,6 +319,32 @@ View certificates in a bundle (remove out the `-text` to just get subject/issuer
 openssl crl2pkcs7 -nocrl -certfile CHAINED.pem | openssl pkcs7 -print_certs -text -noout
 ```
 
+Certificate chain for a site
+```shell
+openssl s_client -showcerts nl1.pointtoserver.com:443 </dev/null 2>/dev/null | openssl x509 -outform PEM >mycertfile.pem
+openssl s_client -showcerts nl1.pointtoserver.com:443 </dev/null 2>/dev/null | openssl x509 -text
+# Look for the following line
+# CA Issuers - URI:http://crt.sectigo.com/SectigoRSADomainValidationSecureServerCA.crt
+wget http://crt.sectigo.com/SectigoRSADomainValidationSecureServerCA.crt
+openssl x509 -in SectigoRSADomainValidationSecureServerCA.crt -inform der -text
+
+openssl s_client -showcerts nl1.pointtoserver.com:443 </dev/null | openssl x509 -out certdata
+
+# Certificate Revocation List (CRL):
+openssl x509 -in ServerCA.crt -inform der -text
+# Check if the output contains something like
+# X509v3 CRL Distribution Points: 
+#   Full Name:
+#     URI:http://crl.usertrust.com/USERTrustRSACertificationAuthority.crl
+
+curl http://crl.usertrust.com/USERTrustRSACertificationAuthority.crl | openssl crl -inform DER -text
+```
+mikrotik
+```
+certificate crl add url=http://crl.usertrust.com/USERTrustRSACertificationAuthority.crl fingerprint=""
+```
+
+
 View request (CSR) file
 ```
 openssl req -in mycsr.csr -noout -text
