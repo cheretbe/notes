@@ -33,6 +33,7 @@
 
 [X.509](https://en.wikipedia.org/wiki/X.509) is a standard defining the format of public key certificates.
 There are several commonly used filename extensions for X.509 certificates. 
+* `.pem` – ([Privacy-enhanced Electronic Mail](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)) Base64-encoded [DER](https://en.wikipedia.org/wiki/X.690#DER_encoding) certificate, enclosed between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`
 * `.p12` – [PKCS#12](https://en.wikipedia.org/wiki/PKCS_12), an archive file format for storing many cryptography objects as a single file. It is commonly used to bundle a private key with its X.509 certificate or to bundle all the members of a chain of trust.
     * may contain certificate(s) (public) and private keys (password protected)
     * PKCS #12 is the successor to Microsoft's "PFX"; however, the terms "PKCS #12 file" and "PFX file" are sometimes used interchangeably
