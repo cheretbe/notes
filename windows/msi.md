@@ -17,3 +17,10 @@ $processObj = Start-Process msiexec.exe -Wait -PassThru `
 if ($processObj.ExitCode -ne 0)
     { Throw ("msiexec.exe call failed: exit code {0}" -f $processObj.ExitCode) }
 ```
+
+1. To run with default settings just use `/passive` parameter
+2. To find out parameters run through the installer with logging turned on and it will show all of the possible parameters that the specific MSI accepts
+```batch
+msiexec /log logfile.txt /i installer.msi
+```
+Search logfile.txt for passable parameters marked as "Property(S)" or "Property(C)" with the name in all caps (at the end of the file).
