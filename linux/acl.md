@@ -43,6 +43,7 @@ setfacl -R -d -m other::--- directory
 ```
 
 #### AD domain example
+:warning: 2check: capital "X" applies only to directories and not files
 
 ```shell
 mkdir /share/test_dir
