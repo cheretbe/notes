@@ -94,7 +94,7 @@ find / -xdev -type f -print0 | xargs -0 grep -H -m 1 -I "ForceCompositionPipelin
 # Write speed test
 # 20GiB, 1KiB block: bs=1k count=$((20*1024*1024))
 # 20GiB, 1MiB block:
-sync; dd if=/dev/zero of=tempfile bs=1M count=$((20*1024)) status=progress; sync
+sync; dd if=/dev/zero of=tempfile bs=1M count=$((20*1024)) status=progress oflag=direct; sync
 # Read speed test
 #~~vm.drop_caches = 3~~
 echo 3 | sudo tee /proc/sys/vm/drop_caches 
