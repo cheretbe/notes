@@ -1,3 +1,10 @@
+### Xiaomi Redmi
+
+* Режимы USB
+    * `Настройки` > `О телефоне` > `Версия MIUI` (нажать 7 раз)
+    * `Настройки` > `Расширенные настройки` > `Для разработчиков` > `Отладка по USB`
+
+
 * https://101android.com/developer-options-settings/
 * https://101android.com/full-phone-backup-adb/
 * https://developer.android.com/studio/releases/platform-tools.html#download
