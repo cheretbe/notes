@@ -15,6 +15,9 @@
     * https://zen.yandex.ru/media/iteasy/polnaia-optimizaciia-miui-11-i-telefon-zajil-novoi-jizniu-5ded5e46f7e01b00ad74230e?utm_source=serp
 -----
 
+* Prevent a media directory from appearing in Android Gallery
+    * create an empty file titled `.nomedia`
+
 * https://101android.com/developer-options-settings/
 * https://101android.com/full-phone-backup-adb/
 * https://developer.android.com/studio/releases/platform-tools.html#download
