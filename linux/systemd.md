@@ -79,6 +79,8 @@ WantedBy=multi-user.target
 * Where to put systemd unit file
     * The best place to put system unit files: `/etc/systemd/system`
     * The best place to put user unit files: `/etc/systemd/user` or `$HOME/.config/systemd/user`, but it depends on permissions and the situation
+        * :warning: **2check**: multiple *per-user* instances of a service?
+        * https://superuser.com/questions/853717/what-is-the-difference-between-systemds-user-and-system-services/860598#860598
     * https://unix.stackexchange.com/questions/224992/where-do-i-put-my-systemd-unit-file/367237#367237
 
 Unit file registration
