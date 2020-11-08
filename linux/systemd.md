@@ -3,6 +3,14 @@
 systemd-analyze
 systemd-analyze blame
 systemd-analyze critical-chain
+
+# List all services
+systemctl list-unit-files --type=service --no-pager
+# Only enabled
+systemctl list-unit-files --type=service --state=enabled --no-pager
+
+# List active services
+systemctl --type=service --state=active
 ```
 
 * Nginx
