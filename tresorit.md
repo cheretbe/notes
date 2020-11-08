@@ -8,6 +8,10 @@
 .local/share/tresorit/tresorit-cli transfers --files --tresor tresor-name
 ```
 
+```shell
+nano /etc/systemd/user/tresorit.service
+```
+
 ```
 [Unit]
 Description=Tresorit daemon example
@@ -25,4 +29,9 @@ PIDFile=/home/vagrant/.local/share/tresorit/tresorit-daemon.lock
 
 [Install]
 WantedBy=multi-user.target
+```
+
+```shell
+systemctl daemon-reload
+systemctl enable tresorit.service
 ```
