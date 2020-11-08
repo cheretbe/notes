@@ -9,7 +9,7 @@
 ```
 
 ```shell
-nano /etc/systemd/user/tresorit.service
+nano /etc/systemd/system/tresorit.service
 ```
 
 ```
