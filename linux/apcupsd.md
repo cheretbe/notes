@@ -5,6 +5,9 @@ UPSCABLE usb
 UPSTYPE usb
 DEVICE
 
+BATTERYLEVEL 15
+MINUTES 5
+
 # Network master/slave link
 # Set NETSERVER parameter to on in master's config file
 # On slave:
