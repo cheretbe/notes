@@ -1,6 +1,11 @@
 * Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
 
 ```shell
+# Disable weekly LTS upgrade notification
+# Edit /etc/update-manager/release-upgrades
+# And replace 'Prompt=lts' with 'Prompt=never'
+sed -i 's/^Prompt.*/Prompt=never/' /etc/update-manager/release-upgrades
+
 # Kill background unattended upgrades script that prevents apt from running
 # (repeat a couple of times)
 lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-if-empty kill
