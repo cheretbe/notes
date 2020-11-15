@@ -4,6 +4,7 @@
 # Disable weekly LTS upgrade notification
 # Edit /etc/update-manager/release-upgrades
 # And replace 'Prompt=lts' with 'Prompt=never'
+cat /etc/update-manager/release-upgrades
 sed -i 's/^Prompt.*/Prompt=never/' /etc/update-manager/release-upgrades
 
 # Kill background unattended upgrades script that prevents apt from running
