@@ -8,7 +8,7 @@ path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 
 # Resolve path relative to the script
 # ../templates/file_name
-resolved = pathlib.Path(__file__).resolve().parent.parent / "templates" / file_name
+resolved = pathlib.Path(__file__).resolve().parents[1] / "templates" / file_name
 
 # Iterate directory objects (for search use glob - add example)
 build_dir_obj = pathlib.Path(build_dir).resolve()
