@@ -7,7 +7,7 @@ Unsorted
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 
 # Resolve path relative to the script
-# ../../templates/file_name
+# ../templates/file_name
 resolved = pathlib.Path(__file__).resolve().parent.parent / "templates" / file_name
 ```
 ```shell
