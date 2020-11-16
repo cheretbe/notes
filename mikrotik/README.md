@@ -70,6 +70,19 @@ add disabled=yes name="Reboot at specified time" on-event="/system reboot" \
     start-date=[/system clock get date] start-time=23:00:00
 ```
 
+VPN mangle setup example
+```
+/ip route
+add distance=1 gateway=vpn-interface-name routing-mark=FORCE_VPN
+/ip route rule
+add action=lookup-only-in-table routing-mark=FORCE_VPN table=FORCE_VPN
+
+/ip firewall mangle
+add action=mark-routing chain=prerouting connection-mark=no-mark dst-address-type=!local new-routing-mark=FORCE_VPN passthrough=no src-address=192.168.0.0/24
+/ip firewall nat
+add action=masquerade chain=srcnat out-interface-list=VPN src-address=192.168.0.0/24
+```
+
 
 MTU on PPPoE: http://shop.duxtel.com.au/article_info.php?articles_id=26
 ```bash
