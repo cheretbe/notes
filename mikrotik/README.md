@@ -31,6 +31,8 @@ Scheduled task to save current config (:warning: check if `flash` directory is p
   \n/export compact file=\"flash/current.config\""
 
 /system scheduler add interval=1d name=SheduledBackup on-event=SaveCurrentBackup start-date=jan/01/1970 start-time=04:00:00
+
+/user group add name=read-backup policy="ssh,ftp,read,sensitive"
 ```
 
 Winbox settings location: ` %USERPROFILE%\AppData\Roaming\Mikrotik\Winbox`
