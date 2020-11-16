@@ -5,6 +5,10 @@ Unsorted
 ```python
 #pylint: disable=missing-module-docstring,missing-function-docstring
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
+
+# Resolve path relative to the script
+# ../../templates/file_name
+resolved = pathlib.Path(__file__).resolve().parent.parent / "templates" / file_name
 ```
 ```shell
 virtualenv -p python3 ~/virtenv/py3
