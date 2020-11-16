@@ -9,6 +9,17 @@ path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 # Resolve path relative to the script
 # ../templates/file_name
 resolved = pathlib.Path(__file__).resolve().parent.parent / "templates" / file_name
+
+# Iterate directory objects (for search use glob - add example)
+build_dir_obj = pathlib.Path(build_dir).resolve()
+if not build_dir_obj.exists():
+    return
+for child_obj in build_dir_obj.iterdir():
+    if child_obj.is_dir():
+        shutil.rmtree(str(child_obj))
+    else:
+        os.remove(str(child_obj))
+
 ```
 ```shell
 virtualenv -p python3 ~/virtenv/py3
