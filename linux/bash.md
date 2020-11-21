@@ -41,6 +41,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+if [ "${BASH_SOURCE[0]}" -ef "$0" ]; then
+  echo >&2 "ERROR: This script needs to be sourced to run correctly"
+  exit 1
+fi
+some_command
+# [!!] Don't use 'exit' in a sourced script, use 'return' instead
+if [ $? -ne 0 ]; then
+  echo >&2 "ERROR: some_command execution has failed"
+  return
+fi
+
 ```
 
 ```bash
