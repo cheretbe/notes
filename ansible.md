@@ -181,6 +181,7 @@ ansible-vault encrypt_string 'string-value' --name 'parameter-name'
     * https://github.com/fabianvf/practical-testing-with-molecule
 * **https://molecule.readthedocs.io/en/latest/examples.html**    
 * https://redhatnordicssa.github.io/how-we-test-our-roles
+* **https://medium.com/@fabio.marinetti81/validate-ansible-roles-through-molecule-delegated-driver-a2ea2ab395b5**
 
 -------
 * https://github.com/ansible-community/molecule-vagrant
