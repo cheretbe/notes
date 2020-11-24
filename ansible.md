@@ -80,6 +80,8 @@ inventory=./awx_inventory.tower.yml
 # --check                 Dry run
 # --module-path /ansible-playbooks/library
 # --limit ubuntu-xenial   Run only on selected hosts
+#                         Multiple patterns: --limit '*AA*:*BB*:*CC*'
+#                         for example: -l 'ubuntu-xenial:ubuntu-bionic'
 # Run locally (note the trailing comma after 'localhost')
 # -i localhost, --connection=local
 ansible-playbook --connection=local -i localhost, playbook.yml
