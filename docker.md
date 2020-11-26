@@ -10,6 +10,10 @@ Possible strategies for Molecule test
 * Keep using `geerlingguy/docker-ubuntu1804-ansible` etc. (easiest, but takes time to update packages)
 * Rebuild geerlingguy's containers and publish them independently (most logical, but also most work to be done)
     * Will need some kind of automation (in a separate KVM VM, using a scheduled task on AWX. Or creating temporary KVM VM with vagrant?)
+    * Set up a scheduled trigger in GitLab CI. Rebuild in two cases;
+      * Publishing date is less than `last_updated = $(curl -s -X GET https://hub.docker.com/v2/repositories/geerlingguy/docker-ubuntu2004-ansible/tags/latest | jq .last_updated)
+`
+      * Some predefined time has passed since last publication
 * Use custom Dockerfile
     * At first glance seems the least appealing. But actually it could be a good compromize. Use `geerlingguy/docker-ubuntu1804-ansible`,
       just adding `apt update`. This needs to be done only once for testing session, then Docker will use local cached image.
