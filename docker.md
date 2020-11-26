@@ -14,6 +14,7 @@ Possible strategies for Molecule test
       * Publishing date is less than `last_updated = $(curl -s -X GET https://hub.docker.com/v2/repositories/geerlingguy/docker-ubuntu2004-ansible/tags/latest | jq .last_updated)
 `
       * Some predefined time has passed since last publication
+      * https://docs.gitlab.com/ee/ci/pipelines/schedules.html
 * Use custom Dockerfile
     * At first glance seems the least appealing. But actually it could be a good compromize. Use `geerlingguy/docker-ubuntu1804-ansible`,
       just adding `apt update`. This needs to be done only once for testing session, then Docker will use local cached image.
