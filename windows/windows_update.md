@@ -20,6 +20,13 @@ Start-Process -FilePath cmd.exe -Verb Runas -ArgumentList '/k \\live.sysinternal
 %windir%\system32\taskschd.msc /s
 ```
 
+```bat
+:: Manually start disabled service
+sc.exe config wuauserv start= manual
+sc.exe start wuauserv
+sc.exe config wuauserv start= disabled
+```
+
 ---
 * https://www.dedoimedo.com/computers/windows-10-updates-improvements-control.html
 * https://www.reddit.com/r/Windows10/comments/aavqpm/after_6_months_of_testing_this_in_my_company_i/
