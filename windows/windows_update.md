@@ -13,6 +13,13 @@ sc.exe config UsoSvc start= disabled
 ```
 Check scheduled tasks under `\Microsoft\Windows\WindowsUpdate` and `\Microsoft\Windows\UpdateOrchestrator`
 
+```powershell
+# Run command prompt as SYSTEM account
+ Start-Process -FilePath cmd.exe -Verb Runas -ArgumentList '/k \\live.sysinternals.com\tools\PsExec64.exe -i -s cmd.exe'
+# Then run Task Scheduler console 
+%windir%\system32\taskschd.msc /s
+```
+
 ---
 * https://www.dedoimedo.com/computers/windows-10-updates-improvements-control.html
 * https://www.reddit.com/r/Windows10/comments/aavqpm/after_6_months_of_testing_this_in_my_company_i/
