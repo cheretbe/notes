@@ -144,3 +144,4 @@ sc.exe start WinRM
 | WMPNetworkSvc  | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
 | wuauserv       | Windows Update                               | Центр обновления Windows                                  |
 | RemoteRegistry | Remote Registry                              | Удаленный реестр                                          |
+| UsoSvc         | Update Orchestrator Service                  | Update Orchestrator Service                               |
