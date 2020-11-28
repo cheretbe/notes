@@ -3,6 +3,19 @@
 * Windows Update Catalog: https://www.catalog.update.microsoft.com/Home.aspx  
 * https://i.imgur.com/MBRIMMX.png
 
+### Completely disabling Windows Update
+
+```bat
+:: Windows Update
+sc.exe config wuauserv start= disabled
+:: Update Orchestrator Service
+sc.exe config UsoSvc start= disabled
+```
+Check scheduled tasks under `\Microsoft\Windows\WindowsUpdate` and `\Microsoft\Windows\UpdateOrchestrator`
+
+---
+* https://www.dedoimedo.com/computers/windows-10-updates-improvements-control.html
+* https://www.reddit.com/r/Windows10/comments/aavqpm/after_6_months_of_testing_this_in_my_company_i/
 
 ### PSWindowsUpdate
 ```powershell
