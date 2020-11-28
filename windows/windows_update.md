@@ -22,7 +22,7 @@ Start-Process -FilePath cmd.exe -Verb Runas -ArgumentList '/k \\live.sysinternal
 
 ```bat
 :: Manually start disabled service
-sc.exe config wuauserv start= manual
+sc.exe config wuauserv start= demand
 sc.exe start wuauserv
 sc.exe config wuauserv start= disabled
 ```
