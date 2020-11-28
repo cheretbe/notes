@@ -15,7 +15,7 @@ Check scheduled tasks under `\Microsoft\Windows\WindowsUpdate` and `\Microsoft\W
 
 ```powershell
 # Run command prompt as SYSTEM account
- Start-Process -FilePath cmd.exe -Verb Runas -ArgumentList '/k \\live.sysinternals.com\tools\PsExec64.exe -i -s cmd.exe'
+Start-Process -FilePath cmd.exe -Verb Runas -ArgumentList '/k \\live.sysinternals.com\tools\PsExec64.exe -i -s cmd.exe'
 # Then run Task Scheduler console 
 %windir%\system32\taskschd.msc /s
 ```
