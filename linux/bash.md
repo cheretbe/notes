@@ -30,9 +30,13 @@ fi
 
 if ! command -v ansible --version &> /dev/null
 then
-  >&2 echo "Anbsile could not be found. Make shure the script is executed in a proper virtualenv"
+  >&2 echo "Anbsile could not be found. Make sure the script is executed in a proper virtualenv"
   exit 1
 fi
+
+# Yes/No question with default yes
+read -p "Do you want to continue? [Y/n] " -r
+if [[ ! $REPLY =~ ^([yY][eE][sS]|[yY]|)$ ]]; then exit 1 ; fi
 
 echo "Waiting for SSH to become available"
 timeout 1m bash -c 'until ssh root@mynewvm; do sleep 10; done'
