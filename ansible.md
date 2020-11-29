@@ -116,6 +116,18 @@ ansible-playbook -i container-name, --connection=docker \
   playbook.yml
 ```
 
+Ad-hoc command returning JSON
+```shell
+# Permanent setting in config file:
+# [defaults]
+# stdout_callback = json
+# bin_ansible_callbacks = True
+# 
+ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json \
+  ansible all -i 192.168.1.137, -a "ls / -lha" \
+  | jq -r '.plays[0].tasks[0].hosts."192.168.1.137".stdout_lines'
+```
+
 ```yaml
 # Useful host variables
 
