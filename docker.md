@@ -4,6 +4,7 @@
 * Docker build wrapper: https://github.com/rancher/dapper (probably makes no sense - one more dependency, copy is done in dockerfile, no matrix support)
 * **A minimal Ubuntu base image modified for Docker-friendliness:** https://github.com/phusion/baseimage-docker
     * Use `phusion/baseimage:master` until [version scheme](https://github.com/phusion/baseimage-docker/issues/543) is changed
+* :warning: **Test docker on Raspberry:** https://phoenixnap.com/kb/docker-on-raspberry-pi
     
 #### Ansible tests
 Possible strategies for Molecule test
