@@ -27,6 +27,7 @@
 * http://www.markusz.io/posts/2017/11/24/ansible-playbook-roles/
 * https://opencredo.com/blogs/reusing-ansible-roles-with-private-git-repos-and-dependencies/
 * https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions
+* Color when there is no pty (CI/CD pipelines): https://www.jeffgeerling.com/blog/2020/getting-colorized-output-molecule-and-ansible-on-github-actions-ci
 
 ### Templates
 
