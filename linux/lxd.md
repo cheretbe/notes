@@ -5,6 +5,7 @@
 * https://stgraber.org/2016/03/11/lxd-2-0-blog-post-series-012/
 * https://stgraber.org/2016/10/27/network-management-with-lxd-2-3/#comment-241550
 * https://github.com/lxc/lxd/blob/master/doc/cloud-init.md
+* :warning: Testdrive as local mirror: https://github.com/Roche/lxdhub
 
 #### Installation
 ```shell
