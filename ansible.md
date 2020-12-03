@@ -45,6 +45,8 @@ Local config: `~/.ansible.cfg`
 * https://docs.ansible.com/ansible/latest/plugins/inventory.html#inventory-plugins
 ```shell
 ansible-inventory -i demo.aws_ec2.yml --graph
+# List all vars for a single host
+ansible -m debug -a "var=hostvars['host.domain.tld']" host.domain.tld
 ```
 * `export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 * see also: https://stackoverflow.com/questions/23074412/how-to-set-host-key-checking-false-in-ansible-inventory-file
