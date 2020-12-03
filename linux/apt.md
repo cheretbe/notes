@@ -1,3 +1,14 @@
+### Local cache
+
+* apt-cacher-ng
+    * https://wiki.debian.org/AptCacherNg
+    * **https://kifarunix.com/how-to-setup-apt-caching-server-using-apt-cacher-ng-on-ubuntu-18-04/**
+    * http://vasilisc.com/apt-cacher-ng
+* squid-deb-proxy (for a dev machine)
+    * https://tribaal.io/making-lxd-fly-on-ubuntu-as-well.html
+
+### Usorted
+
 * Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
 
 ```shell
