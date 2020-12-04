@@ -169,6 +169,8 @@ lxc snapshot <container>
 lxc snapshot <container> <snapshot name>
 # list
 lxc info <container>
+# list all snapshots for all containers
+lxc list --format json | jq '[.[] | { container: .name, snapshot_name: .snapshots[].name } ]'
 # restore
 lxc restore <container> <snapshot name>
 # delete
