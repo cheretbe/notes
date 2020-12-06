@@ -7,7 +7,37 @@
 * squid-deb-proxy (for a dev machine)
     * https://tribaal.io/making-lxd-fly-on-ubuntu-as-well.html
 
-### Usorted
+```shell
+apt install apt-cacher-ng
+```
+Config is in `/etc/apt-cacher-ng/acng.conf`
+
+Default cache location is `/var/cache/apt-cacher-ng` (`CacheDir` parameter). When the value for
+`CacheDir` is changed, update `RequiresMountsFor` in the `/lib/systemd/system/apt-cacher-ng.service`
+file too.
+
+```shell
+mkdir /package-cache/apt-cacher
+chown apt-cacher-ng:apt-cacher-ng /package-cache/apt-cacher
+
+nano /etc/apt-cacher-ng/acng.conf
+nano /lib/systemd/system/apt-cacher-ng.service
+
+systemctl daemon-reload
+# Directory structure is created on start
+service apt-cacher-ng restart
+```
+
+view status at `http://host.domain.tld:3142/`, (select `Statistics report and configuration page` in `Related links`)
+
+```shell
+cat <<EOF >/etc/apt/apt.conf.d/02proxy
+  Acquire::http::proxy "http://host.domain.tld:3142";
+  Acquire::ftp::proxy "http://host.domain.tld:3142";
+EOF
+```
+
+### Unsorted
 
 * Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
 
