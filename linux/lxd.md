@@ -285,7 +285,13 @@ zfs unmount lxd-default/containers/old-container
 * https://discuss.linuxcontainers.org/t/looking-for-clarification-about-subuid-gid/630
 
 Access files from the host: https://serverfault.com/questions/674762/easy-way-to-transfer-files-between-host-and-lxc-container-on-lvm/676375#676375<br>
-`/var/lib/lxd/storage-pools/default/containers/`<br>
+```shell
+ls /var/lib/lxd/storage-pools/default/containers/
+# LXD snap version runs in its own mount namespace which shields it from the main mount table
+# and effectively hides all your container filesystems away. /var/snap/lxd/common/mntns symlink
+# is provided as a gateway into that separate mount namespace.
+ls /var/snap/lxd/common/mntns/var/snap/lxd/common/lxd/storage-pools/default/containers/container-name/rootfs/
+```
 :warning: Adjust permissions on host since container's root will not have access<br>
 Less hackerish approach:
 ```
