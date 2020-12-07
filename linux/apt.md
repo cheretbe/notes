@@ -10,7 +10,7 @@
 ```shell
 apt install apt-cacher-ng
 ```
-Config is in `/etc/apt-cacher-ng/acng.conf`
+Config is in `/etc/apt-cacher-ng/acng.conf` (:warning: debconf parameters are in `/etc/apt-cacher-ng/zz_debconf.conf` - WTF?)
 
 Default cache location is `/var/cache/apt-cacher-ng` (`CacheDir` parameter). When the value for
 `CacheDir` is changed, update `RequiresMountsFor` in the `/lib/systemd/system/apt-cacher-ng.service`
