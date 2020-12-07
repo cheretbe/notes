@@ -37,6 +37,18 @@ cat <<EOF >/etc/apt/apt.conf.d/02proxy
 EOF
 ```
 
+### Debconf configuration preseeding
+
+```shell
+# debconf-utils has to be installed
+apt install debconf-utils
+
+# Use 'debconf-show package' or 'debconf-get-selections | grep package' to view
+# all available questions (package has to be installed)
+# To view text descriptions and choices open full selection DB dump and use search
+debconf-get-selections | less
+```
+
 ### Unsorted
 
 * Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
