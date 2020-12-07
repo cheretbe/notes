@@ -128,6 +128,8 @@ dpkg --contents package.deb
 # Extract DEB package conents without installing
 # [!] Directory to extract is NOT optional. Will be created if doesn't exist
 dpkg-deb -xv package.deb /path/to/extract
+# Use -R to extract control info too
+dpkg-deb -Rv package.deb /path/to/extract
 
 # Downgrade a package
 # Check currently installed version
