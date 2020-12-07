@@ -47,6 +47,12 @@ The correct way to do this is to create a directory named after the unit file wi
 
 For example, for a unit file `/run/systemd/generator.late/isc-dhcp-server.service` (automatically generated for `/etc/init.d/isc-dhcp-server`) the drop-in file name will be:<br>
 `/etc/systemd/system/isc-dhcp-server.service.d/enable-autorestart.conf`<br>
+:warning: Don't forget to copy section name
+```shell
+# or use edit command to create drop-in file override.conf automatically
+systemctl edit apt-cacher-ng.service
+```
+
 To check if the file is in use view service status:
 ```
 # systemctl status isc-dhcp-server.service
