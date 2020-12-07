@@ -48,6 +48,22 @@ apt install debconf-utils
 # To view text descriptions and choices open full selection DB dump and use search
 debconf-get-selections | less
 ```
+Ansible
+```yaml
+- name: Configure APT apt-cache-ng package (Allow HTTP tunnels through Apt-Cacher NG)
+  debconf:
+    name: apt-cache-ng
+    question: "apt-cacher-ng/tunnelenable"
+    value: true
+    vtype: boolean
+    
+- name: Configure APT postfix package (internet with smarthost)
+  debconf:
+    name: postfix
+    question: "postfix/main_mailer_type"
+    value: "Internet with smarthost"
+    vtype: select
+```
 
 ### Unsorted
 
