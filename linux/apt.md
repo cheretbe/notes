@@ -54,7 +54,7 @@ Ansible
   debconf:
     name: apt-cache-ng
     question: "apt-cacher-ng/tunnelenable"
-    value: true
+    value: "true" # value is string
     vtype: boolean
     
 - name: Configure APT postfix package (internet with smarthost)
