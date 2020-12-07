@@ -14,7 +14,7 @@ Config is in `/etc/apt-cacher-ng/acng.conf` (:warning: debconf parameters are in
 
 Default cache location is `/var/cache/apt-cacher-ng` (`CacheDir` parameter). When the value for
 `CacheDir` is changed, update `RequiresMountsFor` in the `/lib/systemd/system/apt-cacher-ng.service`
-file too.
+file too (:warning: Use `systemctl edit apt-cacher-ng.service` to create drop-in file).
 
 ```shell
 mkdir /package-cache/apt-cacher
