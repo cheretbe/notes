@@ -26,7 +26,7 @@ systemctl enable mysqld.service
 systemctl daemon-reload
 ```
 
-Auto-start service after crash
+Auto-start service after crash (See `Restart=` section in https://www.freedesktop.org/software/systemd/man/systemd.service.html for details)
 ```
 [Unit]
 ...
