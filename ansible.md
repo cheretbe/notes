@@ -180,6 +180,20 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
   - meta: end_play
 ```
 
+##### Environment variables
+
+The `env` lookup plugin returns an empty string when the requested environment variable is not set. `default()` will only return its first argument if the prior expression evaluates to `Undefined`. If you want to use the default value when variables evaluate to false or an empty string you have to set the second parameter to `true`.
+
+```shell
+# This will return "default"
+ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', 'DUMMY') | default('default', true) }}"
+# This will return ""
+ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', 'DUMMY') | default('default') }}"
+```
+
+* https://docs.ansible.com/ansible/2.8/user_guide/playbooks_filters.html#defaulting-undefined-variables
+* https://nikhilism.com/post/2016/understanding-ansible-jinja2-default-filter/
+
 ### Vault
 
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#best-practices-for-variables-and-vaults
