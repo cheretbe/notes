@@ -190,8 +190,8 @@ ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', '
 # This will return ""
 ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', 'DUMMY') | default('default') }}"
 ```
-
-* https://docs.ansible.com/ansible/2.8/user_guide/playbooks_filters.html#defaulting-undefined-variables
+* https://docs.ansible.com/ansible/latest/collections/ansible/builtin/env_lookup.html
+* https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#providing-default-values
 * https://nikhilism.com/post/2016/understanding-ansible-jinja2-default-filter/
 
 ### Vault
