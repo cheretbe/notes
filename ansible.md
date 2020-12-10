@@ -182,7 +182,7 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 
 ##### Environment variables
 
-The `env` lookup plugin returns an empty string when the requested environment variable is not set. `default()` will only return its first argument if the prior expression evaluates to `Undefined`. If you want to use the default value when variables evaluate to false or an empty string you have to set the second parameter to `true`.
+The `env` lookup plugin returns an empty string when the requested environment variable is not set. `default()` will only return its first argument if the prior expression evaluates to `Undefined`. If you want to use the default value when variables evaluate to `false` or an empty string you have to set the second parameter to `true`.
 
 ```shell
 # This will return "default"
