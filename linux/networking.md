@@ -74,6 +74,7 @@ brctl delbr test-br
 * https://developer.gnome.org/NetworkManager/stable/nmcli.html
 * https://developer.gnome.org/NetworkManager/stable/nmcli-examples.html
 * https://developer.gnome.org/NetworkManager/stable/NetworkManager.conf.html
+* :warning: https://developer.gnome.org/NetworkManager/stable/nmtui.html (especially useful for Wi-Fi config)
 
 ```shell
 # General info
