@@ -299,6 +299,8 @@ systemctl restart systemd-resolved.service
 ```
 * https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf
 * https://www.freedesktop.org/software/systemd/man/resolved.conf.html
+* https://github.com/systemd/systemd/issues/10298
+* https://github.com/systemd/systemd/issues/2514
 
 ### DHCP
 ```shell
