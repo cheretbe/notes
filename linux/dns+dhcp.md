@@ -346,28 +346,6 @@ service isc-dhcp-server start
 
 `/etc/pihole/setupVars.conf`
 
-#### systemd-resolved
-```shell
-systemd-resolve --status
-```
-:warning: This section and [networking.md](https://github.com/cheretbe/notes/blob/master/linux/networking.md) need a complete revision/restructure
-
-* How to take back control of /etc/resolv.conf (useful for static IPs): https://www.ctrl.blog/entry/resolvconf-tutorial.html
-
-Temporary fix for systemd-resolved not resolving `.local` names:
-```shell
-# Edit /etc/systemd/resolved.conf
-# DNSStubListener=no
-cp /etc/systemd/resolved.conf{,.bak}
-nano /etc/systemd/resolved.conf
-service systemd-resolved restart
-
-# Update symlink
-mv /etc/resolv.conf{,.bak}
-ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
-```
-* https://superuser.com/questions/1318220/ubuntu-18-04-disable-dnsmasq-base-and-enable-full-dnsmasq/1318279#1318279
-* https://stackoverflow.com/questions/50299241/ubuntu-18-04-server-how-to-check-dns-ip-server-setting-being-used/51060649#51060649
 
 #### DHCP client
 
