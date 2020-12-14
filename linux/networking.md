@@ -71,6 +71,29 @@ brctl delbr test-br
 
 ### NetworkManager
 
+* https://developer.gnome.org/NetworkManager/stable/nmcli.html
+* https://developer.gnome.org/NetworkManager/stable/nmcli-examples.html
+* https://developer.gnome.org/NetworkManager/stable/NetworkManager.conf.html
+
+```shell
+# General info
+nmcli -t -f RUNNING general
+nmcli general
+nmcli dev status
+
+# View ipv4 settings
+nmcli -t --fields ipv4 con show <connectionName>
+# View actual ipv4 parameters
+nmcli -t --fields IP4 con show <connectionName>
+
+# Modify settings for an existing connection
+nmcli con mod <connectionName> ipv4.dns "8.8.8.8 8.8.4.4"
+nmcli con mod <connectionName> ipv4.ignore-auto-dns yes
+# Apply changes
+# (not necessary?) nmcli con down <connectionName>
+nmcli con up <connectionName>
+```
+
 Ubuntu 18.04. GUI doesn't have a menu to add VLANs
 ```shell
 apt install vlan
