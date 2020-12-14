@@ -85,6 +85,8 @@ nmcli dev status
 nmcli -t --fields ipv4 con show <connectionName>
 # View actual ipv4 parameters
 nmcli -t --fields IP4 con show <connectionName>
+# All devices
+nmcli --fields IP4 dev show
 
 # Modify settings for an existing connection
 nmcli con mod <connectionName> ipv4.dns "8.8.8.8 8.8.4.4"
