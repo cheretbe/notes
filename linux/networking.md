@@ -112,6 +112,21 @@ Ubuntu 18.04:
 * https://askubuntu.com/questions/575651/what-is-the-difference-between-grub-cmdline-linux-and-grub-cmdline-linux-default
 
 ### Config examples
+
+RHEL, CentOS (/etc/sysconfig/network-scripts/)
+
+By default, RHEL 7 and 8 use NetworkManager to configure and manage network connections.
+
+```shell
+# Load a new configuration file
+nmcli connection load /etc/sysconfig/network-scripts/ifcfg-connection_name
+# After updating a connection file that has already been loaded into NetworkManager 
+nmcli connection up connection_name 
+```
+
+* RHEL 8 - 5.4. Loading manually-created ifcfg files into NetworkManager: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/getting-started-with-networkmanager_configuring-and-managing-networking#loading-manually-created-ifcfg-files-into-networkmanager_getting-started-with-networkmanager
+* RHEL 7 - 2.7. USING NETWORKMANAGER WITH SYSCONFIG FILES: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-using_networkmanager_with_sysconfig_files
+
 Opensuse (/etc/sysconfig/network)
 ```
 # /etc/sysconfig/network/ifcfg-eth1
