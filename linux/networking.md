@@ -115,7 +115,9 @@ Ubuntu 18.04:
 
 RHEL, CentOS (/etc/sysconfig/network-scripts/)
 
-By default, RHEL 7 and 8 use NetworkManager to configure and manage network connections.
+By default, RHEL 7 and 8 use NetworkManager to configure and manage network connections,
+and the `/usr/sbin/ifup` and `/usr/sbin/ifdown` scripts use NetworkManager to
+process `ifcfg` files in the `/etc/sysconfig/network-scripts/` directory.
 
 ```shell
 # Load a new configuration file
