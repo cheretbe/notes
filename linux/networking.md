@@ -257,8 +257,17 @@ ip route add default via 192.168.1.1 metric 90
 ### DNS
 ```shell
 systemd-resolve --status
-# View DNS record TTL
+
+# View DNS record TTL. If your default DNS server is not the authoritative server for the zone
+# you will see the time remaining (until the next refresh) instead of the raw TTL value.
 nslookup -debug host.domain.tld
+nslookup -version
+# In RedHat and Windows -debug option works, in Ubuntu it doesn't. Use dig
+dig +nocmd +noall +answer host.domain.tld
+
+# View SOA record
+dig SOA +multiline domain.tld @192.168.0.1
+nslookup -q=soa domain.tld
 ```
 
 ### DHCP
