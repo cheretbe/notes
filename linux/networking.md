@@ -272,6 +272,33 @@ dig +nocmd +noall +answer host.domain.tld
 dig SOA +multiline domain.tld @192.168.0.1
 nslookup -q=soa domain.tld
 ```
+#### systemd-resolved
+
+Fix for systemd-resolved not resolving `.local` names:
+
+There are [four modes](https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf)
+of handling `/etc/resolv.conf`. We select the third one (`/run/systemd/resolve/resolv.conf` symlinked from `/etc/resolv.conf`).
+
+```shell
+ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+# As of systemd 232 DNS stub listener can be disabled
+systemctl --version
+# Create config override file
+mkdir -p /etc/systemd/resolved.conf.d
+cat <<EOF >/etc/systemd/resolved.conf.d/10-disable-dns-stub.conf
+[Resolve]
+DNSStubListener=no
+EOF
+systemctl restart systemd-resolved.service
+
+# Restore default settings
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+rm >/etc/systemd/resolved.conf.d/10-disable-dns-stub.conf
+systemctl restart systemd-resolved.service
+```
+* https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf
+* https://www.freedesktop.org/software/systemd/man/resolved.conf.html
 
 ### DHCP
 ```shell
