@@ -259,7 +259,10 @@ ip route add default via 192.168.1.1 metric 90
 ```
 ### DNS
 ```shell
+# Ubuntu with systemd-resolved
 systemd-resolve --status
+# RHEL/CentOS
+nmcli --fields IP4.DNS dev show
 
 # View DNS record TTL. If your default DNS server is not the authoritative server for the zone
 # you will see the time remaining (until the next refresh) instead of the raw TTL value.
