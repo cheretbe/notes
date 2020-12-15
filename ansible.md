@@ -263,6 +263,8 @@ host.run("hostname -f").stdout
 host.file("/etc/passwd").mode
 host.socket("tcp://0.0.0.0:22").is_listening
 host.socket.get_listening_sockets()
+host.system_info.codename
+host.system_info.distribution
 ```
 
 
