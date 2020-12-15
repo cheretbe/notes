@@ -249,6 +249,22 @@ Default test matrix
 * cleanup
 * destroy
 
+Testinfra interactive example
+```python
+import testinfra
+
+host = testinfra.get_host(
+  "ssh://vagrant@localhost:2203",
+  ssh_identity_file="/home/user/.cache/molecule/linux-dns/default/.vagrant/machines/ubuntu-bionic/virtualbox/private_key",
+  ssh_extra_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+)
+
+host.run("hostname -f").stdout
+host.file("/etc/passwd").mode
+host.socket("tcp://0.0.0.0:22").is_listening
+host.socket.get_listening_sockets()
+```
+
 
 ### Installation
 
