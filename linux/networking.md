@@ -297,7 +297,7 @@ systemctl restart systemd-resolved.service
 
 # Restore default settings
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-rm >/etc/systemd/resolved.conf.d/10-disable-dns-stub.conf
+rm /etc/systemd/resolved.conf.d/10-disable-dns-stub.conf
 systemctl restart systemd-resolved.service
 ```
 * https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf
