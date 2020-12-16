@@ -1,8 +1,9 @@
 ```shell
 # Generate locales on Debian/Ubuntu
-# it reads /etc/locale.gen and shows dialog to select locales to generate
-# (uncommented items shown as selected, commented left unselected)
-# then it runs locale-gen (which also reads /etc/locale.gen and generates uncommented locales)
+# It reads /etc/locale.gen and shows dialog to select locales to generate
+# (uncommented items shown as selected, commented left unselected) and updates
+# the file according to user selection. Then it runs locale-gen (which also reads
+# /etc/locale.gen and generates uncommented locales)
 dpkg-reconfigure locales
 ```
 Default locale config is in `/etc/default/locale`. Custom combination of parameters example:
