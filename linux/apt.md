@@ -70,6 +70,12 @@ Ansible
 * Package `distro-info-data` contains distribution release info (`/usr/share/distro-info/debian.csv`, `/usr/share/distro-info/ubuntu.csv`)
 
 ```shell
+# if dpkg-reconfigure doesn't show dialogs check DEBIAN_FRONTEND variable value
+# and make sure 'dialog' package is installed
+echo $DEBIAN_FRONTEND
+apt install dialog
+DEBIAN_FRONTEND=dialog dpkg-reconfigure tzdata
+
 # Disable weekly LTS upgrade notification
 # Edit /etc/update-manager/release-upgrades
 # And replace 'Prompt=lts' with 'Prompt=never'
