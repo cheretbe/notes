@@ -9,6 +9,9 @@ locale
 # or
 localectl status
 
+# View more information about specific variable
+locale -k LC_TIME
+
 
 # Generate locales on Debian/Ubuntu
 # It reads /etc/locale.gen and shows dialog to select locales to generate
