@@ -32,13 +32,19 @@ localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8
 locale -a
 # or
 localectl list-locales
+# They are located in /usr/lib/locale/locale-archive file
+ls -lha /usr/lib/locale/locale-archive
 
+# Set system locale
 localectl set-locale LANG=ru_RU.UTF-8
+localectl set-locale LANG=en_US.UTF-8 LC_TIME=ru_RU.UTF-8
 
 # Ubuntu also has update-locale script
-update-locale LANG=ru_RU.UTF-8 LANGUAGE
+# Does the same, but can unset (comment out) existing parameters like this
+update-locale LANG=ru_RU.UTF-8 LANGUAGE LC_TIME
 ```
-Default locale config is in `/etc/default/locale` (Debian/Ubuntu) or `/etc/locale.conf` (RHEL/CentOS). Custom combination of parameters example:
+
+System locale config is in `/etc/default/locale` (Debian/Ubuntu) or `/etc/locale.conf` (RHEL/CentOS). Custom combination of parameters example:
 ```
 LANG="en_US.UTF-8"
 # LANGUAGE="en_US:en"
