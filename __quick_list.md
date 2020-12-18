@@ -91,6 +91,18 @@ find / -xdev -iname "*sql*"
 # -m 1 return only the first match
 find / -xdev -type f -print0 | xargs -0 grep -H -m 1 -I "ForceCompositionPipeline"
 
+# Watch the whole filesystem changes
+apt install inotify-tools
+# or
+yum install inotify-tools
+echo 1048576 > /proc/sys/fs/inotify/max_user_watches
+# -m: Uses monitoring mode
+# -r: recursive path
+# --exclude uses a regex to not watch events on some directories (temp, log directories, and /dev/pts due to the amount of unnecessary changes on those directories)
+# -e MOVED_TO, CREATE, CLOSE_WRITE, DELETE, and MODIFY: The only events we are interested on (inotifywait captures all kind of filesystem events, including listing)
+inotifywait -m -r --exclude "(/tmp.*|/var/cache.*|/dev/pts/|/var/log.*)"  -e MOVED_TO -e CREATE -e CLOSE_WRITE -e DELETE -e MODIFY / | tee /tmp/my_watch_log
+
+
 # Write speed test
 # 20GiB, 1KiB block: bs=1k count=$((20*1024*1024))
 # 20GiB, 1MiB block:
