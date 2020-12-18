@@ -97,6 +97,7 @@ ansible-playbook --connection=local -i localhost, playbook.yml
 ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
+ansible cont-name -m setup -c docker -i cont-name,
 
 read -s -p "Password: " ANSIBLE_PWD; echo ""; export ANSIBLE_PWD
 ansible-playbook -i host.domain.tld, -u username check_if_reachable.yml \
