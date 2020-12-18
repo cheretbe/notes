@@ -23,6 +23,11 @@ locale -k LC_TIME
 # /etc/locale.gen and generates uncommented locales)
 dpkg-reconfigure locales
 
+# Generate locales on RHEL 7/8
+# On RHEL 8 make sure glibc-locale-source package is installed
+yum install glibc-locale-source
+localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8
+
 # Verify the list of available locales
 locale -a
 # or
@@ -33,10 +38,10 @@ localectl set-locale LANG=ru_RU.UTF-8
 # Ubuntu also has update-locale script
 update-locale LANG=ru_RU.UTF-8 LANGUAGE
 ```
-Default locale config is in `/etc/default/locale`. Custom combination of parameters example:
+Default locale config is in `/etc/default/locale` (Debian/Ubuntu) or `/etc/locale.conf` (RHEL/CentOS). Custom combination of parameters example:
 ```
 LANG="en_US.UTF-8"
-LANGUAGE="en_US:en"
+# LANGUAGE="en_US:en"
 LC_NUMERIC="ru_RU.UTF-8"
 LC_TIME="ru_RU.UTF-8"
 LC_MONETARY="ru_RU.UTF-8"
@@ -49,7 +54,6 @@ LC_IDENTIFICATION="ru_RU.UTF-8"
 ```
 
 ### Localization (2check)
-
 
 ```shell
 # RHEL 8
