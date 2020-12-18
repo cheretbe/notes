@@ -2,6 +2,7 @@
     * Supported locales are in `/usr/share/i18n/SUPPORTED`
     * `LANG` contain the setting for all categories that are not directly set by a `LC_*` variable
     * `LANGUAGE` is used to set messages languages (as `LC_MESSAGES`) to a multi-valued value, e.g., setting it to `fr:de:en` will use French messages where they exist; if not, it will use German messages, and will fall back to English if neither German nor French messages are available.
+* How to change system locale on RHEL7? https://access.redhat.com/solutions/974273
 
 ```shell
 # Get locale-specific information
