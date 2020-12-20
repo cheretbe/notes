@@ -101,6 +101,8 @@ echo 1048576 > /proc/sys/fs/inotify/max_user_watches
 # --exclude uses a regex to not watch events on some directories (temp, log directories, and /dev/pts due to the amount of unnecessary changes on those directories)
 # -e MOVED_TO, CREATE, CLOSE_WRITE, DELETE, and MODIFY: The only events we are interested on (inotifywait captures all kind of filesystem events, including listing)
 inotifywait -m -r --exclude "(/tmp.*|/var/cache.*|/dev/pts/|/var/log.*)"  -e MOVED_TO -e CREATE -e CLOSE_WRITE -e DELETE -e MODIFY / | tee /tmp/my_watch_log
+# [!] of use strace
+strace command --parameter
 
 
 # Write speed test
