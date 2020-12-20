@@ -28,6 +28,13 @@ dpkg-reconfigure locales
 yum install glibc-locale-source
 localedef -c -i ru_RU -f UTF-8 ru_RU.UTF-8
 
+# Docker container centos:7 used to have a problem when generating locales. See
+# https://blog.nashcom.de/nashcomblog.nsf/dx/locale-issue-on-linux-centos-rhel.htm
+# https://serverfault.com/questions/616790/how-to-add-language-support-on-centos-7-on-docker/884562#884562
+# /etc/yum.conf contains the line 'override_install_langs=en_US'. This causes yum reinstall glibc-common to
+# only install English. As of December 2020 /etc/yum.conf still contains the option, but localedef no longer
+# fails. Just make sure that 'initscripts' package is installed
+
 # Verify the list of available locales
 locale -a
 # or
