@@ -11,7 +11,7 @@ options are in `/etc/autofs.conf` on Ubuntu (` /etc/sysconfig/autofs` on RHEL)
 logging = debug
 ```
 
-`/etc/auto.master` entry example
+`/etc/auto.master` entry example (:warning: use `\$` to escape dollar sign in share name)
 ```
 # unmount after 10 minutes of inactivity, default is 300 seconds (5 minutes)
 # browse option pre-creates mount point directories for indirect mount maps so
