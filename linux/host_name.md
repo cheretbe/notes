@@ -31,9 +31,11 @@ new-name
 #### CentOS
 
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec_configuring_host_names_using_hostnamectl
+------
 
-Use hostnamectl<br>
-If rename is the result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
+* Use hostnamectl<br>
+* :warning: If rename is a result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
+* Manually update `/etc/hosts` contents
 
 ```shell
 vi /etc/hostname
