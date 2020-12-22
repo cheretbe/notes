@@ -29,10 +29,32 @@ new-name
 5. If rename is the result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
 
 #### CentOS
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec_configuring_host_names_using_hostnamectl
+
+Use hostnamectl<br>
+If rename is the result of copying/cloning a VM make sure to also change the machine ID ([networking.md#dhcp](./networking.md#dhcp))
+
 ```shell
 vi /etc/hostname
 vi /etc/hosts
 # CentOS, check for HOSTNAME=value presence
 vi /etc/sysconfig/network
 hostname new-name
+```
+
+#### hostnamectl
+
+The hostnamectl tool is provided for administering the three separate classes of host names in use on a given system. The three classes of hostname are: static, pretty, and transient.
+
+The static host name is the traditional hostname, which can be chosen by the user, and is stored in the /etc/hostname file. The "transient" hostname is a dynamic host name maintained by the kernel. It is initialized to the static host name by default, whose value defaults to `localhost`. It can be changed by DHCP or mDNS at runtime. The pretty hostname is a free-form UTF8 host name for presentation to the user.
+
+```
+hostnamectl status
+hostnamectl status --transient
+hostnamectl status --static
+hostnamectl status --pretty
+hostnamectl set-hostname "host.domain.tld" --transient
+hostnamectl set-hostname "host.domain.tld" --static
+hostnamectl set-hostname "My Host" --pretty
 ```
