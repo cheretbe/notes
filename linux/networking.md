@@ -324,7 +324,8 @@ mv /etc/machine-id{,.bak}
 systemd-machine-id-setup
 reboot
 ```
-:information_source: `/var/lib/dbus/machine-id` is a symlink to `/etc/machine-id` (at least on Debian/Ubuntu it is). (https://unix.stackexchange.com/questions/402999/it-is-ok-to-change-etc-machine-id/403054#403054)
+:information_source: `/var/lib/dbus/machine-id` is a symlink to `/etc/machine-id` (at least on Debian/Ubuntu it is). (https://unix.stackexchange.com/questions/402999/it-is-ok-to-change-etc-machine-id/403054#403054)<br>
+:warning: TODO: Do some tests on Ubuntu/CentOS and update this section
 
 ### WLAN
 ```
