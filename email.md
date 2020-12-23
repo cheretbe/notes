@@ -34,8 +34,16 @@ quit
 ```shell
 # View configuration
 postconf
-# View non-default values only
+
+# View only configuration parameters that have explicit name=value settings in main.cf
 postconf -n
+# View settings that differ from built-in defaults
+comm -23 <(postconf -n) <(postconf -d)
+# View settings that duplicate built-in defaults
+comm -12 <(postconf -n) <(postconf -d)
+# [!] To view settings that differ from built-in defaults alongside with their default
+# values use python code below
+
 # View all default values
 postconf -d
 # View default value for a parameter
@@ -49,6 +57,20 @@ postconf -e relayhost=[host.domain.tld]
 # Check and apply new settings
 postfix check
 systemctl restart postfix
+```
+
+View settings that differ from built-in defaults alongside with their default values
+```python
+import subprocess
+
+for line in subprocess.check_output(["postconf", "-n"], universal_newlines=True).splitlines():
+    #print(line)
+    param, value = [x.strip() for x in line.split("=", 1)]
+    default_value = subprocess.check_output(
+        ["postconf", "-d", "-h", param], universal_newlines=True
+    ).strip("\n")
+    if value != default_value:
+        print(f"{param} = {value} [{default_value}]")
 ```
 
 ### Configure Postfix to use Gmail as a Mail Relay
