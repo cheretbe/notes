@@ -11,6 +11,8 @@
 * https://www.mailcheap.co/email-shared.html
 * https://www.servermx.com/en/index.html
 * https://www.zoho.com/mail/
+----
+* smtp4dev - the fake SMTP email server for development and testing: https://github.com/rnwood/smtp4dev
 
 ```shell
 echo "Message test" | mailx -v -r "someone@example.com" \
