@@ -37,6 +37,8 @@ postconf
 
 # View only configuration parameters that have explicit name=value settings in main.cf
 postconf -n
+# View single parameter value
+postconf smtpd_use_tls
 # View settings that differ from built-in defaults
 comm -23 <(postconf -n) <(postconf -d)
 # View settings that duplicate built-in defaults
