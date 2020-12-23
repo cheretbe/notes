@@ -65,8 +65,7 @@ View settings that differ from built-in defaults alongside with their default va
 ```python
 import subprocess
 
-for line in subprocess.check_output(["postconf", "-n"], universal_newlines=True).splitlines():
-    #print(line)
+for line in sorted(subprocess.check_output(["postconf", "-n"], universal_newlines=True).splitlines()):
     param, value = [x.strip() for x in line.split("=", 1)]
     default_value = subprocess.check_output(
         ["postconf", "-d", "-h", param], universal_newlines=True
