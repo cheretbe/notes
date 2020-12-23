@@ -26,6 +26,30 @@ pass my-password
 quit
 ```
 
+### Postfix
+
+* http://www.postfix.org/postconf.1.html
+* http://www.postfix.org/postconf.5.html
+
+```shell
+# View configuration
+postconf
+# View non-default values only
+postconf -n
+# View all default values
+postconf -d
+# View default value for a parameter
+# -h shows value without the "name = " prefix
+postconf -d -h smtpd_use_tls
+
+# Change a parameter
+postconf -e relayhost=[host.domain.tld]
+
+# Check and apply new settings
+postfix check
+systemctl restart postfix
+```
+
 ### Configure Postfix to use Gmail as a Mail Relay
 
 * https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
