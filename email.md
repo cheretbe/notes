@@ -42,7 +42,8 @@ postconf -d
 # -h shows value without the "name = " prefix
 postconf -d -h smtpd_use_tls
 
-# Change a parameter
+# Change parameters
+# The form [hostname] turns off MX lookups. Multiple destinations are supported in Postfix 3.5 and later.
 postconf -e relayhost=[host.domain.tld]
 
 # Check and apply new settings
