@@ -54,7 +54,7 @@ systemctl restart postfix
 
 * https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
 
-:warning: Enable "Less Secure Apps" In Gmail. Double check if it's on, since Google turns this feature off after awhile if it not being used.
+:warning: Enable "Less Secure Apps" In Gmail. Double check if it's on, since Google turns this feature off after awhile if it's not being used.
 
 ```shell
 # select "no configuration"
