@@ -30,6 +30,8 @@ quit
 
 * http://www.postfix.org/postconf.1.html
 * http://www.postfix.org/postconf.5.html
+* Setup a Local Only SMTP Email Server: https://gist.github.com/raelgc/6031274
+* https://serverfault.com/questions/94168/postfix-on-development-server-allow-mail-to-be-sent-to-only-one-domain
 
 ```shell
 # View configuration
