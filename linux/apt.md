@@ -47,6 +47,9 @@ apt install debconf-utils
 # all available questions (package has to be installed)
 # To view text descriptions and choices open full selection DB dump and use search
 debconf-get-selections | less
+
+echo "get postfix/main_mailer_type" | debconf-communicate
+echo "set postfix/main_mailer_type 'Internet with smarthost'" | debconf-communicate
 ```
 Ansible
 ```yaml
