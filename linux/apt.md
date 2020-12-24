@@ -51,6 +51,19 @@ debconf-get-selections | less
 echo "get postfix/main_mailer_type" | debconf-communicate
 echo "set postfix/main_mailer_type 'Internet with smarthost'" | debconf-communicate
 ```
+Check what this does
+```shell
+apt-get clean
+cat >> /etc/apt/apt.conf <<EOF
+// Pre-configure all packages before
+// they are installed.
+DPkg::Pre-Install-Pkgs {
+    "dpkg-preconfigure --apt --priority=low";
+};
+EOF
+apt-get upgrade
+```
+
 Ansible
 ```yaml
 - name: Configure APT apt-cache-ng package (Allow HTTP tunnels through Apt-Cacher NG)
