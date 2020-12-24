@@ -119,7 +119,7 @@ echo test | mail -s "test mail" user@domain.tld
 
 * https://github.com/rnwood/smtp4dev
 
-```
+```shell
 # Download zip file from https://github.com/rnwood/smtp4dev/releases
 # zip file doesn't contain a subdirectory, so use -d option
 unzip -d smtp4dev Rnwood.Smtp4dev-linux-x64-3.1.2-ci20201203102.zip
