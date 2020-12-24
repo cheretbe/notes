@@ -35,8 +35,15 @@ quit
 
 * http://www.postfix.org/postconf.1.html
 * http://www.postfix.org/postconf.5.html
+* http://www.postfix.org/BASIC_CONFIGURATION_README.html
+* http://www.postfix.org/STANDARD_CONFIGURATION_README.html
 * Setup a Local Only SMTP Email Server: https://gist.github.com/raelgc/6031274
 * https://serverfault.com/questions/94168/postfix-on-development-server-allow-mail-to-be-sent-to-only-one-domain
+* http://cubicspot.blogspot.com/2015/01/quick-n-dirty-postfix-and-dovecot-setup.html
+* https://serverfault.com/questions/639615/postfix-and-local-mail/639694#639694
+* :warning: Debconf peculiarity: https://serverfault.com/questions/889438/dpkg-reconfigure-dialog-frontend-sets-up-postfix-successfully-non-interactive/914012#914012
+* http://cafim.sssup.it/~giulio/other/Postfix_Setup_for_Local_Mail_Only.html
+
 
 ```shell
 # View configuration
