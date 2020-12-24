@@ -44,6 +44,14 @@ quit
 * :warning: Debconf peculiarity: https://serverfault.com/questions/889438/dpkg-reconfigure-dialog-frontend-sets-up-postfix-successfully-non-interactive/914012#914012
 * http://cafim.sssup.it/~giulio/other/Postfix_Setup_for_Local_Mail_Only.html
 
+:warning: Install on Ubuntu using the following command
+```shell
+DEBIAN_PRIORITY=low apt install postfix
+```
+Without low priority dialogs turned on debconf doesn't ask for root alias and writes `/etc/aliases` without it.
+`dpkg-reconfigure postfix` does ask for additional settings, but doesn't actually set them, since `/etc/aliases`
+and `/etc/postfix/main.cf` already present (and config script doesn't overwrite or edit these files).
+
 
 ```shell
 # View configuration
