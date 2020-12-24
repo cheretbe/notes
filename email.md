@@ -96,6 +96,10 @@ for line in sorted(subprocess.check_output(["postconf", "-n"], universal_newline
         print(f"{param} = {value} [{default_value}]")
 ```
 
+* `smtp_tls_security_level`: The default SMTP TLS security level for the Postfix SMTP **client**
+* `smtpd_tls_security_level`: The SMTP TLS security level for the Postfix SMTP **server**
+
+
 ### Configure Postfix to use Gmail as a Mail Relay
 
 * https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a-mail-relay/
