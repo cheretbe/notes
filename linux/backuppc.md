@@ -307,6 +307,8 @@ newaliases
 
 # -R - recursive, -i - view inode
 /usr/local/BackupPC/bin/BackupPC_ls [-iR] [-h host] [-n bkupNum] [-s shareName] dirs/files... 
+# example
+/usr/local/BackupPC/bin/BackupPC_ls -h win-server -n 6 -s /mnt/smb/win-server/share dir1/dir2
 
 # delete an entire backup, or a directory path within a backup
 /usr/local/BackupPC/bin/BackupPC_backupDelete
