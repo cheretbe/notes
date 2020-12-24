@@ -121,6 +121,8 @@ echo test | mail -s "test mail" user@domain.tld
 
 ```
 # Download zip file from https://github.com/rnwood/smtp4dev/releases
+# zip file doesn't contain a subdirectory, so use -d option
+unzip -d smtp4dev Rnwood.Smtp4dev-linux-x64-3.1.2-ci20201203102.zip
 # Run as root to be able to bind to privileged (<1024) ports
 ./Rnwood.Smtp4dev --urls "http://0.0.0.0:80/"
 # Running as root should be okay for development tests, but if it
