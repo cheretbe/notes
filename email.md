@@ -14,6 +14,10 @@
 ----
 
 ```shell
+# Test default MTA mail delivery ('mailutils' package needs to be installed)
+echo test | mail -s "test mail" root
+echo test | mail -s "test mail" user@lan.domain.tld
+
 echo "Message test" | mailx -v -r "someone@example.com" \
   -s "Test subject" -S smtp="mail.example.com:587" \
   -S smtp-use-starttls -S smtp-auth=login -S ssl-verify=ignore \
