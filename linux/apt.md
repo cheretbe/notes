@@ -79,6 +79,9 @@ echo $DEBIAN_FRONTEND
 apt install dialog
 DEBIAN_FRONTEND=dialog dpkg-reconfigure tzdata
 
+# Temporarily change the minimum priority of question debconf will display
+DEBIAN_PRIORITY=low apt install postfix
+
 # Disable weekly LTS upgrade notification
 # Edit /etc/update-manager/release-upgrades
 # And replace 'Prompt=lts' with 'Prompt=never'
