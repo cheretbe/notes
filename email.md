@@ -12,7 +12,6 @@
 * https://www.servermx.com/en/index.html
 * https://www.zoho.com/mail/
 ----
-* smtp4dev - the fake SMTP email server for development and testing: https://github.com/rnwood/smtp4dev
 
 ```shell
 echo "Message test" | mailx -v -r "someone@example.com" \
@@ -114,4 +113,17 @@ smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 postmap /etc/postfix/sasl_passwd
 service postfix restart
 echo test | mail -s "test mail" user@domain.tld
+```
+
+### smtp4dev - the fake SMTP email server for development and testing
+
+* https://github.com/rnwood/smtp4dev
+
+```
+# Download zip file from https://github.com/rnwood/smtp4dev/releases
+# Run as root to be able to bind to privileged (<1024) ports
+./Rnwood.Smtp4dev --urls "http://0.0.0.0:80/"
+# Running as root should be okay for development tests, but if it
+# not, add CAP_NET_BIND_SERVICE capability using setcap
+sudo setcap 'cap_net_bind_service=+ep' /path/to/Rnwood.Smtp4dev
 ```
