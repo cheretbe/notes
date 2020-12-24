@@ -54,6 +54,8 @@ and `/etc/postfix/main.cf` already present (and config script doesn't overwrite 
 
 
 ```shell
+# View version
+postconf mail_version
 # View configuration
 postconf
 
