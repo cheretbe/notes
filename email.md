@@ -14,6 +14,9 @@
 ----
 
 ```shell
+# For mail command to be available install corresponding package
+apt install mailutils
+yum install mailx
 # Test default MTA mail delivery ('mailutils' package needs to be installed)
 echo test | mail -s "test mail" root
 echo test | mail -s "test mail" user@lan.domain.tld
