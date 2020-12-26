@@ -147,6 +147,7 @@ echo test | mail -s "test mail" user@domain.tld
 
 ```shell
 # Download zip file from https://github.com/rnwood/smtp4dev/releases
+# [!!] Make sure you are downloading 'linux-x64' package and not 'linux-musl-x64' one
 # zip file doesn't contain a subdirectory, so use -d option
 unzip -d smtp4dev Rnwood.Smtp4dev-linux-x64-3.1.2-ci20201203102.zip
 # Run as root to be able to bind to privileged (<1024) ports
