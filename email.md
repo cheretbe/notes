@@ -64,9 +64,9 @@ postconf -n
 # View single parameter value
 postconf smtpd_use_tls
 # View settings that differ from built-in defaults
-comm -23 <(postconf -n) <(postconf -d)
+comm -23 <(postconf -n | sort) <(postconf -d | sort)
 # View settings that duplicate built-in defaults
-comm -12 <(postconf -n) <(postconf -d)
+comm -12 <(postconf -n | sort) <(postconf -d | sort)
 # [!] To view settings that differ from built-in defaults alongside with their default
 # values use python code below
 
