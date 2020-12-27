@@ -46,6 +46,10 @@ apt install audacity -s
 * If trimming has not been applied from the start, move selection to the start of the track
     * Select `Time Shift Tool`
     * Click and drag to the start of the track
+    
+#### Apply fadeout
+* Make a selection
+* Use `Effect` > `Fade Out` or `Effect` > `Studio Fade Out` tool (the last one might be under `Plug-in x to y` submenu)
 
 https://github.com/dpayne/cli-visualizer
 ```shell
