@@ -37,7 +37,7 @@ apt update
 apt install audacity -s
 ```
 
-##### Trim a file
+#### Trim a file
 * Move the cursor to the time that is currently being played
     * Press `Pause`
     * Press <kbd>X</kbd> key (`Transport` > `Play` > `Play/Stop and Set Cursor`)
