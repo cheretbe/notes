@@ -28,14 +28,24 @@ ffmpeg -h encoder=libmp3lame
 Threading capabilities: none
 ```
 
-Edit tracks: audacity<br>
-https://www.audacityteam.org/
+### Edit tracks: audacity
+* https://www.audacityteam.org/
 ```shell
 add-apt-repository ppa:ubuntuhandbook1/audacity
 apt update
 # Make sure it is the latest version
 apt install audacity -s
 ```
+
+##### Trim a file
+* Move the cursor to the time that is currently being played
+    * Press `Pause`
+    * Press <kbd>X</kbd> key (`Transport` > `Play` > `Play/Stop and Set Cursor`)
+* Extend selection using `Select` > `Region` > `Track Start to Cursor` (or `Cursor to Track End`)
+* `Edit` > `Remove Special` > `Trim Audio`
+* If trimming has not been applied from the start, move selection to the start of the track
+    * Select `Time Shift Tool`
+    * Click and drag to the start of the track
 
 https://github.com/dpayne/cli-visualizer
 ```shell
