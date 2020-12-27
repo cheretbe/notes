@@ -47,7 +47,7 @@ apt install audacity -s
     * Select `Time Shift Tool`
     * Click and drag to the start of the track
     
-#### Apply fadeout
+#### Apply a fade effect
 * Make a selection
 * Use `Effect` > `Fade Out` or `Effect` > `Studio Fade Out` tool (the last one might be under `Plug-in x to y` submenu)
 
