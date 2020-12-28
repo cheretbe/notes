@@ -69,6 +69,8 @@ unattended-upgrade -v --dry-run
 
 ### RHEL/CentOS
 
+* https://dnf.readthedocs.io/en/latest/automatic.html
+
 ```
 # CentOS 7
 yum install yum-cron
