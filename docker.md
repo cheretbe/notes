@@ -36,6 +36,11 @@ docker run --rm -ti ubuntu:18.04 /bin/bash
 docker run -dti --name centos-6 centos:6 /bin/bash
 docker exec -ti centos-6 /bin/bash
 docker stats [container]
+
+# Run with systemd support and remove on exit
+docker run --rm --detach --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
+  --tmpfs /tmp:exec --tmpfs /run \
+  centos:8 /usr/sbin/init
 ```
 ----
 https://developers.redhat.com/cheat-sheets/containers/
