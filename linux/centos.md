@@ -11,4 +11,15 @@ yum --disablerepo="*" --enablerepo="*epel" list available
 # List files, provided by a specific package
 yum install yum-utils
 repoquery --list packege-name
+
+# List files, provided by a specific package, without installing it
+# 1. Download a package
+yum install yum-plugin-downloadonly
+yum install --downloadonly --downloaddir . yum-cron
+# 2. List files
+# -q, --query       command
+# -l, --list        list files in package
+# -p, --package     query/verify a package file
+# -v, --verbose     provide more detailed output
+rpm -qlpv yum-cron-3.4.3-168.el7.centos.noarch.rpm
 ```
