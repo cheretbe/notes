@@ -40,7 +40,7 @@ docker stats [container]
 # Run with systemd support and remove on exit
 docker run --rm --detach --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
   --tmpfs /tmp:exec --tmpfs /run \
-  centos:8 /usr/sbin/init
+  --name centos-8 centos:8 /usr/sbin/init
 ```
 ----
 https://developers.redhat.com/cheat-sheets/containers/
