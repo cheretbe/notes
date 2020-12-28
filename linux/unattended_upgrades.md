@@ -71,7 +71,7 @@ unattended-upgrade -v --dry-run
 
 * https://dnf.readthedocs.io/en/latest/automatic.html
 
-```
+```shell
 # CentOS 7
 yum install yum-cron
 
@@ -81,4 +81,11 @@ dnf install dnf-automatic
 nano /etc/dnf/automatic.conf
 # Enable timer
 systemctl enable --now dnf-automatic-install.timer
+
+# Run dnf-automatic manually to check if everything functions properly
+dnf-automatic
+# dnf-automatic has no own log, check /var/log/dnf.rpm.log
+cat /var/log/dnf.rpm.log
+# Restart status
+dnf needs-restarting
 ```
