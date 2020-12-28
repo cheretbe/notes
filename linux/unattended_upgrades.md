@@ -66,3 +66,14 @@ unattended-upgrade -v --dry-run
 * https://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades
 * https://linux-audit.com/upgrading-external-packages-with-unattended-upgrade/
 * (:warning: - see comments) https://linux-audit.com/upgrading-external-packages-with-unattended-upgrade/
+
+### RHEL/CentOS
+
+```
+# CentOS 7
+yum install yum-cron
+
+# CentOS 8
+dnf install dnf-automatic
+systemctl enable --now dnf-automatic-install.timer
+```
