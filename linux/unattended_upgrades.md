@@ -75,5 +75,8 @@ yum install yum-cron
 
 # CentOS 8
 dnf install dnf-automatic
+# Settings are in /etc/dnf/automatic.conf
+nano /etc/dnf/automatic.conf
+# Enable timer
 systemctl enable --now dnf-automatic-install.timer
 ```
