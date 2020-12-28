@@ -51,6 +51,9 @@ For example, for a unit file `/run/systemd/generator.late/isc-dhcp-server.servic
 ```shell
 # or use edit command to create drop-in file override.conf automatically
 systemctl edit apt-cacher-ng.service
+
+# [!!] Timer unit example
+systemctl edit dnf-automatic-install.timer
 ```
 
 To check if the file is in use view service status:
