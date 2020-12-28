@@ -4,6 +4,7 @@
 timedatectl list-timezones | grep Kaliningrad
 timedatectl set-timezone Europe/Kaliningrad
 # View current settings
+timedatectl status
 date
 ls -l /etc/localtime
 ```
