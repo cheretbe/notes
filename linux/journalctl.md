@@ -1,17 +1,23 @@
-
-
-Ubuntu 16.04, if there are no records from previous boots (for example `journalctl -b1`). Edit `/etc/systemd/journald.conf`
-and set `Storage=persistent`, then restart the service
-```bash
+Default setting in `/etc/systemd/journald.conf` is `Storage=auto` which implies that systemd journaling will only persist the journal if the expected storage location is available. Otherwise, the journal data is stored in memory and lost between reboots.<br>
+Create it to keep and query events from previous boots.
+```shell
+mkdir -p /var/log/journal
+systemd-tmpfiles --create --prefix /var/log/journal
 systemctl restart systemd-journald
+```
+Another option is to set `Storage=persistent` parameter
+* `SystemMaxUse` is `10%` for peristent storage in `/var/log/journal`, or `15%` for memory use in `/run/log/journal`
+    * It could be set to a specific size (e.g. `SystemMaxUse=500M`) if default 10% of the size of the respective file system is too much
+* `SystemMaxFiles=100`
+* `SystemMaxFileSize = SystemMaxUse/8`
 
+
+```bash
 journalctl --disk-usage
 
 # The service outputs storage limits on start 
 systemctl status systemd-journald
 ```
-Set `SystemMaxUse` parameter (e.g. `SystemMaxUse=500M`) because by default it is set to 10% of the size of the respective file system.
-
 * https://askubuntu.com/questions/765315/how-to-find-previous-boot-log-after-ubuntu-16-04-restarts
 * https://wiki.archlinux.org/index.php/Systemd#Journal
 
