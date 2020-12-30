@@ -34,6 +34,12 @@ journalctl --list-boots
 journalctl -u nginx.service
 journalctl -u nginx.service -u php-fpm.service --since today
 
+# Show entries with the specified syslog identifier 
+# -t --identifier=STRING
+# [!!!] Doesn't support partial matching and wildcards, use grep
+journalctl -t dnf
+journalctl | grep dnf
+
 # View the list of field names for match arguments (_PID, _COMM, etc.)
 man systemd.journal-fields
 # See messages by PID
@@ -46,6 +52,11 @@ journalctl --since "2015-01-14" --until "2015-01-15 03:00"
 journalctl --since "15 min ago"
 journalctl --since yesterday
 journalctl --since today
+
+# Last n lines
+# -n --lines[=INTEGER]
+journalctl -n 10 --no-pager
+
 
 # Monitor new messages
 journalctl --since now -f
