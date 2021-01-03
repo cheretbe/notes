@@ -1,3 +1,10 @@
+On CentOS systemctl commands may start failing after systemd update
+* https://superuser.com/questions/1125250/systemctl-access-denied-when-root
+```shell
+# Send SIGTERM to the daemon running as PID 1
+kill -TERM 1
+```
+
 ```shell
 # Find system boot-up performance statistics
 systemd-analyze
