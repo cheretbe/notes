@@ -49,6 +49,8 @@ RestartSec=30
 ...
 ```
 #### Timers
+* https://wiki.archlinux.org/index.php/Systemd/Timers
+
 ```shell
 # List all timers
 systemctl list-timers
