@@ -70,12 +70,20 @@ unattended-upgrade -v --dry-run
 ### RHEL/CentOS
 
 * https://dnf.readthedocs.io/en/latest/automatic.html
+* https://linuxize.com/post/configure-automatic-updates-with-yum-cron-on-centos-7/
+* https://www.cyberciti.biz/faq/fedora-automatic-update-retrieval-installation-with-cron/
 
+
+CentOS 7
 ```shell
-# CentOS 7
 yum install yum-cron
 
-# CentOS 8
+# Restart status
+needs-restarting  -r
+```
+
+CentOS 8
+```shell
 dnf install dnf-automatic
 # Settings are in /etc/dnf/automatic.conf
 nano /etc/dnf/automatic.conf
@@ -88,4 +96,10 @@ dnf-automatic
 cat /var/log/dnf.rpm.log
 # Restart status
 dnf needs-restarting
+```
+
+Cron job example
+```shell
+#!/bin/bash
+needs-restarting -r > /dev/null || shutdown -r
 ```
