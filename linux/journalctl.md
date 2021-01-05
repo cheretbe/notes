@@ -17,6 +17,9 @@ journalctl --disk-usage
 
 # The service outputs storage limits on start 
 systemctl status systemd-journald
+# It might be possible to get storage settings programatically by parsing JSON output
+# and extracting values like CURRENT_USE, MAX_USE, DISK_AVAILABLE etc.
+journalctl -b 0 -u systemd-journald -o json-pretty
 ```
 * https://askubuntu.com/questions/765315/how-to-find-previous-boot-log-after-ubuntu-16-04-restarts
 * https://wiki.archlinux.org/index.php/Systemd#Journal
