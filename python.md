@@ -119,6 +119,12 @@ print(os.environ.get('KEY_THAT_MIGHT_EXIST'))
 # os.getenv is equivalent, and can also give a default value instead of `None`
 print(os.getenv('KEY_THAT_MIGHT_EXIST', default_value))
 
+# Add directory to path
+paths = os.environ.get("PATH", "").split(os.pathsep)
+if "/usr/sbin" not in paths:
+    paths += ["/usr/sbin"]
+    os.environ["PATH"] = os.pathsep.join(paths)
+
 # Join paths
 os.path.join(path1, path2)
 # Check if file exists
