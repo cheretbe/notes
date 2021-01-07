@@ -250,6 +250,10 @@ Default test matrix
 * cleanup
 * destroy
 
+### Testinfra
+
+* :warning: 2review: https://medium.com/@george.shuklin/testinfra-pytest-delights-3e0a7d5c84d2
+
 Testinfra interactive example
 ```python
 import testinfra
