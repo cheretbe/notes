@@ -14,6 +14,8 @@
 # ------------------------------------------------------------------------------------
 ```
 
+### Debugging 
+
 * https://gitlab.com/doctormo/python-crontab
 * https://stackabuse.com/scheduling-jobs-with-python-crontab/
 
@@ -41,6 +43,10 @@ cron[0].minute.on(run_date.minute)
 cron[0].hour.on(run_date.hour)
 
 cron.write()
+```
+
+```shell
+journalctl -t "cron_test" -f
 ```
 
 ### at command
