@@ -82,3 +82,10 @@ journalctl --flush --rotate
 journalctl --vacuum-time=1s
 
 ```
+
+Redirect output of a process to the journal
+```shell
+systemd-cat -t "certbot-cron" /usr/bin/certbot --renew
+journalctl -t "certbot-cron"
+```
+* https://www.ctrl.blog/entry/how-to-cron-to-journal.html
