@@ -17,6 +17,10 @@
 * https://gitlab.com/doctormo/python-crontab
 * https://stackabuse.com/scheduling-jobs-with-python-crontab/
 
+```
+27 19 * * * root systemd-cat -t "cron_test" date -Iseconds
+```
+
 ### at command
 ```shell
 echo /bin/systemctl daemon-reload | /usr/bin/at 09:00 27.07.15
