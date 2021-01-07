@@ -233,6 +233,8 @@ cd role-directory
 # if scenario-name is empty, 'default' is used
 molecule init scenario [scenario-name]
 molecule init scenario -d vagrant
+
+molecule --base-config ../tests/molecule/molecule_base_docker_linux.yml test
 ```
 
 Default test matrix
