@@ -258,11 +258,21 @@ Testinfra interactive example
 ```python
 import testinfra
 
+# https://testinfra.readthedocs.io/en/latest/backends.html
+# SSH backend
 host = testinfra.get_host(
   "ssh://vagrant@localhost:2203",
   ssh_identity_file="/home/user/.cache/molecule/linux-dns/default/.vagrant/machines/ubuntu-bionic/virtualbox/private_key",
   ssh_extra_args="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 )
+
+# Docker
+host = testinfra.get_host("docker://cont_name")
+# Or as a specific user
+host = testinfra.get_host("docker://user@cont_name")
+
+# Ansible
+host = get_host("ansible://all?ansible_inventory=/etc/ansible/inventory")
 
 host.run("hostname -f").stdout
 host.file("/etc/passwd").mode
