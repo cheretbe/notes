@@ -13,6 +13,10 @@
 #* * * * *  command to execute
 # ------------------------------------------------------------------------------------
 ```
+
+* https://gitlab.com/doctormo/python-crontab
+* https://stackabuse.com/scheduling-jobs-with-python-crontab/
+
 ### at command
 ```shell
 echo /bin/systemctl daemon-reload | /usr/bin/at 09:00 27.07.15
