@@ -17,8 +17,30 @@
 * https://gitlab.com/doctormo/python-crontab
 * https://stackabuse.com/scheduling-jobs-with-python-crontab/
 
+`/etc/cron.d/cron_test`
 ```
 27 19 * * * root systemd-cat -t "cron_test" date -Iseconds
+```
+```shell
+pip3 install python-crontab
+```
+```python
+import datetime
+import crontab
+
+cron = crontab.CronTab(tabfile="/etc/cron.d/cron_test")
+
+run_date = datetime.datetime.now()
+inc_minutes = 1
+if run_date.second > 55:
+    inc_minutes = 2
+
+run_date += datetime.timedelta(minutes=inc_minutes)
+
+cron[0].minute.on(run_date.minute)
+cron[0].hour.on(run_date.hour)
+
+cron.write()
 ```
 
 ### at command
