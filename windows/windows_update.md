@@ -8,8 +8,10 @@
 ```bat
 :: Windows Update
 sc.exe config wuauserv start= disabled
+sc.exe stop wuauserv
 :: Update Orchestrator Service
 sc.exe config UsoSvc start= disabled
+sc.exe stop UsoSvc
 ```
 Check scheduled tasks under `\Microsoft\Windows\WindowsUpdate` and `\Microsoft\Windows\UpdateOrchestrator`
 
