@@ -74,15 +74,21 @@ unattended-upgrade -v --dry-run
 * https://www.cyberciti.biz/faq/fedora-automatic-update-retrieval-installation-with-cron/
 
 
-CentOS 7
+#### CentOS 7
 ```shell
 yum install yum-cron
 
 # Restart status
 needs-restarting  -r
 ```
+* The `yum-cron` service only controls whether or not the cron jobs will run. It is present only to allow
+    one to use chkconfig and the standard "service stop|start" commands to enable or disable yum-cron.
+* The `yum-cron` utility is called by the `/etc/cron.hourly/0yum-hourly.cron` and `/etc/cron.daily/0yum-daily.cron` cron files
+* `/etc/yum/yum-cron-hourly.conf` by default does nothing
+* `/etc/yum/yum-cron.conf` (used by the daily cron job) by default only downloads updates when they are available, but doesn't install them.
+   Set `apply_updates = no` to install them as well
 
-CentOS 8
+#### CentOS 8
 ```shell
 dnf install dnf-automatic
 # Settings are in /etc/dnf/automatic.conf
