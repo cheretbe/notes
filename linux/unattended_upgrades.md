@@ -86,7 +86,7 @@ needs-restarting  -r
 * The `yum-cron` utility is called by the `/etc/cron.hourly/0yum-hourly.cron` and `/etc/cron.daily/0yum-daily.cron` cron files
 * `/etc/yum/yum-cron-hourly.conf` by default does nothing
 * `/etc/yum/yum-cron.conf` (used by the daily cron job) by default only downloads updates when they are available, but doesn't install them.
-   Set `apply_updates = no` to install them as well
+   Set `apply_updates = yes` to install them as well
 
 #### CentOS 8
 ```shell
