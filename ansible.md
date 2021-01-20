@@ -279,14 +279,19 @@ host = testinfra.get_host("docker://cont_name")
 host = testinfra.get_host("docker://user@cont_name")
 
 # Ansible
-host = get_host("ansible://all?ansible_inventory=/etc/ansible/inventory")
+host = get_host("ansible://host?ansible_inventory=/etc/ansible/inventory")
 
-host.run("hostname -f").stdout
+print(host.check_output("hostname -f"))
+# [!] Use run only if a comand may fail, otherwise use check_output
+print(host.run("hostname -f").stdout)
 host.file("/etc/passwd").mode
 host.socket("tcp://0.0.0.0:22").is_listening
 host.socket.get_listening_sockets()
 host.system_info.codename
 host.system_info.distribution
+
+if host.backend.HAS_RUN_ANSIBLE:
+    pprint(host.ansible.get_variables())
 ```
 
 
