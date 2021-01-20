@@ -256,6 +256,11 @@ Default test matrix
 
 * :warning: 2review: https://medium.com/@george.shuklin/testinfra-pytest-delights-3e0a7d5c84d2
 
+```shell
+py.test --connection=ansible ./tests/
+py.test --hosts=somehost --ansible-inventory=inventory --connection=ansible ./tests/
+```
+
 Testinfra interactive example
 ```python
 import testinfra
