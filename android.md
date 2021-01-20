@@ -1,3 +1,7 @@
+* Player to test: https://krosbits.in/musicolet/
+    * https://play.google.com/store/apps/details?id=in.krosbits.musicolet
+    * https://www.techsupportalert.com/content/musicolet-music-player.htm
+
 ### Xiaomi Redmi
 
 * Режимы USB
