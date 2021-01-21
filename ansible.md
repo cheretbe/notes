@@ -279,7 +279,7 @@ host = testinfra.get_host("docker://cont_name")
 host = testinfra.get_host("docker://user@cont_name")
 
 # Ansible
-host = get_host("ansible://host?ansible_inventory=/etc/ansible/inventory")
+host = testinfra.get_host("ansible://host?ansible_inventory=/etc/ansible/inventory")
 
 print(host.check_output("hostname -f"))
 # [!] Use run only if a comand may fail, otherwise use check_output
