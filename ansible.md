@@ -280,6 +280,7 @@ host = testinfra.get_host("docker://user@cont_name")
 
 # Ansible
 host = testinfra.get_host("ansible://host?ansible_inventory=/etc/ansible/inventory")
+print(host.ansible("setup")["ansible_facts"]["ansible_virtualization_role"])
 
 print(host.check_output("hostname -f"))
 # [!] Use run only if a comand may fail, otherwise use check_output
