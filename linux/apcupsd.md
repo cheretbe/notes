@@ -1,3 +1,4 @@
+
 On a desktop system UPower daemon contros the UPS.
 ```shell
 # Settings are in /etc/UPower/UPower.conf
@@ -8,6 +9,7 @@ upower -e
 # View status
 upower -i /org/freedesktop/UPower/devices/ups_hiddev0
 ```
+Use `Power Statistics` (`gnome-power-statistics`) to view status and stats.
 
 
 Config is in `/etc/apcupsd/apcupsd.conf`:
