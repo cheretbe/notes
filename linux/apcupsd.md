@@ -1,3 +1,15 @@
+On a desktop system UPower daemon contros the UPS.
+```shell
+# Settings are in /etc/UPower/UPower.conf
+systemctl status upower
+
+# Enumerate devices
+upower -e
+# View status
+upower -i /org/freedesktop/UPower/devices/ups_hiddev0
+```
+
+
 Config is in `/etc/apcupsd/apcupsd.conf`:
 ```
 # USB 
