@@ -3,6 +3,10 @@
 * Windows Update Catalog: https://www.catalog.update.microsoft.com/Home.aspx  
 * https://i.imgur.com/MBRIMMX.png
 
+```powershell
+Get-WindowsUpdateLog -LogPath C:\Users\vagrant\Desktop\update.log
+```
+
 ### Completely disabling Windows Update
 
 ```bat
