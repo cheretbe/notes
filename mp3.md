@@ -28,6 +28,13 @@ ffmpeg -h encoder=libmp3lame
 Threading capabilities: none
 ```
 
+Test integrity
+```shell
+# Note: the null muxer does not generate any output, but specifying an output
+# file is required by the ffmpeg syntax. That's why "-f null -" is used
+find . -iname '*.mp3' -exec echo {} \; -exec ffmpeg -v error -i {} -f null - \; ;finished
+```
+
 ### Edit tracks: audacity
 * https://www.audacityteam.org/
 ```shell
