@@ -33,6 +33,9 @@ Test integrity
 # Note: the null muxer does not generate any output, but specifying an output
 # file is required by the ffmpeg syntax. That's why "-f null -" is used
 find . -iname '*.mp3' -exec echo {} \; -exec ffmpeg -v error -i {} -f null - \; ;finished
+# TODO: find a way to extract errors together with file name
+# starting point:
+ffmpeg.exe -v error -i file.avi -f null - >error.log 2>&1
 ```
 
 ### Edit tracks: audacity
