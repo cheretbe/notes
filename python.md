@@ -190,6 +190,14 @@ for line in subprocess.check_output("ls -lh /", shell=True).decode("utf-8").spli
 # or use universal_newlines=True (text=True for Python 3.7+)
 for line in subprocess.check_output(["ls", "-lh", "/"], text=True).splitlines():
     print(line)
+    
+# pylint: disable=subprocess-run-check
+completed_proc = subprocess.run(
+    ["git", "rev-parse", "--git-dir"],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE
+)
+is_git_repo = completed_proc.returncode == 0
 ```
 
 Configs and dictionaries
