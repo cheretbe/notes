@@ -445,6 +445,7 @@ futures>=3.0.5; python_version == '2.6' or python_version=='2.7'
 * https://docs.python.org/3/library/unittest.mock.html
 * [unittests_examples.py](files/python/unittests_examples.py)
 * [test_unittests_examples.py](files/python/test_unittests_examples.py)
+* [pytest_examples](files/python/pytest_examples/)
 
 Unsorted
 ```
