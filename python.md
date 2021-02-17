@@ -26,6 +26,8 @@ dummy = types.SimpleNamespace(
     box_file="",
     forward=False
 )
+
+jinja2.Environment(undefined=jinja2.StrictUndefined).from_string("Hello {{ something1 }}!").render(something="World")
 ```
 ```shell
 virtualenv -p python3 ~/virtenv/py3
