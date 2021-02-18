@@ -302,6 +302,7 @@ zfs get -s local,temporary,received -r all pool_name
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
 * Planned
 ```bash
+# [!] use screen utility
 zpool offline zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002
 # Replace disks
 # -f forces use of new device even if it appears to be in use
