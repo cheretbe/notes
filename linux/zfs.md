@@ -304,6 +304,7 @@ Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX
 ```bash
 zpool offline zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002
 # Replace disks
+# -f forces use of new device even if it appears to be in use
 zpool replace -f zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002 /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
 # View progress
 zpool status
