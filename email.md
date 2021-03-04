@@ -144,7 +144,14 @@ service postfix restart
 echo test | mail -s "test mail" user@domain.tld
 ```
 
-### smtp4dev - the fake SMTP email server for development and testing
+## Testing
+#### MailHog is an email testing tool for developers
+:warning: has REST API
+* https://github.com/mailhog/MailHog
+* https://jfelix.info/blog/test-your-email-flow-with-mailhog-a-fake-smtp-server
+
+
+#### smtp4dev - the fake SMTP email server for development and testing
 
 * https://github.com/rnwood/smtp4dev
 
