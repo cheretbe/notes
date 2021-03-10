@@ -1,3 +1,8 @@
+HEIC to JPG
+```shell
+for i in *.heic; do ffmpeg -i "$i" "${i%.*}.jpg"; done
+```
+
 Motherboard and CPU info
 ```shell
 # Motherboard
