@@ -290,6 +290,11 @@ Vagrant.configure("2") do |config|
   config.vbguest.auto_update = false
 end
 ```
+```ruby
+  # CentOS 7 and 8
+  config.vbguest.auto_update = true
+  config.vbguest.installer_options = { allow_kernel_upgrade: true }
+```
 * hostmanager (name resolution when IP addresses are not known in advance): https://github.com/devopsgroup-io/vagrant-hostmanager
 * https://github.com/emyl/vagrant-triggers
 
