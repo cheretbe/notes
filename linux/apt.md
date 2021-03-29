@@ -156,6 +156,13 @@ dpkg-deb -xv package.deb /path/to/extract
 # Use -R to extract control info too
 dpkg-deb -Rv package.deb /path/to/extract
 
+# Restore original versions of modified and deleted files
+# First find out which package installed the file (in this example it's systemd)
+dpkg -S /etc/systemd/resolved.conf
+# [!!!!!] Thread carefully, as this will overwrite configs without asking (and -s
+#         option doesn't show what's going to be done)
+apt install --reinstall -o Dpkg::Options::="--force-confask,confnew,confmiss" systemd
+
 # Downgrade a package
 # Check currently installed version
 dpkg -l firefox
