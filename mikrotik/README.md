@@ -1,5 +1,9 @@
 2review:
+* https://mum.mikrotik.com/presentations/UK18/presentation_5900_1539209343.pdf
 * https://wiki.mikrotik.com/wiki/Manual:VRRP-examples
+* https://spw.ru/educate/articles/ispolzovanie-ansible/
+* https://spw.ru/educate/articles/ispolzovanie-api-routeros/
+* https://docs.ansible.com/ansible/latest/collections/community/routeros/command_module.html#ansible-collections-community-routeros-command-module
 
 Installation Check-List
 - [ ] Identity
