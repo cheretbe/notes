@@ -287,12 +287,27 @@ systemctl start chronyd.service
 ### Move single disk file system to another drive
 
 ```shell
-# use 'zfs create' to create a new pool
 # [!] Carefully examine existing pool's (non-default and non-inherited) properties
 # and make sure new pool's setup is the same
 zpool get feature@lz4_compress pool_name
 zfs get -s local,temporary,received -r all pool_name
-```
+
+zfs create ... new_pool ...
+
+zpool get feature@lz4_compress new_pool
+zfs get -s local,temporary,received -r all new_pool
+
+zfs snapshot -r pool_name@move
+
+zfs send -R pool_name@move | pv | zfs receive -F new_pool
+
+# [!] Stop services and disable cron jobs (e.g. sanoid)
+
+zfs snapshot -r pool_name@move-1
+
+zfs send -R -i pool_name@move pool_name@move-1 | pv | zfs receive -F new_pool
+
+# Start services and ENABLE cron jobs```
 * https://github.com/zfsonlinux/zfs/issues/2121
 -----
 
