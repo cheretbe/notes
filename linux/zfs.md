@@ -68,7 +68,7 @@ parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
 # -o property=value               Sets the given pool properties
 # -O file-system-property=value   Sets the given file system properties in the root file system of the pool
 # [!] consider compression: -o feature@lz4_compress=enabled and -O compression=lz4
-zpool create -O xattr=sa -o ashift=12 -O atime=off zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 …
+zpool create -o ashift=12 -o feature@lz4_compress=enabled -O xattr=sa -O atime=off -O compression=lz4 -O acltype=posixacl zfs-storage raidz1 /dev/disk/by-id/ata-ST1000NM0011_Z1N1VTW3 ...
 # Mirrored
 zpool create pool1 mirror /dev/vda /dev/vdb
 ```
