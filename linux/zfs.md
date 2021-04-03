@@ -309,7 +309,12 @@ zfs snapshot -r pool_name@move-1
 
 zfs send -R -i pool_name@move pool_name@move-1 | pv | zfs receive -F -u new_pool
 
-# Start services and ENABLE cron jobs```
+zpool export pool_name
+zpool export new_pool
+zpool import new_pool pool_name
+
+# Start services and ENABLE cron jobs
+```
 * https://github.com/zfsonlinux/zfs/issues/2121
 -----
 
