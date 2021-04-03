@@ -299,13 +299,15 @@ zfs get -s local,temporary,received -r all new_pool
 
 zfs snapshot -r pool_name@move
 
-zfs send -R pool_name@move | pv | zfs receive -F new_pool
+# [!] Note -u flag
+# -u   File system that is associated with the received stream is not mounted
+zfs send -R pool_name@move | pv | zfs receive -F -u new_pool
 
 # [!] Stop services and disable cron jobs (e.g. sanoid)
 
 zfs snapshot -r pool_name@move-1
 
-zfs send -R -i pool_name@move pool_name@move-1 | pv | zfs receive -F new_pool
+zfs send -R -i pool_name@move pool_name@move-1 | pv | zfs receive -F -u new_pool
 
 # Start services and ENABLE cron jobs```
 * https://github.com/zfsonlinux/zfs/issues/2121
