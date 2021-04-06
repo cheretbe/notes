@@ -134,6 +134,10 @@ groupadd group
 gpasswd -d user group
 # Delete group
 groupdel group-name
+
+# Force group assignment without logging out
+# https://superuser.com/questions/272061/reload-a-linux-users-group-assignments-without-logging-out
+su - $USER
 ```
 Sudo
 
