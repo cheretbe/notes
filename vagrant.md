@@ -14,6 +14,16 @@ route delete default gw 192.168.0.1 metric 10
 ```
 
 ```ruby
+vbox_version = Gem::Version.new(VagrantPlugins::ProviderVirtualBox::Driver::Meta.new.version)
+
+if vbox_version < Gem::Version.new("6.0") then
+  # vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+  vb.customize [ "modifyvm", :id, "--uartmode1", "file", File::NULL ]
+end
+
+```
+
+```ruby
 # Manually setting box version
 config.vm.box = "centos/7"
 config.vm.box_version=1804.02
