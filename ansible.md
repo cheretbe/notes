@@ -460,3 +460,4 @@ docker exec awx_postgres sh -c "pg_restore -U awx -c -d awx /tmp/awx_backup.sql"
     * https://vincent.bernat.ch/en/blog/2020-syncing-mysql-tables-ansible
     * https://github.com/vincentbernat/ansible-custom-module-examples/blob/main/mysql_import.py
 * :bulb: 2check: https://docs.ansible.com/ansible/latest/dev_guide/developing_module_utilities.html#standard-module-utilities
+* ❔ Utilize the testing tools in `ansible/hacking/`: `test-module`, `ansible-test sanity <MODULE_NAME>`
