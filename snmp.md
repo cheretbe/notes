@@ -1,3 +1,7 @@
+* :warning: 2check: https://snimpy.readthedocs.io/en/latest/api.html#module-snimpy.manager
+    * https://vincent.bernat.ch/en/blog/2013-snimpy
+
+
 Mikrotik OIDs
 ```
 /interface print oid
