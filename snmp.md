@@ -1,5 +1,6 @@
 * :warning: 2check: https://snimpy.readthedocs.io/en/latest/api.html#module-snimpy.manager
     * https://vincent.bernat.ch/en/blog/2013-snimpy
+    * https://github.com/vincentbernat/snimpy
 
 
 Mikrotik OIDs
