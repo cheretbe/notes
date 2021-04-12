@@ -454,8 +454,10 @@ docker cp /awx_backup/awx_backup.sql awx_postgres:/tmp/awx_backup.sql
 docker exec awx_postgres sh -c "pg_restore -U awx -c -d awx /tmp/awx_backup.sql"
 ```
 ### Custom modules
-* https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html
 * https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html#developing-modules-general
+    * https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html
+    * https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_best_practices.html#developing-modules-best-practices
+    * https://docs.ansible.com/ansible/latest/dev_guide/developing_python_3.html#developing-python-3
 * https://vincent.bernat.ch/en/blog/2020-custom-ansible-module
     * https://vincent.bernat.ch/en/blog/2020-syncing-mysql-tables-ansible
     * https://github.com/vincentbernat/ansible-custom-module-examples/blob/main/mysql_import.py
