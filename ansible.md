@@ -463,3 +463,13 @@ docker exec awx_postgres sh -c "pg_restore -U awx -c -d awx /tmp/awx_backup.sql"
     * https://github.com/vincentbernat/ansible-custom-module-examples/blob/main/mysql_import.py
 * :bulb: 2check: https://docs.ansible.com/ansible/latest/dev_guide/developing_module_utilities.html#standard-module-utilities
 * ❔ Utilize the testing tools in `ansible/hacking/`: `test-module`, `ansible-test sanity <MODULE_NAME>`
+* plugin examples
+    * https://github.com/ansible-collections/ansible.windows/blob/main/plugins/action/win_updates.py
+    * https://github.com/ericwang984/portable-dc/blob/master/infra/packer/provision/roles/libraries/module_utils/action_runner.py
+    * https://github.com/amtega/ansible_role_tower/blob/master/action_plugins/tower_setup_virtualenv.py
+    * https://github.com/sbitio/ansible-sbhell/blob/develop/action_plugins/sbhell.py
+    * https://github.com/ansible-network/network-engine/blob/devel/action_plugins/cli.py
+    * https://github.com/limepepper/ansible-role-apache/blob/devel/action_plugins/apache_vhost_ssl.py
+    * https://gist.github.com/ju2wheels/408e2d34c788e417832c756320d05fb5
+    * https://github.com/phlummox/ansible-dokku-vouch-provisioner/blob/master/ansible-lib/plugins/action/dokku_push.py
+    * https://github.com/epfl-si/ansible-module-openshift/blob/master/action_plugins/openshift_imagestream.py
