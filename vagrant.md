@@ -14,6 +14,7 @@ route delete default gw 192.168.0.1 metric 10
 ```
 
 ```ruby
+# Fix console log file creation issue for Ubuntu boxes
 vbox_version = Gem::Version.new(VagrantPlugins::ProviderVirtualBox::Driver::Meta.new.version)
 
 if vbox_version < Gem::Version.new("6.0") then
