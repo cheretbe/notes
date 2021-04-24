@@ -10,14 +10,29 @@
 
 ### Unsorted
 
-Get latest release
+Github
 ```shell
+# Get latest release
 release_data=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest)
 backuppc_xs_ver=$(echo ${release_data} | jq -r ".tag_name")
 backuppc_xs_tar=$(echo ${release_data} | jq -r ".assets[0].name")
 wget $(echo ${release_data} | jq -r ".assets[0].browser_download_url")
 tar -xzvf ${backuppc_xs_tar}
 cd BackupPC-XS-${backuppc_xs_ver}
+
+# View current requests rate limits:
+curl -i -u cheretbe:${GITHUB_OAUTH_TOKEN} https://api.github.com/users/cheretbe
+# Non-authenticated (per IP):
+curl -i https://api.github.com/rate_limit
+
+# Returned HTTP headers:
+# X-RateLimit-Limit	The maximum number of requests you're permitted to make per hour.
+# X-RateLimit-Remaining	The number of requests remaining in the current rate limit window.
+# X-RateLimit-Reset	The time at which the current rate limit window resets in UTC epoch seconds.
+
+# Convert epoch to a human-readable form:
+# http://www.convert-unix-time.com/
+date -d @1619250770
 ```
 ------
 * Github webhooks (for read-only copy update automation)
