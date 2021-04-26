@@ -25,8 +25,6 @@ curl -i -u cheretbe:${GITHUB_OAUTH_TOKEN} https://api.github.com/users/cheretbe
 # Non-authenticated (per IP):
 curl -i https://api.github.com/rate_limit
 
-date -d @$(curl -s https://api.github.com/rate_limit | jq -r ".resources.core.reset")
-
 # Returned HTTP headers:
 # X-RateLimit-Limit	The maximum number of requests you're permitted to make per hour.
 # X-RateLimit-Remaining	The number of requests remaining in the current rate limit window.
@@ -34,7 +32,8 @@ date -d @$(curl -s https://api.github.com/rate_limit | jq -r ".resources.core.re
 
 # Convert epoch to a human-readable form:
 # http://www.convert-unix-time.com/
-date -d @1619250770
+# date -d @1619250770
+date -d @$(curl -s https://api.github.com/rate_limit | jq -r ".resources.core.reset")
 ```
 ------
 * Github webhooks (for read-only copy update automation)
