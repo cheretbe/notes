@@ -164,7 +164,9 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 :log debug "Debug test"
 
 /log print where topics~"script"
+/log print where topics~"script" and message~"Failover"
 /log print where topics="script;debug"
+/log print where (topics="script;warning" or topics="script;info") and message~"Failover"
 
 :foreach entry in=[/log find topics~"script;debug"] do={:put [/log get $entry] }
 :foreach entry in=[/log find topics~"script"] do={:put [/log get $entry] }
