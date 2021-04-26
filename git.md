@@ -25,6 +25,9 @@ curl -i -u cheretbe:${GITHUB_OAUTH_TOKEN} https://api.github.com/users/cheretbe
 # Non-authenticated (per IP):
 curl -i https://api.github.com/rate_limit
 
+curl -s https://api.github.com/rate_limit | jq -r ".resources.core"
+curl -s -u cheretbe:${GITHUB_OAUTH_TOKEN} https://api.github.com/rate_limit | jq -r ".resources.core"
+
 # Returned HTTP headers:
 # X-RateLimit-Limit	The maximum number of requests you're permitted to make per hour.
 # X-RateLimit-Remaining	The number of requests remaining in the current rate limit window.
