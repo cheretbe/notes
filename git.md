@@ -153,6 +153,12 @@ git config --global core.quotepath false
 git config --global credential.helper wincred
 
 # Linux
+# libsecret
+sudo apt-get install libsecret-1-0 libsecret-1-dev
+cd /usr/share/doc/git/contrib/credential/libsecret
+sudo make
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+
 # Cache.  Quite secure because keeps data only in memory. It’s fine for security, but every
 # time you open new session, you need to type credentials again. Memory is purged after 900 seconds
 # (15 min) by default, but it can be changed with optional timeout parameter
