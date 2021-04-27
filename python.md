@@ -377,6 +377,21 @@ To review:
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
 
 ```shell
+# global 1
+apt update && apt install -y python3-pip
+# Temporary solution to suppress messages like this:
+# WARNING: Value for scheme.scripts does not match ...
+# https://github.com/pypa/pip/issues/9617
+# https://stackoverflow.com/questions/67244301/warning-messages-when-i-update-pip-or-install-packages/67250419#67250419
+python3 -m pip install pip==21.0.1
+python3 -m pip install --upgrade pip
+
+# global 2
+apt update && apt install python3-distutils
+curl -s https://bootstrap.pypa.io/get-pip.py | python3
+
+pip3 --disable-pip-version-check install ansible pytest-testinfra invoke
+
 # one more alternative
 # Where to store venvs? ~/.cache/venv? E.g. ~/.cache/venv/py3
 # [!] Note wheel package installation below
