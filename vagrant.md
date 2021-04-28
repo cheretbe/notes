@@ -403,5 +403,4 @@ vagrant ssh -- bash -lc export
 
 ### Packer
 
-* VB+QEMU: https://github.com/pear2/Net_RouterOS/blob/master/tests/vm/RouterOS.packer.json
-* https://github.com/dulin/vagrant-mikrotik
+Notes: [packer.md](./packer.md)
