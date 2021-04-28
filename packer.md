@@ -1,3 +1,8 @@
+```shell
+packer build -force -on-error=ask test.json
+```
+
+`test.json` contents
 ```json
 {
   "builders": [
