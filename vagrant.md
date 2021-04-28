@@ -22,6 +22,9 @@ if vbox_version < Gem::Version.new("6.0") then
   vb.customize ["modifyvm", :id, "--uartmode1", "file", File::NULL]
 end
 
+# Also test this
+vb.customize ["modifyvm", :id, "--uart1", "off"]
+vb.customize ["modifyvm", :id, "--uartmode1", "disconnected"]
 ```
 
 ```ruby
