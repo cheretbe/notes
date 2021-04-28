@@ -1,3 +1,5 @@
+* * VB+QEMU: https://github.com/pear2/Net_RouterOS/blob/master/tests/vm/RouterOS.packer.json
+
 ```shell
 packer build -force -on-error=ask test.json
 ```
