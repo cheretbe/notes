@@ -4,6 +4,11 @@
 net session \\samba.server.ip.address /delete
 ```
 
+```batch
+:: List and extract OEM drivers
+dism.exe /Online /Get-Drivers
+dism /Online /Export-Driver /Destination:C:\MyDrivers
+```
 
 Disable Windows Defender in 2019 LTSC (Disabling SecurityHealthService is the key?): https://forums.mydigitallife.net/threads/windows-10-ltsc-2019-disabling-removing-windows-defender.79246/#post-1511094
 
