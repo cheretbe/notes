@@ -411,6 +411,7 @@ openssl x509 -inform der -in certificate.cer -out certificate.pem
 * :warning: test this: https://smallstep.com/docs/step-ca/getting-started
     * https://github.com/smallstep/certificates
     * https://lobste.rs/s/1ddcvh/if_you_re_not_using_ssh_certificates_you_re
+    * Advanced version: https://smallstep.com/blog/build-a-tiny-ca-with-raspberry-pi-yubikey/
 
 This is for simplistic approach when CA signs server or client certificates directly. For more advanced and secure approach with intermediate CAs, database to keep track of signed certificates, etc. see this guide: https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
 
