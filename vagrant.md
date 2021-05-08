@@ -3,6 +3,15 @@
 * https://github.com/dotless-de/vagrant-vbguest/issues/298
 * :warning: **https://dzone.com/articles/environment-variable-with-vagrant-and-ansible**
 
+```shell
+# Manually download box file
+# alpine-linux/alpine-x86_64
+# Get latest version
+curl -s https://app.vagrantup.com/api/v1/box/alpine-linux/alpine-x86_64 | jq ".current_version.version"
+# Assuming that latest version is "3.12.0"
+wget https://app.vagrantup.com/alpine-linux/boxes/alpine-x86_64/versions/3.12.0/providers/virtualbox.box
+```
+
 ```
 route add default gw 192.168.0.1 metric 10
 route delete default gw 192.168.0.1 metric 10
