@@ -8,7 +8,7 @@ packer build -force -on-error=ask test.pkr.hcl
 packer hcl2_upgrade -output-file=test.pkr.hcl test.json
 ```
 
-`test.pkr.hcl` contents
+`test.pkr.hcl` contents (:warning: install `terraform` package in Sublime Text for syntax highlighting)
 ```hcl
 source "vagrant" "build-test" {
   communicator = "ssh"
