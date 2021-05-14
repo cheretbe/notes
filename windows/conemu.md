@@ -1,4 +1,5 @@
-https://conemu.github.io/
+* https://conemu.github.io/
+* Vagrant issue: https://github.com/Maximus5/ConEmu/issues/2296#issuecomment-841129154
 
 ## Clink
 https://mridgers.github.io/clink/  
