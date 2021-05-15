@@ -20,14 +20,15 @@ wget $(echo ${release_data} | jq -r ".assets[0].browser_download_url")
 tar -xzvf ${backuppc_xs_tar}
 cd BackupPC-XS-${backuppc_xs_ver}
 
-# View current requests rate limits:
-curl -i -u cheretbe:${GITHUB_OAUTH_TOKEN} https://api.github.com/users/cheretbe
-# Non-authenticated (per IP):
-curl -i https://api.github.com/rate_limit
+# View current requests rate limits, both authenticated and non-authenticated (per IP)
+curl -s -H "Authorization: token ${AO_GITHUB_OAUTH_TOKEN}" https://api.github.com/rate_limit | jq -r ".resources.core"; \
+  curl -s https://api.github.com/rate_limit | jq -r ".resources.core"
 
-curl -s https://api.github.com/rate_limit | jq -r ".resources.core"
-curl -s -u cheretbe:${GITHUB_OAUTH_TOKEN} https://api.github.com/rate_limit | jq -r ".resources.core"
+# Alternative authentication
+curl -i -u cheretbe:${AO_GITHUB_OAUTH_TOKEN} https://api.github.com/users/cheretbe
 
+curl -s https://api.github.com/rate_limit
+curl -s -u cheretbe:${AO_GITHUB_OAUTH_TOKEN}
 # Returned HTTP headers:
 # X-RateLimit-Limit	The maximum number of requests you're permitted to make per hour.
 # X-RateLimit-Remaining	The number of requests remaining in the current rate limit window.
