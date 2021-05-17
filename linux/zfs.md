@@ -324,8 +324,11 @@ zpool import new_pool pool_name
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
 * Planned
 ```bash
-# [!] use screen utility
+# [!!!] use screen utility
 zpool offline zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002
+# (?) Disk doesn't go offline when status is FAULTED. Needed to issue 'zpool clear' command
+# Anyway, do not proceed until disk status becomes OFFLINE
+
 # Replace disks
 # -f forces use of new device even if it appears to be in use
 zpool replace -f zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002 /dev/disk/by-id/ata-VBOX_HARDDISK_sn111
