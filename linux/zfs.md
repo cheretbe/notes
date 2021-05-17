@@ -326,7 +326,7 @@ Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX
 ```bash
 # [!!!] use screen utility
 zpool offline zfs-data /dev/disk/by-id/ata-VBOX_HARDDISK_sn002
-# (?) Disk doesn't go offline when status is FAULTED. Needed to issue 'zpool clear' command
+# (?) Disk doesn't go offline when status is FAULTED. Needed to issue 'zpool clear pool id' command
 # Anyway, do not proceed until disk status becomes OFFLINE
 
 # Replace disks
