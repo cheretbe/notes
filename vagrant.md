@@ -2,6 +2,7 @@
 * https://app.vagrantup.com
 * https://github.com/dotless-de/vagrant-vbguest/issues/298
 * :warning: **https://dzone.com/articles/environment-variable-with-vagrant-and-ansible**
+* Reboot during provision: https://github.com/dotless-de/vagrant-vbguest/blob/main/lib/vagrant-vbguest/installers/centos.rb#L100
 
 ```shell
 # Manually download box file
