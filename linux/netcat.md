@@ -1,3 +1,12 @@
+Quick transfer files between machines, aka tar pipe
+```shell
+# receiver
+netcat -l -p 1234 | tar x
+
+# sender
+tar cf - id_rsa* | netcat host.tld 1234
+```
+
 :bulb: Use mbuffer instead
 ```shell
 # mbuffer is in 'universe' repo
