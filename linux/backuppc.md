@@ -76,6 +76,35 @@ $Conf{EMailAdminUserName} = 'backuppc-server'
 # [!!!!] When using Ansigle config, double check that there are no duplicate entries at the end of the file
 $Conf{CgiAdminUsers} = 'user1 user2';
 ```
+----------
+- [ ] 3. Add localhost. `localhost.pl` example:
+```perl
+$Conf{BackupFilesExclude} = {
+  '/home' => [
+    '/*/temp'
+  ],
+  '/root' => [
+    '/temp'
+  ],
+  '/share/subdir' => [
+    '/temp'
+  ]
+};
+$Conf{RsyncShareName} = [
+  '/etc',
+  '/home',
+  '/root',
+  '/usr/local',
+  '/share/subdir'
+];
+$Conf{XferMethod} = 'rsync';
+$Conf{RsyncClientPath} = 'nice -n 19 sudo /usr/bin/rsync';
+$Conf{RsyncSshArgs} = [
+  '-e',
+  '$sshPath -l backuppc'
+];
+$Conf{BackupPCNightlyPeriod} = 1;
+```
 
 :warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
 :warning: Note double qoutes on non-iso-8859-1 strings
