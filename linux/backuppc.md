@@ -28,6 +28,21 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 If `$Conf{FillCycle}` is `0`, then `$Conf{FullPeriod}` is used instead.<br>
 With defaults `$Conf{FillCycle} = 0;` and `$Conf{FullPeriod} = 6.97;` this gives us the following exponential sequence:<br>
 `1 week, 2 weeks, 1 month, 2 months, 4 months, 8 months, etc.`
+```
+With $Conf{FullKeepCnt} = [4, 6, 12, 12, 5];
+--------------+---------------------
+4 x 1 week    | 1 month
+6 x 2 weeks   | 3 months
+12 x 1 month  | 12 months
+12 x 2 months | 24 months
+5 x 4 months  | 20 months
+--------------+---------------------
+total         | 60 months = 5 years
+--------------+---------------------
+
+With $Conf{FullKeepCnt} = [4, 6, 12, 12];
+40 months ~ 3.3 years
+```
 ```perl
 $Conf{FullKeepCnt} = [4, 6, 12, 12, 5];
 $Conf{FullAgeMax} = 1240;
