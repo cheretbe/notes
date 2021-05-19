@@ -24,7 +24,7 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 
 ### Config
 
-[$Conf{FullKeepCnt}](https://backuppc.github.io/backuppc/BackupPC.html#_conf_fullkeepcnt_): `1*$Conf{FillCycle}, 2*$Conf{FillCycle}, 4*$Conf{FillCycle}, 8*$Conf{FillCycle}, etc.`<br>
+[$Conf{FullKeepCnt}](https://backuppc.github.io/backuppc/BackupPC.html#_conf_fullkeepcnt_): `1*$Conf{FillCycle}`, `2*$Conf{FillCycle}`, `4*$Conf{FillCycle}`, `8*$Conf{FillCycle}`, etc.<br>
 If `$Conf{FillCycle}` is `0`, then `$Conf{FullPeriod}` is used instead.<br>
 With defaults `$Conf{FillCycle} = 0;` and `$Conf{FullPeriod} = 6.97;` this gives us the following exponential sequence:<br>
 `1 week, 2 weeks, 1 month, 2 months, 4 months, 8 months, etc.`
@@ -45,7 +45,10 @@ With $Conf{FullKeepCnt} = [4, 6, 12, 12];
 ```
 ```perl
 $Conf{FullKeepCnt} = [4, 6, 12, 12, 5];
+# 1240 days ~ 3.39 years
 $Conf{FullAgeMax} = 1240;
+# 1870 days ~ 5.1 years
+$Conf{FullAgeMax} = 1870;
 $Conf{IncrKeepCnt} = 30;
 $Conf{IncrAgeMax} = 60;
 $Conf{WakeupSchedule} = [1, 2, 3, 4, 5, 6, 7, 8, '8.5', 9, '9.5', 10, '10.5', 11, '11.5', 12, '12.5', 13, '13.5', 14, '14.5', 15, '15.5', 16, '16.5', 17, 18, 19, 20, 21, 22, 23];
