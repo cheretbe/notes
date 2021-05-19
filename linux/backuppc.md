@@ -29,16 +29,16 @@ If `$Conf{FillCycle}` is `0`, then `$Conf{FullPeriod}` is used instead.<br>
 With defaults `$Conf{FillCycle} = 0;` and `$Conf{FullPeriod} = 6.97;` this gives us the following exponential sequence:<br>
 `1 week, 2 weeks, 1 month, 2 months, 4 months, 8 months, etc.`
 ```perl
-$Conf{FullKeepCnt} = [
-  4,
-  6,
-  12,
-  12,
-  5
-];
+$Conf{FullKeepCnt} = [4, 6, 12, 12, 5];
 $Conf{FullAgeMax} = 1240;
 $Conf{IncrKeepCnt} = 30;
 $Conf{IncrAgeMax} = 60;
+$Conf{WakeupSchedule} = [1, 2, 3, 4, 5, 6, 7, 8, '8.5', 9, '9.5', 10, '10.5', 11, '11.5', 12, '12.5', 13, '13.5', 14, '14.5', 15, '15.5', 16, '16.5', 17, 18, 19, 20, 21, 22, 23];
+$Conf{EMailAdminUserName} = 'backuppc-server'
+# Apache2 http users
+# [!!!!] When using Ansigle config, double check that there are no duplicate
+# entries at the end of file
+$Conf{CgiAdminUsers} = 'user1 user2';
 ```
 
 :warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
