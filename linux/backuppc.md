@@ -57,10 +57,13 @@ With $Conf{FullKeepCnt} = [4, 6, 12, 12];
 $Conf{CompressLevel} = 0;
 
 $Conf{FullKeepCnt} = [4, 6, 12, 12, 5];
-# 1240 days ~ 3.39 years
-$Conf{FullAgeMax} = 1240;
 # 1870 days ~ 5.1 years
 $Conf{FullAgeMax} = 1870;
+
+# or
+$Conf{FullKeepCnt} = [4, 6, 12, 12];
+# 1240 days ~ 3.39 years
+$Conf{FullAgeMax} = 1240;
 
 $Conf{IncrKeepCnt} = 30;
 $Conf{IncrAgeMax} = 60;
