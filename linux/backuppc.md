@@ -25,6 +25,7 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 ### Config
 
 [$Conf{FullKeepCnt}](https://backuppc.github.io/backuppc/BackupPC.html#_conf_fullkeepcnt_): `1*$Conf{FillCycle}, 2*$Conf{FillCycle}, 4*$Conf{FillCycle}, 8*$Conf{FillCycle}, etc.`<br>
+If `$Conf{FillCycle}` is `0`, then `$Conf{FullPeriod}` is used instead.<br>
 With defaults `$Conf{FillCycle} = 0;` and `$Conf{FullPeriod} = 6.97;` this gives us the following exponential sequence:<br>
 `1 week, 2 weeks, 1 month, 2 months, 4 months, 8 months, etc.`
 ```perl
