@@ -34,7 +34,7 @@ Windows Users in Administrators Group without Administrator rights – How to Fi
 
 Scheduled reboot
 ```batch
-28800 - 8 hours (8*3600)
+:: 28800 - 8 hours (8*3600)
 shutdown /r /f /t 28800
 ```
 
