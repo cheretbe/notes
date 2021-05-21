@@ -32,6 +32,12 @@ boot-time Chkdsk results: "Application" log, event source "Wininit"
 
 Windows Users in Administrators Group without Administrator rights – How to Fix: https://www.ryadel.com/en/windows-users-administrators-group-without-admin-rights-uac-fix/
 
+Scheduled reboot
+```batch
+28800 - 8 hours (8*3600)
+shutdown /r /f /t 28800
+```
+
 Administrative share access
 ```batch
 :: Query current setting
