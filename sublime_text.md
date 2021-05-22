@@ -98,8 +98,7 @@ Colors
   },
   "globals":
   {
-    "selection": "#000099",
-    "background": "rgb(34, 34, 34)",
+    "selection": "#25375b"
   },
   "rules":
   [
