@@ -3,8 +3,13 @@
     * http://www.openoid.net/zfs-practicing-failures/
     * https://calomel.org/zfs_raid_speed_capacity.html
 
-:warning: Clear ZFS metadata at the end(!) of a disk
+Clear ZFS metadata
 ```shell
+# [!!!] Be careful. Double check the host and drive letter
+wipefs -a -f /dev/sdX
+
+# Manually
+# Clear ZFS metadata at the end(!) of a disk
 # https://superuser.com/questions/1248905/how-to-delete-some-zfs-metadata-from-hard-drive
 dd if=/dev/zero of=/dev/sda seek=$(($(blockdev --getsz "/dev/sda") - 1024))
 ```
