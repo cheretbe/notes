@@ -1,4 +1,9 @@
 ```shell
+# Identify SATA ports of connected drives
+# lsscsi package needs to be installed
+# look for ataX part (e.g. /sys/devices/pci0000:00/0000:00:1f.2/ata2/host1/target1:0:0/1:0:0:0)
+lsscsi --verbose
+
 # Re-read partition table from a drive
 partprobe /dev/sdX
 ```
