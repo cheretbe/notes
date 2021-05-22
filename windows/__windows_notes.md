@@ -1,6 +1,7 @@
 ## Unsorted
 
 ```batch
+powershell -c (New-Object Media.SoundPlayer 'c:\Users\orlov\Downloads\work-complete.wav').PlaySync();
 net session \\samba.server.ip.address /delete
 ```
 
