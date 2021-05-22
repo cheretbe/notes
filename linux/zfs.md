@@ -87,7 +87,7 @@ zpool create pool1 mirror /dev/vda /dev/vdb
     * https://habr.com/post/314506/
     * https://github.com/zfsonlinux/zfs/blob/master/cmd/zpool/zpool_vdev.c#L107
 * **-O atime=off** Disables access time updates
-* **-m /mnt/mountpoint** sets mountpoint location instead of /poolname
+* **-m /mnt/mountpoint** sets mountpoint location instead of /poolname (protect mountpoint: `chattr +i /mnt/mountpoint`)
 * **-o feature@lz4_compress=enabled** by default (`-o compression=on`) it's either `lzjb` or `lz4` (if `lz4_compress` feature is enabled)
     * https://github.com/zfsonlinux/zfs/blob/master/man/man8/zfs.8 search for `default compression`
 * **-O compression=lz4**
