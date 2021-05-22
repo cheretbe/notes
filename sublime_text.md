@@ -22,6 +22,12 @@
 * Cheat sheet: https://www.cheatography.com/tdeyle/cheat-sheets/sublime-text-3/
 * Tips & tricks: https://generalassemb.ly/blog/sublime-text-3-tips-tricks-shortcuts/
 
+Delete previous session
+```shell
+# Windows location: C:\Users\username\AppData\Roaming\Sublime Text 3\Local
+rm ~/.config/sublime-text-3/Local/Session.sublime_session
+```
+
 Run from console on Linux
 ```shell
 subl filename
