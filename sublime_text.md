@@ -81,7 +81,7 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
 
 Colors
 * Color picker: https://www.w3schools.com/colors/colors_picker.asp
-* Less usable, but has text on background test: https://www.wincalendar.com/Color-Picker
+* Less usable, but has text on background preview: https://www.wincalendar.com/Color-Picker
 * Theme editor (use `Gallery` button to view list): https://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai
 
 `Preferences` > `Customize Color Scheme`:
