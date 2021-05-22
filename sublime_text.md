@@ -89,7 +89,7 @@ Colors
 * Color picker: https://www.w3schools.com/colors/colors_picker.asp
 * Less usable, but has text on background preview: https://www.wincalendar.com/Color-Picker
 * Theme editor (use `Gallery` button to view list): https://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai
-* In ST4 default color scheme is _Mariana_ instead of _Molocai_
+* In ST4 default color scheme is _Mariana_ instead of _Molokai_
 
 `Preferences` > `Customize Color Scheme`:
 ```json
