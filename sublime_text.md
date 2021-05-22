@@ -79,6 +79,33 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
 }
 ```
 
+Colors
+* Color picker: https://www.w3schools.com/colors/colors_picker.asp
+* Less usable, but has text on background test: https://www.wincalendar.com/Color-Picker
+* Theme editor (use `Gallery` button to view list): https://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai
+
+`Preferences` > `Customize Color Scheme`:
+```json
+{
+  "variables":
+  {
+  },
+  "globals":
+  {
+    "selection": "#000099",
+    "background": "rgb(34, 34, 34)",
+  },
+  "rules":
+  [
+  {
+      "name": "Comment",
+      "scope": "comment",
+      "foreground": "#3b5891"
+  }
+  ]
+}
+```
+
 Linters
 * <kbd>Ctl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Install Packages" > "SublimeLinter"
 * pylint
