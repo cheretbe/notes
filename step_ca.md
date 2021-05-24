@@ -18,8 +18,8 @@ step certificate create example.com ./output/example.com.crt ./output/example.co
 ```shell
 STEPDEBUG=1 step ca health
 ```
-Certificate template files are [Go language templates](https://golang.org/pkg/text/template/)
-with [Sprig](https://github.com/Masterminds/sprig) functions
+Certificate template files are JSON with [Go language templates](https://golang.org/pkg/text/template/)
+and [Sprig](https://github.com/Masterminds/sprig) functions.
 
 ```python
 cert.extensions.get_extension_for_class(x509.KeyUsage).value
