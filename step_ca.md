@@ -7,7 +7,7 @@ mkdir output
 step certificate create --profile root-ca "Example Root CA" ./ca-files/root_ca.crt ./ca-files/root_ca.key
 
 step certificate create example.com ./output/example.com.crt ./output/example.com.key \
-    --template winrm.tpl --not-after=87600h \
+    --template winrm.tpl --not-after=87600h --insecure --no-password \
     --ca ./ca-files/root_ca.crt --ca-key ./ca-files/root_ca.key
 ```
 
