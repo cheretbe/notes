@@ -1,4 +1,5 @@
 * https://smallstep.com/docs/step-ca/configuration#basic-x509-template-examples
+* https://github.com/smallstep/crypto/blob/master/x509util/templates.go#L98
 
 ```shell
 STEPDEBUG=1 step ca health
