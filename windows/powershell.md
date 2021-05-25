@@ -438,7 +438,7 @@ openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in my
 Copy `myhost.pfx` to a Windows machine
 ```powershell
 # Import the certificate to "Certificates (Local Computer)" > "Personal"
-Import-PfxCertificate -FilePath "c:\temp\myhost.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
+$Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
 # View certificate list to find out the thumbprint
 Get-ChildItem "Cert:\LocalMachine\My" | Format-List
 # Delete a certificate (in case something went wrong)
