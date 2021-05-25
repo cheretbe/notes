@@ -1,8 +1,10 @@
+* https://github.com/smallstep/cli/releases/latest
+
 ```shell
 STEPDEBUG=1 step ca health
 ```
 
-### Offilne CA
+### Offline CA
 * https://smallstep.com/docs/step-cli/basic-crypto-operations#run-an-offline-x509-certificate-authority
 
 ```shell
