@@ -12,6 +12,7 @@
     * [Import, export, convert between formats](#import-export-convert-between-formats)
 * [Own SSL Certificate Authority](#own-ssl-certificate-authority)
 * [Adding a CA to Debian/Ubuntu](#adding-a-ca-to-debianubuntu)
+* [Python code](#python-code)
 
 ### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
@@ -465,5 +466,19 @@ cp RapidSSLECCCA2018.crt /usr/share/ca-certificates/custom/RapidSSLECCCA2018.crt
 nano /etc/ca-certificates.conf
 # Update CA certificates in /etc/ssl/certs/
 update-ca-certificates --fresh
+```
+[\[ TOC \]](#table-of-contents)
+
+### Python code
+
+```python
+from cryptography import x509
+
+with open("/path/to/a/cert/file.pem", "rb") as fh:
+    pem_data = fh.read()
+cert = x509.load_pem_x509_certificate(pem_data)
+cert.serial_number
+cert.extensions.get_extension_for_class(x509.KeyUsage).value
+cert.extensions.get_extension_for_class(x509.ExtendedKeyUsage).value._usages
 ```
 [\[ TOC \]](#table-of-contents)
