@@ -16,7 +16,7 @@ step certificate create example.com ./output/example.com.crt ./output/example.co
 ```
 
 `winrm.tpl`:
-```json
+```
 {
     "subject": {{ toJson .Subject }},
     "sans": {{ toJson .SANs }},
@@ -33,6 +33,12 @@ and [Sprig](https://github.com/Masterminds/sprig) functions.
 
 
 ```python
+from cryptography import x509
+
+with open("/path/to/a/cert/file.pem", "rb") as fh:
+    pem_data = fh.read()
+cert = x509.load_pem_x509_certificate(pem_data)
+cert.serial_number
 cert.extensions.get_extension_for_class(x509.KeyUsage).value
 cert.extensions.get_extension_for_class(x509.ExtendedKeyUsage).value._usages
 ```
