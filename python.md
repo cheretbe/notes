@@ -111,6 +111,9 @@ with open("filename", "r") as f:
 with open("filename", "r") as f:
     for line in f:
         print(line.decode('utf-8').rstrip())
+# Strip ending \n (useful for reading one-line files)
+with open(param2, "r") as f:
+    dummy = f.read().strip()
 
 # Change file encoding
 with open("filename", "rb") as f:
