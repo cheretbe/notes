@@ -15,6 +15,9 @@ step certificate create --profile root-ca "Example Root CA" ./ca-files/root_ca.c
 step certificate create example.com ./output/example.com.crt ./output/example.com.key \
     --template winrm.tpl --not-after=87600h --insecure --no-password \
     --ca ./ca-files/root_ca.crt --ca-key ./ca-files/root_ca.key
+    
+# Combine the key and the certificate into a single PKCS12 file
+openssl pkcs12 -inkey ./output/example.com.key -in ./output/example.com.crt -export -out ./output/example.com.p12
 ```
 
 `winrm.tpl`:
