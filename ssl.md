@@ -471,6 +471,11 @@ update-ca-certificates --fresh
 
 ### Python code
 
+* https://github.com/pyca/cryptography
+```shell
+pip install cryptography
+```
+
 ```python
 from cryptography import x509
 
