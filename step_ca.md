@@ -16,8 +16,9 @@ step certificate create example.com ./output/example.com.crt ./output/example.co
     --template winrm.tpl --not-after=87600h --insecure --no-password \
     --ca ./ca-files/root_ca.crt --ca-key ./ca-files/root_ca.key
     
-# Combine the key and the certificate into a single PKCS12 file
-openssl pkcs12 -inkey ./output/example.com.key -in ./output/example.com.crt -export -out ./output/example.com.p12
+# Combine the key and the certificate into a single PKCS12 file with empty password
+# https://www.openssl.org/docs/manmaster/man1/openssl.html#Pass-Phrase-Options
+openssl pkcs12 -inkey ./output/example.com.key -in ./output/example.com.crt -export -out ./output/example.com.p12 -password pass:
 ```
 
 `winrm.tpl`:
