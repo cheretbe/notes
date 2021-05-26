@@ -107,7 +107,7 @@ Colors
   {
       "name": "Comment",
       "scope": "comment",
-      "foreground": "#3b5891"
+      "foreground": "#6e8bc4"
   }
   ]
 }
