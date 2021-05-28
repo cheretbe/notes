@@ -267,6 +267,7 @@ $ComputerSystemInfo = Get-WmiObject -Class Win32_ComputerSystem
 ```
 ### Remoting
 
+* https://adamtheautomator.com/psremoting/
 * **https://github.com/PowerShell/PowerShell/issues/3708**
 * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
 * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
@@ -278,6 +279,9 @@ Enter-PSSession -ComputerName "host.domain.tld" -Credential $credential
 Enter-PSSession -UseSSL -ComputerName "host.domain.tld" -Credential "user" 2>&1
 Invoke-Command -UseSSL -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) `
   -ComputerName "localhost" -Credential $credential -ScriptBlock { & cmd /c set }
+  
+# View current authentication type (on remote host)
+$PSSenderInfo.UserInfo.Identity.AuthenticationType
   
 Invoke-Command -ComputerName "host.domain.tld" -ScriptBlock { Register-PSSessionConfiguration -Name "domain_user" -RunAsCredential "domain\user" -Force }
 Enter-PSSession -ComputerName "host.domain.tld" -ConfigurationName "domain_user"
@@ -326,6 +330,17 @@ client = Client("host.domain.tld", username="user", password="pwd")
 
 stdout, stderr, rc = client.execute_cmd("cmd /c ver", encoding="1251")
 client.copy("/path/to/script.ps1", 'c:\\temp\\script.ps1')
+```
+
+#### Linux
+* https://gbe0.com/posts/linux/desktop/linux-powershell-remote-to-windows-with-docker/
+
+```powershell
+Install-Module -Name PSWSMan -Force
+Install-WSMan
+
+$cred = Get-Credential
+Enter-PSSession -ComputerName my-computer -Credential $cred
 ```
 
 #### Unencrypted
