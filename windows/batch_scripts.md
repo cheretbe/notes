@@ -1,3 +1,12 @@
+* https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/call#batch-parameters
+```batch
+:: [!] Not current directory
+ECHO Full path to script's directory: %~dp0
+
+ECHO Full path to the script file: %~f0
+ECHO Script file name with no extension: %~n0
+```
+
 ```bat
 echo:Press any key to continue... & pause >NUL
 
