@@ -12,3 +12,15 @@
 :: Install/upgrade additional packages
 python\x64\python.exe -m pip install --upgrade -t python\packages -r requirements.txt
 ```
+
+Batch wrapper example (`test.bat`)
+```batch
+@ECHO OFF
+
+SETLOCAL
+
+IF "%ProgramFiles(x86)%"=="" (SET CPUArch=x86) ELSE (SET CPUArch=x64)
+"%~dp0python\%CPUArch%\python.exe" "%~dp0test.py" %*
+
+ENDLOCAL
+```
