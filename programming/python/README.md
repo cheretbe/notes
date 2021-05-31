@@ -1,6 +1,9 @@
 2review
 * https://softwareengineering.stackexchange.com/questions/349740/in-python-3-4-why-should-i-use-namedtuple-over-simplenamespace-when-not-using
 
+------
+* [Portable Windows settings](./portable_windows.md)
+
 Unsorted
 ```python
 #pylint: disable=missing-module-docstring,missing-function-docstring
