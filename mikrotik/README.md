@@ -346,6 +346,8 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 * https://vedernikoff.ru/mikrotik-netinstall/
 * https://www.umgum.com/mikrotik-netinstall-linux
 
+hAP ac2: port 1
+
 ```shell
 # (2test) Under wine run as root or allow Wine to bind low ports as non-root
 # https://www.winehq.org/pipermail/wine-bugs/2014-July/391739.html
