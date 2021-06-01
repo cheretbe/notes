@@ -3,6 +3,10 @@
 * https://sourceforge.net/p/burp/mailman/message/35060752/ (more on this in burp-ui docs)
 * https://unix.stackexchange.com/questions/1067/what-directories-do-i-need-to-back-up/286714#286714
 
+```shell
+journalctl -t burp --since "1 hour ago" | grep 'does not match'
+```
+
 ```diff
 # 2.2.18 ==> 2.4.0 /etc/burp/burp.conf changes
 - port = 4971
