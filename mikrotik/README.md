@@ -345,8 +345,12 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 * https://wiki.mikrotik.com/wiki/Manual:Netinstall
 * https://vedernikoff.ru/mikrotik-netinstall/
 * https://www.umgum.com/mikrotik-netinstall-linux
+* Gotchas
+    * If 64-bit version doesn't work try x86 version :confused:
+    * It seems that default gw and DNS setting are not needed (could be left empty)
+    * The sequence of connection (router setup, netinstall start, port change) don't matter: if it works - it works
 
-hAP ac2: port 1
+hAP ac2: any port works, port 1 100%
 
 ```shell
 # (2test) Under wine run as root or allow Wine to bind low ports as non-root
