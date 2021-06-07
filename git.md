@@ -10,6 +10,13 @@
 
 ### Unsorted
 
+Store directory in the repo, ignoring it's contents
+```
+!.gitignore
+*
+*/
+```
+
 Github
 ```shell
 # Get latest release
