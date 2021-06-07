@@ -12,9 +12,9 @@
 
 Store directory in the repo, ignoring it's contents
 ```
-!.gitignore
 *
 */
+!.gitignore
 ```
 
 Github
