@@ -426,7 +426,7 @@ openssl genrsa -aes256 -out ca.key.pem 4096
 ```
 Create the root certificate
 ```shell
-# 7200 days is 20 years
+# 7300 days is 20 years
 openssl req -key ca.key.pem -new -x509 -days 7300 -sha256 -out ca.cert.pem
 # Verify it
 openssl x509 -noout -text -in ca.cert.pem
