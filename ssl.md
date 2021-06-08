@@ -315,6 +315,8 @@ SET RANDFILE=.rnd
 SET HOME=%HOMEPATH%
 ```
 
+On Linux comment out `RANDFILE` setting in `/etc/ssl/openssl.cnf` (https://stackoverflow.com/questions/63893662/cant-load-root-rnd-into-rng/63893731#63893731)
+
 View certificates in a bundle (remove out the `-text` to just get subject/issuer info for each certificate)
 ```
 openssl crl2pkcs7 -nocrl -certfile CHAINED.pem | openssl pkcs7 -print_certs -text -noout
