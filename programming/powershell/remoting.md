@@ -60,33 +60,36 @@ openssl req \
        -newkey rsa:2048 -nodes -keyout myhost.key \
        -x509 -days 3650 -out myhost.crt \
        -extensions myextensions -config ext_config.cnf
-# Take a private key (myhost.key) and a certificate (myhost.crt), and combine them into a PKCS12 file (myhost.pfx):
-openssl pkcs12 \
-       -inkey myhost.key \
-       -in myhost.crt \
-       -export -out myhost.pfx
 ```
-When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the following content
+When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `winrm_server_ext.cnf` file with the following content
 ```
-[client_server_ssl]
+[winrm_server_ext]
 extendedKeyUsage = serverAuth,clientAuth
 ```
 and use `-extensions` and `-extfile` options on signing 
 ```shell
-openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in myhost.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out myhost.crt -days 3650 -sha256
+openssl x509 -req -extensions winrm_server_ext -extfile winrm_server_ext.cnf -in myhost.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out myhost.crt -days 3650
 ```
 
-Copy `myhost.pfx` to a Windows machine
+```shell
+# Take a private key (myhost.key) and a certificate (myhost.crt), and combine them into a PKCS12 file (myhost.pfx):
+openssl pkcs12 \
+       -inkey myhost.key \
+       -in myhost.crt \
+       -export -out myhost.p12
+```
+
+Copy `myhost.p12` to a Windows machine
 ```powershell
 # Import the certificate to "Certificates (Local Computer)" > "Personal"
-$Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
+$Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.p12" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
 # View certificate list to find out the thumbprint
 Get-ChildItem "Cert:\LocalMachine\My" | Format-List
 # Delete a certificate (in case something went wrong)
 Get-ChildItem "Cert:\LocalMachine\My" |
   Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
 ```
-Windows 7 doesn't have `Import-PfxCertificate`, use `certutil -importpfx c:\temp\myhost.pfx`
+Windows 7 doesn't have `Import-PfxCertificate`, use `certutil -importpfx c:\temp\myhost.12`
 
 ```powershell
 #  -SkipNetworkProfileCheck -Force
