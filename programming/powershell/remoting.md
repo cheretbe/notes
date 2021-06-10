@@ -120,8 +120,7 @@ dir wsman:\localhost\listener
 New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
 New-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTPS - входящий трафик)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
 # Disable HTTP port (optional)
-Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
-Disable-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTP - входящий трафик)"
+Disable-NetFirewallRule -Name "WINRM-HTTP-In-TCP-NoScope"
 
 # Windows 7 doesn't have New-NetFirewallRule, use netsh instead
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
