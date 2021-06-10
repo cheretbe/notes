@@ -80,6 +80,11 @@ openssl pkcs12 \
 ```
 
 Copy `myhost.p12` to a Windows machine
+```batch
+:: Non-Interactive commands (Useful when using PSExec)
+:: Check if root CA certificate is installed
+powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\Root' | Where-Object {$_.Thumbprint -eq (New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 ".\root_ca.crt").Thumbprint}"
+```
 ```powershell
 # When using own SSL CA import it's root certificate
 # It's not strictly necessary for WinRM to work, but will help when checking server certificate properties
