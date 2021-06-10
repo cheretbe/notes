@@ -1,10 +1,12 @@
 ## Powershell Remoting
 
-* https://adamtheautomator.com/psremoting/
-* **https://github.com/PowerShell/PowerShell/issues/3708**
-* https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
-* https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
-* https://blog.ipswitch.com/the-infamous-double-hop-problem-in-powershell
+* References
+    * https://adamtheautomator.com/psremoting/
+    * **https://github.com/PowerShell/PowerShell/issues/3708**
+    * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
+    * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
+    * https://blog.ipswitch.com/the-infamous-double-hop-problem-in-powershell
+* [Useful Interactive Commands](#useful-interactive-commands)
 
 ```powershell
 $credential = Get-Credential
@@ -23,6 +25,110 @@ Enter-PSSession -ComputerName "host.domain.tld" -ConfigurationName "domain_user"
 Get-PSSessionConfiguration
 Unregister-PSSessionConfiguration "domain_user"
 ```
+
+### HTTPS with a self-signed SSL certificate
+* https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
+* http://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure
+
+```powershell
+$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myhost"
+# or
+$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myhost" -NotAfter (Get-Date).AddYears(10)
+
+Export-Certificate -Cert $Cert -FilePath C:\temp\myhost.cer
+```
+By default `New-SelfSignedCertificate` creates a certificate that is valid for one year. To create a certificate that lasts longer use `-NotAfter (Get-Date).AddYears(5)` parameter. The problem is that this parameter doesn't work on Win8.1/Win2012R2 (even with PS 5.1 installed):  https://social.technet.microsoft.com/Forums/windowsserver/en-US/cd5bba06-5931-42ee-afad-1e438b3df759/problem-generating-a-certificate-for-ldaps-using-newselfsignedcertificate-quota-parameter?forum=winserver8gen
+
+The solution is to use openssl:
+
+```shell
+# EKU should contain serverAuth and this parameter can't be passed as a command-line option
+# We create a temporary config file to add it
+cp /usr/lib/ssl/openssl.cnf ./ext_config.cnf
+
+# Windows version
+copy "C:\Program Files\Common Files\SSL\openssl.cnf" ext_config.cnf
+```
+Add the following to `ext_config.cnf`:
+```
+[myextensions]
+extendedKeyUsage = serverAuth,clientAuth
+```
+```shell
+# Create a self-signed certificate
+openssl req \
+       -newkey rsa:2048 -nodes -keyout myhost.key \
+       -x509 -days 3650 -out myhost.crt \
+       -extensions myextensions -config ext_config.cnf
+# Take a private key (myhost.key) and a certificate (myhost.crt), and combine them into a PKCS12 file (myhost.pfx):
+openssl pkcs12 \
+       -inkey myhost.key \
+       -in myhost.crt \
+       -export -out myhost.pfx
+```
+When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the following content
+```
+[client_server_ssl]
+extendedKeyUsage = serverAuth,clientAuth
+```
+and use `-extensions` and `-extfile` options on signing 
+```shell
+openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in myhost.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out myhost.crt -days 3650 -sha256
+```
+
+Copy `myhost.pfx` to a Windows machine
+```powershell
+# Import the certificate to "Certificates (Local Computer)" > "Personal"
+$Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
+# View certificate list to find out the thumbprint
+Get-ChildItem "Cert:\LocalMachine\My" | Format-List
+# Delete a certificate (in case something went wrong)
+Get-ChildItem "Cert:\LocalMachine\My" |
+  Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
+```
+Windows 7 doesn't have `Import-PfxCertificate`, use `certutil -importpfx c:\temp\myhost.pfx`
+
+```powershell
+#  -SkipNetworkProfileCheck -Force
+Enable-PSRemoting
+
+# Delete HTTP listener (optional)
+Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
+# Delete all listeners
+Remove-Item -Path WSMan:\Localhost\listener\listener* -Recurse
+
+New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint –Force
+# or
+New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint "0000000000000000000000000000000000000000" –Force
+# View listeners
+dir wsman:\localhost\listener
+
+# Enable HTTPS port in the firewall
+New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
+New-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTPS - входящий трафик)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
+# Disable HTTP port (optional)
+Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
+Disable-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTP - входящий трафик)"
+
+# Windows 7 doesn't have New-NetFirewallRule, use netsh instead
+netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
+
+Test-WSMan -useSSL myhost
+winrs -r:https://myhost:5986/wsman -u:vagrant -p:vagrant ipconfig
+```
+
+On a client computer
+```powershell
+Import-Certificate -Filepath "C:\temp\myhost.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
+# When using own CA import CA certificate instead
+Import-Certificate -Filepath "C:\temp\ca.cert.crt" -CertStoreLocation "Cert:\LocalMachine\Root"
+Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
+# Windows 7
+certutil -addstore "Root" "C:\temp\ca.cert.crt"
+```
+
+
+
 pywinrm (https://github.com/diyan/pywinrm)
 ```shell
 pip install pywinrm
@@ -132,104 +238,4 @@ $credential = Import-CliXml -Path "C:\My\Path\cred.xml"
 # or
 $credential.Password | ConvertFrom-SecureString | Out-File "C:\My\Path\pwd.txt"
 $pwd = (Get-Content "C:\My\Path\pwd.txt" | ConvertTo-SecureString)
-```
-#### HTTPS with a self-signed SSL certificate
-* https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
-* http://www.hurryupandwait.io/blog/understanding-and-troubleshooting-winrm-connection-and-authentication-a-thrill-seekers-guide-to-adventure
-
-```powershell
-$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myhost"
-# or
-$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "myhost" -NotAfter (Get-Date).AddYears(10)
-
-Export-Certificate -Cert $Cert -FilePath C:\temp\myhost.cer
-```
-By default `New-SelfSignedCertificate` creates a certificate that is valid for one year. To create a certificate that lasts longer use `-NotAfter (Get-Date).AddYears(5)` parameter. The problem is that this parameter doesn't work on Win8.1/Win2012R2 (even with PS 5.1 installed):  https://social.technet.microsoft.com/Forums/windowsserver/en-US/cd5bba06-5931-42ee-afad-1e438b3df759/problem-generating-a-certificate-for-ldaps-using-newselfsignedcertificate-quota-parameter?forum=winserver8gen
-
-The solution is to use openssl:
-
-```shell
-# EKU should contain serverAuth and this parameter can't be passed as a command-line option
-# We create a temporary config file to add it
-cp /usr/lib/ssl/openssl.cnf ./ext_config.cnf
-
-# Windows version
-copy "C:\Program Files\Common Files\SSL\openssl.cnf" ext_config.cnf
-```
-Add the following to `ext_config.cnf`:
-```
-[myextensions]
-extendedKeyUsage = serverAuth,clientAuth
-```
-```shell
-# Create a self-signed certificate
-openssl req \
-       -newkey rsa:2048 -nodes -keyout myhost.key \
-       -x509 -days 3650 -out myhost.crt \
-       -extensions myextensions -config ext_config.cnf
-# Take a private key (myhost.key) and a certificate (myhost.crt), and combine them into a PKCS12 file (myhost.pfx):
-openssl pkcs12 \
-       -inkey myhost.key \
-       -in myhost.crt \
-       -export -out myhost.pfx
-```
-When using own SSL CA create CSR as described [here](https://github.com/cheretbe/notes/blob/master/ssl.md#own-ssl-certificate-authority), then create `openssl-ext.conf` file with the following content
-```
-[client_server_ssl]
-extendedKeyUsage = serverAuth,clientAuth
-```
-and use `-extensions` and `-extfile` options on signing 
-```shell
-openssl x509 -req -extensions client_server_ssl -extfile openssl-ext.conf -in myhost.csr -CA ca.cert.pem -CAkey ca.key.pem -CAcreateserial -out myhost.crt -days 3650 -sha256
-```
-
-Copy `myhost.pfx` to a Windows machine
-```powershell
-# Import the certificate to "Certificates (Local Computer)" > "Personal"
-$Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.pfx" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
-# View certificate list to find out the thumbprint
-Get-ChildItem "Cert:\LocalMachine\My" | Format-List
-# Delete a certificate (in case something went wrong)
-Get-ChildItem "Cert:\LocalMachine\My" |
-  Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
-```
-Windows 7 doesn't have `Import-PfxCertificate`, use `certutil -importpfx c:\temp\myhost.pfx`
-
-```powershell
-#  -SkipNetworkProfileCheck -Force
-Enable-PSRemoting
-
-# Delete HTTP listener (optional)
-Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
-# Delete all listeners
-Remove-Item -Path WSMan:\Localhost\listener\listener* -Recurse
-
-New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint –Force
-# or
-New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint "0000000000000000000000000000000000000000" –Force
-# View listeners
-dir wsman:\localhost\listener
-
-# Enable HTTPS port in the firewall
-New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
-New-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTPS - входящий трафик)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
-# Disable HTTP port (optional)
-Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
-Disable-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTP - входящий трафик)"
-
-# Windows 7 doesn't have New-NetFirewallRule, use netsh instead
-netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=5986
-
-Test-WSMan -useSSL myhost
-winrs -r:https://myhost:5986/wsman -u:vagrant -p:vagrant ipconfig
-```
-
-On a client computer
-```powershell
-Import-Certificate -Filepath "C:\temp\myhost.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
-# When using own CA import CA certificate instead
-Import-Certificate -Filepath "C:\temp\ca.cert.crt" -CertStoreLocation "Cert:\LocalMachine\Root"
-Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
-# Windows 7
-certutil -addstore "Root" "C:\temp\ca.cert.crt"
 ```
