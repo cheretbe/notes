@@ -117,8 +117,20 @@ New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -Certificat
 dir wsman:\localhost\listener
 
 # Enable HTTPS port in the firewall
-New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
-New-NetFirewallRule -DisplayName "Удаленное управление Windows (HTTPS - входящий трафик)" -Name "WINRM-HTTPS-In-TCP-NoScope" -Profile Any -LocalPort 5986 -Protocol TCP
+New-NetFirewallRule -Name 'WINRM-HTTPS-In-TCP-NoScope' `
+                    -DisplayName 'Windows Remote Management (HTTPS-In)' `
+                    -Group '@FirewallAPI.dll,-30267' `
+                    -Description 'Inbound rule for Windows Remote Management via WS-Management. [TCP 5986]' `
+                    -Profile Any `
+                    -LocalPort 5986 `
+                    -Protocol TCP
+New-NetFirewallRule -Name 'WINRM-HTTPS-In-TCP-NoScope' `
+                    -DisplayName 'Удаленное управление Windows (HTTPS - входящий трафик)' `
+                    -Group '@FirewallAPI.dll,-30267' `
+                    -Description 'Правило входящего трафика для удаленного управления Windows через WS-Management. [TCP 5986]' `
+                    -Profile Any `
+                    -LocalPort 5986 `
+                    -Protocol TCP
 # Disable HTTP port (optional)
 Disable-NetFirewallRule -Name "WINRM-HTTP-In-TCP-NoScope"
 
