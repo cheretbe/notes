@@ -84,6 +84,7 @@ Copy `myhost.p12` to a Windows machine
 :: Non-Interactive commands (Useful when using PSExec)
 :: Check if root CA certificate is installed
 powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\Root' | Where-Object {$_.Thumbprint -eq (New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 ".\root_ca.crt").Thumbprint}"
+powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\My' | Format-List"
 ```
 ```powershell
 # When using own SSL CA import it's root certificate
