@@ -6,6 +6,7 @@ Unsorted
 * [Code Snippets](#code-snippets)
 * [Remoting](#remoting)
 * [Installation](#installation)
+* [Remoting](./remoting.md)
 
 ## Useful Interactive Commands
 ```powershell
