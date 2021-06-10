@@ -81,6 +81,10 @@ openssl pkcs12 \
 
 Copy `myhost.p12` to a Windows machine
 ```powershell
+# When using own SSL CA import it's root certificate
+# It's not strictly necessary for WinRM to work, but will help when checking server certificate properties
+Import-Certificate -FilePath "root_ca.crt" -CertStoreLocation "Cert:\LocalMachine\Root"
+
 # Import the certificate to "Certificates (Local Computer)" > "Personal"
 $Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.p12" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
 # View certificate list to find out the thumbprint
