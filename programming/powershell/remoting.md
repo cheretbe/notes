@@ -6,7 +6,7 @@
     * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
     * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
     * https://blog.ipswitch.com/the-infamous-double-hop-problem-in-powershell
-* [Useful Interactive Commands](#useful-interactive-commands)
+* [HTTPS with a self-signed SSL certificate](#https-with-a-self-signed-ssl-certificate)
 
 ```powershell
 $credential = Get-Credential
