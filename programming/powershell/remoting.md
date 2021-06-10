@@ -90,13 +90,13 @@ powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\Root' | Where-Obje
 # It's not strictly necessary for WinRM to work, but will help when checking server certificate properties
 Import-Certificate -FilePath "root_ca.crt" -CertStoreLocation "Cert:\LocalMachine\Root"
 
+# View certificate list
+Get-ChildItem "Cert:\LocalMachine\My" | Format-List
+
 # Import the certificate to "Certificates (Local Computer)" > "Personal"
 $Cert = Import-PfxCertificate -FilePath "c:\temp\myhost.p12" -CertStoreLocation "Cert:\LocalMachine\My" -Exportable
-# View certificate list to find out the thumbprint
-Get-ChildItem "Cert:\LocalMachine\My" | Format-List
 # Delete a certificate (in case something went wrong)
-Get-ChildItem "Cert:\LocalMachine\My" |
-  Where-Object { $_.Thumbprint -eq '0000000000000000000000000000000000000000' } | Remove-Item
+Get-ChildItem "Cert:\LocalMachine\My" | Where-Object { $_.Thumbprint -eq $Cert.Thumbprint } | Remove-Item
 ```
 Windows 7 doesn't have `Import-PfxCertificate`, use `certutil -importpfx c:\temp\myhost.12`
 
