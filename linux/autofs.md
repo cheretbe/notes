@@ -54,6 +54,7 @@ password=vagrant
 domain=HOME
 ```
 ```shell
+chmod 600 /etc/creds/host_name
 service autofs restart
 # This should return the list of shares
 ls /smb/host_name
