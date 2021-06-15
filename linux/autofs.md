@@ -59,3 +59,12 @@ service autofs restart
 # This should return the list of shares
 ls /smb/host_name
 ```
+To use a single credentials file `/etc/auto.smb` script needs to be modified
+```shell
+cp /etc/auto.smb{,_custom}
+```
+`/etc/auto.smb_custom`:
+```diff
+---creds=/etc/creds/$key
++++creds=/root/.workgroup_credentials
+```
