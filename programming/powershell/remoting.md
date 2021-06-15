@@ -193,9 +193,12 @@ client.copy("/path/to/script.ps1", 'c:\\temp\\script.ps1')
 ```
 
 ```powershell
+# 2check
+# https://github.com/jborean93/pypsrp/issues/94
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 #[System.Text.Encoding]::Default
 ```
+
 
 ##### pywinrm
 * https://pypi.org/project/pywinrm/
