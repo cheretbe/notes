@@ -36,10 +36,25 @@ domain=DOMAIN
 smbclient -L srv-name.domain.tld -k -m SMB3 -d 3
 ```
 
+#### Getting share list from SMB servers automatically
 
-/etc/creds/host_name
+:warning: Make sure `smbclient` package is installed and `/etc/auto.smb` is executable (by default it is)
+
+```
+apt install smbclient cifs-utils
+mkdir /etc/auto.master.d/
+echo "/smb  /etc/auto.smb --timeout=600" > /etc/auto.master.d/smb.autofs
+mkdir /etc/creds
+```
+
+Make sure there is corresponding file in `/etc/creds` for each server. `/etc/creds/host_name` example
 ```
 username=vagrant
 password=vagrant
 domain=HOME
+```
+```shell
+service autofs restart
+# This should return the list of shares
+ls /smb/host_name
 ```
