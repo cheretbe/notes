@@ -7,6 +7,8 @@
     * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
     * https://blog.ipswitch.com/the-infamous-double-hop-problem-in-powershell
 * [HTTPS with a self-signed SSL certificate](#https-with-a-self-signed-ssl-certificate)
+* [Linux](#linux)
+* [Unencrypted](#unencrypted)
 
 ```powershell
 $credential = Get-Credential
@@ -151,9 +153,53 @@ Enter-PSSession -ComputerName myHost -UseSSL -Credential (Get-Credential)
 certutil -addstore "Root" "C:\temp\ca.cert.crt"
 ```
 
+### Linux
+* https://gbe0.com/posts/linux/desktop/linux-powershell-remote-to-windows-with-docker/
 
+```powershell
+Install-Module -Name PSWSMan -Force
+Install-WSMan
 
-pywinrm (https://github.com/diyan/pywinrm)
+$cred = Get-Credential
+Enter-PSSession -ComputerName my-computer -Credential $cred
+```
+
+##### pypsrp
+* https://pypi.org/project/pypsrp/
+* https://github.com/jborean93/pypsrp
+
+```shell
+pip install pypsrp
+# For Kerberos auth
+pip install pypsrp[kerberos]
+```
+
+```python
+from pypsrp.client import Client
+# Domain member
+client = Client("host.domain.tld", ssl=False, auth='kerberos')
+# Self-signed SSL
+os.environ['REQUESTS_CA_BUNDLE']="/etc/ssl/certs"
+client = Client("host.domain.tld", username="user", password="pwd")
+# No encryption
+client = Client(
+    "host.domain.tld",
+    ssl=False, encryption="never", auth="basic",
+    username="vagrant", password=os.environ["AO_DEFAULT_VAGRANT_PASSWORD"]
+)
+
+stdout, stderr, rc = client.execute_cmd("cmd /c ver", encoding="1251")
+client.copy("/path/to/script.ps1", 'c:\\temp\\script.ps1')
+```
+
+```powershell
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+#[System.Text.Encoding]::Default
+```
+
+##### pywinrm
+* https://pypi.org/project/pywinrm/
+* https://github.com/diyan/pywinrm
 ```shell
 pip install pywinrm
 # For Kerberos auth
@@ -172,41 +218,8 @@ print(r.std_out.decode("cp866"))
 # Domain member
 s = winrm.Session('host.domain.tld', auth=('', ''), transport='kerberos')
 ```
-```powershell
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-#[System.Text.Encoding]::Default
-```
 
-```shell
-pip install pypsrp
-# For Kerberos auth
-pip install pypsrp[kerberos]
-```
-
-```python
-from pypsrp.client import Client
-# Domain member
-client = Client("host.domain.tld", ssl=False, auth='kerberos')
-# Self-signed SSL
-os.environ['REQUESTS_CA_BUNDLE']="/etc/ssl/certs"
-client = Client("host.domain.tld", username="user", password="pwd")
-
-stdout, stderr, rc = client.execute_cmd("cmd /c ver", encoding="1251")
-client.copy("/path/to/script.ps1", 'c:\\temp\\script.ps1')
-```
-
-#### Linux
-* https://gbe0.com/posts/linux/desktop/linux-powershell-remote-to-windows-with-docker/
-
-```powershell
-Install-Module -Name PSWSMan -Force
-Install-WSMan
-
-$cred = Get-Credential
-Enter-PSSession -ComputerName my-computer -Credential $cred
-```
-
-#### Unencrypted
+### Unencrypted
 
 :bangbang: For testing environments only, don't use these settings in production
 
