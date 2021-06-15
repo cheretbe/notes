@@ -35,3 +35,11 @@ domain=DOMAIN
 # -m, --max-protocol=LEVEL      Set the max protocol level
 smbclient -L srv-name.domain.tld -k -m SMB3 -d 3
 ```
+
+
+/etc/creds/host_name
+```
+username=vagrant
+password=vagrant
+domain=HOME
+```
