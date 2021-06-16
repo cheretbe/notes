@@ -14,8 +14,8 @@ parser.add_argument("-v", "--verbosity", type=int, choices=[0, 1, 2], help="incr
 
 parser.add_argument('-d', '--dont-do-something', dest='dont_do_something', action='store_true',
     default=False, help='Do not do something')
-parser.add_argument('--dont-do-something', dest='dont_do_something', action='store_true',
-    default=False, help='Do not do something')
+parser.add_argument('--dont-do-something-else', dest='dont_do_something_else', action='store_true',
+    default=False, help='Do not do something else')
 
 parser.add_argument("--required-option", required=True, help="This option is required")
 
