@@ -72,10 +72,42 @@ client max protocol = NT1
     sudo apt install linux-modules-extra-$(uname -r)
     ```
 * SMB dialect versions: https://wiki.samba.org/index.php/SMB3_kernel_status
-* Notes on cifs.ko: https://superuser.com/questions/1297724/linux-force-default-mount-cifs-version-to-3-0/1323578#1323578
-* If `vers` option is not specified, `mount.cifs` uses `vers=default`, where `default` is hard-coded in `cifs.ko` and therefore depends on kernel version.
+    * Notes on cifs.ko: https://superuser.com/questions/1297724/linux-force-default-mount-cifs-version-to-3-0/1323578#1323578
+    * If `vers` option is not specified, `mount.cifs` uses `vers=default`, where `default` is hard-coded in `cifs.ko` and therefore depends on kernel version.
+* :warning: CIFS bug causing SMBv2+ not to show all files/directories
+    * https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1572132
+    * https://bugzilla.samba.org/show_bug.cgi?id=13107
+    * https://serverfault.com/questions/955606/mounted-windows-disk-incomplete-directory-listing
+        ```shell
+        # Check missing files
+        # Mount with vers=1.0 and calc checksums
+        md5deep -r -s /mountpoint > checksums
+        # Then remount and compare checksums
+        md5deep -r -X checksums /mountpoint
+        ```
+
 ```shell
 sudo apt install smbclient cifs-utils
+
+# (from man mount.cifs)
+# vers=arg
+#   1.0 - The classic CIFS/SMBv1 protocol.
+#   2.0 - The SMBv2.002 protocol. This was initially introduced in Windows Vista Service  Pack  1,  and  Windows
+#         Server  2008.  Note  that  the  initial  release version of Windows Vista spoke a slightly different dialect
+#         (2.000) that is not supported.
+#   2.1 - The SMBv2.1 protocol that was introduced in Microsoft Windows 7 and Windows Server 2008R2.
+#   3.0 - The SMBv3.0 protocol that was introduced in Microsoft Windows 8 and Windows Server 2012.
+#   3.02 or 3.0.2 - The SMBv3.0.2 protocol that was introduced in  Microsoft  Windows  8.1  and  Windows  Server 2012R2.
+#   3.1.1 or 3.11 - The SMBv3.1.1 protocol that was introduced in Microsoft Windows 10 and Windows Server 2016.
+#   3 - The SMBv3.0 protocol version and above.
+#   default - Tries to negotiate the highest SMB2+ version supported by both the client and server.
+#
+#   If no dialect is specified on mount vers=default is used.  To check Dialect refer to /proc/fs/cifs/DebugData
+#   Note too that while this option governs the protocol version used, not all features of each version are avail‐
+#   able.
+#   The default since v4.13.5 is for the client and server to negotiate the highest possible version greater  than
+#   or  equal  to  2.1.  In kernels prior to v4.13, the default was 1.0. For kernels between v4.13 and v4.13.5 the
+#   default is 3.0.
 
 sudo mount -t cifs -o username=USERNAME,password=PASSWD,domain=DOMAIN //smb_server/share /mnt/share
 # Doesn't work as non-root?
@@ -97,21 +129,9 @@ domain=WORKGROUP
 //smb_server/C$  /mnt/share  cifs  uid=user,gid=user,credentials=/root/.smbcredentials  0  0
 ```
 
-* :warning: CIFS bug causing SMBv2+ not to show all files/directories
-    * https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1572132
-    * https://bugzilla.samba.org/show_bug.cgi?id=13107
-    * https://serverfault.com/questions/955606/mounted-windows-disk-incomplete-directory-listing
-```shell
-# Check missing files
-# Mount with vers=1.0 and calc checksums
-md5deep -r -s /mountpoint > checksums
-# Then remount and compare checksums
-md5deep -r -X checksums /mountpoint
-```
-
 Checking SMB Version used (Windows)
 ```powershell
-# Need to be run as Administrator on client
+# Needs to be run as Administrator on client
 Get-SmbConnection
 # On server
 Get-SmbSession | Select-Object -Property *
