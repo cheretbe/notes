@@ -1,3 +1,9 @@
+2check:
+```
+md5deep -r -s /mountpoint > checksums
+md5deep -r -X checksums /mountpoint1
+```
+
 Windows
 ```bat
 "C:\Program Files\Git\usr\bin\find.exe" Favorites -not -path "Favorites/Links/*" -type f -exec md5sum -b {} ; | tee d:\temp\md5sum.txt
