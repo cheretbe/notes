@@ -62,6 +62,15 @@ client max protocol = NT1
 ```
 
 ### Client
+* :warning: Non-ASCII symbols gotcha<br>
+    When `linux-modules-extra` package is not installed (e.g. in a Vagrant box), non-ASCII symbols on SMB sharese
+    are displayed as question marks. Trying to use `iocharset=utf8` option produces the following message in the
+    system log: *mount error 79 = Can not access a needed shared library*. This is caused by missing 
+    `nls_utf8.ko` module (check using `ls /lib/modules/$(uname -r)/kernel/fs/nls/nls_utf8.ko`).
+    Fix it by installing the package
+    ```shell
+    sudo apt install linux-modules-extra-$(uname -r)
+    ```
 * SMB dialect versions: https://wiki.samba.org/index.php/SMB3_kernel_status
 * Notes on cifs.ko: https://superuser.com/questions/1297724/linux-force-default-mount-cifs-version-to-3-0/1323578#1323578
 * If `vers` option is not specified, `mount.cifs` uses `vers=default`, where `default` is hard-coded in `cifs.ko` and therefore depends on kernel version.
