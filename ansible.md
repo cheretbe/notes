@@ -103,6 +103,11 @@ ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
 ansible cont-name -m setup -c docker -i cont-name,
+# WinRM in Vagrant
+pip install pywinrm
+ansible all -i 172.24.0.14, -m setup -u vagrant \
+  --extra-vars "ansible_connection=winrm ansible_port=5985" \
+  --extra-vars "ansible_winrm_transport=ntlm ansible_password=$AO_DEFAULT_VAGRANT_PASSWORD"
 
 read -s -p "Password: " ANSIBLE_PWD; echo ""; export ANSIBLE_PWD
 ansible-playbook -i host.domain.tld, -u username check_if_reachable.yml \
