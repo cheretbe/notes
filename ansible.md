@@ -207,6 +207,7 @@ ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', '
 
 ### Vault
 
+* :warning: https://www.golinuxcloud.com/ansible-vault-example-encrypt-string-playbook/
 * https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#best-practices-for-variables-and-vaults
 * Working with ansible-vault: https://gist.github.com/tristanfisher/e5a306144a637dc739e7
 * https://serverfault.com/questions/878320/how-to-use-existing-vault-files-in-ansible-tower/935778#935778
