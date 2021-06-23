@@ -1,3 +1,19 @@
+```shell
+export VAULT_ADDR='http://127.0.0.1:8200'
+vault status
+# or
+vault status -address=http://localhost:8200 -format=json
+```
+
+```shell
+vault auth list
+
+# Enables userpass at 'userpass/'
+vault auth enable userpass
+# Enables userpass at 'my-auth/'
+vault write sys/auth/my-auth type=userpass
+```
+
 * https://github.com/utrace-ltd/postgres-backuper/blob/master/python_pg_backuper.py
 * https://github.com/carrier-io/carrier-auth/blob/master/auth/utils/config.py
 * https://github.com/rgl/vault-vagrant/blob/master/examples/python/use-postgresql/main.py
