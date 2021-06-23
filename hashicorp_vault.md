@@ -18,6 +18,63 @@ vault auth enable -path=my-auth userpass
 vault write sys/auth/my-auth type=userpass
 ```
 
+`test.hcl`:
+```hcl
+storage "file" {
+  path    = "./vault/data"
+  node_id = "node1"
+}
+
+listener "tcp" {
+  address     = "127.0.0.1:8200"
+  tls_disable = "true"
+}
+
+api_addr = "http://127.0.0.1:8200"
+```
+
+```shell
+vault server -config test.hcl
+# Save Unseal Key 1 and Initial Root Token
+vault operator init -key-shares=1 -key-threshold=1
+
+vault operator unseal 0000000000000000000000000000000000000000000=
+# Creates ~/.vault-token
+vault login
+```
+
+* https://www.codiwan.com/vault-install-userpass-authentication-secrets-kv-polices-authorization/
+
+`policies/admin.hcl`:
+```hcl
+path "*" {
+    capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+```
+`policies/nonadmin.hcl`:
+```hcl
+ path "servers/*" {
+     capabilities = ["list", "read"]
+ }
+ path "servers/in-east" {
+     capabilities = ["list", "read", "update"]
+ }
+```
+
+```shell
+vault secrets enable --path=servers kv
+vault policy write admin policies/admin.hcl
+vault policy write nonadmin policies/nonadmin.hcl
+vault policy list
+vault policy read admin
+
+vault write auth/userpass/users/admin password=admin policies=admin
+vault write auth/userpass/users/user1 password=user1 policies=nonadmin
+
+vault login -method=userpass username=admin
+vault kv put servers/in-east id=in-east location=kolkata
+```
+
 * https://github.com/utrace-ltd/postgres-backuper/blob/master/python_pg_backuper.py
 * https://github.com/carrier-io/carrier-auth/blob/master/auth/utils/config.py
 * https://github.com/rgl/vault-vagrant/blob/master/examples/python/use-postgresql/main.py
