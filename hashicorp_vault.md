@@ -13,6 +13,8 @@ vault auth list
 # Enables userpass at 'userpass/'
 vault auth enable userpass
 # Enables userpass at 'my-auth/'
+vault auth enable -path=my-auth userpass
+# or
 vault write sys/auth/my-auth type=userpass
 ```
 
