@@ -3,6 +3,9 @@ Change user agent string:
 * Hamburger menu (vertical dots) > More tools > Network conditions
 * disable the option `Select automatically` and choose `Chrome - Windows` from drop-down menu
 
+Tabs auto-grouping
+* `chrome://flags/#tab-groups-auto-create`
+
 Show full URL in the address bar
 * `chrome://flags/#omnibox-context-menu-show-full-urls`
 * Set "Context menu show full URLs" to `Enabled`
