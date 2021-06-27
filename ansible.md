@@ -29,6 +29,20 @@
 * https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions
 * Color when there is no pty (CI/CD pipelines): https://www.jeffgeerling.com/blog/2020/getting-colorized-output-molecule-and-ansible-on-github-actions-ci
 
+### Installation
+
+```bash
+/usr/bin/curl -s https://raw.githubusercontent.com/cheretbe/bootstrap/master/setup_venv.py?flush_cache=True \
+  | /usr/bin/python3 - ansible --python 3.8
+
+grep -qxF '. ~/.cache/venv/ansible/bin/activate' ~/.bashrc || \
+  echo -e '\n. ~/.cache/venv/ansible/bin/activate\n' >>~/.bashrc
+
+. ~/.cache/venv/ansible/bin/activate
+
+pip install ansible
+```
+
 ### Templates
 
 ```yaml
