@@ -43,6 +43,23 @@ grep -qxF '. ~/.cache/venv/ansible/bin/activate' ~/.bashrc || \
 pip install ansible pywinrm
 ```
 
+### Client setup
+```powershell
+$ansiblePwd = Read-Host -AsSecureString
+New-LocalUser -Name ansible-user -Password $ansiblePwd  -Description "Ansible user" -AccountNeverExpires -PasswordNeverExpires
+
+Add-LocalGroupMember -Group "Администраторы" -Member "ansible-user"
+
+
+Invoke-WebRequest https://raw.githubusercontent.com/cheretbe/bootstrap/master/ntrights.exe -OutFile ntrights.exe
+
+# If Invoke-WebRequest fails with "Could not create SSL/TLS secure channel" message 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+./ntrights.exe -u ansible-user +r SeDenyInteractiveLogonRight
+./ntrights.exe -u ansible-user +r SeDenyRemoteInteractiveLogonRight
+```
+
 ### Templates
 
 ```yaml
