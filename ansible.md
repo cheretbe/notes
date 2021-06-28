@@ -40,7 +40,7 @@ grep -qxF '. ~/.cache/venv/ansible/bin/activate' ~/.bashrc || \
 
 . ~/.cache/venv/ansible/bin/activate
 
-pip install ansible
+pip install ansible pywinrm
 ```
 
 ### Templates
