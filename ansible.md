@@ -117,11 +117,17 @@ ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
 ansible cont-name -m setup -c docker -i cont-name,
-# WinRM in Vagrant
+# WinRM in Vagrant (not secure)
 pip install pywinrm
 ansible all -i 172.24.0.14, -m setup -u vagrant \
   --extra-vars "ansible_connection=winrm ansible_port=5985" \
   --extra-vars "ansible_winrm_transport=ntlm ansible_password=$AO_DEFAULT_VAGRANT_PASSWORD"
+
+# WinRM over SSL
+ansible all -i host.domain.tld, -m setup -u user \
+  --extra-vars "ansible_password=$WIN_PWD" \
+  --extra-vars "ansible_connection=winrm ansible_winrm_transport=ntlm" \
+  --extra-vars "ansible_winrm_ca_trust_path=/etc/ssl/certs"
 
 read -s -p "Password: " ANSIBLE_PWD; echo ""; export ANSIBLE_PWD
 ansible-playbook -i host.domain.tld, -u username check_if_reachable.yml \
