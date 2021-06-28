@@ -469,6 +469,7 @@ cp RapidSSLECCCA2018.crt /usr/share/ca-certificates/custom/RapidSSLECCCA2018.crt
 nano /etc/ca-certificates.conf
 # Update CA certificates in /etc/ssl/certs/
 update-ca-certificates --fresh
+ls -lha /etc/ssl/certs/
 ```
 [\[ TOC \]](#table-of-contents)
 
