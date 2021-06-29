@@ -1,7 +1,9 @@
 2check:
-```
+```shell
 md5deep -r -s /mountpoint > checksums
 md5deep -r -X checksums /mountpoint1
+# or
+md5sum -c checksums --quiet
 ```
 
 Windows
