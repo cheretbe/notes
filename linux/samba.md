@@ -20,6 +20,11 @@
       * `cmd /c reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth`
       * `cmd /c reg add HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth /t REG_DWORD /d 1 /f`
 
+```bat
+:: Speed test
+"c:\Program Files\7-Zip\7z.exe" a -ttar -so dummy.tar \\172.24.0.11\backup_C | "c:\Program Files\7-Zip\7z.exe" t -ttar -si
+```
+
 #### Useful commands
 ``` shell
 # Everything as root
