@@ -5,3 +5,4 @@ Also known as NAT2NAT(?)
 * https://stackoverflow.com/questions/65127212/python3-nat-hole-punching
 * https://habr.com/ru/post/509730/
     * https://habr.com/ru/post/481034/
+* https://webrtc.org/
