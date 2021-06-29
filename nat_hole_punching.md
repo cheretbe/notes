@@ -6,3 +6,7 @@ Also known as NAT2NAT(?)
 * https://habr.com/ru/post/509730/
     * https://habr.com/ru/post/481034/
 * https://webrtc.org/
+* https://stackoverflow.com/questions/31702125/hole-punching-using-stun/32019554#32019554
+    * https://drive.google.com/file/d/0B1IimJ20gG0SY2NvaE4wRVVMbG8/view?resourcekey=0-C9_6uLzao8eCEwa1qRhv7w
+    * http://web.archive.org/web/20190315093925/https://www.goto.info.waseda.ac.jp/~wei/file/wei-apan-v10.pdf
+
