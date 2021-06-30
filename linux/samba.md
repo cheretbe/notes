@@ -29,6 +29,9 @@
 :: -si	Read data from StdIn
 "c:\Program Files\7-Zip\7z.exe" a -ttar -snl -so dummy.tar \\172.24.0.11\backup_C | "c:\Program Files\7-Zip\7z.exe" t -ttar -si
 ```
+```powershell
+Measure-Command { & 'cmd.exe' '/c' '"c:\Program Files\7-Zip\7z.exe" a -ttar -snl -so dummy.tar \\172.24.0.11\backup_C\Users | "c:\Program Files\7-Zip\7z.exe" t -ttar -si' | Out-Default }
+```
 
 #### Useful commands
 ``` shell
