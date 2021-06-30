@@ -19,3 +19,6 @@ rsync_exclude.lst
 /root/temp/
 /home/npa/temp/
 ```
+
+* https://serverspace.io/support/help/use-rsync-to-create-a-backup-on-ubuntu/
+* https://superuser.com/questions/1401490/rsync-password-mismatch-although-it-is-a-scp-copy/1410265#1410265
