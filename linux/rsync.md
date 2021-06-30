@@ -9,6 +9,9 @@ rsync -e 'ssh -p 1234 -i /path/to/a/key' \
 -vrhlt --delete-excluded --exclude-from rsync_exclude.lst \
 root@host.domain.tld :/etc :/home :/root :/usr/local \
 /dst/path/
+
+# /src dst[/]   ==> Creates scr subdirectory in dst
+# /src/ dst[/]  ==> Copies src content to dst itself
 ```
 rsync_exclude.lst
 ```
