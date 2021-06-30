@@ -24,7 +24,10 @@
 :: Speed test
 :: Size:       73201500
 :: Compressed: 808448 (this is most likely headers size - ?)
-"c:\Program Files\7-Zip\7z.exe" a -ttar -so dummy.tar \\172.24.0.11\backup_C | "c:\Program Files\7-Zip\7z.exe" t -ttar -si
+:: -snl	Store symbolic links as links (WIM and TAR formats only)
+:: -so	Write data to StdOut
+:: -si	Read data from StdIn
+"c:\Program Files\7-Zip\7z.exe" a -ttar -snl -so dummy.tar \\172.24.0.11\backup_C | "c:\Program Files\7-Zip\7z.exe" t -ttar -si
 ```
 
 #### Useful commands
