@@ -33,6 +33,15 @@
 Measure-Command { & 'cmd.exe' '/c' '"c:\Program Files\7-Zip\7z.exe" a -ttar -snl -so dummy.tar \\172.24.0.11\backup_C\Users | "c:\Program Files\7-Zip\7z.exe" t -ttar -si' | Out-Default }
 ```
 
+```shell
+time tar cvf - /smb/172.24.0.11/C  | cat > /dev/null
+
+# [!] /dummy is mounted as nullfs
+# https://github.com/abbbi/nullfsvfs
+time rsync -vrhlt /smb/172.24.0.11/C /dummy/
+time rsync -vrhlt vagrant@localhost:/smb/172.24.0.11/C /dummy/
+```
+
 #### Useful commands
 ``` shell
 # Everything as root
