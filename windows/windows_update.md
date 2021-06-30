@@ -16,6 +16,12 @@ sc.exe stop wuauserv
 :: Update Orchestrator Service
 sc.exe config UsoSvc start= disabled
 sc.exe stop UsoSvc
+
+takeown /F C:\Windows\System32\Tasks\Microsoft\Windows\UpdateOrchestrator /A /R
+icacls C:\Windows\System32\Tasks\Microsoft\Windows\UpdateOrchestrator /grant Administrators:F /T
+```
+```powershell
+Get-ScheduledTask -TaskPath "\Microsoft\Windows\UpdateOrchestrator\" | Disable-ScheduledTask
 ```
 Check scheduled tasks under `\Microsoft\Windows\WindowsUpdate` and `\Microsoft\Windows\UpdateOrchestrator`
 
