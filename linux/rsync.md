@@ -12,6 +12,7 @@ root@host.domain.tld :/etc :/home :/root :/usr/local \
 
 # /src dst[/]   ==> Creates src subdirectory in dst
 # /src/ dst[/]  ==> Copies src content to dst itself
+# In both cases dst will be created if doesn't exists
 ```
 rsync_exclude.lst
 ```
