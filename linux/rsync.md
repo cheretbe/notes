@@ -24,17 +24,18 @@ rsync_exclude.lst
 * https://superuser.com/questions/1401490/rsync-password-mismatch-although-it-is-a-scp-copy/1410265#1410265
 * https://man7.org/linux/man-pages/man5/rsyncd.conf.5.html
 
+`/etc/rsyncd.conf` example:
 ```
 pid file = /var/run/rsyncd.pid
 read only = yes
+# BackupPC local connection
+# address = 127.0.0.1
 
 [data]
 path = /path/to/backup
 list = yes
 auth users = joe:deny @guest:deny admin:rw @rsync:ro susan joe sam
 secrets file = /etc/rsyncd.secrets
-# BackupPC local connection
-# address = 127.0.0.1
 ```
 ```shell
 chmod 600 /etc/rsyncd.secrets
@@ -43,4 +44,9 @@ chmod 600 /etc/rsyncd.secrets
 ```
 susan:password
 joe:password
+```
+
+```shell
+cp /lib/systemd/system/rsync.service /etc/systemd/system/rsync.service
+systemctl daemon-reload
 ```
