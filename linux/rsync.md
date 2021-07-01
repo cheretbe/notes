@@ -50,3 +50,9 @@ joe:password
 cp /lib/systemd/system/rsync.service /etc/systemd/system/rsync.service
 systemctl daemon-reload
 ```
+Client call example<br>
+:warning: Not that for rsync client password file should contain **only password**, not `username:password`
+
+```shell
+rsync -vrhlt --password-file=/etc/rsyncd.passwd backuppc@localhost::smb/172.24.0.11/C/Users dst
+```
