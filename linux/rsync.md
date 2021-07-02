@@ -56,6 +56,6 @@ Client call example<br>
 ```shell
 rsync -vrhlt --password-file=/etc/rsyncd.passwd backuppc@localhost::smb/172.24.0.11/C/Users dst
 
-# List module content recursive
+# List module contents recursive
 rsync user@localhost::home -r
 ```
