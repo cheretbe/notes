@@ -226,6 +226,26 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
     debug:
       msg: End playbook with a message
   - meta: end_play
+
+# SSH key generation
+- name: Generate private key for user1 user
+  community.crypto.openssl_privatekey:
+    path: /home/user1/.ssh/id_rsa
+    owner: user1
+  become: yes
+
+- name: Generate public key for user1 user
+  community.crypto.openssl_publickey:
+    format: OpenSSH
+    path: /home/user1/.ssh/id_rsa.pub
+    privatekey_path: /home/user1/.ssh/id_rsa
+    owner: user1
+    return_content: yes
+  become: yes
+  register: user1_pubkey
+
+- debug:
+    msg: "Public key: {{ user1_pubkey.publickey }}"
 ```
 
 ##### Environment variables
