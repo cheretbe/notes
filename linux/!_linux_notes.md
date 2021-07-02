@@ -121,6 +121,7 @@ Passwords<br>
 * https://serverfault.com/questions/574586/what-is-the-purpose-of-openssl-passwd/574590#574590
 * https://www.cyberciti.biz/faq/understanding-etcshadow-file/
 ```shell
+# -6 SHA512-based password algorithm
 # $6$MySalt$34uIhHICY3Xq0JI8cVTDJFp0UzQyJeSTcGyI24nZWS9bfVKpCX30NrjTYzdcmFefEqPQLDL5hBh.Dka.JBSSa0
 openssl passwd -6 -salt MySalt MyPassword
 ```
