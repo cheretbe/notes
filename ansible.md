@@ -246,6 +246,16 @@ Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbo
 
 - debug:
     msg: "Public key: {{ user1_pubkey.publickey }}"
+    
+public_key_as_long_string___: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG6\
+  eY8ygJwZvRSEZKQU5clOu5s3aAH5swvD/tjIODCIW+XqFZn9o0qiDS7oOi27gBVP2gLRfj\
+  dPKh69IXEWiHz+yAozc2rt5VyyM4Ej4ZCkj08vfOCoQGO0U2MXdGnjrg1cZcNEFN2zGa2l\
+  tbdXyxY0DqV7R3Gzf96VpM9Bbpccb46wtoV/rSJZHJA1jUu9FV5cF/soRaJ95h6bynMo9L\
+  ETleAkSHH9dm8Z4m6/PJB8DOnWg3J1eHL6n/a7s8SYdfZN2HmIiV+JmNojenKUtaUkgYum\
+  gMcNhnXcKXUHpPPdjWB2LRGwI85nN3CtVpWbYARBcjvD0vqd5/wSyux7uiFbbdlSRxtNyX\
+  qVUdHbai3r1Ih3I9XxC6MOdi8sznDJ+QA0gfnDg7/NL1Ir7nA3bBF3mqu1YgLKKIZMdDE5\
+  2MhoHPepZiRubd1PYoo2kyS/dZsVBZf6mVjD2xd8o3jXnfms7j3qHaHtWVGHuNOcA3/jPt\
+  6+YS2Nv0JfSqiysGvKb0= test key"
 ```
 
 ##### Environment variables
