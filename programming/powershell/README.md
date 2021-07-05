@@ -31,6 +31,8 @@ Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
 
 ```batch
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "%~dp0%~n0.ps1" %*
+
+powershell.exe "Invoke-RestMethod https://freegeoip.app/json; Write-Host "Press any key..."; $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null"
 ```
 
 ``` powershell
