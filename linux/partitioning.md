@@ -1,4 +1,16 @@
 ```shell
+# Mount disk image file
+# Check if file is not compressed
+file /path/disk.img
+
+# https://unix.stackexchange.com/questions/316401/how-to-mount-a-disk-image-from-the-command-line/316410#316410
+fdisk -lu /path/disk.img
+
+# fdisk shows offset in blocks, so note block size and used it like this
+mount -o loop,offset=$((514048*512)) /path/disk.img /mnt/loop
+```
+
+```shell
 # Identify SATA ports of connected drives
 # lsscsi package needs to be installed
 # look for ataX part (e.g. /sys/devices/pci0000:00/0000:00:1f.2/ata2/host1/target1:0:0/1:0:0:0)
