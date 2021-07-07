@@ -54,6 +54,7 @@ cat /etc/login.defs | grep -v "#" |  grep -v "^$"
 
 # Download torrent
 cd ~/Downloads
+# --max-download-limit=8M --bt-max-peers=4
 aria2c --seed-time 0 --summary-interval=0 http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso.torrent
 # Magnet link
 aria2c --enable-dht=true --seed-time 0 --summary-interval=0 "magnet:?xt=urn:btih:2D..."
