@@ -27,7 +27,7 @@
  ### ISO files
  
  * Memtest
-     * MemTest86 8.3: https://github.com/cheretbe/notes/raw/master/files/MemTest86_8.3.zip
+     * MemTest86 8.3 + 9.1: https://github.com/cheretbe/notes/raw/master/files/MemTest.zip
  * Antivirus
      * DrWeb: https://free.drweb.com/aid_admin/?lng=en
      * Kaspersky Rescue Disk: https://support.kaspersky.com/us/viruses/rescuedisk
