@@ -154,9 +154,14 @@ powershell "Get-WmiObject win32_service | Where-Object {$_.PathName -like '*exen
 sc.exe config WinRM start= auto
 sc.exe start WinRM
 ```
-| Service        | English Name                                 | Russian Name                                              |
-| -------------- | -------------------------------------------- | --------------------------------------------------------- |
-| WMPNetworkSvc  | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
-| wuauserv       | Windows Update                               | Центр обновления Windows                                  |
-| RemoteRegistry | Remote Registry                              | Удаленный реестр                                          |
-| UsoSvc         | Update Orchestrator Service                  | Update Orchestrator Service                               |
+| Service                        | English Name                                 | Russian Name                                              |
+| ------------------------------ | -------------------------------------------- | --------------------------------------------------------- |
+| WMPNetworkSvc                  | Windows Media Player Network Sharing Service | Служба общих сетевых ресурсов проигрывателя Windows Media |
+| wuauserv                       | Windows Update                               | Центр обновления Windows                                  |
+| RemoteRegistry                 | Remote Registry                              | Удаленный реестр                                          |
+| UsoSvc                         | Update Orchestrator Service                  | Update Orchestrator Service                               |
+| NVDisplay.ContainerLocalSystem | NVIDIA Display Container LS                  |                                                           |
+```
+sc.exe stop NVDisplay.ContainerLocalSystem
+sc.exe config NVDisplay.ContainerLocalSystem start= disabled
+```
