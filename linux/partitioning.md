@@ -1,6 +1,6 @@
 ```shell
 # Mount disk image file
-# Check if file is not compressed
+# Make sure file is not compressed
 file /path/disk.img
 
 # https://unix.stackexchange.com/questions/316401/how-to-mount-a-disk-image-from-the-command-line/316410#316410
