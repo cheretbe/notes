@@ -20,6 +20,18 @@ if __name__ == "__main__":
 # ../templates/file_name
 resolved = pathlib.Path(__file__).resolve().parents[1] / "templates" / file_name
 
+# Formatting example (replace with an own one with field names)
+self.conn_args = {
+    "endpoint": "{}://{}{}/wsman".format(
+        "http" if no_ssl else "https",
+        self.host.name,
+        ":{}".format(self.host.port) if self.host.port else "",
+    ),
+    "transport": "ntlm",
+    "username": self.host.user,
+    "password": self.host.password,
+}
+
 # Iterate directory objects (for search use glob - add example)
 build_dir_obj = pathlib.Path(build_dir).resolve()
 if not build_dir_obj.exists():
