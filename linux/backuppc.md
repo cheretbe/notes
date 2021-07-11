@@ -129,6 +129,7 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Desktop',
     '/ProgramData/Documents',
     '/ProgramData/Favorites',
+    '/ProgramData/Microsoft/Crypto/RSA/MachineKeys',
     '/ProgramData/Microsoft/Diagnosis',
     '/ProgramData/Microsoft/Network/Downloader',
     '/ProgramData/Microsoft/RAC',
@@ -192,6 +193,7 @@ $Conf{BackupFilesExclude} = {
     '/Windows/System32/LogFiles/WMI/RtBackup',
     '/Windows/system32/MSDtc/MSDTC.LOG',
     '/Windows/system32/MSDtc/trace/dtctrace.log',
+    '/Windows/System32/Tasks/Microsoft/Windows/Shell/CreateObjectTask',
     '/Windows/Temp',
     '/Windows/WinSxS',
 
@@ -215,6 +217,7 @@ $Conf{BackupFilesExclude} = {
     "/Users/*/Шаблоны",
     "/Users/Все пользователи",
 
+    '/ProgramData/Autodesk/Synergy/boost_interprocess',
     '/Users/*/AppData/Local/SpiderOak',
     '/temp/!_no_backup',
     '/temp/_no_backup'
