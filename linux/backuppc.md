@@ -13,16 +13,6 @@
 :warning: For SMB and tar, BackupPC uses the modification time (mtime) to determine which files have changed since the last backup. That means SMB and tar incrementals **are not able to detect** deleted files, renamed files or new files whose modification time is prior to the last lower-level backup.
 * https://backuppc.github.io/backuppc/BackupPC.html#Backup-basics
 
-```shell
-# View zlib-compressed log file
-printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
-# or use BackupPC_zcat - as backuppc user (!)
-/usr/local/BackupPC/bin/BackupPC_zcat /var/lib/backuppc/pc/hostname/XferLOG.1.z
-
-# List backup contents
-/usr/local/BackupPC/bin/BackupPC_ls -h hostname -n 26 -s /home /
-```
-
 ### Config
 
 - [ ] 1. Generate `/var/lib/backuppc/.ssh/id_rsa` and `/var/lib/backuppc/.ssh/id_rsa.pub`
@@ -378,6 +368,14 @@ newaliases
 
 ### Maintenance
 ```shell
+# View zlib-compressed log file
+printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
+# or use BackupPC_zcat - as backuppc server (!) user
+/usr/local/BackupPC/bin/BackupPC_zcat /var/lib/backuppc/pc/hostname/XferLOG.1.z
+
+# List backup contents
+/usr/local/BackupPC/bin/BackupPC_ls -h hostname -n 26 -s /home /
+
 # Check email delivery
 # [!] as user backuppc
 /usr/local/BackupPC/bin/BackupPC_sendEmail -u user[@domain.tld]
