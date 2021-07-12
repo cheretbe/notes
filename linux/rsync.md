@@ -28,8 +28,11 @@ rsync_exclude.lst
 ```
 pid file = /var/run/rsyncd.pid
 read only = yes
-# BackupPC local connection
+# Allow local connections only
 # address = 127.0.0.1
+
+# Limit hosts
+# hosts allow = 127.0.0.1,192.168.0.0/24
 
 [data]
 path = /path/to/backup
