@@ -118,7 +118,7 @@ $Conf{BackupFilesExclude} = {
     "/Users/*/Шаблоны",
     "/Users/Все пользователи",
 
-    'Users/*/AppData/Local/SpiderOak',
+    '/Users/*/AppData/Local/SpiderOak',
     '/temp/!_no_backup',
     '/temp/_no_backup'
   ]
