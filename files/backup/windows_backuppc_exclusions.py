@@ -25,6 +25,7 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Microsoft/Network/Downloader',
     '/ProgramData/Microsoft/RAC',
     '/ProgramData/Microsoft/Windows Defender',
+    '/ProgramData/Microsoft/Windows/AppRepository',
     '/ProgramData/Microsoft/Windows/LocationProvider',
     '/ProgramData/Microsoft/Windows/SystemData',
     '/ProgramData/Microsoft/Windows/WER',
