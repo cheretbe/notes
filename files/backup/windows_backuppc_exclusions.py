@@ -99,9 +99,12 @@ $Conf{BackupFilesExclude} = {
     '/Windows/System32/Bits.log',
     '/Windows/System32/config/systemprofile/AppData/Local/Microsoft/Windows/INetCache',
     '/Windows/system32/LogFiles/WMI/RtBackup',
+    '/Windows/System32/LogFiles/WMI/RtBackup',
+    '/Windows/System32/Microsoft/Protect/Recovery',
     '/Windows/system32/MSDtc/MSDTC.LOG',
     '/Windows/system32/MSDtc/trace/dtctrace.log',
     '/Windows/System32/Tasks/Microsoft/Windows/Shell/CreateObjectTask',
+    '/Windows/SysWOW64/config/systemprofile/AppData/Local/Microsoft/Windows/INetCache',
     '/Windows/Temp',
     '/Windows/WinSxS',
 
