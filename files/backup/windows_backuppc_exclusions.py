@@ -29,8 +29,10 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Microsoft/Windows/LocationProvider',
     '/ProgramData/Microsoft/Windows/SystemData',
     '/ProgramData/Microsoft/Windows/WER',
+    '/ProgramData/Packages',
     '/ProgramData/Start Menu',
     '/ProgramData/Templates',
+    '/ProgramData/Windows Defender Advanced Threat Protection',
 
     '/Users/*/AppData/Local/Application Data',
     '/Users/*/AppData/Local/Google/Chrome/User Data/*/Application Cache',
