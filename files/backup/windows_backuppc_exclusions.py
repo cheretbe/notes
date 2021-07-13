@@ -93,6 +93,7 @@ $Conf{BackupFilesExclude} = {
     '/Windows/Prefetch',
     '/Windows/Resources/Themes/aero/VSCache',
     '/Windows/ServiceProfiles/LocalService/AppData/Local/Microsoft/Ngc',
+    '/Windows/ServiceProfiles/NetworkService/AppData/Local/Microsoft/Windows/DeliveryOptimization',
     '/Windows/servicing/LCU',
     '/Windows/SoftwareDistribution',
     '/Windows/System32/Bits.bak',
