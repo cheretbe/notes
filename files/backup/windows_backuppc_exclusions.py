@@ -22,6 +22,7 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Favorites',
     '/ProgramData/Kaspersky Lab',
     '/ProgramData/KasperskyLab',
+    '/ProgramData/Microsoft/Crypto/RSA/MachineKeys',
     '/ProgramData/Microsoft/Diagnosis',
     '/ProgramData/Microsoft/Network/Downloader',
     '/ProgramData/Microsoft/RAC',
