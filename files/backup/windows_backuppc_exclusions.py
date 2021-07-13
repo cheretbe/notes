@@ -4,6 +4,7 @@ $Conf{BackupFilesExclude} = {
     '/$Recycle.Bin',
     '/$WinREAgent',
     '/Config.Msi',
+    '/Documents and Settings',
     '/hiberfil.sys',
     '/pagefile.sys',
     '/RECYCLED',
@@ -11,7 +12,6 @@ $Conf{BackupFilesExclude} = {
     '/swapfile.sys',
     '/System Volume Information',
 
-    '/Documents and Settings',
     '/Program Files/AVAST Software/Avast',
     '/ProgramData/Application Data',
     '/ProgramData/AVAST Software/Avast',
