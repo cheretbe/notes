@@ -100,7 +100,7 @@ $Conf{BackupPCNightlyPeriod} = 1;
 :warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
 :warning: Note double qoutes on non-iso-8859-1 strings
 * Typical Windows exculdes
-    * [files/backup/windows_backuppc_exclusions.py](./files/backup/windows_backuppc_exclusions.py)
+    * [files/backup/windows_backuppc_exclusions.py](../files/backup/windows_backuppc_exclusions.py)
     * Direct download link: https://raw.githubusercontent.com/cheretbe/notes/master/files/backup/windows_backuppc_exclusions.py
 ```perl
 # Typical Windows exculdes
