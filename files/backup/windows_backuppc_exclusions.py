@@ -59,6 +59,7 @@ $Conf{BackupFilesExclude} = {
     '/Users/*/AppData/Local/Microsoft/Windows/INetCache',
     '/Users/*/AppData/Local/Microsoft/Windows/Temporary Internet Files',
     '/Users/*/AppData/Local/Microsoft/Windows/WER',
+    '/Users/*/AppData/Local/Microsoft/WindowsApps',
     '/Users/*/AppData/Local/Mozilla/Firefox',
     '/Users/*/AppData/Local/Opera Software/Opera Stable/Cache',
     '/Users/*/AppData/Local/Opera/Opera/cache',
