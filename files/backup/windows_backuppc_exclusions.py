@@ -1,11 +1,14 @@
 $Conf{BackupFilesExclude} = {
   '*' => [
-    '/pagefile.sys',
-    '/swapfile.sys',
-    '/hiberfil.sys',
+    '/$$PendingFiles',
     '/$Recycle.Bin',
-    '/RECYCLER',
+    '/$WinREAgent',
+    '/Config.Msi',
+    '/hiberfil.sys',
+    '/pagefile.sys',
     '/RECYCLED',
+    '/RECYCLER',
+    '/swapfile.sys',
     '/System Volume Information',
 
     '/Documents and Settings',
