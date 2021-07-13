@@ -13,6 +13,7 @@ $Conf{BackupFilesExclude} = {
     '/System Volume Information',
 
     '/Program Files/AVAST Software/Avast',
+    '/Program Files/Windows Defender Advanced Threat Protection',
     '/Program Files/WindowsApps',
     '/ProgramData/Application Data',
     '/ProgramData/AVAST Software/Avast',
@@ -24,6 +25,7 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Microsoft/Diagnosis',
     '/ProgramData/Microsoft/Network/Downloader',
     '/ProgramData/Microsoft/RAC',
+    '/ProgramData/Microsoft/Windows Defender Advanced Threat Protection',
     '/ProgramData/Microsoft/Windows Defender',
     '/ProgramData/Microsoft/Windows/AppRepository',
     '/ProgramData/Microsoft/Windows/LocationProvider',
@@ -32,7 +34,6 @@ $Conf{BackupFilesExclude} = {
     '/ProgramData/Packages',
     '/ProgramData/Start Menu',
     '/ProgramData/Templates',
-    '/ProgramData/Windows Defender Advanced Threat Protection',
 
     '/Users/*/AppData/Local/Application Data',
     '/Users/*/AppData/Local/Google/Chrome/User Data/*/Application Cache',
