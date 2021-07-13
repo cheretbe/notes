@@ -50,7 +50,7 @@ $Conf{BackupFilesExclude} = {
     '/Users/*/AppData/Local/Microsoft/Edge/User Data/*/IndexedDB',
     '/Users/*/AppData/Local/Microsoft/Edge/User Data/*/Local Storage',
     '/Users/*/AppData/Local/Microsoft/Edge/User Data/*/Service Worker',
-    '/Users/*/AppData/Local/Microsoft/Windows/Explorer/ThumbCacheToDelete',
+    '/Users/*/AppData/Local/Microsoft/Windows/Explorer',
     '/Users/*/AppData/Local/Microsoft/Windows/INetCache',
     '/Users/*/AppData/Local/Microsoft/Windows/Temporary Internet Files',
     '/Users/*/AppData/Local/Microsoft/Windows/WER',
