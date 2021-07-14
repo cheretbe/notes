@@ -102,6 +102,7 @@ $Conf{BackupPCNightlyPeriod} = 1;
 * Typical Windows exclusions
     * [files/backup/windows_backuppc_exclusions.py](../files/backup/windows_backuppc_exclusions.py)
     * Direct download link: https://raw.githubusercontent.com/cheretbe/notes/master/files/backup/windows_backuppc_exclusions.py
+    * ❓add `/Users/*/AppData/Local/Packages`
 
 ### Installation
 Only for new installation, skip this for upgrade
