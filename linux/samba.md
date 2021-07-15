@@ -327,8 +327,11 @@ Set `/etc/krb5.conf` to the following:
 # Test Kerberos authentication with a domain admin account
 # Enter your AD administrator password when prompted, it should just return to command prompt
 kinit administrator
-# Show your Kerberos ticket for administrator@TEST.LOCAL
+# Show your Kerberos ticket for administrator@DOMAIN.TLD
 klist
+
+# Destroy active Kerberos authorization tickets
+kdestroy
 ```
 
 
