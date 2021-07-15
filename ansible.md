@@ -150,13 +150,13 @@ read -s -p "Password: " ANSIBLE_PWD; echo ""; export ANSIBLE_PWD
 ansible-playbook -i host.domain.tld, -u username check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3 ansible_password=$ANSIBLE_PWD"
 
-apt install libkrb5-dev
 pip install pywinrm
 ansible-playbook -i host.domain.tld, -u user@domain.tld check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3" \
   --extra-vars "ansible_connection=winrm ansible_port=5985 ansible_winrm_transport=ntlm ansible_password=$ANSIBLE_PWD"
 
-pip install kerberos requests-kerberos
+apt install libkrb5-dev
+pip install pywinrm kerberos requests-kerberos
 # Client principal is case-sensitive. Use 'klist' to view
 ansible-playbook -i host.domain.tld, -u user@DOMAIN.TLD check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3" \
