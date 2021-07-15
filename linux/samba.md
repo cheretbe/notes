@@ -310,32 +310,17 @@ nano /etc/krb5.conf
 ```
 Set `/etc/krb5.conf` to the following:
 ```
-[logging]
-    default = FILE:/var/log/krb5libs.log
-    kdc = FILE:/var/log/krb5kdc.log
-    admin_server = FILE:/var/log/kadmind.log
-
 [libdefaults]
-    default_realm = TEST.LOCAL
-    ticket_lifetime = 24h
-    forwardable = yes
-
-    # tests
-
-
-[appdefaults]
-    pam = {
-        debug = true
-        ticket_lifetime = 36000
-        renew_lifetime = 36000
-        forwardable = true
-        krb4_convert = false
-    }
+    default_realm = DOMAIN.TLD
 
 #[realms]
-#        TEST.LOCAL = {
-#                kdc = dc1.test.local
-#        }
+#    DOMAIN.TLD = {
+#      kdc = dc01.domain.tld
+#      admin_server = dc01.domain.tld
+#    }
+
+[domain_realm]
+.domain.tld = DOMAIN.TLD
 ```
 
 ```shell
