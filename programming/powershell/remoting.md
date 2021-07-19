@@ -97,6 +97,18 @@ powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\My' | Format-List"
 powershell -NonInteractive "Import-Certificate -FilePath '.\root_ca.crt' -CertStoreLocation 'Cert:\LocalMachine\Root'"
 # Import host's certificate
 powershell -NonInteractive "Import-PfxCertificate -FilePath '.\host.domain.tld.p12' -CertStoreLocation 'Cert:\LocalMachine\My' -Exportable"
+
+:: Enable WinRM
+winrm quickconfig -quiet
+
+:: View listeners 
+powershell -NonInteractive "Get-ChildItem WSMan:\Localhost\listener"
+
+:: Delete HTTP listener
+powershell -NonInteractive "Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq 'Transport=HTTP' | Remove-Item -Recurse"
+
+:: Add HTTPS listener
+powershell -NonInteractive "New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint (New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 '.\host.domain.tld.p12').Thumbprint –Force"
 ```
 ```powershell
 # When using own SSL CA import it's root certificate
