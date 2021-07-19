@@ -109,6 +109,11 @@ powershell -NonInteractive "Get-ChildItem WSMan:\Localhost\listener | Where -Pro
 
 :: Add HTTPS listener
 powershell -NonInteractive "New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint (New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 '.\host.domain.tld.p12').Thumbprint –Force"
+
+:: Disable HTTP port
+powershell -NonInteractive "Disable-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-NoScope'"
+
+:: Use temporary ps1 file to add "WINRM-HTTPS-In-TCP-NoScope" firewall rule with cyrillic description
 ```
 ```powershell
 # When using own SSL CA import it's root certificate
