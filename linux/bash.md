@@ -15,6 +15,8 @@ set completion-ignore-case
 
 
 ```bash
+grep -qxF '. ~/.cache/venv/ansible-venv/bin/activate' /home/vagrant/.bashrc || echo -e '\\n. ~/.cache/venv/ansible-venv/bin/activate\\n' >>/home/vagrant/.bashrc
+
 if [ $# -eq 0 ]
   then
     echo "No arguments supplied"
