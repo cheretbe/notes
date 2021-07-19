@@ -92,6 +92,11 @@ Copy `myhost.p12` to a Windows machine
 powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\Root' | Where-Object {$_.Thumbprint -eq (New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 ".\root_ca.crt").Thumbprint}"
 :: List server certificates
 powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\My' | Format-List"
+
+# Import CA certificate
+powershell -NonInteractive "Import-Certificate -FilePath '.\root_ca.crt' -CertStoreLocation 'Cert:\LocalMachine\Root'"
+# Import host's certificate
+powershell -NonInteractive "Import-PfxCertificate -FilePath '.\host.domain.tld.p12' -CertStoreLocation 'Cert:\LocalMachine\My' -Exportable"
 ```
 ```powershell
 # When using own SSL CA import it's root certificate
