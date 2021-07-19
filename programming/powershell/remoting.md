@@ -84,8 +84,13 @@ openssl pkcs12 \
 Copy `myhost.p12` to a Windows machine
 ```batch
 :: Non-Interactive commands (Useful when using PSExec)
+:: If version 2.30+ fails to connect with the following error:
+:: Logon failure: the user has not been granted the requested logon type at this computer.
+:: The solution is to use -i option
+
 :: Check if root CA certificate is installed
 powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\Root' | Where-Object {$_.Thumbprint -eq (New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 ".\root_ca.crt").Thumbprint}"
+:: List server certificates
 powershell -NonInteractive "Get-ChildItem 'Cert:\LocalMachine\My' | Format-List"
 ```
 ```powershell
