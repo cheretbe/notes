@@ -8,6 +8,12 @@
 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Control Panel\International`: BlockUserInputMethodsForSignIn = 1
 
 ---------------
+```batch
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization /v NoLockScreen
+reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51 /v ACSettingIndex
+reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51 /v DCSettingIndex
+```
+---------------
 * [ ] Disable the lock screen<br>
     `Local Group Policy` > `Computer Configuration` > `Administrative Templates` > `Control Panel` > `Personalization`:<br>
     `Do not display the lock screen` -> `Enabled`<br>
