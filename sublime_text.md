@@ -101,7 +101,9 @@ Colors
   },
   "globals":
   {
-    "selection": "#25375b"
+    "selection": "#25375b",
+    "active_guide": "hsl(180, 36%, 54%)",
+    "stack_guide": "hsl(180, 36%, 54%)"
   },
   "rules":
   [
