@@ -91,6 +91,7 @@ Colors
 * Theme editor (use `Gallery` button to view list): https://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai
 * :warning: Contrast checker: https://webaim.org/resources/contrastchecker/
 * In ST4 default color scheme is _Mariana_ instead of _Molokai_
+* Default color scheme definitions are in `/opt/sublime_text/Packages/Color Scheme - Default.sublime-package` (.zip file)
 
 `Preferences` > `Customize Color Scheme`:
 ```json
