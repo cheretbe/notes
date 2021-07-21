@@ -10,6 +10,7 @@
 ---------------
 ```batch
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization /v NoLockScreen
+reg query HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon /v EnableFirstLogonAnimation
 reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51 /v ACSettingIndex
 reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51 /v DCSettingIndex
 ```
@@ -26,7 +27,10 @@ reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d
     `Local Group Policy` > `Computer Configuration` > `Administrative Templates` > `System` > `Logon`:<br>
     `Show first sign-in animation` -> `Disabled`<br>
     `Политика "Локальный компьютер"` > `Конфигурация компьютера` > `Админстративные шаблоны` > `Система` > `Вход в систему`:<br>
-    `Показать анимацию при первом входе в систему` -> `Отключено`
+    `Показать анимацию при первом входе в систему` -> `Отключено`<br>
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+    
+    :point_right: `reg add HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f`
 
 ---------------
 * [ ] Disable password requirement when the computer wakes<br>
