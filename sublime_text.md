@@ -103,7 +103,8 @@ Colors
   {
     "selection": "#25375b",
     "active_guide": "hsl(180, 36%, 54%)",
-    "stack_guide": "hsl(180, 36%, 54%)"
+    "stack_guide": "hsl(180, 36%, 54%)",
+    "guide": "color(hsl(180, 36%, 54%) alpha(0.4))"
   },
   "rules":
   [
