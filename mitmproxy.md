@@ -25,7 +25,7 @@ pip install mitmproxy
 ip addr
 
 # Run as ordinary user to simplify access to certificates in ~/.mitmproxy
-# Or just use mitm.it to download the CA certificate
+# Or just use mitm.it URL to download the CA certificate
 # https://docs.mitmproxy.org/stable/concepts-options/
 # [!!!] Use Shift key to select text with mouse (also to bring right-click context menu up)
 mitmproxy --mode transparent --showhost --set console_focus_follow=true
