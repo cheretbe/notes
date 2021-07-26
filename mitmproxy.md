@@ -30,3 +30,10 @@ ip addr
 # [!!!] Use Shift key to select text with mouse (also to bring right-click context menu up)
 mitmproxy --mode transparent --showhost --set console_focus_follow=true
 ```
+
+```batch
+:: Windows client confige example
+route print -4
+route delete 0.0.0.0
+route add 0.0.0.0 mask 0.0.0.0 192.168.0.1
+```
