@@ -1,3 +1,15 @@
+```powershell
+Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" | ForEach-Object { [PSCustomObject]@{SID = $_.PSChildName; Path = $_.GetValue("ProfileImagePath")} } | Format-Table
+```
+```batch
+powershell "Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList' | ForEach-Object { [PSCustomObject]@{SID = $_.PSChildName; Path = $_.GetValue('ProfileImagePath')} } | Format-Table"
+
+powershell "Get-ChildItem Registry::HKEY_USERS\S-1-5-21-0000000000-0000000000-0000000000-0000\Software"
+
+reg export "HKU\S-1-5-21-0000000000-0000000000-0000000000-0000\Software\JavaSoft\Prefs" c:\temp\prefs.reg
+```
+
+
 Existing installation (2check): https://www.sevenforums.com/tutorials/87555-user-profile-change-default-location.html<br>
 At least this should work (also check): Default user profile location for newly created accounts  `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList` > `ProfilesDirectory`
 
