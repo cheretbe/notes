@@ -47,6 +47,8 @@ $ErrorActionPreference = [System.Management.Automation.ActionPreference]::Stop
 $Host.PrivateData.VerboseForegroundColor = [ConsoleColor]::DarkCyan
 
 $script:scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+# [!] For PS 3.0+ use the following automatic variable:
+$PSScriptRoot
 ```
 
 ```powershell
