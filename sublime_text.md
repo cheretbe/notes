@@ -84,6 +84,15 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
   "tab_size": 4
 }
 ```
+Custom code page for Windows files (`Preferences > Settings-Syntax Specific`). :warning: `default_encoding` doesn't work for some reason
+```json
+{
+  # .ps1 files
+  "fallback_encoding": "Cyrillic (Windows 1251)"
+  # .bat files
+  "fallback_encoding": "Cyrillic (Windows 866)"
+}
+```
 
 Colors
 * Color picker: https://www.w3schools.com/colors/colors_picker.asp
