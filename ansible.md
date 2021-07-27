@@ -139,6 +139,12 @@ pip install pywinrm
 ansible all -i 172.24.0.14, -m setup -u vagrant \
   --extra-vars "ansible_connection=winrm ansible_port=5985" \
   --extra-vars "ansible_winrm_transport=ntlm ansible_password=$AO_DEFAULT_VAGRANT_PASSWORD"
+# WinRM from Vagrant host
+vagrant winrm-config win-host-name
+ansible all -i 127.0.0.1, -m setup -u vagrant \
+  --extra-vars "ansible_connection=winrm ansible_port=55985" \
+  --extra-vars "ansible_winrm_transport=ntlm ansible_winrm_scheme=http" \
+  --extra-vars "ansible_password=$AO_DEFAULT_VAGRANT_PASSWORD"
 
 # WinRM over SSL
 ansible all -i host.domain.tld, -m setup -u user \
