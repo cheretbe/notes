@@ -1,5 +1,11 @@
 ## Unsorted
 
+```powershell
+# Search all logs
+Get-WinEvent -ListLog * -EA silentlycontinue |
+  Foreach-Object { Get-WinEvent -LogName | Where-Object -Property Message -Match 'Paint' }
+```
+
 ```batch
 powershell -c (New-Object Media.SoundPlayer 'c:\Users\orlov\Downloads\work-complete.wav').PlaySync();
 net session \\samba.server.ip.address /delete
