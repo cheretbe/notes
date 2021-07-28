@@ -14,6 +14,8 @@
   * All DISM commands appear to work with `%SystemRoot%\System32\OEMDefaultAssociations.xml` file. Do they use anything else?
        * export command definitely doesn't copy the file as is. At the very minimum it skips `ApplyOnUpgrade` and `OverwriteIfProgIdIs` tags
        * https://docs.microsoft.com/en-us/answers/questions/283628/windows-10-custom-default-application-xml-versus-o.html
+       * `AppUpgradeVersion` setting in `HKLM\Software\Microsoft\Windows\CurrentVersion\FileAssociations\UpgradeChoice` seems to have something to do with `ApplyOnUpgrade` tag
+       * https://techcommunity.microsoft.com/t5/windows-deployment/windows-10-1703-default-app-association-for-migrated-users-usmt/m-p/113568
 ```batch
 dism.exe /Online /Export-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAppAssociations.xml"
 dism.exe /Online /Import-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAppAssociations.xml"
