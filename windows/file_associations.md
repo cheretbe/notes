@@ -30,3 +30,10 @@ dism.exe /Online /Export-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAp
 dism.exe /Online /Import-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAppAssociations.xml"
 dism.exe /Online /Remove-DefaultAppAssociations
 ```
+`OverwriteIfProgIdIs` values are semicolon-separated. Example:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<DefaultAssociations>
+  <Association Identifier=".3mf" ProgId="AppXvhc4p7vz4b485xfp46hhk3fq3grkdgjg" ApplicationName="3D Builder" ApplyOnUpgrade="true" OverwriteIfProgIdIs="AppXr0rz9yckydawgnrx5df1t9s57ne60yhn;AppX4r6v2fg5b2qwg1jprp713smfp4wb02yp;AppXmgw6pxxs62rbgfp9petmdyb4fx7rnd4k" />
+</DefaultAssociations>
+```
