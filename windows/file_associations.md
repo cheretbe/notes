@@ -12,7 +12,7 @@
        * https://stackoverflow.com/questions/17946282/whats-the-hash-in-hkcu-software-microsoft-windows-currentversion-explorer-filee
        * https://kolbi.cz/blog/2017/10/25/setuserfta-userchoice-hash-defeated-set-file-type-associations-per-user/
   * All DISM commands appear to work with `%SystemRoot%\System32\OEMDefaultAssociations.xml` file. Do they use anything else?
-       * export command definitely doesn't copyt the file as is. At the very minimum it skips `ApplyOnUpgrade` and `OverwriteIfProgIdIs` tags
+       * export command definitely doesn't copy the file as is. At the very minimum it skips `ApplyOnUpgrade` and `OverwriteIfProgIdIs` tags
        * https://docs.microsoft.com/en-us/answers/questions/283628/windows-10-custom-default-application-xml-versus-o.html
 ```batch
 dism.exe /Online /Export-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAppAssociations.xml"
