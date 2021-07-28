@@ -3,7 +3,7 @@
 ```powershell
 # Search all logs
 Get-WinEvent -ListLog * -EA silentlycontinue |
-  Foreach-Object { Get-WinEvent -LogName | Where-Object -Property Message -Match 'Paint' }
+  Foreach-Object { Get-WinEvent -LogName $_.logname -EA silentlycontinue | Where-Object -Property Message -Match 'Paint' }
 ```
 
 ```batch
