@@ -6,7 +6,7 @@
 * Summary
     * GPO con: doesn't really respect/keep users app associations, it resets them back to your GPO ones on each login. You could apply the GPO for a month & disable?
     * GPO con: only works for domain PC's, if you configure it on a local gpedit.msc it will simply not work
-    * DISM pro: respects users app associations since I believe it only runs the once (new user setup)?
+    * DISM pro: respects users app associations since it appears to only run once on new user setup (?)
   * DISM con: as noted above only works for new users. Crappy solution: delete user profile
         * ❓Try to create custom `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ext\UserChoice` values with updated `Hash` parameter
         * https://stackoverflow.com/questions/17946282/whats-the-hash-in-hkcu-software-microsoft-windows-currentversion-explorer-filee
