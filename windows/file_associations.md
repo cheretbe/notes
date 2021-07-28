@@ -11,7 +11,7 @@
        * ❓Try to create custom `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ext\UserChoice` values with updated `Hash` parameter
        * https://stackoverflow.com/questions/17946282/whats-the-hash-in-hkcu-software-microsoft-windows-currentversion-explorer-filee
        * https://kolbi.cz/blog/2017/10/25/setuserfta-userchoice-hash-defeated-set-file-type-associations-per-user/
-  * All DISM command appear to use `%SystemRoot%\System32\OEMDefaultAssociations.xml` file. Do they use anything else?
+  * All DISM commands appear to work with `%SystemRoot%\System32\OEMDefaultAssociations.xml` file. Do they use anything else?
 ```batch
 dism.exe /Online /Export-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAppAssociations.xml"
 dism.exe /Online /Import-DefaultAppAssociations:"%UserProfile%\Desktop\DefaultAppAssociations.xml"
