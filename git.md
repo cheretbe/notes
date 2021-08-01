@@ -2,6 +2,7 @@
 * [Unsorted](#unsorted)
 * [Cheat Sheet](#cheat-sheet)
 * [Initial setup](#initial-setup)
+* [LFS](#lfs)
 * [Troubleshooting](#troubleshooting)
 * [Submodules](#submodules)
 * [Branches and tags](#branches-and-tags)
@@ -184,6 +185,15 @@ git config --global credential.helper 'cache --timeout=3600'
 git config --global credential.helper store
 
 git config --global push.default simple
+```
+
+### LFS
+
+```shell
+# A fix for files, that should have been added as LFS pointers according to .gitattributes,
+# but weren't (Encountered N file(s) that should have been pointers, but weren't)
+git add . --renormalize
+git commit -m "Fix LFS pointers to some binary files"
 ```
 
 ### Troubleshooting
