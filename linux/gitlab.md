@@ -38,7 +38,7 @@ sudo gitlab-ctl reconfigure
     * https://docs.gitlab.com/ee/security/password_length_limits.html
 
 ### Backup/restore
-Default commented value **is not** the default (default is to keep all backups)
+:warning: Default commented value **is not** the default (default is to keep all backups)
 ```
 # limit backup lifetime to 7 days - 604800 seconds
 gitlab_rails['backup_keep_time'] = 604800
