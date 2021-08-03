@@ -5,6 +5,7 @@
     * **https://github.com/PowerShell/PowerShell/issues/3708**
     * https://stackoverflow.com/questions/2985032/powershell-remoting-profiles
     * https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html#host-requirements
+    * **https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html**
     * https://blog.ipswitch.com/the-infamous-double-hop-problem-in-powershell
 * [HTTPS with a self-signed SSL certificate](#https-with-a-self-signed-ssl-certificate)
 * [Linux](#linux)
