@@ -162,11 +162,13 @@ ansible-playbook -i host.domain.tld, -u user@domain.tld check_if_reachable.yml \
   --extra-vars "ansible_connection=winrm ansible_port=5985 ansible_winrm_transport=ntlm ansible_password=$ANSIBLE_PWD"
 
 apt install libkrb5-dev
-pip install pywinrm kerberos requests-kerberos
+pip install wheel
+pip install ansible pywinrm kerberos requests-kerberos
 # Client principal is case-sensitive. Use 'klist' to view
 ansible-playbook -i host.domain.tld, -u user@DOMAIN.TLD check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3" \
-  --extra-vars "ansible_connection=winrm ansible_port=5985 ansible_winrm_transport=kerberos"
+  --extra-vars "ansible_connection=winrm ansible_port=5985 ansible_winrm_transport=kerberos" \
+  --extra-vars "ansible_winrm_kerberos_delegation=yes"
 
 ansible-playbook -i container-name, --connection=docker \
   --extra-vars "ansible_user=ansible ansible_python_interpreter=/usr/bin/python3" \
