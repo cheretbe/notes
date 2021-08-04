@@ -2,6 +2,7 @@
 * https://stackoverflow.com/questions/48482545/how-can-i-compare-the-content-of-two-or-more-msi-files/48482546#48482546
 * http://www.pantaray.com/msi_super_orca.html
 * https://www.advancedinstaller.com/user-guide/qa-log.html
+* :warning: patching and partial removal examples: https://www.adobe.com/devnet-docs/etk_deprecated/tools/AdminGuide/cmdline.html
 
 Product ID
 * From an MSI
