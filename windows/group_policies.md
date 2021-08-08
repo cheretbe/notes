@@ -20,6 +20,7 @@ gpupdate /force
    * https://web.archive.org/web/20181018000009/http://brandonpadgett.com/powershell/Local-gpo-powershell/
 * https://docs.microsoft.com/en-us/archive/blogs/secguide/lgpo-exe-local-group-policy-object-utility-v1-0
    * version 3.0: https://www.microsoft.com/en-us/download/details.aspx?id=55319
+* https://docs.microsoft.com/en-us/previous-versions/windows/desktop/Policy/registry-policy-file-format
 
 Local group policy settings are stored in `Registry.pol` files located in `C:\Windows\system32\GroupPolicy`. These files overwrite the corresponding keys in the registry every time the system performs a group policy refresh. The editor **never actually reads the registry** to see what settings it contains.
 
