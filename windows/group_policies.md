@@ -20,3 +20,16 @@ gpupdate /force
    * https://web.archive.org/web/20181018000009/http://brandonpadgett.com/powershell/Local-gpo-powershell/
 * https://docs.microsoft.com/en-us/archive/blogs/secguide/lgpo-exe-local-group-policy-object-utility-v1-0
    * version 2.0 (?): https://www.microsoft.com/en-us/download/details.aspx?id=25250
+
+
+```powershell
+Install-Module -Name "PolicyFileEditor" -Scope CurrentUser
+
+$machineDir = "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol"
+$userDir = "${ENV:SystemRoot}\system32\GroupPolicy\User\Registry.pol"
+
+Get-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen"
+
+Set-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen" `
+  -Type dword -Data 0 
+```
