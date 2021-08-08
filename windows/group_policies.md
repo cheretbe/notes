@@ -40,6 +40,8 @@ Install-Module -Name "PolicyFileEditor" -Scope CurrentUser
 $machineDir = "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol"
 $userDir = "${ENV:SystemRoot}\system32\GroupPolicy\User\Registry.pol"
 
+Get-PolicyFileEntry -Path $machineDir -All
+
 Get-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen"
 
 Set-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen" `
