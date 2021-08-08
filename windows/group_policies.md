@@ -21,6 +21,18 @@ gpupdate /force
 * https://docs.microsoft.com/en-us/archive/blogs/secguide/lgpo-exe-local-group-policy-object-utility-v1-0
    * version 2.0 (?): https://www.microsoft.com/en-us/download/details.aspx?id=25250
 
+Local group policy settings are stored in `Registry.pol` files located in `C:\Windows\system32\GroupPolicy`. These files overwrite the corresponding keys in the registry every time the system performs a group policy refresh. The editor **never actually reads the registry** to see what settings it contains.
+
+A group policy refresh is triggered whenever one of the following events occurs:
+
+* At a regularly scheduled refresh interval (every 90 minutes by default)
+* A user logon or logoff event (user policy only)
+* A computer reboot (computer policy only)
+* A manually triggered refresh via gpupdate
+* A policy refresh command issued by an admin from the domain controller (if the computer is domain-joined).
+
+It's important to remember that if the computer is domain-joined, domain policies will be applied after the local group policy files are processed (meaning that some settings may get overwritten by domain policy). You will not be able to see domain policies in the local group policy editor.
+
 
 ```powershell
 Install-Module -Name "PolicyFileEditor" -Scope CurrentUser
