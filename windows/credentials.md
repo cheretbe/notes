@@ -22,6 +22,7 @@ VaultCmd /deletecreds:"Windows Credentials" /credtype:"Windows Domain Password C
 VaultCmd /deletecreds:"Учетные данные Windows" /credtype:"Учетные данные пароля домена Windows" /identity:"host.domain.tld\username" /resource:"host.domain.tld"
 ```
 
+* https://github.com/davotronic5000/PowerShell_Credential_Manager
 ```powershell
 Install-Module CredentialManager
 
