@@ -1,3 +1,6 @@
+* `Control Panel` > `User Accounts and Family Safety` > `Credential Manager`
+* `Панель управления` > `Учетные записи пользователей` > `Диспетчер учетных данных`
+
 ```batch
 cmdkey /add:host.domain.tld /user:host.domain.tld\username /password:""
 cmdkey /list
