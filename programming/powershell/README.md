@@ -22,6 +22,7 @@ Get-WmiObject -Class Win32_Volume |
   Select DriveLetter, Label,
     @{Label="Capacity (GB)";Expression={[math]::round($_.Capacity / 1GB, 2)}},
     @{Label="FreeSpace (GB)";Expression={[math]::round($_.Freespace / 1GB, 2)}},
+    @{Label="Type";Expression={@{0="Unknown"; 1="No Root"; 2="Removable"; 3="Local"; 4="Network"; 5="CD"; 6="RAM Disk"}[[int]$_.DriveType]}},
     DeviceID |
   Format-Table -AutoSize
 
