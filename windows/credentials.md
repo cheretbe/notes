@@ -22,6 +22,21 @@ VaultCmd /deletecreds:"Windows Credentials" /credtype:"Windows Domain Password C
 VaultCmd /deletecreds:"Учетные данные Windows" /credtype:"Учетные данные пароля домена Windows" /identity:"host.domain.tld\username" /resource:"host.domain.tld"
 ```
 
+```powershell
+Install-Module CredentialManager
+
+[enum]::GetValues([PSCredentialManager.Common.Enum.CredType])
+[enum]::GetValues([PSCredentialManager.Common.Enum.CredPersist])
+
+New-StoredCredential -Target "host.domain.tld" -Type DomainPassword -UserName "host.domain.tld\username" -Password "password" -Persist "LocalMachine"
+
+Get-StoredCredential -AsCredentialObject
+Get-StoredCredential -Type DomainPassword -AsCredentialObject -Target 'Domain:target=host.domain.tld'
+
+# [!!!] It doesn't support pipelining, use ForEach-Object
+Get-StoredCredential -Type DomainPassword -AsCredentialObject -Target 'Domain:target=host.domain.tld' | ForEach-Object { Remove-StoredCredential -Type DomainPassword -Target $_.TargetName }
+```
+
 ```shell
 ansible win10 -m community.windows.win_credential \
   -a "name=name=host.domain.tld type=domain_password username=name=host.domain.tld\username secret=pwd" \
