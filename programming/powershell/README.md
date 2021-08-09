@@ -17,6 +17,14 @@ Get-PhysicalDisk
 Get-WmiObject Win32_LogicalDisk | ?{$_.DriveType -eq 3}
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3"
 
+# List partitions similar to "lsblk" in linux
+Get-WmiObject -Class Win32_Volume | 
+  Select DriveLetter, Label,
+    @{Label="Capacity (GB)";Expression={[math]::round($_.Capacity / 1GB, 2)}},
+    @{Label="FreeSpace (GB)";Expression={[math]::round($_.Freespace / 1GB, 2)}},
+    DeviceID |
+  Format-Table -AutoSize
+
 # Disk usage similar to "df -h" in Linux
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
   Select-Object DeviceId, VolumeName,
