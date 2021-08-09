@@ -21,7 +21,7 @@ VaultCmd /addcreds:"Учетные данные Windows" /credtype:"Учетны
 VaultCmd /deletecreds:"Windows Credentials" /credtype:"Windows Domain Password Credential" /identity:"host.domain.tld\username" /resource:"host.domain.tld"
 VaultCmd /deletecreds:"Учетные данные Windows" /credtype:"Учетные данные пароля домена Windows" /identity:"host.domain.tld\username" /resource:"host.domain.tld"
 ```
-
+* :warning: 2check: https://winitpro.ru/index.php/2021/05/11/modul-powershell-secret-management-hranenie-paroley/
 * https://github.com/davotronic5000/PowerShell_Credential_Manager
 ```powershell
 Install-Module CredentialManager
