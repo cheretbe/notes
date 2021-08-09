@@ -38,6 +38,7 @@ Get-StoredCredential -Type DomainPassword -AsCredentialObject -Target 'Domain:ta
 Get-StoredCredential -Type DomainPassword -AsCredentialObject -Target 'Domain:target=host.domain.tld' | ForEach-Object { Remove-StoredCredential -Type DomainPassword -Target $_.TargetName }
 ```
 
+* https://github.com/ansible-collections/community.windows/blob/main/plugins/modules/win_credential.ps1
 ```shell
 ansible win10 -m community.windows.win_credential \
   -a "name=name=host.domain.tld type=domain_password username=name=host.domain.tld\username secret=pwd" \
