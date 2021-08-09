@@ -2,9 +2,24 @@
 * `Панель управления` > `Учетные записи пользователей` > `Диспетчер учетных данных`
 
 ```batch
+control /name Microsoft.CredentialManager
+rundll32.exe keymgr.dll,KRShowKeyMgr
+
 cmdkey /add:host.domain.tld /user:host.domain.tld\username /password:""
 cmdkey /list
 cmdkey /delete:host.domain.tld
+
+VaultCmd /listcreds:"Windows Credentials"
+VaultCmd /listcreds:"Учетные данные Windows"
+
+:: List valid credential types
+VaultCmd /listschema
+
+VaultCmd /addcreds:"Windows Credentials" /credtype:"Windows Domain Password Credential" /identity:"host.domain.tld\username" /authenticator:"password" /resource:"host.domain.tld"
+VaultCmd /addcreds:"Учетные данные Windows" /credtype:"Учетные данные пароля домена Windows" /identity:"host.domain.tld\username" /authenticator:"password" /resource:"host.domain.tld"
+
+VaultCmd /deletecreds:"Windows Credentials" /credtype:"Windows Domain Password Credential" /identity:"host.domain.tld\username" /resource:"host.domain.tld"
+VaultCmd /deletecreds:"Учетные данные Windows" /credtype:"Учетные данные пароля домена Windows" /identity:"host.domain.tld\username" /resource:"host.domain.tld"
 ```
 
 ```shell
