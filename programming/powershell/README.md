@@ -28,19 +28,18 @@ Get-WmiObject -Class Win32_Volume |
   
 # List partitions similar to "lsblk" in linux
 # https://stackoverflow.com/questions/31088930/combine-get-disk-info-and-logicaldisk-info-in-powershell/31092004#31092004
+# https://superuser.com/questions/1206250/list-full-partition-information-from-powershell-just-like-from-disk-management
 # https://vallentin.dev/2016/11/29/pretty-print-tree
 Get-WmiObject Win32_DiskDrive | ForEach-Object {
-  Write-Host ("$($_.DeviceID): $($_.Caption)")
-  $partitions = "ASSOCIATORS OF " +
-                "{Win32_DiskDrive.DeviceID='$($_.DeviceID)'} " +
-                "WHERE AssocClass = Win32_DiskDriveToDiskPartition"
-  Get-WmiObject -Query $partitions | ForEach-Object {
-    $LogicalDisk = $_.GetRelated('Win32_LogicalDisk')
-    Get-WmiObject Win32_Volume -Filter "Name='$($LogicalDisk.DeviceID)\\'" | ForEach-Object {
-      Write-Output ("   {0} {1} {2}GB; type: {3}; filesystem: {4} {5}" -f $_.DriveLetter, $_.Label,
-        [math]::round($_.Capacity / 1GB, 2), 
-        @{0="Unknown"; 1="No Root"; 2="Removable"; 3="Local"; 4="Network"; 5="CD"; 6="RAM Disk"}[[int]$_.DriveType],
-        $_.FileSystem, $_.DeviceID
+  $drive = $_
+  Write-Host ("$($drive.DeviceID): $($drive.Caption)")
+  Get-Partition | Where-Object { $_.DiskNumber -eq $drive.Index } | ForEach-Object {
+    $partition = $_
+    Get-Volume | Where-Object { $partition.AccessPaths -contains $_.Path } | ForEach-Object {
+      Write-Output ("   {0} - {1} {2} {3}GB; type: {4}; filesystem: {5}" -f $partition.PartitionNumber,
+        $(if ($_.DriveLetter) { ($_.DriveLetter + ":") } else { "  " }),
+        $_.FileSystemLabel,
+        [math]::round($_.Size / 1GB, 2), $_.DriveType, $_.FileSystemType
       )
     }
   }
