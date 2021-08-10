@@ -17,7 +17,7 @@ Get-PhysicalDisk
 Get-WmiObject Win32_LogicalDisk | ?{$_.DriveType -eq 3}
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3"
 
-# List partitions similar to "lsblk" in linux
+# List partitions
 Get-WmiObject -Class Win32_Volume | 
   Select DriveLetter, Label,
     @{Label="Capacity (GB)";Expression={[math]::round($_.Capacity / 1GB, 2)}},
@@ -25,6 +25,10 @@ Get-WmiObject -Class Win32_Volume |
     @{Label="Type";Expression={@{0="Unknown"; 1="No Root"; 2="Removable"; 3="Local"; 4="Network"; 5="CD"; 6="RAM Disk"}[[int]$_.DriveType]}},
     DeviceID |
   Format-Table -AutoSize
+  
+# List partitions similar to "lsblk" in linux
+# https://stackoverflow.com/questions/31088930/combine-get-disk-info-and-logicaldisk-info-in-powershell/31092004#31092004
+# https://vallentin.dev/2016/11/29/pretty-print-tree
 
 # Disk usage similar to "df -h" in Linux
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
