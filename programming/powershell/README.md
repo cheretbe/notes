@@ -29,6 +29,22 @@ Get-WmiObject -Class Win32_Volume |
 # List partitions similar to "lsblk" in linux
 # https://stackoverflow.com/questions/31088930/combine-get-disk-info-and-logicaldisk-info-in-powershell/31092004#31092004
 # https://vallentin.dev/2016/11/29/pretty-print-tree
+Get-WmiObject Win32_DiskDrive | ForEach-Object {
+  Write-Host ("$($_.DeviceID): $($_.Caption)")
+  $partitions = "ASSOCIATORS OF " +
+                "{Win32_DiskDrive.DeviceID='$($_.DeviceID)'} " +
+                "WHERE AssocClass = Win32_DiskDriveToDiskPartition"
+  Get-WmiObject -Query $partitions | ForEach-Object {
+    $LogicalDisk = $_.GetRelated('Win32_LogicalDisk')
+    Get-WmiObject Win32_Volume -Filter "Name='$($LogicalDisk.DeviceID)\\'" | ForEach-Object {
+      Write-Output ("   {0} {1} {2}GB; type: {3}; filesystem: {4} {5}" -f $_.DriveLetter, $_.Label,
+        [math]::round($_.Capacity / 1GB, 2), 
+        @{0="Unknown"; 1="No Root"; 2="Removable"; 3="Local"; 4="Network"; 5="CD"; 6="RAM Disk"}[[int]$_.DriveType],
+        $_.FileSystem, $_.DeviceID
+      )
+    }
+  }
+}
 
 # Disk usage similar to "df -h" in Linux
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
