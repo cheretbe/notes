@@ -164,6 +164,10 @@ git config [--global] user.email "email"
 # Don't quote cyrillic symbols
 git config --global core.quotepath false
 
+# As of August 13 2021 Github is no longer accepting account passwords when authenticating Git operations.
+# Create personal access token (Settings => Developer Settings => Personal Access Token => Generate New Token),
+# then just use it in a credential manager instead of the password
+
 # Credentials (not needed in recent versions?)
 git config --global credential.helper wincred
 
