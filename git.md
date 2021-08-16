@@ -185,7 +185,7 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/libs
 # (15 min) by default, but it can be changed with optional timeout parameter
 # 1 hour (3600 seconds)
 git config --global credential.helper 'cache --timeout=3600'
-# [!!!] warning: stores in plaintext!
+# [!!!] warning: stores in plaintext! (~/.git-credentials)
 git config --global credential.helper store
 
 git config --global push.default simple
