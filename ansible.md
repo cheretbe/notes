@@ -264,6 +264,24 @@ public_key_as_long_string___: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG6\
   qVUdHbai3r1Ih3I9XxC6MOdi8sznDJ+QA0gfnDg7/NL1Ir7nA3bBF3mqu1YgLKKIZMdDE5\
   2MhoHPepZiRubd1PYoo2kyS/dZsVBZf6mVjD2xd8o3jXnfms7j3qHaHtWVGHuNOcA3/jPt\
   6+YS2Nv0JfSqiysGvKb0= test key"
+  
+- name: Powershell test 1
+  ansible.windows.win_shell: |
+    $output = [PSCustomObject]@{
+      message = "";
+      has_message = (Get-Random -InputObject ([bool]$TRUE, [bool]$FALSE))
+    }
+    if ($output.has_message)
+      { $output.message = "This is completely random" }
+    $output | ConvertTo-Json
+  register: test_result
+  changed_when: false
+
+- name: Show message
+  debug:
+    msg: "Message: {{ (test_result.stdout|from_json).message }}"
+  when: (test_result.stdout|from_json).has_message
+
 ```
 
 ##### Environment variables
