@@ -268,6 +268,17 @@ public_key_as_long_string___: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG6\
 - name: Powershell test 1
   ansible.windows.win_shell: |
     $output = [PSCustomObject]@{
+      changed = (Get-Random -InputObject ([bool]$TRUE, [bool]$FALSE))
+    }
+    if ($output.has_message)
+      { $output.message = "This is completely random" }
+    $output | ConvertTo-Json
+  register: test_result
+  changed_when: (test_result.stdout|from_json).changed
+  
+- name: Powershell test 2
+  ansible.windows.win_shell: |
+    $output = [PSCustomObject]@{
       message = "";
       has_message = (Get-Random -InputObject ([bool]$TRUE, [bool]$FALSE))
     }
