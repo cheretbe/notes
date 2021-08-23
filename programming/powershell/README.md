@@ -80,6 +80,10 @@ $PSScriptRoot
 ```
 
 ```powershell
+# Get domain user info
+Add-Type -AssemblyName System.DirectoryServices.AccountManagement
+[System.DirectoryServices.AccountManagement.UserPrincipal]::Current.EmailAddress
+
 Set-ExecutionPolicy Bypass -Scope Process; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/cheretbe/vagrant-files/develop/windows/provision/chocolatey.ps1'))
 
 (
