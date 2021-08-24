@@ -292,6 +292,17 @@ public_key_as_long_string___: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG6\
   debug:
     msg: "Message: {{ (test_result.stdout|from_json).message }}"
   when: (test_result.stdout|from_json).has_message
+  
+- name: Powershell test 3
+  ansible.windows.win_shell: |
+    $output = [PSCustomObject]@{ changed=$FALSE; debug=@() }
+    $output.debug += "test"
+    $output | ConvertTo-Json
+  register: test_result
+  changed_when: (test_result.stdout|from_json).changed
+
+- debug:
+    var: (test_result.stdout|from_json).debug
 
 ```
 
