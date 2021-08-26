@@ -10,5 +10,8 @@ route add 0.0.0.0 mask 0.0.0.0 192.168.0.1
 ```powershell
 Get-NetAdapter
 (Get-DnsClientServerAddress -InterfaceIndex 9 -AddressFamily IPv4).ServerAddresses
+# [!!!] This setting is permanent
 Set-DnsClientServerAddress -InterfaceIndex 9 -ServerAddresses @("192.168.0.1")
+# To reset the DNS server IP addresses to the default value
+Set-DnsClientServerAddress -InterfaceIndex 9 -ResetServerAddresses
 ```
