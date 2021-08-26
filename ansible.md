@@ -29,6 +29,16 @@
 * https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions
 * Color when there is no pty (CI/CD pipelines): https://www.jeffgeerling.com/blog/2020/getting-colorized-output-molecule-and-ansible-on-github-actions-ci
 
+### Ad-Hoc Commands
+```shell
+# Default for category_names is ['Critical Updates','Security Updates','Update Rollups']
+ansible win10 -m win_updates
+
+ansible win10 -m win_updates \
+  -a "category_names=['Critical Updates','Security Updates','Update Rollups','Updates','Definition Updates','Drivers'] reboot=yes"
+
+```
+
 ### Installation
 
 ```bash
