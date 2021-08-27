@@ -36,7 +36,11 @@ ansible win10 -m win_updates
 
 ansible win10 -m win_updates \
   -a "category_names=['Critical Updates','Security Updates','Update Rollups','Updates','Definition Updates','Drivers'] reboot=yes"
-  
+
+ansible win10 -m community.windows.win_certificate_info -a 'store_name=Root'
+# View single certificate info
+ansible win10 -m community.windows.win_certificate_info -a 'store_name=Root thumbprint=0000000000000000000000000000000000000000'
+
 ansible win10 -m win_certificate_store -a 'path=\\\\hostname\\path\\to\\self-signed-ca.cert.crt store_name=Root'
 
 ansible win10 -m win_reg_stat -a "path='HKLM:\System\CurrentControlSet\Control\Session Manager' name=PendingFileRenameOperations"
