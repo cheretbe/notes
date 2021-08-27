@@ -4,6 +4,10 @@
 * https://www.advancedinstaller.com/user-guide/qa-log.html
 * :warning: patching and partial removal examples: https://www.adobe.com/devnet-docs/etk_deprecated/tools/AdminGuide/cmdline.html
 
+Reboots
+* http://exodusdev.com/products/whyreboot
+* https://qtechbabble.wordpress.com/2020/06/26/use-pendingfilerenameoperations-registry-key-to-automatically-delete-a-file-on-reboot/
+
 Product ID
 * From an MSI
     * [Download](http://www.pantaray.com/msi_super_orca.html) SuperOrca
