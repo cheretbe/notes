@@ -8,6 +8,7 @@ Reboots
 * http://exodusdev.com/products/whyreboot
 * https://qtechbabble.wordpress.com/2020/06/26/use-pendingfilerenameoperations-registry-key-to-automatically-delete-a-file-on-reboot/
 * :warning: https://docs.microsoft.com/en-us/sysinternals/downloads/pendmoves
+* `HKLM\System\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations`
 
 Product ID
 * From an MSI
