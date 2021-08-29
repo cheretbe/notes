@@ -63,16 +63,17 @@ date -d @$(curl -s https://api.github.com/rate_limit | jq -r ".resources.core.re
 ```batch
 subl "%ProgramFiles%\git\etc\gitconfig"
 ```
-``` shell
+
+### Cheat Sheet
+```shell
 # View added, but not committed changes
 git diff --cached [myfile.txt]
 
 # work with a different path instead of current working directory
 git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
-```
 
-### Cheat Sheet
-```shell
+
+
 # Create a new repo
 git clone https://urs
 cd repo-name
