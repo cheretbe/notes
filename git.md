@@ -68,6 +68,8 @@ subl "%ProgramFiles%\git\etc\gitconfig"
 ```shell
 # View added, but not committed changes
 git diff --cached [myfile.txt]
+# In more recent versions of git, --staged is a synonym for --cached
+git diff --staged
 
 # work with a different path instead of current working directory
 git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
