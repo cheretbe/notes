@@ -213,6 +213,15 @@ Desired=Unknown/Install/Remove/Purge/Hold
 ii  htop                      2.1.0-3           amd64             interactive processes viewer
 ```
 
+Programmatically downgrade a package
+```bash
+if [[ $(dpkg-query -W -f='${Version}' virtualbox-guest-utils) = "6.1.22-dfsg-2~ubuntu1.20.04.1" ]]; then
+  echo "Downgrading 'virtualbox-guest-utils' package"
+  /usr/bin/sudo -n -- sh -c "DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --allow-downgrades virtualbox-guest-utils=6.1.16-dfsg-6~ubuntu1.20.04.2"
+  /usr/bin/sudo -n -- sh -c "DEBIAN_FRONTEND=noninteractive apt-mark hold virtualbox-guest-utils"
+fi
+```
+
 Local apt mirror
 * https://computingforgeeks.com/creating-ubuntu-mirrors-using-apt-mirror/
 * https://linuxconfig.org/how-to-create-a-ubuntu-repository-server
