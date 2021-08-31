@@ -77,6 +77,11 @@ On linux:
   "line_padding_bottom": 2,
   "line_padding_top": 2
 ```
+File exclusion patterns
+```yaml
+# default for ST 4
+"file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", ".directory", "desktop.ini", "*.class", "*.psd", "*.db", "*.sublime-workspace"],
+```
 Custom tab size for python files: `Preferences > Settings-Syntax Specific`
 ```
 {
