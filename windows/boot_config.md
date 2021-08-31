@@ -3,6 +3,22 @@
 * http://pcsupport.about.com/od/fixtheproblem/ht/rebuild-bcd-store-windows.htm
 * http://superuser.com/questions/460762/how-can-i-repair-the-windows-8-efi-bootloader
 
+#### MBR to GPT conversion
+
+```batch
+powershell Get-PhysicalDisk
+
+:: /disk:<n> - Specifies the disk number of the disk to be processed.
+::             If not specified, the system disk is processed.
+:: /allowFullOS
+::           - Allows the tool to be used from the full Windows
+::             environment. By default, this tool can only be used
+::             from the Windows Preinstallation Environment.
+mbr2gpt /disk:0 /validate /allowFullOS
+
+mbr2gpt /disk:0 /convert /allowFullOS
+```
+
 #### Fix BSOD after changing SATA <--> IDE
 
 * `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci`: Set `Start` to `0`
