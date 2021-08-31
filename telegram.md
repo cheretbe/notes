@@ -5,6 +5,7 @@
 
 ```shell
 # Get chat ID using proxy
+# [!] If result is empty, delete chat with the bot and re-add it (don't forget to note bot's ID)
 curl -x 192.168.1.1:1111 https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates| jq .result[0].message.chat.id
 
 # Send a message using proxy
