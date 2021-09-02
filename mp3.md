@@ -7,6 +7,24 @@ Convert
 * (:question: - 2check) Linux: rip an audio CD: Sound Juicer
     * `apt install sound-juicer`
     * https://www.howtogeek.com/howto/20126/rip-audio-cds-with-sound-juicer/
+
+Adjust level
+```shell
+# mp3gain does not just do peak normalization,  as many normalizers do. Instead, it does some
+# statistical analysis to  determine how loud the file actually sounds to the human ear. Also,
+# the  changes mp3gain makes are completely lossless. There  is no quality lost in the change
+# because the program adjusts the mp3 file  directly, without decoding and re-encoding. Also,
+# this works with all mp3  players, i.e. no support for a special tag or something similar is  required.
+sudo snap install mp3gain
+
+# -r  apply Track gain automatically (all files set to equal loudness)
+mp3gain -r *.mp3
+# -c  ignore clipping warning when applying gain
+mp3gain -c -r *.mp3
+
+# -g i   apply gain i to mp3 without  doing any analysis
+mp3gain -g -8 track.mp3
+```
     
 Split
 ```shell
