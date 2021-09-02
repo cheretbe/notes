@@ -351,6 +351,7 @@ ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', '
 
 ```shell
 # [!] It uses 'vault_password_file' option from .ansible.cfg if set
+# [!!!] use space to prevent the command showing up in the history
 ansible-vault encrypt_string 'string-value' --name 'parameter-name'
 
 # Vault password as an env variable:
