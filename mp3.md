@@ -79,6 +79,9 @@ apt install audacity -s
 * Make a selection
 * Use `Effect` > `Fade Out` or `Effect` > `Studio Fade Out` tool (the last one might be under `Plug-in x to y` submenu)
 
+
+### Console spectrum analyzer: cli-visualizer
+
 https://github.com/dpayne/cli-visualizer
 ```shell
 apt install cmake libncursesw5-dev libpulse-dev libfftw3-dev
