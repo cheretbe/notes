@@ -352,6 +352,14 @@ ansible all -i localhost, --connection=local -m debug -a "msg={{ lookup('env', '
 ```shell
 # [!] use space to prevent the command showing up in history
 ansible-vault encrypt_string 'string-value' --name 'parameter-name'
+
+# Vault password as an evn variable:
+--vault-password-file pass_file.sh
+```
+`pass_file.sh` contents (make sure it is executable)
+```bash
+#!/bin/bash
+echo ${ANSIBLE_VAULT_PASSWORD}
 ```
 
 ### Molecule
