@@ -37,7 +37,7 @@ EOF
 [More examples](./linux/cron+at.md#at-command)
 
 ```shell
-# Set test to a variable without echoing it
+# Set text to a variable without echoing it
 read -s -p "Password: " my_pwd; echo ""
 # Optional export to expose the var to other processes
 read -s -p "Password: " my_pwd; echo ""; export my_pwd
