@@ -1,4 +1,7 @@
 * Review when time permits: https://github.com/ekultails/rootpages/blob/master/src/automation/ansible.rst
+* :warning: Five Ansible Techniques I Wish I'd Known Earlier: https://zwischenzugs.com/2021/08/27/five-ansible-techniques-i-wish-id-known-earlier/
+    * https://www.reddit.com/r/ansible/comments/pd8erk/five_ansible_techniques_i_wish_id_known_earlier/haoslej?utm_source=share&utm_medium=web2x&context=3
+        * https://www.reddit.com/r/ansible/comments/pa9vew/run_a_playbook_depending_on_the_output_of_two/ha39y5a
 ------
 * https://www.redhat.com/en/blog/system-administrators-guide-getting-started-ansible-fast
 * http://codeheaven.io/15-things-you-should-know-about-ansible/
