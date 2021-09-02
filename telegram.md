@@ -13,6 +13,6 @@ curl -x 192.168.1.1:1111 -s https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getU
 curl -X POST \
     -x 192.168.1.1:1111 \
     -H 'Content-Type: application/json' \
-    -d '{"chat_id": "111111111", "text": "This is a test from curl", "disable_notification": false}' \
+    -d '{"chat_id": "111111111", "text": "'$(hostname -f)': test from curl", "disable_notification": false}' \
     https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage
 ```
