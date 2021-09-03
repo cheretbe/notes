@@ -127,7 +127,10 @@ end
     ansible.playbook = "ansible/provision.yml"
     ansible.compatibility_mode = "2.0"
     ansible.extra_vars = {
-      "ansible_python_interpreter": "/usr/bin/python3"
+      "ansible_python_interpreter": "/usr/bin/python3",
+      # then use in a playbook like that
+      # when: my_env_var != None
+      "my_env_var": ENV["MY_ENV_VAR"] || nil
     }
   end
 ```
