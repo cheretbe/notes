@@ -8,6 +8,7 @@
 # Assuming that smv (http://www.smartversion.com) is installed in ~/bin
 
 # Build a patch
+# Test settings: https://forums.mydigitallife.net/threads/smartversion-tools-scripts.79415/page-14#post-1599203
 date; time smv BuildPatch [SvfFile] [OldFile] [NewFile] -nbhashbits 24 -compressratio 49 -sha1 -sha25; finished
 
 # List files
