@@ -16,3 +16,23 @@ curl -X POST \
     -d '{"chat_id": "111111111", "text": "'$(hostname -f)': test from curl", "disable_notification": false}' \
     https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage
 ```
+
+* https://towardsdatascience.com/proper-ways-to-pass-environment-variables-in-json-for-curl-post-f797d2698bf3
+```bash
+generate_message_data()
+{
+  c_time="$(date +'%_H:%M')"
+  cat <<EOF
+{
+  "chat_id": "000000000",
+  "text": "${c_time} - $(hostname -f)",
+  "disable_notification": false 
+}
+EOF
+}
+
+curl -s -X POST \
+    -H 'Content-Type: application/json' \
+    -d "$(generate_message_data)" \
+    https://api.telegram.org/bot000000000:AAAA00aaaa00000000000000000000000_A/sendMessage 1>/dev/null
+```
