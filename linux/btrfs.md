@@ -7,7 +7,7 @@ mount /dev/sdc /mountpoint
 
 # View filesystems
 btrfs filesystem show
-# For image files (e.g. LXD storage) view current mounts to find mount point
+# For image files (e.g. LXD storage) view current mounts to find the image file itself
 mount | grep btrfs
 findmnt -t btrfs
 
