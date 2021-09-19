@@ -7,6 +7,9 @@ mount /dev/sdc /mountpoint
 
 # View filesystems
 btrfs filesystem show
+# For image files (e.g. LXD storage) view current mounts to find mount point
+mount | grep btrfs
+findmnt -t btrfs
 
 # Run balance (this is not a backround operation, use screen)
 time btrfs balance start /mountpoint
@@ -21,6 +24,9 @@ btrfs device add /dev/sdc /mountpoint
 btrfs device delete /dev/sdc /mountpoint
 # Delete missing device (disk is completely dead and has already been removed)
 btrfs device delete missing [/mountpoint]
+
+# Reclame (some) unused space for image file
+fstrim -v /var/lib/lxd/storage-pools/default
 ```
 
 * https://btrfs.wiki.kernel.org/index.php/FAQ
