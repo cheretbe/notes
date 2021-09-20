@@ -38,12 +38,26 @@ mp3splt -t 30.0 file.mp3
 Reduce bitrate
 ```shell
 sudo apt install ffmpeg
+# or
+sudo snap install ffmpeg
+# [!!!] Note that snap version will not have access to arbitrary file paths, only to some hard-coded
+# locations
+# https://askubuntu.com/a/1033617
+# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1643706
+snap connections | grep ffmpeg
+# By default it even doesn't have access to /media
+sudo snap connect ffmpeg:removable-media
 
 ffmpeg -i file.mp3 -ab 64k -threads 4 file_64.mp3
 # libmp3lame doesn't support multi-threading, so -threads n option is ignored
 ffmpeg -h encoder=libmp3lame
 ...
 Threading capabilities: none
+```
+Convert from m4b to mp3
+```shell
+# m4b is just a fancy name for an AAC file
+ffmpeg -i source.m4b -acodec libmp3lame -ab 64k output.mp3
 ```
 
 Test integrity
