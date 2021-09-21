@@ -7,7 +7,7 @@ last_updated=$(curl -s -X GET https://hub.docker.com/v2/repositories/geerlingguy
 
 # Note the -r option (output raw strings, not JSON texts)
 curl -s "https://app.vagrantup.com/api/v1/user/cheretbe" | \
-  jq -r '.boxes | sort_by(.name)[] | select(.name|test("^win10")) | .name'
+  jq -r '.boxes | sort_by(.name)[] | select(.name|startswith("win10")) | .name'
 
 # |= instead of | passes the values along instead of stripping them
 curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
