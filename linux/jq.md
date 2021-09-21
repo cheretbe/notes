@@ -21,4 +21,8 @@ curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
 # Like match, but does not return match objects, only true or false
 curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
   jq -c '.boxes |= map(select((.name|test("^win10")) and (.updated_at <= "2021-09-20"))) | .boxes | sort_by(.name)[] | [.name, .current_version.version, .updated_at]'
+  
+# @tsv formats input (must be an array) as TSV (tab-separated values)
+curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
+  jq -r '.boxes |= map(select((.name|startswith("win10")) and (.updated_at <= "2021-09-20"))) | .boxes | sort_by(.name)[] | [.name, .current_version.version, .updated_at] | @tsv'
 ```
