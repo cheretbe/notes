@@ -49,7 +49,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
         * Restart `GNOME Tweak Tool` if it was running, then enable the extension
     * Close the Overview with a single ESC press when searchbox is empty
         * https://extensions.gnome.org/extension/3204/escape-overview/
-        * `unzip escape-overviewraelgc.v1.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/escape-overview@raelgc`
+        * `unzip escape-overviewraelgc.v4.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/escape-overview@raelgc`
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
