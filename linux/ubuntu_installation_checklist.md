@@ -29,6 +29,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
         cd ~
         tar xzvf ~/Downloads/gnome-shell-frippery-3.32.4.tgz
         ```
+        * Restart shell (<kbd>Alt</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>), then use Gnome Tweaks
     * Ctrl+Shift setting is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
     * https://itsfoss.com/ubuntu-shortcuts/
     * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
