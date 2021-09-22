@@ -53,7 +53,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
-- [ ] Keyboard settings (switch with Ctrl+Shift, use different layout for each window)
+- [ ] Keyboard settings (use different layout for each window: `Settings` > `Region and Language` > `Input Sources`, gear on the right)
 - [ ] `apt install gparted mc htop`
 - [ ] Screensaver and lock settings
 - [ ] PCManFM
