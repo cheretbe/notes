@@ -23,6 +23,12 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
         * https://github.com/valr/awf
         * https://github.com/themix-project/oomox
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
+        * for Ubuntu 20.04 use version 3.32
+        ```shell
+        # tar contains all necessary paths
+        cd ~
+        tar xzvf ~/Downloads/gnome-shell-frippery-3.32.4.tgz
+        ```
     * Ctrl+Shift setting is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
     * https://itsfoss.com/ubuntu-shortcuts/
     * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
