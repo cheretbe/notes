@@ -65,7 +65,8 @@ apt purge remmina
 snap install remmina
 ```
 ```bash
-sudo add-apt-repository ppa:remmina-ppa-team/remmina-next
+# Remmina will no longer be available as a PPA package after the release of version 1.4.8.
+# sudo add-apt-repository ppa:remmina-ppa-team/remmina-next
 ```
 - [ ] Change time from UTC to local (when dual-booting with Windows)
 ```bash
