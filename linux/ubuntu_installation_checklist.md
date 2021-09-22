@@ -23,6 +23,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
         * https://github.com/valr/awf
         * https://github.com/themix-project/oomox
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
+        * :warning: next time try to install [Frippery Move Clock](https://extensions.gnome.org/extension/2/move-clock/) only, using instructions for Win key below
         * for Ubuntu 20.04 use version 3.32
         ```shell
         # tar contains all necessary paths
