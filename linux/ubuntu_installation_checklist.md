@@ -16,11 +16,12 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
 * 18.04/20.04
     * DNS fix + `apt purge avahi-daemon`? (check if removing avahi-daemon is enough for 18.04.03)
     * Move windows to other monitor: <kbd>Win</kbd>+<kbd>Shift</kbd>+arrows
-    * Themes
+    * Themes (use Gnome Tweaks to change `apt install gnome-tweaks`)
+        * :point_right: https://github.com/Jannomag/Yaru-Colors
+           * extract .zip to a temp dir, then copy `Themes` subdir contents to `~/.themes`
         * https://www.gnome-look.org/p/1207034/
         * https://github.com/valr/awf
         * https://github.com/themix-project/oomox
-        * https://github.com/Jannomag/Yaru-Colors
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
     * Ctrl+Shift setting is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
     * https://itsfoss.com/ubuntu-shortcuts/
