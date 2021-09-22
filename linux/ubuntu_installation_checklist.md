@@ -58,6 +58,12 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
 - [ ] Screensaver and lock settings
 - [ ] PCManFM
 - [ ] Latest Remmina client
+      ```shell
+      # as root
+      pkill remmina
+      apt purge remmina
+      snap install remmina
+      ```
 ```bash
 sudo add-apt-repository ppa:remmina-ppa-team/remmina-next
 ```
