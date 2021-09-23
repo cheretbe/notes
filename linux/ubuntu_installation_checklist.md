@@ -16,6 +16,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
 * 18.04/20.04
     * DNS fix + `apt purge avahi-daemon`? (check if removing avahi-daemon is enough for 18.04.03)
     * Move windows to other monitor: <kbd>Win</kbd>+<kbd>Shift</kbd>+arrows
+    * Disable alert sounds: `gsettings set org.gnome.desktop.sound event-sounds false`
     * Themes (use Gnome Tweaks to change `apt install gnome-tweaks`)
         * :point_right: https://github.com/Jannomag/Yaru-Colors
            * extract .zip to a temp dir, then copy `Themes` subdir contents to `~/.themes`
@@ -50,6 +51,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
     * Close the Overview with a single ESC press when searchbox is empty
         * https://extensions.gnome.org/extension/3204/escape-overview/
         * `unzip escape-overviewraelgc.v4.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/escape-overview@raelgc`
+
 
 - [ ] grub settings
 - [ ] NVIDIA driver (Software & Updates -> Additional Drivers)
