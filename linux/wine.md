@@ -1,7 +1,10 @@
 * Registry
     * https://wiki.winehq.org/Regedit
     * `wine regedit`
-
+    * Registry Files
+        * ~/.wine/system.reg: HKEY_LOCAL_MACHINE
+        * ~/.wine/user.reg: HKEY_CURRENT_USER
+        * ~/.wine/userdef.reg: HKEY_USERS\.Default
 ---
 
 * `~/.local/share/icons/hicolor/48x48/apps/winbox_100.png`
