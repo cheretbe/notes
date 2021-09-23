@@ -5,6 +5,10 @@
         * `~/.wine/system.reg`: `HKEY_LOCAL_MACHINE`
         * `~/.wine/user.reg`: `HKEY_CURRENT_USER`
         * `~/.wine/userdef.reg`: `HKEY_USERS\.Default`
+```shell
+# Custom prefix
+WINEPREFIX=~/path/to/.wine/ wine regedit
+```
 ---
 
 * `~/.local/share/icons/hicolor/48x48/apps/winbox_100.png`
