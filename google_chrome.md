@@ -1,3 +1,14 @@
+* Chromium fonts problem (2investigate)
+    * https://bugs.launchpad.net/ubuntu/+source/chromium-browser/+bug/1904732
+    ```shell
+    sudo rm /var/cache/fontconfig/*
+    rm ~/.cache/fontconfig/*
+    sudo fc-cache -r -v
+    rm -rf ~/snap/chromium/common/.cache/fontconfig/
+    # seems to resolve issue
+    ```
+
+
 Change user agent string:
 * Developer Tools (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>)
 * Hamburger menu (vertical dots) > More tools > Network conditions
