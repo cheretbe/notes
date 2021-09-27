@@ -124,7 +124,7 @@ Colors
   [
   {
       "name": "Comment",
-      "scope": "comment",
+      "scope": "comment, punctuation.definition.comment",
       "foreground": "#6e8bc4"
   }
   ]
