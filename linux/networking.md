@@ -35,7 +35,13 @@ cat /proc/sys/net/ipv4/ip_forward
 
 # NAT
 iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
-iptables --table nat --list
+# Use --verbose to view out interfaces
+iptables --verbose --list --table nat
+# Short form
+iptables -vL -t nat
+# Or just use iptables-save to view all rules in detail
+iptables-save
+
 iptables --table nat --delete POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
 # Destination NAT (DNAT)
 iptables --table nat --append PREROUTING --in-interface ifname --protocol tcp --dport 80 -j DNAT --to 192.168.1.10:80
