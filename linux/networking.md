@@ -53,6 +53,8 @@ tcpdump -n -i ifname icmp
 tcpdump -n -i any icmp
 # On port 80
 tcpdump -n -i eth0 'tcp port 80'
+# On all ports except for 22 (useful when connected via SSH)
+tcpdump -n -i any 'port not 22'
 ```
 
 ```shell
