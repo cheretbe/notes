@@ -18,6 +18,9 @@ TAP adapter to try on Windows 7 with driver signature problems: https://build.op
 ```
 
 ### Linux
+
+* https://askubuntu.com/questions/1032476/ubuntu-18-04-no-dns-resolution-when-connected-to-openvpn/1036209#1036209
+* 
 ```shell
 apt install openvpn openvpn-systemd-resolved
 openvpn --config /vagrant/temp/nl2-ovpn-udp.ovpn --auth-user-pass /vagrant/temp/pwdfile
