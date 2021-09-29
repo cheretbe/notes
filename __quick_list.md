@@ -8,6 +8,9 @@
     * https://docs.netgate.com/pfsense/en/latest/book/network/understanding-cidr-subnet-mask-notation.html
 
 #### Linux
+```shell
+curl https://freegeoip.app/json/
+```
 
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
