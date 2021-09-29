@@ -29,6 +29,9 @@ openvpn --config /vagrant/temp/nl2-ovpn-udp.ovpn --auth-user-pass /vagrant/temp/
 ```
 script-security 2
 up /etc/openvpn/update-systemd-resolved
+; Enable the --up and --down scripts to be called for restarts as well as initial program start.
+up-restart
 down /etc/openvpn/update-systemd-resolved
+; Call --down cmd/script before, rather than after, TUN/TAP close.
 down-pre
 ```
