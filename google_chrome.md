@@ -50,3 +50,4 @@ eyJzZWFyY2hFbmdpbmVzIjpbeyJoaWRlX29uX2NsaWNrIjp0cnVlLCJuYW1lIjoiZGljY2lvbmFyaW8i
 ```
 * Quick Tabs: https://chrome.google.com/webstore/detail/quick-tabs/jnjfeinjfmenlddahdjdmgpbokiacbbb?hl=en
 * Tab Modifier: https://chrome.google.com/webstore/detail/tab-modifier/hcbgadmbdkiilgpifjgcakjehmafcjai?hl=en
+* Add to Bookmax: https://chrome.google.com/webstore/detail/add-to-bookmax/aebecfmhkadmehbpadebjabkhidmcdcm
