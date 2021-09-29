@@ -1,3 +1,5 @@
+### Windows
+
 TAP adapter to try on Windows 7 with driver signature problems: https://build.openvpn.net/downloads/releases/tap-windows-9.21.2.exe
 
 ```bat
@@ -13,4 +15,17 @@ TAP adapter to try on Windows 7 with driver signature problems: https://build.op
 
 "C:\Program Files\OpenVPN\bin\openvpn.exe" --show-adapters
 "C:\Program Files\OpenVPN\bin\openvpn.exe" --show-net
+```
+
+### Linux
+```shell
+apt install openvpn openvpn-systemd-resolved
+openvpn --config /vagrant/temp/nl2-ovpn-udp.ovpn --auth-user-pass /vagrant/temp/pwdfile
+```
+
+```
+script-security 2
+up /etc/openvpn/update-systemd-resolved
+down /etc/openvpn/update-systemd-resolved
+down-pre
 ```
