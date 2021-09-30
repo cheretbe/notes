@@ -6,12 +6,16 @@
     * http://www.gestioip.net/cgi-bin/subnet_calculator.cgi
     * http://jodies.de/ipcalc
     * https://docs.netgate.com/pfsense/en/latest/book/network/understanding-cidr-subnet-mask-notation.html
-
+* GeoIP
+    * Linux
+        ```shell
+        curl https://freegeoip.app/json/
+        ```
+    * Windows
+        ```powershell
+        Invoke-RestMethod https://freegeoip.app/json
+        ```
 #### Linux
-```shell
-curl https://freegeoip.app/json/
-```
-
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
 ```shell
