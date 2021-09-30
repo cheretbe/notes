@@ -19,8 +19,13 @@ TAP adapter to try on Windows 7 with driver signature problems: https://build.op
 
 ### Linux
 
+#### DNS
+DNS management for VPNs with `systemd-resolved` is a mess:
+* https://github.com/systemd/systemd/issues/6076
 * https://askubuntu.com/questions/1032476/ubuntu-18-04-no-dns-resolution-when-connected-to-openvpn/1036209#1036209
-* 
+* `openvpn-systemd-resolved` package installs a copy of https://github.com/jonathanio/update-systemd-resolved as `/etc/openvpn/update-systemd-resolved`
+* `update-systemd-resolved` **adds** VPN DNS servers to server(s) already received by DHCP, not replaces them
+
 ```shell
 apt install openvpn openvpn-systemd-resolved
 openvpn --config /vagrant/temp/nl2-ovpn-udp.ovpn --auth-user-pass /vagrant/temp/pwdfile
