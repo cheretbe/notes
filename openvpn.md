@@ -24,7 +24,9 @@ DNS management for VPNs with `systemd-resolved` is a mess:
 * https://github.com/systemd/systemd/issues/6076
 * https://askubuntu.com/questions/1032476/ubuntu-18-04-no-dns-resolution-when-connected-to-openvpn/1036209#1036209
 * `openvpn-systemd-resolved` package installs a copy of https://github.com/jonathanio/update-systemd-resolved as `/etc/openvpn/update-systemd-resolved`
-* `update-systemd-resolved` **adds** VPN DNS servers to server(s) already received by DHCP, not replaces them
+    * `update-systemd-resolved` **adds** VPN DNS servers to server(s) already received by DHCP, not replaces them
+* [Linux app from PureVPN](https://www.purevpn.com/download/linux-vpn) uses `/etc/purevpn/pure-resolv-conf` script to update `/etc/purevpn/dns.conf` (or a link source) and restores it on disconnect
+* https://github.com/cheretbe/vagrant-files/blob/develop/windows/win10-vpn-local/provision/update_resolve_conf.py
 
 ```shell
 apt install openvpn openvpn-systemd-resolved
