@@ -2,6 +2,7 @@
 
 ```shell
 .local/share/tresorit/tresorit-cli status
+.local/share/tresorit/tresorit-cli login --email user@domain.tld --password-on-stdin
 .local/share/tresorit/tresorit-cli sync --start tresor-name --path /path/to/tresors/tresor-name
 .local/share/tresorit/tresorit-cli transfers
 .local/share/tresorit/tresorit-cli transfers --files
