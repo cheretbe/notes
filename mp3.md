@@ -126,5 +126,6 @@ X-Ubuntu-Gettext-Domain=cli-visualizer
 * Add to desktop `ln -s ~/.local/share/applications/cli-visualizer.desktop ~/Desktop/cli-visualizer.desktop`
 * TODO: toggle title bar on/off
    * https://unix.stackexchange.com/questions/420452/how-to-hide-title-bar-for-a-specific-window/422587#422587
+       * Find out why it doesn't work before writing own script: https://askubuntu.com/questions/928226/xprop-fails-to-undecorate-window/931874#931874
    * starting point (Python 2): https://askubuntu.com/questions/928226/xprop-fails-to-undecorate-window
    * hints on Python 3 version: https://stackoverflow.com/questions/10415097/window-position-a-little-off-just-after-spawning-and-moving-using-python-wnck
