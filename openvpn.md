@@ -1,3 +1,5 @@
+* https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/
+
 ### Windows
 
 TAP adapter to try on Windows 7 with driver signature problems: https://build.openvpn.net/downloads/releases/tap-windows-9.21.2.exe
