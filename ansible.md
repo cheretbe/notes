@@ -154,6 +154,12 @@ ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
 ansible cont-name -m setup -c docker -i cont-name,
+
+# Access VM from Vagrant host
+vagrant ssh-config
+ansible all -m setup -i localhost, \
+  --extra-vars "ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key" \
+  --extra-vars "ansible_port=2201"
 # WinRM in Vagrant (not secure)
 pip install pywinrm
 ansible all -i 172.24.0.14, -m setup -u vagrant \
