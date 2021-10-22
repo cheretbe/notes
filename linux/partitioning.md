@@ -1,4 +1,8 @@
 ```shell
+# Find a (mounted) filesystem
+findmnt
+
+
 # Mount disk image file
 # Make sure file is not compressed
 file /path/disk.img
