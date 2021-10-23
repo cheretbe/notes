@@ -4,6 +4,7 @@
     sudo rm /var/cache/fontconfig/*
     rm ~/.cache/fontconfig/*
     sudo fc-cache -r -v
+    # ====> this
     rm -rf ~/snap/chromium/common/.cache/fontconfig/
     # seems to resolve issue
     ```
