@@ -1,3 +1,4 @@
+* https://github.com/haiwen/seafile
 * https://manual.seafile.com/deploy_pro/real_time_backup/
 * https://github.com/search?q=filename%3A*.service+seaf-cli
     * https://help.seafile.com/syncing_client/linux-cli/
