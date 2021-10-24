@@ -109,6 +109,24 @@ Colors
 
 `Preferences` > `Customize Color Scheme`:
 ```json
+# Mariana theme customization
+{
+  "variables":
+  {
+  },
+  "globals":
+  {
+    "selection": "#5A647EE0"
+  },
+  "rules":
+  [
+    
+  ]
+}
+```
+
+```json
+# Molokai theme customization
 {
   "variables":
   {
