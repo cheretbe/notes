@@ -266,6 +266,15 @@ aws ec2 describe-instances \
 
 ### Debugging
 ```shell
+# VAGRANT_LOG env variable controls level on verbosity
+# --debug options sets VAGRANT_LOG to debug, so the following two commands are equivalent
+VAGRANT_LOG=debug vagrant status
+vagrant --debug status
+# [!!] debug level is way too verbose, try info level for a start
+VAGRANT_LOG=info vagrant status
+```
+
+```shell
 cp -a /opt/vagrant/embedded/gems/2.2.2{,.bak}
 
 nano /opt/vagrant/embedded/gems/2.2.2/gems/vagrant-2.2.2/vagrant.gemspec
