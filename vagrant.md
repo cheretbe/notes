@@ -266,7 +266,7 @@ aws ec2 describe-instances \
 
 ### Debugging
 ```shell
-# VAGRANT_LOG env variable controls level on verbosity
+# VAGRANT_LOG env variable controls level of verbosity
 # --debug options sets VAGRANT_LOG to debug, so the following two commands are equivalent
 VAGRANT_LOG=debug vagrant status
 vagrant --debug status
