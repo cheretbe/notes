@@ -1,3 +1,4 @@
+* Tables Generator: https://www.tablesgenerator.com/markdown_tables
 * `markdown-it` demo: https://markdown-it.github.io/
 * Github Syntax highlighting list: https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 * Gitlab references (issues, commits, etc): https://docs.gitlab.com/ce/user/markdown.html#special-gitlab-references
