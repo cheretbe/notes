@@ -13,5 +13,5 @@ sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/s
 # Ubuntu 20.04
 sudo bash -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seadrive-deb/focal/ stable main' > /etc/apt/sources.list.d/seadrive.list"
 apt update
-apt install seadrive-cli
+apt install seafile-cli
 ```
