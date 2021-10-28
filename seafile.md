@@ -14,4 +14,13 @@ sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/s
 sudo bash -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seadrive-deb/focal/ stable main' > /etc/apt/sources.list.d/seadrive.list"
 apt update
 apt install seafile-cli
+
+mkdir ~/seafile-client 
+# ~/.ccnet directory must not exist at this point
+seaf-cli init -d ~/seafile-client
+seaf-cli start
+
+# Find out library IDs
+seaf-cli list-remote -s http://seafile-test -u admin@seafile.local
+seaf-cli sync -l 00000000-0000-0000-0000-000000000000 -s http://seafile-test -d ~/Documents/library_name -u admin@seafile.local
 ```
