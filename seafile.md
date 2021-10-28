@@ -6,6 +6,8 @@
     * https://gist.github.com/drmalex07/d006f12914b21198ee43
     * https://www.freedesktop.org/software/systemd/man/systemd.service.html
 
+### Server
+* Logs are in `/opt/seafile/logs/`
 
 ### seaf-cli
 ```shell
