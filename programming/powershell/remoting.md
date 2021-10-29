@@ -11,6 +11,22 @@
 * [Linux](#linux)
 * [Unencrypted](#unencrypted)
 
+Attempts to find working replacement for linux screen
+```powershell
+$job = Start-Job { write-output "1"; start-sleep 10; write-output "2"; start-sleep 10; write-output "3" }
+
+$job.State
+
+# -Keep parameter preserves the state of the aggregated streams of a job so
+# that it can be viewed again. Without this parameter all aggregated stream
+# data is erased when the job is received.
+$job | Receive-Job -Keep
+
+# -Wait instructs to wait until all job results are received. Erases stream data.
+# -Wait and -Keep are mutually exclusive :(
+$job | Receive-Job -Wait
+```
+
 ```powershell
 $credential = Get-Credential
 Enter-PSSession -ComputerName "host.domain.tld" -Credential $credential
