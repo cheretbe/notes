@@ -1,5 +1,11 @@
+```shell
+# https://www.seafile.com/api/client-updates/seafile-client-windows/appcast.xml
+curl -s https://www.seafile.com/api/client-updates/seafile-client-windows/appcast.xml | xmlstarlet select --template -v '/rss/channel/item/enclosure/@url' -nl
 ```
-https://www.seafile.com/api/client-updates/seafile-client-windows/appcast.xml
+```python
+import xml.etree.ElementTree
+xmlData = xml.etree.ElementTree.parse("appcast.xml")
+xmlData.find('//channel/item/enclosure').attrib["url"]
 ```
 
 * Before version 6.0, the source code of "sync client daemon" and "server core" was mixed together in https://github.com/haiwen/seafile. But after 6.0 version, the server core is separated into its own repository. For this reason, the sync client daemon repository is still the "front page" for Seafile project on Github.
