@@ -1,4 +1,11 @@
-* https://github.com/haiwen/seafile
+* Before version 6.0, the source code of "sync client daemon" and "server core" was mixed together in https://github.com/haiwen/seafile. But after 6.0 version, the server core is separated into its own repository. For this reason, the sync client daemon repository is still the "front page" for Seafile project on Github.
+    * Sync client daemon (this repository): https://github.com/haiwen/seafile
+    * Sync client GUI: https://github.com/haiwen/seafile-client
+    * Server core: https://github.com/haiwen/seafile-server
+    * Server web UI: https://github.com/haiwen/seahub
+    * iOS app: https://github.com/haiwen/seafile-iOS
+    * Android app: https://github.com/haiwen/seadroid
+    * WebDAV: https://github.com/haiwen/seafdav
 * https://github.com/haiwen/seafile-server-installer
 * https://manual.seafile.com/deploy_pro/real_time_backup/
 * https://github.com/search?q=filename%3A*.service+seaf-cli
