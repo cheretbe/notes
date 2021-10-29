@@ -13,6 +13,8 @@
 
 Attempts to find working replacement for linux screen
 ```powershell
+# https://devops-collective-inc.gitbook.io/secrets-of-powershell-remoting/session-management
+
 $job = Start-Job { write-output "1"; start-sleep 10; write-output "2"; start-sleep 10; write-output "3" }
 
 $job.State
