@@ -100,9 +100,8 @@ $Conf{RsyncSshArgs} = [
 $Conf{BackupPCNightlyPeriod} = 1;
 ```
 
-:warning: Don't copy/paste this code directly, use [edit_as_utf8.py](https://github.com/cheretbe/backuppc-scripts/blob/master/util/edit_as_utf8.py) script<br>
-:warning: Note double qoutes on non-iso-8859-1 strings
 * Typical Windows exclusions
+    * Use [set_typical_win_exclusions.pl](https://github.com/cheretbe/backuppc-scripts/blob/develop/tools/set_typical_win_exclusions.pl) helper script
     * (:warning:**TODO:** change link to master branch after release) [typical_windows_exclusions.txt](https://github.com/cheretbe/backuppc-scripts/blob/develop/tools/typical_windows_exclusions.txt)
     * Direct download link: https://raw.githubusercontent.com/cheretbe/backuppc-scripts/develop/tools/typical_windows_exclusions.txt
     * ❓add `/Users/*/AppData/Local/Packages`
