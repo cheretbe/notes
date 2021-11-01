@@ -101,7 +101,7 @@ $Conf{BackupPCNightlyPeriod} = 1;
 ```
 
 * Typical Windows exclusions
-    * Use [set_typical_win_exclusions.pl](https://github.com/cheretbe/backuppc-scripts/blob/develop/tools/set_typical_win_exclusions.pl) helper script
+    * Use [set_typical_win_exclusions.pl](https://github.com/cheretbe/backuppc-scripts/blob/develop/tools/set_typical_win_exclusions.pl) helper script (`apt install libterm-choose-perl`)
     * (:warning:**TODO:** change link to master branch after release) [typical_windows_exclusions.txt](https://github.com/cheretbe/backuppc-scripts/blob/develop/tools/typical_windows_exclusions.txt)
     * Direct download link: https://raw.githubusercontent.com/cheretbe/backuppc-scripts/develop/tools/typical_windows_exclusions.txt
     * ❓add `/Users/*/AppData/Local/Packages`
