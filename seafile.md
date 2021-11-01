@@ -27,6 +27,8 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 
 ### Server
 * Logs are in `/opt/seafile/logs/`
+* https://shoeper.gitbooks.io/seafile-docs/content/deploy/using_logrotate.html
+* https://shoeper.gitbooks.io/seafile-docs/content/security/fail2ban.html
 
 ### seaf-cli
 ```shell
