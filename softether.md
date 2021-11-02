@@ -13,7 +13,8 @@ systemctl status softether-vpnserver
 
 vpncmd
 ```
-Config is in `/usr/libexec/softether/vpnserver/vpn_server.config`
+Config is in `/usr/libexec/softether/vpnserver/vpn_server.config`<br>
+Logs are in `/usr/libexec/softether/vpnserver/*_log`
 
 ### DHCP server
 ```shell
