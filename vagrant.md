@@ -105,6 +105,7 @@ end
   config.vm.network "private_network", type: "dhcp", auto_config: false
   # Bridged adapter
   # https://www.vagrantup.com/docs/networking/public_network.html
+  # https://github.com/hashicorp/vagrant/blob/main/plugins/providers/virtualbox/action/network.rb#L166
   config.vm.network "public_network", ip: "192.168.1.17"
   
   # https://www.vagrantup.com/docs/provisioning/shell.html
