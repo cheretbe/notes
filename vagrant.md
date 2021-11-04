@@ -98,16 +98,6 @@ end
     vb.customize ['storageattach', :id,  '--storagectl', 'SCSI', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', SecondHDD]
   end
 
-  config.vm.network "private_network", virtualbox__intnet: "vagrant-intnet-1", auto_config: false
-  config.vm.network "private_network", ip: "172.24.0.1", virtualbox__intnet: "vagrant-intnet-2"
-  config.vm.network "private_network", type: "dhcp", virtualbox__intnet: "vagrant-intnet-3"
-  # [!] Host-only network
-  config.vm.network "private_network", type: "dhcp", auto_config: false
-  # Bridged adapter
-  # https://www.vagrantup.com/docs/networking/public_network.html
-  # https://github.com/hashicorp/vagrant/blob/main/plugins/providers/virtualbox/action/network.rb#L166
-  config.vm.network "public_network", ip: "192.168.1.17"
-  
   # https://www.vagrantup.com/docs/provisioning/shell.html
   # [!!] Works with Powershell (additional options are available: powershell_elevated_interactive and powershell_args)
   config.vm.provision "shell", name: "test", keep_color: true, inline: "apt-get -y -q update && apt-get -y -q install git"
@@ -120,6 +110,35 @@ end
       ls /dir1 && \\
       ls /dir2
     SHELL
+```
+##### Networking
+* https://www.vagrantup.com/docs/networking/private_network
+* https://www.vagrantup.com/docs/networking/public_network.html
+* https://www.vagrantup.com/docs/providers/virtualbox/networking
+```ruby
+# https://github.com/hashicorp/vagrant/blob/main/plugins/providers/virtualbox/action/network.rb
+# hostonly_config
+# auto_config: true, mac: nil, nic_type: nil, type: :static
+# 
+# intnet_config
+# type: "static", ip: nil, netmask: "255.255.255.0", adapter: nil, mac: nil, intnet: nil, auto_config: true
+#
+# bridged_config
+# auto_config: true, bridge: nil, mac: nil, nic_type: nil, use_dhcp_assigned_default_route: false
+# nic_type options: Am79C970A|Am79C973|Am79C960|82540EM|82543GC|82545EM|virtio
+
+config.vm.network "private_network", virtualbox__intnet: "vagrant-intnet-1", auto_config: false
+config.vm.network "private_network", ip: "172.24.0.1", virtualbox__intnet: "vagrant-intnet-2"
+config.vm.network "private_network", type: "dhcp", virtualbox__intnet: "vagrant-intnet-3"
+
+# Host-only network
+config.vm.network "private_network", type: "dhcp", auto_config: false
+
+# Bridged adapter
+config.vm.network "public_network", ip: "192.168.1.17"
+# Virtualbox perfix is 08:00:27
+# https://miniwebtool.com/mac-address-generator/
+config.vm.network "public_network", bridge: "enp0s31f6", mac: "0800275A78D2", type: "dhcp"
 ```
 
 ##### Ansible provision
