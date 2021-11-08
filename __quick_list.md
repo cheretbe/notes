@@ -168,7 +168,11 @@ sc.exe start WinRM
 | RemoteRegistry                 | Remote Registry                              | Удаленный реестр                                                 |
 | UsoSvc                         | Update Orchestrator Service                  | Update Orchestrator Service or(!) Служба оркестратора обновлений |
 | NVDisplay.ContainerLocalSystem | NVIDIA Display Container LS                  |                                                                  |
-```
+```batch
 sc.exe stop NVDisplay.ContainerLocalSystem
 sc.exe config NVDisplay.ContainerLocalSystem start= disabled
+sc query WdNisSvc
+:: Get startup type, display name, binary path, etc.
+sc qc WdNisSvc
+sc getdisplayname WdNisSvc
 ```
