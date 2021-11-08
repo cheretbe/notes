@@ -24,11 +24,9 @@ mbr2gpt /disk:0 /convert /allowFullOS
 * `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci`: Set `Start` to `0`
 * `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Pciide`: Set `Start` to `0`
 
-Registry keys locations (for offline access):
-* HKEY_LOCAL_MACHINE\SYSTEM - `%windir%\system32\config\system`
-* HKEY_LOCAL_MACHINE\SOFTWARE - `%windir%\system32\config\software`
-* HKEY_USERS\\.Default - `%windir%\system32\config\default`
-* HKEY_CURRENT_USER - `%userprofile%\ntuser.dat`
+#### Registry keys locations (for offline access):
+
+* https://github.com/cheretbe/notes/blob/master/windows/registry.md#registry-keys-locations-for-offline-access
 
 ## Bootable USB
 * **https://www.howtogeek.com/196817/how-to-create-a-windows-to-go-usb-drive-without-the-enterprise-edition/**
