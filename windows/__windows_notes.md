@@ -17,7 +17,13 @@ dism.exe /Online /Get-Drivers
 dism /Online /Export-Driver /Destination:C:\MyDrivers
 ```
 
-Disable Windows Defender in 2019 LTSC (Disabling SecurityHealthService is the key?): https://forums.mydigitallife.net/threads/windows-10-ltsc-2019-disabling-removing-windows-defender.79246/#post-1511094
+Disable Windows Defender in 2019 LTSC (Disabling SecurityHealthService is the key?): https://forums.mydigitallife.net/threads/windows-10-ltsc-2019-disabling-removing-windows-defender.79246/#post-1511094<br>
+* It's a freaking rocket science now
+    * https://bidouillesecurity.com/disable-windows-defender-in-powershell/
+    * https://github.com/r-pufky/docs/blob/master/source/operating-systems/windows/10/20H2/standalone/microsoft-defender.rst
+    * https://www.tenforums.com/tutorials/5918-how-turn-off-microsoft-defender-antivirus-windows-10-a.html
+    * https://www.tenforums.com/tutorials/123792-turn-off-tamper-protection-microsoft-defender-antivirus.html
+-------
 
 * Office proofing tools
    * 2013: https://www.microsoft.com/en-us/download/details.aspx?id=35400
