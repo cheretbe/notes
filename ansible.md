@@ -189,7 +189,7 @@ ansible-playbook -i host.domain.tld, -u user@domain.tld check_if_reachable.yml \
 
 apt install libkrb5-dev
 pip install wheel
-pip install ansible pywinrm kerberos requests-kerberos
+pip install ansible pywinrm kerberos requests-kerberos pywinrm[kerberos]
 # Client principal is case-sensitive. Use 'klist' to view
 ansible-playbook -i host.domain.tld, -u user@DOMAIN.TLD check_if_reachable.yml \
   --extra-vars "ansible_python_interpreter=/usr/bin/python3" \
