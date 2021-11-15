@@ -16,6 +16,7 @@
           }
         }
         ```
+        * :bulb: to check if policy is applied go to `about:policies`. There will be "Errors" tab if something went wrong.
 ----------
 
 * https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
