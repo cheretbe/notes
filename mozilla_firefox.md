@@ -1,3 +1,23 @@
+* https://extensionworkshop.com/documentation/enterprise/enterprise-distribution/#installation-using-windows-registry
+    * :warning: If you install using the Windows Registry, Firefox will not automatically update your add-on. You will have to arrange to update the add-on using whatever installation process you choose external to Firefox
+*  https://github.com/mozilla/policy-templates
+      *  Policies can be specified using the Group Policy templates on Windows, Intune on Windows, configuration profiles on macOS, or by creating a file called policies.json
+      * :point_right: `policies.json` variant as it's most simple and cross-platform: https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson
+        * `%ProgramFiles%\Mozilla Firefox\distribution\policies.json` example:
+        ```json
+        {
+          "policies": {
+            "ExtensionSettings": {
+              "uBlock0@raymondhill.net": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+              }
+            }
+          }
+        }
+        ```
+----------
+
 * https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
 * https://addons.mozilla.org/en-US/firefox/addon/hoxx-vpn-proxy/
 * https://addons.mozilla.org/en-US/firefox/addon/selection-context-search/
