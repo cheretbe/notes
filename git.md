@@ -64,6 +64,14 @@ date -d @$(curl -s https://api.github.com/rate_limit | jq -r ".resources.core.re
 subl "%ProgramFiles%\git\etc\gitconfig"
 ```
 
+### Scripting
+```shell
+# List local branches
+git for-each-ref refs/heads --format='%(refname:short)'
+# Get current branch
+git rev-parse --abbrev-ref HEAD
+```
+
 ### Cheat Sheet
 ```shell
 # View added, but not committed changes
