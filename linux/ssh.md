@@ -9,6 +9,7 @@ AcceptEnv VAR3
 ```
 On client in `/etc/ssh/ssh_config`:
 ```
+# Multiple environment variables may be separated by whitespace or spread across multiple SendEnv directives
 Host hostname
     SendEnv VAR1 VAR2 VAR3
 ```
