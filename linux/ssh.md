@@ -1,12 +1,7 @@
-## Table of Contents
-* [Hardening SSH Access](#hardening-ssh-access)
-* [Multiple Instances of sshd](#multiple-instances-of-sshd)
-* [Reverse SSH Tunnel](#reverse-ssh-tunnel)
-* [SSH Keys](#ssh-keys)
-* [Mount a remote SSH directory](#mount-a-remote-ssh-directory)
-* [Notes](#notes)
-
-## Hardening SSH Access
+* https://linux.die.net/man/5/sshd_config
+* https://linux.die.net/man/5/ssh_config
+* 
+### Hardening SSH Access
 SSH daemon options in `/etc/ssh/sshd_config`:
 ```
 PermitRootLogin no
@@ -102,9 +97,9 @@ supervisorctl update
 ```
 
 
-## Multiple instances of sshd
+### Multiple instances of sshd
 
-### Systemd (Centos 7, Debian 8, Ubuntu 16.04)
+#### Systemd (Centos 7, Debian 8, Ubuntu 16.04)
 
 ```
 ln -s /usr/sbin/sshd /usr/sbin/sshd-external
@@ -204,7 +199,7 @@ ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
 
 * https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
 
-## Mount a remote SSH directory
+### Mount a remote SSH directory
 ```shell
 sudo apt install sshfs
 # Create the mount point
@@ -215,7 +210,7 @@ sshfs username@host:/remotepath ~/yourmountdirectory
 fusermount -u ~/yourmountdirectory
 ```
 
-## Notes
+### Notes
 Custom connection options
 ```
 touch ~/.ssh/config
