@@ -1,13 +1,3 @@
-## Table of Contents
-* [Unsorted](#unsorted)
-* [Cheat Sheet](#cheat-sheet)
-* [Initial setup](#initial-setup)
-* [LFS](#lfs)
-* [Troubleshooting](#troubleshooting)
-* [Submodules](#submodules)
-* [Branches and tags](#branches-and-tags)
-* [Github backup](#github-backup)
-* [.gitattributes Files](#gitattributes-files)
 
 ### Unsorted
 
@@ -21,7 +11,7 @@ Store directory in the repo, ignoring it's contents
 !.gitignore
 ```
 
-Github
+### Github
 ```shell
 # Get latest release
 release_data=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest)
@@ -70,7 +60,17 @@ subl "%ProgramFiles%\git\etc\gitconfig"
 git for-each-ref refs/heads --format='%(refname:short)'
 # Get current branch
 git rev-parse --abbrev-ref HEAD
+
+# 
 ```
+
+### References
+* https://stackoverflow.com/questions/17910096/what-does-the-at-sign-symbol-character-mean-in-git
+* https://stackoverflow.com/questions/964876/head-and-orig-head-in-git
+* https://stackoverflow.com/questions/2304087/what-is-git-head-exactly
+
+The at-sign `@`, without a leading branch/reference name and ordinal `{n}` suffix like `HEAD@{1}` and `master@{1}`
+is just a synonym/alias/shortcut for the special Git reference `HEAD`.
 
 ### Cheat Sheet
 ```shell
