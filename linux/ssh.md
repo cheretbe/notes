@@ -1,6 +1,6 @@
 * https://linux.die.net/man/5/sshd_config
 * https://linux.die.net/man/5/ssh_config
-* 
+ 
 ### Hardening SSH Access
 SSH daemon options in `/etc/ssh/sshd_config`:
 ```
@@ -179,7 +179,7 @@ systemctl daemon-reload
 
 https://access.redhat.com/solutions/1166283
 
-## SSH Keys
+### SSH Keys
 
 ```shell
 # Generate a key (by default key size is 2048, which is fine). It seems that for RSA (not RSA1) keys comment is
