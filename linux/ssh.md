@@ -1,5 +1,17 @@
 * https://linux.die.net/man/5/sshd_config
 * https://linux.die.net/man/5/ssh_config
+
+On server in `/etc/ssh/sshd_config`:
+```
+# Multiple environment variables may be separated by whitespace or spread across multiple AcceptEnv directives
+AcceptEnv VAR1 VAR2
+AcceptEnv VAR3
+```
+On client in `/etc/ssh/ssh_config`:
+```
+Host hostname
+    SendEnv VAR1 VAR2 VAR3
+```
  
 ### Hardening SSH Access
 SSH daemon options in `/etc/ssh/sshd_config`:
