@@ -61,7 +61,13 @@ git for-each-ref refs/heads --format='%(refname:short)'
 # Get current branch
 git rev-parse --abbrev-ref HEAD
 
-# 
+# Check if a repo needs pulling
+git fetch --quiet
+# compare output of the following two commands
+# -n <number>, --max-count=<number> Limit the number of commits to output
+# @{u} means HEAD@{upstream}, @ means HEAD
+git rev-list -n 1 @{u}
+git rev-list -n 1 @
 ```
 
 ### References
