@@ -72,6 +72,8 @@ git rev-list -n 1 @
 git rev-list -n 1 HEAD@{upstream}; git rev-list -n 1 HEAD
 # revert last pull https://stackoverflow.com/questions/5815448/how-to-undo-a-git-pull/5815626#5815626
 git reset --keep HEAD@{1}
+# for newly cloned repo just go 2 commits back
+git reset --keep HEAD~2
 ```
 
 ### References
