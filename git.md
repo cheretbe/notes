@@ -68,6 +68,10 @@ git fetch --quiet
 # @{u} means HEAD@{upstream}, @ means HEAD
 git rev-list -n 1 @{u}
 git rev-list -n 1 @
+# Tests
+# revert last pull https://stackoverflow.com/questions/5815448/how-to-undo-a-git-pull/5815626#5815626
+git rev-list -n 1 HEAD@{upstream}; git rev-list -n 1 HEAD
+git reset --keep HEAD@{1}
 ```
 
 ### References
