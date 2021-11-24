@@ -4,12 +4,51 @@
 
 * :warning: https://docs.gitlab.com/ee/user/project/repository/branches/default.html#instance-level-custom-initial-branch-name
 
+### .gitignore examples
+
 Store directory in the repo, ignoring it's contents
 ```
 *
 */
 !.gitignore
 ```
+
+### .gitattributes examples
+
+Powerhsell (Windows)
+```
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+*.md            text
+*.gitattributes text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.ps1    text  eol=crlf
+*.psm1   text  eol=crlf
+*.psd1   text  eol=crlf
+*.psc1   text  eol=crlf
+*.ps1xml text  eol=crlf
+*.clixml text  eol=crlf
+*.xml    text  eol=crlf
+*.txt    text  eol=crlf
+*.bat    text  eol=crlf
+
+# Denote all files that are truly binary and should not be mergeable.
+*.dll binary
+*.exe binary
+```
+
+```shell
+# Determine if Git handles a file as binary or as text
+git merge-file /dev/null /dev/null file-to-test
+# Error message absence indicates NOT a binary file
+```
+* https://stackoverflow.com/questions/6119956/how-to-determine-if-git-handles-a-file-as-binary-or-as-text
+* https://salferrarello.com/git-file-force-binary/
+
 
 ### Github
 ```shell
@@ -323,38 +362,3 @@ sudo apt install haskell-stack gcc zlib1g-dev libstdc++-5-dev g++
 stack upgrade
 /home/<user>/.local/bin/stack install --install-ghc
 ```
-### .gitattributes Files
-
-Powerhsell (Windows)
-```
-# Set default behaviour, in case users don't have core.autocrlf set.
-* text=auto
-
-# Explicitly declare text files we want to always be normalized and converted
-# to native line endings on checkout.
-*.md            text
-*.gitattributes text
-
-# Declare files that will always have CRLF line endings on checkout.
-*.ps1    text  eol=crlf
-*.psm1   text  eol=crlf
-*.psd1   text  eol=crlf
-*.psc1   text  eol=crlf
-*.ps1xml text  eol=crlf
-*.clixml text  eol=crlf
-*.xml    text  eol=crlf
-*.txt    text  eol=crlf
-*.bat    text  eol=crlf
-
-# Denote all files that are truly binary and should not be mergeable.
-*.dll binary
-*.exe binary
-```
-
-```shell
-# Determine if Git handles a file as binary or as text
-git merge-file /dev/null /dev/null file-to-test
-# Error message absence indicates NOT a binary file
-```
-* https://stackoverflow.com/questions/6119956/how-to-determine-if-git-handles-a-file-as-binary-or-as-text
-* https://salferrarello.com/git-file-force-binary/
