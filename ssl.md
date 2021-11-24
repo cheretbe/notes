@@ -363,7 +363,7 @@ Verify certificate
 openssl verify -untrusted /etc/letsencrypt/live/domain.tld/chain.pem /etc/letsencrypt/live/domain.tld/cert.pem
 ```
 
-View certificates on server
+View (verify) certificates on server
 ```
 openssl s_client -connect www.godaddy.com:443
 ```
