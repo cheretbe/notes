@@ -18,6 +18,8 @@
 #### Linux
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
+KVM configs are in `/etc/libvirt/qemu`
+
 ```shell
 # Update existing symlink to a directory
 # -f, --force
