@@ -1,10 +1,10 @@
 Quick transfer files between machines, aka tar pipe
 ```shell
 # receiver
-netcat -l -p 1234 | tar x
+netcat -l -p 1234 | tar xv
 
 # sender
-tar cf - id_rsa* | netcat host.tld 1234
+tar cfv - id_rsa* | netcat host.tld 1234
 ```
 
 :bulb: Use mbuffer instead
