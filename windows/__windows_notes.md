@@ -73,6 +73,7 @@ cscript ospp.vbs /dstatus
 script slmgr.vbs -skms kms.domain.tld:portno
 cscript slmgr.vbs -ato
 :: Check status
+:: [!!] Among other things, shows current KMS server
 cscript slmgr.vbs -dlv
 cscript slmgr.vbs -xpr
 ```
