@@ -283,9 +283,9 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 # delete an entire backup, or a directory path within a backup
 /usr/local/BackupPC/bin/BackupPC_backupDelete
 
-# [!] Use screen utility
+# [!] Use screen utility even when deleting a single small file (reference update can take a while)
 # Use quotes for path with spaces
-./BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder "/path/with a space"
+/usr/local/BackupPC/bin/BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder "/path/with a space"
 ```
 * Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
 * Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
