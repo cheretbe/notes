@@ -66,6 +66,36 @@ vboxmanage guestcontrol testvm-2del mkdir --username vagrant --password $AO_DEFA
 vboxmanage guestcontrol testvm-2del copyto --username vagrant --password $AO_DEFAULT_VAGRANT_PASSWORD --target-directory c:/temp file1.txt file2.txt
 ```
 
+### Fix multipath daemon error about missing path
+
+Syslog entry example:
+```
+multipathd[1766]: sdb: failed to get udev uid: Invalid argument
+```
+```shell
+# Identify virtual disks
+sudo lshw -class disk
+
+# Blacklist virtual disks
+cat <<EOF | sudo tee -a /etc/multipath.conf
+blacklist {
+  device {
+    vendor "VBOX"
+    product "HARDDISK"
+  }
+}
+EOF
+
+# Verify settings
+cat /etc/multipath.conf
+
+# Restart multipath daemon
+sudo systemctl restart multipathd.service
+
+# Inspect blacklist
+sudo multipathd show blacklist
+```
+
 ### Disable time sync
 ```shell
 VBoxManage setextradata <NAME> "VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled" 1
