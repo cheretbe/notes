@@ -85,7 +85,7 @@ journalctl --vacuum-time=1s
 
 Write to the journal from a script
 ```shell
-# alert, crit, err, warning, notice, info, debug
+# -p, --priority: alert, crit, err, warning, notice, info, debug (defaults to "info")
 echo "hello" | systemd-cat -t "my-script" -p info 
 
 # Redirect output of a process to the journal
