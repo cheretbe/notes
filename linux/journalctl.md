@@ -83,8 +83,12 @@ journalctl --vacuum-time=1s
 
 ```
 
-Redirect output of a process to the journal
+Write to the journal from a script
 ```shell
+# alert, crit, err, warning, notice, info, debug
+echo "hello" | systemd-cat -t "my-script" -p info 
+
+# Redirect output of a process to the journal
 systemd-cat -t "certbot-cron" /usr/bin/certbot --renew
 journalctl -t "certbot-cron"
 ```
