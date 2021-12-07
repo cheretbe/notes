@@ -219,6 +219,13 @@ ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json \
 # Allows to connect using IP instead of host's name
 ansible_host: 10.10.10.10
 ```
+Interactive console
+```shell
+ansible-console -l host
+
+setup
+debug var="ansible_interfaces"
+```
 Interactive debugging: https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html
 ```yaml
 - name: Failed command example
