@@ -303,13 +303,13 @@ public_key_as_long_string___: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG6\
     import json
 
     output ={
-      "message": [], 
-      "changed": False 
+      "message": [],
+      "changed": False
     }
     output["message"] += ["line 1"]
     output["message"] += ["line 2"]
     output["message"] += ["{{ my_ansible_variable }}"]
- 
+
     print(json.dumps(output))
   args:
     executable: /usr/bin/python3
