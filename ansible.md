@@ -298,6 +298,29 @@ public_key_as_long_string___: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDG6\
   2MhoHPepZiRubd1PYoo2kyS/dZsVBZf6mVjD2xd8o3jXnfms7j3qHaHtWVGHuNOcA3/jPt\
   6+YS2Nv0JfSqiysGvKb0= test key"
   
+- name: Python3 test
+  ansible.builtin.shell: |
+    import json
+
+    output ={
+      "message": [], 
+      "changed": False 
+    }
+    output["message"] += ["line 1"]
+    output["message"] += ["line 2"]
+    output["message"] += ["{{ my_ansible_variable }}"]
+ 
+    print(json.dumps(output))
+  args:
+    executable: /usr/bin/python3
+  register: test_result
+  changed_when: (test_result.stdout|from_json).changed
+  vars:
+    my_ansible_variable: "dummy"
+
+- debug:
+    msg: "{{ (test_result.stdout|from_json).message }}"
+  
 - name: Powershell test 1
   ansible.windows.win_shell: |
     $output = [PSCustomObject]@{
