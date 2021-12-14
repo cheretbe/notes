@@ -6,3 +6,4 @@
     * github search pattern: `yandex-cloud yandex_compute_instance extension:tf`
     * https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs
     * https://cloud.yandex.ru/docs/compute/pricing
+* `.gitignore`: https://github.com/github/gitignore/blob/main/Terraform.gitignore
