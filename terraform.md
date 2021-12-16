@@ -9,6 +9,10 @@
 * `.gitignore`: https://github.com/github/gitignore/blob/main/Terraform.gitignore
 
 ```shell
+terraform validate
+terraform init
+terraform plan
+
 terraform apply -auto-approve
 terraform destroy -auto-approve
 ```
