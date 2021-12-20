@@ -15,4 +15,6 @@ terraform plan
 
 terraform apply -auto-approve
 terraform destroy -auto-approve
+
+terraform taint null_resource.provision && terraform apply -auto-approve
 ```
