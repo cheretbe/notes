@@ -97,7 +97,7 @@ Local config: `~/.ansible.cfg`
 ```shell
 ansible-inventory -i demo.aws_ec2.yml --graph
 # List all vars for a single host
-ansible -m debug -a "var=hostvars['host.domain.tld']" host.domain.tld
+ansible -m debug -a "var=hostvars[inventory_hostname]" host.domain.tld
 ```
 * `export ANSIBLE_HOST_KEY_CHECKING=False` while you're deploying new servers, then remove it with `unset ANSIBLE_HOST_KEY_CHECKING`.
 * or add to `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`:
