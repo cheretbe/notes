@@ -17,6 +17,11 @@ powershell Get-PhysicalDisk
 mbr2gpt /disk:0 /validate /allowFullOS
 
 mbr2gpt /disk:0 /convert /allowFullOS
+
+:: View logs in case of errors
+:: Use  /logs:<logDirectory> option to change directory for logging
+notepad "%WINDIR%\setupact.log"
+notepad "%WINDIR%\setuperr.log"
 ```
 
 #### Fix BSOD after changing SATA <--> IDE
