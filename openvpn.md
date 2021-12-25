@@ -44,3 +44,12 @@ down /etc/openvpn/update-systemd-resolved
 ; Call --down cmd/script before, rather than after, TUN/TAP close.
 down-pre
 ```
+
+### Server
+
+* https://www.digitalocean.com/community/tutorials/how-to-set-up-and-configure-an-openvpn-server-on-ubuntu-20-04
+
+```shell
+vagrant ssh-config > /tmp/ssh-config-name
+scp -F /tmp/ssh-config-name default:/home/vagrant/easy-rsa/pki/reqs/server.req ~/temp/
+```
