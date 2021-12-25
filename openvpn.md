@@ -52,4 +52,5 @@ down-pre
 ```shell
 vagrant ssh-config > /tmp/ssh-config-name
 scp -F /tmp/ssh-config-name default:/home/vagrant/easy-rsa/pki/reqs/server.req ~/temp/
+openssl x509 -req -in ~/temp/server.req -CA root_ca.crt -CAkey root_ca.key -out ../output/server.crt -days 3650
 ```
