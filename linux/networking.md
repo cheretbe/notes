@@ -55,6 +55,24 @@ tcpdump -n -i any icmp
 tcpdump -n -i eth0 'tcp port 80'
 # On all ports except for 22 (useful when connected via SSH)
 tcpdump -n -i any 'port not 22'
+# To display names of interfaces tcpdump has to be 4.99 or greater
+# https://serverfault.com/questions/224698/how-to-display-interface-in-tcpdump-output-flow/1054024#1054024
+# If the version shipped with OS is lower, download the latest one from https://www.tcpdump.org/ and build it
+apt install build-essential flex bison
+
+wget https://www.tcpdump.org/release/libpcap-1.10.1.tar.gz
+tar xzvf libpcap-1.10.1.tar.gz 
+cd libpcap-1.10.1/
+./configure && make
+
+cd ..
+wget https://www.tcpdump.org/release/tcpdump-4.99.1.tar.gz
+tar xzvf tcpdump-4.99.1.tar.gz
+cd tcpdump-4.99.1/
+./configure && make
+
+./tcpdump
+./tcpdump -n -i any icmp
 ```
 
 ```shell
