@@ -1,3 +1,16 @@
+### Change mirror
+
+```shell
+# https://askubuntu.com/questions/39922/how-do-you-select-the-fastest-mirror-from-the-command-line/719551#719551
+# [!] Here we changing the range from 100KiB (102400 bytes) to 1MiB (1048576 bytes)
+# Use the original value for scripts to speed up testing process
+curl -s http://mirrors.ubuntu.com/mirrors.txt | xargs -n1 -I {} sh -c 'echo `curl -r 0-1048576 -s -w %{speed_download} -o /dev/null {}/ls-lR.gz` {}' | sort -g -r | head -1 | awk '{ print $2 }'
+
+cp /etc/apt/sources.list{,.bak}
+# Assuming that testing result is http://archive.ubuntu.com/ubuntu
+sed -i 's#http://archive.ubuntu.com/ubuntu#http://mirror.corbina.net/ubuntu#' /etc/apt/sources.list
+```
+
 ### Local cache
 
 * apt-cacher-ng
