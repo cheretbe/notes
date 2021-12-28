@@ -48,6 +48,8 @@ down-pre
 ### Server
 
 * https://www.digitalocean.com/community/tutorials/how-to-set-up-and-configure-an-openvpn-server-on-ubuntu-20-04
+* https://obu4alka.ru/nastrojka-vpn-na-ubuntu-server-sposob-pervyj.html
+    * (what's the difference?) https://obu4alka.ru/nastrojka-vpn-na-ubuntu-server-sposob-vtoroj.html
 
 ```shell
 vagrant ssh-config > /tmp/ssh-config-name
