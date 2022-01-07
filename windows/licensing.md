@@ -1,3 +1,5 @@
+(2check) How To Know Which Windows Version A Product Key Belongs To: https://github.com/Superfly-Inc/ShowKeyPlus/releases
+
 Retrieve product key from BIOS
 ```powershell
 wmic path softwarelicensingservice get OA3xOriginalProductKey
