@@ -52,6 +52,9 @@ down-pre
     * (what's the difference?) https://obu4alka.ru/nastrojka-vpn-na-ubuntu-server-sposob-vtoroj.html
 
 ```shell
+# default is 1080 days
+EASYRSA_CERT_EXPIRE=3650 ./easyrsa sign-req server server-name
+
 vagrant ssh-config > /tmp/ssh-config-name
 scp -F /tmp/ssh-config-name default:/home/vagrant/easy-rsa/pki/reqs/server.req ~/temp/
 openssl x509 -req -in ~/temp/server.req -CA root_ca.crt -CAkey root_ca.key -out ../output/server.crt -days 3650
