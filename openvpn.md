@@ -1,4 +1,5 @@
 * https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/
+* Windows downloads (proper client, not that ugly OpenVPN Connect): https://www.npackd.org/p/openvpn64
 
 ### Windows
 
