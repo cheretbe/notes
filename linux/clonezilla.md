@@ -9,6 +9,8 @@ on destination doesn't offer advanced settings). To solve this problem run `ocs-
 :bulb: Also on a source use expert mode to enable `cat` (no compression) instead of default `gz` for slow machines. For fast multicore machines
 also use expert mode and select `gz` (seems to enable `pigz` usage as oppozed to default). 
 ```shell
+# [!] Source listens on ports 9000-9006
+
 # on destination
 # [!] timeout option is useful on systems with multiple network cards (default is 30s per adapter)
 ocs-live-netcfg -t 5
