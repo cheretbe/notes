@@ -9,3 +9,7 @@ apt install fail2ban
 [DEFAULT]
 ignoreip = 127.0.0.1/8 192.168.0.0/24 domain.tld
 ```
+
+```shell
+fail2ban-client status sshd
+```
