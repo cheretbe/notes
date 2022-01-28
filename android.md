@@ -17,6 +17,9 @@
 * Полезные настройки
     * Поменять местами кнопки `назад` и `меню`: `Настройки` > `Расширенные настройки` > `Безграничный экран`(wtf?) > `Поменять местами кнопки`
     * https://zen.yandex.ru/media/iteasy/polnaia-optimizaciia-miui-11-i-telefon-zajil-novoi-jizniu-5ded5e46f7e01b00ad74230e?utm_source=serp
+* Прошивка
+    * https://4pda.to/forum/index.php?showtopic=992818&st=8640#entry108925962
+    * https://root-device.ru/root-prava/xiaomi/615-xiaomi-redmi-note-9-redmi-10x-4g.html
 -----
 
 * Prevent a media directory from appearing in Android Gallery
