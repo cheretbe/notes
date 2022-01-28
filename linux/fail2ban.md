@@ -6,5 +6,6 @@ apt install fail2ban
 
 `/etc/fail2ban/jail.local` example
 ```
+[DEFAULT]
 ignoreip = 127.0.0.1/8 192.168.0.0/24 domain.tld
 ```
