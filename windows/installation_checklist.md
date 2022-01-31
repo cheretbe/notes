@@ -8,7 +8,11 @@
 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Control Panel\International`: BlockUserInputMethodsForSignIn = 1
 
 ---------------
+```powershell
+Get-PolicyFileEntry -Path "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol" -All
+```
 ```batch
+gpupdate /force
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization /v NoLockScreen
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v EnableFirstLogonAnimation
 reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51 /v ACSettingIndex
@@ -20,7 +24,13 @@ reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d
     `Do not display the lock screen` -> `Enabled`<br>
     `Политика "Локальный компьютер"` > `Конфигурация компьютера` > `Админстративные шаблоны` > `Панель управления` > `Персонализация`:<br>
     `Запрет отображения экрана блокировки` -> `Включено`<br>
-    :point_right: `reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization /v NoLockScreen /t REG_DWORD /d 1 /f`
+    :point_right:
+    ```powershell
+    Set-PolicyFileEntry -Path "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol" `
+      -Key "Software\Policies\Microsoft\Windows\Personalization" `
+      -ValueName "NoLockScreen" -Type dword -Data 1
+    ```
+
 
 ---------------
 * [ ] Disable first sign-in animation<br>
