@@ -47,6 +47,11 @@ ansible win10 -m community.windows.win_certificate_info -a 'store_name=Root thum
 ansible win10 -m win_certificate_store -a 'path=\\\\hostname\\path\\to\\self-signed-ca.cert.crt store_name=Root'
 
 ansible win10 -m win_reg_stat -a "path='HKLM:\System\CurrentControlSet\Control\Session Manager' name=PendingFileRenameOperations"
+
+# Deny interactive logon for ansible user
+ansible win10 -m win_user_right -a "name=SeDenyInteractiveLogonRight action=add users=ansible-user"
+# Deny logon through Remote Desktop Services for ansible user
+ansible win10 -m win_user_right -a "name=SeDenyRemoteInteractiveLogonRight action=add users=ansible-user"
 ```
 
 ### Installation
