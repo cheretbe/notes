@@ -35,13 +35,16 @@ A group policy refresh is triggered whenever one of the following events occurs:
 It's important to remember that if the computer is domain-joined, domain policies will be applied after the local group policy files are processed (meaning that some settings may get overwritten by domain policy). You will not be able to see domain policies in the local group policy editor.
 
 
+#### Installation and init
 ```powershell
 Install-Module -Name "nuget" -Force
 Install-Module -Name "PolicyFileEditor" -Force
 
 Set-ExecutionPolicy Bypass -Scope Process -Force
 Import-Module PolicyFileEditor
+```
 
+```powershell
 $machineDir = "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol"
 $userDir = "${ENV:SystemRoot}\system32\GroupPolicy\User\Registry.pol"
 
