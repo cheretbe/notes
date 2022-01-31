@@ -8,6 +8,7 @@
 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Control Panel\International`: BlockUserInputMethodsForSignIn = 1
 
 ---------------
+https://github.com/cheretbe/notes/blob/master/windows/group_policies.md#installation-and-init
 ```powershell
 Get-PolicyFileEntry -Path "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol" -All
 ```
@@ -38,7 +39,13 @@ reg query HKLM\Software\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d
     `Show first sign-in animation` -> `Disabled`<br>
     `Политика "Локальный компьютер"` > `Конфигурация компьютера` > `Админстративные шаблоны` > `Система` > `Вход в систему`:<br>
     `Показать анимацию при первом входе в систему` -> `Отключено`<br>
-    :point_right: `reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f`
+    :point_right:
+    ```powershell
+    Set-PolicyFileEntry -Path "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol" `
+      -Key "Software\Microsoft\Windows\CurrentVersion\Policies\System" `
+      -ValueName "EnableFirstLogonAnimation" -Type dword -Data 0
+    ```
+
 
 ---------------
 * [ ] Disable password requirement when the computer wakes<br>
