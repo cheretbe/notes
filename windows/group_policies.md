@@ -36,7 +36,11 @@ It's important to remember that if the computer is domain-joined, domain policie
 
 
 ```powershell
-Install-Module -Name "PolicyFileEditor" -Scope CurrentUser
+Install-Module -Name "nuget" -Force
+Install-Module -Name "PolicyFileEditor" -Force
+
+Set-ExecutionPolicy Bypass -Scope Process -Force
+Import-Module PolicyFileEditor
 
 $machineDir = "${ENV:SystemRoot}\system32\GroupPolicy\Machine\Registry.pol"
 $userDir = "${ENV:SystemRoot}\system32\GroupPolicy\User\Registry.pol"
