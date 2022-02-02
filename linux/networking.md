@@ -98,6 +98,13 @@ iptables --table nat --delete POSTROUTING -s 192.168.1.0/24 --out-interface ifna
 # Destination NAT (DNAT)
 iptables --table nat --append PREROUTING --in-interface ifname --protocol tcp --dport 80 -j DNAT --to 192.168.1.10:80
 
+# Delete by chain and number (easier)
+iptables -L --line-numbers
+iptables -D INPUT 7
+
+# Delete by specification (use iptables-save to find it out)
+iptables -D INPUT -p tcp -m tcp --dport 1194 -m comment --comment "Allow VPN" -j ACCEPT
+
 # Reload
 iptables-restore < /etc/iptables/rules.v4
 ```
