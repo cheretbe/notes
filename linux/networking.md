@@ -33,19 +33,6 @@ sysctl -p /etc/sysctl.conf
 # View current setting
 cat /proc/sys/net/ipv4/ip_forward
 
-# NAT
-iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
-# Use --verbose to view out interfaces
-iptables --verbose --list --table nat
-# Short form
-iptables -vL -t nat
-# Or just use iptables-save to view all rules in detail
-iptables-save
-
-iptables --table nat --delete POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
-# Destination NAT (DNAT)
-iptables --table nat --append PREROUTING --in-interface ifname --protocol tcp --dport 80 -j DNAT --to 192.168.1.10:80
-
 # Capture ICMP packets on an interface
 # -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
 tcpdump -n -i ifname icmp
@@ -93,6 +80,25 @@ ip link set dev test-br down
 
 brctl delif test-br ifname
 brctl delbr test-br
+```
+
+### iptables
+```shell
+# NAT
+iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
+# Use --verbose to view out interfaces
+iptables --verbose --list --table nat
+# Short form
+iptables -vL -t nat
+# Or just use iptables-save to view all rules in detail
+iptables-save
+
+iptables --table nat --delete POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
+# Destination NAT (DNAT)
+iptables --table nat --append PREROUTING --in-interface ifname --protocol tcp --dport 80 -j DNAT --to 192.168.1.10:80
+
+# Reload
+iptables-restore < /etc/iptables/rules.v4
 ```
 
 ### NetworkManager
