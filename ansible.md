@@ -122,6 +122,10 @@ host_key_checking = False
 * see also: https://stackoverflow.com/questions/23074412/how-to-set-host-key-checking-false-in-ansible-inventory-file
 
 
+`ansible_virtualization_role`, `ansible_virtualization_type`
+ * https://github.com/ansible/ansible/blob/devel/lib/ansible/module_utils/facts/virtual/linux.py
+ 
+
 ```shell
 read -s -p "Password: " TOWER_PASSWORD; echo ""; export TOWER_PASSWORD
 # [!] inventory file has to have .tower.yml extension
