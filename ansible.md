@@ -75,7 +75,8 @@ New-LocalUser -Name ansible-user -Password $ansiblePwd  -Description "Ansible us
 
 Add-LocalGroupMember -Group "Администраторы" -Member "ansible-user"
 
-
+:: Deny interactive logon and remote desktop for ansible user
+:: === option 1 ===
 Invoke-WebRequest https://raw.githubusercontent.com/cheretbe/bootstrap/master/ntrights.exe -OutFile ntrights.exe
 
 # If Invoke-WebRequest fails with "Could not create SSL/TLS secure channel" message 
@@ -83,6 +84,14 @@ Invoke-WebRequest https://raw.githubusercontent.com/cheretbe/bootstrap/master/nt
 
 ./ntrights.exe -u ansible-user +r SeDenyInteractiveLogonRight
 ./ntrights.exe -u ansible-user +r SeDenyRemoteInteractiveLogonRight
+:: ===============
+```
+```shell
+# Deny interactive logon and remote desktop for ansible user
+# === option 2 ===
+ansible win10 -m win_user_right -a "name=SeDenyInteractiveLogonRight action=add users=ansible-user"
+ansible win10 -m win_user_right -a "name=SeDenyRemoteInteractiveLogonRight action=add users=ansible-user"
+# ===============
 ```
 
 ### Templates
