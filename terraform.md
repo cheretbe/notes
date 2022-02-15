@@ -20,3 +20,21 @@ terraform destroy -auto-approve
 
 terraform taint null_resource.provision && terraform apply -auto-approve
 ```
+
+```tf
+# External datasource example
+# [!] Even though the doc for external datasource states that "program must then
+#     produce a valid JSON object on stdout", it actually supports only limited
+#     subset of JSON (no arrays etc.). That's why jq is used here
+#     See:
+#     https://github.com/hashicorp/terraform/issues/12249
+#     https://github.com/hashicorp/terraform/issues/12256
+data "external" "server_mac" {
+  depends_on=[module.ovpn_server_user]
+
+  program = [
+    "bash", "-c",
+    "docker inspect -f '{{json .NetworkSettings.Networks.terraform_ovpn_network}}' terraform-docker-ovpn-server | jq  -j '{mac_addr: .MacAddress}'"
+  ]
+}
+```
