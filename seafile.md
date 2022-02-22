@@ -23,7 +23,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     * https://help.seafile.com/syncing_client/linux-cli/
     * https://gist.github.com/drmalex07/d006f12914b21198ee43
     * https://www.freedesktop.org/software/systemd/man/systemd.service.html
-* https://git.fws.fr/fws/ansible-roles/src/branch/master/roles/seafile
+* :point_right: https://git.fws.fr/fws/ansible-roles/src/branch/master/roles/seafile
 
 ### Server
 * Logs are in `/opt/seafile/logs/`
