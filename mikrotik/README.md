@@ -43,7 +43,7 @@ Winbox settings location: ` %USERPROFILE%\AppData\Roaming\Mikrotik\Winbox`
 
 Get latest RoS version:
 ```shell
-# `/system package update check-for-updates` adds current version like this
+# `/system package update check-for-updates` also adds current version like this
 # http://upgrade.mikrotik.com/routeros/NEWEST7.long-term?version=7.1.3
 # HTTPS also works
 curl http://upgrade.mikrotik.com/routeros/NEWEST7.long-term
