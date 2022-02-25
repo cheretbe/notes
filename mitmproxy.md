@@ -32,7 +32,7 @@ mitmproxy --mode transparent --showhost --set console_focus_follow=true
 ```
 
 ```batch
-:: Windows client confige example
+:: Windows client config example
 route print -4
 route delete 0.0.0.0
 route add 0.0.0.0 mask 0.0.0.0 192.168.0.1
