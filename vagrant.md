@@ -17,8 +17,11 @@ wget https://app.vagrantup.com/alpine-linux/boxes/alpine-x86_64/versions/3.12.0/
 route add default gw 192.168.0.1 metric 10
 route delete default gw 192.168.0.1 metric 10
 
+export GW_ADDR=192.168.0.1
 # Fastly (apt.releases.hashicorp.com)
-route add -net 151.101.0.0/16 gw 192.168.0.1 metric 10
+route add -net 151.101.0.0/16 gw $GW_ADDR metric 10
+# Amazon-4 (vagrantcloud.com)
+route add -net 52.84.0.0/15 gw $GW_ADDR metric 10
 ```
 
 `.gitignore` contents:
