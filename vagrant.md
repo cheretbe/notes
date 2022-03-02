@@ -17,6 +17,7 @@ wget https://app.vagrantup.com/alpine-linux/boxes/alpine-x86_64/versions/3.12.0/
 route add default gw 192.168.0.1 metric 10
 route delete default gw 192.168.0.1 metric 10
 
+# Fastly (apt.releases.hashicorp.com)
 route add -net 151.101.0.0/16 gw 192.168.0.1 metric 10
 ```
 
