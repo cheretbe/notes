@@ -53,5 +53,7 @@ Get-PolicyFileEntry -Path $machineDir -All
 Get-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen"
 
 Set-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen" `
-  -Type dword -Data 0 
+  -Type dword -Data 0
+
+Remove-PolicyFileEntry -Path $machineDir -Key "SOFTWARE\Policies\Microsoft\Windows\System" -ValueName "EnableSmartScreen"
 ```
