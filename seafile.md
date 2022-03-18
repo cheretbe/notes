@@ -30,6 +30,9 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://shoeper.gitbooks.io/seafile-docs/content/deploy/using_logrotate.html
 * https://shoeper.gitbooks.io/seafile-docs/content/security/fail2ban.html
 
+### Installation
+* Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
+
 ### seaf-cli
 ```shell
 sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/seafile-keyring.asc
