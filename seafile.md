@@ -31,7 +31,9 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://shoeper.gitbooks.io/seafile-docs/content/security/fail2ban.html
 
 ### Installation
-* Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
+* https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
+  * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
+  * 
 
 ### seaf-cli
 ```shell
