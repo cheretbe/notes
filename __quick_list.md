@@ -114,7 +114,8 @@ inotifywait -m -r --exclude "(/tmp.*|/var/cache.*|/dev/pts/|/var/log.*)"  -e MOV
 # [!] of use strace
 strace command --parameter
 
-
+# [!!] Check fio (does IOPS and latency tests in addition to speed)
+# http://woshub.com/check-disk-performance-iops-latency-linux/
 # Write speed test
 # 20GiB, 1KiB block: bs=1k count=$((20*1024*1024))
 # 20GiB, 1MiB block:
