@@ -1,4 +1,6 @@
 ```shell
+/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
+
 # https://www.seafile.com/api/client-updates/seafile-client-windows/appcast.xml
 curl -s https://www.seafile.com/api/client-updates/seafile-client-windows/appcast.xml | xmlstarlet select --template -v '/rss/channel/item/enclosure/@url' -nl
 ```
