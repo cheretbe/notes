@@ -1,3 +1,6 @@
+Auto-start client on Linux: run `Startup Applications preferences`, add item `seafile-applet` (`Seafile desktop sync client`)
+
+
 ```shell
 /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
 
