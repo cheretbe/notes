@@ -5,6 +5,8 @@
 
 #### MBR to GPT conversion
 
+* https://docs.microsoft.com/en-us/windows/deployment/mbr-to-gpt#disk-prerequisites
+
 Shrink and move system partition to free up 100MiB (204800 sectors) between it and the bootable partition
 
 ```batch
