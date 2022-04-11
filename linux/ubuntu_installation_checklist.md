@@ -74,7 +74,7 @@ snap install remmina
 ```bash
 timedatectl set-local-rtc 1
 # turn UTC back on
-timedatectl set-local-rtc 1
+timedatectl set-local-rtc 0
 # view current setting
 timedatectl
 
