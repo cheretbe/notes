@@ -24,8 +24,13 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
         * https://github.com/valr/awf
         * https://github.com/themix-project/oomox
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
-        * :warning: next time try to install [Frippery Move Clock](https://extensions.gnome.org/extension/2/move-clock/) only, using instructions for Win key below
-        * for Ubuntu 20.04 use version 3.32
+        * :warning: We need [Frippery Move Clock](https://extensions.gnome.org/extension/2/move-clock/) only, no need to install full GNOME Shell Frippery
+            * `cat /usr/share/gnome/gnome-version.xml` 
+            * `mkdir -p ~/.local/share/gnome-shell/extensions/`
+            * `unzip ~/Downloads/Move_Clockrmy.pobox.com.v22.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/Move_Clock@rmy.pobox.com`
+            * <kbd>Alt</kbd>+<kbd>F2</kbd>, `r`, <kbd>Enter</kbd>
+            * Restart `GNOME Tweak Tool` if it was running, then enable the extension
+        * Full GNOME Shell Frippery (left here for the reference)
         ```shell
         # tar contains all necessary paths
         cd ~
