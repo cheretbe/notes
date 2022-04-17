@@ -55,6 +55,7 @@ sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/s
 sudo bash -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seadrive-deb/focal/ stable main' > /etc/apt/sources.list.d/seadrive.list"
 apt update
 apt install seafile-cli
+# binary is /usr/bin/seaf-cli
 
 mkdir ~/seafile-client 
 # ~/.ccnet directory must not exist at this point
