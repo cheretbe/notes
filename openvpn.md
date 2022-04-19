@@ -57,6 +57,8 @@ down-pre
 ```shell
 # default is 1080 days
 EASYRSA_CERT_EXPIRE=3650 ./easyrsa sign-req server server-name
+# Alt names example
+./easyrsa --subject-alt-name="DNS:www.example.net,DNS:secure.example.net" gen-req www.example.net nopass
 
 vagrant ssh-config > /tmp/ssh-config-name
 scp -F /tmp/ssh-config-name default:/home/vagrant/easy-rsa/pki/reqs/server.req ~/temp/
