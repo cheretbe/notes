@@ -328,6 +328,9 @@ ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 # As of systemd 232 DNS stub listener can be disabled
 systemctl --version
 # Create config override file
+# [!] No, `systemctl edit systemd-resolved.service` won't work. It creates
+# /etc/systemd/system/systemd-resolved.service.d/override.conf and [Resolve] section
+# doesn't belong there
 mkdir -p /etc/systemd/resolved.conf.d
 cat <<EOF >/etc/systemd/resolved.conf.d/10-disable-dns-stub.conf
 [Resolve]
