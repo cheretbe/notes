@@ -9,6 +9,8 @@ Secrets file entry example
 ```
 
 ```shell
+# [!] The file /sbin/mount.davfs must have the SUID bit set if you want to allow unprivileged (non-root) users to mount WebDAV resources
+# To change later use dpkg-reconfigure davfs2
 apt install davfs2
 
 # Allow an ordinary user to mount on demand
