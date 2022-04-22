@@ -2,6 +2,12 @@
 * :warning: Secrets file format is described in `/etc/davfs2/secrets`
 * **TODO:** Try systemd mounting (https://wiki.archlinux.org/title/Davfs2, `Using systemd` section)
 
+Secrets file entry example
+```
+# Special characters in passwords such as \ and " must be escaped with \
+/mnt/dir username password
+```
+
 ```shell
 apt install davfs2
 
