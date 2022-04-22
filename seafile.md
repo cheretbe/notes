@@ -48,6 +48,11 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
   * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
   * 
 
+### WebDAV
+
+* (seems like installation script is more up-to-date) https://manual.seafile.com/extension/webdav/
+* Client config: [./linux/dafvs2.md](./linux/dafvs2.md) (URL example: `https://host.domain.tld:1234/seafdav`)
+
 ### seaf-cli
 ```shell
 sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/seafile-keyring.asc
