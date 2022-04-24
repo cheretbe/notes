@@ -42,6 +42,9 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
    max_sync_file_count = -1
    fs_id_list_request_timeout = -1
    ```
+* Maintenance
+    * https://manual.seafile.com/maintain/
+    * `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run` 
 
 ### Installation
 * https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
