@@ -1,3 +1,8 @@
+* Types of EC2 storage
+    * EC2 Instance Store - not detachable, destroyed on shudown (survives reboots though)
+    * EBS (Elastic Block Store) - detachable, persistent, suports different types of snaphots
+    * EFS (Elastic File System)  - network storage, can be mounted on multiple ec2 instances and this storage can be available in multiple AZ
+* A **security group** is an AWS firewall solution that performs one primary function: to filter incoming and outgoing traffic from an EC2 instance. It accomplishes this filtering function at the TCP and IP layers, via their respective ports, and source/destination IP addresses.
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 * IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
