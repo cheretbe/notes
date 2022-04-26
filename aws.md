@@ -1,3 +1,5 @@
+* TODO
+    * Try running PowerShell in Lambda
 * Types of EC2 storage
     * EC2 Instance Store - not detachable, destroyed on shudown (survives reboots though)
     * EBS (Elastic Block Store) - detachable, persistent, suports different types of snaphots
