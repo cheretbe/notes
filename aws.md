@@ -5,6 +5,7 @@
 * A **security group** is an AWS firewall solution that performs one primary function: to filter incoming and outgoing traffic from an EC2 instance. It accomplishes this filtering function at the TCP and IP layers, via their respective ports, and source/destination IP addresses.
 * **AWS Fargate** is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. AWS Fargate is compatible with both **ECS** (Amazon Elastic Container Service) and **EKS** (Amazon Elastic Kubernetes Service)
 * **ECR** (Elastic Container Registry) is a managed container image registry service: https://aws.amazon.com/ecr/ 
+* **CloudFormation** is a method of provisioning AWS infrastructure as code. CloudFormation works by defining your AWS resources in a structured text file in either JSON or YAML formats. This is known as a CloudFormation template. Using the template, you then create a CloudFormation stack in AWS which contains all the resources you defined.
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 * IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
