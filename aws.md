@@ -4,7 +4,7 @@
     * EFS (Elastic File System)  - network storage, can be mounted on multiple ec2 instances and this storage can be available in multiple AZ
 * A **security group** is an AWS firewall solution that performs one primary function: to filter incoming and outgoing traffic from an EC2 instance. It accomplishes this filtering function at the TCP and IP layers, via their respective ports, and source/destination IP addresses.
 * **AWS Fargate** is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. AWS Fargate is compatible with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS)
-* ** ECR** (Elastic Container Registry) is a managed container image registry service: https://aws.amazon.com/ecr/ 
+* **ECR** (Elastic Container Registry) is a managed container image registry service: https://aws.amazon.com/ecr/ 
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 * IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
