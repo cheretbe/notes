@@ -8,6 +8,7 @@
     * File gateway - NFS 3/4 to S3
     * Stored volume gateway - backup to S3 of local iSCSI storage (max 32 volumes of 1GiB to 16TiB)
     * Cached volume gateway - iSCSI to S3 (max 32 volumes of up to 32TiB)
+    * Virtual tape library gateway - virtual tape library to S3 or Glacier
 * A **security group** is an AWS firewall solution that performs one primary function: to filter incoming and outgoing traffic from an EC2 instance. It accomplishes this filtering function at the TCP and IP layers, via their respective ports, and source/destination IP addresses.
 * **AWS Fargate** is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. AWS Fargate is compatible with both **ECS** (Amazon Elastic Container Service) and **EKS** (Amazon Elastic Kubernetes Service)
 * **ECR** (Elastic Container Registry) is a managed container image registry service: https://aws.amazon.com/ecr/ 
