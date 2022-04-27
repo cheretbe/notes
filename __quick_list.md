@@ -20,7 +20,7 @@
 sudo apt update
 sudo apt install -y python3-venv build-essential python3-dev
 python3 -m venv ~/.cache/venv/py3
-. ~/.cache/venv/py3
+. ~/.cache/venv/py3/bin/activate
 pip install wheel
 ```
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
