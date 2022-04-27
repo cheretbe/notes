@@ -16,6 +16,12 @@
         Invoke-RestMethod https://freegeoip.app/json
         ```
 #### Linux
+```shell
+sudo apt install python3-venv build-essential python3-dev
+python3 -m venv ~/.cache/venv/py3
+. ~/.cache/venv/py3
+pip install wheel
+```
 Nano: https://github.com/cheretbe/notes/blob/master/linux/nano.md
 
 KVM configs are in `/etc/libvirt/qemu`
