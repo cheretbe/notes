@@ -4,6 +4,10 @@
     * EC2 Instance Store - not detachable, ephemeral (destroyed on shudown). Survives reboots though. High IOPS, no additional cost (included in in the price of the instance)
     * EBS (Elastic Block Store) - detachable, persistent, suports different types of snaphots. Single AZ. Block level.
     * EFS (Elastic File System)  - network storage (NFS 4.0/4.1, therefore no Windows support), can be mounted on multiple ec2 instances and this storage can be available in multiple AZ. File tree level.
+* **AWS Storage Gateway** is a set of hybrid cloud storage services that provide on-premises access to virtually unlimited cloud storage.
+    * File gateway - NFS 3/4 to S3
+    * Stored volume gateway - backup to S3 of local iSCSI storage (max 32 volumes of 1GiB to 16TiB)
+    * Cached volume gateway - iSCSI to S3 (max 32 volumes of up to 32TiB)
 * A **security group** is an AWS firewall solution that performs one primary function: to filter incoming and outgoing traffic from an EC2 instance. It accomplishes this filtering function at the TCP and IP layers, via their respective ports, and source/destination IP addresses.
 * **AWS Fargate** is a serverless, pay-as-you-go compute engine that lets you focus on building applications without managing servers. AWS Fargate is compatible with both **ECS** (Amazon Elastic Container Service) and **EKS** (Amazon Elastic Kubernetes Service)
 * **ECR** (Elastic Container Registry) is a managed container image registry service: https://aws.amazon.com/ecr/ 
