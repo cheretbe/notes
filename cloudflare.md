@@ -4,6 +4,11 @@
 
 ```shell
 # Flarectl
+sudo snap install go --classic
+export PATH=/snap/bin/go:$PATH
+go install github.com/cloudflare/cloudflare-go/cmd/flarectl@latest
+go/bin/flarectl --version
+
 # https://github.com/cloudflare/cloudflare-go/blob/master/cmd/flarectl/README.md
 export CF_API_EMAIL=user@domain.tld
 export CF_API_KEY=0000000000000000000000000000000000000
