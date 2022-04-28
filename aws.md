@@ -22,6 +22,7 @@
 * **RDS** (Relational Database Service) is a collection of managed database services (Amazon Aurora with MySQL compatibility, Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, SQL Server)
 * **DynamoDB** is a fully managed NoSQL database service
 * **ElastiCache** is a fully managed, in-memory caching service (compatible with Redis and Memcached)
+* **Neptune** is a fully managed graph database
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 * IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
