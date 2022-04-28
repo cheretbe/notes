@@ -53,23 +53,25 @@ There are several commonly used filename extensions for X.509 certificates. :war
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 ##### Wildcard
-[Automated version](../../tree/master/files/certbot)
+Automated version: ../../tree/master/files/certbot
 
 ```shell
 # Setup
-wget https://dl.eff.org/certbot-auto
-chmod +x certbot-auto
-wget https://github.com/cloudflare/cloudflare-go/releases/download/v0.8.5/flarectl.linux.amd64 -O flarectl
-chmod +x flarectl
+pip install certbot
+
+sudo snap install go --classic
+export PATH=/snap/bin/go:$PATH
+go install github.com/cloudflare/cloudflare-go/cmd/flarectl@latest
 
 # Staging
 # https://letsencrypt.org/docs/staging-environment/
 # https://acme-staging-v02.api.letsencrypt.org/directory
 
-sudo ./certbot-auto certonly \
---server https://acme-v02.api.letsencrypt.org/directory \
---manual --preferred-challenges dns \
--d *.domain.tld -d *.subdomain.domain.tld
+cd temp
+certbot --logs-dir ./logs --config-dir ./conf --work-dir ./work \
+  certonly --manual --preferred-challenges dns \
+  --server https://acme-v02.api.letsencrypt.org/directory \
+  -d *.domain.tld -d *.subdomain.domain.tld
 
 export CF_API_EMAIL=user@domain.tld
 export CF_API_KEY=0000000000000000000000000000000000000
