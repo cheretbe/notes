@@ -24,6 +24,7 @@
 * **ElastiCache** is a fully managed, in-memory caching service (compatible with Redis and Memcached)
 * **Neptune** is a fully managed graph database
 * **Redshift** is a data warehouse (based on PostgreSQL with custom modifications). ETL (extract, transform, load) and analytics on a very large scale.
+* **DocumentDB** is a scalable, highly durable, and fully managed database service for operating mission-critical MongoDB workloads
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 * IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
