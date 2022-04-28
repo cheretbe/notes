@@ -1,5 +1,6 @@
 * TODO
     * Try running PowerShell in Lambda
+    * https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/
 * Types of EC2 storage
     * EC2 Instance Store - not detachable, ephemeral (destroyed on shudown). Survives reboots though. High IOPS, no additional cost (included in in the price of the instance)
     * EBS (Elastic Block Store) - detachable, persistent, suports different types of snaphots. Single AZ. Block level.
