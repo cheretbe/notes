@@ -68,6 +68,9 @@ go install github.com/cloudflare/cloudflare-go/cmd/flarectl@latest
 # https://acme-staging-v02.api.letsencrypt.org/directory
 
 cd temp
+# [!!] Note multiple sub-domain entries
+# Multiple level wildcard certificates are not implemented:
+# https://community.letsencrypt.org/t/allow-multiple-level-wildcard-certificates/67242/2
 certbot --logs-dir ./logs --config-dir ./conf --work-dir ./work \
   certonly --manual --preferred-challenges dns \
   --server https://acme-v02.api.letsencrypt.org/directory \
@@ -75,21 +78,21 @@ certbot --logs-dir ./logs --config-dir ./conf --work-dir ./work \
 
 export CF_API_EMAIL=user@domain.tld
 export CF_API_KEY=0000000000000000000000000000000000000
-./flarectl dns create -zone domain.tld --name _acme-challenge \
--content 000000000000000000000000000-000000000000000 --type TXT
+go/bin/flarectl dns create -zone domain.tld --name _acme-challenge \
+  -content 000000000000000000000000000-000000000000000 --type TXT
 
 nslookup -type=TXT _acme-challenge.domain.tld
 
 ls /etc/letsencrypt/live/domain.tld/fullchain.pem -lh
 ls /etc/letsencrypt/live/chere.review/privkey.pem -lh
 
-./flarectl dns list --zone domain.tld | grep _acme-challenge
-./flarectl dns delete --zone domain.tld --id 00000000000000000000000000000000
+go/bin/flarectl dns list --zone domain.tld | grep _acme-challenge
+go/bin/flarectl dns delete --zone domain.tld --id 00000000000000000000000000000000
 
 # Renew
-# "certbot renew --manual" will work only with --manual-auth-hook,
+# [!!!] For manual renewal the original command needs to be run
+# Because "certbot renew --manual" will work only with --manual-auth-hook,
 # --manual-cleanup-hook and --manual-public-ip-logging-ok
-# For manual renewal the original command needs to be run
 ```
 
 * https://www.reddit.com/r/homelab/comments/8r575v/certbot_wildcard_automatic_dns_auth_with_amazon/
