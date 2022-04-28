@@ -19,6 +19,8 @@
 * **AWS Lambda** is a serverless compute service which has been designed to allow you to run your application code without having to manage and provision your own EC2 instances.
 * **SQS** (Amazon Simple Queue Service) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.
 * **CloudFront** - Low-latency CDN
+* **RDS** (Relational Database Service) is a collection of managed database services (Amazon Aurora with MySQL compatibility, Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, SQL Server)
+* **DynamoDB** is a fully managed NoSQL database service
 * SES (Amazon Simple Email Service): https://aws.amazon.com/ses/
 * AWS Elastic IP: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
 * IAM (Identity and Access Management): https://console.aws.amazon.com/iam/
