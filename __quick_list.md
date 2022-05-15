@@ -10,7 +10,7 @@
     * Linux
         ```shell
         # curl https://freegeoip.app/json/
-        curl curl https://freegeoip.live/json/
+        curl https://freegeoip.live/json/
         ```
     * Windows
         ```powershell
