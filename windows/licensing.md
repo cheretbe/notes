@@ -23,3 +23,22 @@ cscript slmgr.vbs -ato
 cscript slmgr.vbs -dlv
 cscript slmgr.vbs -xpr
 ```
+
+```powershell
+  $licenseInfo = Get-WmiObject SoftwareLicensingProduct | Where-Object { $_.LicenseStatus -ne 0 }
+  if ($licenseInfo.LicenseStatus -eq 1) {
+    Write-Output ("{0}: Licensed" -f $licenseInfo.Description)
+  } else {
+    switch ($licenseInfo.LicenseStatus) {
+      2 { $licenseStatusText = 'OOB Grace' }
+      3 { $licenseStatusText = 'OOT Grace' }
+      4 { $licenseStatusText = 'Non-Genuine Grace' }
+      5 { $licenseStatusText = 'Notification' }
+      6 { $licenseStatusText = 'Extended Grace' }
+      else
+        { $LicenseStatusText = 'Unknown' }
+    } #switch
+    Write-Output ("{0}: {1}" -f $licenseInfo.Description, $licenseStatusText)
+    Write-Warning "Check activation status of the system"
+  } #if
+```
