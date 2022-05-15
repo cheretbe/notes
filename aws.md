@@ -66,6 +66,16 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 * Metadata
     * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
     * https://stackoverflow.com/questions/42314029/whats-special-about-169-254-169-254-ip-address-for-aws
+
+#### AWS CLI
+
+* https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+    * :warning: `pip install awscli` installs version 1
+    * [awscliv2](https://pypi.org/project/awscliv2/) is unofficial and there are no plans to publish it on PyPi (https://github.com/aws/aws-cli/issues/4947#issuecomment-793192340)
+```shell
+# Install as local user (default locations are /usr/local/aws-cli and /usr/local/bin
+./aws/install -i ~/.local/share/aws-cli -b /usr/local/bin
+```
     
 ```bash
 # Configure (this creates/updates .aws/config and .aws/credentials)
