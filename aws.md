@@ -1,3 +1,6 @@
+* Regions
+    * `eu-north-1` - Europe (Stockholm)
+    * `eu-central-1` - Europe (Frankfurt)
 * TODO
     * Try running PowerShell in Lambda
     * https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/
