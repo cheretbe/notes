@@ -9,11 +9,13 @@
 * GeoIP
     * Linux
         ```shell
-        curl https://freegeoip.app/json/
+        # curl https://freegeoip.app/json/
+        curl curl https://freegeoip.live/json/
         ```
     * Windows
         ```powershell
-        Invoke-RestMethod https://freegeoip.app/json
+        # Invoke-RestMethod https://freegeoip.app/json
+        Invoke-RestMethod https://freegeoip.live/json/
         ```
 #### Linux
 ```shell
