@@ -87,10 +87,21 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 aws configure
 ```
 
+#### Useful Commands
+
+```shell
+# List all resources in all regions
+for region in `aws ec2 describe-regions --output text | cut -f4`
+do
+     echo -e "\nListing resources in region: $region..."
+     aws resourcegroupstaggingapi get-resources --region $region --query "ResourceTagMappingList[][ResourceARN]" --output table
+done
+```
+
 #### EC2 Instances
 
 ```shell
-# List all C2 instances across all regions
+# List all EC2 instances across all regions
 for region in `aws ec2 describe-regions --output text | cut -f4`
 do
      echo -e "\nListing Instances in region: $region..."
