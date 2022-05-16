@@ -70,7 +70,9 @@ Move to TODO/2read: https://www.blog.labouardy.com/
     * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
     * https://stackoverflow.com/questions/42314029/whats-special-about-169-254-169-254-ip-address-for-aws
 
-#### AWS CLI
+### AWS CLI
+
+#### Installation
 
 * https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
     * :warning: `pip install awscli` installs version 1
@@ -83,7 +85,22 @@ Move to TODO/2read: https://www.blog.labouardy.com/
 ```bash
 # Configure (this creates/updates .aws/config and .aws/credentials)
 aws configure
+```
 
+#### EC2 Instances
+
+```shell
+# List all C2 instances across all regions
+for region in `aws ec2 describe-regions --output text | cut -f4`
+do
+     echo -e "\nListing Instances in region: $region..."
+     # aws ec2 describe-instances --region $region
+     aws ec2 describe-instances --region $region --query "Reservations[].Instances[][InstanceId,InstanceType,LaunchTime,State.Name]" --output table
+done
+```
+
+#### EC2 AMI
+```shell
 # Find latest Ubuntu Xenial AMI
 aws ec2 describe-images --region eu-central-1 --filters "Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial*" --query "sort_by(Images, &CreationDate)[-1].[ImageId,Name]" --output text
 # Get ID
