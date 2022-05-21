@@ -1,7 +1,7 @@
 Microsoft's support cycles:
 * Desktop: http://windows.microsoft.com/en-us/windows/lifecycle
     * View current SAC release: https://docs.microsoft.com/en-us/windows/release-information/
-    * Current LTSC version is Windows 10 LTSC 2019 (1809)
+    * Current LTSC version is Windows 10 LTSC 2021 (21H2) https://docs.microsoft.com/en-us/windows/whats-new/ltsc/
 * Server: https://support.microsoft.com/en-us/lifecycle/search?alpha=Windows%20Server
     * Starting with Windows Server 2022, only LTSC channel is left. SAC continues on Azure Stack HCI
         * https://docs.microsoft.com/en-us/windows-server/get-started/servicing-channels-comparison
