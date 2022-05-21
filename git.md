@@ -51,6 +51,9 @@ git merge-file /dev/null /dev/null file-to-test
 
 
 ### Github
+
+* https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
+
 ```shell
 # Get latest release
 release_data=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest)
