@@ -5,6 +5,14 @@
 * Reboot during provision: https://github.com/dotless-de/vagrant-vbguest/blob/main/lib/vagrant-vbguest/installers/centos.rb#L100
 
 ```shell
+# Installation on Ubuntu 22.04
+curl https://apt.releases.hashicorp.com/gpg | gpg --dearmor > hashicorp.gpg
+sudo install -o root -g root -m 644 hashicorp.gpg /etc/apt/trusted.gpg.d/
+sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt install vagrant
+```
+
+```shell
 # Manually download box file
 # alpine-linux/alpine-x86_64
 # Get latest version
