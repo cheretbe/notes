@@ -10,11 +10,13 @@
     * Linux
         ```shell
         # curl https://freegeoip.app/json/
+        curl https://api.ipbase.com/json
         curl https://freegeoip.live/json/
         ```
     * Windows
         ```powershell
         # Invoke-RestMethod https://freegeoip.app/json
+        Invoke-RestMethod https://api.ipbase.com/json
         Invoke-RestMethod https://freegeoip.live/json/
         ```
 #### Linux
