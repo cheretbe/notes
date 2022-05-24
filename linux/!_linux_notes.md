@@ -1,5 +1,9 @@
 HEIC to JPG
 ```shell
+# this appears to work better
+sudo apt install libheif-examples
+for file in *.heic; do heif-convert $file ${file/%.heic/.jpg}; done
+# doesn't work?
 for i in *.heic; do ffmpeg -i "$i" "${i%.*}.jpg"; done
 ```
 
