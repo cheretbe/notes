@@ -45,6 +45,7 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
     * `2check`: https://askubuntu.com/questions/1048774/disabling-lock-screen-18-04/1064704#1064704
     * Hide mounted devices from Ubuntu Dock: `gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false`
     * Click to minimize: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'`
+        * :warning: 22.04 has `focus-minimize-or-previews` 
         * view available actions: `gsettings range org.gnome.shell.extensions.dash-to-dock click-action` (default for 20.04 is `focus-or-previews`)
         * 18.04: `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
         * https://launchpad.net/ubuntu/+source/gnome-shell-extension-ubuntu-dock
