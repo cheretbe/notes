@@ -13,7 +13,7 @@ gsettings list-keys org.gnome.shell.extensions.dash-to-dock
 gsettings range org.gnome.shell.extensions.dash-to-dock click-action
 ```
 --------
-* 18.04/20.04
+* 18.04/20.04/22.04
     * DNS fix + `apt purge avahi-daemon`? (check if removing avahi-daemon is enough for 18.04.03)
     * Move windows to other monitor: <kbd>Win</kbd>+<kbd>Shift</kbd>+arrows
     * Disable alert sounds: `gsettings set org.gnome.desktop.sound event-sounds false`
@@ -23,6 +23,8 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
         * https://www.gnome-look.org/p/1207034/
         * https://github.com/valr/awf
         * https://github.com/themix-project/oomox
+    * Login screen background: https://ubuntuhandbook.org/index.php/2022/04/login-screen-background-ubuntu-22-04/
+        * `./ubuntu-gdm-set-background --gradient vertical \#000099 \#000033`
     * Move the clock: http://frippery.org/extensions/ (Gnome version is in `/usr/share/gnome/gnome-version.xml`)
         * :warning: We need [Frippery Move Clock](https://extensions.gnome.org/extension/2/move-clock/) only, no need to install full GNOME Shell Frippery
             * `cat /usr/share/gnome/gnome-version.xml` 
