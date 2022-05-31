@@ -308,6 +308,11 @@ mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xv
 # Sender
 usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pv | mbuffer -q -s 128k -m 1G -O host.domain.tld:1234
 
+# Compression (yeah, after decompression in case of cpool usage)
+# Receiver
+mbuffer -q -4 -s 128k -m 1G -I 1234 > host_archive.tar.gz
+# Sender
+/usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pigz| pv | mbuffer -q -s 128k -m 1G -O host.domain.tld:1234
 ```
 
 ### Client config
