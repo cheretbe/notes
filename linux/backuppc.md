@@ -300,6 +300,14 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s "*" / | pigz > path/to/archive.tar.gz
 # List files to be copied (this is not a BackupPC_ls replacement :) )
 /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s /etc /vmware-tools | tar -tv
+
+# Network
+# No compression
+# Receiver
+mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xv
+# Sender
+usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pv | mbuffer -q -s 128k -m 1G -O host.domain.tld:1234
+
 ```
 
 ### Client config
