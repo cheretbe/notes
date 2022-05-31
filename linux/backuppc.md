@@ -260,6 +260,8 @@ newaliases
 ### Maintenance
 
 * https://backuppc.github.io/backuppc/BackupPC.html#Other-Command-Line-Utilities
+* Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
+* Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
 
 ```shell
 # View zlib-compressed log file
@@ -289,9 +291,16 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 # [!] Use screen utility even when deleting a single small file (reference update can take a while)
 # Use quotes for path with spaces
 /usr/local/BackupPC/bin/BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder "/path/with a space"
+
+# -n dumpNum      a negative number means relative to the end (eg -1 means the most recent dump, -2 2nd most recent etc)
+# -s shareName    can be "*" to mean all shares ([!] quotes are obligatory in this case)
+# Get files from a backup
+/usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n 0 -s "*" / | tar -xv --directory /path/to/a/dir/
+# Create an archive from the last host's backup
+/usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s "*" / | pigz > path/to/archive.tar.gz
+# List files to be copied (this is not a BackupPC_ls replacement :smiley:)
+/usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s /etc /vmware-tools | tar -tv
 ```
-* Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
-* Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
 
 ### Client config
 ```
