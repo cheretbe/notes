@@ -310,6 +310,7 @@ usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pv | mbu
 
 # Compression (yeah, after decompression in case of cpool usage)
 # [!] For high-speed LAN connections use compression on receiver (to save resources on server)
+# 2research (in spare time): is it possible to somehow passthrough verbose file names output between mbuffer and pigz on client?
 # Receiver
 mbuffer -q -4 -s 128k -m 1G -I 1234 > host_archive.tar.gz
 # Sender
