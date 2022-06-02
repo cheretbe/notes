@@ -17,7 +17,7 @@ Installation Check-List
 - [ ] Review https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router
 
 
-WLAN settings
+#### WLAN settings
 * :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
 
 - Band: 2GHz-B/G/N
