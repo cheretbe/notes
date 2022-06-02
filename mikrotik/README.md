@@ -18,6 +18,8 @@ Installation Check-List
 
 
 WLAN settings
+* :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
+
 - Band: 2GHz-B/G/N
 - 20/40 MHz Ce
 - Frequency: auto
@@ -251,6 +253,9 @@ put [/ip firewall filter get [find comment="comment"] src-address]
 ```
 
 #### Seamless WiFi clients roaming (CAPsMAN):
+
+
+* Provision: for 2.4 GHz select "Hw supported modes: gn", for 5 GHz "ac"
 ```
 /interface wireless cap
 set discovery-interfaces=ether1 enabled=yes interfaces=wlan1
