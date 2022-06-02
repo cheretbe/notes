@@ -19,6 +19,11 @@ Installation Check-List
 
 #### WLAN settings
 * :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
+* 8 reasons to turn down the transmit power of your Wi-Fi https://metis.fi/en/2017/10/txpower/
+* Signal to Noise Ratio (SNR): Around 20dB SNR or better should get you close to the maximum air data rate 
+    * https://www.sonicwall.com/support/knowledge-base/wireless-snr-rssi-and-noise-basics-of-wireless-troubleshooting/180314090744170/
+* Power dBm (Decibel Milliwatts)
+    * https://techmusa.com/wireless-dbm-table/
 
 - Band: 2GHz-B/G/N
 - 20/40 MHz Ce
