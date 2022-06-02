@@ -1,3 +1,8 @@
+Print to a network printer
+```shell
+cat print_test.prn | netcat -w 1 printer.domain.tld 9100
+```
+
 Quick transfer files between machines, aka tar pipe
 ```shell
 # receiver
