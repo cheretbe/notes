@@ -1,7 +1,9 @@
 * https://blogging.dragon.org.uk/dns-bind9-dhcp-ubuntu-16-04-2/
 * http://www.utternerd.org/journal-rollforward-failed-out-of-sync-with-zone
-* DNS Benchmark: https://www.grc.com/dns/benchmark.htm
-    * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
+* Tools
+    * DNS Benchmark: https://www.grc.com/dns/benchmark.htm
+        * Build Custom Nameserver List: System menu (Alt+Space) --> Build Custom Nameserver List
+    * DNS Jumper: https://www.sordum.org/7952/dns-jumper-v2-2/
     
 :exclamation: `apt-get remove avahi-daemon`
 ```
