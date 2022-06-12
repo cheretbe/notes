@@ -113,7 +113,9 @@ iptables-restore < /etc/iptables/rules.v4
 
 * https://askubuntu.com/questions/1031439/am-i-running-networkmanager-or-networkd/1246465#1246465
 ```shell
+nmcli dev status
 networkctl list
+service dhcpcd status
 ```
 
 
@@ -131,7 +133,7 @@ nmcli general
 nmcli dev status
 
 # View active connections
-nmcli dev status
+nmcli con show --active
 
 # View ipv4 settings
 nmcli -t --fields ipv4 con show <connectionName>
