@@ -396,9 +396,15 @@ reboot
 * Diagnostics: https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
 * https://play.google.com/store/apps/details?id=com.vrem.wifianalyzer&hl=en_GB
 
-```
+```shell
 iwconfig
 apt install wpasupplicant
+
+# [!] Add the line "p2p_disabled=1" in "/etc/wpa_supplicant/wpa_supplicant.conf" to disable the p2p interface
+# List interfaces
+wpa_cli interface
+# View interface status
+wpa_cli -i wlan0 status
 ```
 
 #### WPA-PSK
