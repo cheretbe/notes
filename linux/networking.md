@@ -168,7 +168,7 @@ To import `.ovpn` file don't select `OpenVPN` menu item, use `Import from file..
 
 ### systemd-networkd (networkd)
 
-* :warning: (Detect network renderer)[#detect-network-renderer]
+* :warning: [Detect network renderer](#detect-network-renderer)
 ```shell
 networkctl list
 ```
