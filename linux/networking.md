@@ -403,10 +403,10 @@ reboot
 ls -lha /sys/class/net
 # List available Wi-Fi networks
 iwlist wlp0s20f3 scan
-
+# View status
 iwconfig
-apt install wpasupplicant
 
+apt install wpasupplicant
 # [!] Add the line "p2p_disabled=1" in "/etc/wpa_supplicant/wpa_supplicant.conf" to disable the p2p interface
 # List interfaces
 wpa_cli interface
