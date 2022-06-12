@@ -371,6 +371,10 @@ reboot
 :warning: TODO: Do some tests on Ubuntu/CentOS and update this section
 
 ### WLAN
+
+* Diagnostics: https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
+* https://play.google.com/store/apps/details?id=com.vrem.wifianalyzer&hl=en_GB
+
 ```
 iwconfig
 apt install wpasupplicant
@@ -378,7 +382,7 @@ apt install wpasupplicant
 
 #### WPA-PSK
 * https://en.wikipedia.org/wiki/Wi-Fi_Protected_Access#Target_users_.28authentication_key_distribution.29
-    * Generate key
+    * Generate key using Python
       ```python
       import hashlib, binascii
       binascii.hexlify(hashlib.pbkdf2_hmac("sha1", str.encode("password"), str.encode("ssid"), 4096, 32))
@@ -386,9 +390,7 @@ apt install wpasupplicant
     * https://stackoverflow.com/questions/46502224/python-wpa-passphrase-linux-binary-implementation-generates-only-part-of-the-p/62758303#62758303
     * WPA PSK (Raw Key) Generator: https://www.wireshark.org/tools/wpa-psk.html
 
-* Diagnostics: https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
-* https://play.google.com/store/apps/details?id=com.vrem.wifianalyzer&hl=en_GB
-
+#### Netplan
 ```yaml
 network:
   version: 2
