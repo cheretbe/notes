@@ -1,3 +1,20 @@
+`/etc/wpa_supplicant/wpa_supplicant.conf` example:
+```
+country=RU
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+ap_scan=1
+
+update_config=1
+network={
+	scan_ssid=1
+	ssid="ssid"
+   # password
+   # https://github.com/cheretbe/notes/blob/master/linux/networking.md#wpa-psk
+	psk=44116ea881531996d8a23af58b376d70f196057429c258f529577a26e727ec1b
+}
+```
+
+
 * https://www.jeffgeerling.com/blog/2020/raspberry-pi-400-can-be-overclocked-22-ghz
 * Flirc case
     * https://flirc.tv/more/raspberry-pi-4-case
