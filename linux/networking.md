@@ -109,6 +109,14 @@ iptables -D INPUT -p tcp -m tcp --dport 1194 -m comment --comment "Allow VPN" -j
 iptables-restore < /etc/iptables/rules.v4
 ```
 
+### Detect network renderer
+
+* https://askubuntu.com/questions/1031439/am-i-running-networkmanager-or-networkd/1246465#1246465
+```shell
+networkctl list
+```
+
+
 ### NetworkManager
 
 * https://developer.gnome.org/NetworkManager/stable/nmcli.html
@@ -120,6 +128,9 @@ iptables-restore < /etc/iptables/rules.v4
 # General info
 nmcli -t -f RUNNING general
 nmcli general
+nmcli dev status
+
+# View active connections
 nmcli dev status
 
 # View ipv4 settings
@@ -154,6 +165,14 @@ OpenVPN plugin<br>
 apt-get install network-manager-openvpn network-manager-openvpn-gnome
 ```
 To import `.ovpn` file don't select `OpenVPN` menu item, use `Import from file...` at the bottom
+
+### systemd-networkd (networkd)
+
+* :warning: (Detect network renderer)[#detect-network-renderer]
+```shell
+networkctl list
+```
+
 
 ### Disable IPv6
 Check status
