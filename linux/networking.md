@@ -134,6 +134,8 @@ nmcli dev status
 
 # View active connections
 nmcli con show --active
+# List Wi-Fi networks
+nmcli dev wifi
 
 # View ipv4 settings
 nmcli -t --fields ipv4 con show <connectionName>
@@ -397,6 +399,11 @@ reboot
 * https://play.google.com/store/apps/details?id=com.vrem.wifianalyzer&hl=en_GB
 
 ```shell
+# List network interfaces
+ls -lha /sys/class/net
+# List available Wi-Fi networks
+iwlist wlp0s20f3 scan
+
 iwconfig
 apt install wpasupplicant
 
