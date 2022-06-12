@@ -120,7 +120,7 @@ service dhcpcd status
 
 
 ### NetworkManager
-
+* * :warning: [Detect network renderer](#detect-network-renderer)
 * https://developer.gnome.org/NetworkManager/stable/nmcli.html
 * https://developer.gnome.org/NetworkManager/stable/nmcli-examples.html
 * https://developer.gnome.org/NetworkManager/stable/NetworkManager.conf.html
