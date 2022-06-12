@@ -2,7 +2,7 @@
 
 1. Install
 ```shell
-apt install unattended-upgrades
+DEBIAN_PRIORITY=low apt install unattended-upgrades
 dpkg-reconfigure --priority=low unattended-upgrades
 ```
 
