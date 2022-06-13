@@ -1,3 +1,9 @@
+View undervoltage log messages
+```
+journalctl -b 0 _KERNEL_SUBSYSTEM=hwmon
+journalctl -f _KERNEL_SUBSYSTEM=hwmon
+```
+
 On `Raspberry Pi OS Lite (Debian 11)` network is managed by `ifupdown` and `dhcpcd`.
 * https://github.com/cheretbe/notes/blob/master/linux/networking.md#dhcpcd
 ```shell
