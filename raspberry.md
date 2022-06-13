@@ -1,3 +1,8 @@
+```shell
+# View model
+cat /proc/cpuinfo | grep Model
+```
+
 * https://forums.raspberrypi.com/viewtopic.php?t=224493
 
 View undervoltage log messages
