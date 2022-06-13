@@ -51,10 +51,14 @@ journalctl | grep dnf
 
 # View the list of field names for match arguments (_PID, _COMM, etc.)
 man systemd.journal-fields
+# [!] or analyze `journalctl -b 0 -o json-pretty` output to find out both
+#     field names and values
 # See messages by PID
 journalctl -b 0 _PID=9400
 # See messages by process name
 journalctl -b 0 _COMM=mailnag
+# See messages by kernel subsystem
+journalctl -b 0 _KERNEL_SUBSYSTEM=hwmon
 
 # Time window
 journalctl --since "2015-01-14" --until "2015-01-15 03:00"
