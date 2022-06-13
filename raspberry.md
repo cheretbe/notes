@@ -8,6 +8,7 @@ service dhcpcd restart
 wpa_cli -i wlan0 reconfigure
 ```
 * https://github.com/cheretbe/notes/blob/master/linux/networking.md#wlan
+
 `/etc/wpa_supplicant/wpa_supplicant.conf` example:
 ```
 country=RU
