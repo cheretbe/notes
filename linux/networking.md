@@ -177,6 +177,25 @@ To import `.ovpn` file don't select `OpenVPN` menu item, use `Import from file..
 networkctl list
 ```
 
+### dhcpcd
+
+```shell
+# other terminal
+ip monitor
+ip monitor link
+# this terminal
+service dhcpcd restart
+```
+
+`/etc/dhcpcd.conf` settings
+```
+# Use predictable interface names since this  is a space or comma separated
+# list of patterns passed to fnmatch
+denyinterfaces eth0
+
+clientid "host.domain.tld"
+```
+
 
 ### Disable IPv6
 Check status
