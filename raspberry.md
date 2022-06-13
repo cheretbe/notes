@@ -1,3 +1,4 @@
+On `Raspberry Pi OS Lite (Debian 11)` network is managed by `ifupdown` and `dhcpcd`.
 * https://github.com/cheretbe/notes/blob/master/linux/networking.md#dhcpcd
 ```shell
 # Restart networking
