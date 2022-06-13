@@ -1,3 +1,12 @@
+```shell
+# Restart networking
+# [?] Order of commands will be different depending on configuration change 
+service networking restart
+service dhcpcd restart
+# After editing /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_cli -i wlan0 reconfigure
+```
+
 `/etc/wpa_supplicant/wpa_supplicant.conf` example:
 ```
 country=RU
