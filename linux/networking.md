@@ -185,6 +185,9 @@ ip monitor
 ip monitor link
 # this terminal
 service dhcpcd restart
+
+ip link set enp3s0 down
+ip addr delete 192.168.0.50/24 dev enp3s0
 ```
 
 `/etc/dhcpcd.conf` settings
