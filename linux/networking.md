@@ -434,6 +434,8 @@ apt install wpasupplicant
 wpa_cli interface
 # View interface status
 wpa_cli -i wlan0 status
+# Reload after editing /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_cli -i wlan0 reconfigure
 ```
 
 #### WPA-PSK
