@@ -117,7 +117,9 @@ nmcli dev status
 networkctl list
 service dhcpcd status
 ```
-
+* [NetworkManager](#networkmanager)
+* [systemd-networkd (networkd)](#systemd-networkd-networkd)
+* [dhcpcd](#dhcpcd)
 
 ### NetworkManager
 * * :warning: [Detect network renderer](#detect-network-renderer)
@@ -178,7 +180,8 @@ networkctl list
 ```
 
 ### dhcpcd
-
+Tested on Raspberry Pi OS Lite (Debian 11) only
+* :warning: [Detect network renderer](#detect-network-renderer)
 ```shell
 # other terminal
 ip monitor
