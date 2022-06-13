@@ -1,3 +1,4 @@
+* https://github.com/cheretbe/notes/blob/master/linux/networking.md#dhcpcd
 ```shell
 # Restart networking
 # [?] Order of commands will be different depending on configuration change 
@@ -17,8 +18,8 @@ update_config=1
 network={
 	scan_ssid=1
 	ssid="ssid"
-   # password
-   # https://github.com/cheretbe/notes/blob/master/linux/networking.md#wpa-psk
+	# password
+	# https://github.com/cheretbe/notes/blob/master/linux/networking.md#wpa-psk
 	psk=44116ea881531996d8a23af58b376d70f196057429c258f529577a26e727ec1b
 }
 ```
