@@ -24,6 +24,11 @@ TAP adapter to try on Windows 7 with driver signature problems: https://build.op
 
 ### Linux
 
+```shell
+# View log for NetworkManager connection
+journalctl -f _COMM=openvpn
+```
+
 #### DNS
 DNS management for VPNs with `systemd-resolved` is a mess:
 * https://github.com/systemd/systemd/issues/6076
