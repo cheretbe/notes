@@ -71,6 +71,12 @@ systemctl edit apt-cacher-ng.service
 # [!!] Timer unit example
 systemctl edit dnf-automatic-install.timer
 ```
+:warning: Explicitly clear ExecStart before setting it again, as it is an additive setting, similar to other lists like `Environment` (as a whole, not per-variable) and `EnvironmentFile`. Otherwise you will get the error "bluetooth.service: Service has more than one ExecStart= setting, which is only allowed for Type=oneshot services. Refusing."
+```
+[Service]
+ExecStart=
+ExecStart=/usr/lib/bluetooth/bluetoothd --noplugin=avrcp
+```
 
 To check if the file is in use view service status:
 ```
