@@ -59,6 +59,9 @@ systemctl list-timers --all
 ```
 
 #### Override some settings in existing unit file
+
+:point_right: * https://askubuntu.com/questions/659267/how-do-i-override-or-configure-systemd-services/659268#659268
+
 The correct way to do this is to create a directory named after the unit file with `.d` appended on the end. So for a unit called `example.service`, a subdirectory called `example.service.d` could be created. Within this directory a file ending with `.conf` can be used to override or extend the attributes of the system's unit file.
 
 For example, for a unit file `/run/systemd/generator.late/isc-dhcp-server.service` (automatically generated for `/etc/init.d/isc-dhcp-server`) the drop-in file name will be:<br>
