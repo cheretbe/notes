@@ -19,6 +19,11 @@
         Invoke-RestMethod https://api.ipbase.com/json
         Invoke-RestMethod https://freegeoip.live/json/
         ```
+    * Mikrotik
+        ```
+        :put [/tool fetch url=https://freegeoip.live/json as-value output=user]
+        :put [/tool fetch url=https://freegeoip.live/json/ as-value output=user]
+        ```
 #### Linux
 ```shell
 sudo apt update
