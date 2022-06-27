@@ -88,6 +88,11 @@ References
 * https://gitlab.com/gitlab-org/gitlab-ce/issues/15574#note_12468383
 * https://gist.github.com/sameersbn/becd1c976c3dc4866ef8
 
+### CI/CD
+
+* https://www.digitalocean.com/community/tutorials/how-to-set-up-a-continuous-deployment-pipeline-with-gitlab-ci-cd-on-ubuntu-18-04
+
+
 ### SSL with Let's Encrypt certificate
 ```
 sudo mkdir -p /var/www/letsencrypt
