@@ -361,6 +361,8 @@ openssl req -in mycsr.csr -noout -text
 View certificate info
 ```shell
 openssl x509 -in certificate.crt -text -noout
+# SHA1 fingerprint
+openssl x509 -in certificate.crt -noout -fingerprint
 ```
 
 Verify certificate
