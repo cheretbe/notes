@@ -124,6 +124,7 @@ sudo usermod -aG docker ${USER}
 
 # Apply new group membership without logging out
 su - $USER
+id
 ```
 
 Move `/var/lib/docker/`
