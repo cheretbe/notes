@@ -128,6 +128,14 @@ is just a synonym/alias/shortcut for the special Git reference `HEAD`.
 
 ### Cheat Sheet
 ```shell
+# view history of changes for single file (#revisions)
+git log -- filename
+# use --follow to include history of renames
+git log --follow -- filename
+# view actual changes
+git log -p -- filename
+
+
 # View added, but not committed changes
 git diff --cached [myfile.txt]
 # In more recent versions of git, --staged is a synonym for --cached
