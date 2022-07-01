@@ -1,0 +1,3 @@
+```batch
+manage-bde -status
+```
