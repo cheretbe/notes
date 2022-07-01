@@ -135,6 +135,9 @@ git log --follow -- filename
 # view actual changes
 git log -p -- filename
 
+# Revert a single file to a previous commit
+git checkout <commit> filename
+
 
 # View added, but not committed changes
 git diff --cached [myfile.txt]
