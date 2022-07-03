@@ -105,6 +105,7 @@ end
     # deny|allow-vms|allow-all
     vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     # Virtio supports VLAN tagging in guests
+    # [!] NICs are 1-based
     vb.customize ["modifyvm", :id, "--nictype2", "virtio"]
 
     
