@@ -293,28 +293,33 @@ iface eth1 inet static
 Ubuntu Netplan (/etc/netplan/01-netcfg.yaml)
 ```yaml
 network:
- version: 2
- renderer: networkd
- ethernets:
-   eth0:
-     dhcp4: false
-   eth1:
-     dhcp4: true
-     # Will speed up boot process if there is no DHCPv6 server available
-     dhcp6: no
-     # Disable waiting for interface to fully activate
-     optional: true
-     #dhcp-identifier: mac
- bridges:
-   br0:
-     interfaces: [eth0]
-     dhcp4: false
-     addresses: [192.168.1.99/24]
-     gateway4: 192.168.1.1
-     nameservers:
-       addresses: [1.1.1.1,8.8.8.8]
-     parameters:
-       forward-delay: 0
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: false
+    eth1:
+      dhcp4: true
+      # Will speed up boot process if there is no DHCPv6 server available
+      dhcp6: no
+      # Disable waiting for interface to fully activate
+      optional: true
+      #dhcp-identifier: mac
+    enp0s3:
+      dhcp4: true
+      dhcp4-overrides:
+        use-routes: false
+        use-dns: false
+  bridges:
+    br0:
+      interfaces: [eth0]
+      dhcp4: false
+      addresses: [192.168.1.99/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [1.1.1.1,8.8.8.8]
+      parameters:
+        forward-delay: 0
 ```
 ```shell
 # Apply configuration
