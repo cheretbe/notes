@@ -149,8 +149,12 @@ nmcli --fields IP4 dev show
 # Modify settings for an existing connection
 nmcli con mod <connectionName> ipv4.dns "8.8.8.8 8.8.4.4"
 nmcli con mod <connectionName> ipv4.ignore-auto-dns yes
+# DHCP client ID
+nmcli con mod <connectionName> ipv4.dhcp-client-id my-client-id
+# reset to default (MAC address)
+nmcli con mod <connectionName> ipv4.dhcp-client-id ""
 # Apply changes
-# (not necessary?) nmcli con down <connectionName>
+# (not necessary) nmcli con down <connectionName>
 nmcli con up <connectionName>
 ```
 
