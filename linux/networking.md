@@ -126,6 +126,7 @@ service dhcpcd status
 * https://developer.gnome.org/NetworkManager/stable/nmcli.html
 * https://developer.gnome.org/NetworkManager/stable/nmcli-examples.html
 * https://developer.gnome.org/NetworkManager/stable/NetworkManager.conf.html
+* :point_right: https://networkmanager.dev/docs/api/latest/nm-settings-nmcli.html
 * :warning: https://developer.gnome.org/NetworkManager/stable/nmtui.html (especially useful for Wi-Fi config)
 
 ```shell
@@ -145,6 +146,9 @@ nmcli -t --fields ipv4 con show <connectionName>
 nmcli -t --fields IP4 con show <connectionName>
 # All devices
 nmcli --fields IP4 dev show
+
+# Rename a connection (change id - human-readable identifier)
+nmcli connection modify "Wired connection 2" connection.id "ThinkPad USB dock"
 
 # Modify settings for an existing connection
 nmcli con mod <connectionName> ipv4.dns "8.8.8.8 8.8.4.4"
