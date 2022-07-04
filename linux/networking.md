@@ -321,6 +321,7 @@ network:
       parameters:
         forward-delay: 0
 ```
+* :warning: https://netplan.io/reference/
 ```shell
 # Apply configuration
 sudo netplan generate
