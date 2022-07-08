@@ -1,3 +1,4 @@
+* :point_right: https://docs.saltproject.io/en/getstarted/overview.html
 * **https://www.linode.com/docs/applications/configuration-management/beginners-guide-to-salt/**
 * **https://serverfault.com/questions/590755/hostname-of-minion-in-salt-command/615852#615852**
 * https://www.linode.com/docs/applications/configuration-management/introduction-to-jinja-templates-for-salt/
