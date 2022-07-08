@@ -27,7 +27,10 @@
 * **Top File** - Matches formulas and Salt pillar data to Salt minions
 
 ```shell
-
+salt-key -L | less
+salt-key --accept host.domain.tld
+salt host.domain.tld saltutil.running
+salt host.domain.tld cmd.run "hostname -f; uptime"
 
 salt-run manage.up
 salt-run manage.status
