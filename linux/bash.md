@@ -3,6 +3,10 @@
 * https://github.com/boldleadsdevelopment/lockdown/blob/master/lib/determine_linux_distro
 * http://hackaday.com/2017/07/21/linux-fu-better-bash-scripting/
 
+```shell
+echo "HISTCONTROL=ignoreboth" >>~/.bashrc
+```
+
 
 Try adding the following to `~/.inputrc` file:
 ```
