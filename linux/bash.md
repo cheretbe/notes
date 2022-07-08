@@ -4,7 +4,7 @@
 * http://hackaday.com/2017/07/21/linux-fu-better-bash-scripting/
 
 ```shell
-echo "HISTCONTROL=ignoreboth" >>~/.bashrc
+echo "HISTCONTROL=ignoreboth:erasedups" >>~/.bashrc
 ```
 
 
