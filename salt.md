@@ -16,7 +16,19 @@
 * https://github.com/saltstack/salt-bootstrap#install-using-curl
 * https://stackoverflow.com/questions/52746217/call-a-salt-state-from-another-salt-state/52756463#52756463
 
+### General info
+
+* **Salt Master** - Central management system
+* **Salt Minions** - Managed systems
+* **Execution Modules** - Ad hoc commands executed from the command line against one or more managed systems
+* **Formulas (States)** - A declarative or imperative representation of a system configuration
+* **Grains** - System variables. Grains are static information about the underlying managed system and include operating system, memory, and many other system properties. You can also define custom grains for any system.
+* **Pillars** - User-defined variables. These secure variables are defined and stored on the Salt Master and then "assigned" to one or more minions using targets.
+* **Top File** - Matches formulas and Salt pillar data to Salt minions
+
 ```shell
+
+
 salt-run manage.up
 salt-run manage.status
 salt-run manage.down
