@@ -26,6 +26,9 @@
 * **Pillars** - User-defined variables. These secure variables are defined and stored on the Salt Master and then "assigned" to one or more minions using targets.
 * **Top File** - Matches formulas and Salt pillar data to Salt minions
 
+
+`/etc/salt/master.d/gitfs.conf` example?
+
 ```shell
 salt-key -L | less
 salt-key --accept host.domain.tld
