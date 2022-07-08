@@ -34,4 +34,3 @@ foreach ($objNACItem in $objWin32NAC) {
  Write-Host $hexified
 ```
 * https://vmind.ru/2018/02/01/dhcp-option-61-clientid-windows10/
-* 
