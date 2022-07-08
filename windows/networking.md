@@ -19,3 +19,19 @@ Set-DnsClientServerAddress -InterfaceIndex 9 -ResetServerAddresses
 
 Invoke-RestMethod https://freegeoip.app/json
 ```
+
+Set custom DHCP client ID
+```powershell
+$client_id="v12345678"
+
+$hexified=[System.Text.Encoding]::ASCII.GetBytes($client_id)
+$objWin32NAC = Get-WmiObject -Class Win32_NetworkAdapterConfiguration -namespace "root\CIMV2" -computername "." -Filter "IPEnabled = 'True' AND DHCPEnabled ='True'"
+foreach ($objNACItem in $objWin32NAC) {
+  $nic = ($objNACItem.SettingID)
+  New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\Interfaces\$nic -Force -Name DhcpClientIdentifier -PropertyType Binary -Value ([byte[]]$hexified)
+ }
+ Write-Host $nic
+ Write-Host $hexified
+```
+* https://vmind.ru/2018/02/01/dhcp-option-61-clientid-windows10/
+* 
