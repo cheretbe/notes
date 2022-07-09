@@ -93,7 +93,7 @@ docker rm test
     * https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee/57678382#57678382
     * https://www.collabora.com/news-and-blog/blog/2018/07/04/docker-io-debian-package-back-to-life/
 ```shell
-# Tested on Ubuntu 22.04
+# Tested on Ubuntu 20.04, 22.04
 
 # Install prerequisites
 sudo apt install ca-certificates curl gnupg lsb-release
@@ -114,7 +114,7 @@ sudo apt update
 apt-cache policy docker-ce
 
 # Install Docker
-sudo install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # [!!] Don't forget to update /etc/apt/apt.conf.d/50unattended-upgrades
 
