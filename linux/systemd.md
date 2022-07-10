@@ -58,6 +58,23 @@ systemctl list-timers
 systemctl list-timers --all
 ```
 
+#### Auto-mounting
+* https://sleeplessbeastie.eu/2017/09/25/how-to-mount-webdav-share-using-systemd/
+* https://unix.stackexchange.com/questions/283442/systemd-mount-fails-where-setting-doesnt-match-unit-name/345518#345518
+
+```shell
+# Mounting fails when mountpoint contains dash 
+# mnt-seafile-user.automount: Where= setting doesn't match unit name. Refusing.
+
+# Using underscore would have solved the problem according to systemd-escape:
+# The following command outputs "mnt-seafile_user.automount"
+systemd-escape -p --suffix=automount "/mnt/seafile_user"
+# But it doesn't. At least on Ubuntu 18.04 (bionic) using "mnt_seafile_user.automount" as
+# a unit name still fails
+# [!!] TODO: test on more recent versions of Ubuntu
+# So we keep dash and use ugly escaping "mnt-seafile\x2duser.automount"
+```
+
 #### Override some settings in existing unit file
 
 * :point_right: https://askubuntu.com/questions/659267/how-do-i-override-or-configure-systemd-services/659268#659268
