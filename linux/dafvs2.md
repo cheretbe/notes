@@ -2,7 +2,6 @@
 
 * https://wiki.archlinux.org/title/Davfs2
 * :warning: Secrets file format is described in `/etc/davfs2/secrets`
-* **TODO:** Try systemd mounting (https://wiki.archlinux.org/title/Davfs2, `Using systemd` section)
 
 Secrets file `/etc/davfs2/secrets` entry example
 ```
