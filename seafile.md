@@ -54,7 +54,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 ### WebDAV
 
 * (seems like installation script is more up-to-date) https://manual.seafile.com/extension/webdav/
-* Client config: [./linux/dafvs2.md](./linux/dafvs2.md) (:warning: Everything is alredy there, including auto-mounting, just look closely :wink:)
+* Client config: [./linux/dafvs2.md](./linux/dafvs2.md) (:warning: Everything is already there, including auto-mounting, just look closely :wink:)
 
 ### seaf-cli
 ```shell
