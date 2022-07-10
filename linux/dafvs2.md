@@ -31,6 +31,8 @@ mount -t davfs https://host.domain.tld:1234/seafdav /mnt/dir/ -o uid=user,gid=us
 
 ### Auto-mount on boot
 
+:warning: Consider using systemd automount instead: [./systemd.md#auto-mounting](./systemd.md#auto-mounting)
+
 `/etc/fstab` entry
 ```
 # For root user credentials will be read from /etc/davfs2/secrets
