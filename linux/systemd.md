@@ -81,7 +81,7 @@ nano /etc/systemd/system/mnt-seafile\\x2user.mount
 ```
 ```
 [Unit]
-Description=Mount user datastore on seafile.chere.one
+Description=Mount user datastore on host.domain.tld
 After=network-online.target
 Wants=network-online.target
 
@@ -101,7 +101,7 @@ nano /etc/systemd/system/mnt-seafile\\x2user.automount
 ```
 ```
 [Unit]
-Description=Auto-mount user datastore on seafile.chere.one
+Description=Auto-mount user datastore on host.domain.tld
 After=network-online.target
 Wants=network-online.target
 
