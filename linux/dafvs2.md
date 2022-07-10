@@ -1,3 +1,5 @@
+### Configuration
+
 * https://wiki.archlinux.org/title/Davfs2
 * :warning: Secrets file format is described in `/etc/davfs2/secrets`
 * **TODO:** Try systemd mounting (https://wiki.archlinux.org/title/Davfs2, `Using systemd` section)
@@ -19,9 +21,18 @@ usermod -aG davfs2 <username>
 # https://host.domain.tld:1234/seafdav /mnt/dir davfs user,rw,noauto 0 0
 # A user needs ~/.davfs2/secrets file with correct permissions (user:user 600) present
 # to be able to mount without entering credentials
+```
 
-# Auto-mount on boot
-# /etc/fstab entry
-# https://host.domain.tld:1234/seafdav /mnt/dir davfs defaults,uid=username,gid=groupname,_netdev,auto 0 0
+```shell
+# Test if everything works by mounting the share manually
+mount -t davfs https://host.domain.tld:1234/seafdav /mnt/dir/ -o uid=user,gid=user
+```
+
+
+### Auto-mount on boot
+
+`/etc/fstab` entry
+```
 # For root user credentials will be read from /etc/davfs2/secrets
+https://host.domain.tld:1234/seafdav /mnt/dir davfs defaults,uid=username,gid=groupname,_netdev,auto 0 0
 ```
