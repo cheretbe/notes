@@ -75,6 +75,51 @@ systemd-escape -p --suffix=automount "/mnt/seafile_user"
 # So we keep dash and use ugly escaping "mnt-seafile\x2duser.automount"
 ```
 
+```shell
+[!] Note the double backslash
+nano /etc/systemd/system/mnt-seafile\\x2user.mount
+```
+```
+[Unit]
+Description=Mount user datastore on seafile.chere.one
+After=network-online.target
+Wants=network-online.target
+
+[Mount]
+What=https://host.domain.tld:1234/seafdav
+Where=/mnt/seafile-user
+Options=noauto,user,uid=user,gid=user,_netdev
+Type=davfs
+TimeoutSec=60
+
+[Install]
+WantedBy=remote-fs.target
+```
+```shell
+[!] Note the double backslash again
+nano /etc/systemd/system/mnt-seafile\\x2user.automount
+```
+```
+[Unit]
+Description=Auto-mount user datastore on seafile.chere.one
+After=network-online.target
+Wants=network-online.target
+
+[Automount]
+Where=/mnt/seafile-user
+TimeoutIdleSec=300
+
+[Install]
+WantedBy=remote-fs.target
+```
+```shell
+systemctl daemon-reload
+systemctl status mnt-seafile\\x2duser.automount
+systemctl is-enabled mnt-seafile\\x2duser.automount
+systemctl enable mnt-seafile\\x2duser.automount
+systemctl start mnt-seafile\\x2duser.automount
+```
+
 #### Override some settings in existing unit file
 
 * :point_right: https://askubuntu.com/questions/659267/how-do-i-override-or-configure-systemd-services/659268#659268
