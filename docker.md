@@ -5,8 +5,12 @@
 * **A minimal Ubuntu base image modified for Docker-friendliness:** https://github.com/phusion/baseimage-docker
     * Use `phusion/baseimage:master` until [version scheme](https://github.com/phusion/baseimage-docker/issues/543) is changed
 * :warning: **Test docker on Raspberry:** https://phoenixnap.com/kb/docker-on-raspberry-pi
+
+### Docker Compose
+
+* Directory structure example: https://github.com/rundeck/docker-zoo
     
-#### Ansible tests
+### Ansible tests
 Possible strategies for Molecule test
 * Keep using `geerlingguy/docker-ubuntu1804-ansible` etc. (easiest, but takes time to update packages)
 * Rebuild geerlingguy's containers and publish them independently (most logical, but also most work to be done)
