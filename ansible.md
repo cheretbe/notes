@@ -1,3 +1,5 @@
+* VMware vSphere Automation SDK: https://github.com/vmware/vsphere-automation-sdk-python
+    * Used in https://github.com/ansible-collections/community.vmware
 * Review when time permits: https://github.com/ekultails/rootpages/blob/master/src/automation/ansible.rst
 * :warning: Five Ansible Techniques I Wish I'd Known Earlier: https://zwischenzugs.com/2021/08/27/five-ansible-techniques-i-wish-id-known-earlier/
     * https://www.reddit.com/r/ansible/comments/pd8erk/five_ansible_techniques_i_wish_id_known_earlier/haoslej?utm_source=share&utm_medium=web2x&context=3
