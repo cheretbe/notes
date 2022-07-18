@@ -45,8 +45,17 @@ gitlab_rails['backup_keep_time'] = 604800
 ```
 ```
 gitlab-ctl reconfigure
-/opt/gitlab/bin/gitlab-rake gitlab:backup:create
-/opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
+
+# GitLab 12.2 or later
+sudo gitlab-backup create
+# The CRON=1 environment setting directs the backup script to hide all progress
+# output if there aren't any errors. This is recommended to reduce cron spam.
+# When troubleshooting backup problems, however, replace CRON=1 with --trace to log verbosely.
+/opt/gitlab/bin/gitlab-backup create CRON=1
+
+# GitLab 12.1 and earlier
+#/opt/gitlab/bin/gitlab-rake gitlab:backup:create
+#/opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
 ```
 Default path is `/var/opt/gitlab/backups`
 
