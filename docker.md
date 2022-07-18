@@ -9,6 +9,7 @@
 ### Docker Compose
 
 * Directory structure example: https://github.com/rundeck/docker-zoo
+* GitLab with a runner example: https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/
     
 ### Ansible tests
 Possible strategies for Molecule test
