@@ -66,6 +66,9 @@ apt-cache policy gitlab-ce
 # Install specific version
 apt install -s gitlab-ce=12.3.3-ce.0
 ```
+* Restoration gotchas
+    * `gitlab-backup restore` searches for .tar files in `/var/opt/gitlab/backups`
+    * when restoring to a temporary location like Docker container, adjust `external_url` and `proxy_set_headers` accordingly
 
 ### Reverse proxy
 Settings for `/etc/gitlab/gitlab.rb` on Gitlab server:
