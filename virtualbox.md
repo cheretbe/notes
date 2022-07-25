@@ -40,6 +40,9 @@ list systemproperties | grep -i 'Default Guest Additions ISO'
 
 ### Sample vboxmanage commands
 ```shell
+# Move a VM to a new location
+vboxmanage movevm <uuid|vmname> --type basic --folder /mnt/data/vm/__vagrant
+
 # List all VMs
 vboxmanage list vms
 # List running VMs
