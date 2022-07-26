@@ -42,6 +42,15 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
    max_sync_file_count = -1
    fs_id_list_request_timeout = -1
    ```
+   * https://forum.seafile.com/t/size-too-large-changes-in-ccnet-and-seafile-conf-without-effect/15025
+   * Fix for `Size too large` error
+   ```
+   [fileserver]
+   # Set maximum upload file size to 200M
+   max_upload_size=200
+   # Set maximum download directory size to 200M
+   max_download_dir_size=200
+   ```
 * Maintenance
     * https://manual.seafile.com/maintain/
     * `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run` 
