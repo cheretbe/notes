@@ -35,6 +35,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://shoeper.gitbooks.io/seafile-docs/content/deploy/using_logrotate.html
 * https://shoeper.gitbooks.io/seafile-docs/content/security/fail2ban.html
 * `/opt/seafile/conf/seafile.conf`
+   * :warning: restart after editing options: `systemctl restart seafile-server`
    * https://manual.seafile.com/config/seafile-conf/
    * https://manual.seafile.com/config/seafile-conf/#seafile-fileserver-configuration
    * New in Seafile Pro 7.1.16 and Pro 8.0.3: You can set the maximum number of files contained in a library that can be synced by the Seafile client. The default is 100000. When you download a repo, Seafile client will request fs id list, and you can control the timeout period of this request through fs_id_list_request_timeout configuration, which defaults to 5 minutes. These two options are added to prevent long fs-id-list requests from overloading the server. Since Pro 8.0.4 version, you can **set both options to -1**, to allow unlimited size and timeout.
