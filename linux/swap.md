@@ -19,6 +19,10 @@ swapoff -a
 #             notrunc: do not truncate the output file
 dd if=/dev/zero of=/swapfile bs=$(cat /proc/meminfo | awk '/MemTotal/ {print $2}') count=1024 conv=notrunc
 ```
+#### Hibernation
+
+[hibernation.md](./hibernation.md)
+
 #### Find out processes that use max swap
 
 `htop` [doesn't show swap](https://hisham.hm/htop/index.php?page=faq) column. Yes, it's not 100% accurate, but most of the time it doesn't matter: I just need to quickly see what eats my swap. Approximate numbers are fine, just don't show this column by default (and possibly warn user if they turn this column on). Anyway, thankfully `top` does exactly that (without a warning part).
