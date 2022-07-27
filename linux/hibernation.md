@@ -4,4 +4,14 @@ swapoff /swapfile
 dd if=/dev/zero of=/swapfile bs=$(cat /proc/meminfo | awk '/MemTotal/ {print $2}') count=1024 conv=notrunc
 mkswap /swapfile
 swapon /swapfile
+
+blkid $(df -P / | tail -1 | cut -d' ' -f 1)
+
+filefrag -v /swapfile
+
+# Filesystem type is: ef53
+# File size of /swapfile is 16419532800 (4008675 blocks of 4096 bytes)
+#  ext:     logical_offset:        physical_offset: length:   expected: flags:
+#    0:        0..   63487:      34816..     98303:  63488:
+#                                |<------ we need this
 ```
