@@ -53,3 +53,8 @@ unzip ~/Downloads/hibernate-statusdromi.v33.shell-extension.zip -d ~/.local/shar
 apt install gnome-shell-extensions
 #Logoff/logon, then run "Extensions" application
 ```
+
+* https://www.linuxuprising.com/2021/08/how-to-enable-hibernation-on-ubuntu.html
+* https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/#comments
+* https://rephlex.de/blog/2019/12/27/how-to-hibernate-and-resume-from-swap-file-in-ubuntu-20-04-using-full-disk-encryption/
+* http://blog.holdenkarau.com/2022/05/making-hibernate-work-on-ubuntu-2204.html
