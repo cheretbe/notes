@@ -13,6 +13,11 @@ swapoff /dev/sda5
 
 # Turn off all swap devices
 swapoff -a
+
+# Create a swap file as large as the computer's RAM
+# conv=CONVS  convert the file as per the comma separated symbol list
+#             notrunc: do not truncate the output file
+dd if=/dev/zero of=/swapfile bs=$(cat /proc/meminfo | awk '/MemTotal/ {print $2}') count=1024 conv=notrunc
 ```
 #### Find out processes that use max swap
 
