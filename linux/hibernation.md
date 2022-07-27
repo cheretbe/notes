@@ -45,7 +45,7 @@ ResultActive=yes
 ```shell
 cat /usr/share/gnome/gnome-version.xml
 
-https://extensions.gnome.org/extension/755/hibernate-status-button/
+# https://extensions.gnome.org/extension/755/hibernate-status-button/
 
 mkdir -p ~/.local/share/gnome-shell/extensions/
 unzip ~/Downloads/hibernate-statusdromi.v33.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/hibernate-status@dromi
