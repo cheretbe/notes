@@ -41,3 +41,15 @@ Identity=unix-user:*
 Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
 ResultActive=yes
 ```
+
+```shell
+cat /usr/share/gnome/gnome-version.xml
+
+https://extensions.gnome.org/extension/755/hibernate-status-button/
+
+mkdir -p ~/.local/share/gnome-shell/extensions/
+unzip ~/Downloads/hibernate-statusdromi.v33.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/hibernate-status@dromi
+
+apt install gnome-shell-extensions
+#Logoff/logon, then run "Extensions" application
+```
