@@ -7,7 +7,7 @@ csvjson file.csv > file.json
 ```
 
 * https://stedolan.github.io/jq/manual/
-* https://programminghistorian.org/en/lessons/json-and-jq
+* :warning: https://programminghistorian.org/en/lessons/json-and-jq
 * https://jqplay.org/
 
 ```bash
