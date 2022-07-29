@@ -8,6 +8,7 @@ csvjson file.csv > file.json
 
 * https://stedolan.github.io/jq/manual/
 * :warning: https://programminghistorian.org/en/lessons/json-and-jq
+* :point_right: https://jsononline.net/json-editor allows view as a tree
 * https://jqplay.org/
 
 ```bash
