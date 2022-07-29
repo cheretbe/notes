@@ -1,3 +1,11 @@
+Convert CSV to JSON
+```shell
+sudo apt install csvkit
+
+# -H, --no-header-row   Specify that the input CSV file has no header row. Will create default headers (a,b,c,...)
+csvjson file.csv > file.json
+```
+
 * https://stedolan.github.io/jq/manual/
 * https://programminghistorian.org/en/lessons/json-and-jq
 * https://jqplay.org/
