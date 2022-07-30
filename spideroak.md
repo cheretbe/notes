@@ -30,6 +30,8 @@ xauth -f ~/.Xauthority list
 sudo su - spideroak-user-name
 xauth add host.domain.tld:10  MIT-MAGIC-COOKIE-1  75260434b52f448f9e21e0cf8c694102
 /usr/bin/SpiderOakONE
+
+# [!!!!] Test --shutdown option (Connect to a running instance and shut it down)
 # Shutdown: Ctrl+C (and wait for all processes to stop)
 # Wait for a message "The backend worker process has exited"
 # Check with
