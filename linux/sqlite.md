@@ -1,3 +1,8 @@
+```shell
+# Run shell (sqlite runs version 2.x)
+sqlite3
+```
+
 ```
  create table f1(id,user_id,message_id,rate);
  create table f2(id,type,timestamp);
