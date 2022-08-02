@@ -488,3 +488,55 @@ network:
 * https://github.com/GNS3/gns3-gui/issues/2348
 * https://askubuntu.com/questions/155041/bridging-loosing-wlan-network-connection-with-4addr-on-option-why/207588#207588
 * http://nullroute.eu.org/~grawity/journal-2011.html#post:20110826
+
+### Policy-Based Routing (PBR)
+
+#### Two IPs with different default gateways (depending on connection source address)
+
+`/etc/iproute2/rt_tables`
+```
+#
+# reserved values
+#
+255	local
+254	main
+253	default
+0	unspec
+#
+# local
+#
+#1	inr.ruhep
+
+100 net_0
+101 net_20
+```
+
+`/etc/network/interfaces`
+```
+auto ens160
+
+iface ens160 inet static
+address 10.20.1.111
+netmask 255.255.254.0
+gateway 10.20.1.1
+
+iface ens160 inet static
+address 10.0.1.111
+netmask 255.255.254.0
+
+post-up ip rule add prio 100 from 10.0.1.0/23 lookup net_0
+post-up ip route add 0.0.0.0/0 via 10.0.1.1 table net_0
+post-up ip rule add prio 100 from 10.20.1.0/23 lookup net_20
+post-up ip route add 0.0.0.0/0 via 10.20.1.1 table net_20
+
+post-down ip rule del prio 100 from 10.0.1.0/23 lookup net_0 || true
+post-down ip route del 0.0.0.0/0 via 10.0.1.1 table net_0 || true
+post-down ip rule del prio 100 from 10.20.1.0/23 lookup net_20 || true
+post-down ip route del 0.0.0.0/0 via 10.20.1.1 table net_20 || true
+```
+
+* https://www.mybluelinux.com/debian-source-routing/
+* Research path for netplan
+    * `routing-policy`
+    * https://netplan.io/reference/
+    * https://www.paranoids.at/ubuntu-18-04-netplan-source-routing/
