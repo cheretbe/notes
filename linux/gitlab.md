@@ -3,6 +3,7 @@ https://about.gitlab.com/downloads/
 #### Unsorted
 
 * Fail2ban: https://gist.github.com/pawilon/238c278d3c6c4669771eb81b03264acd
+* Display pipeline variables: https://gitlab.com/gitlab-org/gitlab/-/issues/22204
 
 ### Installation
 
