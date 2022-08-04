@@ -25,6 +25,9 @@ TAP adapter to try on Windows 7 with driver signature problems: https://build.op
 ### Linux
 
 ```shell
+# [?] Do we need network-manager-openvpn-gnome?
+apt install network-manager-openvpn
+
 # View log for NetworkManager connection
 journalctl -f _COMM=openvpn
 ```
