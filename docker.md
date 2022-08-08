@@ -5,6 +5,7 @@
 * **A minimal Ubuntu base image modified for Docker-friendliness:** https://github.com/phusion/baseimage-docker
     * Use `phusion/baseimage:master` until [version scheme](https://github.com/phusion/baseimage-docker/issues/543) is changed
 * :warning: **Test docker on Raspberry:** https://phoenixnap.com/kb/docker-on-raspberry-pi
+* What is the difference between CMD and ENTRYPOINT in a Dockerfile? https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
 
 ### Docker Compose
 
