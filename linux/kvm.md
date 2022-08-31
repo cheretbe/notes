@@ -9,6 +9,7 @@
 * [virsh Commands](#virsh-commands)
 
 ### Unsorted
+* :warning: A temporary workaround for keyboard not working on Ubuntu 22.04 (`virt-viewer` shows `Unknown keycode mapping '(unnamed)'` errov message): use vnc display instead of spice (https://bugzilla.redhat.com/show_bug.cgi?id=1534324)
 * `2read`: https://www.reddit.com/r/zfs/comments/514k2r/kvm_zfs_best_practices/d79fdzi/
 * `2read`: https://jrs-s.net/2013/05/17/kvm-io-benchmarking/
 * Ubuntu. Package to enter password for remote connections over SHH: `ssh-askpass`
