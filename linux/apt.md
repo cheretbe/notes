@@ -8,6 +8,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt install vagrant
 
 apt-key list
+# CDFFDE29 (last 4 bytes) could also be used
 apt-key export 'D563 11E5 FF3B 6F39 D5A1  6ABE 18DF 3741 CDFF DE29' | gpg --dearmor | sudo tee /usr/share/keyrings/anydesk-keyring.gpg
 # deb [signed-by=/usr/share/keyrings/anydesk-keyring.gpg] http://deb.anydesk.com/ all main
 ```
