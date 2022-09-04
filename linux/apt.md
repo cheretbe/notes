@@ -6,6 +6,10 @@ sudo apt -oDebug::pkgAcquire::Worker=1 update
 wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install vagrant
+
+apt-key list
+apt-key export 'D563 11E5 FF3B 6F39 D5A1  6ABE 18DF 3741 CDFF DE29' | gpg --dearmor | sudo tee /usr/share/keyrings/anydesk-keyring.gpg
+# deb [signed-by=/usr/share/keyrings/anydesk-keyring.gpg] http://deb.anydesk.com/ all main
 ```
 
 ### Change mirror
