@@ -5,6 +5,11 @@
 * Reboot during provision: https://github.com/dotless-de/vagrant-vbguest/blob/main/lib/vagrant-vbguest/installers/centos.rb#L100
 
 ```shell
+# libvirt
+sudo apt install libvirt-dev build-essential
+vagrant plugin install vagrant-libvirt
+
+vagrant plugin install vagrant-libvirt
 # Installation on Ubuntu 22.04
 curl https://apt.releases.hashicorp.com/gpg | gpg --dearmor > hashicorp.gpg
 sudo install -o root -g root -m 644 hashicorp.gpg /etc/apt/trusted.gpg.d/
