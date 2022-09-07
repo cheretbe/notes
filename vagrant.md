@@ -8,8 +8,8 @@
 # libvirt
 sudo apt install libvirt-dev build-essential
 vagrant plugin install vagrant-libvirt
+# https://github.com/vagrant-libvirt/vagrant-libvirt/blob/main/lib/vagrant-libvirt/action/create_network_interfaces.rb
 
-vagrant plugin install vagrant-libvirt
 # Installation on Ubuntu 22.04
 curl https://apt.releases.hashicorp.com/gpg | gpg --dearmor > hashicorp.gpg
 sudo install -o root -g root -m 644 hashicorp.gpg /etc/apt/trusted.gpg.d/
