@@ -4,6 +4,11 @@
 * http://hackaday.com/2017/07/21/linux-fu-better-bash-scripting/
 
 ```shell
+# ping targets from a file
+readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "$target"; done
+```
+
+```shell
 echo "HISTCONTROL=ignoreboth:erasedups" >>~/.bashrc
 ```
 
