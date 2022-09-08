@@ -5,7 +5,9 @@
 
 ```shell
 # ping targets from a file
-readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "$target"; done
+readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "${target}"; done
+# Show ping results only
+readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "${target}" > /dev/null && echo "${target} is UP" || echo "${target} is down"; done
 ```
 
 ```shell
