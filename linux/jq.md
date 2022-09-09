@@ -8,7 +8,7 @@ csvjson file.csv > file.json
 
 * https://stedolan.github.io/jq/manual/
 * :warning: https://programminghistorian.org/en/lessons/json-and-jq
-* :point_right: https://jsononline.net/json-editor allows view as a tree
+* :point_right: https://jsononline.net/json-editor allows view as a tree (also use https://jsonpathfinder.com/)
 * :bulb: Use [sqlite](./sqlite.md) shell for complex selections with join
 * https://jqplay.org/
 
