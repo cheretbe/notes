@@ -195,6 +195,9 @@ https://access.redhat.com/solutions/1166283
 ### SSH Keys
 
 ```shell
+# https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices/144044#144044
+ssh-keygen -t ed25519 -a 100
+
 # Generate a key (by default key size is 2048, which is fine). It seems that for RSA (not RSA1) keys comment is
 # only added to the test.key.pub file, not to the key itself, so it can be skipped altogether
 ssh-keygen -C "test-comment" -f test.key
