@@ -196,17 +196,20 @@ https://access.redhat.com/solutions/1166283
 
 ```shell
 # https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices/144044#144044
-ssh-keygen -t ed25519 -a 100
+# https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54
+ssh-keygen -t ed25519 -a 100 -f keys/my_key
+ln -s ~/keys/my_key .ssh/id_ed25519
+ln -s ~/keys/my_key.pub .ssh/id_ed25519.pub
 
-# Generate a key (by default key size is 2048, which is fine). It seems that for RSA (not RSA1) keys comment is
-# only added to the test.key.pub file, not to the key itself, so it can be skipped altogether
+# [!] Don't use this, see above
 ssh-keygen -C "test-comment" -f test.key
 # View the fingerprint
 ssh-keygen -lf key_file
 # Retrieve the public key
 ssh-keygen -yf key_file
 
-ssh-copy-id -i ~/.ssh/mykey user@host
+# [!!] Use -i option to prevent accidental id_rsa.pub copying
+ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host
 ```
 To add a comment in `authorized_keys` just use a space and a comment after the key:
 ```
