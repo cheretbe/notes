@@ -1,5 +1,6 @@
 * :point_right: https://docs.saltproject.io/en/getstarted/overview.html
-    * :bulb: https://salt.tips/text-editor-plugins-for-salt-states-and-yaml-jinja/#visual-studio-code VSCode extension for SaltStack is available on the Marketplace. To install it click `File` -> `Preferences` -> `Extensions`, then search for saltstack and click install. The source code is available on [GitHub](https://github.com/korekontrol/vscode-saltstack)
+* :bulb: https://salt.tips/text-editor-plugins-for-salt-states-and-yaml-jinja/#visual-studio-code
+    * VSCode extension for SaltStack is available on the Marketplace. To install it click `File` -> `Preferences` -> `Extensions`, then search for saltstack and click install. The source code is available on [GitHub](https://github.com/korekontrol/vscode-saltstack)
 * **https://www.linode.com/docs/applications/configuration-management/beginners-guide-to-salt/**
 * **https://serverfault.com/questions/590755/hostname-of-minion-in-salt-command/615852#615852**
 * https://www.linode.com/docs/applications/configuration-management/introduction-to-jinja-templates-for-salt/
