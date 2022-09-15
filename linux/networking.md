@@ -42,6 +42,12 @@ tcpdump -n -i any icmp
 tcpdump -n -i eth0 'tcp port 80'
 # On all ports except for 22 (useful when connected via SSH)
 tcpdump -n -i any 'port not 22'
+# 636 - LDAP
+# 514 - rsyslog
+# 53  - DNS
+# 25  - SMTP
+tcpdump -n -i ens160 dst host 10.0.176.79 and not src port 514 and not src port 53 and not src port 636 and not src port 25 and not arp and not llc
+
 # To display names of interfaces tcpdump has to be 4.99 or greater
 # https://serverfault.com/questions/224698/how-to-display-interface-in-tcpdump-output-flow/1054024#1054024
 # If the version shipped with OS is lower, download the latest one from https://www.tcpdump.org/ and build it
