@@ -47,6 +47,7 @@ tcpdump -n -i any 'port not 22'
 # 53  - DNS
 # 25  - SMTP
 tcpdump -n -i ens160 dst host 10.0.176.79 and not src port 514 and not src port 53 and not src port 636 and not src port 25 and not arp and not llc
+# [!!!] Try running with tee
 
 # To display names of interfaces tcpdump has to be 4.99 or greater
 # https://serverfault.com/questions/224698/how-to-display-interface-in-tcpdump-output-flow/1054024#1054024
