@@ -12,6 +12,7 @@
         # curl https://freegeoip.app/json/
         curl https://api.ipbase.com/json
         curl https://freegeoip.live/json/
+        curl https://apt.releases.hashicorp.com
         ```
     * Windows
         ```powershell
