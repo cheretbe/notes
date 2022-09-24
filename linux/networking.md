@@ -369,7 +369,7 @@ ip route add default via 192.168.1.1 metric 90
 ### DNS
 ```shell
 # Ubuntu with systemd-resolved enabled
-systemd-resolve --status
+resolvectl status
 # RHEL/CentOS
 nmcli --fields IP4.DNS dev show
 
