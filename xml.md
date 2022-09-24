@@ -6,6 +6,8 @@ XPath
 * Generator: http://xmltoolbox.appspot.com/xpath_generator.html
 
 #### Python
+:bulb: `xmltodict.parse` is much easier when no editing is needed
+
 `xml.etree.ElementTree.register_namespace` works for serialization only. For "find*" methods use `namespaces` parameter.
 ```python
 import xml.etree.ElementTree
