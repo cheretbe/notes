@@ -8,6 +8,8 @@
 readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "${target}"; done
 # Show ping results only
 readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "${target}" > /dev/null && echo "${target} is UP" || echo "${target} is down"; done
+
+cat requests_log.txt| awk '{print $1}' | sort | uniq
 ```
 
 ```shell
