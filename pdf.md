@@ -2,7 +2,7 @@
 ```shell
 apt install imagemagick
 ```
-Fix "convert-im6.q16: attempt to perform an operation not allowed by the security policy `PDF' @ error/constitute.c/IsCoderAuthorized/408" error
+Fix "convert-im6.q16: attempt to perform an operation not allowed by the security policy `PDF' @ error/constitute.c/IsCoderAuthorized/408" error in `/etc/ImageMagick-6/policy.xml`:
 ```xml
 <policymap>
   <!-- Replace "none" to "read:write" for PDF files -->
