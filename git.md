@@ -251,7 +251,7 @@ git config --global credential.helper wincred
 # libsecret, view with Gnome keyring (seahorse)
 # https://stackoverflow.com/questions/36585496/error-when-using-git-credential-helper-with-gnome-keyring-as-sudo/40312117#40312117
 # [!] May need reboot on Ubuntu 20.04 to work properly
-sudo apt-get install libsecret-1-0 libsecret-1-dev
+sudo apt-get install build-essential libsecret-1-0 libsecret-1-dev
 cd /usr/share/doc/git/contrib/credential/libsecret
 sudo make
 git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
