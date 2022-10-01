@@ -12,6 +12,7 @@ Unsorted
 ```powershell
 # System uptime
 Get-CimInstance -ClassName Win32_OperatingSystem | Select LastBootUpTime
+(get-date) – (gcim Win32_OperatingSystem).LastBootUpTime
 
 # Physical disks info
 Get-PhysicalDisk
