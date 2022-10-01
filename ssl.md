@@ -481,7 +481,7 @@ ls -lha /etc/ssl/certs/
 ```
 [\[ TOC \]](#table-of-contents)
 
-### Adding certificates to Chromium on Linux
+### Adding certificates to browsers on Linux
 * https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/linux/cert_management.md
 * https://unix.stackexchange.com/questions/122753/chrome-certificate
 
@@ -489,6 +489,8 @@ ls -lha /etc/ssl/certs/
 certutil -d sql:snap/chromium/current/.pki/nssdb/ -A -t TC -n "My CA" -i ~/Downloads/my_ca.crt 
 # List certificates in the DB
 certutil -L -d sql:snap/chromium/current/.pki/nssdb/
+# For Firefox from snap
+# sql:snap/firefox/common/.mozilla/firefox/0000000.default/
 ```
 
 ### Python code
