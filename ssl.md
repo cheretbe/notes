@@ -481,6 +481,16 @@ ls -lha /etc/ssl/certs/
 ```
 [\[ TOC \]](#table-of-contents)
 
+### Adding certificates to Chromium on Linux
+* https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/linux/cert_management.md
+* https://unix.stackexchange.com/questions/122753/chrome-certificate
+
+```shell
+certutil -d sql:snap/chromium/current/.pki/nssdb/ -A -t TC -n "My CA" -i ~/Downloads/my_ca.crt 
+# List certificates in the DB
+certutil -L -d sql:snap/chromium/current/.pki/nssdb/
+```
+
 ### Python code
 
 * https://github.com/pyca/cryptography
