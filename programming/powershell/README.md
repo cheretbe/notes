@@ -10,6 +10,9 @@ Unsorted
 
 ## Useful Interactive Commands
 ```powershell
+# System uptime
+Get-CimInstance -ClassName Win32_OperatingSystem | Select LastBootUpTime
+
 # Physical disks info
 Get-PhysicalDisk
 
