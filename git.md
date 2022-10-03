@@ -4,6 +4,12 @@
 
 * :warning: https://docs.gitlab.com/ee/user/project/repository/branches/default.html#instance-level-custom-initial-branch-name
 
+```shell
+git config --global merge.tool meld
+git merge master
+git mergetool
+```
+
 ### .gitignore examples
 
 Store directory in the repo, ignoring it's contents
