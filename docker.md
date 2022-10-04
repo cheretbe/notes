@@ -7,6 +7,12 @@
 * :warning: **Test docker on Raspberry:** https://phoenixnap.com/kb/docker-on-raspberry-pi
 * What is the difference between CMD and ENTRYPOINT in a Dockerfile? https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
 
+```shell
+# Check if image exists locally
+docker images myimage
+docker image inspect node:latest
+```
+
 ### Docker Compose
 
 * Directory structure example: https://github.com/rundeck/docker-zoo
