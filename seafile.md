@@ -59,7 +59,12 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     * https://manual.seafile.com/maintain/
     * `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run` 
 
+### Real time backup
+* https://manual.seafile.com/deploy_pro/real_time_backup/
+* https://shoeper.gitbooks.io/seafile-docs/content/deploy_pro/real_time_backup.html
+
 ### Installation
+* :warning: https://manual.seafile.com/docker/non_docker_to_docker/
 * https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
   * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
   * 
