@@ -1,3 +1,7 @@
+```
+pwgen -sB 10
+```
+
 * Speed/storage converters:
     * https://wintelguy.com/filesizeconv.pl
     * https://www.gbmb.org/
