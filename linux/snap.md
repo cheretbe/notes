@@ -1,4 +1,8 @@
 * https://askubuntu.com/questions/1412575/pending-update-of-snap-store/1412580#1412580
+```shell
+# Close all Chromium windows (without doing this snap refresh shows "helpful" message: All snaps up to date)
+sudo snap refresh
+```
 
 ```shell
 sudo snap connections remmina
