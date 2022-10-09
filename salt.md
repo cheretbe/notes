@@ -133,3 +133,17 @@ salt-call --local -g
 salt-call --local grains.ls
 salt-call --local grains.item os
 ```
+
+### Debugging
+
+Find out correct where to put top.sls on Windows in masterless mode
+```batch
+:: Will show expected 'file_roots' location
+salt-call.bat --local -l debug state.show_top
+```
+or run `bin\python.exe` and execute
+```python
+import salt.config
+master_opts = salt.config.client_config("/etc/salt/master")
+master_opts["file_roots"]`
+```
