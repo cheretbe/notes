@@ -9,6 +9,14 @@
 * [virsh Commands](#virsh-commands)
 
 ### Unsorted
+:warning: A hack for KVM cloud provders (Digital Ocean etc)
+```shell
+# source
+python3 -m http.server
+# destination
+wget -O- http://192.168.0.1:8000/windows10.img | dd of=/dev/vda
+```
+
 * :warning: https://www.downtowndougbrown.com/2021/06/how-to-run-ubuntu-20-04-server-with-only-256-mb-of-ram/
 * :warning: A temporary workaround for keyboard not working on Ubuntu 22.04 (`virt-viewer` shows `Unknown keycode mapping '(unnamed)'` errov message): use vnc display instead of spice (https://bugzilla.redhat.com/show_bug.cgi?id=1534324)
 * `2read`: https://www.reddit.com/r/zfs/comments/514k2r/kvm_zfs_best_practices/d79fdzi/
