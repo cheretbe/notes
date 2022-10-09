@@ -12,6 +12,10 @@
     * https://github.com/Szaki/XiaomiADBFastbootTools/releases/latest
     * Скачать `XiaomiADBFastbootTools.jar`
     * Скачать OpenJDK с https://adoptopenjdk.net/
+    ```shell
+    apt-cache search openjdk
+    apt install openjdk-18-jre
+    ```
     * Запустить JAR
     * Режим отладки по USB должен быть включен, режим передачи данных не важен (:warning: в ВМ переподключить устройство или добавить фильтр)
 * Полезные настройки
