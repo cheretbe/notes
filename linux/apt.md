@@ -1,4 +1,8 @@
 ```shell
+# [!!!]
+apt-cache search openjdk
+apt-cache policy openjdk-18-jre
+
 # Verbose output
 sudo apt -oDebug::pkgAcquire::Worker=1 update
 
