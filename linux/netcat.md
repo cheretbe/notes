@@ -1,3 +1,11 @@
+Interesting alternative
+```shell
+# source
+python3 -m http.server
+# destination
+wget -O- http://192.168.0.1:8000/windows10.img | dd of=/dev/vda
+```
+
 Print to a network printer
 ```shell
 cat print_test.prn | netcat -w 1 printer.domain.tld 9100
