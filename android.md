@@ -14,7 +14,8 @@
     * Скачать OpenJDK с https://adoptopenjdk.net/
     ```shell
     apt-cache search openjdk
-    apt install openjdk-18-jre
+    sudo apt install openjdk-18-jre
+    java -jar XiaomiADBFastbootTools.jar
     ```
     * Запустить JAR
     * Режим отладки по USB должен быть включен, режим передачи данных не важен (:warning: в ВМ переподключить устройство или добавить фильтр)
