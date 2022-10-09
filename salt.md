@@ -147,3 +147,23 @@ import salt.config
 master_opts = salt.config.client_config("/etc/salt/master")
 master_opts["file_roots"]`
 ```
+`top.sls`:
+```
+base:
+  '*':
+    - test
+```
+`test.sls`:
+```jinja
+{%- set current_config = salt['slsutil.deserialize']('toml', salt.cp.get_file_str('/root/test.toml')) %}
+test:
+  module.run:
+  - name: test.echo
+  - text: "{{ current_config.runners[0]["id"] }}"
+ 
+{% for dummy in current_config.runners %}
+cmd_run_{{ dummy["id"] }}:
+  cmd.run:
+    - name: echo "{{ dummy["id"] }} {{ dummy["name"] }} {{ dummy["url"] }}"
+{% endfor %}
+```
