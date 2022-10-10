@@ -1,5 +1,11 @@
 ```
 pwgen -sB 10
+
+# Processes sorted by virtual size
+ps -e -o pid,vsz,comm= | sort -n -k 2
+# Same as above, long version
+ps --everyone --format=pid,vsz,comm= | sort --numeric-sort --key=2
+
 ```
 
 * Speed/storage converters:
