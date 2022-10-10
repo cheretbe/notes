@@ -1,3 +1,4 @@
+* :point_right: `apt insatll nethogs`
 * iptraf-ng: https://github.com/iptraf-ng/iptraf-ng/
 * `ip` command cheatsheet: https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
 
