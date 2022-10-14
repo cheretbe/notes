@@ -8,7 +8,8 @@
     rm -rf ~/snap/chromium/common/.cache/fontconfig/
     # seems to resolve issue
     ```
-
+* Flush socket pools
+    * chrome://net-internals/#sockets
 
 Change user agent string:
 * Developer Tools (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>)
