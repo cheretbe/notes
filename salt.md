@@ -141,10 +141,14 @@ salt-call --local grains.item os
 
 ### Debugging
 
+```
+salt-run fileserver.update
+```
+
 Find out correct where to put top.sls on Windows in masterless mode
 ```batch
 :: Will show expected 'file_roots' location
-salt-call.bat --local -l debug state.show_top
+salt-call --local -l debug state.show_top
 ```
 or run `bin\python.exe` and execute
 ```python
