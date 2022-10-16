@@ -27,6 +27,19 @@ docker image inspect node:latest
 
 * Directory structure example: https://github.com/rundeck/docker-zoo
 * GitLab with a runner example: https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/
+* https://runnable.com/docker/advanced-docker-compose-configuration
+
+```shell
+# Update container images
+docker-compose up --force-recreate --build -d
+# Consider a cleanup after that
+docker image prune -f
+
+# Stops the containers
+docker-compose stop
+# Stops and removes the containers
+docker compose down
+```
     
 ### Ansible tests
 Possible strategies for Molecule test
