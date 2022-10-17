@@ -62,6 +62,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     * https://github.com/elastic/elasticsearch-docker/issues/43#issuecomment-343997733
     ```shell
     docker exec -it seafile-elasticsearch bash
+    # heap_used_percent, heap_max_in_bytes
     curl --fail --silent --show-error localhost:9200/_nodes/stats | jq '.nodes[].jvm.mem'
     ```
 
