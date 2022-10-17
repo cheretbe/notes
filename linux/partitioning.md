@@ -33,6 +33,7 @@ echo '1' > /sys/class/block/sda/device/rescan
 fdisk /dev/sda
 # d (delete)
 # n (new), p (primary), number 1 (default), first sector 2048 (default), last default
+# Remove LVM2_member signature? n
 # t 8e (Linux LVM)
 # w
 
