@@ -24,7 +24,7 @@ lsscsi --verbose
 partprobe /dev/sdX
 ```
 
-Resize an LVM partition
+Resize an LVM partition without rebooting
 ```shell
 lsblk
 echo '1' > /sys/class/block/sda/device/rescan
