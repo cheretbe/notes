@@ -24,6 +24,29 @@ lsscsi --verbose
 partprobe /dev/sdX
 ```
 
+Resize an LVM partition
+```shell
+lsblk
+echo '1' > /sys/class/block/sda/device/rescan
+
+# /sda/sda1/system--vg-rootfs
+fdisk /dev/sda
+# d (delete)
+# n (new), p (primary), number 1 (default), first sector 2048 (default), last default
+# t 8e (Linux LVM)
+# w
+
+# apt install parted if there is no partprobe
+partprobe -s
+pvscan
+pvresize /dev/sda1
+pvscan
+lvresize -l+100%FREE /dev/system-vg/rootfs
+pvscan
+
+resize2fs /dev/system-vg/rootfs
+```
+
 Clear MBR and partition table
 ```shell
 # 2 blocks of 512 bytes (for GPT)
