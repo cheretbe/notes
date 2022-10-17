@@ -55,9 +55,19 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
    # Default is 100M.
    max_download_dir_size=200
    ```
-* Maintenance
-    * https://manual.seafile.com/maintain/
-    * `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run` 
+   
+#### Elasticsearch config
+* Out of memory error fix
+    * https://forums.docker.com/t/elastic-search-container-out-of-memory/43148/2
+    * https://github.com/elastic/elasticsearch-docker/issues/43#issuecomment-343997733
+    ```shell
+    docker exec -it seafile-elasticsearch bash
+    curl --fail --silent --show-error localhost:9200/_nodes/stats | jq '.nodes[].jvm.mem'
+    ```
+
+### Maintenance
+* https://manual.seafile.com/maintain/
+* `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run`
 
 ### Real time backup
 * https://manual.seafile.com/deploy_pro/real_time_backup/
