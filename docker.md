@@ -7,6 +7,18 @@
 * :warning: **Test docker on Raspberry:** https://phoenixnap.com/kb/docker-on-raspberry-pi
 * What is the difference between CMD and ENTRYPOINT in a Dockerfile? https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
 
+* https://www.googlinux.com/how-to-list-all-tags-of-a-docker-image/
+```shell
+curl https://registry.hub.docker.com/v2/repositories/library/mariadb/tags/ | jq '.results[]["name"]'
+curl https://registry.hub.docker.com/v2/repositories/library/mariadb/tags/?page=2 | jq '.results[]["name"]'
+
+i=0
+while [ $? == 0 ]
+do 
+   i=$((i+1))
+   curl https://registry.hub.docker.com/v2/repositories/library/debian/tags/?page=$i 2>/dev/null|jq '."results"[]["name"]'
+done
+```
 
 `/etc/docker/daemon.json` (create if doesn't exist)
 ```json
