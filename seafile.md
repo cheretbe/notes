@@ -55,6 +55,12 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
    # Default is 100M.
    max_download_dir_size=200
    ```
+   * Advanced settings are in `/opt/seafile/conf/seahub_settings.py` (some of them can be changed in admin settings dialog) - https://manual.seafile.com/config/seahub_settings_py/
+   ```python
+   # Max number of files when user upload file/folder.
+   # Since version 6.0.4
+   MAX_NUMBER_OF_FILES_FOR_FILEUPLOAD = 500
+   ```
    
 #### Elasticsearch config
 * Out of memory error fix
