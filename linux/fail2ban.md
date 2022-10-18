@@ -3,6 +3,9 @@
 ```shell
 apt install fail2ban
 systemctl enable fail2ban --now
+
+cat /etc/fail2ban/jail.local
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
 `/etc/fail2ban/jail.local` example
