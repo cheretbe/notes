@@ -16,5 +16,8 @@ banaction = ufw
 ```
 
 ```shell
+fail2ban-client reload
+
 fail2ban-client status sshd
+tail -f /var/log/fail2ban.log
 ```
