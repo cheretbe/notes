@@ -33,35 +33,37 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 ### Server
 * Logs are in `/opt/seafile/logs/`
 * https://shoeper.gitbooks.io/seafile-docs/content/deploy/using_logrotate.html
-* https://shoeper.gitbooks.io/seafile-docs/content/security/fail2ban.html
+* :warning: fail2ban
+    * https://shoeper.gitbooks.io/seafile-docs/content/security/fail2ban.html
+    * https://manual.seafile.com/security/fail2ban/
 * `/opt/seafile/conf/seafile.conf`
-   * :warning: restart after editing options: `systemctl restart seafile-server`
-   * https://manual.seafile.com/config/seafile-conf/
-   * https://manual.seafile.com/config/seafile-conf/#seafile-fileserver-configuration
-   * New in Seafile Pro 7.1.16 and Pro 8.0.3: You can set the maximum number of files contained in a library that can be synced by the Seafile client. The default is 100000. When you download a repo, Seafile client will request fs id list, and you can control the timeout period of this request through fs_id_list_request_timeout configuration, which defaults to 5 minutes. These two options are added to prevent long fs-id-list requests from overloading the server. Since Pro 8.0.4 version, you can **set both options to -1**, to allow unlimited size and timeout.
-   ```
-   [fileserver]
-   max_sync_file_count = -1
-   fs_id_list_request_timeout = -1
-   ```
-   * https://forum.seafile.com/t/size-too-large-changes-in-ccnet-and-seafile-conf-without-effect/15025
-   * Fix for `Size too large` error
-   ```
-   [fileserver]
-   # Set maximum upload file size to 200M.
-   # If not configured, there is no file size limit for uploading.
-   max_upload_size=200
-   # Set maximum download directory size to 200M.
-   # Default is 100M.
-   max_download_dir_size=200
-   ```
-   * Advanced settings are in `/opt/seafile/conf/seahub_settings.py` (some of them can be changed in admin settings dialog) - https://manual.seafile.com/config/seahub_settings_py/
-   ```python
-   # Max number of files when user upload file/folder.
-   # Since version 6.0.4
-   MAX_NUMBER_OF_FILES_FOR_FILEUPLOAD = 500
-   ```
-   
+    * :warning: restart after editing options: `systemctl restart seafile-server`
+    * https://manual.seafile.com/config/seafile-conf/
+    * https://manual.seafile.com/config/seafile-conf/#seafile-fileserver-configuration
+    * New in Seafile Pro 7.1.16 and Pro 8.0.3: You can set the maximum number of files contained in a library that can be synced by the Seafile client. The default is 100000. When you download a repo, Seafile client will request fs id list, and you can control the timeout period of this request through fs_id_list_request_timeout configuration, which defaults to 5 minutes. These two options are added to prevent long fs-id-list requests from overloading the server. Since Pro 8.0.4 version, you can **set both options to -1**, to allow unlimited size and timeout.
+    ```
+    [fileserver]
+    max_sync_file_count = -1
+    fs_id_list_request_timeout = -1
+    ```
+    * https://forum.seafile.com/t/size-too-large-changes-in-ccnet-and-seafile-conf-without-effect/15025
+    * Fix for `Size too large` error
+    ```
+    [fileserver]
+    # Set maximum upload file size to 200M.
+    # If not configured, there is no file size limit for uploading.
+    max_upload_size=200
+    # Set maximum download directory size to 200M.
+    # Default is 100M.
+    max_download_dir_size=200
+    ```
+* Advanced settings are in `/opt/seafile/conf/seahub_settings.py` (some of them can be changed in admin settings dialog) - https://manual.seafile.com/config/seahub_settings_py/
+    ```python
+    # Max number of files when user upload file/folder.
+    # Since version 6.0.4
+    MAX_NUMBER_OF_FILES_FOR_FILEUPLOAD = 500
+    ```
+
 #### Elasticsearch config
 * Out of memory error fix
     * https://forums.docker.com/t/elastic-search-container-out-of-memory/43148/2
