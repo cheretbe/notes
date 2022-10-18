@@ -143,6 +143,9 @@ salt-call --local grains.item os
 
 ```
 salt-run fileserver.update
+
+# Test everything up to id-of-your-state
+salt-call state.sls_id id-of-your-state your.statefile
 ```
 
 Find out correct where to put top.sls on Windows in masterless mode
