@@ -12,6 +12,7 @@ cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 [DEFAULT]
 ignoreip = 127.0.0.1/8 192.168.0.0/24 domain.tld
+banaction = ufw
 ```
 
 ```shell
