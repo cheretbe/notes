@@ -141,6 +141,18 @@ salt-call --local grains.item os
 
 ### Debugging
 
+```shell
+# [!!]
+salt-call --output=yaml state.show_sls yourslsfile
+```
+```jinja
+test:
+  test.nop:
+  - user: {{ grains.username }}
+  - nested:
+      foo: bar
+```
+
 ```
 salt-run fileserver.update
 
