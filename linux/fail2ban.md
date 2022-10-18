@@ -2,6 +2,7 @@
 
 ```shell
 apt install fail2ban
+systemctl enable fail2ban --now
 ```
 
 `/etc/fail2ban/jail.local` example
