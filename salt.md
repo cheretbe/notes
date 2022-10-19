@@ -151,6 +151,12 @@ test:
   - user: {{ grains.username }}
   - nested:
       foo: bar
+      
+{%- for test1 in test2.items %}
+"debug_{{salt['random.get_str']('10', punctuation=False)}}":
+  test.nop:
+  - debug_value: "{{test1}}"
+{%- endfor %}
 ```
 
 ```
