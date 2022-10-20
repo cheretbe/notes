@@ -39,15 +39,15 @@ curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
 
 ```json
 {
-    "scriptdev-02.rd.ptsecurity.ru": {
-        "id": "scriptdev-02.rd.ptsecurity.ru",
+    "host1.domain.tld": {
+        "id": "host1.domain.tld",
         "osfinger": "Windows-2019Server",
         "osfullname": "Microsoft Windows Server 2019 Standard"
     }
 }
 {
-    "aie-agent-corp.ptsecurity.ru": {
-        "id": "aie-agent-corp.ptsecurity.ru",
+    "host2.domain.tld": {
+        "id": "host2.domain.tld",
         "osfinger": "Windows-2016Server",
         "osfullname": "Microsoft Windows Server 2016 Standard"
     }
