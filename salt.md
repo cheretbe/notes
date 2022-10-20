@@ -166,6 +166,13 @@ salt-run fileserver.update
 salt-call state.sls_id id-of-your-state your.statefile
 ```
 
+Abort the whole execution on a single state failure
+```
+abort_on_failure_state_example:
+  test.fail_without_changes:
+    - failhard: True
+```
+
 Find out correct where to put top.sls on Windows in masterless mode
 ```batch
 :: Will show expected 'file_roots' location
