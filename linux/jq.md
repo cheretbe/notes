@@ -36,3 +36,25 @@ curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
 curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
   jq -r '.boxes |= map(select((.name|startswith("win10")) and (.updated_at <= "2021-09-20"))) | .boxes | sort_by(.name)[] | [.name, .current_version.version, .updated_at] | @tsv'
 ```
+
+```json
+{
+    "scriptdev-02.rd.ptsecurity.ru": {
+        "id": "scriptdev-02.rd.ptsecurity.ru",
+        "osfinger": "Windows-2019Server",
+        "osfullname": "Microsoft Windows Server 2019 Standard"
+    }
+}
+{
+    "aie-agent-corp.ptsecurity.ru": {
+        "id": "aie-agent-corp.ptsecurity.ru",
+        "osfinger": "Windows-2016Server",
+        "osfullname": "Microsoft Windows Server 2016 Standard"
+    }
+}
+```
+```shell
+# -s    read (slurp) all inputs into an array; apply filter to it;
+# -r    output raw strings, not JSON texts;
+xclip -o -sel clip | jq -r -s '. | add | [.[]] | sort_by(.id) | .[] | [.id, .osfinger, .osfullname] | @tsv'
+```
