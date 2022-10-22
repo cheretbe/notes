@@ -8,6 +8,14 @@
 git config --global merge.tool meld
 git merge master
 git mergetool
+
+# Merge dry-run
+# https://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option/501461#501461
+git merge --no-commit --no-ff $BRANCH
+# Examine staged changes
+git diff --cached
+# Undo the merge
+git merge --abort
 ```
 
 ### .gitignore examples
