@@ -69,6 +69,20 @@ grep -qxF '. ~/.cache/venv/ansible/bin/activate' ~/.bashrc || \
 
 pip install ansible pywinrm
 ```
+:warning: A fix for `ntlm: unsupported hash type md4` error in newer versions of Python and OpenSSL. Edit existing `/usr/lib/openssl.cnf` or `/etc/ssl/openssl.cnf` (Ubuntu), merging the following into it:
+```
+[provider_sect]
+default = default_sect
+legacy = legacy_sect
+
+[default_sect]
+activate = 1
+
+[legacy_sect]
+activate = 1
+```
+* https://stackoverflow.com/questions/69938570/md4-hashlib-support-in-python-3-8
+* https://bugs.launchpad.net/ubuntu/+source/python3.10/+bug/1971580/comments/3
 
 ### Client setup
 ```powershell
