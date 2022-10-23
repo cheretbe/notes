@@ -51,6 +51,8 @@ docker image prune -f
 docker-compose stop
 # Stops and removes the containers
 docker compose down
+
+docker compose ls --all
 ```
     
 ### Ansible tests
