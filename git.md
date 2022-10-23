@@ -67,6 +67,7 @@ git merge-file /dev/null /dev/null file-to-test
 ### Github
 
 * https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
+* To compare different versions of your repository, append /compare to your repository's path
 
 ```shell
 # Get latest release
