@@ -6,9 +6,9 @@ Safe restart: [safely_restart_nginx.sh](../files/nginx/safely_restart_nginx.sh)
 
 ```shell
 ln -s /etc/nginx/sites-available/www.example.org.conf /etc/nginx/sites-enabled/
+# If test fails review log or use nginx -t
+# tail -f /var/log/nginx/error.log
 service nginx configtest
-# If test fails review log
-tail -f /var/log/nginx/error.log
 service nginx force-reload
 ```
 * https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
