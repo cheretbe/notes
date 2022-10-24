@@ -1,3 +1,4 @@
+* :warning: Mitogen for Ansible: https://mitogen.networkgenomics.com/ansible_detailed.html
 * VMware vSphere Automation SDK: https://github.com/vmware/vsphere-automation-sdk-python
     * Used in https://github.com/ansible-collections/community.vmware
 * Review when time permits: https://github.com/ekultails/rootpages/blob/master/src/automation/ansible.rst
