@@ -108,6 +108,36 @@ SHOW MASTER STATUS;
 ```
 :warning: Monitor `/opt/docker-data/seafile/mysql/db/mysql-bin.*` size and decide on `expire_logs_days` setting
 
+```shell
+mysqldump -u root -p --databases \
+  --ignore-table=seafile_db.Repo --ignore-table=seafile_db.Branch --ignore-table=seafile_db.RepoHead \
+  --ignore-table=seahub_db.base_userlastlogin --ignore-table=seahub_db.django_session \
+  --ignore-table=seahub_db.sysadmin_extra_userloginlog --ignore-table=seahub_db.UserTrafficStat \
+  --ignore-table=seahub_db.FileAudit --ignore-table=seahub_db.FileUpdate --ignore-table=seahub_db.PermAudit \
+  --ignore-table=seahub_db.Event --ignore-table=seahub_db.UserEvent --ignore-table=seahub_db.avatar_avatar \
+  --ignore-table=seahub_db.avatar_groupavatar --ignore-table=seahub_db.avatar_uploaded \
+  --master-data seafile_db ccnet_db seahub_db > dbdump.sql
+```
+
+```
+[mysqld]
+server-id=2
+replicate-ignore-table = seafile_db.Repo
+replicate-ignore-table = seafile_db.Branch
+replicate-ignore-table = seafile_db.RepoHead
+replicate-ignore-table = seahub_db.base_userlastlogin
+replicate-ignore-table = seahub_db.django_session
+replicate-ignore-table = seahub_db.sysadmin_extra_userloginlog
+replicate-ignore-table = seahub_db.UserTrafficStat
+replicate-ignore-table = seahub_db.FileAudit
+replicate-ignore-table = seahub_db.FileUpdate
+replicate-ignore-table = seahub_db.PermAudit
+replicate-ignore-table = seahub_db.avatar_avatar
+replicate-ignore-table = seahub_db.avatar_groupavatar
+replicate-ignore-table = seahub_db.avatar_uploaded
+replicate-ignore-table = seahub_db.Event
+replicate-ignore-table = seahub_db.UserEvent
+```
 
 ### Installation
 * Docker
