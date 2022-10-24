@@ -94,6 +94,7 @@ server-id=1
 ```shell
 docker compose restart db
 ```
+:warning: Monitor `/opt/docker-data/seafile/mysql/db/mysql-bin.*` size and decide on `expire_logs_days` setting
 
 ### Installation
 * Docker
