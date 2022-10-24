@@ -95,6 +95,9 @@ docker run --rm --detach --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
 https://developers.redhat.com/cheat-sheets/containers/
 
 ```shell
+# List mounted volumes for a container
+docker inspect -f '{{ .Mounts }}' containerid
+
 # View all containers, running or stopped
 docker ps -a
 
