@@ -83,6 +83,9 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://shoeper.gitbooks.io/seafile-docs/content/deploy_pro/real_time_backup.html
 
 ```shell
+# Stop Seafile service, so that no update will be written into database
+docker compose stop seafile
+
 # on host, container doesn't have editors
 sudo nano /opt/docker-data/seafile/mysql/conf/replication.cnf
 ```
@@ -93,8 +96,18 @@ server-id=1
 ```
 ```shell
 docker compose restart db
+docker exec -it seafile-mysql mysql -p
+```
+```sql
+CREATE USER 'repl'@'%' IDENTIFIED BY 'slavepass';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+
+FLUSH TABLES WITH READ LOCK;
+SHOW MASTER STATUS;
+-- Whe need the File and Position fields
 ```
 :warning: Monitor `/opt/docker-data/seafile/mysql/db/mysql-bin.*` size and decide on `expire_logs_days` setting
+
 
 ### Installation
 * Docker
