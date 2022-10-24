@@ -5,6 +5,9 @@ sudo snap refresh
 ```
 
 ```shell
+# By default, snaps are set to refresh themselves 4 times per day
+sudo snap set system refresh.timer=sat,04:00
+
 sudo snap connections remmina
 
 snap changes
