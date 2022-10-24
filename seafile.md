@@ -82,6 +82,19 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://manual.seafile.com/deploy_pro/real_time_backup/
 * https://shoeper.gitbooks.io/seafile-docs/content/deploy_pro/real_time_backup.html
 
+```shell
+# on host, container doesn't have editors
+sudo nano /opt/docker-data/seafile/mysql/conf/replication.cnf
+```
+```
+[mysqld]
+log_bin=mysql-bin
+server-id=1
+```
+```shell
+docker compose restart db
+```
+
 ### Installation
 * Docker
     * :warning: https://manual.seafile.com/docker/non_docker_to_docker/
