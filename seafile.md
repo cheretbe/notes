@@ -116,3 +116,54 @@ seaf-cli start
 seaf-cli list-remote -s http://seafile-test -u admin@seafile.local
 seaf-cli sync -l 00000000-0000-0000-0000-000000000000 -s http://seafile-test -d ~/Documents/library_name -u admin@seafile.local
 ```
+
+### Nginx reverse proxy
+
+```
+server {
+    listen 80;
+    server_name _ default_server;
+
+    # (optional) allow certbot to connect to challenge location via HTTP Port 80
+    # location /.well-known/acme-challenge/ {
+    #     alias /var/www/challenges/;
+    #     try_files $uri =404;
+    # }
+
+    location / {
+        rewrite ^ https://$host$request_uri? permanent;
+    }
+}
+
+server {
+    server_name  seafile.domain.tld;
+    listen       443 ssl http2;
+
+    ssl_certificate ssl/seafile.domain.tld.bundle.crt;
+    ssl_certificate_key ssl/seafile.domain.tld.key;
+
+    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA512:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:ECDH+AESGCM:ECDH+AES256:DH+AESGCM:DH+AES256:RSA+AESGCM:!aNULL:!eNULL:!LOW:!RC4:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;
+
+    ssl_session_cache shared:TLS:2m;
+
+    location / {
+        proxy_pass         http://127.0.0.1:8080;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Host $server_name;
+
+        proxy_set_header   X-Forwarded-Proto $scheme;
+        #proxy_set_header   X-Forwarded-Proto http;
+
+        client_max_body_size 0;
+        proxy_connect_timeout  36000s;
+        proxy_read_timeout  36000s;
+        proxy_send_timeout  36000s;
+        send_timeout  36000s;
+        proxy_request_buffering off;
+    }
+}
+```
