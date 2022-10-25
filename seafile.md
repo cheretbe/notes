@@ -118,8 +118,22 @@ mysqldump -u root -p --databases \
   --ignore-table=seahub_db.avatar_groupavatar --ignore-table=seahub_db.avatar_uploaded \
   --master-data seafile_db ccnet_db seahub_db > dbdump.sql
 ```
-
+####  Backup Server
 ```
+docker compose -f docker-compose.yml -f docker-compose.local.yml up -d
+
+docker-compose.local.yml
+
+services:
+  db:
+    ports:
+      - "3306:3306"
+
+
+docker run -it --rm mariadb:10.9.3 --verbose --help
+
+sudo nano /opt/docker-data/seafile/mysql/conf/replication.cnf
+
 [mysqld]
 server-id=2
 replicate-ignore-table = seafile_db.Repo
@@ -137,6 +151,16 @@ replicate-ignore-table = seahub_db.avatar_groupavatar
 replicate-ignore-table = seahub_db.avatar_uploaded
 replicate-ignore-table = seahub_db.Event
 replicate-ignore-table = seahub_db.UserEvent
+
+docker-compose.temp-slave.yml
+
+services:
+  db:
+    command: ["--skip-slave-start"]
+
+docker compose -f docker-compose.yml -f docker-compose.temp-slave.yml up db --force-recreate --build -d
+
+docker inspect -f "{{.Config.Cmd}}" seafile-mysql
 ```
 
 ### Installation
