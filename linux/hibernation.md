@@ -5,6 +5,8 @@ swapoff /swapfile
 dd if=/dev/zero of=/swapfile bs=$(cat /proc/meminfo | awk '/MemTotal/ {print $2}') count=1024 conv=notrunc
 
 mkswap /swapfile
+# insecure permissions 0644, 0600 suggested.
+chmod 600 /swapfile
 swapon /swapfile
 
 blkid $(df -P / | tail -1 | cut -d' ' -f 1)
