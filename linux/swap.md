@@ -18,6 +18,11 @@ swapoff -a
 # conv=CONVS  convert the file as per the comma separated symbol list
 #             notrunc: do not truncate the output file
 dd if=/dev/zero of=/swapfile bs=$(cat /proc/meminfo | awk '/MemTotal/ {print $2}') count=1024 conv=notrunc
+
+mkswap /swapfile
+# insecure permissions 0644, 0600 suggested.
+chmod 600 /swapfile
+swapon /swapfile
 ```
 #### Hibernation
 
