@@ -23,6 +23,9 @@ mkswap /swapfile
 # insecure permissions 0644, 0600 suggested.
 chmod 600 /swapfile
 swapon /swapfile
+
+# /etc/fstab entry
+# /swapfile  none  swap  sw  0  0
 ```
 #### Hibernation
 
