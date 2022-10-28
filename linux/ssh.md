@@ -13,6 +13,11 @@ On client in `/etc/ssh/ssh_config`:
 Host hostname
     SendEnv VAR1 VAR2 VAR3
 ```
+
+### Host keys
+```shell
+ls /etc/ssh/ssh_host_*_key*
+```
  
 ### Hardening SSH Access
 SSH daemon options in `/etc/ssh/sshd_config`:
