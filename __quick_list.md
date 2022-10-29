@@ -6,6 +6,8 @@ ps -e -o pid,vsz,comm= | sort -n -k 2
 # Same as above, long version
 ps --everyone --format=pid,vsz,comm= | sort --numeric-sort --key=2
 
+# Continuously updated iostat
+watch -n 1 iostat -xy --human 1 1
 ```
 
 * Speed/storage converters:
@@ -99,9 +101,6 @@ aria2c --enable-dht=true --seed-time 0 --summary-interval=0 "magnet:?xt=urn:btih
 # Kill background unattended upgrades script that prevents apt from running
 # (repeat a couple of times)
 lsof /var/lib/dpkg/lock-frontend | awk 'NR > 1 {print $2}' | xargs -p --no-run-if-empty kill
-
-# Continuously updated iostat
-watch -n 1 iostat -xy --human 1 1
 
 # view setting
 vboxmanage list systemproperties | grep "Default machine folder:"
