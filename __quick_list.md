@@ -6,8 +6,9 @@ ps -e -o pid,vsz,comm= | sort -n -k 2
 # Same as above, long version
 ps --everyone --format=pid,vsz,comm= | sort --numeric-sort --key=2
 
+# https://www.linuxtechi.com/monitor-linux-systems-performance-iostat-command/
 # Continuously updated iostat
-watch -n 1 iostat -xy --human 1 1
+watch -n 1 iostat -d --human
 ```
 
 * Speed/storage converters:
