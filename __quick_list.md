@@ -1,4 +1,4 @@
-```
+```shell
 pwgen -sB 10
 
 # Processes sorted by virtual size
