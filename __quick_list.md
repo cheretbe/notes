@@ -8,7 +8,11 @@ ps --everyone --format=pid,vsz,comm= | sort --numeric-sort --key=2
 
 # https://www.linuxtechi.com/monitor-linux-systems-performance-iostat-command/
 # Continuously updated iostat
-watch -n 1 iostat -d --human
+# Single iostat invocation does not provide meaningful data for "per second" values: first report
+# provides statistics concerning the time since the system was booted. Each subsequent report covers
+# the time since the previous report.
+# 1 2 => interval count => 2 reports at 1 second interval
+watch -n 1 iostat -d --human 1 2
 ```
 
 * Speed/storage converters:
