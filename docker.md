@@ -95,6 +95,9 @@ docker run --rm --detach --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
 https://developers.redhat.com/cheat-sheets/containers/
 
 ```shell
+# Remove all (!) containers
+docker ps -a -q | xargs docker rm
+
 # List mounted volumes for a container
 docker inspect -f '{{ .Mounts }}' containerid
 
