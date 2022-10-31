@@ -1,3 +1,7 @@
+```shell
+echo | openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
+```
+
 ## Table of Contents
 * [Unsorted](#unsorted)
 * [Container and Certificate types](#container-and-certificate-types)
@@ -371,13 +375,13 @@ openssl verify -untrusted /etc/letsencrypt/live/domain.tld/chain.pem /etc/letsen
 ```
 
 View (verify) certificates on server
-```
+```shell
 openssl s_client -connect www.godaddy.com:443
 echo | openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
 ```
 
 Check if sertificate (or CSR) matches private key
-```
+```shell
 openssl pkey -in privateKey.key -pubout -outform pem | sha256sum 
 openssl x509 -in certificate.crt -pubkey -noout -outform pem | sha256sum 
 openssl req -in CSR.csr -pubkey -noout -outform pem | sha256sum
