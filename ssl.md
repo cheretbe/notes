@@ -373,6 +373,7 @@ openssl verify -untrusted /etc/letsencrypt/live/domain.tld/chain.pem /etc/letsen
 View (verify) certificates on server
 ```
 openssl s_client -connect www.godaddy.com:443
+echo | openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
 ```
 
 Check if sertificate (or CSR) matches private key
