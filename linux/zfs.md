@@ -109,6 +109,7 @@ zdb -CC -e pool
 zfs get xattr pool
 zfs get atime pool
 zfs get mountpoint pool
+zfs get compression pool
 
 # lz4_compress
 zpool get all [pool] | grep 'feature@lz4_compress'
