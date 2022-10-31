@@ -101,6 +101,7 @@ zfs set mountpoint=/mountpoint pool/filesystem
 View current values
 ```shell
 # ashift
+# ashift=12: pool is 4K aligned, ashift=9: pool 512B aligned
 zdb -CC [pool]
 # for non-imported pool
 zdb -CC -e pool
