@@ -380,6 +380,9 @@ Check if sertificate (or CSR) matches private key
 openssl pkey -in privateKey.key -pubout -outform pem | sha256sum 
 openssl x509 -in certificate.crt -pubkey -noout -outform pem | sha256sum 
 openssl req -in CSR.csr -pubkey -noout -outform pem | sha256sum
+# or
+openssl rsa -in domain.tld.key -noout -modulus | openssl sha256
+openssl x509 -in domain.tld.crt -noout -modulus| openssl sha256
 ```
 
 Extract the private key from the PFX
