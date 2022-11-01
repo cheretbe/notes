@@ -100,14 +100,16 @@ zfs set mountpoint=/mountpoint pool/filesystem
 
 # Mount pool recursively
 zfs list -rH -o name pool | xargs -L 1 zfs mount
+# View what is mounted
+findmnt -R pool
 ```
 View current values
 ```shell
 # ashift
 # ashift=12: pool is 4K aligned, ashift=9: pool 512B aligned
-zdb -CC [pool]
+zdb -C [pool]
 # for non-imported pool
-zdb -CC -e pool
+zdb -C -e pool
 
 zfs get xattr pool
 zfs get atime pool
