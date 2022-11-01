@@ -97,6 +97,9 @@ zpool create pool1 mirror /dev/vda /dev/vdb
 Change mount point after creation
 ```shell
 zfs set mountpoint=/mountpoint pool/filesystem
+
+# Mount pool recursively
+zfs list -rH -o name pool | xargs -L 1 zfs mount
 ```
 View current values
 ```shell
