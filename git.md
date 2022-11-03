@@ -299,11 +299,14 @@ git 'command' --verbose
 git 'command' -v
 # Also useful
 git 'command' --dry-run
+# https://github.com/git/git/blob/master/Documentation/git.txt
+# GIT_TRACE_SETUP
 GIT_CURL_VERBOSE=1 git 'command'
-GIT_TRACE_PACKET=2 git 'command'
+GIT_TRACE_PACKET=2 GIT_TRACE_CURL_NO_DATA=1 git 'command'
 # On Windows
 SET GIT_CURL_VERBOSE=1
 SET GIT_TRACE_PACKET=2
+SET GIT_TRACE_CURL_NO_DATA=1
 ```
 Make sure `--verbose` switch is **after the actual git command**, otherwise it won't work!
 
