@@ -241,6 +241,22 @@ source <(curl https://raw.githubusercontent.com/cheretbe/notes/master/files/git/
 source <(wget -qO- https://raw.githubusercontent.com/cheretbe/notes/master/files/git/git_intial_setup.sh)
 ```
 
+Per-server setup<br>
+`.giconfig`:
+```
+# git 2.36+
+# add-apt-repository ppa:git-core/ppa
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+        # It's ok to use ~ here
+        path = .github-git-config
+```
+`.github-git-config`:
+```
+[user]
+        name = user
+        email = user@ptsecurity.com
+```
+
 ```bash
 # View current config
 git config --list [--global]
