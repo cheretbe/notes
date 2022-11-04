@@ -34,6 +34,15 @@ swapon /swapfile
 # Should *not* return "WARNING: No swap limit support"
 docker info
 ```
+(not needed for Ubuntu 22.04?) In order to enable swap accounting the boot argument `swapaccount=1` must be set. This can be done by appending it to the `GRUB_CMDLINE_LINUX_DEFAULT` variable in `/etc/default/grub`, then running `update-grub` as root and rebooting (:warning: check `/etc/default/grub.d/` contents).
+```shell
+# View current kernel configuraion
+# Should return "CONFIG_MEMCG_SWAP=y" 
+cat /boot/config-$(uname -r) | grep CONFIG_MEMCG_SWAP
+# View current kernel boot parameters
+cat /proc/cmdline
+```
+
 
 #### Hibernation
 
