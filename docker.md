@@ -35,6 +35,19 @@ docker images myimage
 docker image inspect node:latest
 ```
 
+### Memory settings
+
+* :warning: https://github.com/cheretbe/notes/blob/master/linux/swap.md#limiting-swap-for-containers
+* https://docs.docker.com/config/containers/resource_constraints/
+    * https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details 
+    * If --memory-swap is set to 0, the setting is ignored, and the value is treated as unset
+    * If --memory="300m" and --memory-swap="1g", the container can use 300m of memory and 700m (1g - 300m) swap 
+    * Prevent a container from using swap (set memswap_limit to the same value as mem_limit)
+    ```
+        mem_limit: 128m
+        memswap_limit: 128m
+    ```
+
 ### Docker Compose
 
 * Directory structure example: https://github.com/rundeck/docker-zoo
