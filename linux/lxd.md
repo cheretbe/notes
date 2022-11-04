@@ -51,11 +51,7 @@ networkctl list
 ifconfig
 ```
 
-:warning: In order to enable swap accounting the boot argument `swapaccount=1` must be set. This can be done by appending it to the `GRUB_CMDLINE_LINUX_DEFAULT` variable in `/etc/default/grub`, then running `update-grub` as root and rebooting.
-```shell
-# View current parameters
-cat /proc/cmdline
-```
+:warning: Swap settings: https://github.com/cheretbe/notes/blob/master/linux/swap.md#limiting-swap-for-containers
 
 Add to `/etc/sysctl.conf`
 ```
