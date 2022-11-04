@@ -27,6 +27,14 @@ swapon /swapfile
 # /etc/fstab entry
 # /swapfile  none  swap  sw  0  0
 ```
+#### Limiting swap for containers
+
+```shell
+# Check if configured correctly
+# Should *not* return "WARNING: No swap limit support"
+docker info
+```
+
 #### Hibernation
 
 [hibernation.md](./hibernation.md)
