@@ -47,6 +47,12 @@ docker image inspect node:latest
         mem_limit: 128m
         memswap_limit: 128m
     ```
+    
+View current memory settings for a container
+```shell
+docker inspect -f '{{ .HostConfig.Memory }}'
+docker inspect -f '{{ .HostConfig.MemorySwap }}'
+```
 
 ### Docker Compose
 
