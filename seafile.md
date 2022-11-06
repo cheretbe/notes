@@ -65,6 +65,8 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     ```
 
 #### Elasticsearch config
+* https://manual.seafile.com/deploy_pro/details_about_file_search/
+    * Settings are in `/opt/seafile/conf/seafevents.conf` (`[INDEX FILES]` section) 
 * Out of memory error fix
     * https://forums.docker.com/t/elastic-search-container-out-of-memory/43148/2
     * https://github.com/elastic/elasticsearch-docker/issues/43#issuecomment-343997733
