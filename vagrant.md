@@ -134,6 +134,16 @@ end
       ls /dir2
     SHELL
 ```
+##### Privileged ports forwarding
+```
+vagrant ssh-config > /tmp/ssh-config-name
+# -g      Allows remote hosts to connect to local forwarded ports.  If used on a multiplexed connection, then this option must be specified on the master
+             process.
+sudo ssh -f /tmp/ssh-config-name -p 2222 -gNfL 80:localhost:80
+# More advanced options is to run in the background with setting up a socket to be able to close the connection
+# (not needed for simple vagrant tests)
+# https://mpharrigan.com/2016/05/17/background-ssh.html
+```
 ##### Networking
 * https://www.vagrantup.com/docs/networking/private_network
 * https://www.vagrantup.com/docs/networking/public_network.html
