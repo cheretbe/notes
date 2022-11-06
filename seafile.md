@@ -171,6 +171,7 @@ docker inspect -f "{{.Config.Cmd}}" seafile-mysql
     * https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
     * https://manual.seafile.com/docker/upgrade/upgrade_docker/
     * https://itsfoss.com/deploy-seafile-server-docker/
+    * Source code: https://github.com/haiwen/seafile-docker
 * https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
   * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
 
