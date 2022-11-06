@@ -62,7 +62,12 @@ docker inspect -f '{{ .HostConfig.MemorySwap }}'
 
 ```shell
 # Update container images
-docker-compose up --force-recreate --build -d
+docker compose up --force-recreate --build -d
+# Update (rebuild) specific containers (services) instead of all
+# https://docs.docker.com/engine/reference/commandline/compose_up/
+# Without one or more service_name arguments all images will be built
+# if missing and all containers will be recreated
+docker compose up --force-recreate --build -d service_name_1 service_name_2
 # Consider a cleanup after that
 docker image prune -f
 
