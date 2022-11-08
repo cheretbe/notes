@@ -401,12 +401,16 @@ openssl x509 -in domain.tld.crt -noout -modulus| openssl sha256
 ```
 
 Extract the private key from the PFX
-```
-openssl pkcs12 -in {site}.pfx  -nocerts -nodes -passin pass:{password} | openssl rsa -out {site}.key
+```shell
+# -passin pass:{password} for scripts
+openssl pkcs12 -in domain.name.pfx -nocerts -nodes -out domain.name.key
+#openssl pkcs12 -in {site}.pfx  -nocerts -nodes -passin pass:{password} | openssl rsa -out {site}.key
 ```
 Extract the public key from the PFX
-```
-openssl pkcs12 –in {site}.pfx -clcerts -nokeys -passin pass:{password} | openssl x509 -out {site}.cer
+```shell
+# -passin pass:{password} for scripts
+openssl pkcs12 -in domain.name.pfx -clcerts -nokeys -out domain.name.crt
+# openssl pkcs12 –in {site}.pfx -clcerts -nokeys -passin pass:{password} | openssl x509 -out {site}.cer
 ```
 Extract the chain bundle from the PFX
 ```bash
