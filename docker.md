@@ -6,8 +6,10 @@
     * Use `phusion/baseimage:master` until [version scheme](https://github.com/phusion/baseimage-docker/issues/543) is changed
 * :warning: **Test docker on Raspberry:** https://phoenixnap.com/kb/docker-on-raspberry-pi
 * What is the difference between CMD and ENTRYPOINT in a Dockerfile? https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
-
+* **iptables** settings: https://github.com/cheretbe/notes/blob/master/linux/networking.md#docker
 * https://www.googlinux.com/how-to-list-all-tags-of-a-docker-image/
+
+
 ```shell
 curl https://registry.hub.docker.com/v2/repositories/library/mariadb/tags/ | jq '.results[]["name"]'
 curl https://registry.hub.docker.com/v2/repositories/library/mariadb/tags/?page=2 | jq '.results[]["name"]'
