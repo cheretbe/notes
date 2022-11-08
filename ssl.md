@@ -1,5 +1,15 @@
 ```shell
-echo | openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
+#  -servername   Set TLS extension servername (SNI) in ClientHello (default)
+# Essentially it works a little like a "Host" header in HTTP, i.e. it causes the requested domain name
+# to be passed as part of the SSL/TLS handshake (in the SNI - Server Name Indication extension). A server
+# can then host multiple domains behind a single IP. It will respond with the appropriate certificate base
+# on the requested domain name.
+# If you do not request a specific domain name the server does not know which certificate to give you, so you
+# end up with a default one.
+# https://stackoverflow.com/questions/43785703/using-servername-param-with-openssl-s-client/43787519#43787519
+openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 -showcerts 2>/dev/null </dev/null | openssl x509 -text -issuer
+# Expiration date
+openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev/null </dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
 ```
 
 ## Table of Contents
