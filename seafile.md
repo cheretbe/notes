@@ -84,6 +84,12 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://manual.seafile.com/deploy_pro/real_time_backup/
 * https://shoeper.gitbooks.io/seafile-docs/content/deploy_pro/real_time_backup.html
 
+:warning: Doesn't work at the moment.
+* MySQL replication works
+* `/opt/seafile/seafile-server-latest/seaf-backup-cmd.sh sync 00000000-0000-0000-0000-000000000000` fails with error "Failed to sync repo 00000000-0000-0000-0000-000000000000: Failed to get repo info from primary."
+* `curl -v https://master.domain.tld/seafhttp/server-sync/repo-list` returns error 400
+* https://forum.seafile.com/t/seafile-real-time-backup-server/7090 has a comment "Using real-time backup requires that you have setup the primary server with Nginx or Apache". We did use nginx, but not sure if it served `seafhttp/server-sync/repo-list` correctly. :warning: this needs additional research.
+
 ```shell
 # Stop Seafile service, so that no update will be written into database
 docker compose stop seafile
@@ -163,6 +169,24 @@ services:
 docker compose -f docker-compose.yml -f docker-compose.temp-slave.yml up db --force-recreate --build -d
 
 docker inspect -f "{{.Config.Cmd}}" seafile-mysql
+
+# We can create dump file directly on backup 
+docker exec -it seafile-mysql bash
+
+mysqldump -h host.domain.tld -u root -p --databases \
+  --ignore-table=seafile_db.Repo --ignore-table=seafile_db.Branch --ignore-table=seafile_db.RepoHead \
+  --ignore-table=seahub_db.base_userlastlogin --ignore-table=seahub_db.django_session \
+  --ignore-table=seahub_db.sysadmin_extra_userloginlog --ignore-table=seahub_db.UserTrafficStat \
+  --ignore-table=seahub_db.FileAudit --ignore-table=seahub_db.FileUpdate --ignore-table=seahub_db.PermAudit \
+  --ignore-table=seahub_db.Event --ignore-table=seahub_db.UserEvent --ignore-table=seahub_db.avatar_avatar \
+  --ignore-table=seahub_db.avatar_groupavatar --ignore-table=seahub_db.avatar_uploaded \
+  --master-data seafile_db ccnet_db seahub_db > dbdump.sql
+  
+mysql -u root -p < dbdump.sql
+
+mysql -h host.domain.tld -u root -p -Be "unlock tables;"
+
+CHANGE MASTER TO MASTER_HOST='host.domain.tld', MASTER_USER='repl', MASTER_PASSWORD='slavepass', MASTER_LOG_FILE='bin-log-file', MASTER_LOG_POS=position;
 ```
 
 ### Installation
