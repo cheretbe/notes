@@ -118,6 +118,18 @@ iptables -D INPUT -p tcp -m tcp --dport 1194 -m comment --comment "Allow VPN" -j
 iptables-restore < /etc/iptables/rules.v4
 ```
 
+#### Docker
+* https://docs.docker.com/network/iptables/
+All of Docker’s iptables rules are added to the DOCKER chain. Do not manipulate this chain manually. If you need to add rules which load before Docker’s rules, add them to the DOCKER-USER chain. These rules are applied before any rules Docker creates automatically.
+```shell
+iptables -I DOCKER-USER -i ext_if ! -s 192.168.1.0/24 -j DROP
+iptables -L DOCKER-USER
+# Docker also sets the policy for the FORWARD chain to DROP. If your Docker host also acts as a router,
+# this will result in that router not forwarding any traffic anymore. If you want your system to continue
+# functioning as a router, you can add explicit ACCEPT rules to the DOCKER-USER chain to allow it:
+iptables -I DOCKER-USER -i src_if -o dst_if -j ACCEPT
+```
+
 ### Detect network renderer
 
 * https://askubuntu.com/questions/1031439/am-i-running-networkmanager-or-networkd/1246465#1246465
