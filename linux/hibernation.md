@@ -1,3 +1,5 @@
+* TODO: https://ubuntuhandbook.org/index.php/2020/05/lid-close-behavior-ubuntu-20-04/ (HandleLidSwitch=hibernate in /etc/systemd/logind.conf)
+
 ```shell
 swapoff /swapfile
 
