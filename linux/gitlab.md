@@ -38,6 +38,11 @@ sudo gitlab-ctl reconfigure
     * Restart Gitlab
     * https://docs.gitlab.com/ee/security/password_length_limits.html
 
+#### Docker
+* https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/
+* https://www.danieleagle.com/2017/01/gitlab-ce-with-https-using-docker/
+    * https://github.com/danieleagle/gitlab-https-docker/blob/master/docker-compose.yml
+
 ### Backup/restore
 :warning: Default commented value **is not** the default (default is to keep all backups). See https://gitlab.com/gitlab-org/gitlab/-/issues/17929.
 ```
