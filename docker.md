@@ -58,6 +58,9 @@ docker inspect -f '{{ .HostConfig.MemorySwap }}'
 
 ### Docker Compose
 
+* Samples: https://docs.docker.com/samples/
+    * Awesome Compose: https://github.com/docker/awesome-compose
+    * Docker Samples: https://github.com/dockersamples?q=&type=all&language=&sort=stargazers
 * Directory structure example: https://github.com/rundeck/docker-zoo
 * GitLab with a runner example: https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/
 * https://runnable.com/docker/advanced-docker-compose-configuration
