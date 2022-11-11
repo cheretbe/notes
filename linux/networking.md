@@ -7,6 +7,7 @@
 lshw -class network -short
 # Note a device name and find out detailed info
 lshw -class network
+# TODO: researsh -json key and jq queries
 
 # ip -br -c a
 # ip -br -c link
