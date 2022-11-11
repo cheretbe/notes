@@ -64,6 +64,87 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     MAX_NUMBER_OF_FILES_FOR_FILEUPLOAD = 500
     ```
 
+### Installation
+* Docker
+    * :warning: https://manual.seafile.com/docker/non_docker_to_docker/
+    * https://manual.seafile.com/docker/pro-edition/deploy_seafile_pro_with_docker/
+        * https://manual.seafile.com/docker/pro-edition/docker-compose.yml
+    * https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
+    * https://manual.seafile.com/docker/upgrade/upgrade_docker/
+    * https://itsfoss.com/deploy-seafile-server-docker/
+    * Source code: https://github.com/haiwen/seafile-docker
+* https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
+  * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
+
+#### Docker
+
+* https://github.com/cheretbe/docker-configs/tree/main/seafile
+
+##### Non-Docker to Docker migration
+
+```shell
+# cd /opt/seafile/seafile-server-latest/
+# ./seafile.sh stop  && ./seahub.sh stop
+service seafile-server stop
+update-rc.d seafile-server disable
+
+systemctl stop nginx &&  systemctl disable nginx
+systemctl stop memcached &&  systemctl disable memcached
+
+# The original guide proposes modifying original DB and granting seafile
+# user access from any IP. But since we are going to use a container for DB,
+# we will do this in the container itself, leaving the original intact
+systemctl stop mariadb.service && systemctl disable mariadb.service
+
+# /opt/seafile-data         -> /opt/docker-data/seafile/data
+# /opt/seafile-data/seafile    /opt/docker-data/seafile/data/seafile
+
+mkdir -p /opt/docker-data/seafile/data/seafile
+mkdir    /opt/docker-data/seafile/data/seafile/ccnet
+
+cp -r /opt/seafile/conf  /opt/docker-data/seafile/data/seafile
+cp -r /opt/seafile/seahub-data  /opt/docker-data/seafile/data/seafile
+
+cd /opt/docker-data/seafile/data/seafile/conf/
+
+# Update ccnet.conf, seafile.conf, seahub_settings.py
+# change HOST=127.0.0.1 to HOST=db
+#
+# Update seahub_settings.py
+# 'LOCATION': 'memcached:11211'
+
+mariadb --version
+# 10.3.34
+# MARIADB_IMAGE_VERSION=10.3.34
+
+cp -r /opt/seafile/seafile-data /opt/docker-data/seafile/data/seafile/
+
+mkdir -p /opt/docker-data/seafile/mysql/db/
+cp -r /var/lib/mysql/* /opt/docker-data/seafile/mysql/db/
+
+
+docker compose up db -d
+
+cat /root/.my.cnf
+docker exec -it seafile-mysql mysql -p
+```
+```sql
+## Change the password according to the actual password you use
+## cat /opt/docker-data/seafile/data/seafile/conf/ccnet.conf
+GRANT ALL PRIVILEGES ON *.* TO 'seafile'@'%' IDENTIFIED BY 'your-password' WITH GRANT OPTION;
+
+## Grant seafile user can connect the database from any IP address
+GRANT ALL PRIVILEGES ON `ccnet_db`.* to 'seafile'@'%';
+GRANT ALL PRIVILEGES ON `seafile_db`.* to 'seafile'@'%';
+GRANT ALL PRIVILEGES ON `seahub_db`.* to 'seafile'@'%';
+```
+
+```shell
+docker compose restart db
+docker compose up -d
+```
+
+
 #### Elasticsearch config
 * https://manual.seafile.com/deploy_pro/details_about_file_search/
     * Settings are in `/opt/seafile/conf/seafevents.conf` (`[INDEX FILES]` section) 
@@ -188,18 +269,6 @@ mysql -h host.domain.tld -u root -p -Be "unlock tables;"
 
 CHANGE MASTER TO MASTER_HOST='host.domain.tld', MASTER_USER='repl', MASTER_PASSWORD='slavepass', MASTER_LOG_FILE='bin-log-file', MASTER_LOG_POS=position;
 ```
-
-### Installation
-* Docker
-    * :warning: https://manual.seafile.com/docker/non_docker_to_docker/
-    * https://manual.seafile.com/docker/pro-edition/deploy_seafile_pro_with_docker/
-        * https://manual.seafile.com/docker/pro-edition/docker-compose.yml
-    * https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
-    * https://manual.seafile.com/docker/upgrade/upgrade_docker/
-    * https://itsfoss.com/deploy-seafile-server-docker/
-    * Source code: https://github.com/haiwen/seafile-docker
-* https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
-  * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
 
 ### WebDAV
 
