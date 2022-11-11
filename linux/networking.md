@@ -3,8 +3,14 @@
 * `ip` command cheatsheet: https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
 
 ```shell
-# View interfaces (note "state UP" or "state DOWN")
-ipconfig -a
+# Physical interfaces info (note the H/W path)
+lshw -class network -short
+# Note a device name and find out detailed info
+lshw -class network
+
+# ip -br -c a
+# ip -br -c link
+
 ip link show
 # Display information only for one device
 ip link show dev <ifname>
@@ -16,6 +22,9 @@ ip link set dev <ifname> down
 # view IP(s)
 hostname -I
 ip addr
+
+# View interfaces (note "state UP" or "state DOWN")
+ipconfig -a
 
 # Test port access
 nc -l -p 1234
