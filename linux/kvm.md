@@ -91,6 +91,31 @@ apt install libgl1-mesa-glx
 * http://wiki.stoney-cloud.org/wiki/Workaround_unhandled_rdmsr/wrmsr
 * Swappiness: https://github.com/cheretbe/notes/blob/master/linux/swap.md#swappines
 * Adjust `SHUTDOWN_TIMEOUT` in `/etc/default/libvirt-guests` as needed
+
+### Services
+
+```shell
+# Services (Ubuntu 18.04)
+# libvirt-bin.service is an alias to libvirtd.service
+systemctl list-units libvirt-guests.service libvirtd.service qemu-kvm.service
+# UNIT                   LOAD   ACTIVE SUB     DESCRIPTION                                  
+# libvirt-guests.service loaded active exited  Suspend/Resume Running libvirt Guests        
+# libvirtd.service       loaded active running Virtualization daemon                        
+# qemu-kvm.service       loaded active exited  QEMU KVM preparation - module, ksm, hugepages
+
+systemctl list-unit-files libvirt-guests.service libvirtd.service qemu-kvm.service
+# UNIT FILE              STATE   
+# libvirt-guests.service disabled
+# libvirtd.service       disabled
+# qemu-kvm.service       enabled
+
+# Stop all guests
+systemctl stop libvirt-guests
+
+# Start all guests
+systemctl restart libvirtd
+```
+
 ### Networking
 
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-managing_guest_virtual_machines_with_virsh-managing_virtual_networks
