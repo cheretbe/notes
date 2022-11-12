@@ -2,6 +2,7 @@
 # View info for all drives
 smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -i " $1) }'
 smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -A " $1 "| grep -i sector") }'
+smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -a " $1 "| grep -ie sector -ie error") }' | less
 
 # Or use check_smart script
 check_smart_ver=$(curl -s https://api.github.com/repos/Napsty/check_smart/releases/latest | jq -r ".tag_name")
