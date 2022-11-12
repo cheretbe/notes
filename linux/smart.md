@@ -10,7 +10,8 @@ wget https://github.com/Napsty/check_smart/archive/${check_smart_ver}.tar.gz
 tar -xzvf ${check_smart_ver}.tar.gz
 cd check_smart-${check_smart_ver}/
 
-check_smart.pl -g '/dev/sd[a-g]' -i auto
+smartctl --scan
+./check_smart.pl -g '/dev/sd[a-g]' -i auto
 ```
 
 ### Smartd settings
