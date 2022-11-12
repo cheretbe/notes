@@ -1,7 +1,7 @@
 ```shell
 # Find a (mounted) filesystem
 findmnt
-
+findmnt -t ext4,zfs -o +SIZE,USE%,AVAIL
 
 # Mount disk image file
 # Make sure file is not compressed
