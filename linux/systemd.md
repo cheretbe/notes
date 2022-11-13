@@ -25,6 +25,21 @@ systemctl --type=service --state=active
     * Debian `/lib/systemd/system/nginx.service`
 
 ```shell
+# list-units   List units that systemd currently has in memory
+systemctl list-units libvirt-guests.service libvirtd.service qemu-kvm.service
+# UNIT                   LOAD   ACTIVE SUB     DESCRIPTION                                  
+# libvirt-guests.service loaded active exited  Suspend/Resume Running libvirt Guests        
+# libvirtd.service       loaded active running Virtualization daemon                        
+# qemu-kvm.service       loaded active exited  QEMU KVM preparation - module, ksm, hugepages
+
+# list-unit-files  List unit files installed on the system, in combination with their
+#                  enablement state (as reported by is-enabled)
+systemctl list-unit-files libvirt-guests.service libvirtd.service qemu-kvm.service
+# UNIT FILE              STATE   
+# libvirt-guests.service disabled
+# libvirtd.service       disabled
+# qemu-kvm.service       enabled
+
 # Check if service is enabled
 systemctl is-enabled mysqld.service
 # Enable service
