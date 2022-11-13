@@ -1,5 +1,6 @@
 ```shell
 pwgen -sB 10
+findmnt -t ext4,zfs -o +SIZE,USE%,AVAIL
 
 # Processes sorted by virtual size
 ps -e -o pid,vsz,comm= | sort -n -k 2
