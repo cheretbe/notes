@@ -9,6 +9,8 @@
 * [virsh Commands](#virsh-commands)
 
 ### Unsorted
+* High utilization when Windows 10 guest is idle: https://www.reddit.com/r/VFIO/comments/80p1q7/high_kvmqemu_cpu_utilization_when_windows_10/
+
 :warning: A hack for KVM cloud provders (Digital Ocean etc)
 ```shell
 # source
