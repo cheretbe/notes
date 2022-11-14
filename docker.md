@@ -52,8 +52,9 @@ docker image inspect node:latest
     
 View current memory settings for a container
 ```shell
-docker inspect -f '{{ .HostConfig.Memory }}'
-docker inspect -f '{{ .HostConfig.MemorySwap }}'
+docker inspect -f '{{ .HostConfig.Memory }}' container-name
+docker inspect -f '{{ .HostConfig.MemorySwap }}' container-name
+docker inspect -f '{{ index .Config.Labels "com.docker.compose.project.config_files" }}' container-name
 ```
 
 ### Docker Compose
