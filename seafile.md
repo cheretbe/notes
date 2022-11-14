@@ -122,7 +122,7 @@ cp -r /opt/seafile/seafile-data /opt/docker-data/seafile/data/seafile/
 mkdir -p /opt/docker-data/seafile/mysql/db/
 cp -r /var/lib/mysql/* /opt/docker-data/seafile/mysql/db/
 
-
+# [!] Just db container is being started
 docker compose up db -d
 
 cat /root/.my.cnf
