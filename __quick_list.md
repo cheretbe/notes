@@ -125,12 +125,17 @@ ssh-copy-id -i ~/.ssh/key_name.pub user@host.tld
 # Find file recursively
 # -iname:  like -name, but the match is case insensitive
 find / -xdev -iname "*sql*"
+# exclude a directory
+# "-wholename '/somedir/*' -prune -o" implies: exclude items from searching. After that, '-o' tells the command
+# what else should be done
+find / -wholename '/somedir/*' -prune -o -iname "*sql*"
 
 # Grep the whole filesystem
 # -xdev  Don't descend directories on other filesystems.
 # -H, --with-filename  print the file name for each match
 # -I  equivalent to --binary-files=without-match
 # -m 1 return only the first match
+# exclude a directory: see an example above
 find / -xdev -type f -print0 | xargs -0 grep -H -m 1 -I "ForceCompositionPipeline"
 
 # Watch the whole filesystem changes
