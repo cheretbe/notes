@@ -107,7 +107,7 @@ cp -r /opt/seafile/seahub-data  /opt/docker-data/seafile/data/seafile
 
 cd /opt/docker-data/seafile/data/seafile/conf/
 
-# Update ccnet.conf, seafile.conf, seahub_settings.py
+# Update ccnet.conf, seafile.conf, seafevents.conf, seahub_settings.py
 # change HOST=127.0.0.1 to HOST=db
 #
 # Update seahub_settings.py
