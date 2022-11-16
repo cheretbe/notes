@@ -1,8 +1,7 @@
 
 ### Unsorted
-
-
-* :warning: https://docs.gitlab.com/ee/user/project/repository/branches/default.html#instance-level-custom-initial-branch-name
+* :warning: Review when (once again) having trouble with merge: https://www.atlassian.com/git/tutorials/using-branches/git-merge
+* https://docs.gitlab.com/ee/user/project/repository/branches/default.html#instance-level-custom-initial-branch-name
 
 ```shell
 git config --global merge.tool meld
