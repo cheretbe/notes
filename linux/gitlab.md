@@ -46,6 +46,22 @@ sudo gitlab-ctl reconfigure
 docker exec gitlab grep 'Password:' /etc/gitlab/initial_root_password
 ```
 
+#### Updgrade
+* https://docs.gitlab.com/ee/update/index.html#upgrade-paths
+* https://hub.docker.com/r/gitlab/gitlab-ce/tags
+* https://docs.gitlab.com/ee/update/plan_your_upgrade.html#pre-upgrade-and-post-upgrade-checks
+* https://docs.gitlab.com/ee/install/docker.html#upgrade
+
+```
+Refer to the GitLab Upgrade recommendations when upgrading between major versions.
+  https://docs.gitlab.com/ee/update/index.html#upgrading-to-a-new-major-version
+Make full backup (make sure to include /etc/gitlab/)
+Pull the new image
+Stop the container
+Create the container once again
+On the first run, GitLab will reconfigure and upgrade itself.
+```
+
 ### Backup/restore
 * :warning: Make sure config files from `/etc/gitlab/` are backed up separately (https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/doc/raketasks/backup_gitlab.md#storing-configuration-files)
 * :warning: Default commented value **is not** the default (default is to keep all backups). See https://gitlab.com/gitlab-org/gitlab/-/issues/17929.
