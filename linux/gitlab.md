@@ -101,7 +101,7 @@ docker exec -it gitlab gitlab-backup restore BACKUP=1668535228_2022_11_15_14.8.2
 # Restart the GitLab container
 docker restart gitlab
 
-until [ "`docker inspect -f {{.State.Health.Status}} gitlab`" == "healthy" ]; do sleep 1; done;
+until [ "`docker inspect -f {{.State.Health.Status}} gitlab`" == "healthy" ]; do echo "Waiting for container..."; sleep 2; done;
 docker inspect -f {{.State.Health.Status}} gitlab
 
 # Check GitLab
