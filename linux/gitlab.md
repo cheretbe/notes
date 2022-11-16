@@ -47,7 +47,8 @@ docker exec gitlab grep 'Password:' /etc/gitlab/initial_root_password
 ```
 
 ### Backup/restore
-:warning: Default commented value **is not** the default (default is to keep all backups). See https://gitlab.com/gitlab-org/gitlab/-/issues/17929.
+* :warning: Make sure config files from `/etc/gitlab/` are backed up separately (https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/doc/raketasks/backup_gitlab.md#storing-configuration-files)
+* :warning: Default commented value **is not** the default (default is to keep all backups). See https://gitlab.com/gitlab-org/gitlab/-/issues/17929.
 ```
 # limit backup lifetime to 7 days - 604800 seconds
 gitlab_rails['backup_keep_time'] = 604800
@@ -87,6 +88,8 @@ sudo chown "$(docker exec gitlab id git -u):$(docker exec gitlab id git -g)" /op
 
 sudo cp /backup/source/gitlab-secrets.json /opt/docker-data/gitlab/config/
 sudo cp /backup/source/gitlab.rb /opt/docker-data/gitlab/config/
+
+# [!] consider restoring /etc/gitlab/ssh_host_*_key* files
 
 # Stop the processes that are connected to the database
 docker exec -it gitlab gitlab-ctl stop puma
