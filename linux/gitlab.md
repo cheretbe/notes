@@ -79,6 +79,36 @@ apt install -s gitlab-ce=12.3.3-ce.0
     * `gitlab-backup restore` searches for .tar files in `/var/opt/gitlab/backups`
     * when restoring to a temporary location like Docker container, adjust `external_url` and `proxy_set_headers` accordingly
 
+#### Restore to Docker container
+
+```shell
+sudo cp /backup/source/1668535228_2022_11_15_14.8.2_gitlab_backup.tar /opt/docker-data/gitlab/data/backups/
+sudo chown "$(docker exec gitlab id git -u):$(docker exec gitlab id git -g)" /opt/docker-data/gitlab/data/backups/1668535228_2022_11_15_14.8.2_gitlab_backup.tar
+
+sudo cp /backup/source/gitlab-secrets.json /opt/docker-data/gitlab/config/
+sudo cp /backup/source/gitlab.rb /opt/docker-data/gitlab/config/
+
+# Stop the processes that are connected to the database
+docker exec -it gitlab gitlab-ctl stop puma
+docker exec -it gitlab gitlab-ctl stop sidekiq
+
+# Verify that the processes are all down before continuing
+docker exec -it gitlab gitlab-ctl status
+
+# Run the restore. NOTE: "_gitlab_backup.tar" is omitted from the name
+docker exec -it gitlab gitlab-backup restore BACKUP=1668535228_2022_11_15_14.8.2
+
+# Restart the GitLab container
+docker restart gitlab
+
+until [ "`docker inspect -f {{.State.Health.Status}} gitlab`" == "healthy" ]; do sleep 1; done;
+docker inspect -f {{.State.Health.Status}} gitlab
+
+# Check GitLab
+docker exec -it gitlab gitlab-rake gitlab:check SANITIZE=true
+```
+(optional) Do some [checks](https://docs.gitlab.com/ee/update/plan_your_upgrade.html#pre-upgrade-and-post-upgrade-checks)
+
 ### Reverse proxy
 Settings for `/etc/gitlab/gitlab.rb` on Gitlab server:
 ```ruby
