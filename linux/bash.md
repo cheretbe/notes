@@ -122,7 +122,9 @@ echo "Custom-formatted current date: $(date +'%Y-%m-%d')"
 ```
 
 ```bash
+until [ "`docker inspect -f {{.State.Health.Status}} gitlab`" == "healthy" ]; do echo "Waiting for container..."; sleep 2; done;
 while [ ! -S /var/snap/lxd/common/lxd/unix.socket ]; do echo "Waiting for LXD socket..."; sleep 0.2; done;
+
 # retry 5 times
 # A subshell is used to keep $max out of the current shell
 (max=5; for n in `seq 1 $max`; do your_command && break; done)
