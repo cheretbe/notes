@@ -65,6 +65,8 @@ On the first run, GitLab will reconfigure and upgrade itself.
 
 ### Backup/restore
 * :warning: Make sure config files from `/etc/gitlab/` are backed up separately (https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/doc/raketasks/backup_gitlab.md#storing-configuration-files)
+    * :point_right: Review recommendations here while implementing rundeck task: https://docs.gitlab.com/omnibus/settings/backups.html#creating-backups-for-gitlab-instances-in-docker-containers
+    * `gitlab-ctl backup-etc` creates tar archive in `config_backup` subdir. Probably it't better to use `-p, --backup-path` and write to a separate backup mount as proposed in recommendations above
 * :warning: Default commented value **is not** the default (default is to keep all backups). See https://gitlab.com/gitlab-org/gitlab/-/issues/17929.
 ```
 # limit backup lifetime to 7 days - 604800 seconds
