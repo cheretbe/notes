@@ -39,7 +39,7 @@ docker image inspect node:latest
 
 ### Memory settings
 
-* :warning: https://github.com/cheretbe/notes/blob/master/linux/swap.md#limiting-swap-for-containers
+* :warning::warning: kernel settings: https://github.com/cheretbe/notes/blob/master/linux/swap.md#limiting-swap-for-containers
 * https://docs.docker.com/config/containers/resource_constraints/
     * https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details 
     * If --memory-swap is set to 0, the setting is ignored, and the value is treated as unset
