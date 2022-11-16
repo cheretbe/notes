@@ -55,6 +55,7 @@ docker exec gitlab grep 'Password:' /etc/gitlab/initial_root_password
 ```
 Refer to the GitLab Upgrade recommendations when upgrading between major versions.
   https://docs.gitlab.com/ee/update/index.html#upgrading-to-a-new-major-version
+https://docs.gitlab.com/ee/update/plan_your_upgrade.html#pre-upgrade-and-post-upgrade-checks
 Make full backup (make sure to include /etc/gitlab/)
 Pull the new image
 Stop the container
