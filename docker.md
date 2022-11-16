@@ -22,6 +22,66 @@ do
 done
 ```
 
+```shell
+# Check if image exists locally
+docker images myimage
+docker image inspect node:latest
+```
+
+### Configuration
+
+#### Move /var/lib/docker/
+Option 1<br>
+Edit `/etc/docker/daemon.json`, create if doesn't exist
+```json
+{
+    "data-root": "/mnt/docker",
+    "storage-driver": "overlay2"
+}
+```
+```shell
+systemctl stop docker
+# note the trailing slash in the source path
+rsync -avxP /var/lib/docker/ /mnt/docker
+cd /var/lib
+mv docker/ docker.bak/
+systemctl start docker
+# Make sure there is only docker.bak
+ls -lha | grep docker
+# Should return "overlay2"
+docker info | grep 'Storage Driver:'
+# Check if everything is ok before deleting
+rm -rf docker.bak/
+```
+
+
+Option 2 (ugly)
+```shell
+service docker stop
+mv /var/lib/docker/* /new/path/docker/
+rmdir /var/lib/docker
+ln -s /new/path/docker /var/lib/docker
+service docker start
+```
+
+Option 3 (not tested):
+
+Stop the Docker service. Directly mount a filesystem (ext4, xfs with d_type true flag!) into /var/lib/docker from /etc/fstab or mount it somehwere else and bend the data-root configuration in /etc/docker/daemon.json (the file might not exist yet). Then restart the Docker service again.
+
+Check the output of docker info | grep 'Storage Driver:' to see which storagedriver is used. On wrong formated xfs, this will fall back to device mapper. If the command returs “overlay2” everything is fine. If it says “device mapper” make sure to figure out why and remedy that problem.
+
+For ZFS (left for the reference, most likely is not worth using):<br>
+Do not move existing data<br>
+Edit `/etc/docker/daemon.json` (create if not present)
+```json
+{
+  "storage-driver": "zfs"
+}
+```
+
+
+#### Miscellaneous
+
 `/etc/docker/daemon.json` (create if doesn't exist)
 ```json
 {
@@ -30,12 +90,6 @@ done
 }
 ```
 `systemctl restart docker.service`
-
-```shell
-# Check if image exists locally
-docker images myimage
-docker image inspect node:latest
-```
 
 ### Memory settings
 
@@ -210,23 +264,6 @@ sudo usermod -aG docker ${USER}
 # Apply new group membership without logging out
 su - $USER
 id
-```
-
-Move `/var/lib/docker/`
-```shell
-service docker stop
-mv /var/lib/docker/* /new/path/docker/
-rmdir /var/lib/docker
-ln -s /new/path/docker /var/lib/docker
-service docker start
-```
-For ZFS:<br>
-Do not move existing data<br>
-Edit `/etc/docker/daemon.json` (create if not present)
-```json
-{
-  "storage-driver": "zfs"
-}
 ```
 
 #### Local cache
