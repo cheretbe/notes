@@ -37,6 +37,7 @@ git branch scrap
 # Then reset your branch to the upstream
 git reset --hard @{upstream}
 
+# https://www.atlassian.com/git/tutorials/cherry-pick
 # Then cherry-pick the commits over
 git cherry-pick scrap~6
 git cherry-pick scrap~5
