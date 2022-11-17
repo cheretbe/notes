@@ -7,6 +7,17 @@
 
 Branches diverged
 ```shell
+git rebase main
+git status
+# On branch add_feature
+# Your branch and 'origin/add_feature' have diverged,
+# and have 5 and 3 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+git pull --rebase
+```
+
+
+```shell
 # [!!!] backup before proceeding
 
 # Option 1
