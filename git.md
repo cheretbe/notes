@@ -7,6 +7,9 @@
 
 Branches diverged
 ```shell
+# git pull is git fetch+merge
+git fetch --all
+
 git rebase main
 git status
 # On branch add_feature
