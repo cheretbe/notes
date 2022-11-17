@@ -1,6 +1,39 @@
 
 ### Unsorted
-* :warning: Review when (once again) having trouble with merge: https://www.atlassian.com/git/tutorials/using-branches/git-merge
+#### Merging branches
+* :warning: Review when (once again) having trouble with merge:
+* https://www.atlassian.com/git/tutorials/using-branches/git-merge
+* https://stackoverflow.com/questions/8716130/git-branches-diverged-how-to-proceed/8716401#8716401
+
+Branches diverged
+```shell
+# [!!!] backup before proceeding
+
+# Option 1
+git format-patch -M @{upstream}
+git reset --hard @{upstream}
+
+git am 0001-blah-blah.patch
+git am 0002-blah-blah.patch
+# ...
+
+# Option 2
+# Create a spare branch with your work on it
+git branch scrap
+# Then reset your branch to the upstream
+git reset --hard @{upstream}
+
+# Then cherry-pick the commits over
+git cherry-pick scrap~6
+git cherry-pick scrap~5
+git cherry-pick scrap~4
+# ...
+
+# Then trash the scrap branch
+git branch -D scrap
+```
+
+---------------------------------------------
 * https://docs.gitlab.com/ee/user/project/repository/branches/default.html#instance-level-custom-initial-branch-name
 
 ```shell
