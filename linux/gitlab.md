@@ -68,11 +68,11 @@ On the first run, GitLab will reconfigure and upgrade itself.
     * :point_right: Review recommendations here while implementing rundeck task: https://docs.gitlab.com/omnibus/settings/backups.html#creating-backups-for-gitlab-instances-in-docker-containers
     * `gitlab-ctl backup-etc` creates tar archive in `config_backup` subdir. Probably it't better to use `-p, --backup-path` and write to a separate backup mount as proposed in recommendations above
 * :warning: Default commented value **is not** the default (default is to keep all backups). See https://gitlab.com/gitlab-org/gitlab/-/issues/17929.
-```
+```ruby
 # limit backup lifetime to 7 days - 604800 seconds
 gitlab_rails['backup_keep_time'] = 604800
 ```
-```
+```shell
 gitlab-ctl reconfigure
 
 # GitLab 12.2 or later
