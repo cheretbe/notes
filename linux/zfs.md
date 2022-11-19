@@ -408,6 +408,7 @@ zfs send pool1/path1@snapshot | zfs receive -F pool2/path2
 zfs send pool1/path1@snapshot | pv | zfs -v receive -F pool2/path2
 # check out results
 zfs list -t snapshot -r pool2
+# Restore (rollback) snapshot
 # [!!] This will overwrite current data in pool2/path2
 zfs rollback pool2/path2@snapshot
 # remove snapshots
