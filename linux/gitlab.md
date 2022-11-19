@@ -39,6 +39,7 @@ sudo gitlab-ctl reconfigure
     * https://docs.gitlab.com/ee/security/password_length_limits.html
 
 #### Docker
+* https://github.com/cheretbe/docker-configs/tree/main/gitlab
 * https://www.czerniga.it/2021/11/14/how-to-install-gitlab-using-docker-compose/
 * https://www.danieleagle.com/2017/01/gitlab-ce-with-https-using-docker/
     * https://github.com/danieleagle/gitlab-https-docker/blob/master/docker-compose.yml
