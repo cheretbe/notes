@@ -24,7 +24,8 @@ git_data_dir "/var/opt/gitlab/git-data"
 ```
 https://gitlab.com/gitlab-org/omnibus-gitlab/blob/629def0a7a26e7c2326566f0758d4a27857b52a3/README.md#storing-git-data-in-an-alternative-directory
 
-Configure and start GitLab
+* Configure and start GitLab
+    * :warning: Running GitLab in a memory-constrained environment: https://docs.gitlab.com/omnibus/settings/memory_constrained_envs.html
 ```
 sudo gitlab-ctl reconfigure
 ```
