@@ -33,6 +33,13 @@
 python3 -m http.server
 # destination
 wget -O- http://192.168.0.1:8000/windows10.img | dd of=/dev/vda
+
+
+# destination
+# [!] TODO: add pv
+netcat -l -p 1234 | dd of=/dev/sda
+# source
+dd if=/dev/sdb | netcat 192.168.0.4 1234
 ```
 
 * :warning: https://www.downtowndougbrown.com/2021/06/how-to-run-ubuntu-20-04-server-with-only-256-mb-of-ram/
