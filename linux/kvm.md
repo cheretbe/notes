@@ -10,6 +10,7 @@
 
 ### Unsorted
 * High utilization when Windows 10 guest is idle: https://www.reddit.com/r/VFIO/comments/80p1q7/high_kvmqemu_cpu_utilization_when_windows_10/
+  * Worked for `machine='pc-i440fx-bionic'` on Ubuntu 18.04 (try usgin default values when moving to a 22.04 host)
 ```xml
   <!-- before: this config uses over 15% of a host CPU core -->
   <clock offset='localtime'>
