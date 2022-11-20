@@ -10,6 +10,21 @@
 
 ### Unsorted
 * High utilization when Windows 10 guest is idle: https://www.reddit.com/r/VFIO/comments/80p1q7/high_kvmqemu_cpu_utilization_when_windows_10/
+```xml
+  <!-- before: this config uses over 15% of a host CPU core -->
+  <clock offset='localtime'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='no'/>
+    <timer name='hypervclock' present='yes'/>
+  </clock>
+
+  <!-- after: this config drops to about 3% of a host CPU core -->
+  <clock offset='localtime'>
+    <timer name='hpet' present='yes'/>
+    <timer name='hypervclock' present='yes'/>
+  </clock>
+```
 
 :warning: A hack for KVM cloud provders (Digital Ocean etc)
 ```shell
