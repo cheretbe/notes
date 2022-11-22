@@ -47,6 +47,7 @@ nc -l 1234 | bzip2 -d | dd bs=16M of=/dev/sdX
 # source
 # -c  output to stdout
 dd bs=16M if=/dev/sdX | pv | bzip2 -c | nc 192.168.0.1 1234
+pv image.qcow2 | bzip2 -c | nc 192.168.0.1 1234
 ```
 
 * :warning: https://www.downtowndougbrown.com/2021/06/how-to-run-ubuntu-20-04-server-with-only-256-mb-of-ram/
