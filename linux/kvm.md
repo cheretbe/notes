@@ -27,7 +27,8 @@
   </clock>
 ```
 
-:warning: A hack for KVM cloud provders (Digital Ocean etc)
+* :warning: A hack for KVM cloud provders (Digital Ocean etc)
+    * :bulb: Consider using [sdelete](https://learn.microsoft.com/en-us/sysinternals/downloads/sdelete) beforehand
 ```shell
 # source
 python3 -m http.server
