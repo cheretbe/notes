@@ -75,6 +75,16 @@ is just a synonym/alias/shortcut for the special Git reference `HEAD`.
 
 #### Cheat Sheet
 ```shell
+# Delete local branches no longer present on remote
+# https://stackoverflow.com/questions/16590160/remove-branches-not-on-remote/46192689#46192689
+# 1. Update remote status
+git fetch --prune
+# 2. View what actually is going to be deleted
+git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
+# 3. Actual deletion
+git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d
+
+
 # view history of changes for single file (#revisions)
 git log -- filename
 # use --follow to include history of renames
