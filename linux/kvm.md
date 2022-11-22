@@ -44,6 +44,7 @@ dd if=/dev/sdb | pv -s $((20*1024*1024*1024)) | netcat 192.168.0.1 1234
 # -d force decompression
 nc -l 1234 | bzip2 -d | dd bs=16M of=/dev/sdX
 
+# [!!] compare performance with mbuffer
 # source
 # -c  output to stdout
 dd bs=16M if=/dev/sdX | pv | bzip2 -c | nc 192.168.0.1 1234
