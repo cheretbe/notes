@@ -65,6 +65,107 @@ git diff --cached
 git merge --abort
 ```
 
+### Usage
+#### References
+* https://stackoverflow.com/questions/17910096/what-does-the-at-sign-symbol-character-mean-in-git
+* https://stackoverflow.com/questions/964876/head-and-orig-head-in-git
+* https://stackoverflow.com/questions/2304087/what-is-git-head-exactly
+The at-sign `@`, without a leading branch/reference name and ordinal `{n}` suffix like `HEAD@{1}` and `master@{1}`
+is just a synonym/alias/shortcut for the special Git reference `HEAD`.
+
+#### Cheat Sheet
+```shell
+# view history of changes for single file (#revisions)
+git log -- filename
+# use --follow to include history of renames
+git log --follow -- filename
+# view actual changes
+git log -p -- filename
+
+# Revert a single file to a previous commit
+git checkout <commit> filename
+
+
+# View added, but not committed changes
+git diff --cached [myfile.txt]
+# In more recent versions of git, --staged is a synonym for --cached
+git diff --staged
+
+# work with a different path instead of current working directory
+git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
+
+
+
+# Create a new repo
+git clone https://urs
+cd repo-name
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+# Clone a repository and download submodules simultaneously
+git clone --recursive https://url
+
+# View config
+git config [--global] –list
+
+# Add all files recursively
+git add .
+
+# Undo add
+git reset
+
+# Undo commit that hasn't been pushed
+git reset HEAD~
+# Reverting changes to tracked files:
+git reset --hard HEAD~
+# [!] Previous command is dangerous. Review what will be reset
+git log -3 --stat
+git reset --hard previous_commit_hash
+
+# Undo merge commit after "git pull" if remote has new commits
+# http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/
+git log -3 --stat
+git reset --hard previous_commit_hash
+git pull --rebase
+
+# Rename file
+git mv file new-name
+
+# Delete file
+git rm file.txt
+
+# Delete, but leave it in the local filesystem:
+git rm --cached file.txt
+
+# Remove already deleted files from index:
+git add -u .
+
+# View commit history:
+git log [-2] [--stat]
+
+# Reuse previous commit message
+git commit -c HEAD
+
+# Revert changes to tracked files:
+git reset –-hard
+# For a single file
+git checkout HEAD -- file.txt
+
+# Modify unpushed commit message (edit existing text in editor)
+git commit --amend
+# Set directly
+git commit --amend -m "New commit message"
+
+# Diff with previous commit
+git diff HEAD^ HEAD
+# On Windows use ~ unstead of ^
+git diff HEAD~ HEAD
+# Show a word diff
+git diff --color-words 
+```
+
 ### .gitignore examples
 
 Store directory in the repo, ignoring it's contents
@@ -178,107 +279,6 @@ git rev-list -n 1 HEAD@{upstream}; git rev-list -n 1 HEAD
 git reset --keep HEAD@{1}
 # for newly cloned repo HEAD@{1} is undedfined, just go 2 commits back
 git reset --keep HEAD~2
-```
-
-### References
-* https://stackoverflow.com/questions/17910096/what-does-the-at-sign-symbol-character-mean-in-git
-* https://stackoverflow.com/questions/964876/head-and-orig-head-in-git
-* https://stackoverflow.com/questions/2304087/what-is-git-head-exactly
-
-The at-sign `@`, without a leading branch/reference name and ordinal `{n}` suffix like `HEAD@{1}` and `master@{1}`
-is just a synonym/alias/shortcut for the special Git reference `HEAD`.
-
-### Cheat Sheet
-```shell
-# view history of changes for single file (#revisions)
-git log -- filename
-# use --follow to include history of renames
-git log --follow -- filename
-# view actual changes
-git log -p -- filename
-
-# Revert a single file to a previous commit
-git checkout <commit> filename
-
-
-# View added, but not committed changes
-git diff --cached [myfile.txt]
-# In more recent versions of git, --staged is a synonym for --cached
-git diff --staged
-
-# work with a different path instead of current working directory
-git --git-dir /path/to/repo/.git --work-tree /path/to/repo status
-
-
-
-# Create a new repo
-git clone https://urs
-cd repo-name
-touch README.md
-git add README.md
-git commit -m "add README"
-git push -u origin master
-
-# Clone a repository and download submodules simultaneously
-git clone --recursive https://url
-
-# View config
-git config [--global] –list
-
-# Add all files recursively
-git add .
-
-# Undo add
-git reset
-
-# Undo commit that hasn't been pushed
-git reset HEAD~
-# Reverting changes to tracked files:
-git reset --hard HEAD~
-# [!] Previous command is dangerous. Review what will be reset
-git log -3 --stat
-git reset --hard previous_commit_hash
-
-# Undo merge commit after "git pull" if remote has new commits
-# http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/
-git log -3 --stat
-git reset --hard previous_commit_hash
-git pull --rebase
-
-# Rename file
-git mv file new-name
-
-# Delete file
-git rm file.txt
-
-# Delete, but leave it in the local filesystem:
-git rm --cached file.txt
-
-# Remove already deleted files from index:
-git add -u .
-
-# View commit history:
-git log [-2] [--stat]
-
-# Reuse previous commit message
-git commit -c HEAD
-
-# Revert changes to tracked files:
-git reset –-hard
-# For a single file
-git checkout HEAD -- file.txt
-
-# Modify unpushed commit message (edit existing text in editor)
-git commit --amend
-# Set directly
-git commit --amend -m "New commit message"
-
-# Diff with previous commit
-git diff HEAD^ HEAD
-# On Windows use ~ unstead of ^
-git diff HEAD~ HEAD
-# Show a word diff
-git diff --color-words 
 ```
 
 ### Initial setup
