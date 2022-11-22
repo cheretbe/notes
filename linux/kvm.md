@@ -38,17 +38,26 @@ wget -O- http://192.168.0.1:8000/windows10.img | dd of=/dev/vda
 # destination
 netcat -l -p 1234 | dd of=/dev/sda
 # source
-dd if=/dev/sdb | pv -s $((20*1024*1024*1024)) | netcat 192.168.0.1 1234
+# use fdisk -l to find out the size
+dd if=/dev/sdb | pv -s 21474836480 | netcat 192.168.0.1 1234
 
 # destination
 # -d force decompression
 nc -l 1234 | bzip2 -d | dd bs=16M of=/dev/sdX
 
-# [!!] compare performance with mbuffer
 # source
 # -c  output to stdout
 dd bs=16M if=/dev/sdX | pv | bzip2 -c | nc 192.168.0.1 1234
-pv image.qcow2 | bzip2 -c | nc 192.168.0.1 1234
+# [!] Make sure image.img is preallocated raw, not qcow2
+pv image.img | bzip2 -c | nc 192.168.0.1 1234
+
+# destination
+# Doesn't seem to have any difference with netcat on a 100Mbit channel
+mbuffer -q -4 -s 16M -m 1G -I 1234 | bzip2 -d | dd bs=16M of=/dev/sdX
+
+# source
+# use fdisk -l to find out the size
+dd bs=16M if=/dev/sdX | pv -s 21474836480 | bzip2 -c | mbuffer -q -s 16M -m 1G -O host.domain.tld:1234
 ```
 
 * :warning: https://www.downtowndougbrown.com/2021/06/how-to-run-ubuntu-20-04-server-with-only-256-mb-of-ram/
