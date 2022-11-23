@@ -1,9 +1,45 @@
 
 ### Unsorted
-#### Merging branches
+#### Merging
 * :warning: Review when (once again) having trouble with merge:
 * https://www.atlassian.com/git/tutorials/using-branches/git-merge
 * https://stackoverflow.com/questions/8716130/git-branches-diverged-how-to-proceed/8716401#8716401
+
+##### rebase
+
+```shell
+# You are currently editing a commit while rebasing branch
+git rebase --abort
+```
+
+##### merge
+
+```shell
+git config --global merge.tool meld
+git config --global --list
+
+# Merge dry-run
+# https://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option/501461#501461
+git merge --no-commit --no-ff $BRANCH
+
+# Manually resolve conflicts
+git mergetool
+
+# Clean untracked .orig files
+git clean -i
+
+# Examine staged changes
+git diff --cached
+
+# foo/bar: needs merge
+# error: you need to resolve your current index first
+git reset --merge
+
+# Undo the merge
+git merge --abort
+# [!!] Local changes will be lost
+git reset --hard @{upstream}
+```
 
 Branches diverged
 ```shell
@@ -52,17 +88,9 @@ git branch -D scrap
 * https://docs.gitlab.com/ee/user/project/repository/branches/default.html#instance-level-custom-initial-branch-name
 
 ```shell
-git config --global merge.tool meld
 git merge master
-git mergetool
 
-# Merge dry-run
-# https://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option/501461#501461
-git merge --no-commit --no-ff $BRANCH
-# Examine staged changes
-git diff --cached
-# Undo the merge
-git merge --abort
+
 ```
 
 ### Usage
