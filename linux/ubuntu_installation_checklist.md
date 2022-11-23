@@ -43,7 +43,9 @@ gsettings range org.gnome.shell.extensions.dash-to-dock click-action
     * Get rid of the "Window is ready" notification and focus window immediately
         * https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus/archive/refs/heads/master.zip 
         * :warning: note the **-j** option: `unzip -j ~/Downloads/master.zip -d ~/.local/share/gnome-shell/extensions/focus-my-window@varianto25.com` 
-    * gedit: switch tabs with <kbd>Ctrl</kbd>+<kbd>Page Up</kbd> / <kbd>Ctrl</kbd>+<kbd>Page Down</kbd>: https://github.com/jefferyto/gedit-control-your-tabs
+    * gedit
+        * switch tabs with <kbd>Ctrl</kbd>+<kbd>Page Up</kbd> / <kbd>Ctrl</kbd>+<kbd>Page Down</kbd>: https://github.com/jefferyto/gedit-control-your-tabs
+        * Save tabs on exit: https://github.com/raelgc/gedit-restore-tabs
     * Ctrl+Shift setting is in Gnome-tweaks, `Keyboard & Mouse` > `Additional Layout Options`
     * https://itsfoss.com/ubuntu-shortcuts/
     * https://askubuntu.com/questions/1042641/how-to-set-custom-lock-screen-time-in-ubuntu-18-04
