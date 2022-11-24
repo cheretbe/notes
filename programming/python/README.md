@@ -8,6 +8,9 @@ Unsorted
 ```python
 #pylint: disable=missing-module-docstring,missing-function-docstring
 
+# Check broken requirements
+pip3 check
+
 path = os.path.realpath("/" + path) + ("/" if path.endswith("/") else "")
 
 def main():
