@@ -61,7 +61,7 @@ fdisk -l /dev/sda
 # Device     Boot Start       End   Sectors Size Id Type
 # /dev/sda1  *     2048 125781250 125779203  60G 8e Linux LVM
 
-fdisk -l /dev/
+fdisk /dev/sda
 # 1. d (delete)
 # 2. n (new) -> p (primary) -> 1 -> default -> default
 # 3. t (type) -> 8e
@@ -75,4 +75,21 @@ lsblk
 # `-sda1                  8:1    0  100G  0 part 
 #   `-system--vg-rootfs 252:0    0   60G  0 lvm  /
 
+pvscan
+# PV /dev/sda1   VG system-vg       lvm2 [59.97 GiB / 0    free]
+pvresize /dev/sda1
+pvscan
+# PV /dev/sda1   VG system-vg       lvm2 [100.00 GiB / 40.02 GiB free]
+
+lvscan
+# ACTIVE            '/dev/system-vg/rootfs' [59.97 GiB] inherit
+lvresize -l+100%FREE /dev/system-vg/rootfs
+lvscan
+# ACTIVE            '/dev/system-vg/rootfs' [100.00 GiB] inherit
+
+df -h
+# /dev/mapper/system--vg-rootfs   59G   38G   20G  67% /
+resize2fs /dev/system-vg/rootfs
+df -h
+# /dev/mapper/system--vg-rootfs   99G   38G   57G  40% /
 ```
