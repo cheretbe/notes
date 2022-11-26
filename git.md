@@ -8,6 +8,9 @@
 ##### rebase
 
 ```shell
+# Your branch and 'origin/branch_name' have diverged
+git pull --rebase
+
 # You are currently editing a commit while rebasing branch
 git rebase --abort
 ```
