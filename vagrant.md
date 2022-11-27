@@ -29,6 +29,8 @@ wget https://app.vagrantup.com/alpine-linux/boxes/alpine-x86_64/versions/3.12.0/
 ```
 vboxmanage controlvm $(cat .vagrant/machines/default/virtualbox/id) \
   natpf1 "forward_port_80,tcp,,8080,,80"
+  
+vboxmanage showvminfo $(cat .vagrant/machines/default/virtualbox/id) --machinereadable | grep Forwarding
 
 route add default gw 192.168.0.1 metric 10
 route delete default gw 192.168.0.1 metric 10
