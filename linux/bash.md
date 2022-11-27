@@ -155,6 +155,15 @@ source ~/.bashrc
 ### Here documents (heredocs) with indentation
 
 ```bash
+# no indentation
+cat > /path/to/newFile.text<< EOF
+some text line 1
+some text line 2
+some text line 3
+EOF
+```
+
+```bash
 # [!!!!] Heredocs part MUST be tab-indented for <<-EOF part to work
 # Sublime Text setting: "translate_tabs_to_spaces": false
 if [ ! -e "/etc/ppp/pppoe-server-options" ]; then
