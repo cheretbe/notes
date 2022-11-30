@@ -142,6 +142,8 @@ salt-call --local grains.item os
 ### Debugging
 
 ```shell
+# For singlebin installation
+salt call --output=yaml state.show_sls yourslsfile
 # [!!]
 salt-call --output=yaml state.show_sls yourslsfile
 ```
