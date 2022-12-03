@@ -1,4 +1,12 @@
-* https://www.server-world.info/en/note?os=Ubuntu_14.04&p=acl
+```shell
+export acl_path=/mnt/dir
+export acl_user=username
+
+setfacl -d -R -m mask:rwx ${acl_path}
+setfacl -R -m mask:rwx ${acl_path}
+setfacl -d -R -m u:${acl_user}:rwx ${acl_path}
+setfacl -R -m u:${acl_user}:rwx ${acl_path}
+```
 
 :bulb: Copy existing ACLs
 ```shell
