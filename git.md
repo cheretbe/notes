@@ -342,7 +342,7 @@ Per-server setup<br>
 ```
 [user]
         name = user
-        email = user@ptsecurity.com
+        email = user@domain.tld
 ```
 
 ```bash
