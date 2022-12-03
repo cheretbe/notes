@@ -378,7 +378,7 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/libs
 # Cache.  Quite secure because keeps data only in memory. It’s fine for security, but every
 # time you open new session, you need to type credentials again. Memory is purged after 900 seconds
 # (15 min) by default, but it can be changed with optional timeout parameter
-# 1 hour (3600 seconds)
+# 1 hour (3600 seconds), 3 hours == 10800s
 git config --global credential.helper 'cache --timeout=3600'
 # [!!!] warning: stores in plaintext! (~/.git-credentials)
 git config --global credential.helper store
