@@ -14,6 +14,8 @@
 # ------------------------------------------------------------------------------------
 ```
 
+* https://habilis.net/cronic/ - wrapper for sending mails on errors only
+
 ### Debugging 
 
 * https://gitlab.com/doctormo/python-crontab
