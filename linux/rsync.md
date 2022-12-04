@@ -13,12 +13,19 @@ root@host.domain.tld :/etc :/home :/root :/usr/local \
 # /src dst[/]   ==> Creates src subdirectory in dst
 # /src/ dst[/]  ==> Copies src content to dst itself
 # In both cases dst will be created if doesn't exists
+
+# Permissions
+# --chmod=Du=rwx,Dg=rwx,Do=,Fu=rw,Fg=rw,Fo=
+# or
+# --chmod=D0770,F0660
+# 
 ```
 rsync_exclude.lst
 ```
 /root/temp/
 /home/npa/temp/
 ```
+
 ### Rsync daemon
 * https://serverspace.io/support/help/use-rsync-to-create-a-backup-on-ubuntu/
 * https://superuser.com/questions/1401490/rsync-password-mismatch-although-it-is-a-scp-copy/1410265#1410265
