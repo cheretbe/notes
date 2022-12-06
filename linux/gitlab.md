@@ -93,6 +93,7 @@ apt install -s gitlab-ce=12.3.3-ce.0
 ```
 * Restoration gotchas
     * `gitlab-backup restore` searches for .tar files in `/var/opt/gitlab/backups`
+    * `Restoring PostgreSQL database gitlabhq_production ... ERROR:  must be owner of extension pg_trgm` messages are harmless: https://forum.gitlab.com/t/gitlab-restore-backup-error/57131
     * when restoring to a temporary location like Docker container, adjust `external_url` and `proxy_set_headers` accordingly
 
 #### Restore to Docker container
