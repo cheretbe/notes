@@ -66,21 +66,23 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 
 ### Installation
 * Docker
-    * :warning: https://manual.seafile.com/docker/non_docker_to_docker/
-    * https://manual.seafile.com/docker/pro-edition/deploy_seafile_pro_with_docker/
-        * https://manual.seafile.com/docker/pro-edition/docker-compose.yml
-    * https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
-    * https://manual.seafile.com/docker/upgrade/upgrade_docker/
-    * https://itsfoss.com/deploy-seafile-server-docker/
-    * Source code: https://github.com/haiwen/seafile-docker
 * https://github.com/haiwen/seafile-server-installer/blob/master/seafile-9.0_ubuntu
   * Creates `/opt/seafile/aio_seafile-server.log`, that contains admin password (mode is `0600` though)
 
 #### Docker
 
 * https://github.com/cheretbe/docker-configs/tree/main/seafile
+    * :point_right: https://github.com/cheretbe/docker-configs/blob/main/seafile/README.md#version-upgrade
+* https://manual.seafile.com/docker/pro-edition/deploy_seafile_pro_with_docker/
+    * https://manual.seafile.com/docker/pro-edition/docker-compose.yml
+* https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
+* https://manual.seafile.com/docker/upgrade/upgrade_docker/
+* https://itsfoss.com/deploy-seafile-server-docker/
+* Source code: https://github.com/haiwen/seafile-docker
 
 ##### Non-Docker to Docker migration
+
+* https://manual.seafile.com/docker/non_docker_to_docker/
 
 ```shell
 # cd /opt/seafile/seafile-server-latest/
