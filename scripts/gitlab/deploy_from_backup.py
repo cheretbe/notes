@@ -118,12 +118,12 @@ def main(args):
         wait_for_container_health_status()
 
     print("Stopping Gitlab processes that are connected to the database")
-    subprocess.check_call(("docker", "exec", "-it", "gitlab", "gitlab-ctl", "stop", "puma"))
-    subprocess.check_call(("docker", "exec", "-it", "gitlab", "gitlab-ctl", "stop", "sidekiq"))
+    subprocess.check_call(("docker", "exec", "gitlab", "gitlab-ctl", "stop", "puma"))
+    subprocess.check_call(("docker", "exec", "gitlab", "gitlab-ctl", "stop", "sidekiq"))
 
     print("Restoring backup")
     subprocess.check_call((
-        "docker", "exec", "-it", "gitlab", "gitlab-backup", "restore",
+        "docker", "exec", "gitlab", "gitlab-backup", "restore",
         # '_gitlab_backup.tar' needs to be omitted
         ("BACKUP=" + last_backup.name.replace("_gitlab_backup.tar", "")),
         "force=yes"
@@ -138,7 +138,7 @@ def main(args):
 
     print("Running Gitlab self-check")
     subprocess.check_call((
-        "docker", "exec", "-it", "gitlab", "gitlab-rake", "gitlab:check", "SANITIZE=true"
+        "docker", "exec", "gitlab", "gitlab-rake", "gitlab:check", "SANITIZE=true"
     ))
 
     # TODO:
