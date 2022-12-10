@@ -15,6 +15,7 @@
 ```
 
 * https://habilis.net/cronic/ - wrapper for sending mails on errors only
+    * A fork that adds option to ignore stderr: https://github.com/dismantl/cronic 
 
 ### Debugging 
 
