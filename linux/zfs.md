@@ -238,6 +238,10 @@ ls /mountpoint/pool/path/.zfs/snapshot/snap-name
 #                dataset and its direct children.
 zfs list -H -t snapshot -o name -s creation -d1 pool/path
 
+zfs clone pool/path@snapshot pool/clone-path
+# For clones "ORIGIN" field will contain parent snapshot instead of "-"
+zfs list -o name,origin
+
 # Unmount dataset
 zfs unmount pool/path
 # Mount dataset
