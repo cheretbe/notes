@@ -7,6 +7,13 @@ ps -e -o pid,vsz,comm= | sort -n -k 2
 # Same as above, long version
 ps --everyone --format=pid,vsz,comm= | sort --numeric-sort --key=2
 
+# -t, --tcp         Display TCP sockets
+# -u, --udp         Display UDP sockets
+# -l, --listening   Display only listening sockets
+# -p, --processes   Show process using socket
+# -n, --numeric     Do not try to resolve service names
+ss -tulpn
+
 # https://www.linuxtechi.com/monitor-linux-systems-performance-iostat-command/
 # Continuously updated iostat
 # Single iostat invocation does not provide meaningful data for "per second" values: first report
