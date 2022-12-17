@@ -4,6 +4,11 @@
 * :warning: **https://dzone.com/articles/environment-variable-with-vagrant-and-ansible**
 * Reboot during provision: https://github.com/dotless-de/vagrant-vbguest/blob/main/lib/vagrant-vbguest/installers/centos.rb#L100
 
+----
+* Additional HDD
+    * https://developer.hashicorp.com/vagrant/docs/disks/configuration
+    * https://www.lukmanlab.com/how-to-add-new-disk-in-vagrant/
+
 ```shell
 # libvirt
 sudo apt install libvirt-dev build-essential
