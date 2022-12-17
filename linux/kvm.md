@@ -9,8 +9,25 @@
 * [virsh Commands](#virsh-commands)
 
 ### Unsorted
+* Run Ubuntu 20.04+ on low-memory VPS
+    * https://www.downtowndougbrown.com/2021/06/how-to-run-ubuntu-20-04-server-with-only-256-mb-of-ram/
+    * https://unix.stackexchange.com/questions/270390/how-to-reduce-the-size-of-the-initrd-when-compiling-your-kernel#comment1280075_270416
+    * https://www.hillenius.net/post/nospaceleft/
+```shell
+ls /boot -lha
+cp /etc/initramfs-tools/initramfs.conf{,.bak}
+# MODULES=most => MODULES=dep
+# COMPRESS=zstd => COMPRESS=xz
+nano /etc/initramfs-tools/initramfs.conf
+
+update-initramfs -u
+# initrd.img-5.15.0-56-generic has shrunk from 103M to 29M
+ls /boot -lha
+```
+
+
 * High utilization when Windows 10 guest is idle: https://www.reddit.com/r/VFIO/comments/80p1q7/high_kvmqemu_cpu_utilization_when_windows_10/
-  * Worked for `machine='pc-i440fx-bionic'` on Ubuntu 18.04 (try usgin default values when moving to a 22.04 host)
+  * Worked for `machine='pc-i440fx-bionic'` on Ubuntu 18.04 (try using default values when moving to a 22.04 host)
 ```xml
   <!-- before: this config uses over 15% of a host CPU core -->
   <clock offset='localtime'>
