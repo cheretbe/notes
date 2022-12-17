@@ -124,6 +124,9 @@ iptables -D INPUT 7
 # Delete by specification (use iptables-save to find it out)
 iptables -D INPUT -p tcp -m tcp --dport 1194 -m comment --comment "Allow VPN" -j ACCEPT
 
+apt install iptables-persistent
+iptables-save > /etc/iptables/rules.v4
+
 # Reload
 iptables-restore < /etc/iptables/rules.v4
 ```
