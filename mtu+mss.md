@@ -1,4 +1,6 @@
 ```shell
+# Due to the IP+ICMP packet overhead, the packet size is equal to the data size + 28 bytes. For example, if
+# testing shows that only pings with size 1444 can pass normally, the MTU should be set to 1444+28 = 1472
 # 1472(1500)
 ping -c 1 host -M do -s 1472
 # View cached MTU
