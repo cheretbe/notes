@@ -1,3 +1,9 @@
+* wireguard + python script examples
+   *  https://github.com/nitred/nr-wg-mtu-finder
+   *  https://gist.github.com/nitred/f16850ca48c48c79bf422e90ee5b9d95
+   *  https://skym.fi/blog/2021/08/the-fun-called-mtu-and-wireguard/
+   *  https://keremerkan.net/posts/wireguard-mtu-fixes/
+
 ```shell
 # Due to the IP+ICMP packet overhead, the packet size is equal to the data size + 28 bytes. For example, if
 # testing shows that only pings with size 1444 can pass normally, the MTU should be set to 1444+28 = 1472
