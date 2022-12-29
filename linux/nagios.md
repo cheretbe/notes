@@ -58,13 +58,13 @@ cfg_file=/usr/local/nagios/etc/objects/custom-commands.cfg
  /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
 ```
 
-**Debugging:** Set `debug_level` parameter (see comments in `/usr/local/nagios/etc/nagios.cfg`), then check `/usr/local/nagios/var/nagios.debug` contents.
+**Debugging:**<br> Set `debug_level` parameter (see comments in `/usr/local/nagios/etc/nagios.cfg`), then check `/usr/local/nagios/var/nagios.debug` contents.
 
 If "Error: Could not stat() command file '/usr/local/nagios/var/rw/nagios.cmd'!" error pops up and the group for `nagios.cmd` is already `nagcmd`, **check selinux status**
 ```shell
 chown nagios:nagcmd /usr/local/nagios/var/rw
 chown nagios:nagcmd /usr/local/nagios/var/rw/nagios.cmd
-
+```
 Client:<br>
 * https://www.lowlevelmanager.com/2012/05/debugging-nagios-remote-nrpe-commands.html
     * check env:
@@ -76,7 +76,6 @@ Client:<br>
     check_nrpe -H 10.7.202.92 -c check_ui_test
     check_nrpe -H 10.7.202.92 -c check_ui_test2
     ```
-```
 
 ## Installation
 * https://support.nagios.com/kb/article.php?id=96
