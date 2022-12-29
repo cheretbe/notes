@@ -64,6 +64,18 @@ If "Error: Could not stat() command file '/usr/local/nagios/var/rw/nagios.cmd'!"
 ```shell
 chown nagios:nagcmd /usr/local/nagios/var/rw
 chown nagios:nagcmd /usr/local/nagios/var/rw/nagios.cmd
+
+Client:<br>
+* https://www.lowlevelmanager.com/2012/05/debugging-nagios-remote-nrpe-commands.html
+    * check env:
+    ```
+    define commands:
+    command[check_ui_test]=whoami
+    command[check_ui_test2]=env
+    the run:
+    check_nrpe -H 10.7.202.92 -c check_ui_test
+    check_nrpe -H 10.7.202.92 -c check_ui_test2
+    ```
 ```
 
 ## Installation
