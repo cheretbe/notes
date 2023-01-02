@@ -280,8 +280,8 @@ CHANGE MASTER TO MASTER_HOST='host.domain.tld', MASTER_USER='repl', MASTER_PASSW
 ### seaf-cli
 ```shell
 sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/seafile-keyring.asc
-# Ubuntu 20.04
-sudo bash -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seadrive-deb/focal/ stable main' > /etc/apt/sources.list.d/seadrive.list"
+# Ubuntu 18.04+
+sudo bash -c "echo 'deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seadrive-deb/$(lsb_release -cs)/ stable main' > /etc/apt/sources.list.d/seadrive.list"
 apt update
 apt install seafile-cli
 # binary is /usr/bin/seaf-cli
