@@ -289,10 +289,11 @@ apt install seafile-cli
 
 # From the docs: init - This command initializes the config dir. It also creates sub-directories "seafile-data" and "seafile"
 # under parent-dir. "seafile-data" is used to store internal data, while "seafile" is used as the default location put downloaded libraries.
-# Actually "seafile" is not used by default (-d parameter is requred for sync command)
+# Actually "seafile" is not used by default (-d parameter is required for sync command)
 mkdir ~/seafile-client 
 # ~/.ccnet directory must not exist at this point (data directory must exist, see mkdir above)
 seaf-cli init -d ~/seafile-client
+# No default server config, everything is done per library with sync command
 seaf-cli start
 
 # Find out library IDs
