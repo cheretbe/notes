@@ -281,7 +281,7 @@ CHANGE MASTER TO MASTER_HOST='host.domain.tld', MASTER_USER='repl', MASTER_PASSW
 ```shell
 sudo wget https://linux-clients.seafile.com/seafile.asc -O /usr/share/keyrings/seafile-keyring.asc
 # Ubuntu 18.04+
-sudo bash -c "echo 'deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seadfile-deb/$(lsb_release -cs)/ stable main' > /etc/apt/sources.list.d/seafile.list"
+sudo bash -c "echo 'deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seafile-deb/$(lsb_release -cs)/ stable main' > /etc/apt/sources.list.d/seafile.list"
 apt update
 apt-cache policy seafile-cli
 apt install seafile-cli
