@@ -1,3 +1,17 @@
+```yaml
+- name: Add ACME account
+  vars:
+    # [!!!!] very creative
+    acme_url: "https://acme{{ '-staging' if acme_staging else '' }}-v02.api.letsencrypt.org/directory"
+  ansible.builtin.command: >
+    pvesh create /cluster/acme/account
+    --contact {{ acme_email }}
+    --directory {{ acme_url }}
+    --name {{ acme_account_name }}
+    --tos_url {{ tos_url.stdout }}
+  when: "acme_account_name not in acme_accounts.stdout | from_json | json_query('[].name')"
+```
+
 * :warning: Mitogen for Ansible: https://mitogen.networkgenomics.com/ansible_detailed.html
 * VMware vSphere Automation SDK: https://github.com/vmware/vsphere-automation-sdk-python
     * Used in https://github.com/ansible-collections/community.vmware
