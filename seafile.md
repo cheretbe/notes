@@ -160,8 +160,15 @@ docker compose up -d
     ```
 
 ### Maintenance
+
 * https://manual.seafile.com/maintain/
 * `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run`
+-------
+* Server-side automation with Python
+    * https://github.com/goaxe/lab/blob/master/tools/test_server.py
+    * `seafile_api.get_repo_list(-1, -1)` ???
+    * https://github.com/haiwen/seafile-server/blob/master/python/seaserv/service.py
+
 
 ### Real time backup
 * https://manual.seafile.com/deploy_pro/real_time_backup/
