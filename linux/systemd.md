@@ -6,6 +6,9 @@ kill -TERM 1
 ```
 
 ```shell
+systemctl --now enable service
+systemctl --now disable service
+
 # Find system boot-up performance statistics
 systemd-analyze
 systemd-analyze blame
