@@ -163,6 +163,7 @@ docker compose up -d
 
 * https://manual.seafile.com/maintain/
 * `/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run`
+    * `du -hs /shared/seafile/seafile-data/` or `du -hs /opt/seafile` 
     * :point_right: use `screen` 
     * :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
 -------
