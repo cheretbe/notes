@@ -179,10 +179,10 @@ docker compose up -d
 * DB cleanup
     * https://manual.seafile.com/maintain/clean_database/
     ```shell
+    # [!!] for migrated Docker instance the password in the password manager
     # Root password is in MYSQL_ROOT_PASSWORD variable
     docker inspect -f '{{ .Config.Env }}' seafile-mysql
     docker exec -it seafile-mysql mysql -p
-
     ```
 -------
 * Server-side automation with Python
