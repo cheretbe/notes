@@ -166,6 +166,14 @@ docker compose up -d
     * `du -hs /shared/seafile/seafile-data/` or `du -hs /opt/seafile` 
     * :point_right: use `screen` 
     * :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
+* DB cleanup
+    * https://manual.seafile.com/maintain/clean_database/
+    ```shell
+    # Root password is in MYSQL_ROOT_PASSWORD variable
+    docker inspect -f '{{ .Config.Env }}' seafile-mysql
+    docker exec -it seafile-mysql mysql -p
+
+    ```
 -------
 * Server-side automation with Python
     * https://github.com/goaxe/lab/blob/master/tools/test_server.py
