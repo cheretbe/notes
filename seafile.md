@@ -162,13 +162,16 @@ docker compose up -d
 ### Maintenance
 
 * https://manual.seafile.com/maintain/
-* Garbage collection
-    * `du -hs /shared/seafile/seafile-data/` or `du -hs /opt/seafile` 
+* Garbage collection 
     * :point_right: use `screen` 
     * :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
     ```shell
+    du -hs /shared/seafile/seafile-data/
+    du -hs /opt/seafile
+    sudo du -sh /opt/docker-data/seafile/data/
+    
     /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
-    # Docker (/scripts/gc.sh is a wrapper around seaf-gc.sh)
+    # Docker (/scripts/gc.sh is a wrapper around seaf-gc.sh that stops the service for CE)
     docker exec seafile /scripts/gc.sh --dry-run
     
     /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
