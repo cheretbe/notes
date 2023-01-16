@@ -9,6 +9,7 @@ sudo apt -oDebug::pkgAcquire::Worker=1 update
 # TODO: try to use .asc if a key needs unpacking
 #   https://stackoverflow.com/questions/71585303/how-can-i-manage-keyring-files-in-trusted-gpg-d-with-ansible-playbook-since-apt#comment129873032_72548342
 #   https://stackoverflow.com/questions/71585303/how-can-i-manage-keyring-files-in-trusted-gpg-d-with-ansible-playbook-since-apt/73805885#73805885
+#   https://github.com/cheretbe/vagrant-files/blob/master/testlabs/seafile/provision/seafile_client_provision.yml#L31
 # --dearmor    Pack or unpack an arbitrary input into/from an OpenPGP ASCII armor
 wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
