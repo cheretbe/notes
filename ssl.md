@@ -503,6 +503,13 @@ ls -lha /etc/ssl/certs/
 ```
 [\[ TOC \]](#table-of-contents)
 
+### Adding a CA to CentOS
+
+```shell
+cp dummy.crt /etc/pki/ca-trust/source/anchors/
+update-ca-trust
+```
+
 ### Adding certificates to browsers on Linux
 * https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/linux/cert_management.md
 * https://unix.stackexchange.com/questions/122753/chrome-certificate
