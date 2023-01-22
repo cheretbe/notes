@@ -261,10 +261,15 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # [!] Do not copy/paste as root
 sudo usermod -aG docker ${USER}
 
-# Apply new group membership without logging out
+# Applynew group membership without logging out
 su - $USER
 id
 ```
+
+#### Caching proxy
+
+* https://github.com/rpardini/docker-registry-proxy
+* https://github.com/cheretbe/ansible-playbooks/blob/master/docker-ce/tasks/main.yml#L99
 
 #### Local cache
 
