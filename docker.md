@@ -269,6 +269,7 @@ id
 #### Caching proxy
 
 * https://github.com/rpardini/docker-registry-proxy
+* https://github.com/cheretbe/docker-configs/tree/main/docker-registry-proxy
 * https://github.com/cheretbe/ansible-playbooks/blob/master/docker-ce/tasks/main.yml#L99
 
 #### Local cache
