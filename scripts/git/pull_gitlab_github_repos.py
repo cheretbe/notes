@@ -30,6 +30,9 @@ def pull_repo(repo, dest_path):
         )
     else:
         os.makedirs(service_dir, exist_ok=True)
+        # Consider using 'git clone --mirror'
+        # https://www.git-scm.com/docs/git-clone#Documentation/git-clone.txt---mirror
+        # Also https://github.com/gabrie30/ghorg is an option
         print("\ngit", "clone", repo.url)
         subprocess.check_call(
             ("git", "clone", repo.url),
