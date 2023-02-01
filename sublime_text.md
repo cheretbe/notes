@@ -89,6 +89,10 @@ Custom tab size for python files: `Preferences > Settings-Syntax Specific`
   "tab_size": 4
 }
 ```
+
+Set syntax highlighting for files with extensions:<br>
+`View` -> `Syntax` -> `Open all with current extension as ...`
+
 Custom code page for Windows files (`Preferences > Settings-Syntax Specific`). :warning: `default_encoding` doesn't work for some reason
 ```
 {
