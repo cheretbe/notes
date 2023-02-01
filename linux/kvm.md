@@ -219,7 +219,7 @@ brctl showmacs enp2s0-br
 
 Method 1 - just click "+" in "Virtual Networks" tab and enter parameters
 
-Method 2 - Manual
+Method 2 - Manual (use `virsh net-edit network_name` if virt-manager doesn't support editing XML)
 
 ```bash
 # Generate randomized MAC address
