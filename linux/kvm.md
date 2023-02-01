@@ -182,6 +182,9 @@ systemctl restart libvirtd
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-managing_guest_virtual_machines_with_virsh-managing_virtual_networks
 
 #### Bridged
+
+:warning: Very detailed explanation: https://linuxconfig.org/how-to-use-bridged-networking-with-libvirt-and-kvm
+
 Add bridged network adapter to `/etc/network/interfaces`
 ```
 auto eth0
