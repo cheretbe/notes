@@ -204,6 +204,11 @@ iface br0 inet static
   #bridge_stp off
 ```
 Some info on bridge parameters:
+```shell
+# [!!!] bridge info
+brctl show
+brctl showmacs enp2s0-br
+```
 * http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
 * http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
 
