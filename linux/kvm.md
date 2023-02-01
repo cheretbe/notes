@@ -208,6 +208,10 @@ Some info on bridge parameters:
 # [!!!] bridge info
 brctl show
 brctl showmacs enp2s0-br
+# List bridges
+ip link show type bridge
+# List interfaces which are part of a bridge
+ip -c link show master enp2s0-br
 ```
 * http://manpages.ubuntu.com/manpages/xenial/man5/bridge-utils-interfaces.5.html
 * http://manpages.ubuntu.com/manpages/xenial/en/man8/brctl.8.html
