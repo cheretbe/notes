@@ -1,5 +1,12 @@
 
 ### Unsorted
+```shell
+# C:/Program Files/Git/mingw64/etc/gitconfig
+git config --system http.schannelCheckRevoke false
+git config --system http.sslBackend openssl
+
+git config --list --show-origin
+```
 #### Merging
 * :warning: Review when (once again) having trouble with merge:
 * https://www.atlassian.com/git/tutorials/using-branches/git-merge
