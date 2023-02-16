@@ -1,6 +1,9 @@
 2check:
 ```shell
-md5deep -r -s /mountpoint > checksums
+# (?) -s  silent mode. Suppress all error messages
+#     -r  recursive mode. All subdirectories are traversed
+# [!] -l  print relative paths for filenames
+md5deep -r /mountpoint > checksums
 md5deep -r -X checksums /mountpoint1
 # or
 md5sum -c checksums --quiet
