@@ -1,4 +1,6 @@
 ```shell
+# md5deep ==> hashdeep
+
 #     -r  recursive mode. All subdirectories are traversed
 #     -c <alg1,[alg2]> - Compute hashes only. Defaults are MD5 and SHA-256
 #                         we use only one hash type for speed. Which is faster, md5 or sha1,
