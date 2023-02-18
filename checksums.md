@@ -1,3 +1,5 @@
+* TODO: check this: https://github.com/rhash/RHash
+
 ```shell
 # md5deep ==> hashdeep
 
