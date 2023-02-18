@@ -12,6 +12,10 @@ hashdeep -c MD5 -r /mountpoint > checksums
 # Audit mode
 # The -v flag can be repeated multiple times, up to three times, to get more information on the status of each file.
 hashdeep -r -k checksums -a -vv /mountpoint
+
+# Examples
+cd /mnt/hdd1/data/temp/photo1
+hashdeep -c MD5 -r -l . > /mnt/hdd1/data/temp/photo_checksums
 ```
 
 Windows
