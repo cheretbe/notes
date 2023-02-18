@@ -16,8 +16,10 @@ hashdeep -c MD5 -r /mountpoint > checksums
 hashdeep -r -k checksums -a -vv /mountpoint
 
 # Examples
-cd /mnt/hdd1/data/temp/photo1
+cd /mnt/hdd1/data/temp/photo
 hashdeep -c MD5 -r -l . > /mnt/hdd1/data/temp/photo_checksums
+cd /path/to/another/copy
+hashdeep -r -l -k /mnt/hdd1/data/temp/photo_checksums -a -vv .
 ```
 
 Windows
