@@ -1,12 +1,15 @@
-2check:
 ```shell
-# (?) -s  silent mode. Suppress all error messages
 #     -r  recursive mode. All subdirectories are traversed
-# [!] -l  print relative paths for filenames
-md5deep -r /mountpoint > checksums
-md5deep -r -X checksums /mountpoint1
-# or
-md5sum -c checksums --quiet
+#     -c <alg1,[alg2]> - Compute hashes only. Defaults are MD5 and SHA-256
+#                         we use only one hash type for speed. Which is faster, md5 or sha1,
+#                         depends on the CPU etc.
+# [!] -j <num>  use num threads (default 2)
+# [!] -l        print relative paths for filenames
+hashdeep -c MD5 -r /mountpoint > checksums
+
+# Audit mode
+# The -v flag can be repeated multiple times, up to three times, to get more information on the status of each file.
+hashdeep -r -k checksums -a -vv /mountpoint
 ```
 
 Windows
