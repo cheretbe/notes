@@ -87,7 +87,7 @@ client max protocol = NT1
 
 * https://www.linuxbabe.com/ubuntu/set-up-cups-print-server-ubuntu-bonjour-ipp-samba-airprint
 
-`nano /etc/cups/cupsd.conf`:
+`/etc/cups/cupsd.conf`:
 ```
 # 1.
 # Listen localhost:631
