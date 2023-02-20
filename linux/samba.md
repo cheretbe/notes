@@ -113,7 +113,7 @@ Port 631
 ```shell
 sudo systemctl restart cups
 ```
-
+* Go to http://ip.address:631/
 * :warning: Gotcha: selection /admin redirects to https (use exception in browser)
 
 `/etc/samba/smb.conf`:
