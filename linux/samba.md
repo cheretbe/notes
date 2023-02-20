@@ -113,9 +113,10 @@ Port 631
 ```shell
 sudo systemctl restart cups
 ```
-* Go to http://ip.address:631/
+* Go to http://host.domain.tld:631/
 * :warning: Gotcha: selection /admin redirects to https (use exception in browser)
-* If `Bad request` pops up, check host name or use `ServerAlias` option (unsafe `ServerAlias *` allows any name)
+* If `Bad request` pops up, check host name, use IP address or set `ServerAlias` option (unsafe `ServerAlias *` allows any name)
+* If printing from Windows only and there is no Linux driver available, just install `printer-driver-gutenprint` and use any driver.
 
 `/etc/samba/smb.conf`:
 ```
