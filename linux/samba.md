@@ -83,6 +83,51 @@ client min protocol = CORE
 client max protocol = NT1
 ```
 
+### Printing
+
+* https://www.linuxbabe.com/ubuntu/set-up-cups-print-server-ubuntu-bonjour-ipp-samba-airprint
+
+`nano /etc/cups/cupsd.conf`:
+```
+# 1.
+# Listen localhost:631
+Port 631
+
+# 2.
+# Particular IP address or network could be used
+#   Allow 192.168.0.101
+#   Allow 192.168.1.0/24
+<Location />
+  Order allow,deny
+  # Add this
+  Allow @LOCAL
+</Location>
+
+# 3.
+<Location /admin>
+  Order allow,deny
+  # Add this
+  Allow @LOCAL
+</Location>
+```
+```shell
+sudo systemctl restart cups
+```
+
+* :warning: Gotcha: selection /admin redirects to https (use exception in browser)
+
+`/etc/samba/smb.conf`:
+```
+[printers]
+   comment = All Printers
+   browseable = yes
+   path = /var/spool/samba
+   printable = yes
+   guest ok = yes
+   read only = yes
+   create mask = 0700
+```
+
 ### Client
 * :warning: Non-ASCII symbols gotcha<br>
     When `linux-modules-extra` package is not installed (e.g. in a Vagrant box), non-ASCII symbols on SMB sharese
