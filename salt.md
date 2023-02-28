@@ -141,6 +141,12 @@ salt-call --local grains.item os
 
 ### Debugging
 
+Easier, but the log is **on the minion (!)**:
+```
+{%- do salt.log.error('testing jinja logging') -%}
+{%- do salt.log.info('testing jinja logging') -%}
+```
+
 ```shell
 # For singlebin installation
 salt call --output=yaml state.show_sls yourslsfile
