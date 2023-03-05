@@ -81,14 +81,16 @@ find . -type d -exec chmod 755 {} \;
 # %n     File name
 stat -c '%A %a %n' /home/*
 
-# Set group ID permission
+# Set setgid (group ID) permission
 # First change the group on the directory to the one you want to be used as the default:
 chgrp group /path/to/directory -R
 # Then set the group ID permission on the folder:
 chmod g+s /path/to/directory -R
-#or
-find /path/to/directory -type d -exec chmod chmod g+rwxs {} \;
+# or
+find /path/to/directory -type d -exec chmod g+rwxs {} \;
 ```
+* :warning: https://blog.dbrgn.ch/2014/6/17/setting-setuid-setgid-bit-with-ansible/
+
 ```
 Umask   Created Files       Created Directories
 -------------------------------------------------
@@ -99,13 +101,6 @@ Umask   Created Files       Created Directories
 077     600 (rw-------)     700     (rwx------)
 277     400 (r--------)     500     (r-x------)
 ```
-
-```shell
-# Set setgid bit
-chmod g+s
-```
-
-* https://blog.dbrgn.ch/2014/6/17/setting-setuid-setgid-bit-with-ansible/
 
 Add user:
 ``` bash
