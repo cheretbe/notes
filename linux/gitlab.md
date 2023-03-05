@@ -8,6 +8,7 @@ https://about.gitlab.com/downloads/
 ### Installation
 
 * https://about.gitlab.com/install/#ubuntu
+* https://docs.gitlab.com/ee/administration/reference_architectures/1k_users.html
 
 Install packages
 ```shell
