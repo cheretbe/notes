@@ -100,6 +100,13 @@ Umask   Created Files       Created Directories
 277     400 (r--------)     500     (r-x------)
 ```
 
+```shell
+# Set setgid bit
+chmod g+s
+```
+
+* https://blog.dbrgn.ch/2014/6/17/setting-setuid-setgid-bit-with-ansible/
+
 Add user:
 ``` bash
 # adduser is more user friendly and interactive than its back-end useradd
