@@ -1,3 +1,7 @@
+* https://github.com/juanfont/headscale
+    * https://tailscale.com/kb/1151/what-is-tailscale/
+    * https://vc.ru/dev/497249-razvorachivaem-tailscale-vpn-u-sebya-v-oblake
+
 ```shell
 # WG server
 echo 1 > /proc/sys/net/ipv4/ip_forward
