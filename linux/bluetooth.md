@@ -19,7 +19,7 @@ systemctl --user --now enable wireplumber.service
 
 # [!] reboot
 
-# If device is shown, but can't be connected and there are errors like this in the system log
+# (KDE?) If device is shown, but can't be connected and there are errors like this in the system log
 # a2dp-sink profile connect failed for 41:42:A8:BF:47:78: Protocol not available
 apt purge pulseaudio-module-bluetooth
 apt install libspa-0.2-bluetooth bluedevil
