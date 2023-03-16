@@ -10,6 +10,11 @@
 openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 -showcerts 2>/dev/null </dev/null | openssl x509 -text -issuer
 # Expiration date
 openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev/null </dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
+
+# Save cert bundle to a file
+openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null | sed -e '/-----BEGIN/,/-----END/!d' | tee temp/cert_chain.pem
+# silent (useful for scripts)
+openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null | sed -e '/-----BEGIN/,/-----END/!d' | tee temp/cert_chain.pem >/dev/null
 ```
 
 ## Table of Contents
