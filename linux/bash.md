@@ -61,10 +61,10 @@ if [ $? -ne 0 ]; then
 fi
 
 # include (as equivalent for 'source' for future searches :))
-# Try and use this technique
-# (return 0 2>/dev/null) && sourced=1 || sourced=0
+# older version
+# if [ "${BASH_SOURCE[0]}" -ef "$0" ]; then
 # https://stackoverflow.com/questions/2683279/how-to-detect-if-a-script-is-being-sourced/28776166#28776166
-if [ "${BASH_SOURCE[0]}" -ef "$0" ]; then
+if ! (return 0 2>/dev/null); then
   echo >&2 "ERROR: This script needs to be sourced to run correctly"
   exit 1
 fi
