@@ -1,4 +1,4 @@
-` -a --no-specials --no-devices` tells rsync to skip these files (devices, sockets and fifos). It will still print an information message, but it would return 0 if no other error occurs. Useful when copying whole filesystems (search keywords: copy root, copying root)
+` -a --no-specials --no-devices` tells rsync to skip these files (devices, sockets and fifos). It will still print an information message, but it would return 0 if no other error occurs. Useful when copying whole filesystems (search keywords: copy root, copying root). See also [tar](./tar.md) excludes example.
 
 ```shell
 # -v increase verbosity
