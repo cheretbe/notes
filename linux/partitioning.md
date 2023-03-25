@@ -1,3 +1,9 @@
+parted
+```shell
+# grow a partition
+resizepart 2 100%
+```
+
 ```shell
 # Find a (mounted) filesystem
 findmnt
