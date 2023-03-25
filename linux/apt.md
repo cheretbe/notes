@@ -3,6 +3,10 @@
 apt-cache search openjdk
 apt-cache policy openjdk-18-jre
 
+# Remove PPA and downgrade packages
+apt install ppa-purge
+ppa-purge ppa:kubuntu-ppa/backports
+
 # Verbose output
 sudo apt -oDebug::pkgAcquire::Worker=1 update
 
