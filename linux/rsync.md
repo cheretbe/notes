@@ -1,3 +1,5 @@
+` -a --no-specials --no-devices` tells rsync to skip these files. It will still print an information message, but it would return 0 if no other error occurs. Useful when copying whole filesystems (search keywords: copy root, copying root)
+
 ```shell
 # -v increase verbosity
 # -r recurse into directories
