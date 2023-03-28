@@ -520,6 +520,8 @@ update-ca-trust
 * https://unix.stackexchange.com/questions/122753/chrome-certificate
 
 ```shell
+sudo apt install libnss3-tools
+
 certutil -d sql:snap/chromium/current/.pki/nssdb/ -A -t TC -n "My CA" -i ~/Downloads/my_ca.crt 
 # List certificates in the DB
 certutil -L -d sql:snap/chromium/current/.pki/nssdb/
