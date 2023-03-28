@@ -527,6 +527,8 @@ certutil -d sql:snap/chromium/current/.pki/nssdb/ -A -t TC -n "My CA" -i ~/Downl
 certutil -L -d sql:snap/chromium/current/.pki/nssdb/
 # For Firefox from snap
 # sql:snap/firefox/common/.mozilla/firefox/0000000.default/
+# For Chrome/Firefox from deb
+# sql:$HOME/.pki/nssdb/
 ```
 
 ### Python code
