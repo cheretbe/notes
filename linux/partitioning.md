@@ -21,6 +21,13 @@ mount -o loop,offset=$((514048*512)) /path/disk.img /mnt/loop
 ```
 
 ```shell
+# forcefsck replacement
+# default is -1 (check is disabled)
+sudo tune2fs -l /dev/nvme0n1p2 | grep 'Maximum mount'
+sudo tune2fs -c 1 /dev/nvme0n1p2
+```
+
+```shell
 # Identify SATA ports of connected drives
 # lsscsi package needs to be installed
 # look for ataX part (e.g. /sys/devices/pci0000:00/0000:00:1f.2/ata2/host1/target1:0:0/1:0:0:0)
