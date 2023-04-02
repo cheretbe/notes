@@ -1,8 +1,12 @@
 Network config
 ```shell
-ocs-live-netcfg
+# Find out physical WiFi device name
+iw dev
+
 # Connect to a hidden WiFi network
-# 1. Use "Edit a connection" menu in NetworkManager TUI to add a connection
+ocs-live-netcfg
+# or just run nmtui directly
+# 1. Use "Edit a connection" menu in NetworkManager TUI to add a connection (or 
 # 2. Activate it manually
 nmcli con up HIDDEN_WIFI_PROFILE_NAME
 ```
