@@ -8,6 +8,7 @@ git config --system http.sslBackend openssl
 git config --list --show-origin
 ```
 #### Merging
+* Check vscode as merge tool: https://www.roboleary.net/vscode/2020/09/15/vscode-git.html
 * :warning: Review when (once again) having trouble with merge:
 * https://www.atlassian.com/git/tutorials/using-branches/git-merge
 * https://stackoverflow.com/questions/8716130/git-branches-diverged-how-to-proceed/8716401#8716401
