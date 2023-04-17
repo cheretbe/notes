@@ -12,6 +12,7 @@ export CF_Account_ID="xxxxxxxxxxxxx"
 export CF_Zone_ID="xxxxxxxxxxxxx"
 
 # issuing
+# [!!] remove --staging when testing is done
 docker run --rm -it -v "$(pwd)/out":/acme.sh -e "CF_Token=$CF_Token" -e "CF_Account_ID=$CF_Account_ID" -e "CF_Zone_ID=$CF_Zone_ID" neilpang/acme.sh --issue --staging --dns dns_cf -d domain.tld -d "*.domain.tld" -d "*.rd.domain.tld"
 
 # fixing attributes on host
