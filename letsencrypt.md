@@ -7,6 +7,8 @@
 #   +--- Account name
 #      +---domain.tld - Zone:Read, DNS:Edit
 
+docker run --rm -it -v "$(pwd)/out":/acme.sneilpang/acme.sh --register-account -m user@maildomain.tld
+
 export CF_Token="sdfsdfsdfljlbjkljlkjsdfoiwje"
 export CF_Account_ID="xxxxxxxxxxxxx"
 export CF_Zone_ID="xxxxxxxxxxxxx"
