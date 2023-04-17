@@ -19,5 +19,6 @@ docker run --rm -it -v "$(pwd)/out":/acme.sh -e "CF_Token=$CF_Token" -e "CF_Acco
 docker run --rm  -it -v "$(pwd)/out":/acme.sh --entrypoint "/bin/chown" neilpang/acme.sh $(id -u):$(id -g) /acme.sh/domain.tld_ecc/domain.tld.key
 
 # renewal
+# settings are in out/domain.tld_ecc/domain.tld.conf
 docker run --rm -it -v "$(pwd)/out":/acme.sh neilpang/acme.sh --renew --staging -d domain.tld -d "*.domain.tld" -d "*.rd.domain.tld"
 ```
