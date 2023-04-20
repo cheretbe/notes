@@ -4,6 +4,12 @@ findmnt -t ext4,zfs -o +SIZE,USE%,AVAIL
 
 curl -L -vvv http://connectivitycheck.gstatic.com/generate_204
 
+# test port connection
+# -v  Verbose
+# -z  Only scan for listening daemons, without sending any data to them
+# -w  Timeout (seconds)
+nc host.domain.tld 22 -v -z -w 2
+
 # Processes sorted by virtual size
 ps -e -o pid,vsz,comm= | sort -n -k 2
 # Same as above, long version
