@@ -176,6 +176,11 @@ docker compose up -d
     
     /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
     ```
+* FSCK
+    ```shell
+    # Readonly fsck
+    docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
+    ```
 * DB cleanup
     * https://manual.seafile.com/maintain/clean_database/
     ```shell
