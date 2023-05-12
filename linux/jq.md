@@ -60,3 +60,34 @@ curl -s 'https://app.vagrantup.com/api/v1/user/cheretbe' | \
 # -r    output raw strings, not JSON texts;
 xclip -o -sel clip | jq -r -s '. | add | [.[]] | sort_by(.id) | .[] | [.id, .osfinger, .osfullname] | @tsv'
 ```
+
+```shell
+sample_json='
+[
+  {
+    "name": "vm1",
+    "network_interfaces": [
+      {
+        "index": "0",
+        "primary_v4_address": {
+          "address": "10.0.0.1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "vm2",
+    "network_interfaces": [
+      {
+        "index": "0",
+        "primary_v4_address": {
+          "address": "10.0.0.2"
+        }
+      }
+    ]
+  }
+]
+'
+
+echo $sample_json | jq -r '. | sort_by(.name)[] | (.name) + "  ansible_host=" + .network_interfaces[0].primary_v4_address.address'
+```
