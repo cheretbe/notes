@@ -8,6 +8,7 @@ curl -L -vvv http://connectivitycheck.gstatic.com/generate_204
 # -v  Verbose
 # -z  Only scan for listening daemons, without sending any data to them
 # -w  Timeout (seconds)
+# 3389 (rdp), 5985 (http winrm)
 nc host.domain.tld 22 -v -z -w 2
 
 # Processes sorted by virtual size
