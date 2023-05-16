@@ -7,6 +7,9 @@
 Get-WindowsUpdateLog -LogPath C:\Users\vagrant\Desktop\update.log
 # [!!!] Also check out c:\Windows\logs\CBS\CBS.log
 Get-Content c:\Windows\logs\CBS\CBS.log -Wait -Tail 10
+# Or event better
+# https://willjessiam.blog/2022/06/22/tail-windows-update-log-server-2016-windows-10/
+Get-Content -Path $env:WinDir\Logs\CBS\CBS.log -Tail 10 -Wait | Select-String -Pattern 'Appl:|FOD:' -NotMatch
 ```
 
 ### Completely disabling Windows Update
