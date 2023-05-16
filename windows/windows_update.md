@@ -4,8 +4,9 @@
 * https://i.imgur.com/MBRIMMX.png
 
 ```powershell
-# [!!!] Also check out c:\Windows\logs\CBS\CBS.log
 Get-WindowsUpdateLog -LogPath C:\Users\vagrant\Desktop\update.log
+# [!!!] Also check out c:\Windows\logs\CBS\CBS.log
+Get-Content c:\Windows\logs\CBS\CBS.log -Wait -Tail 10
 ```
 
 ### Completely disabling Windows Update
