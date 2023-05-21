@@ -23,4 +23,10 @@ load 'filename.rb'
 
 # The more commonly used require method loads any given file only once
 require 'filename'
+
+# Ruby 1.9 introduced a simplified syntax for hash with symbols keys. Note the difference
+puts ({"string_key" => "value"})
+puts ({"symbol_key": "value"})
+# {"string_key"=>"value"}
+# {:symbol_key=>"value"}
 ```
