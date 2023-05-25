@@ -1,3 +1,7 @@
+```shell
+ EDITOR='subl -w' ansible-vault edit --vault-password-file vault_file files_to_edit.txt
+```
+
 * Multi-selection
    * <kbd>Ctrl</kbd> + <kbd>D</kbd>
    * Skip a match: <kbd>Ctrl</kbd> + <kbd>K</kbd>
