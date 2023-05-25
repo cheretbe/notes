@@ -505,6 +505,9 @@ nano /etc/ca-certificates.conf
 # Update CA certificates in /etc/ssl/certs/
 update-ca-certificates --fresh
 ls -lha /etc/ssl/certs/
+
+# Check if a CA is present
+find /etc/ssl/certs -iname '*.pem' -exec echo {} \; -exec openssl x509 -in {} -noout -fingerprint \; | grep '00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00'
 ```
 [\[ TOC \]](#table-of-contents)
 
