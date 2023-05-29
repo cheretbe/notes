@@ -1,3 +1,4 @@
+* :bulb: https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/
 * https://rvm.io/rvm/install
 
 Ubuntu
