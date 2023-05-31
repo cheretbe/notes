@@ -6,6 +6,12 @@ git config --system http.schannelCheckRevoke false
 git config --system http.sslBackend openssl
 
 git config --list --show-origin
+
+
+git checkout -b <branch>
+# Edit files, add and commit
+# -u (short for --set-upstream)
+git push -u origin <branch>
 ```
 #### Merging
 * Check vscode as merge tool: https://www.roboleary.net/vscode/2020/09/15/vscode-git.html
