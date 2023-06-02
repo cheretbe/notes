@@ -1,3 +1,5 @@
+* https://regex101.com/
+
 Sublime text
 Swap lines like that
 ```yaml
@@ -6,7 +8,7 @@ Swap lines like that
 ```
 - <kbd>Ctrl</kbd>+<kbd>H</kbd>
 - Find what: `^- ("login": [^\n]*)\n^..("name": [^\n]*)\n`
-- Replace with: `- $2\n  $1\n`
+- Replace with: `- $2\n  $1\n` :bulb: $1 and $2 are references to [capturing groups](https://www.regular-expressions.info/brackets.html)
 - check _Regular expression_
 - **UNcheck** _case sensitive_
 - check _Wrap_
