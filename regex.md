@@ -11,4 +11,4 @@ Swap lines like that
 - **UNcheck** _case sensitive_
 - check _Wrap_
 - <kbd>Replace all</kdd>
-    - source: https://stackoverflow.com/questions/48455198/swap-line-text-in-sublime-text-3/48460185#48460185
+- source: https://stackoverflow.com/questions/48455198/swap-line-text-in-sublime-text-3/48460185#48460185
