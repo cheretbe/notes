@@ -78,6 +78,8 @@ journalctl --since now -f
 # only temporarily stored in a place like /run/log/journal
 journalctl --directory=/mountpoint/var/log/journal/<machine-id>
 
+# View current size
+journalctl --disk-usage
 # Cleanup
 journalctl --vacuum-size=100M
 journalctl --vacuum-time=2d
