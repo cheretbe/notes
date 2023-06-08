@@ -1,3 +1,8 @@
+WebP to PNG
+```shell
+for FILE in *.webp; do ffmpeg -i "$FILE" -y "${FILE%.*}.png"; done
+```
+
 HEIC to JPG
 ```shell
 # this appears to work better
