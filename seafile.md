@@ -1,3 +1,9 @@
+* :warning::warning: Syncting with existing directory gothcha:
+    * first select **parent** directory **without clicking** on *sync with an existing folder*
+    * then click on *sync with an existing folder* and make sure target subdirectory was added to the path
+    * click OK and **double check** what's being downloaded
+
+
 Auto-start client on Linux: run `Startup Applications preferences`, add item `seafile-applet` (`Seafile desktop sync client`)
 
 
