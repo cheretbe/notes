@@ -1,6 +1,8 @@
 
 ### Unsorted
 ```shell
+git fetch origin && git merge main
+
 # C:/Program Files/Git/mingw64/etc/gitconfig
 git config --system http.schannelCheckRevoke false
 git config --system http.sslBackend openssl
