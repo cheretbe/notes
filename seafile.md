@@ -1,4 +1,4 @@
-* :warning::warning: Syncting with existing directory gothcha:
+* :warning::warning: Syncing with existing directory gothcha:
     * first select **parent** directory **without clicking** on *sync with an existing folder*
     * then click on *sync with an existing folder* and make sure target subdirectory was added to the path
     * click OK and **double check** what's being downloaded
