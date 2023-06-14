@@ -183,6 +183,30 @@ systemctl restart libvirtd
 
 #### Bridged
 
+```shell
+sudo netplan generate
+# Takes a configuration, applies it, and automatically rolls it back if the user does not
+# confirm the configuration within a time limit
+sudo netplan try
+```
+
+Netplan config example
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp4s0:
+      optional: true
+      dhcp4: false
+  bridges:
+    enp4s0-br:
+      optional: true
+      interfaces: [enp4s0]
+      dhcp4: true
+      parameters:
+        forward-delay: 0
+```
+
 :warning: Very detailed explanation: https://linuxconfig.org/how-to-use-bridged-networking-with-libvirt-and-kvm
 
 Add bridged network adapter to `/etc/network/interfaces`
