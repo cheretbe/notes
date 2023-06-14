@@ -359,6 +359,7 @@ network:
 ```shell
 # Apply configuration
 sudo netplan generate
+# https://netplan.readthedocs.io/en/stable/netplan-try/
 # Takes a configuration, applies it, and automatically rolls it back if the user does not
 # confirm the configuration within a time limit
 # [!!] Reverting custom parameters for bridges and bonds is not supported
