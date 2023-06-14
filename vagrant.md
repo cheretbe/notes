@@ -16,9 +16,9 @@ vagrant plugin install vagrant-libvirt
 # https://github.com/vagrant-libvirt/vagrant-libvirt/blob/main/lib/vagrant-libvirt/action/create_network_interfaces.rb
 
 # Installation on Ubuntu 22.04
-curl https://apt.releases.hashicorp.com/gpg | gpg --dearmor > hashicorp.gpg
-sudo install -o root -g root -m 644 hashicorp.gpg /etc/apt/trusted.gpg.d/
-sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+wget https://apt.releases.hashicorp.com/gpg -O /usr/share/keyrings/hashicorp.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp.asc] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list
+apt update
 sudo apt install vagrant
 ```
 
