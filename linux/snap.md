@@ -1,3 +1,22 @@
+```shell
+# Completely remove snapd
+# https://askubuntu.com/questions/1345385/how-can-i-stop-apt-from-installing-snap-packages/1345401#1345401
+
+sudo apt autoremove --purge snapd
+
+# Prevent snapd installation in the future
+cat <<EOF | sudo tee /etc/apt/preferences.d/nosnap.pref
+# To prevent repository packages from triggering the installation of Snap,
+# this file forbids snapd from being installed by APT.
+# For more information: https://linuxmint-user-guide.readthedocs.io/en/latest/snap.html
+
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+EOF
+```
+
+
 * https://askubuntu.com/questions/1412575/pending-update-of-snap-store/1412580#1412580
 ```shell
 # Close all Chromium windows (without doing this snap refresh shows "helpful" message: All snaps up to date)
