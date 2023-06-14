@@ -359,6 +359,12 @@ network:
 ```shell
 # Apply configuration
 sudo netplan generate
+# Takes a configuration, applies it, and automatically rolls it back if the user does not
+# confirm the configuration within a time limit
+# [!!] Reverting custom parameters for bridges and bonds is not supported
+#      try shows a message: "Please carefully review the configuration and use 'netplan apply' directly.
+sudo netplan try
+
 sudo netplan apply
 # View debug info
 sudo netplan --debug apply
