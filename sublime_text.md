@@ -196,7 +196,7 @@ Install [Package Control](https://packagecontrol.io/installation#st3)
 * :question: `SublimeBookmarks`: https://packagecontrol.io/packages/Sublime%20Bookmarks
 * :heavy_check_mark: `BracketHighlighter`: http://facelessuser.github.io/BracketHighlighter/
 
-BracketHighlighter config  
+BracketHighlighter config  (`Preferences` > `Package Settings` > `BracketHighlighter` > `Bracket Setting`)<br>
 Add to settings
 ```
     "match_brackets": false,
@@ -206,7 +206,8 @@ Add to settings
     "match_brackets_square": false,
     "match_tags": false
 ```
-Keybindings (`Preferences` > `Key Bindings`):
+~~Keybindings (`Preferences` > `Key Bindings`):~~<br>
+`Preferences` > `Package Settings` > `BracketHighlighter` > `Key Bindings - User`:
 ```
 // Select text between brackets
 {
