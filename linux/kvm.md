@@ -185,9 +185,9 @@ systemctl restart libvirtd
 
 ```shell
 sudo netplan generate
-# Takes a configuration, applies it, and automatically rolls it back if the user does not
-# confirm the configuration within a time limit
-sudo netplan try
+# [!!] Reverting custom parameters for bridges and bonds is not supported
+#      try shows a message: "Please carefully review the configuration and use 'netplan apply' directly.
+sudo netplan apply
 ```
 
 Netplan config example
