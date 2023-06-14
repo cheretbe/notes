@@ -13,6 +13,7 @@
 # libvirt
 sudo apt install libvirt-dev build-essential
 vagrant plugin install vagrant-libvirt
+# https://vagrant-libvirt.github.io/vagrant-libvirt/configuration.html
 # https://github.com/vagrant-libvirt/vagrant-libvirt/blob/main/lib/vagrant-libvirt/action/create_network_interfaces.rb
 
 # Installation on Ubuntu 22.04
