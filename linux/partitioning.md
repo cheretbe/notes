@@ -92,7 +92,8 @@ sfdisk /dev/sdX < sdX_partitions.sfdisk
 Frequently used fdisk partition types: swap partition (type 82) linux partition (type 83).
 
 ```shell
-parted /dev/sda
+# [!] note the --align option
+parted --align optimal /dev/sda
 # change device
 (parted) select /dev/sdb
 # create GPT partition table
