@@ -101,11 +101,16 @@ parted --align optimal /dev/sda
 # create DOS partition talbe
 (parted) mklabel msdos
 # create partition interactively
-(parted) mkpart primary
+# [!!!] just use this and set name, FS type, 0%, 100%
+(parted) mkpart
 # swap partition type: linux-swap
 # create partition using whole disk
-# (try start from 1 if it warnings about not proper alignment)
-(parted) mkpart primary ext4 0% 100%
+# mkpart [part-type name fs-type] start end
+# part-type is one of ‘primary’, ‘extended’ or ‘logical’, and may be specified only with ‘msdos’ or ‘dvh’ partition tables
+# Gotcha: there is no way to create a partition without a name non-interactively (?)
+# 'mkpart "" ext4 0% 100%' creates a partition, named ext4 without setting filesystem type
+(parted) mkpart dummy ext4 0% 100%
+(parted)
 # other partitions
 (parted) mkpart primary 1 25Gb
 (parted) mkpart logical 372737 500000
