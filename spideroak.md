@@ -24,6 +24,11 @@ watch -n 2 "bash /root/temp/check_proc_cpu.sh -w 35 -c 40 --cmdpattern 'SpiderOa
 adduser --system --group --disabled-password spideroak-user-name
 
 # Running in GUI mode with X11 forwarding via su
+sudo su - spideroak-user-name
+# [!!] change ~username to actual user name
+xauth add $(xauth -f ~username/.Xauthority list | tail -1)
+
+# Old less automated version (for the reference)
 # [!] As the original user. Note the last line
 xauth -f ~/.Xauthority list
 # Switch user
