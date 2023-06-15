@@ -105,7 +105,7 @@ parted --align optimal /dev/sda
 # swap partition type: linux-swap
 # create partition using whole disk
 # (try start from 1 if it warnings about not proper alignment)
-(parted) mkpart primary 0 100%
+(parted) mkpart primary ext4 0% 100%
 # other partitions
 (parted) mkpart primary 1 25Gb
 (parted) mkpart logical 372737 500000
