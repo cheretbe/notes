@@ -135,6 +135,13 @@ sudo mkfs.ext4 /dev/sda2
 * `-m 0` – do not reserve space for root
 * `-b 1024` – set block size to 1024 (for small files). Default size is 4096. To find out current block size: `sudo tune2fs -l /dev/sdc2`
 ```shell
+# View current reserved block count
+tune2fs -l /dev/nvme0n1p1 | grep 'Reserved block count'
+# Set reserved percentage for an existing file system
+# tune2fs -m <percentage> <device-name>
+tune2fs -m 0 /dev/nvme0n1p1
+```
+```shell
 # NTFS
 # -Q - quick format
 sudo sudo mkntfs /dev/sda2 -Q
