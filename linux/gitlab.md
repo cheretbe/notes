@@ -27,7 +27,7 @@ https://gitlab.com/gitlab-org/omnibus-gitlab/blob/629def0a7a26e7c2326566f0758d4a
 
 * Configure and start GitLab
     * :warning: Running GitLab in a memory-constrained environment: https://docs.gitlab.com/omnibus/settings/memory_constrained_envs.html
-    * :point_right: reduce some running processes for testing environments: https://docs.gitlab.com/omnibus/settings/rpi.html#reduce-running-processes
+    * less dramatic optimizations: https://docs.gitlab.com/omnibus/settings/rpi.html#reduce-running-processes
 ```
 sudo gitlab-ctl reconfigure
 ```
