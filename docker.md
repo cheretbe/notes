@@ -28,6 +28,18 @@ done
 docker images myimage
 docker image inspect node:latest
 ```
+### skopeo
+* https://github.com/containers/skopeo
+* https://github.com/cheretbe/docker-configs/blob/main/seafile/README.md#version-upgrade
+```shell
+docker run --rm -it alpine:latest
+apk add skopeo jq
+
+skopeo list-tags docker://python
+skopeo list-tags docker://gitlab/gitlab-ee | grep 15.11.7-ee
+
+```
+
 
 ### Configuration
 
