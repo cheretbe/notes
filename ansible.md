@@ -455,7 +455,7 @@ vault_password_file = ~/vault_env_pass_file.sh
 
 ### Molecule
 * https://opensource.com/article/18/12/testing-ansible-roles-molecule
-* https://molecule.readthedocs.io/en/latest/
+* https://ansible.readthedocs.io/projects/molecule/getting-started/
 * https://github.com/ansible-community/molecule
 * https://groups.google.com/forum/#!forum/molecule-users
 * **https://www.toptechskills.com/ansible-tutorials-courses/rapidly-build-test-ansible-roles-molecule-docker/**
@@ -472,7 +472,9 @@ vault_password_file = ~/vault_env_pass_file.sh
     * https://github.com/ansible-community/molecule/pull/2329
     
 ```shell
-pip install molecule ansible-lint flake8 molecule-vagrant
+# [!] Need to specify ansible explicitly to get a fully functional ansible
+pip install ansible molecule molecule-plugins[docker]
+# pip install molecule ansible-lint flake8 molecule-vagrant
 # Initialize Molecule within an existing role
 cd role-directory
 # if scenario-name is empty, 'default' is used
