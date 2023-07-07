@@ -130,7 +130,15 @@ git fetch --prune
 git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }'
 # 3. Actual deletion
 git branch -vv | grep ': gone]'|  grep -v "\*" | awk '{ print $1; }' | xargs -r git branch -d
-
+# 4. On error: The branch 'add_release_runners_to_scannerdev' is not fully merged.
+#    If you are sure you want to delete it, run 'git branch -D add_release_runners_to_scannerdev'.
+# TL;DR: If you **squashed commits** on merge just use -D
+# Background:
+# That is not an error, it is a warning. It means the branch you are about to delete contains commits
+# that are not reachable from any of: its upstream branch, or HEAD (currently checked out revision).
+# In other words, when you might lose commits.
+# In practice it means that you probably amended, rebased (including squash merge) or filtered commits
+# and they don't seem identical.
 
 # view history of changes for single file (#revisions)
 git log -- filename
