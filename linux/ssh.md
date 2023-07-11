@@ -246,6 +246,8 @@ mkdir ~/yourmountdirectory
 sshfs -o reconnect username@host:/remotepath ~/yourmountdirectory
 # Unmount
 fusermount -u ~/yourmountdirectory
+# View mounted filesystems
+mount -t fuse.sshfs
 ```
 
 ### Notes
