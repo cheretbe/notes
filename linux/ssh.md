@@ -243,7 +243,7 @@ sudo apt install sshfs
 # Create the mount point
 mkdir ~/yourmountdirectory
 # Mount remote path
-sshfs username@host:/remotepath ~/yourmountdirectory
+sshfs -o reconnect username@host:/remotepath ~/yourmountdirectory
 # Unmount
 fusermount -u ~/yourmountdirectory
 ```
