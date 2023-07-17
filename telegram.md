@@ -14,7 +14,7 @@ def check_http_reply(reply):
 
 def send_message_to_telegram_chat(chat_id, tg_bot_token, message, silent=False):
     reply = requests.post(
-        url = f"https://api.telegram.org/{tg_bot_token}/sendMessage",
+        url = f"https://api.telegram.org/bot{tg_bot_token}/sendMessage",
         data = {
            "chat_id": chat_id,
            "parse_mode": "HTML",
@@ -25,9 +25,16 @@ def send_message_to_telegram_chat(chat_id, tg_bot_token, message, silent=False):
     )
     check_http_reply(reply)
 
+def send_document_to_telegram_chat(chat_id, tg_bot_token, document):
+    requests.post(
+        url = f"https://api.telegram.org/bot{tg_bot_token}/sendDocument",
+        data = { "chat_id": chat_id },
+        files = { "document": document }
+    )
+
 send_message_to_telegram_chat(
     chat_id="000000000",
-    tg_bot_token="bot000000000:AAAA00aaaa00000000000000000000000_A",
+    tg_bot_token="000000000:AAAA00aaaa00000000000000000000000_A",
     message="test message"
 )
 ```
