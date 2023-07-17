@@ -3,6 +3,35 @@
     * see also notes below
 * Full-fledged command-line tool to send messages (could be used **directly from a Python script**): https://github.com/rahiel/telegram-send
 
+```python
+#!/usr/bin/env python3
+
+import requests
+
+def check_http_reply(reply):
+    if reply.status_code != 200:
+        raise Exception("HTTP call has failed. Status code: {code} - {text}".format(code=reply.status_code, text=reply.text))
+
+def send_message_to_telegram_chat(chat_id, tg_bot_token, message, silent=False):
+    reply = requests.post(
+        url = f"https://api.telegram.org/{tg_bot_token}/sendMessage",
+        data = {
+           "chat_id": chat_id,
+           "parse_mode": "HTML",
+           "text": message,
+           "disable_web_page_preview": "true",
+           "disable_notification": str(silent)
+        }
+    )
+    check_http_reply(reply)
+
+send_message_to_telegram_chat(
+    chat_id="000000000",
+    tg_bot_token="bot000000000:AAAA00aaaa00000000000000000000000_A",
+    message="test message"
+)
+```
+
 ```shell
 # Get chat ID using proxy
 # [!] If the result is empty, just send something to the bot using GUI client
