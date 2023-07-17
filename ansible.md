@@ -260,6 +260,9 @@ Ad-hoc command returning JSON
 ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json \
   ansible all -i 192.168.1.137, -a "ls / -lha" \
   | jq -r '.plays[0].tasks[0].hosts."192.168.1.137".stdout_lines'
+
+# Show execution time for ad-hoc command
+ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_ENABLED_PLUGINS=timer ansible -i inventories/prod/linux.hosts -m ping hosts --one-line
 ```
 
 ```yaml
