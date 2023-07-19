@@ -49,6 +49,10 @@ then
   exit 1
 fi
 
+# loop examples
+for ((i = 0 ; i < 5 ; i++ )); do echo "$i"; done
+for i in {02..03}; do nslookup "host-$i.domain.tld"; done
+
 # Yes/No question with default yes
 read -p "Do you want to continue? [Y/n] " -r
 if [[ ! $REPLY =~ ^([yY][eE][sS]|[yY]|)$ ]]; then exit 1 ; fi
