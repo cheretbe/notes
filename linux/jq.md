@@ -1,7 +1,11 @@
 ```shell
 ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ANSIBLE_CALLBACKS_ENABLED=json \
-  ansible -i inventories/prod/linux.hosts -m ansible.builtin.systemd -a "name=ssh.service" all | \
+  ansible -m ansible.builtin.systemd -a "name=ssh.service" all | \
   jq '.plays[0].tasks[0].hosts | to_entries | (.[].key + ": " + .[].value.status.ActiveState)'
+
+ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ANSIBLE_CALLBACKS_ENABLED=json \
+  ansible -m ansible.builtin.systemd -a "name=ssh.service" all \ |
+  jq '.plays[0].tasks[0].hosts | to_entries | map(select(.value.status.ActiveState != "active")) | (.[].key + ": " + .[].value.status.ActiveState)'
 ```
 
 ```shell
