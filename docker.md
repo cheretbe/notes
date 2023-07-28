@@ -36,8 +36,9 @@ docker run --rm -it alpine:latest
 apk add skopeo jq
 
 skopeo list-tags docker://python
-skopeo list-tags docker://gitlab/gitlab-ee | grep 15.11.7-ee
-
+skopeo list-tags docker://gitlab/gitlab-ce | grep 16.0.7
+# View digest
+skopeo inspect docker://gitlab/gitlab-ce:16.0.7-ce.0 | jq '.Digest'
 ```
 
 
