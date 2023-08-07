@@ -59,7 +59,13 @@ Threading capabilities: none
 Convert from m4b to mp3
 ```shell
 # m4b is just a fancy name for an AAC file
+# This creates a single MP3 file, just use mp3splt afterwards
+# Non-working fancy solution below
 ffmpeg -i source.m4b -acodec libmp3lame -ab 64k output.mp3
+
+# This script almost works, but something is wrong with parameters
+# Debug when there will be some free time (csv parsing works, use 'set -x' to see what's going on next)
+# https://stackoverflow.com/questions/30305953/is-there-an-elegant-way-to-split-a-file-by-chapter-using-ffmpeg/53553938#53553938
 ```
 
 Test integrity
