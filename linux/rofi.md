@@ -1,6 +1,6 @@
 * https://github.com/davatorium/rofi
 * compile rofi in ubuntu 22.04 https://gist.github.com/cboully/52a0d46a49d18bd9e3e51007282ebcbe
-    * ```
+    * ```shell
       git clone --depth=1 --single-branch --branch 1.7.5 https://github.com/davatorium/rofi.git
       cd rofi
       git submodule update --init
