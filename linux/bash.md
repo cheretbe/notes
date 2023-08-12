@@ -9,6 +9,12 @@ readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do 
 # Show ping results only
 readarray -t targets < temp/ping_targets.txt; for target in "${targets[@]}"; do ping -c1 "${target}" > /dev/null && echo "${target} is UP" || echo "${target} is down"; done
 
+# Replace a line in a file using regex
+# -i  edit file in place
+# -E  use extended regular expressions
+# \1  1st capturing group
+sed -i -E 's|(^\s+)confPath := .*|\1confPath := "/home/user/\.config/rofi-snippet/config.toml"|g' main.go
+
 cat requests_log.txt| awk '{print $1}' | sort | uniq
 ```
 
