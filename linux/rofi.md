@@ -19,4 +19,8 @@
 * https://github.com/topics/rofi-scripts
 * snippets
     * https://github.com/tkancf/rofi-snippet/blob/master/config.toml
+        * Use custom config file location
+          ```shell
+          sed -i -E 's|(^\s+)confPath := .*|\1confPath := "/home/user/\.config/rofi-snippet/config.toml"|g' main.go
+          ```
     * https://github.com/raphaelfournier/rofi-modi-snippets
