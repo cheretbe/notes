@@ -13,6 +13,9 @@
 # libvirt
 sudo apt install libvirt-dev build-essential
 vagrant plugin install vagrant-libvirt
+vagrant up --provider=libvirt
+# or set env variable
+export VAGRANT_DEFAULT_PROVIDER=libvirt
 # https://vagrant-libvirt.github.io/vagrant-libvirt/configuration.html
 # https://github.com/vagrant-libvirt/vagrant-libvirt/blob/main/lib/vagrant-libvirt/action/create_network_interfaces.rb
 
