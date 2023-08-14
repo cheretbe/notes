@@ -61,6 +61,8 @@ kill -KILL <pid>
 
 ![exclamation](https://github.com/cheretbe/notes/blob/master/images/warning_16.png) **Quit SpiderOak ONE before deletion**
 
+Although the graphical application only allows you to delete files that were uploaded from the device you are currently seated at, advanced users can use the command line option --purge to do this
+
 ```batch
 :: Device number is optional and defaults to the current device
 "C:\Program Files\SpiderOakONE\SpiderOakONE.exe" --device=2 --purge="C:\Documents and Settings\My Documents\unwanted.docx"
