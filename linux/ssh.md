@@ -244,6 +244,8 @@ sudo apt install sshfs
 mkdir ~/yourmountdirectory
 # Mount remote path
 sshfs -o reconnect username@host:/remotepath ~/yourmountdirectory
+# As root
+sshfs -o sftp_server="/usr/bin/sudo /usr/lib/openssh/sftp-server" -o reconnect host.domain.tld:/ ~/yourmountdirectory
 # Unmount
 fusermount -u ~/yourmountdirectory
 # View mounted filesystems
