@@ -1,4 +1,7 @@
 ```shell
+# List env variables
+jq -n 'env'
+
 ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ANSIBLE_CALLBACKS_ENABLED=json \
   ansible -m ansible.builtin.systemd -a "name=ssh.service" all | \
   jq '.plays[0].tasks[0].hosts | to_entries | .[] | (.key + ": " + .value.status.ActiveState)'
