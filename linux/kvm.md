@@ -282,6 +282,19 @@ virsh net-autostart intnet1
 
 [\[ TOC \]](#table-of-contents)
 
+### Local storage pool
+
+```shell
+virsh pool-define-as --name hdd1 --type dir --target /mnt/hdd1/vm
+virsh pool-start hdd1
+virsh pool-autostart hdd1
+# Sounds dangerous, but only stops the pool
+virsh pool-destroy hdd1
+# [!] This is dangerous as it deletes underlying directory /mnt/hdd1/vm
+virsh pool-delete hdd1
+virsh pool-undefine hdd1
+```
+
 ### LVM storage pool
 
 In `virt-manager` click "Add new storage pool", select Type "logical: LVM Volume Group".
