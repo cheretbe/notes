@@ -11,3 +11,15 @@ iptables -A FORWARD -i wg0 -o wg0 -j ACCEPT
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables --table nat --append POSTROUTING -s 192.168.101.0/24 --out-interface wg-hub -j MASQUERADE
 ```
+
+Routing table example (for PBR)
+```
+[Interface]
+Table = 42
+
+[Peer]
+# wg-quick will generate routes from all peers' AllowedIPs
+Endpoint = <your_server>
+AllowedIPs = 0.0.0.0/0, ::/0
+```
+* https://superuser.com/questions/1762082/address-based-routing-policy-for-linux-router
