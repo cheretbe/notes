@@ -1,13 +1,3 @@
-## Table of Contents
-* [Unsorted](#unsorted)
-* [Guest Settings](#guest-settings)
-* [Installation](#installation)
-* [Networking](#networking)
-* [LVM Storage Pool](#lvm-storage-pool)
-* [VLAN](#vlan)
-* [Copying \(editing\) a VM](#copying-editing-a-vm)
-* [virsh Commands](#virsh-commands)
-
 ### Unsorted
 * Run Ubuntu 20.04+ on low-memory VPS
     * https://www.downtowndougbrown.com/2021/06/how-to-run-ubuntu-20-04-server-with-only-256-mb-of-ram/
@@ -87,8 +77,6 @@ dd bs=16M if=/dev/sdX | pv -s 21474836480 | bzip2 -c | mbuffer -q -s 16M -m 1G -
 * Shutdown script on Ubuntu 16.04: `/usr/lib/libvirt/libvirt-guests.sh` (uses settings from `/etc/default/libvirt-guests`)
 * CPU host passthrough: `<cpu mode='host-passthrough'/>`
 
-[\[ TOC \]](#table-of-contents)
-
 ### Guest Settings
 Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
 
@@ -134,8 +122,6 @@ Feb 17 17:40:29 ubuntu-test systemd[1]: libvirt-guests.service: Control process 
 Feb 17 17:40:29 ubuntu-test systemd[1]: libvirt-guests.service: Failed with result 'exit-code'.
 Feb 17 17:40:29 ubuntu-test systemd[1]: Stopped Suspend/Resume Running libvirt Guests.
 ```
-
-[\[ TOC \]](#table-of-contents)
 
 ### Installation
 To check if hardware acceleration is enabled install package `cpu-checker` and run `kvm-ok` as root. KVM is basically a hardware-accelerated version of QEMU
@@ -280,8 +266,6 @@ virsh net-start intnet1
 virsh net-autostart intnet1
 ```
 
-[\[ TOC \]](#table-of-contents)
-
 ### Local storage pool
 
 ```shell
@@ -312,9 +296,7 @@ Examples
 
 * https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Virtualization_Deployment_and_Administration_Guide/sect-LVM_based_storage_pools.html
 
-[\[ TOC \]](#table-of-contents)
-
-## VLAN
+### VLAN
 ```bash
 apt install vlan
 # Load kernel module
@@ -331,8 +313,6 @@ echo "8021q" >> /etc/modules
 # iface eth0.100 inet dhcp
 #   vlan-raw-device eth0
 ```
-
-[\[ TOC \]](#table-of-contents)
 
 ### Copying (editing) a VM
 Copy the VM's disks from `/var/lib/libvirt/images` on src host to the same dir on destination host
@@ -358,8 +338,6 @@ virsh edit vmname
 VM's configs are in `/etc/libvirt/qemu`
 * http://serverfault.com/questions/434064/correct-way-to-move-kvm-vm
 
-[\[ TOC \]](#table-of-contents)
-
 ### virsh Commands
 
 ```shell
@@ -378,5 +356,3 @@ qemu-img resize /var/lib/libvirt/images/test-0.img +10G
 # Convert qcow2 to VDI
 qemu-img convert -f qcow2 image.qcow2 -O vdi image.vdi
 ```
-
-[\[ TOC \]](#table-of-contents)
