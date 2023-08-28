@@ -50,6 +50,12 @@ lsblk
 echo '1' > /sys/class/block/sda/device/rescan
 
 # /sda/sda1/system--vg-rootfs
+
+# option 1
+parted /dev/sda
+resizepart 1 100%
+
+# option 2 (dangerous)
 fdisk /dev/sda
 # d (delete)
 # n (new), p (primary), number 1 (default), first sector 2048 (default), last default
