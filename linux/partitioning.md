@@ -33,6 +33,13 @@ sudo tune2fs -c 1 /dev/nvme0n1p2
 # look for ataX part (e.g. /sys/devices/pci0000:00/0000:00:1f.2/ata2/host1/target1:0:0/1:0:0:0)
 lsscsi --verbose
 
+# Identify SCSI ports without lsscsi
+# https://www.virten.net/2015/08/match-linux-scsi-devices-sdx-to-virtual-disks-in-vmware/
+# a:b:c:d
+# a = Hostadapter ID; b = SCSI channel; c = Device ID; d = LUN
+# "SCSI controller 0 SCSI(0:1) Hard disk 2" => x:0:1:0
+ls -1d /sys/block/sd*/device/scsi_device/*
+
 # Re-read partition table from a drive
 partprobe /dev/sdX
 ```
