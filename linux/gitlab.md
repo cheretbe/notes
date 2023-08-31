@@ -43,6 +43,8 @@ sudo gitlab-ctl reconfigure
 
 #### Docker
 * https://github.com/cheretbe/docker-configs/tree/main/gitlab
+    * :point_right: detailed config description is there, including `gitlab-ctl show-config` usage.
+    * **TODO:** consider moving relevant content from `docker-configs/*/README.md` to notes and protecting main branch
 
 #### Updgrade
 * https://docs.gitlab.com/ee/update/index.html#upgrade-paths
