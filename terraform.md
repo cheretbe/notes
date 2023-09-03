@@ -38,3 +38,11 @@ data "external" "server_mac" {
   ]
 }
 ```
+
+```shell
+# Template debugging
+terraform apply -target=data.template_file.example
+echo "data.template_file.example.rendered" | terraform console
+# or
+terraform state show template_file.example
+```
