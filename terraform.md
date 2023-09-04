@@ -39,6 +39,18 @@ data "external" "server_mac" {
 }
 ```
 
+### Debugging
+#### templatefile() function
+```hcl
+# Add temporary local resource
+locals {
+  dummy = templatefile("${path.module}/template.yml.tftpl", {var_name = var.value})
+}
+```shell
+```
+terraform apply -target=locals.dummy && echo "local.dummy" | terraform console
+```
+#### template_file
 ```shell
 # Template debugging
 terraform apply -target=data.template_file.example
