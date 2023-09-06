@@ -188,8 +188,8 @@ Packages:
 Install [Package Control](https://packagecontrol.io/installation#st3)
 
 **CTRL-SHIFT-P**, "Package Control: Install Package"
-
-* :heavy_check_mark: `Monokai JSON+` (then add `"color_scheme": "Packages/Monokai JSON+/Monokai JSON+.tmTheme"` to `Preferences` > `Settings - Syntax Specific` )
+* :heavy_check_mark: SideBarEnhancements
+* :question: `Monokai JSON+` (then add `"color_scheme": "Packages/Monokai JSON+/Monokai JSON+.tmTheme"` to `Preferences` > `Settings - Syntax Specific` )
 * :question: `Theme - Soda` (then add `"theme": "Soda Dark 3.sublime-theme"` to "Settings - User")
 * :question: `GitGutter`
 * :heavy_check_mark: `Powershell`: https://packagecontrol.io/packages/PowerShell
@@ -226,7 +226,3 @@ Add to settings
 }
 ```
 Other examples: https://github.com/facelessuser/BracketHighlighter/blob/master/Example.sublime-keymap
-
-2check:
-* SublimeFileBrowser: https://github.com/aziz/SublimeFileBrowser
-* or SideBarEnhancements?
