@@ -24,6 +24,7 @@ net stop w32time
 net start w32time
 w32tm /resync /rediscover
 
+:: Debugging
 w32tm /debug /enable /file:C:\temp\w32time_log.txt /size:100000 /entries:0-300
 w32tm /debug /disable
 ```
