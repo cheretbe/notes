@@ -7,10 +7,12 @@
 ```batch
 :: /manualpeerlist:"server,0x0X" meaning:
 ::   https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-sntp/fef409e4-5297-4f18-850b-e386f7e10fea
-::   0x01 SpecialInterval The value of the SpecialPollInterval element is used as the polling interval for this time source.
-::   0x02 UseAsFallbackOnly Use this time source only when all other time sources have failed. No preference is given among fallback time sources when multiple time sources are configured with this option.
-::   0x04 SymmetricActive Use the symmetric active mode when communicating with this time source.
-::   0x08 Client Use the client mode when communicating with this time source.
+::   The "Bitwise Flag", if included, MUST be a bitwise OR of zero or more of the following flags
+::   0x01 SpecialInterval: The value of the SpecialPollInterval element is used as the polling interval for this time source.
+::   0x02 UseAsFallbackOnly: Use this time source only when all other time sources have failed. No preference is given among fallback time sources when multiple time sources are configured with this option.
+::   0x04 SymmetricActive: Use the symmetric active mode when communicating with this time source.
+::   0x08 Client: Use the client mode when communicating with this time source.
+::  So, 0x09 will mean SpecialInterval+Client
 
 w32tm /query /configuration
 w32tm /query /peers
