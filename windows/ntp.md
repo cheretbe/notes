@@ -1,5 +1,8 @@
 * The most concise and reasonable summary: https://elims.org.ua/blog/nastraivaem-ntp/
 * https://github.com/saltstack/salt/blob/master/salt/modules/win_ntp.py
+* Ansible (not implemented)
+    * https://github.com/ansible-collections/community.windows/issues/114
+    * https://github.com/ansible-collections/community.windows/pull/150
 
 ```batch
 :: /manualpeerlist:"server,0x0X" meaning:
