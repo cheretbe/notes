@@ -1,4 +1,5 @@
-The most concise and reasonable summary: https://elims.org.ua/blog/nastraivaem-ntp/
+* The most concise and reasonable summary: https://elims.org.ua/blog/nastraivaem-ntp/
+* https://github.com/saltstack/salt/blob/master/salt/modules/win_ntp.py
 
 ```batch
 :: /manualpeerlist:"server,0x0X" meaning:
