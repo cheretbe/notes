@@ -487,21 +487,52 @@ molecule init scenario -d vagrant
 molecule --base-config ../tests/molecule/molecule_base_docker_linux.yml test
 ```
 
-Default test matrix
-* dependency
-* lint
-* cleanup
-* destroy
-* syntax
-* create
-* prepare
-* converge
-* idempotence
-* side_effect
-* verify
-* cleanup
-* destroy
+`molecule.yml` example
+```yaml
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: gitlab
+    image: docker.io/gitlab/gitlab-ce:16.2.5-ce.0
+    pre_build_image: true
+    network: gitlab-test
+    override_command: false
+    published_ports:
+      - "8000:8000"
 
+  - name: debian-10
+    image: docker.io/geerlingguy/docker-debian10-ansible:latest
+    pre_build_image: true
+    command: /lib/systemd/systemd
+    network: gitlab-test
+
+  - name: debian-11
+    image: docker.io/geerlingguy/docker-debian11-ansible:latest
+    pre_build_image: true
+    command: /lib/systemd/systemd
+    network: gitlab-test
+provisioner:
+  name: ansible
+  playbooks:
+    prepare: ../playbooks/prepare.yml
+    cleanup: ../playbooks/cleanup.yml
+  ansible_args:
+    - --vault-password-file=molecule/ansible_vault_env_pass_file.sh
+    - --extra-vars
+    - "gl_debug_skip_test_docker_machine_vm=${MOLECULE_SKIP_TEST_VM:-false}"
+  config_options:
+    defaults:
+      # These settings are for set_fact's cacheable parameter to work. This way
+      # we can use test_project_info variable from prepare.yml in converge.yml
+      gathering: smart
+      fact_caching: jsonfile
+      fact_caching_connection: /tmp/molecule_facts_cache
+      fact_caching_timeout: 43200 #12h
+verifier:
+  name: ansible
+```
 ### Testinfra
 
 * :warning: 2review: https://medium.com/@george.shuklin/testinfra-pytest-delights-3e0a7d5c84d2
