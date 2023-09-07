@@ -36,6 +36,7 @@ press the **Delete** button. In newer versions select `Domain Security Policy`~~
 
 Extensions
 * Tab Activate: https://chrome.google.com/webstore/detail/tab-activate/jlmadbnpnnolpaljadgakjilggigioaj/related
+* Duplicate Tab Shortcut: https://chrome.google.com/webstore/detail/duplicate-tab-shortcut/klehggjefofgiajjfpoebdidnpjmljhb/related
 * Cookie AutoDelete: https://chrome.google.com/webstore/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh
 * uBlock Origin: https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
 * New Tab Redirect: https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna
