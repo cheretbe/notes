@@ -1,5 +1,5 @@
 ```shell
-# [!] The image is huge (11+ GB) plus it uses at lot at runtime
+# [!] The image is huge (11+ GB) plus it uses space at runtime (~16 GB in total)
 docker run -d -e ORACLE_PWD=pwd --name oracle container-registry.oracle.com/database/express:latest
 # Then use `rlwrap sqlplus`
 docker exec -it oracle bash
