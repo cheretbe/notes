@@ -1,4 +1,4 @@
 ```sql
-; sqlplus settings
+-- sqlplus settings
 set wrap off;
 ```
