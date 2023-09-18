@@ -1,3 +1,4 @@
+* :point_right: Cron expression generator/validator: https://www.freeformatter.com/cron-expression-generator-quartz.html
 * https://stackoverflow.com/questions/2366693/run-cron-job-only-if-it-isnt-already-running/33416116#33416116
 * https://debian-handbook.info/browse/stable/sect.task-scheduling-cron-atd.html
 
