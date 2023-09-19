@@ -10,6 +10,18 @@
 * **iptables** settings: https://github.com/cheretbe/notes/blob/master/linux/networking.md#docker
 * https://www.googlinux.com/how-to-list-all-tags-of-a-docker-image/
 
+```shell
+# Remove -f to see what's going to be deleted (example below)
+#   - all stopped containers
+#   - all networks not used by at least one container
+#   - all images without at least one container associated to them
+#   - all build cache
+docker system prune -af
+
+# Also remove -f to see a warning
+# This will remove all local volumes not used by at least one container
+docker volume prune -f
+```
 
 ```shell
 curl https://registry.hub.docker.com/v2/repositories/library/mariadb/tags/ | jq '.results[]["name"]'
