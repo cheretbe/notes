@@ -241,6 +241,7 @@ Method 2 - Manual (use `virsh net-edit network_name` if virt-manager doesn't sup
 ```bash
 # Generate randomized MAC address
 printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))
+# https://dnschecker.org/mac-address-generator.php
 # Generate UUID (uuid-runtime package)
 uuidgen
 ```
