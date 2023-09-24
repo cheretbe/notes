@@ -242,6 +242,12 @@ Method 2 - Manual (use `virsh net-edit network_name` if virt-manager doesn't sup
 # Generate randomized MAC address
 printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256))
 # https://dnschecker.org/mac-address-generator.php
+# [!!] Non-multicast MAC address:
+docker run --rm -ti ruby:latest
+print ("%02x"%((rand 64)*4|2)) + (0..4).inject(""){|s,x|s+":%02x"%(rand 256)} + "\n"
+# when using ruby binary
+ruby -e'print ("%02x"%((rand 64)*4|2)) + (0..4).inject(""){|s,x|s+":%02x"%(rand 256)} + "\n"'
+
 # Generate UUID (uuid-runtime package)
 uuidgen
 ```
