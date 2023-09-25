@@ -3,6 +3,9 @@
 * `ip` command cheatsheet: https://access.redhat.com/sites/default/files/attachments/rh_ip_command_cheatsheet_1214_jcs_print.pdf
 
 ```shell
+# dig may return canonical names for if CNAME records are present. grep filters them out
+dig +short registry.terraform.io | grep -v '\.$' | xargs -I % ip route add % via 192.168.88.3 metric 50
+
 # Physical interfaces info (note the H/W path)
 lshw -class network -short
 # Note a device name and find out detailed info
