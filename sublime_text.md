@@ -65,9 +65,10 @@ Settings
   "highlight_modified_tabs": true,
   "remember_open_files": false,
   "hot_exit": false,
+  "show_project_first": true,
   "auto_complete": false,
-	"bold_folder_labels": true,
-	"highlight_line": true,
+  "bold_folder_labels": true,
+  "highlight_line": true,
   "indent_guide_options":
     [
       "draw_normal",
