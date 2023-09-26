@@ -1,5 +1,6 @@
 Also known as NAT2NAT(?)
 
+* :warning: The most comprehensive summary: https://tailscale.com/blog/how-nat-traversal-works/
 * https://bford.info/pub/net/p2pnat/
    * https://github.com/dwoz/python-nat-hole-punching
 * https://stackoverflow.com/questions/65127212/python3-nat-hole-punching
