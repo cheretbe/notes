@@ -37,6 +37,16 @@ View:
 ```shell
 list systemproperties | grep -i 'Default Guest Additions ISO'
 ```
+### Installation
+
+```shell
+# Ubuntu 22.04
+wget https://www.virtualbox.org/download/oracle_vbox_2016.asc -O /usr/share/keyrings/oracle_vbox_2016.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/oracle_vbox_2016.asc] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/virtualbox.list
+apt update
+apt install virtualbox-6.1
+apt install virtualbox-7.0
+```
 
 ### Sample vboxmanage commands
 ```shell
