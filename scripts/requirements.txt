@@ -1,4 +1,5 @@
-python-gitlab
-ghapi
-xmltodict
 colorama
+ghapi
+python-gitlab
+requests
+xmltodict
