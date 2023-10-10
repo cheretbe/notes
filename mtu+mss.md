@@ -11,6 +11,11 @@
 ping -c 1 host -M do -s 1472
 # View cached MTU
 ip route get 8.8.8.8
+# all cached records
+ip route show cache
+# flush cache
+ip route flush cache
+
 # Mikrotik
 /ping count=1 host do-not-fragment size=1500
 # Windows
