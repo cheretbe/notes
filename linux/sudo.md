@@ -1,5 +1,11 @@
 ```shell
 # Passwordless sudo
+# sets correct attributes (0440)
+echo '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' | sudo EDITOR='tee' visudo -f /etc/sudoers.d/00_passwordless_sudo
+# Configure sudo to keep SSH_AUTH_SOCK
+echo 'Defaults    env_keep+=SSH_AUTH_SOCK' | sudo EDITOR='tee' visudo -f /etc/sudoers.d/ssh_auth_sock
+
+# old version
 echo '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/00_passwordless_sudo
 chmod 0440 /etc/sudoers.d/00_passwordless_sudo
 ```
