@@ -8,7 +8,8 @@
 # Due to the IP+ICMP packet overhead, the packet size is equal to the data size + 28 bytes. For example, if
 # testing shows that only pings with size 1444 can pass normally, the MTU should be set to 1444+28 = 1472
 # 1472(1500)
-ping -c 1 host -M do -s 1472
+# [!!!] Don't try to guest the MTU, just set very low value and view cached record
+ping -c 1 host -M do -s 1200
 # View cached MTU
 ip route get 8.8.8.8
 # all cached records
