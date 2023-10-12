@@ -9,7 +9,7 @@
 # testing shows that only pings with size 1444 can pass normally, the MTU should be set to 1444+28 = 1472
 # 1472(1500)
 # -M pmtudisc_opt Select Path MTU Discovery strategy - do (prohibit fragmentation, even local one)
-# [!!!] Don't try to guest the MTU, just set highest available value and then view cached record
+# [!!!] [as root] Don't try to guest the MTU, just set highest available value and then view cached record
 ping -c 1 host -M do -s 1472
 # View cached MTU
 ip route get 8.8.8.8
