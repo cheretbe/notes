@@ -40,4 +40,6 @@ MTU = 1500
 PostUp = 
 PostDown =
 EOF
+
+systemctl enable wg-quick@wg0.service
 ```
