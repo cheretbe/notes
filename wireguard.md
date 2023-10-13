@@ -2,6 +2,8 @@
     * https://tailscale.com/kb/1151/what-is-tailscale/
     * https://vc.ru/dev/497249-razvorachivaem-tailscale-vpn-u-sebya-v-oblake
 
+### Unsorted
+
 ```shell
 # WG server
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -23,3 +25,9 @@ Endpoint = <your_server>
 AllowedIPs = 0.0.0.0/0, ::/0
 ```
 * https://superuser.com/questions/1762082/address-based-routing-policy-for-linux-router
+
+### Installation
+
+```shell
+apt install wireguard
+```
