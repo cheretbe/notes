@@ -30,4 +30,14 @@ AllowedIPs = 0.0.0.0/0, ::/0
 
 ```shell
 apt install wireguard
+
+cat > /etc/wireguard/wg0.conf<< EOF
+[Interface]
+Address = 10.1.1.0/24
+ListenPort = 50800
+PrivateKey = replace with wg genkey output
+MTU = 1500
+PostUp = 
+PostDown =
+EOF
 ```
