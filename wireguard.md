@@ -42,4 +42,36 @@ PostDown =
 EOF
 
 systemctl enable wg-quick@wg0.service
+systemctl start wg-quick@wg0.service
+
+### Configuring a client
+
+# on a client
+cat > /etc/wireguard/server-name.conf<< EOF
+[Interface]
+Address = 10.1.0.2/32
+PrivateKey = replace with 'wg genkey' output
+#MTU = 1500
+
+[Peer]
+PublicKey = server's public key (echo private key | wg pubkey)
+PresharedKey = replace with 'wg genpsk' output
+AllowedIPs = 10.1.0.0/24
+Endpoint = server.domain.tld:50800
+PersistentKeepalive = 15
+EOF
+
+# on the server
+cat >> /etc/wireguard/wg0.conf<< EOF
+
+# Client name
+[Peer]
+PublicKey = client's public key (echo private key | wg pubkey)
+PresharedKey = replace with a value from client's config
+AllowedIPs = 10.1.0.2/32
+EOF
+
+# on a client once again
+systemctl enable wg-quick@server-name.service
+systemctl start wg-quick@server-name.service
 ```
