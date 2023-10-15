@@ -31,7 +31,7 @@ Split
 # Capture ans split an http(s) stream
 # -map 0 maps everything from input to output (https://ffmpeg.org/ffmpeg.html#toc-Stream-selection)
 # 3600s = 1 hour
-ffmpeg -i https://streaming.live365.com/b05055_128mp3 -f segment -segment_time 120 -c copy -map 0 "output_%4d.mp3"
+ffmpeg -i https://streaming.live365.com/b05055_128mp3 -f segment -segment_time 3600 -c copy -map 0 "output_%4d.mp3"
 
 sudo apt install mp3splt
 
