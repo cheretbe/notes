@@ -496,6 +496,11 @@ Sources:
 
 ### Adding a CA to Debian/Ubuntu
 ```shell
+# Alternative:
+# just copy .crt file to /usr/local/share/ca-certificates and run
+# [?] do we even need this?
+update-ca-certificates --fresh
+
 # Copy certificate to /usr/share/ca-certificates/ (use some custom subdirectory)
 mkdir /usr/share/ca-certificates/custom
 cp RapidSSLECCCA2018.crt /usr/share/ca-certificates/custom/RapidSSLECCCA2018.crt
