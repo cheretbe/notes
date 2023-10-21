@@ -77,6 +77,32 @@ dd bs=16M if=/dev/sdX | pv -s 21474836480 | bzip2 -c | mbuffer -q -s 16M -m 1G -
 * Shutdown script on Ubuntu 16.04: `/usr/lib/libvirt/libvirt-guests.sh` (uses settings from `/etc/default/libvirt-guests`)
 * CPU host passthrough: `<cpu mode='host-passthrough'/>`
 
+### Serial console
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_domain_console
+* https://www.0pointer.de/blog/projects/serial-console.html
+
+Guest's XML file should contain (most likely it does by default):
+```xml
+<serial type='pty'>
+  <target port='0'/>
+</serial>
+<console type='pty'>
+  <target type='serial' port='0'/>
+</console>
+```
+Update `/etc/default/grub`
+```ini
+GRUB_CMDLINE_LINUX_DEFAULT="maybe-ubiquity console=tty0 console=ttyS0,115200"
+GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200"
+
+# Show grub menu on both serial and kvm/local console
+GRUB_TERMINAL="console serial"
+GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1"
+```
+```shell
+update-grub && reboot
+```
+
 ### Guest Settings
 Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
 
