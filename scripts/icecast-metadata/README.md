@@ -5,7 +5,6 @@
 
 So we just stick with Python2 version in Docker:
 ```shell
-docker run --rm -it python:2.7.18-stretch bash
 docker run -v ./absolutechillout:/data --rm -it python:2.7.18-stretch bash
 pip install httplib2  streamscrobbler@git+https://github.com/dirble/streamscrobbler-python
 git clone https://github.com/cheretbe/notes.git
