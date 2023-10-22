@@ -81,6 +81,10 @@ dd bs=16M if=/dev/sdX | pv -s 21474836480 | bzip2 -c | mbuffer -q -s 16M -m 1G -
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_domain_console
 * https://www.0pointer.de/blog/projects/serial-console.html
 
+```shell
+virsh console vm_name_or_id
+```
+
 Guest's XML file should contain (most likely it does by default):
 ```xml
 <serial type='pty'>
