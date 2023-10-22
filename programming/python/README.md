@@ -122,6 +122,23 @@ print("0x{:04x}".format(1064))
 print(format(1064, "0X"))
 print(format(1064, "04X"))
 
+# Update or create a file
+# Key points
+#   - Use "a+", "w+" automatically truncates the file
+#   - seek(0) at initial reading (file pointer will be at the end of the file if the file exists)
+#   - writelines despite its confusing name doesn't add newlines to input array of strings
+#   - seek(0) and truncate() before writing back
+with open(file_name, "a+") as f:
+    f.seek(0)
+    lines = f.readlines()
+    if item not in lines:
+        print(" writing " + item.rstrip("\n"))
+        lines.append(item)
+        lines.sort(key=lambda s: s.lower())
+        f.seek(0)
+        f.truncate()
+        f.writelines(lines)
+
 with open("filename", "w") as f:
     f.write("test")
 with open("filename", "r") as f:
