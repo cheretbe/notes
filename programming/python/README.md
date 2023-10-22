@@ -126,13 +126,12 @@ print(format(1064, "04X"))
 # Key points
 #   - Use "a+", "w+" automatically truncates the file
 #   - seek(0) at initial reading (file pointer will be at the end of the file if the file exists)
-#   - writelines despite its confusing name doesn't add newlines to input array of strings
+#   - writelines despite its promising name doesn't add newlines to input array of strings
 #   - seek(0) and truncate() before writing back
 with open(file_name, "a+") as f:
     f.seek(0)
     lines = f.readlines()
     if item not in lines:
-        print(" writing " + item.rstrip("\n"))
         lines.append(item)
         lines.sort(key=lambda s: s.lower())
         f.seek(0)
