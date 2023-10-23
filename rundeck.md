@@ -9,8 +9,9 @@
 
 ### Nodes
 
-`/home/rundeck/server/data/project_name_nodes.yml`
-
+`Project Settings` > `Edit Nodes` > `Sources` > `Add a new Node Source` > `File`<br>
+Set Format `resourceyaml`, File Path `/home/rundeck/server/data/project_name_nodes.yml`, check `Generate` and `Writeable`<br>
+Then select `Edit` tab and click `Modify` on `/home/rundeck/server/data/project_name_nodes.yml`
 ```yaml
 host.domain.tld:
   nodename: host.domain.tld
