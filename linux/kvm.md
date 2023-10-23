@@ -378,6 +378,11 @@ VM's configs are in `/etc/libvirt/qemu`
 ### virsh Commands
 
 ```shell
+# https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-managing_guest_virtual_machines_with_virsh-managing_virtual_networks#doc-wrapper
+virsh domiflist vm-name
+virsh domif-setlink vm-name 00:00:00:00:00:00 down
+virsh domif-setlink vm-name 00:00:00:00:00:00 up
+
 # Enable/disable/list autostarting VMs
 virsh autostart <vmname>
 virsh autostart <vmname> --disable
