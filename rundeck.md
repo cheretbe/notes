@@ -21,3 +21,7 @@ host.domain.tld:
   username: rundeck-user-name
   tags: ''
 ```
+
+### Jobs
+
+:bulb: When creating or editing a job option there is a nice little `Usage` section that describes how this option could be used
