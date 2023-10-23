@@ -5,7 +5,7 @@
 
 `Project Settings` > `Key Storage`
 
-* Select its storage path (e.g. `keys/project/project-name/key-name`)
+* Select a key to view its storage path (e.g. `keys/project/project-name/key-name`)
 
 ### Nodes
 
