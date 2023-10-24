@@ -61,6 +61,11 @@ watch -n 1 iostat -d --human 1 2
         ```
 #### Linux
 ```shell
+# Free some memory bu flushing cache
+free -h
+echo 3 > /proc/sys/vm/drop_caches
+free -h
+
 sudo apt update
 sudo apt install -y python3-venv build-essential python3-dev
 python3 -m venv ~/.cache/venv/py3
