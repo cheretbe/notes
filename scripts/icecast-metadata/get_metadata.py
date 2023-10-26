@@ -22,8 +22,11 @@ def redirect_stdout():
 
 def get_current_track():
     # return(random.choice(["track1", "track2", "track3", "track4"]))
-    with redirect_stdout():
-        return streamscrobbler().getServerInfo("http://streaming.live365.com/b05055_128mp3").get("metadata")["song"].strip()
+    try:
+        with redirect_stdout():
+            return streamscrobbler().getServerInfo("http://streaming.live365.com/b05055_128mp3").get("metadata")["song"].strip()
+    except:
+        return "api_error"
 
 def add_item(item, file_name):
     item += "\n"
@@ -43,7 +46,7 @@ def main(args):
     while True:
         track = get_current_track()
         print(datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S ") + track)
-        if track != previous_track:
+        if (track != previous_track) and (track != "api_error"):
             print(" trying to write " + track)
             add_item(track, args.out_file)
         previous_track = track
