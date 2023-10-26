@@ -32,6 +32,8 @@ curl -X GET -H "X-Auth-Email: user@domain.tld" -H "X-Auth-Key: 00000000000000000
 
 # Get DNS records
 curl -X GET -H "X-Auth-Email: user@domain.tld" -H "X-Auth-Key: 0000000000000000000000000000000000000" https://api.cloudflare.com/client/v4/zones/00000000000000000000000000000000/dns_records | json_pp > domain_info.txt
+# Specific record ID
+curl -X GET -H "X-Auth-Email: user@domain.com" -H "X-Auth-Key: 00000000" https://api.cloudflare.com/client/v4/zones/00000000/dns_records | jq -r '.result | map(select(.name=="host.domain.com")) | .[].id'
 
 # Update a record
 curl -X PUT "https://api.cloudflare.com/client/v4/zones/00000000000000000000000000000000/dns_records/00000000000000000000000000000000" \
