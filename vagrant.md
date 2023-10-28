@@ -26,15 +26,6 @@ apt update
 sudo apt install vagrant
 ```
 
-```shell
-# Manually download box file
-# alpine-linux/alpine-x86_64
-# Get latest version
-curl -s https://app.vagrantup.com/api/v1/box/alpine-linux/alpine-x86_64 | jq ".current_version.version"
-# Assuming that latest version is "3.12.0"
-wget https://app.vagrantup.com/alpine-linux/boxes/alpine-x86_64/versions/3.12.0/providers/virtualbox.box
-```
-
 ```
 vboxmanage controlvm $(cat .vagrant/machines/default/virtualbox/id) \
   natpf1 "forward_port_80,tcp,,8080,,80"
@@ -245,7 +236,14 @@ vagrant box update --box centos/7
 # Remove all old versions
 vagrant box prune
 
-# View all know Vagrant VMs
+# Manually download box file
+# alpine-linux/alpine-x86_64
+# Get latest version
+curl -s https://app.vagrantup.com/api/v1/box/alpine-linux/alpine-x86_64 | jq ".current_version.version"
+# Assuming that latest version is "3.12.0"
+wget https://app.vagrantup.com/alpine-linux/boxes/alpine-x86_64/versions/3.12.0/providers/virtualbox.box
+
+# View all known Vagrant VMs
 vagrant global-status
 
 # Add a box from a local file
