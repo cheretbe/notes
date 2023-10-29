@@ -17,6 +17,18 @@ Installation Check-List
 - [ ] Review https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router
 
 
+#### OSPF
+* ROS 7: https://help.mikrotik.com/docs/display/ROS/OSPF
+* ROS 6: https://wiki.mikrotik.com/wiki/Manual:Routing/OSPF
+
+:warning: Network: the network prefix associated with the area. OSPF will be enabled on all interfaces that have at least one address falling within this range. Note that the network prefix of the address is used for this check (i.e. not the local address). For point-to-point interfaces, this means **the address of the remote endpoint**.
+
+```shell
+# Redistribution of default route is a special case where the originate-default parameter should be used:
+# https://help.mikrotik.com/docs/display/ROS/OSPF#OSPF-ExternalRoutingInformationandDefaultRoute
+/routing ospf instance add disabled=no name=ospf-instance-1 originate-default=never router-id=ospf_i
+```
+
 #### WLAN settings
 * :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
 * 8 reasons to turn down the transmit power of your Wi-Fi https://metis.fi/en/2017/10/txpower/
