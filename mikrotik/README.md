@@ -29,6 +29,36 @@ Installation Check-List
 /routing ospf instance add disabled=no name=ospf-instance-1 originate-default=never router-id=ospf_i
 ```
 
+#### Complicated config example
+```
+# [!] If key name in the array contains any character other than a lowercase character, it should be put in quotes
+:global complicatedConfigTest {
+  {
+    interfaceobj=[:parse "/interface find name=\"host_nat\""];
+    records={
+      {name="host1.domain.tld"; zone="000000"; record="111"};
+      {name="host2.domain.tld"; zone="000000"; record="222"};
+    }
+  };
+  {
+    interfaceobj=[:parse "/interface find name=\"host_only\""];
+    records={
+      {name="host3.domain.tld"; zone="000000"; record="333"}
+    }
+  }
+}
+
+:put $complicatedConfigTest
+:foreach configOption in=$complicatedConfigTest do={
+  :put "----------------"
+  :put [/interface get [($configOption->"interfaceobj")] name]
+  foreach record in=($configOption->"records") do={
+    :put ($record)
+  }
+}
+
+```
+
 #### WLAN settings
 * :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
 * 8 reasons to turn down the transmit power of your Wi-Fi https://metis.fi/en/2017/10/txpower/
