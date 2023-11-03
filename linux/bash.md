@@ -58,6 +58,7 @@ fi
 # loop examples
 for ((i = 0 ; i < 5 ; i++ )); do echo "$i"; done
 for i in {02..03}; do nslookup "host-$i.domain.tld"; done
+for host in "host1" "host2" "host3"; do echo $host; done
 
 # Yes/No question with default yes
 read -p "Do you want to continue? [Y/n] " -r
