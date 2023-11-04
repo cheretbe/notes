@@ -1,3 +1,4 @@
+* :bulb: for "domain record ttl" see "View SOA record" comment below
 * https://blogging.dragon.org.uk/dns-bind9-dhcp-ubuntu-16-04-2/
 * http://www.utternerd.org/journal-rollforward-failed-out-of-sync-with-zone
 * Tools
@@ -218,6 +219,9 @@ dig yandex.ru @192.168.2.17 -p5353
 nslookup -port=5353 yandex.ru 192.168.2.17
 
 # View SOA record
+# Minimum (aka "Negative response caching TTL", aka "negative TTL", aka "NX TTL") - when a
+# caching server gets NXDOMAIN for a record, it "negatively caches" the fact that this record
+# is missing and will not try to look it up again for this amount of time
 dig SOA +multiline domain.tld @192.168.2.17
 nslookup -q=soa domain.tld
 ```
