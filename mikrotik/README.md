@@ -16,6 +16,16 @@ Installation Check-List
 - [ ] Disable autodiscovery on WAN (`IP` > `Neighbours` > `Discovery Interfaces`. New ROS uses lists, defined in `Interfaces` > `Interface List`)
 - [ ] Review https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router
 
+#### DNS with DoH
+
+```
+/tool fetch url=https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+/certificate import file-name=DigiCertGlobalRootCA.crt.pem passphrase=""
+/ip dns set use-doh-server=https://1.1.1.1/dns-query verify-doh-cert=yes
+/ip dns set servers=""
+# Check
+https://1.1.1.1/help
+```
 
 #### OSPF
 * ROS 7: https://help.mikrotik.com/docs/display/ROS/OSPF
