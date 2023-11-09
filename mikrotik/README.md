@@ -69,6 +69,10 @@ https://1.1.1.1/help
 
 ```
 
+#### Ansible
+
+* https://github.com/gregsowell/ansible-mikrotik
+
 #### WLAN settings
 * :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
 * 8 reasons to turn down the transmit power of your Wi-Fi https://metis.fi/en/2017/10/txpower/
