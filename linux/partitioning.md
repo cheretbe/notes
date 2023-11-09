@@ -37,7 +37,8 @@ lsscsi --verbose
 # https://www.virten.net/2015/08/match-linux-scsi-devices-sdx-to-virtual-disks-in-vmware/
 # a:b:c:d
 # a = Hostadapter ID; b = SCSI channel; c = Device ID; d = LUN
-# "SCSI controller 0 SCSI(0:1) Hard disk 2" => x:0:1:0
+# "SCSI controller 0 SCSI(0:1) Hard disk 2" => 0:0:1:0
+ls /dev/disk/by-path/ -lha
 ls -1d /sys/block/sd*/device/scsi_device/*
 
 # Re-read partition table from a drive
