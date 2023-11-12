@@ -23,6 +23,9 @@ ip link show dev <ifname>
 ip link set dev <ifname> up
 ip link set dev <ifname> down
 
+# Detect link on interfaces ([!] brings up all available interfaces)
+for if in $(ls /sys/class/net -I lo); do echo -n "$if: "; sleep 1; ip link set dev $if up; (ethtool $if | grep -i "Link detected:"); done
+
 # view IP(s)
 hostname -I
 ip addr
