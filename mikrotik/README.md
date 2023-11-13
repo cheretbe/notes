@@ -4,6 +4,7 @@
 * https://spw.ru/educate/articles/ispolzovanie-ansible/
 * https://spw.ru/educate/articles/ispolzovanie-api-routeros/
 * https://docs.ansible.com/ansible/latest/collections/community/routeros/command_module.html#ansible-collections-community-routeros-command-module
+* :warning: Prometheus Exporter for Mikrotik: https://github.com/akpw/mktxp
 
 Installation Check-List
 - [ ] Identity
