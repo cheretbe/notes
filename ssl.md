@@ -384,6 +384,8 @@ View certificate info
 openssl x509 -in certificate.crt -text -noout
 # SHA1 fingerprint
 openssl x509 -in certificate.crt -noout -fingerprint
+# Server cert fingerprint
+openssl s_client -connect host.domain.tld:443 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
 ```
 
 Verify certificate
