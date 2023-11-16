@@ -252,6 +252,10 @@ sshfs -o sftp_server="/usr/bin/sudo /usr/lib/openssh/sftp-server" -o reconnect h
 fusermount -u ~/yourmountdirectory
 # View mounted filesystems
 mount -t fuse.sshfs
+# If fusermount fails to unmount with error: Device or resource busy
+# TODO: view actual command line and use more granular process selection
+pkill -9 sshfs
+
 ```
 
 ### Notes
