@@ -46,3 +46,15 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/000000000000000000000000
   -H "Content-Type: application/json" \
   --data '{"type": "A", "name": "test.domain.tld", "content": "127.0.0.1", "ttl": 900, "proxied": false}'
 ```
+
+### ddclient
+
+* Decided against using it because it:<br>
+    * contains bugs like this: https://github.com/ddclient/ddclient/issues/590
+    * acts weirdly (`make install` overwrites `/etc/ddclient/ddclient.conf`, constant changes of attributest of `/etc/ddclient/ddclient.conf`, etc)
+    * written in Perl :alien:
+* Notes
+    * https://github.com/ddclient/ddclient
+    * https://www.davidschlachter.com/misc/cloudflare-ddclient
+    * https://cloudflare.com/cdn-cgi/trace
+    * Dependencies for building from source: `apt install make autoconf libplack-perl libhttp-daemon-ssl-perl libtest-mockmodule-perllibtest-warnings-perl`
