@@ -47,6 +47,10 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/000000000000000000000000
   --data '{"type": "A", "name": "test.domain.tld", "content": "127.0.0.1", "ttl": 900, "proxied": false}'
 ```
 
+### Let's Encrypt Certificates
+
+* neilpang/acme.sh [letsencrypt.md](./letsencrypt.md)
+
 ### cloudflare-ddns
 
 * https://github.com/favonia/cloudflare-ddns
