@@ -54,6 +54,9 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/000000000000000000000000
 ### cloudflare-ddns
 
 * https://github.com/favonia/cloudflare-ddns
+* Current IP detection (:warning: check anti-lock mangle rules):
+    * https://cloudflare.com/cdn-cgi/trace
+    * https://one.one.one.one/cdn-cgi/trace
 
 ### ddclient
 
