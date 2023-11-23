@@ -184,6 +184,9 @@ docker compose up -d
     ```
 * FSCK
     ```shell
+    # https://manual.seafile.com/maintain/seafile_fsck/
+    # "--shallow" or "-s" doesn't calculate hashes for files contents (speeds up checks greatly)
+    # "--export" allows to copy all files from a library without relying on server's database
     # Readonly fsck
     docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
     ```
