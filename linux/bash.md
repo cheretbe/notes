@@ -18,10 +18,33 @@ sed -i -E 's|(^\s+)confPath := .*|\1confPath := "/home/user/\.config/rofi-snippe
 cat requests_log.txt| awk '{print $1}' | sort | uniq
 ```
 
-```shell
-echo "HISTCONTROL=ignoreboth:erasedups" >>~/.bashrc
-```
+### Unlimited history without duplicate entries
+* https://stackoverflow.com/questions/9457233/unlimited-bash-history
+* https://unix.stackexchange.com/questions/48713/how-can-i-remove-duplicates-in-my-bash-history-preserving-order
 
+`~/.bashrc` content
+```shell
+# Find and change default HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
+
+# Find and comment out default HISTSIZE and HISTFILESIZE settings
+#HISTSIZE=1000
+#HISTFILESIZE=2000
+
+# Eternal bash history.
+# ---------------------
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
+# Force prompt to write history after every command.
+# http://superuser.com/questions/20900/bash-history-loss
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+```
 
 Try adding the following to `~/.inputrc` file:
 ```
