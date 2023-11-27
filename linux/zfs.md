@@ -371,6 +371,18 @@ zpool status
     * Pool devices are stored in the binary file `/etc/zfs/zpool.cache`
     * To change `/dev/sdX` device names to `/dev/disk/by-id`: `zpool export pool-name && zpool import -d /dev/disk/by-id pool-name`
 * [\[ TOC \]](#table-of-contents)
+
+### Replace single-disk pool to a new disk
+
+```shell
+# Move single-disk pool from /dev/sda to /dev/sdb
+# 1. Temporary convert the pool from single-disk to mirror by attaching new disk
+zpool attach pool-name /dev/sda /dev/sdb
+# 2. Wait for data allocation to complete (will show "resilvering" for sdb)
+zpool status
+# 3. Detach old disk
+zpool detach pool-name /dev/sda
+```
 ### Send Over SSH or netcat
 
 * https://forums.freenas.org/index.php?threads/lz4-compression-and-replication.17890/
