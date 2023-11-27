@@ -14,18 +14,6 @@ wipefs -a -f /dev/sdX
 dd if=/dev/zero of=/dev/sda seek=$(($(blockdev --getsz "/dev/sda") - 1024))
 ```
 
-## Table of Contents
-* [Installation](#installation)
-* [zpool Creation](#zpool-creation)
-* [Performance Tuning](#performance-tuning)
-* [Useful ZFS Commands](#useful-zfs-commands)
-* [Health Monitoring Script](#health-monitoring-script)
-* [Move single disk file system to another drive](#move-single-disk-file-system-to-another-drive)
-* [Replace a Disk in a Pool](#replace-a-disk-in-a-pool)
-* [Send Over SSH or netcat](#send-over-ssh-or-netcat)
-* [Raspberry Pi](#raspberry-pi)
-* [Unsorted](#unsorted)
-
 ### Installation
 For Ubuntu 15.10+ ZFS packages are provided by the distribution
 ```shell
@@ -62,8 +50,6 @@ systemctl preset zfs-import-cache zfs-import-scan zfs-mount zfs-share zfs-zed zf
 systemctl enable zfs-import-scan
 ```
 * https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
-
-* [\[ TOC \]](#table-of-contents)
 
 ### zpool Creation
 ```shell
@@ -121,7 +107,6 @@ zpool get all [pool] | grep 'feature@lz4_compress'
 # or
 zpool get feature@lz4_compress [pool]
 ```
-* [\[ TOC \]](#table-of-contents)
 
 ### Performance Tuning
 ##### Memory
@@ -179,8 +164,6 @@ arcstat 1 10
 * https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSScrubsOurSpeedup
 * https://www.matt-j.co.uk/2014/06/25/zfs-on-linux-resilver-scrub-performance-tuning/
 * https://superuser.com/questions/1137416/how-can-i-determine-the-current-size-of-the-arc-in-zfs-and-how-does-the-arc-rel/1182488#1182488
-
-* [\[ TOC \]](#table-of-contents)
 
 ### Useful ZFS Commands
 * http://manpages.ubuntu.com/manpages/bionic/man8/zpool.8.html
@@ -255,7 +238,7 @@ zpool import
 # -d dir  Searches for devices or files in dir. The -d option can be specified multiple times.
 zpool import -d [/dev/disk/by-id] pool-name
 ```
-* [\[ TOC \]](#table-of-contents)
+
 ### Health Monitoring Script
 
 ```
@@ -298,7 +281,6 @@ systemctl start chronyd.service
 * Source: https://calomel.org/zfs_health_check_script.html
 * Local copy: https://github.com/cheretbe/notes/blob/master/linux/files/zfs_health_check.sh
 
-* [\[ TOC \]](#table-of-contents)
 
 ### Move single disk file system to another drive
 
@@ -340,7 +322,6 @@ zfs destroy -nv -r new_pool@move
 * https://github.com/zfsonlinux/zfs/issues/2121
 -----
 
-* [\[ TOC \]](#table-of-contents)
 
 ### Replace a Disk in a Pool 
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
@@ -370,7 +351,6 @@ zpool status
 * Notes
     * Pool devices are stored in the binary file `/etc/zfs/zpool.cache`
     * To change `/dev/sdX` device names to `/dev/disk/by-id`: `zpool export pool-name && zpool import -d /dev/disk/by-id pool-name`
-* [\[ TOC \]](#table-of-contents)
 
 ### Replace single-disk pool to a new disk
 
@@ -441,8 +421,6 @@ Sanoid: https://github.com/cheretbe/notes/blob/master/linux/sanoid.md
 * https://unix.stackexchange.com/questions/343675/zfs-on-linux-send-receive-resume-on-poor-bad-ssh-connection
 * https://serverfault.com/questions/74411/best-compression-for-zfs-send-recv/408908#408908
 
-* [\[ TOC \]](#table-of-contents)
-
 ### Raspberry Pi
 * https://github.com/zfsonlinux/zfs/wiki/Building-ZFS
 * https://www.raspberrypi.org/forums/viewtopic.php?f=66&t=165247
@@ -474,7 +452,6 @@ dkms --verbose install zfs/0.6.5.9
 dkms status
 modprobe zfs
 ```
-* [\[ TOC \]](#table-of-contents)
 
 ### Unsorted
 * https://wiki.archlinux.org/index.php/ZFS
@@ -485,5 +462,3 @@ modprobe zfs
 * https://github.com/leprechau/zfs-replicate
 * http://everythingshouldbevirtual.com/zfs-replication-backups
 * https://github.com/jimsalterjrs/sanoid
-
-* [\[ TOC \]](#table-of-contents)
