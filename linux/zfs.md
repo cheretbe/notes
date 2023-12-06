@@ -3,7 +3,20 @@
     * http://www.openoid.net/zfs-practicing-failures/
     * https://calomel.org/zfs_raid_speed_capacity.html
 
-Clear ZFS metadata
+### Troubleshooting
+* https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html
+* :warning: 2check: https://github.com/maglar0/zpool-events/tree/main
+
+```shell
+# -v      Print the entire payload for each event
+zpool events -v
+
+# -i internal event information that can be used for diagnostic purposes
+# -l long format that includes the user name, the host name, and the zone in which the operation was performed
+zpool history pool -i -l
+```
+
+### Clear ZFS metadata
 ```shell
 # [!!!] Be careful. Double check the host and drive letter
 wipefs -a -f /dev/sdX
