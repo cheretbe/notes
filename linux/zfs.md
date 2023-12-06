@@ -5,7 +5,7 @@
 
 ### Troubleshooting
 * https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html
-* :warning: 2check: https://github.com/maglar0/zpool-events/tree/main
+* :warning: 2check https://github.com/maglar0/zpool-events/tree/main
 
 ```shell
 # -v      Print the entire payload for each event
