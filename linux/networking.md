@@ -343,6 +343,7 @@ network:
       # Will speed up boot process if there is no DHCPv6 server available
       dhcp6: no
       # Disable waiting for interface to fully activate
+      # See also systemd-networkd-wait-online service timeout below
       optional: true
       #dhcp-identifier: mac
     enp0s3:
@@ -377,6 +378,15 @@ sudo netplan apply
 sudo netplan --debug apply
 networkctl list
 ifconfig
+```
+
+Change timeout for "A start job is running for Wait For Network to be Configured":
+```
+systemctl edit  systemd-networkd-wait-online
+```
+```
+[Service]
+TimeoutStartSec=5sec
 ```
 
 :question: Debian Jessie(8) and Stretch(9) by default use `/etc/dhcpcd.conf` instead of `/etc/network/interfaces` - https://raspberrypi.stackexchange.com/questions/39785/dhcpcd-vs-etc-network-interfaces/41187#41187<br>
