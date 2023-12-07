@@ -21,6 +21,8 @@ zpool iostat
 zpool iostat pool 2
 # View virtuald devices stats
 zpool iostat -v
+# Continiously watch stats (first page is cumulative data)
+watch -n 1 zpool iostat -v 1 2
 ```
 
 ### Clear ZFS metadata
