@@ -14,6 +14,13 @@ zpool events -v
 # -i internal event information that can be used for diagnostic purposes
 # -l long format that includes the user name, the host name, and the zone in which the operation was performed
 zpool history pool -i -l
+
+# Cumulative stats for all pools
+zpool iostat
+# Viev stats for a pool every 2 seconds
+zpool iostat pool 2
+# View virtuald devices stats
+zpool iostat -v
 ```
 
 ### Clear ZFS metadata
