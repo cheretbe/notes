@@ -311,6 +311,7 @@ systemctl start chronyd.service
 ```shell
 # Move single-disk pool from /dev/sda to /dev/sdb
 # 1. Temporary convert the pool from single-disk to mirror by attaching new disk
+#    [!!] /dev/sda is the original drive
 #    /dev/sda is necessary: attach [-f] [-o property=value] <pool> <device> <new-device>
 zpool attach pool-name /dev/sda /dev/sdb
 # 2. Wait for data allocation to complete (will show "resilvering" for sdb)
