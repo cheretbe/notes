@@ -8,6 +8,11 @@
 * :warning: 2check https://github.com/maglar0/zpool-events/tree/main
 
 ```shell
+# [!] since 2.2.0 corrective "zfs receive" is available.
+# Pool needs to be able to overwrite corrupted data. For a single non-redundant drive pool
+# this means replacing the drive (see "Move single disk-file system to another drive" section below)
+zfs receive -c [-vn] filesystem|snapshot
+
 # -v      Print the entire payload for each event
 zpool events -v
 
