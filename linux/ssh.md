@@ -14,6 +14,22 @@ Host hostname
     SendEnv VAR1 VAR2 VAR3
 ```
 
+### Parallel-ssh
+
+Execute jobs in parallel on multiple hosts
+
+Hosts file example
+```
+host1.domain.tld
+host2.domain.tld
+```
+
+```shell
+# -h HOST_FILE, --hosts=HOST_FILE
+# -i, --inline    inline aggregated output and error for each server
+parallel-ssh -i -h ~/example.hosts 'sudo rm /etc/apt/sources.list.d/docker.list'
+```
+
 ### Host keys
 ```shell
 ls /etc/ssh/ssh_host_*_key*
