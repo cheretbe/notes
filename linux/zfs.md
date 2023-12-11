@@ -193,6 +193,10 @@ arcstat 1 10
 
 :warning: Use `-nv` options to check what's going to be done
 ```shell
+# recent versions have version command
+# (displays the software version of the zpool userland utility and the ZFS kernel module)
+zpool version
+
 zpool status
 zfs list
 zfs create zfs-storage/share
