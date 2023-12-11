@@ -48,6 +48,32 @@ apt install virtualbox-6.1
 apt install virtualbox-7.0
 ```
 
+### Emulating failed disk drive
+
+* https://www.redhat.com/en/blog/linux-block-devices-hints-debugging-and-new-developments
+* https://blogs.oracle.com/linux/post/error-injection-using-dm-dust
+* https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/dm-dust.html
+
+```shell
+# Apparently all the following is also applicable to a physical machine
+
+device_name=/dev/sdc
+# Doesn't survive a reboot (will have to research if the need arises)
+# on error view dmesg for details
+echo "0 $(blockdev --getsize $device_name) linear $device_name 0" | dmsetup create bad_disk
+
+# [!] Don't forget to unmount or do zfs export
+dmsetup suspend bad_disk
+# There is also a flakey target - a combo of linear and error that sometimes succeeds.
+# Also a delay to introduce intentional delays for testing.
+# And dust, see comments below
+# on error view dmesg for details
+echo -e "0 20000 linear $device_name 0\n20000 500 error\n20500 $(($(blockdev --getsize $device_name) - 20500)) linear $device_name 20500" | dmsetup reload bad_disk
+dmsetup resume bad_disk
+
+dmsetup remove bad_disk
+```
+
 ### Sample vboxmanage commands
 ```shell
 # Move a VM to a new location
