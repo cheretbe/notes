@@ -2,6 +2,17 @@
 pwgen -sB 10
 findmnt -t ext4,zfs -o +SIZE,USE%,AVAIL
 
+# -e, --exclude <list> exclude devices by major number (default: RAM disks)
+#     7 - loop devices
+#     List device major numbers (view "Block devices" section)
+#     cat /proc/devices
+#     The major number identifies the driver associated with the device. The minor number is used
+#     only by the driver specified by the major number; other parts of the kernel don’t use it,
+#     and merely pass it along to the driver. It is common for a driver to control several device;
+#     the minor number provides a way for the driver to differentiate among them
+# -d, --nodeps         don't print slaves or holders
+lsblk --nodeps -e7 -o name,serial,type,tran
+
 curl -L -vvv http://connectivitycheck.gstatic.com/generate_204
 
 # test port connection
