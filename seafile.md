@@ -169,6 +169,16 @@ docker compose up -d
 ### Maintenance
 
 * https://manual.seafile.com/maintain/
+* Sync tokens cleanup https://manual.seafile.com/maintain/clean_database/#library-sync-tokens
+    ```shell
+    
+    ```
+    ```sql
+    -- View sync tokens older than 60 day to be deleted
+    select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 60 DAY)) ORDER BY i.sync_time;
+    -- Actual deletion
+    delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 60 DAY));
+    ``` 
 * Garbage collection 
     * :point_right: use `screen` 
     * :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
