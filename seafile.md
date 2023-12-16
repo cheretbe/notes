@@ -200,6 +200,13 @@ docker compose up -d
     docker exec -it seafile-mysql mysql -p
     ```
 -------
+* API
+    * https://download.seafile.com/published/web-api/home.md
+    * https://download.seafile.com/published/web-api/v2.1-admin/libraries.md
+```shell
+curl -sS -H "Authorization: Token 1f3d9b78be2a834141199c36fbc4bf1869bdd33d" -H "Accept: application/json" "http://seafile.local.test/api/v2.1/admin/libraries/?page=1&per_page=100" | jq
+``` 
+-------
 * Server-side automation with Python
     * https://github.com/goaxe/lab/blob/master/tools/test_server.py
     * `seafile_api.get_repo_list(-1, -1)` ???
