@@ -204,6 +204,7 @@ docker compose up -d
     * https://download.seafile.com/published/web-api/home.md
     * https://download.seafile.com/published/web-api/v2.1-admin/libraries.md
 ```shell
+curl -sS -d "username=admin@seafile.local&password=00000000" http://seafile.local.test/api2/auth-token/ | jq
 # [!] This does NOT include "repos" created by desktop clients syncing folders outside
 # Seafile libraries
 curl -sS -H "Authorization: Token 1f3d9b78be2a834141199c36fbc4bf1869bdd33d" -H "Accept: application/json" "http://seafile.local.test/api/v2.1/admin/libraries/?page=1&per_page=100" | jq
