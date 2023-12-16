@@ -173,7 +173,7 @@ docker compose up -d
     ```shell
     # Root password is in MYSQL_ROOT_PASSWORD variable
     docker inspect -f '{{ .Config.Env }}' seafile-mysql
-    docker exec -it seafile-mysql mysql -p
+    docker exec -it seafile-mysql mysql --default-character-set=utf8 -p
     ```
     ```sql
     -- [!!] Select database first
