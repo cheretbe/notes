@@ -180,10 +180,11 @@ docker compose up -d
     use seafile_db;
     -- View all sync tokens
     select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token ORDER BY i.sync_time;
-    -- View sync tokens older than 60 day to be deleted
-    select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 60 DAY)) ORDER BY i.sync_time;
+    -- Alternative where clause: WHERE to_days(now()) - to_days(timestamp) > 60
+    -- View sync tokens older than 90 day to be deleted
+    select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY)) ORDER BY i.sync_time;
     -- Actual deletion
-    delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 60 DAY));
+    delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY));
     ``` 
 * Garbage collection 
     * :point_right: use `screen` 
