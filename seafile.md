@@ -207,6 +207,8 @@ docker compose up -d
     # "--export" allows to copy all files from a library without relying on server's database
     # Readonly fsck
     docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
+    # repair
+    docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh --repair b3b141eb-6acd-493c-b364-93e1b376d585
     ```
 * DB cleanup
     * https://manual.seafile.com/maintain/clean_database/
