@@ -351,6 +351,8 @@ mkdir ~/seafile-client
 seaf-cli init -d ~/seafile-client
 # No default server config, everything is done per library with sync command
 seaf-cli start
+# [!] Client name is empty by default
+seaf-cli config -k client_name -v 'client name'
 
 # Find out library IDs
 seaf-cli list-remote -s http://seafile-test -u admin@seafile.local
