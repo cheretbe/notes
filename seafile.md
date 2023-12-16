@@ -204,7 +204,12 @@ docker compose up -d
     * https://download.seafile.com/published/web-api/home.md
     * https://download.seafile.com/published/web-api/v2.1-admin/libraries.md
 ```shell
+# [!] This does NOT include "repos" created by desktop clients syncing folders outside
+# Seafile libraries
 curl -sS -H "Authorization: Token 1f3d9b78be2a834141199c36fbc4bf1869bdd33d" -H "Accept: application/json" "http://seafile.local.test/api/v2.1/admin/libraries/?page=1&per_page=100" | jq
+# But if we know the ID of such a "repo" (e.g. by querying RepoUserToken RepoTokenPeerInfo tables)
+# then we can view its details ([!] note the trailing slash):
+curl -sS -H "Authorization: Token 1f3d9b78be2a834141199c36fbc4bf1869bdd33d" -H 'Accept: application/json' "http://seafile.local.test/api/v2.1/admin/libraries/92f59ea3-9d35-4973-bc80-915e3f74e630/" | jq
 ``` 
 -------
 * Server-side automation with Python
