@@ -216,9 +216,7 @@ sudo du -sh /opt/docker-data/seafile/data/
 # use 3 threads
 # [!!] don't forget to run du (see earlieer) to track down changes in size
 docker exec seafile /scripts/gc.sh --dry-run -t 3
- 
-/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
- ```
+```
 #### FSCK
 ```shell
 # https://manual.seafile.com/maintain/seafile_fsck/
