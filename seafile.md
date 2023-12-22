@@ -183,54 +183,60 @@ If garbage collector fails with message "Failed to get repo 00000000-0000-0000-0
 #### Sync tokens cleanup
 
 * https://manual.seafile.com/maintain/clean_database/#library-sync-tokens
-    ```shell
-    # Root password is in MYSQL_ROOT_PASSWORD variable
-    docker inspect -f '{{ .Config.Env }}' seafile-mysql
-    docker exec -it seafile-mysql mysql --default-character-set=utf8 -p
-    ```
-    ```sql
-    -- [!!] Select database first
-    use seafile_db;
-    -- View all sync tokens
-    select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token ORDER BY i.sync_time;
-    -- Alternative where clause: WHERE to_days(now()) - to_days(timestamp) > 60
-    -- View sync tokens older than 90 day to be deleted
-    select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY)) ORDER BY i.sync_time;
-    -- Actual deletion
-    delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY));
-    ``` 
+```shell
+# Root password is in MYSQL_ROOT_PASSWORD variable
+docker inspect -f '{{ .Config.Env }}' seafile-mysql
+docker exec -it seafile-mysql mysql --default-character-set=utf8 -p
+```
+```sql
+-- [!!] Select database first
+use seafile_db;
+-- View all sync tokens
+select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token ORDER BY i.sync_time;
+-- Alternative where clause: WHERE to_days(now()) - to_days(timestamp) > 60
+-- View sync tokens older than 90 day to be deleted
+select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY)) ORDER BY i.sync_time;
+-- Actual deletion
+delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY));
+
+-- [!] 2check
+-- View remained virtual repos
+SELECT vr.repo_id, vr.origin_repo, vr.path, i.peer_name, FROM_UNIXTIME(i.sync_time) from VirtualRepo AS vr INNER JOIN RepoUserToken AS t ON vr.repo_id = t.repo_id INNER JOIN RepoTokenPeerInfo AS i ON t.token=i.token ORDER BY i.sync_time;
+```
 #### Garbage collection 
- * :point_right: use `screen` 
- * :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
- ```shell
- du -hs /shared/seafile/seafile-data/
- du -hs /opt/seafile
- sudo du -sh /opt/docker-data/seafile/data/
+* :point_right: use `screen` 
+* :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
+```shell
+du -hs /shared/seafile/seafile-data/
+du -hs /opt/seafile
+sudo du -sh /opt/docker-data/seafile/data/
  
- /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
- # Docker (/scripts/gc.sh is a wrapper around seaf-gc.sh that stops the service for CE)
- docker exec seafile /scripts/gc.sh --dry-run
+/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
+# Docker (/scripts/gc.sh is a wrapper around seaf-gc.sh that stops the service for CE)
+# use 3 threads
+# [!!] don't forget to run du (see earlieer) to track down changes in size
+docker exec seafile /scripts/gc.sh --dry-run -t 3
  
- /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
+/opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
  ```
 #### FSCK
- ```shell
- # https://manual.seafile.com/maintain/seafile_fsck/
- # "--shallow" or "-s" doesn't calculate hashes for files contents (speeds up checks greatly)
- # "--export" allows to copy all files from a library without relying on server's database
- # Readonly fsck
- docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
- # repair
- docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh --repair b3b141eb-6acd-493c-b364-93e1b376d585
+```shell
+# https://manual.seafile.com/maintain/seafile_fsck/
+# "--shallow" or "-s" doesn't calculate hashes for files contents (speeds up checks greatly)
+# "--export" allows to copy all files from a library without relying on server's database
+# Readonly fsck
+docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
+# repair
+docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh --repair b3b141eb-6acd-493c-b364-93e1b376d585
  ```
 
 #### DB cleanup
- * https://manual.seafile.com/maintain/clean_database/
- ```shell
- # [!!] for migrated Docker instance the password in the password manager
- # Root password is in MYSQL_ROOT_PASSWORD variable
- docker inspect -f '{{ .Config.Env }}' seafile-mysql
- docker exec -it seafile-mysql mysql -p
+* https://manual.seafile.com/maintain/clean_database/
+```shell
+# [!!] for migrated Docker instance the password in the password manager
+# Root password is in MYSQL_ROOT_PASSWORD variable
+docker inspect -f '{{ .Config.Env }}' seafile-mysql
+docker exec -it seafile-mysql mysql -p
  ```
 
 ### API
