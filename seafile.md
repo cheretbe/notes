@@ -200,8 +200,13 @@ select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) fr
 delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY));
 
 -- [!] 2check
--- View remained virtual repos
-SELECT vr.repo_id, vr.origin_repo, vr.path, i.peer_name, FROM_UNIXTIME(i.sync_time) from VirtualRepo AS vr INNER JOIN RepoUserToken AS t ON vr.repo_id = t.repo_id INNER JOIN RepoTokenPeerInfo AS i ON t.token=i.token ORDER BY i.sync_time;
+-- There might be orphan records without peer info
+SELECT * FROM RepoUserToken WHERE token NOT IN(SELECT token FROM RepoTokenPeerInfo);
+DELETE FROM RepoUserToken WHERE token NOT IN(SELECT token FROM RepoTokenPeerInfo);
+
+-- View and remove virtual repos that not longer needed after sync token cleanup
+SELECT * FROM VirtualRepo WHERE repo_id NOT IN(SELECT repo_id FROM RepoUserToken);
+DELETE FROM VirtualRepo WHERE repo_id NOT IN(SELECT repo_id FROM RepoUserToken);
 ```
 #### Garbage collection 
 * :point_right: use `screen` 
@@ -214,7 +219,7 @@ sudo du -sh /opt/docker-data/seafile/data/
 /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
 # Docker (/scripts/gc.sh is a wrapper around seaf-gc.sh that stops the service for CE)
 # use 3 threads
-# [!!] don't forget to run du (see earlieer) to track down changes in size
+# [!!] don't forget to run du (see earlier) to track down changes in size
 docker exec seafile /scripts/gc.sh --dry-run -t 3
 ```
 #### FSCK
