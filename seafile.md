@@ -199,11 +199,11 @@ select t.repo_id, t.email, i.peer_ip, i.peer_name, FROM_UNIXTIME(i.sync_time) fr
 -- Actual deletion
 delete t,i from RepoUserToken t, RepoTokenPeerInfo i where t.token=i.token AND i.sync_time < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 90 DAY));
 
--- [!] 2check
 -- There might be orphan records without peer info
 SELECT * FROM RepoUserToken WHERE token NOT IN(SELECT token FROM RepoTokenPeerInfo);
 DELETE FROM RepoUserToken WHERE token NOT IN(SELECT token FROM RepoTokenPeerInfo);
 
+-- [!] Needs thorough testing (seems that gc still traverses these repos)
 -- View and remove virtual repos that not longer needed after sync token cleanup
 SELECT * FROM VirtualRepo WHERE repo_id NOT IN(SELECT repo_id FROM RepoUserToken);
 DELETE FROM VirtualRepo WHERE repo_id NOT IN(SELECT repo_id FROM RepoUserToken);
