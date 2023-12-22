@@ -171,6 +171,14 @@ docker compose up -d
 * https://manual.seafile.com/maintain/
 
 #### Gotchas
+If garbage collector fails with message "Failed to get repo 00000000-0000-0000-0000-000000000000", but seaf-fsck doesn't find anything, then it might be a missing virtual repository.
+* Backup `seafile/mysql/db/seafile_db/VirtualRepo.*`
+* ```sql
+  -- Delete the record
+  use seafile_db;
+  select id from VirtualRepo where repo_id = "00000000-0000-0000-0000-000000000000";
+  delete from VirtualRepo where id = <id>;
+  ```
 
 #### Sync tokens cleanup
 
