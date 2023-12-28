@@ -416,6 +416,16 @@ zpool status
 :question: Do some tests to find out how ZoL handles compression/deduplication
 
 ```shell
+# [!] on secure networks use mbuffer instead
+# receiver
+mbuffer -4 -s 128k -m 1G -I 1234 | zfs receive -F pool/path
+# sender
+zfs send -R pool/path@snapshot | mbuffer -s 128k -m 1G -O dest-ip:1234
+# https://serverfault.com/a/408908
+# What's really interesting is that using mbuffer when sending and receiving on localhost speeds things up as well
+# It just goes to show that zfs send/receive doesn't really like latency or any other pauses in the stream to work best
+zfs send tank/pool@snapshot | mbuffer -s 128k -m 4G -o - | zfs receive -F tank2/pool
+
 # We use -v only on the receiving end since it outputs status only on start and finish.
 # Sender with -v option every second outputs status records that look like this:
 # 16:13:54   43.9G   pool/path@snapshot
