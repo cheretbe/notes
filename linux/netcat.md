@@ -46,7 +46,7 @@ find directory/ -type s -print > /tmp/sockets-to-exclude
 tar --exclude=directory/dev/* -X /tmp/sockets-to-exclude -cf - directory/ | pv | ..
 ```
 
-:warning: 2test:
+ZFS:
 ```shell
 # receiver
 mbuffer -4 -s 128k -m 1G -I 1234 | zfs receive -F pool/path
