@@ -418,10 +418,11 @@ zpool status
 ```shell
 # [!] on secure networks use mbuffer instead
 # receiver
-# [!!!] Can we change mount point?
 mbuffer -4 -s 128k -m 1G -I 1234 | zfs receive -F pool/path
 # sender
-zfs send -R pool/path@snapshot | mbuffer -s 128k -m 1G -O dest-ip:1234
+# [!] -R (--replicate) is not only recursive, but copies all properties, snapshots, descendent
+# file systems, and clones. This is not what we usually want by default (mountpoint)
+zfs send pool/path@snapshot | mbuffer -s 128k -m 1G -O dest-ip:1234
 # https://serverfault.com/a/408908
 # What's really interesting is that using mbuffer when sending and receiving on localhost speeds things up as well
 # It just goes to show that zfs send/receive doesn't really like latency or any other pauses in the stream to work best
