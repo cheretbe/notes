@@ -418,6 +418,7 @@ zpool status
 ```shell
 # [!] on secure networks use mbuffer instead
 # receiver
+# [!!!] Can we change mount point?
 mbuffer -4 -s 128k -m 1G -I 1234 | zfs receive -F pool/path
 # sender
 zfs send -R pool/path@snapshot | mbuffer -s 128k -m 1G -O dest-ip:1234
