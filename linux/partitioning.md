@@ -77,6 +77,11 @@ resize2fs /dev/system-vg/rootfs
 
 Clear MBR and partition table
 ```shell
+# For ZFS try this first
+# [!] note sdX, not /dev/sdX
+zdb -l sdb
+zpool labelclear sdb
+
 # 2 blocks of 512 bytes (for GPT)
 dd if=/dev/zero of=/dev/sdX bs=512 count=2
 
