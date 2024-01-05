@@ -5,6 +5,10 @@ resizepart 2 100%
 ```
 
 ```shell
+# Drive names to serial numbers
+lsblk --nodeps -e7 -o name,size,serial,type,tran
+for serial in "$(lsblk --nodeps -e7 -n -o serial)"; do (ls -lha /dev/disk/by-id | grep "${target}"); done
+
 # Find a (mounted) filesystem
 findmnt
 findmnt -t ext4,zfs -o +SIZE,USE%,AVAIL
