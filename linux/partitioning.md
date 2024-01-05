@@ -89,6 +89,8 @@ zpool labelclear sdb
 # 2 blocks of 512 bytes (for GPT)
 dd if=/dev/zero of=/dev/sdX bs=512 count=2
 
+parted --script /dev/sdX mklabel gpt
+
 # For ZFS metadata at the end of the disk
 # https://superuser.com/questions/1248905/how-to-delete-some-zfs-metadata-from-hard-drive
 dd if=/dev/zero of=/dev/sdX seek=$(($(blockdev --getsz "/dev/sdX") - 1024))
