@@ -5,7 +5,15 @@ tar --selinux --acls --xattrs  -cvf file.tar /path/to/a/dir/
 # Test file integrity
 tar -tzf file.tar.gz
 
-tar cvf - directory/ 
+# Check if directory is readable
+# not "tar cf /dev/null directory/" is because when the archive is being created to /dev/null,
+# tar tries to minimize input and output operations.
+# https://unix.stackexchange.com/questions/512362/why-does-tar-appear-to-skip-file-contents-when-output-file-is-dev-null
+# [!] no -v as we want to see errors only
+tar cf - directory/ | cat > /dev/null
+# less overhead (?)
+tar cf - directory/ | pv -q > /dev/null
+
 ssh user@host "cat /path/to/archive.tar.gz" | tar -xzv
 tar cvf - /with/full/path | pigz | ssh -p 12345 -i npa_openssh.key user@host "cd /path; tar xzf -"
 
