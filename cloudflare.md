@@ -32,6 +32,8 @@ curl -X GET -H "X-Auth-Email: user@domain.tld" -H "X-Auth-Key: 00000000000000000
 
 # Get DNS records
 curl -X GET -H "X-Auth-Email: user@domain.tld" -H "X-Auth-Key: 0000000000000000000000000000000000000" https://api.cloudflare.com/client/v4/zones/00000000000000000000000000000000/dns_records | json_pp > domain_info.txt
+# Using API token
+curl --request GET --url https://api.cloudflare.com/client/v4/zones/ZONE_ID/dns_records --header 'Content-Type: application/json' --header 'Authorization: Bearer API_TOKEN' | jq
 # Specific record ID
 curl -X GET -H "X-Auth-Email: user@domain.com" -H "X-Auth-Key: 00000000" https://api.cloudflare.com/client/v4/zones/00000000/dns_records | jq -r '.result | map(select(.name=="host.domain.com")) | .[].id'
 
