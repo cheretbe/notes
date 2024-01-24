@@ -46,8 +46,8 @@ data "external" "server_mac" {
 locals {
   dummy = templatefile("${path.module}/template.yml.tftpl", {var_name = var.value})
 }
-```shell
 ```
+```shell
 terraform apply -target=locals.dummy && echo "local.dummy" | terraform console
 ```
 #### template_file
