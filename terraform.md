@@ -40,6 +40,13 @@ data "external" "server_mac" {
 ```
 
 ### Debugging
+
+```shell
+# Debug single external resource
+terraform apply -target=data.external.current_user_name
+terraform show
+```
+
 #### templatefile() function
 ```hcl
 # Add temporary local resource
