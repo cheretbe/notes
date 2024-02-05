@@ -336,6 +336,8 @@ systemctl start chronyd.service
 
 ### Move single disk-file system to another drive
 
+* :bulb: See [disk identification](#disk-identification) examples
+
 #### By temporary converting the pool to a mirror
 
 ```shell
@@ -391,6 +393,9 @@ zfs destroy -nv -r new_pool@move
 
 
 ### Replace a Disk in a Pool 
+
+* :bulb: See [disk identification](#disk-identification) examples
+
 Replacing `/dev/disk/by-id/ata-VBOX_HARDDISK_sn002` -> `/dev/disk/by-id/ata-VBOX_HARDDISK_sn111`
 * Planned
 ```bash
