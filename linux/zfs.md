@@ -30,7 +30,7 @@ zpool iostat -v
 watch -n 1 zpool iostat -v 1 2
 ```
 
-### Disk paths
+### Disk Identification
 
 ```shell
 # View disk names by id (WWN is preferable if disks support it)
@@ -97,6 +97,9 @@ systemctl enable zfs-import-scan
 * https://github.com/zfsonlinux/zfs/wiki/RHEL-%26-CentOS
 
 ### zpool Creation
+
+* :bulb: See [disk identification](#disk-identification) examples
+
 ```shell
 # If not using the whole device partition type is zfs
 parted -- /dev/sda mklabel msdos Y mkpart primary zfs 0% 100%
