@@ -30,6 +30,24 @@ zpool iostat -v
 watch -n 1 zpool iostat -v 1 2
 ```
 
+### Disk paths
+
+```shell
+# View disk names by id (WWN is preferable if disks support it)
+for wwn in $(lsblk --nodeps -e7 -n -o wwn | awk 'NF'); do (ls -lha /dev/disk/by-id | grep -F "${wwn}" | grep -Fv "part"); done
+for serial in $(lsblk --nodeps -e7 -n -o serial | awk 'NF'); do (ls -lha /dev/disk/by-id | grep -F "${serial}" | grep -Fv "part"); done
+
+# Prerequisite: jc
+# https://github.com/kellyjonbrazil/jc
+curl -s https://api.github.com/repos/kellyjonbrazil/jc/releases/latest \
+| grep "browser_download_url.*linux-x86_64.tar.gz" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -i -
+# View disks, that are not members of a pool
+for serial in $(lsblk --nodeps -e7 -n -o serial | awk 'NF'); do if ! zpool status pool-name | ./jc --zpool-status | jq -r '.[].config[].name' | grep -q "${serial}"; then echo "${serial}"; fi; done
+```
+
 ### Clear ZFS metadata
 ```shell
 # [!!!] Be careful. Double check the host and drive letter
