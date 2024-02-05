@@ -33,6 +33,8 @@ watch -n 1 zpool iostat -v 1 2
 ### Disk Identification
 
 ```shell
+lsblk --nodeps -e7 -o name,size,serial,wwn,type,tran
+
 # View disk names by id (WWN is preferable if disks support it)
 for wwn in $(lsblk --nodeps -e7 -n -o wwn | awk 'NF'); do (ls -lha /dev/disk/by-id | grep -F "${wwn}" | grep -Fv "part"); done
 for serial in $(lsblk --nodeps -e7 -n -o serial | awk 'NF'); do (ls -lha /dev/disk/by-id | grep -F "${serial}" | grep -Fv "part"); done
