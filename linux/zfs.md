@@ -6,6 +6,7 @@
 ### Troubleshooting
 * https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html
 * :warning: 2check https://github.com/maglar0/zpool-events/tree/main
+* :bulb: it may be useful to issue `zpool offline` on a dying disk to avoid useless constant resilvering
 
 ```shell
 # [!] since 2.2.0 corrective "zfs receive" is available.
