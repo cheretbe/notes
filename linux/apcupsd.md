@@ -71,3 +71,48 @@ watch -n 5 "apcaccess status | grep -E 'BCHARGE|MBATTCHG|MINTIMEL|TIMELEFT|TONBA
 ```
 
 Ubuntu 16.04 bug: https://bugs.launchpad.net/ubuntu/+source/apcupsd/+bug/1634572
+
+### Network UPS Tools
+
+* https://networkupstools.org/
+
+`apctest` didn't show calibration and battery change date commands for APC 750 with "COM" cable. NUT was able to do this, however.
+
+```shell
+apt install nut nut-client
+nano /etc/nut/ups.conf
+```
+
+```
+[apc]
+    driver = apcsmart
+    port = /dev/ttyS0
+```
+```shell
+nano /etc/nut/nut.conf
+```
+```
+MODE=standalone
+```
+```shell
+nano /etc/nut/upsd.users
+```
+```
+[admin]
+  password = p@ssw0rd
+  actions = SET
+  instcmds = ALL
+```
+
+```shell
+systemctl restart nut-server
+upsc apc
+upsrw -s "ups.id=APC 750" apc
+upsrw -s "battery.date=12/28/23"
+upsc apc
+
+# list commmands
+upscmd -l apc
+
+upscmd apc calibrate.start
+```
