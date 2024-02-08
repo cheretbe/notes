@@ -81,9 +81,10 @@ Ubuntu 16.04 bug: https://bugs.launchpad.net/ubuntu/+source/apcupsd/+bug/1634572
 
 * https://networkupstools.org/
 
-`apctest` didn't show calibration and battery change date commands for APC 750 with "COM" cable. NUT was able to do this, however.
+`apctest` didn't show commands for changing device name and batterydate for APC 750 with "COM" cable. NUT was able to do this, however.
 
 ```shell
+# [!] This uninstalls apcupsd package and masks apcupsd.service
 apt install nut nut-client
 nano /etc/nut/ups.conf
 ```
