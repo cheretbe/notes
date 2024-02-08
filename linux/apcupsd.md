@@ -14,6 +14,11 @@ Use `Power Statistics` (`gnome-power-statistics`) to view status and stats.
 
 Config is in `/etc/apcupsd/apcupsd.conf`:
 ```
+# COM
+UPSCABLE smart
+UPSTYPE apcsmart
+DEVICE /dev/ttyS0
+
 # USB 
 UPSCABLE usb
 UPSTYPE usb
