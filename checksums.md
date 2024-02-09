@@ -1,4 +1,21 @@
 * TODO: check this: https://github.com/rhash/RHash
+```shell
+# make install copies librhash.so.1 to /usr/local/lib, but it isn't used by default even
+# though the path is present in /etc/ld.so.conf.d/libc.conf
+# https://unix.stackexchange.com/questions/67781/use-shared-libraries-in-usr-local-lib/67783#67783
+nano /etc/ld.so.conf.d/
+ldconfig
+
+# -H   SHA1
+rhash -rH path_to_dir/ > checksum.txt
+
+# Explicitly specify hash type (SHA1) to speed up verification
+rhash -H -c checksum.txt
+# if 'Miss:' is not zero, view only missing entries
+rhash --missing=checksums.txt
+# Check for extra files
+hash -r path_to_dir/ --unverified=checksum.txt
+```
 
 ```shell
 # md5deep ==> hashdeep
