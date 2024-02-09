@@ -6,6 +6,7 @@
 ldconfig
 
 # -H   SHA1
+# [!!] use screen
 rhash -rH path_to_dir/ > checksum.txt
 
 # Explicitly specify hash type (SHA1) to speed up verification
