@@ -1,6 +1,9 @@
 ```shell
 pwgen -sB 10
 findmnt -t ext4,zfs -o +SIZE,USE%,AVAIL
+# view actual free space for zfs
+zfs list -o space
+zfs list -o space -r pool
 
 # -e, --exclude <list> exclude devices by major number (default: RAM disks)
 #     7 - loop devices
