@@ -1,9 +1,8 @@
 * TODO: check this: https://github.com/rhash/RHash
 ```shell
-# make install copies librhash.so.1 to /usr/local/lib, but it isn't used by default even
+# "make install" copies librhash.so.1 to /usr/local/lib, but it isn't used by default even
 # though the path is present in /etc/ld.so.conf.d/libc.conf
 # https://unix.stackexchange.com/questions/67781/use-shared-libraries-in-usr-local-lib/67783#67783
-nano /etc/ld.so.conf.d/
 ldconfig
 
 # -H   SHA1
