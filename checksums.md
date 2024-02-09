@@ -1,4 +1,4 @@
-* TODO: check this: https://github.com/rhash/RHash
+* :bulb: Use this: https://github.com/rhash/RHash
 ```shell
 # "make install" copies librhash.so.1 to /usr/local/lib, but it isn't used by default even
 # though the path is present in /etc/ld.so.conf.d/libc.conf
@@ -13,7 +13,7 @@ rhash -rH path_to_dir/ > checksum.txt
 rhash -H -c checksum.txt
 # if 'Miss:' is not zero, view only missing entries
 rhash --missing=checksums.txt
-# Check for extra files
+# Make sure to check for extra files
 hash -r path_to_dir/ --unverified=checksum.txt
 ```
 
