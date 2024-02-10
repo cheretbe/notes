@@ -1,11 +1,12 @@
+### Installation
 ```shell
 apt install acl
 # check for acl option
 tune2fs -l /dev/sda1 | grep "Default mount options"
 zfs get acltype [dataset]
 ```
-
-`umask` is the file mode creation mask (it is also a function that sets the mask). Subtracting the mask value from the default permissions gives us the actual permissions. In other words, if a permission is set in the umask value it will not be set in the permissions applied to the directory or file. The umask values work as an inverse of the usual permission values.
+### Masks
+1. `umask` is the file mode creation mask (it is also a function that sets the mask). Subtracting the mask value from the default permissions gives us the actual permissions. In other words, if a permission is set in the umask value it will not be set in the permissions applied to the directory or file. The umask values work as an inverse of the usual permission values.
 * 0: No permissions are removed
 * 1: The execute bit is unset in the permissions
 * 2: The write bit is unset in the permissions
@@ -20,7 +21,7 @@ umask 004
 (umask 004 && some command)
 ```
 
-For systemd units `UMask` setting controls the file mode creation mask https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#UMask=
+2. For systemd units `UMask` setting controls the file mode creation mask https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#UMask=
 ```
 [Service]
 # [!!] Note that it's UMask, not umask
@@ -30,6 +31,10 @@ UMask=004
 # Reload settings after editing a unit file
 systemctl daemon-reload
 ```
+3. And finally ACL mask is, as the name says, a mask that is applied to mask out permissions granted by access control entries for users and groups. It is the maximum permission that may be granted by any acccess control entry, other than by a file owner or an "other" entry. Its 3 bits are **and**ed with the 3 bits of these other entries.
+* https://unix.stackexchange.com/questions/475698/what-is-the-exact-purpose-of-mask-in-file-system-acl/475796#475796
+
+  ### Examples
 
 ```shell
 export acl_path=/mnt/dir
