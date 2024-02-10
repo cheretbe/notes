@@ -11,7 +11,7 @@ ldconfig
 rhash -rH path_to_dir/ > checksum.txt
 
 # Explicitly specify hash type (SHA1) to speed up verification
-rhash -H -c checksum.txt
+rhash --skip-ok -H -c checksum.txt
 # if 'Miss:' is not zero, view only missing entries
 rhash --missing=checksums.txt
 # Make sure to check for extra files
