@@ -5,6 +5,15 @@
 * 4: The read bit is unset in the permissions
 
 ```shell
+# Default value is set by UMASK setting in /etc/login.defs (typically 022 these days)
+grep UMASK /etc/login.defs
+# This completely removes "other" permissions for current shell
+umask 004
+# Use subshell to temporarily set umask for one command only
+(umask 004 && some command)
+```
+
+```shell
 export acl_path=/mnt/dir
 export acl_user=username
 
