@@ -31,7 +31,14 @@ UMask=004
 # Reload settings after editing a unit file
 systemctl daemon-reload
 ```
-3. And finally ACL mask is, as the name says, a mask that is applied to mask out permissions granted by access control entries for users and groups. It is the maximum permission that may be granted by any acccess control entry, other than by a file owner or an "other" entry. Its 3 bits are **and**ed with the 3 bits of these other entries.
+3. For SMB shares file and directory creation masks are controlled by the following settings
+```ini
+[share_name]
+  # Completely remove "other" permissions
+  create mask = 660
+  directory mask = 770
+```   
+4. And finally ACL mask is, as the name says, a mask that is applied to mask out permissions granted by access control entries for users and groups. It is the maximum permission that may be granted by any acccess control entry, other than by a file owner or an "other" entry. Its 3 bits are **and**ed with the 3 bits of these other entries.
 * https://unix.stackexchange.com/questions/475698/what-is-the-exact-purpose-of-mask-in-file-system-acl/475796#475796
 
   ### Examples
