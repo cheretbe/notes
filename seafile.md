@@ -403,6 +403,7 @@ seaf-cli list-remote -s http://seafile-test -u admin@seafile.local
 seaf-cli sync -l 00000000-0000-0000-0000-000000000000 -s http://seafile-test -d ~/Documents/library_name -u admin@seafile.local
 ```
 * Systemd unit example
+    * :point_right: `UMask=004` for SMB shares
     * https://manual.seafile.com/deploy/start_seafile_at_system_bootup/#create-systemd-service-file-etcsystemdsystemseafile-clientservice-optional
 
 ### Nginx reverse proxy
