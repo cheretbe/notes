@@ -1,4 +1,5 @@
 * :bulb: Use this: https://github.com/rhash/RHash
+* https://rhash.sourceforge.io/manpage.php
 ```shell
 # "make install" copies librhash.so.1 to /usr/local/lib, but it isn't used by default even
 # though the path is present in /etc/ld.so.conf.d/libc.conf
