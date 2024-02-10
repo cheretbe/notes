@@ -19,6 +19,10 @@ For systemd units `UMask` setting controls the file mode creation mask https://w
 # [!!] Note that it's UMask, not umask
 UMask=004
 ```
+```shell
+# Reload settings after editing a unit file
+systemctl daemon-reload
+```
 
 ```shell
 export acl_path=/mnt/dir
