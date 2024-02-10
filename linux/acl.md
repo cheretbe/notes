@@ -2,6 +2,7 @@
 apt install acl
 # check for acl option
 tune2fs -l /dev/sda1 | grep "Default mount options"
+zfs get acltype [dataset]
 ```
 
 `umask` is the file mode creation mask (it is also a function that sets the mask). Subtracting the mask value from the default permissions gives us the actual permissions. In other words, if a permission is set in the umask value it will not be set in the permissions applied to the directory or file. The umask values work as an inverse of the usual permission values.
