@@ -13,6 +13,13 @@ umask 004
 (umask 004 && some command)
 ```
 
+For systemd units `UMask` setting controls the file mode creation mask https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#UMask=
+```
+[Service]
+# [!!] Note that it's UMask, not umask
+UMask=004
+```
+
 ```shell
 export acl_path=/mnt/dir
 export acl_user=username
