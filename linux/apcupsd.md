@@ -1,3 +1,6 @@
+```shell
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (echo ${device}; smartctl -a ${device} -j | jq '.temperature'); done
+```
 
 On a desktop system UPower daemon contros the UPS.
 ```shell
