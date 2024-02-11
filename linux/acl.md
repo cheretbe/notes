@@ -42,6 +42,37 @@ systemctl daemon-reload
 * https://unix.stackexchange.com/questions/475698/what-is-the-exact-purpose-of-mask-in-file-system-acl/475796#475796
 
   ### Examples
+```shell
+# SMB share structure
+# [!!] Make sure that 'create mask = 660' and 'directory mask = 770' options are set
+
+# No -m option
+setfacl    -R mask:rwx /shares/seafile-client
+setfacl -d -R mask:rwx /shares/seafile-client
+
+setfacl    -R -m o::--- /shares/seafile-client
+setfacl -d -R -m o::--- /shares/seafile-client
+
+# no -R and -d options
+setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client
+# no write access for smb-share-full-access is intentional
+setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-client/seafile
+
+# Full access for all users
+setfacl    -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project1
+setfacl -d -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project2
+
+# Read-only access for ordinary users
+setfacl    -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project2
+setfacl -d -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project2
+
+# No access for ordinary users
+setfacl    -R -m g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project3
+setfacl -d -R -m g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project3
+# double check resulting access list
+getfacl /mnt/hdd1/seafile-client/seafile/project3
+```
+
 
 ```shell
 export acl_path=/mnt/dir
