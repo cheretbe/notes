@@ -1,4 +1,12 @@
 ```bash
+# View temperature for all drives
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (echo ${device}; smartctl -a ${device} -j | jq '.temperature'); done
+
+# Run long self-test for all drives
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (echo ${device}; smartctl ${device} -t long ); done
+# View test status for all drives
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (printf "${device} "; printf '=%.0s' {1..80}; echo; smartctl ${device} -l selftest ); done
+
 # View info for all drives
 smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -i " $1) }'
 smartctl --scan | awk '{ print "########## " $1 " ##########"; system ("smartctl -A " $1 "| grep -i sector") }'
