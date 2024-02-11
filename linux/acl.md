@@ -40,6 +40,7 @@ systemctl daemon-reload
 ```   
 4. And finally ACL mask is, as the name says, a mask that is applied to mask out permissions granted by access control entries for users and groups. It is the maximum permission that may be granted by any acccess control entry, other than by a file owner or an "other" entry. Its 3 bits are **and**ed with the 3 bits of these other entries.
 * https://unix.stackexchange.com/questions/475698/what-is-the-exact-purpose-of-mask-in-file-system-acl/475796#475796
+* :warning: 2check: create a testlab and check if 'other' setting overrides `umask` of a process
 
   ### Examples
 ```shell
