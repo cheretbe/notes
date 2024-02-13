@@ -8,6 +8,8 @@ ldconfig
 
 # -H   SHA1
 # [!!] use screen
+# Unfortunately --exclude option doesn't not work in --check and --missing modes
+#   https://github.com/rhash/RHash/issues/236
 rhash -rH path_to_dir/ > checksum.txt
 
 # Explicitly specify hash type (SHA1) to speed up verification
