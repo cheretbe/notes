@@ -302,6 +302,15 @@ import dateutil.tz
 import pytz
 import time
 
+# UPD 2024, read/write timestamp as string avoiding dateutil dependency
+# Python 3.7+ has fromisoformat function
+# (strip microseconds to emulate Linux 'date -Iseconds' behavior)
+# 1. With TZ info
+datetime.datetime.fromisoformat(datetime.datetime.now().astimezone().replace(microsecond=0).isoformat())
+# 2. Without TZ info
+datetime.datetime.fromisoformat(datetime.datetime.now().replace(microsecond=0).isoformat())
+
+
 # 2016-12-31T21:25:30+00:30
 datetime.datetime(year=2016, month=12, day=31, hour=21, minute=25, second=30, tzinfo=dateutil.tz.tzoffset(None, +1800)).isoformat()
 
