@@ -15,6 +15,8 @@ yc compute instance list --folder-id=00000000000000000000 --format json |
   jq -r '. | sort_by(.name)[] | (.name) + "  ansible_host=" + .network_interfaces[0].primary_v4_address.address'
 
 yc compute image list --folder-id standard-images
+yc compute image list --folder-id standard-images --format json | jq -r '[.[] | select(.family == "ubuntu-2204-lts")] | sort_by(.created_at)[-1].id'
+yc compute image list --folder-id standard-images --format json | jq -r '[.[] | select(.family == "ubuntu-2204-lts")] | sort_by(.created_at)[-1] | .id + " " + .name + " created at: " + .created_at'
 
 yc vpc subnet list
 
