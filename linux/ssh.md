@@ -233,6 +233,14 @@ ssh-keygen -yf key_file
 
 # [!!] Use -i option to prevent accidental id_rsa.pub copying
 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host
+
+# Convert SSH2 public key to OpenSSH format
+# Identifiable by lines:
+# ---- BEGIN SSH2 PUBLIC KEY ----
+# ---- END SSH2 PUBLIC KEY ----
+# [!] This doesn't copy "Comment" field of an original key, do it manually
+#     (-C option works only with private keys or private/public key pairs)
+ssh-keygen -if ssh2_key.pub > key.pub
 ```
 To add a comment in `authorized_keys` just use a space and a comment after the key:
 ```
