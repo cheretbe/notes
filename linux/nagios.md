@@ -1,3 +1,11 @@
+Note on the following error:
+```
+Error: (use_ssl == true): Request packet version was invalid!
+Could not read request from client , bailing out...
+```
+Just ignore it if `check_nrpe` call result is not timeout. View other logs, check file permissions and sudoers settings first.
+
+
 * https://unweb.me/blog/nagios-clients-behind-paranoid-firewalls
 * https://www.techrepublic.com/blog/linux-and-open-source/remotely-monitor-servers-with-the-nagios-check-by-ssh-plugin/
 
