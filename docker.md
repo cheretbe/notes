@@ -49,6 +49,8 @@ apk add skopeo jq
 
 skopeo list-tags docker://python
 skopeo list-tags docker://gitlab/gitlab-ce | grep 16.0.7
+# Other repo than hub.docker.com example
+skopeo list-tags docker://registry.fedoraproject.org/fedora
 # View digest
 skopeo inspect docker://gitlab/gitlab-ce:16.0.7-ce.0 | jq '.Digest'
 ```
