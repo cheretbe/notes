@@ -37,6 +37,12 @@ watch -n 1 zpool iostat -v 1 2
 for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done \
   | jq -s -r '.[] | [.device.name,.model_name,.model_family,.serial_number] | @tsv' \
   | column -t -s $'\t'
+# with human-readable sizes
+# needs a module file present in the current directory
+# https://users.aalto.fi/~tontti/posts/jq-and-human-readable-bytes/
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done \
+  | jq -s -r 'include "./bytes"; .[] | [.device.name,.model_name,.model_family,.serial_number,.user_capacity.bytes|bytes] | @tsv' \
+  | column -t -s $'\t'
 
 lsblk --nodeps -e7 -o name,size,serial,wwn,type,tran
 
