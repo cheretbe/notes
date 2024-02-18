@@ -34,6 +34,8 @@ watch -n 1 zpool iostat -v 1 2
 ### Disk Identification
 
 ```shell
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done | jq -s -r '.[] | [.device.name,.model_name,.model_family,.serial_number] | @tsv
+
 lsblk --nodeps -e7 -o name,size,serial,wwn,type,tran
 
 # View disk names by id (WWN is preferable if disks support it)
