@@ -34,10 +34,13 @@ watch -n 1 zpool iostat -v 1 2
 ### Disk Identification
 
 ```shell
+# this shows everything except device model name
+lsblk --nodeps -e7 -o name,size,model,serial,tran
+# this show everything except human-readable size
 for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done \
   | jq -s -r '.[] | [.device.name,.model_name,.model_family,.serial_number] | @tsv' \
   | column -t -s $'\t'
-# with human-readable sizes
+# This ugly contraption show everything including human-readable sizes %)
 # needs a module file present in the current directory
 # https://users.aalto.fi/~tontti/posts/jq-and-human-readable-bytes/
 for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done \
