@@ -34,7 +34,8 @@ watch -n 1 zpool iostat -v 1 2
 ### Disk Identification
 
 ```shell
-# this shows everything except device model name
+# TODO: move this to partitioning.md
+# this shows everything, but truncates model name even with -J (JSON output) option
 lsblk --nodeps -e7 -o name,size,model,serial,tran
 # this show everything except human-readable size
 for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done \
