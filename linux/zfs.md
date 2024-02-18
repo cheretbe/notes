@@ -34,7 +34,7 @@ watch -n 1 zpool iostat -v 1 2
 ### Disk Identification
 
 ```shell
-for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done | jq -s -r '.[] | [.device.name,.model_name,.model_family,.serial_number] | @tsv'
+for device in $(smartctl --scan -j | jq -r '.devices[].name'); do (smartctl -i ${device} -j); done | jq -s -r '.[] | [.device.name,.model_name,.model_family,.serial_number] | @tsv' | column -t -s $'\t'
 
 lsblk --nodeps -e7 -o name,size,serial,wwn,type,tran
 
