@@ -47,12 +47,9 @@ systemctl daemon-reload
 # SMB share structure
 # [!!] Make sure that 'create mask = 660' and 'directory mask = 770' options are set
 
-# --set option sets (replaces) all ACLs
-setfacl -d -R --set=o::--- /shares/seafile-client
-setfacl    -R --set=o::--- /shares/seafile-client
-
-setfacl -d -R mask:rwx /shares/seafile-client
-setfacl    -R mask:rwx /shares/seafile-client
+# -b removes all existing ACLs
+setfacl -d -b -R -m u::rwx,g::r-x,o::---,m:rwx /shares/seafile-client
+setfacl       -R -m u::rwx,g::r-x,o::---,m:rwx /shares/seafile-client
 
 # no -R and -d options
 setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client
