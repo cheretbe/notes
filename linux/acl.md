@@ -52,8 +52,8 @@ setfacl -d -b -R -m u::rwx,g::r-x,o::---,m:rwx /shares/seafile-client
 setfacl       -R -m u::rwx,g::r-x,o::---,m:rwx /shares/seafile-client
 
 # no -R and -d options
-setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client
 # no write access for smb-share-full-access is intentional
+setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-client
 setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-client/seafile
 
 # Full access for all users
