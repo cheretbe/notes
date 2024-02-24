@@ -448,13 +448,16 @@ openssl x509 -inform der -in certificate.cer -out certificate.pem
 [\[ TOC \]](#table-of-contents)
 
 ### Own SSL Certificate Authority
-* :warning: check this https://github.com/OpenVPN/easy-rsa
+* :warning: Use this: https://github.com/OpenVPN/easy-rsa
+    * [./easy-rsa.md](./easy-rsa.md)
     * https://www.digitalocean.com/community/tutorials/how-to-set-up-and-configure-an-openvpn-server-on-ubuntu-20-04
+* :bulb: and this (for development): https://github.com/FiloSottile/mkcert
+* With Ansible (for serious automation): https://docs.ansible.com/ansible/latest/collections/community/crypto/docsite/guide_ownca.html
+    * https://github.com/cheretbe/vagrant-files/blob/master/testlabs/ovpn-server/provision/server_provision.yml#L26
 * (meh): https://smallstep.com/docs/step-ca/getting-started
     * https://github.com/smallstep/certificates
     * https://lobste.rs/s/1ddcvh/if_you_re_not_using_ssh_certificates_you_re
     * Advanced version: https://smallstep.com/blog/build-a-tiny-ca-with-raspberry-pi-yubikey/
-* :bulb: and this (for development): https://github.com/FiloSottile/mkcert
 
 This is for simplistic approach when CA signs server or client certificates directly. For more advanced and secure approach with intermediate CAs, database to keep track of signed certificates, etc. see this guide: https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
 
