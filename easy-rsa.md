@@ -1,8 +1,7 @@
-https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md
-https://easy-rsa.readthedocs.io/en/latest/advanced/
+* https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md
+* https://easy-rsa.readthedocs.io/en/latest/advanced/
+* database format (index.txt) description: https://unix.stackexchange.com/questions/569579/what-does-300222061712z-mean-in-openssl-ca-database/569582#569582
 
-database format (index.txt) description
-https://unix.stackexchange.com/questions/569579/what-does-300222061712z-mean-in-openssl-ca-database/569582#569582
 ```shell
 # --batch option
 # Expiry days for a new CA
