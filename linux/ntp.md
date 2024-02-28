@@ -14,6 +14,7 @@ timedatectl status
 cat /etc/chrony/chrony.conf
 chronyc ntpdata
 
+# ntpdate -q alternative:
 # may need to temporarily stop chrony service
 chronyd -q 'server 192.168.0.100 iburst'
 ```
