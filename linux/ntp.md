@@ -13,6 +13,9 @@ timedatectl status
 ```shell
 cat /etc/chrony/chrony.conf
 chronyc ntpdata
+
+# may need to temporarily stop chrony service
+chronyd -q 'server 192.168.0.100 iburst'
 ```
 
 ### systemd
