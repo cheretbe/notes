@@ -1,3 +1,7 @@
+* Specifiers (variables) list :https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html#Specifiers
+   * e.g. `"%N"` - Full unit name without suffix
+
+
 On CentOS systemctl commands may start failing after systemd update
 * https://superuser.com/questions/1125250/systemctl-access-denied-when-root
 ```shell
