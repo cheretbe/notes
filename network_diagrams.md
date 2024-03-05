@@ -1,3 +1,4 @@
+* :warning: **https://github.com/mingrammer/diagrams**
 * **https://github.com/jamesscottbrown/pyyed**
 * **https://github.com/cidrblock/drawthe.net**
 * https://kroki.io/examples.html
@@ -12,3 +13,10 @@
 * https://packetpushers.net/scalable-network-diagram-layouts-tips-ms-visio/
 * **https://etherealmind.com/network-diagrams-vlan-with-ip-layer-3-detail/**
 * https://mum.mikrotik.com/presentations/BU19/presentation_7012_1559918854.pdf
+
+### Examples
+
+![vpn1](images/vpn1.png)
+* https://www.youtube.com/watch?v=NuJio20QZ9Y
+![vpn2](images/vpn2.png)
+* https://www.youtube.com/watch?v=RBVmqaYxNB4
