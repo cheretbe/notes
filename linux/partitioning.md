@@ -1,6 +1,10 @@
+```shell
+growpart /dev/vda 2
+```
+
 parted
 ```shell
-# grow a partition
+# grow a partition (see also growpart above)
 resizepart 2 100%
 ```
 
