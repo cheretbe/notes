@@ -1,3 +1,7 @@
+* :warning::warning: **https://www.eve-ng.net/index.php/community/**
+  * https://blog.cavelab.dev/2021/06/getting-started-with-eve-ng/
+  * https://www.youtube.com/watch?v=uEH3IN1295k
+  * https://www.youtube.com/watch?v=kmJVScuCzIM
 * :warning: **https://github.com/mingrammer/diagrams**
 * **https://github.com/jamesscottbrown/pyyed**
 * **https://github.com/cidrblock/drawthe.net**
