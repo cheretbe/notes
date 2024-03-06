@@ -1,4 +1,5 @@
 ```shell
+apt install cloud-guest-utils
 growpart /dev/vda 2
 ```
 
