@@ -31,6 +31,15 @@ AllowedIPs = 0.0.0.0/0, ::/0
 ```shell
 apt install wireguard
 
+# Generate a pre-shared key
+wg genkey
+# Wireguard preshared key needs to be a 256bit (32 byte) base64 encoded value
+# So alternative ways of generating it could be:
+# 1. Use Openssl to generate a random 32 byte password
+openssl rand 32 | base64
+# 2. Create a 31 character password and base64 encode it
+echo Thisisthepassword31characterslo | base64
+
 cat > /etc/wireguard/wg0.conf<< EOF
 [Interface]
 Address = 10.1.0.1/24
