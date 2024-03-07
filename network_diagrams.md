@@ -4,7 +4,11 @@
   * https://www.youtube.com/watch?v=kmJVScuCzIM
 * :warning: **https://github.com/mingrammer/diagrams**
 * **https://github.com/jamesscottbrown/pyyed**
-* **https://github.com/cidrblock/drawthe.net**
+* :warning: **https://github.com/cidrblock/drawthe.net**
+  * looks a bit abandoned, but other than that is quite decent
+* :point_right: **Mermaid** would have been useful (github [supports](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) it)
+  * needs new diagram type: https://github.com/mermaid-js/mermaid/issues/1227
+    * the issue contains decent examples of usage and reviews of other libs
 * https://kroki.io/examples.html
 * https://drawexpress.com/
 * https://news.ycombinator.com/item?id=16889181
