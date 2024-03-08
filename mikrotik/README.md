@@ -40,6 +40,15 @@ https://1.1.1.1/help
 /routing ospf instance add disabled=no name=ospf-instance-1 originate-default=never router-id=ospf_i
 ```
 
+```shell
+# Filters syntax and parameters
+# https://help.mikrotik.com/docs/display/ROS/Route+Selection+and+Filters
+
+# Example: Add OSPF route cost to resulting route distance
+/routing filter rule add chain=ospf_in rule="if (protocol ospf) {set distance +ospf-metric; accept}"
+/routing ospf instance add disabled=no in-filter-chain=ospf_in name=v2-ospf-1 router-id=1.1.0.0
+```
+
 #### Complicated config example
 ```
 # [!] If key name in the array contains any character other than a lowercase character, it should be put in quotes
