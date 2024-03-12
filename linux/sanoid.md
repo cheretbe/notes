@@ -1,13 +1,18 @@
 * https://github.com/jimsalterjrs/sanoid/issues/116#issuecomment-318468961
 
 ```shell
+# Installation
+# ------------
 # Ubuntu
 apt install libconfig-inifiles-perl pv lzop mbuffer libcapture-tiny-perl jq
 # CentOS
 yum install perl-Config-IniFiles perl-Data-Dumper mbuffer lzop pv
 
+cd /opt/
 wget https://github.com/jimsalterjrs/sanoid/archive/$(curl -s https://api.github.com/repos/jimsalterjrs/sanoid/releases/latest | jq -r ".tag_name").tar.gz
 
+tar xzvf v2.2.0.tar.gz
+ln -s sanoid-2.2.0/ sanoid
 
 # Copy sample configs
 mkdir -p /etc/sanoid
