@@ -30,6 +30,7 @@ apt install mbuffer
 # Receiver
 mbuffer -q -4 -s 128k -m 1G -I 1234 | tar xvz
 # Sender
+# [!] test xz performance
 tar -cf - directory/ | pigz | mbuffer -q -s 128k -m 1G -O host.tld:1234
 
 # No compression
