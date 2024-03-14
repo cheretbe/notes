@@ -58,6 +58,8 @@ Resize an LVM partition without rebooting
 ```shell
 lsblk
 echo '1' > /sys/class/block/sda/device/rescan
+# with sudo
+echo "1" | sudo tee /sys/class/block/sda/device/rescan
 
 # /sda/sda1/system--vg-rootfs
 
