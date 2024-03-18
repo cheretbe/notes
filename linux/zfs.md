@@ -250,6 +250,8 @@ zfs set acltype=posixacl <dataset>
 # turn compression on
 # Don't use compression=on, set compression algorithm explicitly
 # See also comments to feature@lz4_compress option is zpool creation section
+# [!!] One needs to somehow rewrite existing data in the pool after enabling compression as
+# it won't go re-compressing existing blocks
 zfs set compression=lz4 zfs-storage/compressed
 # check dataset
 zpool scrub zfs-storage
