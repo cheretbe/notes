@@ -88,6 +88,9 @@ resize2fs /dev/system-vg/rootfs
 
 Clear MBR and partition table
 ```shell
+# -b, --backup   create a signature backup to the file $HOME/wipefs-<devname>-<offset>.bak
+wipefs --all --backup /dev/vdX
+
 # For ZFS try this first
 # [!] note sdX, not /dev/sdX
 zdb -l sdb
