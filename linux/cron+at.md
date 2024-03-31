@@ -50,7 +50,7 @@ cron.write()
 ```
 
 ```shell
-journalctl -t "cron_test" -f
+journalctl -u cron -f -n 0
 ```
 
 ### at command
