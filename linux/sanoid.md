@@ -52,6 +52,28 @@ Hourly `/etc/cron.d/sanoid` example
 05 * * * * root /opt/sanoid/sanoid --cron
 ```
 
+:warning: read-only config example (syncoid targets monitoring)
+```
+[hdd2/seafile_backup]
+        use_template = seafile_ro
+        recursive = yes
+
+#############################
+# templates below this line #
+#############################
+
+[template_seafile_ro]
+        hourly = 0
+        daily = 14
+        monthly = 0
+        yearly = 0
+        autosnap = no
+        autoprune = no
+
+        hourly_warn = 0
+        hourly_crit = 0
+```
+
 ### Syncoid
 
 ```shell
