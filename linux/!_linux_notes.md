@@ -116,6 +116,8 @@ passwd newuser
 usermod -aG wheel newuser
 # On Ubuntu
 adduser newuser sudo
+# With no password (not empty one), SSH login is possible
+adduser --disabled-password newuser
 # Disable user login
 sudo passwd -l root
 # Check if password is locked
