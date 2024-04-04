@@ -218,6 +218,9 @@ https://access.redhat.com/solutions/1166283
 ```shell
 # https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices/144044#144044
 # https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54
+# -a rounds When saving a private key, this option specifies the number of KDF (key derivation function, currently
+#           bcrypt_pbkdf(3)) rounds used.  Higher numbers result in slower passphrase verification and increased
+#           resistance to brute-force password cracking (should the keys be stolen).  The default is 16 rounds.
 ssh-keygen -t ed25519 -a 100 -C "test-comment" -f keys/my_key
 ln -s ~/keys/my_key .ssh/id_ed25519
 ln -s ~/keys/my_key.pub .ssh/id_ed25519.pub
