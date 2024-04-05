@@ -65,6 +65,10 @@ curl -s https://api.github.com/repos/kellyjonbrazil/jc/releases/latest \
 for serial in $(lsblk --nodeps -e7 -n -o serial | awk 'NF'); do if ! zpool status pool-name | ./jc --zpool-status | jq -r '.[].config[].name' | grep -q "${serial}"; then echo "${serial}"; fi; done
 ```
 
+### Notifications
+* Scripts are in `/etc/zfs/zed.d/`
+* Settings are in `/etc/zfs/zed.d/zed.rc` (e.g. ZED_NOTIFY_VERBOSE for resilver_finish-notify.sh)
+
 ### Clear ZFS metadata
 ```shell
 # [!!!] Be careful. Double check the host and drive letter
