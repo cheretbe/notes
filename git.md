@@ -284,6 +284,9 @@ git merge-file /dev/null /dev/null file-to-test
 
 ```shell
 # Get latest release
+curl -s https://api.github.com/repos/backuppc/backuppc/releases/latest | jq -r ".tag_name"
+wget https://github.com/backuppc/backuppc/archive/$(curl -s https://api.github.com/repos/backuppc/backuppc/releases/latest | jq -r ".tag_name").tar.gz
+
 release_data=$(curl -s https://api.github.com/repos/backuppc/backuppc-xs/releases/latest)
 backuppc_xs_ver=$(echo ${release_data} | jq -r ".tag_name")
 backuppc_xs_tar=$(echo ${release_data} | jq -r ".assets[0].name")
