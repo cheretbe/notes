@@ -505,7 +505,6 @@ Sources:
 ```shell
 # Alternative:
 # just copy .crt file to /usr/local/share/ca-certificates and run
-# [?] do we even need this?
 update-ca-certificates --fresh
 
 # Copy certificate to /usr/share/ca-certificates/ (use some custom subdirectory)
