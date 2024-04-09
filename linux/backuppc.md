@@ -292,8 +292,9 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 # Use quotes for path with spaces
 # [!] -n doesn't accept relative (-1 etc.) references
 # [!] Supports multiple paths
-# [!!] If getting errors "RmTreeQuietInner: path isn't a directory (while removing share)" - check trailing / in share name 
-/usr/local/BackupPC/bin/BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder/ "/path/with a space" /path2 /path3
+# [!!] If getting errors "RmTreeQuietInner: path isn't a directory (while removing share)" - check trailing / in share name
+# example:  -s /smb/win81-current.home.local/C /Windows "/Program Files" "/Program Files (x86)" 
+/usr/local/BackupPC/bin/BackupPC_backupDelete -h host_name -n 4 -s /Backup-Data-Folder/ "/path/with a space" /path2 /path3
 
 # -n dumpNum      a negative number means relative to the end (eg -1 means the most recent dump, -2 2nd most recent etc)
 # -s shareName    can be "*" to mean all shares ([!] quotes are obligatory in this case)
