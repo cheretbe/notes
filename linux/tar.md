@@ -2,6 +2,9 @@ Compare speed with lz4: https://stackoverflow.com/questions/24063846/how-to-use-
 ```shell
 tar --selinux --acls --xattrs  -cvf file.tar /path/to/a/dir/
 
+# Target directory
+tar xzvf archive.tar.gz --directory extracted/
+
 # Test file integrity
 tar -tzf file.tar.gz
 
