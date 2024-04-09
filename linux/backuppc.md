@@ -301,6 +301,8 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n 0 -s "*" / | tar -xv --directory /path/to/a/dir/
 # Create an archive from the last host's backup
 /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s "*" / | pigz > path/to/archive.tar.gz
+# Tuned version with progress
+date; /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s "*" / | mbuffer -s 128k -m 250M | pigz -p2 > path/to/archive.tar.gz
 # List files to be copied (this is not a BackupPC_ls replacement :) )
 /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s /etc /vmware-tools | tar -tv
 
