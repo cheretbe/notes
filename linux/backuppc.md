@@ -307,6 +307,12 @@ date; /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s "*" / | m
 # List files to be copied (this is not a BackupPC_ls replacement :) )
 /usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s /etc /vmware-tools | tar -tv
 
+# [!] The above commands can fail when using direct copying due to weird file modes on Windows
+# Use zip instead (doesn support -s "*")
+# bsttar is ibarchive-tools package
+# https://serverfault.com/questions/26474/unzipping-files-that-are-flying-in-through-a-pipe/761817#761817
+date; /usr/local/BackupPC/bin/BackupPC_zipCreate -h windows_host -n -1 -s /smb/windows_host/C / | mbuffer -q -s 128k -m 250M | bsdtar -xvf - -C  /path/to/a/dir/
+
 # Network
 # No compression
 # Receiver
