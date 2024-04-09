@@ -290,7 +290,9 @@ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 
 # [!] Use screen utility even when deleting a single small file (reference update can take a while)
 # Use quotes for path with spaces
-/usr/local/BackupPC/bin/BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder "/path/with a space"
+# [!] -n doesn't accept relative (-1 etc.) references
+# [!!] If getting errors "RmTreeQuietInner: path isn't a directory (while removing share)" - check trailing / in share name 
+/usr/local/BackupPC/bin/BackupPC_backupDelete -h host_name -n 4 -s Backup-Data-Folder/ "/path/with a space"
 
 # -n dumpNum      a negative number means relative to the end (eg -1 means the most recent dump, -2 2nd most recent etc)
 # -s shareName    can be "*" to mean all shares ([!] quotes are obligatory in this case)
