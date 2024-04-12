@@ -45,6 +45,7 @@ run_date += datetime.timedelta(minutes=inc_minutes)
 
 cron[0].minute.on(run_date.minute)
 cron[0].hour.on(run_date.hour)
+print(f"Date: {datetime.datetime.now()}, cron: {run_date.hour}:{run_date.minute}")
 
 cron.write()
 ```
