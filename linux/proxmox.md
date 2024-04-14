@@ -21,7 +21,7 @@ cat /etc/pve/storage.cfg
 ```
 
 ## LXC
-### Export from LXD (kind of works)
+### Export from LXD (kind of works, see comment at the end)
 ```shell
 # On LXD host
 lxc publish ssh-tunnels --alias ssh-tunnels-export
@@ -56,4 +56,21 @@ pct create 102 local:vztmpl/ssh-tunnels-export.tar.gz \
   -nameserver 192.168.1.1 \
   -net0 name=eth0,hwaddr=00:16:3E:9C:02:76,ip=dhcp,bridge=vmbr0 \
   -unprivileged 1 -password
+
+# [!!!] But all this doesn't work properly
+# - unprivileged container doesn't start (at least no output in the console)
+# - privileged container starts ok, but pct changes many things on creation (the most
+#   notable thing is host SSH keys). See 'Guest Operating System Configuration' section
+#   in https://pve.proxmox.com/pve-docs/pct.1.html
+#   Also there are lots of errors in system log (need to compare with source container, it's
+#   quite probable that those errors are due to LXC limitations)
+#  - "--ostype unmanaged" setting skips container config mentioned above. But it leads to even
+#    more errors in system log (and SSH doesn't start at all). So the config might be necessary after all
+
+# [!] Possible way to fix all this is to use backups by creating backup metadata in the orginal tar.gz archive
+# Looks like metadata are stored in pct.conf and  pct.fw files in /etc/vzdump
+# Notes (container name) are in /var/lib/vz/dump/vzdump-lxc-102-2024_04_14-22_44_49.tar.gz.notes
+# But setting all this to correct values doesnt work. "Show Configuration" in the UI shows error
+# Will need to analyze backup structure more thogouhly (if I ever get round to all this at all)
+pct restore 102 local:backup/vzdump-lxc-102-2024_04_14-22_44_49.tar.gz -ignore-unpack-errors 1 -unprivileged
 ```
