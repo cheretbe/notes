@@ -21,6 +21,20 @@ cat /etc/pve/storage.cfg
 ```
 
 ## LXC
+### Images
+* http://download.proxmox.com/images/system/
+* https://forum.proxmox.com/threads/lxc-containers-from-images-linuxcontainers-org-images.55383/
+* https://forum.proxmox.com/threads/import-lxc-container-template-from-linuxcontainers-org.141090/
+* download of 'http://download.proxmox.com/images/system/ubuntu-22.04-standard_22.04-1_amd64.tar.zst' to '/var/lib/vz/template/cache/ubuntu-22.04-standard_22.04-1_amd64.tar.zst' finished
+
+```shell
+# LXD images (not usable, see export from LXD)
+# https://images.linuxcontainers.org/streams/v1/images.json
+# https://images.linuxcontainers.org/images/
+lxc image list --format yaml ubuntu:
+```
+
+
 ### Export from LXD (kind of works, see comment at the end)
 ```shell
 # On LXD host
