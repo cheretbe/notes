@@ -8,6 +8,11 @@
 * Additional HDD
     * https://developer.hashicorp.com/vagrant/docs/disks/configuration
     * https://www.lukmanlab.com/how-to-add-new-disk-in-vagrant/
+      ```
+      config.vm.disk :disk, size: "10GB", name: "zfs_disk_1"
+      config.vm.disk :disk, size: "10GB", name: "zfs_disk_2"
+      config.vm.disk :disk, size: "8GB",  name: "zfs_disk_3"
+      ```
 
 ```shell
 # libvirt
