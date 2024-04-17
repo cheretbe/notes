@@ -403,7 +403,7 @@ zpool export pool_name
 zpool export new_pool
 zpool import new_pool pool_name
 
-# Start services and ENABLE cron jobs
+# Check mountpoint, start services and ENABLE cron jobs
 
 # Delete snapshots
 zfs destroy -nv -r pool_name@move-1
