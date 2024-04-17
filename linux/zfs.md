@@ -410,8 +410,6 @@ zpool import new_pool pool_name
 # Delete snapshots
 zfs destroy -nv -r pool_name@move-1
 zfs destroy -nv -r pool_name@move
-zfs destroy -nv -r new_pool@move-1
-zfs destroy -nv -r new_pool@move
 ```
 * https://github.com/zfsonlinux/zfs/issues/2121
 -----
