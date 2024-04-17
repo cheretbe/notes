@@ -392,6 +392,8 @@ zfs snapshot -r pool_name@move
 # [!] Note -u flag
 # -u   File system that is associated with the received stream is not mounted
 zfs send -R pool_name@move | pv | zfs receive -F -u new_pool
+# or use mbuffer without -q
+zfs send -R pool_name@move | mbuffer -s 128k -m 300M | zfs receive -F -u new_pool
 
 # [!] Stop services and disable cron jobs (e.g. sanoid)
 
