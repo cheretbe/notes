@@ -34,7 +34,7 @@ apt-key export 'D563 11E5 FF3B 6F39 D5A1  6ABE 18DF 3741 CDFF DE29' | gpg --dear
 curl -s http://mirrors.ubuntu.com/mirrors.txt | xargs -n1 -I {} sh -c 'echo `curl -r 0-1048576 -s -w %{speed_download} -o /dev/null {}/ls-lR.gz` {}' | sort -g -r | head -1 | awk '{ print $2 }'
 
 cp /etc/apt/sources.list{,.bak}
-# Assuming that testing result is http://archive.ubuntu.com/ubuntu
+# Assuming that testing result is http://mirror.corbina.net/ubuntu
 sed -i 's#http://archive.ubuntu.com/ubuntu#http://mirror.corbina.net/ubuntu#' /etc/apt/sources.list
 ```
 
