@@ -36,6 +36,8 @@ curl -s http://mirrors.ubuntu.com/mirrors.txt | xargs -n1 -I {} sh -c 'echo `cur
 cp /etc/apt/sources.list{,.bak}
 # Assuming that testing result is http://mirror.corbina.net/ubuntu
 sed -i 's#http://archive.ubuntu.com/ubuntu#http://mirror.corbina.net/ubuntu#' /etc/apt/sources.list
+# Or just use http://ru.archive.ubuntu.com/ubuntu
+sed -i 's#http://archive.ubuntu.com/ubuntu#http://ru.archive.ubuntu.com/ubuntu#' /etc/apt/sources.list
 ```
 
 ### Local cache
