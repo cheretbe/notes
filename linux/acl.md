@@ -57,18 +57,28 @@ setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-clien
 setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-client/seafile
 
 # Full access for all users
-setfacl -d -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project2
-setfacl    -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project1
+setfacl -d -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project2
+setfacl    -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project1
 
 # Read-only access for ordinary users
-setfacl -d -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project2
-setfacl    -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project2
+setfacl -d -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project2
+setfacl    -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project2
 
 # No access for ordinary users
-setfacl -d -R -m g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project3
-setfacl    -R -m g:smb-share-full-access:rwx /mnt/hdd1/seafile-client/seafile/project3
+setfacl -d -R -m g:smb-share-full-access:rwx /shares/seafile-client/seafile/project3
+setfacl    -R -m g:smb-share-full-access:rwx /shares/seafile-client/seafile/project3
 # double check resulting access list
-getfacl /mnt/hdd1/seafile-client/seafile/project3
+getfacl /shares/seafile-client/seafile/project3
+```
+SMB share definition
+```
+[work]
+  path = /shares/seafile-client/seafile
+  read list = @smb-share-users,@smb-share-full-access
+  write list = @smb-share-users,@smb-share-full-access
+  read only = No
+  create mask = 660
+  directory mask = 770
 ```
 
 
