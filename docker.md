@@ -69,7 +69,7 @@ Edit `/etc/docker/daemon.json`, create if doesn't exist
 ```
 ```shell
 systemctl stop docker
-# note the trailing slash in the source path
+# note the trailing slash in the source path (copies src content to dst itself, not creating a subdirectory)
 rsync -avxP /var/lib/docker/ /mnt/docker
 cd /var/lib
 mv docker/ docker.bak/
