@@ -1,8 +1,17 @@
-* :warning: Don't forget `-n`, `--dry-run` option!
+* :bulb: Don't forget `-n`, `--dry-run` option!
 * https://serverfault.com/questions/455111/rsynced-files-not-getting-proper-acl
-  * try `--chmod=ug=rwX`
+  * It doesn't change attributes for existing files
+      * New files get their "normal" permission bits set to the source file’s permissions masked with the receiving directory’s default permissions (either the receiving process’s umask, or the permissions specified via the destination directory’s default ACL), and their special permission bits disabled except in the case where a new directory inherits a setgid bit from its parent directory.
+      * Thus, when --perms and --executability are both disabled, rsync’s behavior is the same as that of other file-copy utilities, such as cp(1) and tar(1)
+      * In summary: to give destination files (both old and new) the source permissions, use --perms.  To give new files the destination-default permissions (while leaving existing  files  unchanged),  make  sure that  the  --perms option is off and use --chmod=ugo=rwX (which ensures that all non-masked bits get enabled).
+      * `--executability` option causes rsync to preserve the executability (or non-executability) of regular files when --perms is not enabled.  A regular file is considered to be executable if at least one `x` is turned  on in its permissions.  When an existing destination file’s executability differs from that of the corresponding source file, rsync modifies the destination file’s permissions as follows:
+        * make a file non-executable, rsync turns off all its `x` permissions.
+        * o make a file executable, rsync turns on each `x` permission that has a corresponding `r` permission enabled.
+
+  * **TL;DR**: use `--executability --chmod=ug=rwX`. :warning: option order matters.
 * https://stackoverflow.com/questions/667992/rsync-error-failed-to-set-times-on-foo-bar-operation-not-permitted/668049#668049
   * either change owner on target or use `-O`, `--omit-dir-times` in addition to `-t`
+
 
 `-a --no-specials --no-devices` tells rsync to skip these files (devices, sockets and fifos). It will still print an information message, but it would return 0 if no other error occurs. Useful when copying whole filesystems (search keywords: copy root, copying root). See also [tar](./tar.md) excludes example.
 
