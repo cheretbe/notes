@@ -1,3 +1,4 @@
+* :warning: Don't forget `-n`, `--dry-run` option!
 * https://serverfault.com/questions/455111/rsynced-files-not-getting-proper-acl
   * try `--chmod=ug=rwX`
 * https://stackoverflow.com/questions/667992/rsync-error-failed-to-set-times-on-foo-bar-operation-not-permitted/668049#668049
