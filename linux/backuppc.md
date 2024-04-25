@@ -323,9 +323,10 @@ usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pv | mbu
 # [!] For high-speed LAN connections use compression on receiver (to save resources on server)
 # 2research (in spare time): is it possible to somehow passthrough verbose file names output between mbuffer and pigz on client?
 # Receiver
-mbuffer -q -4 -s 128k -m 1G -I 1234 > host_archive.tar.gz
+mbuffer -4 -s 128k -m 200M -I 1234 > host_archive.tar.gz
 # Sender
-/usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pigz| pv | mbuffer -q -s 128k -m 1G -O host.domain.tld:1234
+# By default pigz uses all cores and -6 compression
+/usr/local/BackupPC/bin/BackupPC_tarCreate -h host_name -n -1 -s '*' / | pigz -1 -p2 | pv | mbuffer -q -s 128k -m 200M -O host.domain.tld:1234
 ```
 
 ### Client config
