@@ -1,7 +1,7 @@
 * https://serverfault.com/questions/455111/rsynced-files-not-getting-proper-acl
   * try `--chmod=ug=rwX`
 * https://stackoverflow.com/questions/667992/rsync-error-failed-to-set-times-on-foo-bar-operation-not-permitted/668049#668049
-  * either change owner on target or drop `-t`
+  * either change owner on target or use `-O`, `--omit-dir-times` in addition to `-t`
 
 `-a --no-specials --no-devices` tells rsync to skip these files (devices, sockets and fifos). It will still print an information message, but it would return 0 if no other error occurs. Useful when copying whole filesystems (search keywords: copy root, copying root). See also [tar](./tar.md) excludes example.
 
