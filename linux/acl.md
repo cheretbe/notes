@@ -59,16 +59,16 @@ setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-clien
 setfacl -m g:smb-share-users:rx,g:smb-share-full-access:rx /shares/seafile-client/seafile
 
 # Full access for all users
-setfacl -d -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project2
-setfacl    -R -m g:smb-share-users:rwx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project1
+setfacl -d -R -m g:smb-share-users:rwX,g:smb-share-full-access:rwX /shares/seafile-client/seafile/project2
+setfacl    -R -m g:smb-share-users:rwX,g:smb-share-full-access:rwX /shares/seafile-client/seafile/project1
 
 # Read-only access for ordinary users
-setfacl -d -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project2
-setfacl    -R -m g:smb-share-users:rx,g:smb-share-full-access:rwx /shares/seafile-client/seafile/project2
+setfacl -d -R -m g:smb-share-users:rX,g:smb-share-full-access:rwX /shares/seafile-client/seafile/project2
+setfacl    -R -m g:smb-share-users:rX,g:smb-share-full-access:rwX /shares/seafile-client/seafile/project2
 
 # No access for ordinary users
-setfacl -d -R -m g:smb-share-full-access:rwx /shares/seafile-client/seafile/project3
-setfacl    -R -m g:smb-share-full-access:rwx /shares/seafile-client/seafile/project3
+setfacl -d -R -m g:smb-share-full-access:rwX /shares/seafile-client/seafile/project3
+setfacl    -R -m g:smb-share-full-access:rwX /shares/seafile-client/seafile/project3
 # double check resulting access list
 getfacl /shares/seafile-client/seafile/project3
 ```
