@@ -253,6 +253,7 @@ ssh-dss AAAAB3N...JjHIvNsBk= ThisIsAComment
 * https://wiki.archlinux.org/index.php/SSH_keys#Choosing_the_authentication_key_type
 
 #### ssh-agent
+* :bulb: Permanent ssh-agent setup in screen
 ```shell
 #  List fingerprints of all identities currently represented by the agent
 ssh-add -l
