@@ -144,7 +144,7 @@ systemctl restart apache2
 systemctl start nagios
 
 # Create a Default User for Web Access
-htpasswd –c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
 chown :nagcmd /usr/local/nagios/var/rw
 chown :nagcmd /usr/local/nagios/var/rw/nagios.cmd
