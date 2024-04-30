@@ -395,6 +395,7 @@ seaf-cli init -d ~/seafile-client
 # No default server config, everything is done per library with sync command
 seaf-cli start
 # [!] Client name is empty by default (current setting is in ~/seafile-client/config.db)
+# sqlite3 ~/seafile-client/seafile-data/config.db 'SELECT * FROM Config'
 seaf-cli config -k client_name -v 'client name'
 
 # Find out library IDs
