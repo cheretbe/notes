@@ -1,4 +1,7 @@
 ```shell
+# View (in human-readable form) if the package is installed
+dpkg-query -l snapd
+
 # Completely remove snapd
 # https://askubuntu.com/questions/1345385/how-can-i-stop-apt-from-installing-snap-packages/1345401#1345401
 
