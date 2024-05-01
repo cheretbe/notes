@@ -1,3 +1,7 @@
+* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#host
+* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#hostgroup
+* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#service
+
 Note on the following error:
 ```
 Error: (use_ssl == true): Request packet version was invalid!
