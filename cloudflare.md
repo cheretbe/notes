@@ -1,3 +1,12 @@
+```shell
+read -s -p "Token: " my_token; echo ""; export my_token
+# Get zone info
+curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq
+# Get zone ID
+curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq ".result[].id"
+```
+
+
 * https://github.com/cloudflare/cloudflare-go/releases
 * https://support.cloudflare.com/hc/en-us/articles/360000841472
 * https://api.cloudflare.com/#dns-records-for-a-zone-properties
