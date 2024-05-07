@@ -3,7 +3,7 @@ read -s -p "Token: " my_token; echo ""; export my_token
 # Get zone info
 curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq
 # Get zone ID
-curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq ".result[].id"
+my_zone_id=$(curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq -r ".result[].id")
 ```
 
 
