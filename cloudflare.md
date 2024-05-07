@@ -4,8 +4,9 @@ read -s -p "Token: " my_token; echo ""; export my_token
 curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq
 # Get zone ID
 my_zone_id=$(curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq -r ".result[].id")
+# Get DNS record
+curl -X GET -H "Authorization: Bearer $my_token" "https://api.cloudflare.com/client/v4/zones/$my_zone_id/dns_records?type=A&name=host.domain.tld" | jq
 ```
-
 
 * https://github.com/cloudflare/cloudflare-go/releases
 * https://support.cloudflare.com/hc/en-us/articles/360000841472
