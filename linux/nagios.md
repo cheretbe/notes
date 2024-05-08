@@ -22,6 +22,16 @@ Just ignore it if `check_nrpe` call result is not timeout. View other logs, chec
 #}
 ```
 
+### Docker
+* `manios/nagios:latest`
+`/etc/ssmtp/ssmtp.conf` example
+```
+# https://linux.die.net/man/5/ssmtp.conf
+# The user that gets all mail for userids less than 1000. If blank, address rewriting is disabled.
+root=notifications@domain.tld
+mailhub=mail.domain.tld
+hostname=nagios-docker
+```
 
 ### Client (monitored host)
 
