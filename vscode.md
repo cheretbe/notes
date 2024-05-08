@@ -9,6 +9,7 @@ The default settings are hardcoded in the vscode sources. To see all settings in
 
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>: type `open settings` (choose **Preferences:Open User Settings (JSON)**)
 ```json
-"window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}"
+# Root name first
+"window.title": "${dirty}${rootName}${separator}${activeEditorShort}${separator}${profileName}${separator}${appName}"
 ```
 To view default value and substitute variables descriptions open [default settings](#default-settings).
