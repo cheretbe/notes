@@ -5,7 +5,7 @@ The default settings are hardcoded in the vscode sources. To see all settings in
 
 ### Title bar
 * https://dev.to/ismaellopezdev/customize-titlebar-in-vs-code-5hie
-* https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock
+* :point_right: Change workspace color: https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock
 
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>: type `open settings` (choose **Preferences:Open User Settings (JSON)**)
 ```json
