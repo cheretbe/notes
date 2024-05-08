@@ -36,6 +36,8 @@ hostname=nagios-docker
 
 ```shell
 docker exec -it nagios bash
+# /opt/nagios/etc
+cat etc/nagios.cfg
 docker exec -it nagios bin/nagios -v etc/nagios.cfg
 docker exec -it nagios libexec/check_nrpe -H host.domain.tld -c check_root
 ```
