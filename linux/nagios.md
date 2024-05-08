@@ -24,6 +24,7 @@ Just ignore it if `check_nrpe` call result is not timeout. View other logs, chec
 
 ### Docker
 * `manios/nagios:latest`
+* https://github.com/manios/docker-nagios
   
 `/etc/ssmtp/ssmtp.conf` example
 ```
