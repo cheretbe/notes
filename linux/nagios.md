@@ -24,6 +24,7 @@ Just ignore it if `check_nrpe` call result is not timeout. View other logs, chec
 
 ### Docker
 * `manios/nagios:latest`
+  
 `/etc/ssmtp/ssmtp.conf` example
 ```
 # https://linux.die.net/man/5/ssmtp.conf
@@ -31,6 +32,12 @@ Just ignore it if `check_nrpe` call result is not timeout. View other logs, chec
 root=notifications@domain.tld
 mailhub=mail.domain.tld
 hostname=nagios-docker
+```
+
+```shell
+docker exec -it nagios bash
+docker exec -it nagios bin/nagios -v etc/nagios.cfg
+docker exec -it nagios libexec/check_nrpe -H host.domain.tld -c check_root
 ```
 
 ### Client (monitored host)
