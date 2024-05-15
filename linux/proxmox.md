@@ -38,7 +38,17 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 * Add new user
   * https://forum.proxmox.com/threads/add-new-administrator-user.102650/
   * :warning: Some actions are available as root only (at the minimum install updates, attach USB devices)
-
+* DHCP
+  * Using dhcp and 127.0.1.1 in `/etc/host` leads to error: `[main] crit: Unable to resolve node name 'node-name' to a non-loopback IP address - missing entry in '/etc/hosts' or DNS?`
+  * There is an (ugly) hack
+    * https://weblog.lkiesow.de/20220223-proxmox-test-machine-self-servic/proxmox-server-dhcp.html
+    * create /etc/dhcp/dhclient-exit-hooks.d/update-etc-hosts file with the following content
+    ```bash
+    if ([ $reason = "BOUND" ] || [ $reason = "RENEW" ])
+    then
+      sed -i "s/^.*\sproxmox.home.lkiesow.io\s.*$/${new_ip_address} proxmox.home.lkiesow.io proxmox/" /etc/hosts
+    fi
+  * looks fragile as developers might add some additional check or automatic modification of /etc/network/interfaces any time
 ## LVM
 
 ```shell
