@@ -1,4 +1,4 @@
-* port 8006
+* port **8006**
 
 :warning::warning: `/etc/pve` folder is a virtual file system that is provided by the pve-cluster service.
 Its content is in `/var/lib/pve-cluster/config.db` SQLite file
@@ -14,12 +14,14 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
   * https://pve.proxmox.com/pve-docs/chapter-pve-installation.html#nomodeset_kernel_param
 * Stuck on "Trying to detect country"
   * Still happening on a fresh install on version 8.1. Got past it by going to a shell (Alt+F3 for me) then killing the traceroute process (`kill -9 <pid>`).
-Remove "You do not have a valid subscription for this server" message
-  https://dannyda.com/2020/05/17/how-to-remove-you-do-not-have-a-valid-subscription-for-this-server-from-proxmox-virtual-environment-6-1-2-proxmox-ve-6-1-2-pve-6-1-2/
-  cp /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js{,.bak}
-  sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status.toLowerCase() \!== 'active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
-  systemctl restart pveproxy.service
-  press Ctrl+F5 or Shift+F5 to reload page ignoring cache
+* Remove "You do not have a valid subscription for this server" message
+  * https://dannyda.com/2020/05/17/how-to-remove-you-do-not-have-a-valid-subscription-for-this-server-from-proxmox-virtual-environment-6-1-2-proxmox-ve-6-1-2-pve-6-1-2/
+    ```shell 
+    cp /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js{,.bak}
+    sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status.toLowerCase() \!== 'active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+    systemctl restart pveproxy.service
+  ```
+  * press Ctrl+F5 or Shift+F5 to reload page ignoring cache
 
 ## LVM
 
