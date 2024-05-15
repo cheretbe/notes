@@ -22,6 +22,12 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
     systemctl restart pveproxy.service
     ```
   * press Ctrl+F5 or Shift+F5 to reload page ignoring cache
+* Apt sources
+  ```shell
+  sed -i 's/^deb https/#&/' /etc/apt/sources.list.d/pve-enterprise.list
+  sed -i 's/^deb https/#&/' /etc/apt/sources.list.d/ceph.list
+  echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
+  ```
 
 ## LVM
 
