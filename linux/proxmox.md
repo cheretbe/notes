@@ -20,7 +20,7 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
     cp /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js{,.bak}
     sed -i.backup -z "s/res === null || res === undefined || \!res || res\n\t\t\t.data.status.toLowerCase() \!== 'active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
     systemctl restart pveproxy.service
-  ```
+    ```
   * press Ctrl+F5 or Shift+F5 to reload page ignoring cache
 
 ## LVM
