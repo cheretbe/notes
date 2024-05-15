@@ -49,6 +49,15 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
       sed -i "s/^.*\sproxmox.home.lkiesow.io\s.*$/${new_ip_address} proxmox.home.lkiesow.io proxmox/" /etc/hosts
     fi
   * looks fragile as developers might add some additional check or automatic modification of /etc/network/interfaces any time
+* Renaming a node
+  * TL;DR: Not feasible
+  * [Everything breaks down] https://forum.proxmox.com/threads/proxmox-node-name-change.14327/
+    * One needs to analyse a lot of files and change god knows how many entries
+* Clusters
+  * Very strict limitations
+    * Nodes can be added/removed only if there are no VMs/containers on it
+    * Renaming a node becomes effectively impossible - same problems as with a single node plus cluster config files (:warning: replicated on each node of a cluster)
+
 ## LVM
 
 ```shell
