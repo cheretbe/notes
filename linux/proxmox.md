@@ -28,6 +28,13 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
   sed -i 's/^deb https/#&/' /etc/apt/sources.list.d/ceph.list
   echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
   ```
+* SSL certificate for Web UI
+  ```shell
+  # /etc/pve/local is a node specific symlink to /etc/pve/nodes/NODENAME
+  cp host.domain.tld.crt /etc/pve/local/pve-ssl.pem
+  cp host.domain.tld.key /etc/pve/local/pve-ssl.key
+  systemctl restart pveproxy.service
+  ```
 
 ## LVM
 
