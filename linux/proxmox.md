@@ -1,3 +1,16 @@
+:warning::warning: `/etc/pve` folder is a virtual file system that is provided by the pve-cluster service.
+Its content is in `/var/lib/pve-cluster/config.db` SQLite file
+```shell
+sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
+```
+* https://forum.proxmox.com/threads/how-to-mount-etc-pve-in-rescue-mode.12496/
+
+## Installation
+
+
+
+## LVM
+
 ```shell
 pvcreate /dev/sdd /dev/sde
 vgcreate hdd-sas-2 /dev/sde
