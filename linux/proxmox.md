@@ -35,6 +35,9 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
   cp host.domain.tld.key /etc/pve/local/pve-ssl.key
   systemctl restart pveproxy.service
   ```
+* Add new user
+  * https://forum.proxmox.com/threads/add-new-administrator-user.102650/
+  * :warning: Some actions are available as root only (at the minimum install updates, attach USB devices)
 
 ## LVM
 
