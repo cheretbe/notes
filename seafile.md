@@ -79,7 +79,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 #### Docker
 
 * https://github.com/cheretbe/docker-configs/tree/main/seafile
-    * :point_right: https://github.com/cheretbe/docker-configs/blob/main/seafile/README.md#version-upgrade
+    * https://manual.seafile.com/upgrade/upgrade_docker/
 * https://manual.seafile.com/docker/pro-edition/deploy_seafile_pro_with_docker/
     * https://manual.seafile.com/docker/pro-edition/docker-compose.yml
 * https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
