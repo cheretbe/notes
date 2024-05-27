@@ -1,7 +1,7 @@
 * logs are in `/var/log/cloud-init.log`
 * some data (?) are in `/var/lib/cloud`
 
-'preserve_sources_list' gotcha:
+`preserve_sources_list` gotcha:
 ```yaml
 # 'preserve_sources_list' repeated twice is intentional. There is a bug in cloud-init where it tries to
 # reconcile the two settings and if they're different and fails with the following error:
