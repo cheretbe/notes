@@ -386,6 +386,12 @@ apt-cache policy seafile-cli
 apt install seafile-cli
 # binary is /usr/bin/seaf-cli
 
+# [!!] Adjust fs.inotify.max_user_watches value 
+# /etc/sysctl.conf
+# fs.inotify.max_user_watches=1048576
+sudo sysctl -p /etc/sysctl.conf
+cat /proc/sys/fs/inotify/max_user_watches
+
 # From the docs: init - This command initializes the config dir. It also creates sub-directories "seafile-data" and "seafile"
 # under parent-dir. "seafile-data" is used to store internal data, while "seafile" is used as the default location put downloaded libraries.
 # Actually "seafile" is not used by default (-d parameter is required for sync command)
