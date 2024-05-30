@@ -401,4 +401,9 @@ qemu-img resize /var/lib/libvirt/images/test-0.img +10G
 
 # Convert qcow2 to VDI
 qemu-img convert -f qcow2 image.qcow2 -O vdi image.vdi
+
+# View qcow2 info
+# Use --force-share for running guests
+# 'virtual size' is max size
+qemu-img info --force-share /mnt/ssd1/vm/rundeck.qcow2
 ```
