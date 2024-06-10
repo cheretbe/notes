@@ -15,6 +15,8 @@ openssl s_client -servername www.godaddy.com -connect www.godaddy.com:443 2>/dev
 openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null | sed -e '/-----BEGIN/,/-----END/!d' | tee temp/cert_chain.pem
 # silent (useful for scripts)
 openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null | sed -e '/-----BEGIN/,/-----END/!d' | tee temp/cert_chain.pem >/dev/null
+# save server cert bundle as separate files (reverse order - cert_1.pem is server itself; _2, etc - CAs)
+openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null | sed -e '/-----BEGIN/,/-----END/!d' | awk 'BEGIN {c=0;} /BEGIN CERT/{c++} { print > "cert_" c ".pem"}'
 ```
 
 ## Table of Contents
