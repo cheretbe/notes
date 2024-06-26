@@ -39,6 +39,14 @@ data "external" "server_mac" {
 }
 ```
 
+```shell
+# Dump state from Consul
+curl --silent --fail --header "X-Consul-Token: $CONSUL_HTTP_TOKEN" -X GET \
+  https://consul.domain.tld/v1/kv/projects/project_name/terraform_prod.tfstate | \
+  jq -r '.[].Value' | base64 -d
+
+```
+
 ### Debugging
 
 ```shell
