@@ -36,6 +36,11 @@ ls /etc/ssh/ssh_host_*_key*
 ```
  
 ### Hardening SSH Access
+```shell
+# View current config
+sshd -T | grep -e password -e root
+```
+
 SSH daemon options in `/etc/ssh/sshd_config`:
 ```
 PermitRootLogin no
