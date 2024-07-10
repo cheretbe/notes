@@ -5,7 +5,14 @@
 ```shell
 yc config profile create test
 yc config profile activate test
+
+# federation id
 yc init --federation-id=00000000000000000000
+# On error "federation id authentication is not supported on this system because the browser can not be opened"
+# use service account
+yc config set service-account-key /path/to/key.json
+yc config set cloud-id <Cloud ID>
+yc config set folder-id <Folder ID>
 
 # https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
 # Срок жизни OAuth-токена 1 год. После этого необходимо получить новый OAuth-токен и повторить процедуру аутентификации
