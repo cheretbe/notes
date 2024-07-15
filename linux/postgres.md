@@ -11,4 +11,8 @@ docker exec -it postgres psql
 \dt
 -- list all tables in the current database regardless of search_path
 \dt *
+-- list users
+\du
+-- list users adding description column
+\du+
 ```
