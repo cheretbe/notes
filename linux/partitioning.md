@@ -91,6 +91,9 @@ Clear MBR and partition table
 # -b, --backup   create a signature backup to the file $HOME/wipefs-<devname>-<offset>.bak
 wipefs --all --backup /dev/vdX
 
+# (not tested) Clear wrong LVM labels that cause wipefs to fail (e.g. created py proxmox)
+pvremove -y -ff /dev/sdX*
+
 # For ZFS try this first
 # [!] note sdX, not /dev/sdX
 zdb -l sdb
