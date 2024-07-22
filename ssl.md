@@ -434,6 +434,10 @@ openssl pkcs12 -in archive.pfx -nodes -nokeys -passin pass:password -cacerts -ou
 # one more way to extract, -chain though is only valid for the pkcs12 subcommand
 # and used when creating a PKCS12 keystore
 openssl pkcs12 -in {site}.pfx -nodes -nokeys -cacerts -passin pass:{password} | openssl x509 -chain -out bundle.crt
+
+# Create PFX file from a certificate and a key
+#   -certfile more.crt is optional, to include any additional certificates to the PFX file
+openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile more.crt
 ```
 
 #### Import, export, convert between formats
