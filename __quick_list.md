@@ -129,7 +129,8 @@ sudo su - username -s /bin/bash
 # Viev a config without comments and empty lines
 grep "^[^#;]" --color=never /etc/ansible/ansible.cfg
 # Another option
-cat /etc/login.defs | grep -v "#" |  grep -v "^$"
+#   -P Perl regular expressions (for \t matching)
+cat /etc/login.defs | grep -v -P "^[ \t]*#" |  grep -v "^$"
 
 # Download torrent
 cd ~/Downloads
