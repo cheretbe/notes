@@ -250,6 +250,10 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 docker cp /host/path/source <containerId>:/file/path/within/container
 docker cp -L my_container:/link/to/a/file .
 
+# Cat a file from image
+#  -a, --attach list    Attach to STDIN, STDOUT or STDERR
+docker run -it --rm -a stdout --entrypoint cat tianon/postgres-upgrade:13-to-14 /usr/local/bin/docker-upgrade
+
 docker rm test
 ```
 
