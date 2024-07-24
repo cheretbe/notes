@@ -233,6 +233,9 @@ docker inspect <id or name> | jq .[0] | jq .HostConfig.RestartPolicy
 # -v, --volume list   Bind mount a volume
 docker run -v /home/vagrant:/test:rw -d -t -i --name test centos /sbin/init
 
+# Build and run local image
+docker run --rm -it --entrypoint /bin/bash $(docker build -q .)
+
 docker start <id or name>
 docker stop <id or name>
 
