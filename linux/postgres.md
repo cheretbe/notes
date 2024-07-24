@@ -1,3 +1,7 @@
+* Backup: WAL-G
+    * https://habr.com/ru/articles/506610/
+
+
 ```shell
 docker exec -it postgres psql
 ```
