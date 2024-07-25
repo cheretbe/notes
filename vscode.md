@@ -13,3 +13,6 @@ The default settings are hardcoded in the vscode sources. To see all settings in
 "window.title": "${dirty}${rootName}${separator}${activeEditorShort}${separator}${profileName}${separator}${appName}"
 ```
 To view default value and substitute variables descriptions open [default settings](#default-settings).
+
+### Extensions
+* https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
