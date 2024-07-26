@@ -19,4 +19,7 @@ docker exec -it postgres psql
 \du
 -- list users adding description column
 \du+
+
+-- turn off pager
+\pset pager off
 ```
