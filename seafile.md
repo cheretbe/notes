@@ -98,8 +98,10 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
         * https://mariadb.com/kb/en/mariadb-upgrade/
       ```shell
       docker compose pull db
+      docker compose stop
       docker compose rm -f -s db
-      docker compose up -d db && docker compose logs -f db
+      MARIADB_AUTO_UPGRADE=1 docker compose up -d db && docker compose logs -f db
+      docker compose start
       ```
 
 ##### Non-Docker to Docker migration
