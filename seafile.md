@@ -91,7 +91,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     * https://manual.seafile.com/changelog/changelog-for-seafile-professional-server/
     * https://manual.seafile.com/changelog/server-changelog/
     * https://manual.seafile.com/changelog/client-changelog/
-* https://manual.seafile.com/docker/upgrade/upgrade_docker/      
+* https://manual.seafile.com/upgrade/upgrade_docker/
 
 ##### Non-Docker to Docker migration
 
