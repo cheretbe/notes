@@ -83,9 +83,15 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://manual.seafile.com/docker/pro-edition/deploy_seafile_pro_with_docker/
     * https://manual.seafile.com/docker/pro-edition/docker-compose.yml
 * https://manual.seafile.com/docker/cluster/deploy_seafile_cluster_with_docker/
-* https://manual.seafile.com/docker/upgrade/upgrade_docker/
 * https://itsfoss.com/deploy-seafile-server-docker/
 * Source code: https://github.com/haiwen/seafile-docker
+
+#### Upgrade
+* Changelog
+    * https://manual.seafile.com/changelog/changelog-for-seafile-professional-server/
+    * https://manual.seafile.com/changelog/server-changelog/
+    * https://manual.seafile.com/changelog/client-changelog/
+* https://manual.seafile.com/docker/upgrade/upgrade_docker/      
 
 ##### Non-Docker to Docker migration
 
