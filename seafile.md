@@ -94,6 +94,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://manual.seafile.com/upgrade/upgrade_docker/
 * MariaDB
     * https://endoflife.date/mariadb
+    * https://hub.docker.com/_/mariadb/tags?page=&page_size=&ordering=&name=10.5
     * When `MARIADB_AUTO_UPGRADE` variable is set, this will run the mariadb-upgrade⁠
         * https://mariadb.com/kb/en/mariadb-upgrade/
       ```shell
