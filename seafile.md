@@ -96,6 +96,11 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     * https://endoflife.date/mariadb
     * When `MARIADB_AUTO_UPGRADE` variable is set, this will run the mariadb-upgrade⁠
         * https://mariadb.com/kb/en/mariadb-upgrade/
+      ```shell
+      docker compose pull db
+      docker compose rm -f -s db
+      docker compose up -d db && docker compose logs -f db
+      ```
 
 ##### Non-Docker to Docker migration
 
