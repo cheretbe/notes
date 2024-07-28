@@ -92,6 +92,10 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
     * https://manual.seafile.com/changelog/server-changelog/
     * https://manual.seafile.com/changelog/client-changelog/
 * https://manual.seafile.com/upgrade/upgrade_docker/
+* MariaDB
+    * https://endoflife.date/mariadb
+    * When `MARIADB_AUTO_UPGRADE` variable is set, this will run the mariadb-upgrade⁠
+        * https://mariadb.com/kb/en/mariadb-upgrade/
 
 ##### Non-Docker to Docker migration
 
