@@ -5,6 +5,16 @@ https://about.gitlab.com/downloads/
 * Fail2ban: https://gist.github.com/pawilon/238c278d3c6c4669771eb81b03264acd
 * Display pipeline variables: https://gitlab.com/gitlab-org/gitlab/-/issues/22204
 
+### Maintenance
+* https://docs.gitlab.com/ee/administration/maintenance_mode/
+    * WebUI version works only for activated EE
+    * https://github.com/Lakr233/GitLab-License-Generator
+```shell
+gitlab-rails console
+::Gitlab::CurrentSettings.update!(maintenance_mode_message: "New message")
+::Gitlab::CurrentSettings.update!(maintenance_mode: true)
+```
+
 ### Installation
 
 * https://about.gitlab.com/install/#ubuntu
@@ -153,7 +163,8 @@ sudo su -s /bin/bash - gitlab-psql
 psql -h /var/opt/gitlab/postgresql/ gitlabhq_production
 # Dump DB to a remote host
 # -F, --format=c|d|t|p   output file format (custom, directory, tar, plain text (default))
-pg_dump -h /var/opt/gitlab/postgresql/ gitlabhq_production -Fc | PGPASSWORD="$my_pwd" pg_restore -h 10.24.4.111 -U postgres -d gitlabhq_production
+read -s -p "Password: " my_pwd; echo ""; export my_pwd
+pg_dump -h /var/opt/gitlab/postgresql/ gitlabhq_production -Fc | PGPASSWORD="$my_pwd" pg_restore -h remote-host.domain.tld -U postgres -d gitlabhq_production
 ```
 
 ### Reverse proxy
