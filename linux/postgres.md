@@ -30,6 +30,7 @@ docker exec -it postgres psql
 ### Patroni
 * https://patroni.readthedocs.io/en/latest/
 * https://github.com/patroni/patroni
+* :bulb: https://www.mydbops.com/blog/convert-your-postgresql-database-to-a-patroni-cluster/
 
 ```shell
 docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml list
