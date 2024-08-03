@@ -132,6 +132,30 @@ docker exec -it gitlab gitlab-rake gitlab:check SANITIZE=true
 ```
 (optional) Do some [checks](https://docs.gitlab.com/ee/update/plan_your_upgrade.html#pre-upgrade-and-post-upgrade-checks)
 
+### Database
+* https://docs.gitlab.com/omnibus/settings/database.html
+* https://docs.gitlab.com/ee/development/database/db_dump.html
+* https://docs.gitlab.com/ee/administration/postgresql/moving.html
+
+```shell
+# Postgres shipped with the linux package
+# View version
+/opt/gitlab/embedded/bin/pg_dump --version
+/opt/gitlab/embedded/bin/psql --version
+# DB location
+ls -lha /var/opt/gitlab/postgresql/
+
+# /opt/gitlab/bin/gitlab-psql is a wrapper script that runs psql as user gitlab-psql and
+# connects to gitlabhq_production in /var/opt/gitlab/postgresql/ 
+sudo gitlab-psql
+# Same as gitlab-psql script
+sudo su -s /bin/bash - gitlab-psql
+psql -h /var/opt/gitlab/postgresql/ gitlabhq_production
+# Dump DB to a remote host
+# -F, --format=c|d|t|p   output file format (custom, directory, tar, plain text (default))
+pg_dump -h /var/opt/gitlab/postgresql/ gitlabhq_production -Fc | PGPASSWORD="$my_pwd" pg_restore -h 10.24.4.111 -U postgres -d gitlabhq_production
+```
+
 ### Reverse proxy
 Settings for `/etc/gitlab/gitlab.rb` on Gitlab server:
 ```ruby
