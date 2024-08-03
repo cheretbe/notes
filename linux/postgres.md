@@ -26,3 +26,14 @@ docker exec -it postgres psql
 -- turn off pager
 \pset pager off
 ```
+
+### Patroni
+* https://patroni.readthedocs.io/en/latest/
+* https://github.com/patroni/patroni
+
+```shell
+docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml list
+docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml switchover --master gitlab-test-db-03 --candidate gitlab-test-db-01 --force
+# https://patroni.readthedocs.io/en/latest/pause.html
+docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml pause --wait
+```
