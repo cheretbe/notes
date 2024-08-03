@@ -31,6 +31,7 @@ docker exec -it postgres psql
 * https://patroni.readthedocs.io/en/latest/
 * https://github.com/patroni/patroni
 * :bulb: https://www.mydbops.com/blog/convert-your-postgresql-database-to-a-patroni-cluster/
+* :grey_question: https://www.percona.com/blog/administering-a-patroni-managed-postgresql-cluster/
 
 ```shell
 docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml list
