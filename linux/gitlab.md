@@ -151,6 +151,23 @@ docker exec -it gitlab gitlab-rake gitlab:check SANITIZE=true
 * https://docs.gitlab.com/ee/development/database/db_dump.html
 * https://docs.gitlab.com/ee/administration/postgresql/moving.html
 
+
+Re-seed the database. Usually this is not needed: `gitlab-ctl reconfigure` takes care of this. May be necessary
+during tests if DB config on Gitlab's side has not been changed, but the database itself was deleted.
+```shell
+# https://docs.gitlab.com/omnibus/settings/database.html#seed-the-database-fresh-installs-only
+
+# (not tested) Stop all the processes that are connected to the database (Puma, Sidekiq)
+gitlab-ctl stop puma
+gitlab-ctl stop sidekiq
+# A fix for the script not being able to re-create the DB
+# ALTER USER gitlab CREATEDB;
+
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 gitlab-rake gitlab:setup
+gitlab-ctl start puma
+gitlab-ctl start sidekiq
+```
+
 ```shell
 # Postgres shipped with the linux package
 # View version
@@ -169,6 +186,8 @@ psql -h /var/opt/gitlab/postgresql/ gitlabhq_production
 # -F, --format=c|d|t|p   output file format (custom, directory, tar, plain text (default))
 read -s -p "Password: " my_pwd; echo ""; export my_pwd
 pg_dump -h /var/opt/gitlab/postgresql/ gitlabhq_production -Fc | PGPASSWORD="$my_pwd" pg_restore -h remote-host.domain.tld -U postgres -d gitlabhq_production
+
+gitlab-ctl pg-upgrade -V 14
 ```
 
 ### Reverse proxy
