@@ -29,6 +29,7 @@ docker exec -it postgres psql
 
 ### pg_upgrade
 * https://github.com/tianon/docker-postgres-upgrade
+* https://dev.to/rafaelbernard/postgresql-pgupgrade-from-10-to-12-566i
 
 
 ### Patroni
