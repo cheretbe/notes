@@ -13,6 +13,10 @@ https://about.gitlab.com/downloads/
 gitlab-rails console
 ::Gitlab::CurrentSettings.update!(maintenance_mode_message: "New message")
 ::Gitlab::CurrentSettings.update!(maintenance_mode: true)
+# API
+curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?maintenance_mode=true"
+# Message text: maintenance_mode_message (try to determine the syntax for text with spaces)
+# https://docs.gitlab.com/ee/api/settings.html
 ```
 
 ### Installation
