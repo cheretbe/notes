@@ -27,6 +27,10 @@ docker exec -it postgres psql
 \pset pager off
 ```
 
+### pg_upgrade
+* https://github.com/tianon/docker-postgres-upgrade
+
+
 ### Patroni
 * https://patroni.readthedocs.io/en/latest/
 * https://github.com/patroni/patroni
