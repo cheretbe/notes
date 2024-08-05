@@ -157,7 +157,7 @@ during tests if DB config on Gitlab's side has not been changed, but the databas
 ```shell
 # https://docs.gitlab.com/omnibus/settings/database.html#seed-the-database-fresh-installs-only
 
-# (not tested) Stop all the processes that are connected to the database (Puma, Sidekiq)
+# Stop all the processes that are connected to the database
 gitlab-ctl stop  gitlab-exporter
 gitlab-ctl stop puma
 gitlab-ctl stop sidekiq
