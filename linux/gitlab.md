@@ -158,6 +158,7 @@ during tests if DB config on Gitlab's side has not been changed, but the databas
 # https://docs.gitlab.com/omnibus/settings/database.html#seed-the-database-fresh-installs-only
 
 # (not tested) Stop all the processes that are connected to the database (Puma, Sidekiq)
+gitlab-ctl stop  gitlab-exporter
 gitlab-ctl stop puma
 gitlab-ctl stop sidekiq
 
@@ -171,6 +172,7 @@ gitlab-ctl stop sidekiq
 # force=yes disables "You will lose any previous data stored in the database.
 # Do you want to continue (yes/no)?" prompt
 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 gitlab-rake gitlab:setup force=yes
+gitlab-ctl start  gitlab-exporter
 gitlab-ctl start puma
 gitlab-ctl start sidekiq
 ```
