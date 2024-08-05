@@ -175,6 +175,9 @@ DISABLE_DATABASE_ENVIRONMENT_CHECK=1 gitlab-rake gitlab:setup force=yes
 gitlab-ctl start  gitlab-exporter
 gitlab-ctl start puma
 gitlab-ctl start sidekiq
+
+# View logs
+gitlab-ctl tail
 ```
 
 ```shell
