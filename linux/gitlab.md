@@ -160,10 +160,13 @@ during tests if DB config on Gitlab's side has not been changed, but the databas
 # (not tested) Stop all the processes that are connected to the database (Puma, Sidekiq)
 gitlab-ctl stop puma
 gitlab-ctl stop sidekiq
+
 # A fix for the script not being able to re-create the DB
 # ALTER USER gitlab CREATEDB;
 # Remove CREATEDB permission again
 # ALTER USER gitlab NOCREATEDB;
+# View connections on 'database "gitlabhq_production" is being accessed by other users' error
+# SELECT pid, datname, usename, application_name, client_hostname, client_port, backend_start, state FROM pg_stat_activity where datname = 'gitlabhq_production';
 
 # force=yes disables "You will lose any previous data stored in the database.
 # Do you want to continue (yes/no)?" prompt
