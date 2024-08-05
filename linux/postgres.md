@@ -44,3 +44,15 @@ docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml switchover 
 # https://patroni.readthedocs.io/en/latest/pause.html
 docker exec -it postgres patronictl -c /var/lib/postgres/patroni.yml pause --wait
 ```
+
+#### Debug
+
+patroni.yml
+```yaml
+log:
+  level: DEBUG
+```
+
+```shell
+docker exec -it -e PATRONI_LOG_LEVEL=DEBUG postgres patronictl -c /var/lib/postgres/patroni.yml list
+```
