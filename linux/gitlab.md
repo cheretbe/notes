@@ -162,6 +162,8 @@ gitlab-ctl stop puma
 gitlab-ctl stop sidekiq
 # A fix for the script not being able to re-create the DB
 # ALTER USER gitlab CREATEDB;
+# Remove CREATEDB permission again
+# ALTER USER gitlab NOCREATEDB;
 
 # force=yes disables "You will lose any previous data stored in the database.
 # Do you want to continue (yes/no)?" prompt
