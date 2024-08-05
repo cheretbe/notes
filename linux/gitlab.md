@@ -163,7 +163,9 @@ gitlab-ctl stop sidekiq
 # A fix for the script not being able to re-create the DB
 # ALTER USER gitlab CREATEDB;
 
-DISABLE_DATABASE_ENVIRONMENT_CHECK=1 gitlab-rake gitlab:setup
+# force=yes disables "You will lose any previous data stored in the database.
+# Do you want to continue (yes/no)?" prompt
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 gitlab-rake gitlab:setup force=yes
 gitlab-ctl start puma
 gitlab-ctl start sidekiq
 ```
