@@ -7,6 +7,8 @@
 
 ```shell
 docker exec -it postgres psql
+# View cluster information
+docker exec -it postgres pg_controldata -D /var/lib/postgres/data
 ```
 
 ```sql
