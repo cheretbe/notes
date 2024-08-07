@@ -6,6 +6,8 @@
    * How to change system locale on RHEL7? https://access.redhat.com/solutions/974273
    * SYSTEM LOCALE AND KEYBOARD CONFIGURATION https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-keyboard_configuration
 
+:bulb: Locale aliases are in `/etc/locale.alias` (example: `en_US  en_US.UTF8`)
+
 ```shell
 # Get locale-specific information
 locale
