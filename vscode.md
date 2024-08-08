@@ -16,3 +16,4 @@ To view default value and substitute variables descriptions open [default settin
 
 ### Extensions
 * https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
+* https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
