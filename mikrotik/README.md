@@ -119,12 +119,15 @@ Get latest RoS version:
 # `/system package update check-for-updates` also adds current version like this
 # http://upgrade.mikrotik.com/routeros/NEWEST7.long-term?version=7.1.3
 # HTTPS also works
+# 7.13+
+https://upgrade.mikrotik.com/routeros/NEWESTa7.stable
+https://upgrade.mikrotik.com/routeros/NEWESTa7.testing
+https://upgrade.mikrotik.com/routeros/NEWESTa7.development
+
 curl http://upgrade.mikrotik.com/routeros/NEWEST7.long-term
 curl http://upgrade.mikrotik.com/routeros/NEWEST7.stable
 curl http://upgrade.mikrotik.com/routeros/NEWEST7.testing
-# lol, `/system package update check-for-updates` uses this URL, but gets 404
 curl http://upgrade.mikrotik.com/routeros/NEWEST7.development
-
 # ROS 6
 # long-term
 curl curl http://upgrade.mikrotik.com/routeros/LATEST.6fix
