@@ -19,6 +19,11 @@ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/ap
 # https://docs.gitlab.com/ee/api/settings.html
 ```
 
+### API
+* GraphQL
+    * http://gitlab.domain.tld//-/graphql-explorer
+    * https://docs.gitlab.com/ee/api/graphql/getting_started.html#queries-and-mutations
+
 ### Installation
 
 * https://about.gitlab.com/install/#ubuntu
