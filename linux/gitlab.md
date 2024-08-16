@@ -32,6 +32,21 @@ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/ap
     }
   }
 }
+
+{
+  runners(first: 100, search: "linux-gitlab-ci-medium") {
+    nodes {
+      id
+      description
+      shortSha
+    }
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
+    }
+  }
+}
 ```
 
 ### Installation
