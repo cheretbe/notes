@@ -23,6 +23,16 @@ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/ap
 * GraphQL
     * http://gitlab.domain.tld//-/graphql-explorer
     * https://docs.gitlab.com/ee/api/graphql/getting_started.html#queries-and-mutations
+ 
+```
+{
+  runners(paused: true) {
+		nodes {
+      description
+    }
+  }
+}
+```
 
 ### Installation
 
