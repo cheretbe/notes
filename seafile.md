@@ -94,7 +94,7 @@ xmlData.find('//channel/item/enclosure').attrib["url"]
 * https://cloud.seatable.io/dtable/external-links/a85d4221e41344c19566/?tid=0000&vid=0000 (note other tabs)
 * https://manual.seafile.com/upgrade/upgrade_docker/
 * MariaDB
-    * Development team [doesn't test](https://forum.seafile.com/t/what-are-officially-supported-versions-of-mariadb-mysql/13628/8) DB versions, so we stick with a reasonably fresh LTS version
+    * Development team [doesn't test](https://forum.seafile.com/t/what-are-officially-supported-versions-of-mariadb-mysql/13628/8) DB versions, so we stick with a reasonably fresh LTS version. Docker upgrade notes from 10 to 11 recommend using version 10.11(LTS) though
     * https://endoflife.date/mariadb
     * https://hub.docker.com/_/mariadb/tags?page=&page_size=&ordering=&name=10.5
     * When `MARIADB_AUTO_UPGRADE` variable is set, this will run the mariadb-upgrade⁠
