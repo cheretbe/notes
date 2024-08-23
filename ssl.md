@@ -214,6 +214,8 @@ server {
 nginx -t
 # Restart service
 systemctl restart nginx
+# Re-read config on cert change
+systemctl reload nginx
 # Edit cron file
 export VISUAL=nano; crontab -e
 ```
