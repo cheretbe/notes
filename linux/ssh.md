@@ -278,7 +278,7 @@ sudo apt install sshfs
 # Create the mount point
 mkdir ~/yourmountdirectory
 # Mount remote path
-sshfs -o reconnect username@host:/remotepath ~/yourmountdirectory
+sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 username@host:/remotepath ~/yourmountdirectory
 # As root
 sshfs -o sftp_server="/usr/bin/sudo /usr/lib/openssh/sftp-server" -o reconnect host.domain.tld:/ ~/yourmountdirectory
 # Unmount
@@ -288,7 +288,7 @@ mount -t fuse.sshfs
 # If fusermount fails to unmount with error: Device or resource busy
 # --full The pattern is normally only matched against the process name. When -f is set, the full command line is used
 # [!] Make sure all processes keeping the device busy are also closed (cd <path>, editors, etc)
-pkill --signal 9 --full 'sshfs -o reconnect host.domain.tld'
+pkill --signal 9 --full 'sshfs .* host\.domain\.tld'
 # list process instead of killing
 pgrep --full 'sshfs -o reconnect host.domain.tld'
 ```
