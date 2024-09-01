@@ -286,9 +286,11 @@ fusermount -u ~/yourmountdirectory
 # View mounted filesystems
 mount -t fuse.sshfs
 # If fusermount fails to unmount with error: Device or resource busy
-# TODO: view actual command line and use more granular process selection
-pkill -9 sshfs
-
+# --full The pattern is normally only matched against the process name. When -f is set, the full command line is used
+# [!] Make sure all processes keeping the device busy are also closed (cd <path>, editors, etc)
+pkill --signal 9 --full 'sshfs -o reconnect host.domain.tld'
+# list process instead of killing
+pgrep --full 'sshfs -o reconnect host.domain.tld'
 ```
 
 ### Notes
