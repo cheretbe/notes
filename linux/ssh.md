@@ -290,7 +290,7 @@ mount -t fuse.sshfs
 # [!] Make sure all processes keeping the device busy are also closed (cd <path>, editors, etc)
 pkill --signal 9 --full 'sshfs .* host\.domain\.tld'
 # list process instead of killing
-pgrep --full 'sshfs -o reconnect host.domain.tld'
+pgrep --full 'sshfs .* host\.domain\.tld'
 ```
 
 ### Notes
