@@ -1,7 +1,7 @@
 * https://core.telegram.org/bots#6-botfather
     * Create a bot and get its token (? - start it with username if getting message that the name is not unique. E.g. `username_blah_bot`)
     * Get chat id: `curl https://api.telegram.org/bot$MY_TG_BOT_TOKEN/getUpdates | jq`
-        * If the list is empty for newly created bot, just click start in the chat with it
+        * If the list is empty for a newly created bot, just click start in the chat with it
 
 * Sending a message using curl: https://gist.github.com/dideler/85de4d64f66c1966788c1b2304b9caf1
     * see also notes below
