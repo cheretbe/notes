@@ -21,6 +21,14 @@ docker system prune -af
 # Also remove -f to see a warning
 # This will remove all local volumes not used by at least one container
 docker volume prune -f
+
+# Removing only dangling images
+docker images --filter=dangling=true
+docker system prune
+
+# View image digest
+# Not double quotes (single quotes fail on Windows)
+docker inspect --format="{{index .RepoDigests 0}}" mcr.microsoft.com/powershell:preview
 ```
 
 ```shell
