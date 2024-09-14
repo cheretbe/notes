@@ -6,6 +6,7 @@ import contextlib
 import types
 import argparse
 import requests
+import ipaddress
 
 @contextlib.contextmanager
 def smart_open(filename=None):
@@ -32,8 +33,32 @@ def main(args):
             if not amazon_nets.get(prefix["ip_prefix"]):
                 amazon_nets[prefix["ip_prefix"]] = types.SimpleNamespace(
                     network=prefix["ip_prefix"],
-                    comment=f"<auto Amazon> {prefix['service']} {prefix['region']}"
+                    ip_network=ipaddress.ip_network(prefix["ip_prefix"]),
+                    comment=f"<auto Amazon> {prefix['service']} {prefix['region']}",
+                    filtered=False
                 )
+
+    for amazon_netname, amazon_net in amazon_nets.items():
+        for other_netname, other_net in amazon_nets.items():
+            if (not amazon_net.filtered) and (not other_net.filtered) and (amazon_net != other_net):
+                if amazon_net.ip_network.subnet_of(other_net.ip_network):
+                    print(f"{amazon_net.ip_network} is a subnet of {other_net.ip_network}")
+                    amazon_net.filtered = True
+                if other_net.ip_network.subnet_of(amazon_net.ip_network):
+                    print(f"{other_net.ip_network} is a subnet of {amazon_net.ip_network}")
+                    other_net.filtered = True
+
+    filtered_counter = 0
+    unfiltered_counter = 0
+    for amazon_netname, amazon_net in amazon_nets.items():
+        if not amazon_net.filtered:
+            unfiltered_counter += 1
+            # print(amazon_netname)
+        else:
+            filtered_counter += 1
+    print(unfiltered_counter, filtered_counter)
+
+    sys.exit(0)
 
     with smart_open(filename=args.out_file) as output:
         for amazon_netname, amazon_net in amazon_nets.items():
