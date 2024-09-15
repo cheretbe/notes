@@ -5,6 +5,12 @@ https://about.gitlab.com/downloads/
 * Fail2ban: https://gist.github.com/pawilon/238c278d3c6c4669771eb81b03264acd
 * Display pipeline variables: https://gitlab.com/gitlab-org/gitlab/-/issues/22204
 
+### Config
+
+* gitlab.rb template
+    * https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template
+    * 16.11: https://gitlab.com/gitlab-org/omnibus-gitlab/-/blob/16-11-stable/files/gitlab-config-template/gitlab.rb.template
+
 ### Maintenance
 * https://docs.gitlab.com/ee/administration/maintenance_mode/
     * WebUI version works only for activated EE
