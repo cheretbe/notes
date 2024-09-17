@@ -370,7 +370,9 @@ openssl x509 -in ServerCA.crt -inform der -text
 #   Full Name:
 #     URI:http://crl.usertrust.com/USERTrustRSACertificationAuthority.crl
 
-curl http://crl.usertrust.com/USERTrustRSACertificationAuthority.crl | openssl crl -inform DER -text
+curl http://crl.usertrust.com/USERTrustRSACertificationAuthority.crl | openssl crl -inform DER -text -noout
+# View CRL in PEM format
+openssl crl -in /etc/openvpn/server/ca_crl.pem -text -noout
 ```
 mikrotik
 ```
