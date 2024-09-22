@@ -20,8 +20,11 @@ Installation Check-List
 #### DNS with DoH
 
 ```
-/tool fetch url=https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
-/certificate import file-name=DigiCertGlobalRootCA.crt.pem passphrase=""
+# To get root CA URL (Authority Information Access > CA Issuers)
+openssl s_client -showcerts 1.1.1.1:443 </dev/null 2>/dev/null | openssl x509 -text
+
+/tool fetch url=http://cacerts.digicert.com/DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt
+/certificate import file-name=DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt passphrase=""
 /ip dns set use-doh-server=https://1.1.1.1/dns-query verify-doh-cert=yes
 /ip dns set servers=""
 # Check
