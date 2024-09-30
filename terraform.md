@@ -19,6 +19,14 @@ terraform apply -auto-approve
 terraform destroy -auto-approve
 
 terraform taint null_resource.provision && terraform apply -auto-approve
+
+# Move to local backend
+# Make a backup of current state just in case
+terraform state pull > ~/temp/backup.tfstate
+# Comment out the backend block and reinit
+terraform init -migrate-state
+# Check that there is no changes
+terraform plan
 ```
 
 ```tf
