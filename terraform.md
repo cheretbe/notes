@@ -15,6 +15,9 @@ terraform init
 terraform validate
 terraform plan
 
+# list resources in the state (without properties)
+terraform state list
+
 terraform apply -auto-approve
 terraform destroy -auto-approve
 
