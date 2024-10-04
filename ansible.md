@@ -202,6 +202,7 @@ ansible-playbook --connection=local -i localhost, playbook.yml
 ansible localhost -m setup
 ansible all -i machine_name, -m setup -u vagrant --ask-pass
 ansible all -i ubuntu-bionic, -m setup -u vagrant -a "gather_subset=min" --extra-vars "ansible_password=vagrant"
+ansible -m setup -a "filter=ansible_distribution_release" all
 ansible cont-name -m setup -c docker -i cont-name,
 
 # Access VM from Vagrant host
