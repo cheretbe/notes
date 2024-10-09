@@ -37,6 +37,9 @@ It's important to remember that if the computer is domain-joined, domain policie
 
 #### Installation and init
 ```powershell
+# For offline installation see
+# https://stackoverflow.com/questions/58349992/how-do-i-install-the-nuget-provider-for-powershell-on-a-offline-machine/65667310#65667310
+Install-PackageProvider -Name NuGet -Force
 Install-Module -Name "nuget" -Force
 Install-Module -Name "PolicyFileEditor" -Force
 
