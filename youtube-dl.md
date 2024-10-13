@@ -14,7 +14,7 @@ yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 --li
 # Youtube
 # https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#format-selection-examples
 yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 --list-formats
-# 399+140/b is just an example video 399(mp4 1920x1080 60) + audio 140(m4a 129k 44k) or the best combined format
+# 399+140/b is just an example: video 399(mp4 1920x1080 60) + audio 140(m4a 129k 44k) or the best combined format
 yt-dlp  -v --cookies cookies.txt -f "399+140/b" https://www.youtube.com/watch?v=00000000000
 ```
 
