@@ -1,7 +1,18 @@
 ```shell
 # For Instagram reels use yt-dlp
 pip install yt-dlp
+# https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp
 yt-dlp --cookies-from-browser chrome https://www.instagram.com/reel/Cim6BkkstwB/
+# Use cookies from another host
+# 1. Generate cookies.txt (just ignore "You must provide at least one URL" error)
+yt-dlp -v --cookies-from-browser firefox --cookies cookies.txt
+# 2. Copy cookies.txt
+scp cookies.txt host.domain.tld:temp/
+# 3. Use it on the remote host
+yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 --list-formats
+
+# Youtube
+
 ```
 
 ```shell
