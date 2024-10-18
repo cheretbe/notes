@@ -1,3 +1,15 @@
+dmesg examples
+```shell
+# -e, --reltime  show local time and time delta in readable format
+dmesg -l err,crit,alert,emerg -e
+# recent versions support +level notation to also include all higher levels
+dmesg -l err+ -e
+# other time format options
+# -T, --ctime    show human-readable timestamp (may be inaccurate!)
+dmesg -T
+# dmesg --time-format iso
+```
+
 Default setting in `/etc/systemd/journald.conf` is `Storage=auto` which implies that systemd journaling will only persist the journal if the expected storage location is available. Otherwise, the journal data is stored in memory and lost between reboots.<br>
 Create it to keep and query events from previous boots.
 ```shell
