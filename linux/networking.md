@@ -109,7 +109,7 @@ brctl delbr test-br
 
 ### iptables
 * :bulb: https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules
-* Both iptables and nftables are interfaces to configure netfilter (Linux kernel subsystem). nftables iptables.
+* Both iptables and nftables are interfaces to configure netfilter (Linux kernel subsystem). nftables replaces iptables.
 ```shell
 # NAT
 iptables --table nat --append POSTROUTING -s 192.168.1.0/24 --out-interface ifname -j MASQUERADE
