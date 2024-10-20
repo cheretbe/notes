@@ -364,6 +364,9 @@ network:
 ```
 * :warning: https://netplan.io/reference/
 ```shell
+# View final config
+netplan get
+
 # Apply configuration
 sudo netplan generate
 # https://netplan.readthedocs.io/en/stable/netplan-try/
