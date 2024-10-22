@@ -17,6 +17,8 @@ terraform plan
 
 # list resources in the state (without properties)
 terraform state list
+# remove a resource from state
+terraform state rm <name>
 
 terraform apply -auto-approve
 terraform destroy -auto-approve
