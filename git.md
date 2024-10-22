@@ -37,6 +37,9 @@ git rebase --abort
 git config --global merge.tool meld
 git config --global --list
 
+# Use meld as merge tool temporarily
+git -c "merge.tool=meld" mergetool
+
 # Merge dry-run
 # https://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option/501461#501461
 git merge --no-commit --no-ff $BRANCH
