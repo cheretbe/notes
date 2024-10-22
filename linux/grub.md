@@ -6,6 +6,17 @@
 GRUB_DEFAULT='Windows 8 (loader) (on /dev/sda1)'
 ```
 
+### Reset password
+
+* https://www.tecmint.com/reset-forgotten-root-password-in-debian/
+  * press <kbd>e</kbd> to enter edit mode
+  * locate the line that begins with `linux`, just after `ro quiet` append `init=/bin/bash`
+  * press <kbd>Ctrl</kbd>+<kbd>x</kbd> or <kbd>F10</kbd> to boot
+  * remount root fs to rw: `mount -n -o remount,rw /`
+  * change password with `passwd [user]`
+  * unmount root fs just in case `umount /`
+  * reboot (note the -f option) `reboot -f`
+
 ### Repair
 Boot from LiveCD
 ```shell
