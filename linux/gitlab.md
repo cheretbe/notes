@@ -25,6 +25,8 @@ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/ap
 # https://docs.gitlab.com/ee/api/settings.html
 ```
 
+* [Investigating Sidekiq queue backlogs or slow performance](https://docs.gitlab.com/ee/administration/sidekiq/sidekiq_troubleshooting.html#investigating-sidekiq-queue-backlogs-or-slow-performance)
+
 ### API
 * GraphQL
     * http://gitlab.domain.tld//-/graphql-explorer
