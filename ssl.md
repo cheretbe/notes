@@ -553,6 +553,11 @@ certutil -L -d sql:snap/chromium/current/.pki/nssdb/
 # sql:snap/firefox/common/.mozilla/firefox/0000000.default/
 # For Chrome/Firefox from deb
 # sql:$HOME/.pki/nssdb/
+
+# Чебурнет сертификаты
+# https://www.gosuslugi.ru/crt
+certutil -d sql:$HOME/.pki/nssdb/ -A -t TC -n "russian_trusted_root_ca" -i ~/Downloads/russian_trusted_root_ca_pem.crt
+certutil -d sql:$HOME/.pki/nssdb/ -A -t TC -n "russian_trusted_sub_ca" -i ~/Downloads/russian_trusted_sub_ca_pem.crt
 ```
 
 ### Python code
