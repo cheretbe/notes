@@ -510,8 +510,13 @@ update-ca-trust
 * https://unix.stackexchange.com/questions/122753/chrome-certificate
 
 ```shell
+# [!] GUI version
+# chrome://settings/certificates?search=certificate
+# Select "Authorities" > "Import"
+
 sudo apt install libnss3-tools
 
+# [!!] Use GUI version above
 certutil -d sql:snap/chromium/current/.pki/nssdb/ -A -t TC -n "My CA" -i ~/Downloads/my_ca.crt 
 # List certificates in the DB
 certutil -L -d sql:snap/chromium/current/.pki/nssdb/
@@ -520,6 +525,7 @@ certutil -L -d sql:snap/chromium/current/.pki/nssdb/
 # For Chrome/Firefox from deb
 # sql:$HOME/.pki/nssdb/
 
+# [!!] Use GUI version above
 # Чебурнет сертификаты
 # https://www.gosuslugi.ru/crt
 certutil -d sql:$HOME/.pki/nssdb/ -A -t TC -n "russian_trusted_root_ca" -i ~/Downloads/russian_trusted_root_ca_pem.crt
