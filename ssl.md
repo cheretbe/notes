@@ -19,22 +19,6 @@ openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null 
 openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null | sed -e '/-----BEGIN/,/-----END/!d' | awk 'BEGIN {c=0;} /BEGIN CERT/{c++} { print > "cert_" c ".pem"}'
 ```
 
-## Table of Contents
-* [Unsorted](#unsorted)
-* [Container and Certificate types](#container-and-certificate-types)
-* [Let's Encrypt Certificate](#lets-encrypt-certificate)
-    * [wildcard](#wildcard)
-    * [acme-tiny](#acme-tiny)
-    * [certbot](#certbot)
-* [Hardening HTTPS server](#hardening-https-server)
-* [Simple HTTPS Server in Python](#simple-https-server-in-python)
-* [OpenSSL Commands](#openssl-commands)
-    * [OpenSSL unable to write 'random state' error](#openssl-unable-to-write-random-state-error)
-    * [Import, export, convert between formats](#import-export-convert-between-formats)
-* [Own SSL Certificate Authority](#own-ssl-certificate-authority)
-* [Adding a CA to Debian/Ubuntu](#adding-a-ca-to-debianubuntu)
-* [Python code](#python-code)
-
 ### Unsorted
 * GUI certificate viewer in linux: gcr-viewer
 * https://www.outcoldman.com/en/archive/2016/05/15/os-x-server-web-server-proxy/
@@ -43,8 +27,6 @@ openssl s_client -connect www.godaddy.com:443 -showcerts </dev/null 2>/dev/null 
 * **2review**
     * **https://github.com/cloudflare/cfssl** (https://blog.cloudflare.com/introducing-cfssl/)
 
-
-[\[ TOC \]](#table-of-contents)
 
 ### Container and Certificate types
 
@@ -69,8 +51,6 @@ There are several commonly used filename extensions for X.509 certificates. :war
 * `.p7b`, `.p7c` – [PKCS#7](https://en.wikipedia.org/wiki/PKCS_7) SignedData structure without data, just certificate(s) or CRL(s)
 * `.pfx` – PFX, predecessor of PKCS#12
     * usually contains data in PKCS#12 format, e.g., with PFX files generated in IIS
-
-[\[ TOC \]](#table-of-contents)
 
 ### Let's Encrypt Certificate<a name="lets-encrypt-certificate"></a>
 ##### neilpang/acme.sh
@@ -173,8 +153,6 @@ openssl req -new -sha256 -key domain.com.key -config domain.com.conf -out domain
 ```
 https://xdeb.org/node/1614
 
-[\[ TOC \]](#table-of-contents)
-
 ##### Certbot
 
 ```shell
@@ -225,9 +203,6 @@ From certbot's [docs](https://certbot.eff.org/all-instructions/): if you're sett
 # Check for SSL certificate renewal twice per day
 19 0,12 * * * certbot renew --post-hook "systemctl reload nginx" --quiet
 ```
-
-[\[ TOC \]](#table-of-contents)
-
 
 ### Hardening HTTPS server
 
@@ -293,8 +268,6 @@ server {
 
 * Nginx SSL/TLS configuration for "A+" Qualys SSL Labs rating: https://gist.github.com/gavinhungry/7a67174c18085f4a23eb
 
-[\[ TOC \]](#table-of-contents)
-
 ### Simple HTTPS Server in Python
 ```python
 # https://gist.github.com/dergachev/7028596
@@ -325,8 +298,6 @@ python -m SimpleHTTPServer [port]
 # Python 3 (run python3 -m http.server --help for details)
 python3 -m http.server [port]
 ```
-
-[\[ TOC \]](#table-of-contents)
 
 ### OpenSSL Commands
 The Most Common OpenSSL Commands: https://www.sslshopper.com/article-most-common-openssl-commands.html
@@ -455,8 +426,6 @@ openssl x509 -inform der -in certificate.cer -out certificate.pem
 * https://www.sslshopper.com/ssl-converter.html
 * https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
 
-[\[ TOC \]](#table-of-contents)
-
 ### Own SSL Certificate Authority
 * :warning: Use this: https://github.com/OpenVPN/easy-rsa
     * [./easy-rsa.md](./easy-rsa.md)
@@ -509,8 +478,6 @@ Sources:
 * https://datacenteroverlords.com/2012/03/01/creating-your-own-ssl-certificate-authority/
 * http://blog.endpoint.com/2014/10/openssl-csr-with-alternative-names-one.html
 
-[\[ TOC \]](#table-of-contents)
-
 ### Adding a CA to Debian/Ubuntu
 ```shell
 # Alternative:
@@ -530,7 +497,6 @@ ls -lha /etc/ssl/certs/
 # Check if a CA is present
 find /etc/ssl/certs -iname '*.pem' -exec echo {} \; -exec openssl x509 -in {} -noout -fingerprint \; | grep '00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00'
 ```
-[\[ TOC \]](#table-of-contents)
 
 ### Adding a CA to CentOS
 
@@ -577,4 +543,3 @@ cert.serial_number
 cert.extensions.get_extension_for_class(x509.KeyUsage).value
 cert.extensions.get_extension_for_class(x509.ExtendedKeyUsage).value._usages
 ```
-[\[ TOC \]](#table-of-contents)
