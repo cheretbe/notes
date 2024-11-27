@@ -12,6 +12,7 @@ yc init --federation-id=00000000000000000000
 # use service account
 yc config set service-account-key /path/to/key.json
 yc config set cloud-id <Cloud ID>
+yc resource-manager folder list
 yc config set folder-id <Folder ID>
 
 # https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
