@@ -1,3 +1,11 @@
+```shell
+export VAULT_ADDR=https://vault.domain.tld
+vault login -method=userpass username=user "password=$MY_VAULT_PASSWORD"
+export MY_VAR=$(vault kv get -field=my_var path/to/secrets)
+```
+
+* Copy vault data recursively
+    * https://github.com/iplabs/vault-cp/tree/master (the script is simple and works, just review carefully)
 * Downloads: https://www.vaultproject.io/downloads
 
 ```shell
