@@ -17,7 +17,7 @@ yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 --li
 # bv*: Select the best quality format that contains video. It may also contain audio.
 # b: Select the best quality format that contains both video and audio
 # -s, --simulate Do not download the video and do not write anything to disk
-yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 -f "bv*[ext=mp4][height<=1080]+ba[ext=m4a]/b[height<=1080]" -s
+yt-dlp --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 -f "bv*[ext=mp4][height<=1080]+ba[ext=m4a]/b[height<=1080]" -s -v
 ```
 
 ```shell
