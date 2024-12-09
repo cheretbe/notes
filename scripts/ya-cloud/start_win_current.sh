@@ -23,7 +23,8 @@ else
     > /dev/null
 
   echo "Waiting for RDP to become available"
-  timeout 5m bash -c "until nc -z $AO_CURRENT_VM_FQDN $AO_CURRENT_VM_PORT; do sleep 1; done"
+  # --foreground is for Ctrl+C to work
+  timeout --foreground 5m bash -c "until nc -z $AO_CURRENT_VM_FQDN $AO_CURRENT_VM_PORT; do sleep 1; done"
   if [ $? -ne 0 ]; then
     >&2 echo "Timeout waiting for $AO_CURRENT_VM_FQDN:$AO_CURRENT_VM_PORT to become available"
     exit 1
