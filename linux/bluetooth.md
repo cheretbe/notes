@@ -1,4 +1,16 @@
-Fix for bluetooth occasionally skipping sound and volume controls not working properly
+* Wireplumber
+    * view version
+      ```
+      wireplumber --version
+      ``` 
+* Wireplumber 0.5+ uses [spa-json](https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/conf_file.html#the-spa-json-format) config file, no LUA scripts
+    * Migration: https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/migration.html
+* Old versions use LUA scripts
+    * KDE 6.2 has 0.4.17 :(
+    * https://mazunki.pages.freedesktop.org/wireplumber/configuration/bluetooth.html
+    * Device rename example: https://unix.stackexchange.com/questions/648666/rename-devices-in-pipewire/688554#688554
+
+[Outdated] Fix for bluetooth occasionally skipping sound and volume controls not working properly (doesn't apply to recent KDE)
 
 ```shell
 # as user
@@ -19,7 +31,8 @@ systemctl --user --now enable wireplumber.service
 
 # [!] reboot
 
-# (KDE?) If device is shown, but can't be connected and there are errors like this in the system log
+# (Old KDE?) 6.2 has these packages by default
+# If device is shown, but can't be connected and there are errors like this in the system log
 # a2dp-sink profile connect failed for 41:42:A8:BF:47:78: Protocol not available
 apt purge pulseaudio-module-bluetooth
 apt install libspa-0.2-bluetooth bluedevil
