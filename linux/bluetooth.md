@@ -5,6 +5,7 @@
       ``` 
 * Wireplumber 0.5+ uses [spa-json](https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/conf_file.html#the-spa-json-format) config file, not LUA scripts
     * Migration: https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/migration.html
+    * https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/bluetooth.html
 * Old versions use LUA scripts
     * KDE 6.2 has 0.4.17 :(
     * https://mazunki.pages.freedesktop.org/wireplumber/configuration/bluetooth.html
