@@ -8,6 +8,7 @@
     * https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/bluetooth.html
 * Old versions use LUA scripts
     * KDE 6.2 has 0.4.17 :(
+    * https://web.archive.org/web/20231226224700/https://pipewire.pages.freedesktop.org/wireplumber/
     * https://mazunki.pages.freedesktop.org/wireplumber/configuration/bluetooth.html
     * Device rename example: https://unix.stackexchange.com/questions/648666/rename-devices-in-pipewire/688554#688554
 
