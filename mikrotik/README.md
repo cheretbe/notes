@@ -87,6 +87,10 @@ https://1.1.1.1/help
 * https://github.com/gregsowell/ansible-mikrotik
 
 #### WLAN settings
+* WiFi Frequency Band and Channel Width
+    * https://systemzone.net/mikrotik-wifi-frequency-band-and-channel-width-explanation/
+    * https://www.minim.com/blog/wifi-channels-explained-what-is-wifi-channel-width
+    * https://en.wikipedia.org/wiki/List_of_WLAN_channels
 * :warning: test channel settings from here: https://xn----7sba7aachdbqfnhtigrl.xn--j1amh/nastrojka-mikrotik-capsman-wifi-besshovnyj-wifi-rouming/
 * 8 reasons to turn down the transmit power of your Wi-Fi https://metis.fi/en/2017/10/txpower/
 * Signal to Noise Ratio (SNR): Around 20dB SNR or better should get you close to the maximum air data rate 
