@@ -107,6 +107,16 @@ Umask   Created Files       Created Directories
 277     400 (r--------)     500     (r-x------)
 ```
 
+View permissions recursively (obviously no ACL)
+```shell
+# -p - permissions
+# -u - username/userid
+# -f - full path
+# -i - don't print indentation lines
+# -d - print directories only
+tree -pufid /path/to/a/dir/ | less
+```
+
 Add user:
 ``` bash
 # adduser is more user friendly and interactive than its back-end useradd
