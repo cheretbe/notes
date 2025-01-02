@@ -2,6 +2,10 @@
 * https://linuxsheet.com/answers/1453749u/
 
 ```shell
+/etc/update-motd.d/99-ansible-custom
+```
+
+```shell
 # Remove unnecessary motd text on Ubuntu
 chmod -x /etc/update-motd.d/10-help-text
 # /var/lib/ubuntu-advantage/hide-esm-in-motd is older location and is deprecated
