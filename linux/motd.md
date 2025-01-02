@@ -2,6 +2,7 @@
 * https://linuxsheet.com/answers/1453749u/
 
 ```shell
+# This is a Python script
 /etc/update-motd.d/99-ansible-custom
 ```
 
