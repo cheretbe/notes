@@ -98,6 +98,10 @@ chown nagios:nagcmd /usr/local/nagios/var/rw
 chown nagios:nagcmd /usr/local/nagios/var/rw/nagios.cmd
 ```
 Client:<br>
+* Set debug parameter in `/etc/nagios/nrpe.d/99-custom.cfg`
+  ```
+  debug=1
+  ```
 * https://www.lowlevelmanager.com/2012/05/debugging-nagios-remote-nrpe-commands.html
     * check env:
     ```
