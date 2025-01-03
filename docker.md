@@ -27,8 +27,13 @@ docker images --filter=dangling=true
 docker system prune
 
 # View image digest
-# Not double quotes (single quotes fail on Windows)
+# Note double quotes (single quotes fail on Windows)
 docker inspect --format="{{index .RepoDigests 0}}" mcr.microsoft.com/powershell:preview
+
+# Rebuild all compose services
+docker compose up --build --force-recreate -d
+# Rebuild selected compose service(s)
+docker compose up --build --force-recreate --no-deps -d <service_name1> [<service_name2>]
 ```
 
 ```shell
