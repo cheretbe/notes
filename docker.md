@@ -33,6 +33,9 @@ docker inspect --format="{{index .RepoDigests 0}}" mcr.microsoft.com/powershell:
 # Rebuild all compose services
 docker compose up --build --force-recreate -d
 # Rebuild selected compose service(s)
+#    --no-deps           Don't start linked services.
+#    --force-recreate    Recreate containers even if their configuration and image haven't changed.
+#    --build             Build images before starting containers
 docker compose up --build --force-recreate --no-deps -d <service_name1> [<service_name2>]
 ```
 
