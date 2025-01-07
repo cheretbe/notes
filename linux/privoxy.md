@@ -3,8 +3,8 @@
     * https://github.com/binhex/arch-privoxyvpn/
 
 ```shell
+# Just privoxy, no VPN
 docker run \
-    --cap-add=NET_ADMIN \
     -p 8118:8118 \
     --name=privoxyvpn \
     -v /root/docker/config:/config \
