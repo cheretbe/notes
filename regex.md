@@ -30,8 +30,8 @@ import re2
 
 options = re2.Options()
 # [!!] Looks like posix_syntax is not needed. Tried it to make \S work. But looks like with no
-#      options at all it doesn't work. Using options object without changing any properties it
-#      seems to work. ¯\_(ツ)_/¯
+#      options at all it doesn't work. Passing as an options object without changing any properties
+#      seems to fix it. ¯\_(ツ)_/¯
 # # Without posix_syntax, perl_classes and one_line have no effect
 # # https://github.com/google/re2/blob/6dcd83d60f7944926bfd308cc13979fc53dd69ca/re2/re2.h#L634
 # options.posix_syntax = True
