@@ -65,6 +65,8 @@ pvcreate /dev/sdd /dev/sde
 vgcreate hdd-sas-2 /dev/sde
 
 # Datacenter > Storage > Add > LVM
+# [!!] Select Datacenter object iself, then click storage item in the right
+#      panel (not Storage subitem in the tree on the left)
 
 pvesm lvmscan
 pvesm status
