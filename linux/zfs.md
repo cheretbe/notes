@@ -64,6 +64,19 @@ curl -s https://api.github.com/repos/kellyjonbrazil/jc/releases/latest \
 # View disks, that are not members of a pool
 for serial in $(lsblk --nodeps -e7 -n -o serial | awk 'NF'); do if ! zpool status pool-name | ./jc --zpool-status | jq -r '.[].config[].name' | grep -q "${serial}"; then echo "${serial}"; fi; done
 ```
+#### Add ZFS drive aliases
+```shell
+# Add aliases
+nano /etc/zfs/vdev_id.conf
+# alias Lenovo_WMC160231293  wwn-0x50000c0f0129f724
+# alias Seagate_Z1X6ZC7G     wwn-0x5000c50085292023
+udevadm trigger
+ls -lha /dev/disk/by-vdev
+
+# Change drive reference path
+zpool export pool
+zpool import pool -d /dev/disk/by-vdev
+```
 
 ### Notifications
 * Scripts are in `/etc/zfs/zed.d/`
