@@ -395,6 +395,8 @@ zpool detach pool-name /dev/sda
 zpool get feature@lz4_compress pool_name
 zfs get -s local,temporary,received -r all pool_name
 
+# [!] When copying to a mirrored pool and there are enough physical ports available -
+#     do yourself a favor, create mirror right away
 zfs create ... new_pool ...
 
 zpool get feature@lz4_compress new_pool
