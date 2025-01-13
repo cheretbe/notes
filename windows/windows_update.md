@@ -16,6 +16,8 @@ Get-Content -Path $env:WinDir\Logs\CBS\CBS.log -Tail 10 -Wait | Select-String -P
 
 #### Via GPO
 
+* `Политика "Локальный компьютер"` > `Конфигурация компьютера` > `Административные шаблоны` > `Компоненты Windows` > `Центр обновления Windows`: Указать размещение службы обновлений Майкрософт в интрасети
+
 ```powershell
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name "PolicyFileEditor"
