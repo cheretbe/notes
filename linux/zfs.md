@@ -404,6 +404,12 @@ zfs get -s local,temporary,received -r all new_pool
 
 zfs snapshot -r pool_name@move
 
+# [!!!] Be extra careful with mountpoints. At this point new_pool will have the same
+#       mountpoint as pool_name. Don't reboot until send/receive is complete.
+#       When rebooting later for some reason, be sure to set canmount property
+zfs set canmount=noauto new_pool
+# [!] Don't forget to reset it to default after reboot
+zfs inherit -S canmount new_pool
 # [!] Note -u flag
 # -u   File system that is associated with the received stream is not mounted
 zfs send -R pool_name@move | pv | zfs receive -F -u new_pool
@@ -421,6 +427,9 @@ zpool export new_pool
 zpool import new_pool pool_name
 
 # Check mountpoint, start services and ENABLE cron jobs
+# if for some reason old pool is needed, first import it without mounting, change the mountpoint
+# and export/import once again
+zpool import pool_name old_pool -N
 
 # Delete snapshots
 zfs destroy -nv -r pool_name@move-1
