@@ -263,9 +263,9 @@ docker exec -it seafile-mysql mysql -p
  ```
 
 ### API
-
-* https://download.seafile.com/published/web-api/home.md
-* https://download.seafile.com/published/web-api/v2.1-admin/libraries.md
+* New URL: https://seafile-api.readme.io/reference/introduction
+  * https://download.seafile.com/published/web-api/home.md
+  * https://download.seafile.com/published/web-api/v2.1-admin/libraries.md
 ```shell
 curl -sS -d "username=admin@seafile.local&password=00000000" http://seafile.local.test/api2/auth-token/ | jq
 # [!] This does NOT include "repos" created by desktop clients syncing folders outside
