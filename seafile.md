@@ -232,15 +232,16 @@ DELETE FROM VirtualRepo WHERE repo_id NOT IN(SELECT repo_id FROM RepoUserToken);
 * :point_right: use `screen` 
 * :warning: Garbage collector takes in account libraries' history settings (will not delete anything if it is set to "keep full history")
 ```shell
-du -hs /shared/seafile/seafile-data/
 du -hs /opt/seafile
 sudo du -sh /opt/docker-data/seafile/data/
+# no -h is intentional to see the difference
+docker exec -it seafile du -s /shared/seafile/seafile-data/
  
 /opt/seafile/seafile-server-latest/seaf-gc.sh --dry-run
 # Docker (/scripts/gc.sh is a wrapper around seaf-gc.sh that stops the service for CE)
 # use 3 threads
 # [!!] don't forget to run du (see earlier) to track down changes in size
-docker exec seafile /scripts/gc.sh --dry-run -t 3
+docker exec -it seafile /scripts/gc.sh --dry-run -t 3
 ```
 #### FSCK
 ```shell
@@ -248,9 +249,9 @@ docker exec seafile /scripts/gc.sh --dry-run -t 3
 # "--shallow" or "-s" doesn't calculate hashes for files contents (speeds up checks greatly)
 # "--export" allows to copy all files from a library without relying on server's database
 # Readonly fsck
-docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
+docker exec -it seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh
 # repair
-docker exec seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh --repair b3b141eb-6acd-493c-b364-93e1b376d585
+docker exec -it seafile /opt/seafile/seafile-server-latest/seaf-fsck.sh --repair b3b141eb-6acd-493c-b364-93e1b376d585
  ```
 
 #### DB cleanup
