@@ -108,7 +108,9 @@ update-grub && reboot
 ```
 
 ### Guest Settings
-Windows Virtio drivers: https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download
+Windows Virtio drivers:
+* https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md#downloads
+    * ~~https://fedoraproject.org/wiki/Windows_Virtio_Drivers#Direct_download~~
 
 Enable policy: Local Computer Policy > Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options `"Shutdown: Allow system to be shut down without having to log on"` 
 ```batch
