@@ -235,7 +235,7 @@ DELETE FROM VirtualRepo WHERE repo_id NOT IN(SELECT repo_id FROM RepoUserToken);
 du -hs /opt/seafile
 sudo du -sh /opt/docker-data/seafile/data/
 # no -h is intentional to see the difference if is small
-# display value is not bytes, but in blocks of 1024 bytes
+# display value is not bytes, but blocks of 1024 bytes
 # or user appropriate display value block size e.g. --block-size=G
 docker exec -it seafile du -s /shared/seafile/seafile-data/
 docker exec -it seafile du -s --block-size=G /shared/seafile/seafile-data/
