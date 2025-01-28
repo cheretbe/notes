@@ -1,5 +1,8 @@
 dmesg examples
 ```shell
+# previous boot
+journalctl -k -b-1 -p warning
+
 # -e, --reltime  show local time and time delta in readable format
 dmesg -l err,crit,alert,emerg -e
 # recent versions support +level notation to also include all higher levels
