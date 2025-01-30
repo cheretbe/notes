@@ -194,6 +194,12 @@ sudo swapon /dev/sda3
 # blkid or blkid /dev/sda1 to find out UUID
 UUID=373be9e0-fc6e-4b4f-b2f3-4b608146bc00 /mnt/mountpoint ext4 defaults 0 2
 ```
+Insert UUID in nano when mouse selection is not available
+* option 1
+    * `blkid -s UUID -o value /dev/sdX1 > /tmp/uuid`
+    * <kbd>^R</kbd> (<kbd>ins</kbd>) Insert file into current cursor position
+* options 2
+    * https://superuser.com/questions/548447/copying-from-one-file-to-another-using-nano-editor/958478#958478
 ```shell
 # Protect ummounted mount point
 # i - immutable: it makes a file immutable, which goes a step beyond simply disabling
