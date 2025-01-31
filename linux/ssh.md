@@ -234,6 +234,8 @@ ln -s ~/keys/my_key.pub .ssh/id_ed25519.pub
 ssh-keygen -C "test-comment" -f test.key
 # View the fingerprint
 ssh-keygen -lf key_file
+# Old MD5 (hex) format
+ssh-keygen -E md5 -lf key_file
 # Public key contents fingerprint
 echo "ssh-rsa ..." | ssh-keygen -lf -
 # Retrieve the public key
