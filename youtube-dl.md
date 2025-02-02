@@ -18,6 +18,9 @@ yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 --li
 # b: Select the best quality format that contains both video and audio
 # -s, --simulate Do not download the video and do not write anything to disk
 yt-dlp --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 -f "bv*[ext=mp4][height<=1080]+ba[ext=m4a]/b[height<=1080]" -s -v
+
+# Extract audio as mp3
+yt-dlp --cookies-from-browser chrome -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 "https://www.youtube.com/watch?v=00000000000"
 ```
 
 ```shell
