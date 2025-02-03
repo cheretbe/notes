@@ -20,7 +20,7 @@ yt-dlp -v --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 --li
 yt-dlp --cookies cookies.txt https://www.youtube.com/watch?v=00000000000 -f "bv*[ext=mp4][height<=1080]+ba[ext=m4a]/b[height<=1080]" -s -v
 
 # Extract audio as mp3
-yt-dlp --cookies-from-browser chrome -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 "https://www.youtube.com/watch?v=00000000000"
+yt-dlp --cookies-from-browser chrome -f "bestaudio[ext=m4a]" --extract-audio --audio-format mp3 --audio-quality 0 "https://www.youtube.com/watch?v=00000000000"
 ```
 
 ```shell
