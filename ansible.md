@@ -458,22 +458,10 @@ vault_password_file = ~/vault_env_pass_file.sh
 ```
 
 ### Molecule
-* https://opensource.com/article/18/12/testing-ansible-roles-molecule
-* https://ansible.readthedocs.io/projects/molecule/getting-started/
-* https://github.com/ansible-community/molecule
-* https://groups.google.com/forum/#!forum/molecule-users
-* **https://www.toptechskills.com/ansible-tutorials-courses/rapidly-build-test-ansible-roles-molecule-docker/**
-* https://www.ansible.com/hubfs//AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf
-    * https://www.ansible.com/practical-ansible-testing-with-molecule
-    * https://github.com/fabianvf/practical-testing-with-molecule
-* **https://molecule.readthedocs.io/en/latest/examples.html**    
-* https://redhatnordicssa.github.io/how-we-test-our-roles
-* **https://medium.com/@fabio.marinetti81/validate-ansible-roles-through-molecule-delegated-driver-a2ea2ab395b5**
-
--------
-* https://github.com/ansible-community/molecule-vagrant
-* :warning: https://github.com/ansible-community/molecule-lxd/issues/1
-    * https://github.com/ansible-community/molecule/pull/2329
+* https://ansible.readthedocs.io/
+    * https://ansible.readthedocs.io/projects/molecule/guides/sharing/#sharing-across-scenarios
+    * https://ansible.readthedocs.io/projects/molecule/configuration/
+* Pugins: https://github.com/ansible-community/molecule-plugins
     
 ```shell
 # [!] Need to specify ansible explicitly to get a fully functional ansible
