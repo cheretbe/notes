@@ -462,7 +462,18 @@ vault_password_file = ~/vault_env_pass_file.sh
     * https://ansible.readthedocs.io/projects/molecule/guides/sharing/#sharing-across-scenarios
     * https://ansible.readthedocs.io/projects/molecule/configuration/
 * Pugins: https://github.com/ansible-community/molecule-plugins
-    
+
+#### Vagrant
+
+```
+# Replace linux-provision/default with relevant path
+# Ansible config contain useful settings like `host_key_checking = False`, `interpreter_python = auto_silent` etc.
+ANSIBLE_CONFIG=~/.cache/molecule/linux-provision/default/ansible.cfg \
+  ansible -i ~/.cache/molecule/linux-provision/default/inventory/ansible_inventory.yml \
+   -m ping --become all
+```
+
+
 ```shell
 # [!] Need to specify ansible explicitly to get a fully functional ansible
 pip install ansible molecule molecule-plugins[docker]
