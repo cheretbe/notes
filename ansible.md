@@ -470,6 +470,25 @@ Molecule doesn't have lint command anymore: https://github.com/ansible/molecule/
 pip install ansible-lint yamllint
 yamllint . --config-data "{extends: default, rules: {line-length: disable, quoted-strings: {quote-type: double, required: false}}}"
 ansible-lint .
+# Permanent yamllint config
+cat > .yamllint<< EOF
+---
+extends: default
+rules:
+  line-length: disable
+  quoted-strings:
+    quote-type: double
+    required: false
+  # https://ansible.readthedocs.io/projects/lint/rules/yaml/
+  comments:
+    min-spaces-from-content: 1
+  comments-indentation: false
+  braces:
+    max-spaces-inside: 1
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
+EOF
 ```
 
 #### Vagrant
