@@ -463,6 +463,15 @@ vault_password_file = ~/vault_env_pass_file.sh
     * https://ansible.readthedocs.io/projects/molecule/configuration/
 * Pugins: https://github.com/ansible-community/molecule-plugins
 
+#### Lint
+Molecule doesn't have lint command anymore: https://github.com/ansible/molecule/pull/3802
+```shell
+# The workaround is to run it manually
+pip install ansible-lint yamllint
+yamllint . --config-data "{rules: {line-length: disable}}"
+ansible-lint .
+```
+
 #### Vagrant
 
 ```shell
