@@ -468,7 +468,7 @@ Molecule doesn't have lint command anymore: https://github.com/ansible/molecule/
 ```shell
 # The workaround is to run it manually
 pip install ansible-lint yamllint
-yamllint . --config-data "{extends: default, rules: {line-length: disable}}"
+yamllint . --config-data "{extends: default, rules: {line-length: disable, quoted-strings: {quote-type: double, required: false}}}"
 ansible-lint .
 ```
 
