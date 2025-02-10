@@ -9,6 +9,7 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 
 ## Installation
 
+* Since DHCP is not an option (see below), when changing static ip after editing `/etc/networking/interfaces` don't forget to update `/etc/hosts` entry
 * Stuck on detecting video card
   * Navigate to Install Proxmox VE (Terminal UI) and press <kbd>e</kbd> to edit the entry. Using the arrow keys, navigate to the line starting with linux, move the cursor to the end of that line and add the parameter nomodeset, separated by a space from the pre-existing last parameter.
   * https://pve.proxmox.com/pve-docs/chapter-pve-installation.html#nomodeset_kernel_param
