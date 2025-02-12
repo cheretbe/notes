@@ -501,6 +501,40 @@ ANSIBLE_CONFIG=~/.cache/molecule/linux-provision/default/ansible.cfg \
    -m ping --become all
 ```
 
+```shell
+# [!] Use correct extension pack version
+VBoxManage --version
+# As root
+VBoxManage extpack install --replace Oracle_VM_VirtualBox_Extension_Pack-7.0.22.vbox-extpack
+
+cd ~/.cache/molecule/linux-provision/default/
+vboxmanage showvminfo $(cat .vagrant/machines/ubuntu-24.04.local.test/virtualbox/id) --machinereadable | grep vrdeport=
+
+# on the client (select "Current KRDC Size", empty user name)
+krdc rdp://host.domain.tld:5992
+```
+
+```yaml
+---
+
+driver:
+  name: vagrant
+platforms:
+  # change_host_name in VagrantPlugins::ProviderVirtualBox::Provider correctly sets FQDN in /etc/hosts when
+  # host.domain.tld name format is used
+  - name: ubuntu-22.04.local.test
+    box: ubuntu/jammy64
+  # Canonical will no longer publish Vagrant images directly starting with Ubuntu 24.04 LTS (Noble Numbat)
+  # https://documentation.ubuntu.com/public-images/en/latest/public-images-explanation/vagrant/#support
+  # https://github.com/chef/bento
+  - name: ubuntu-24.04.local.test
+    box: bento/ubuntu-24.04
+    memory: 512
+    cpus: 1
+    provider_raw_config_args:
+      - "customize ['modifyvm', :id, '--vrdeaddress', '0.0.0.0']"
+```
+
 
 ```shell
 # [!] Need to specify ansible explicitly to get a fully functional ansible
