@@ -1,6 +1,9 @@
 
 ### Unsorted
 ```shell
+# compare two arbitrary files
+git diff --no-index file1 file2
+
 git fetch origin && git merge main
 
 # C:/Program Files/Git/mingw64/etc/gitconfig
