@@ -17,6 +17,31 @@ git checkout -b <branch>
 # Edit files, add and commit
 # -u (short for --set-upstream)
 git push -u origin <branch>
+
+### Draft for "You have divergent branches and need to specify how to reconcile them" condition fix
+# State: commited changes without doing 'git pull' first
+# 1. [!!!] Make a copy of the current state
+# 2. Make a fresh clone of the repo somewhere else
+cd ~/temp/recovery
+git clone git@github.com:cheretbe/ansible-playbooks.git
+# 3. Make sure the branch is correct
+git status
+git checkout develop
+# 4. [optional] User config
+git config user.name username
+git config user.email user@domain.tld
+# 5. Identify desired commit ID
+#    [!] ~ won't work
+git --git-dir=/home/npa/projects/ansible-playbooks/.git log -3
+# 6. Apply commit
+#    -k, --keep-subject Do not strip/add [PATCH] from the first line of the commit log message
+#    -1 is for one single commit alone
+#    git-am - Apply a series of patches from a mailbox
+#    -3 means trying the three-way merge if the patch fails to apply cleanly
+ git --git-dir=/home/npa/projects/ansible-playbooks/.git format-patch -k -1 --stdout <commit SHA> | git am -3 -k
+# 7. View the diff
+git diff HEAD^ HEAD
+# source: https://stackoverflow.com/questions/5120038/is-it-possible-to-cherry-pick-a-commit-from-another-git-repository/9507417#9507417
 ```
 #### Merging
 * Check vscode as merge tool: https://www.roboleary.net/vscode/2020/09/15/vscode-git.html
