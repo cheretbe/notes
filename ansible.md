@@ -499,6 +499,9 @@ EOF
 ANSIBLE_CONFIG=~/.cache/molecule/linux-provision/default/ansible.cfg \
   ansible -i ~/.cache/molecule/linux-provision/default/inventory/ansible_inventory.yml \
    -m ping --become all
+
+cd ~/.cache/molecule/linux-provision/default
+vagrant snapshot save initial-state
 ```
 
 ```shell
