@@ -1,3 +1,4 @@
+* :warning: https://tginfo.me/how-to-retrieve-telegram-account/
 * https://core.telegram.org/bots#6-botfather
     * Create a bot and get its token (? - Try username that begins with username if getting message that the name is not unique. E.g. `username_blah_bot`)
     * Get chat id: `curl https://api.telegram.org/bot$MY_TG_BOT_TOKEN/getUpdates | jq`
