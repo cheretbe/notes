@@ -7,6 +7,10 @@ docker exec -it powershell pwsh
 
 apt update
 apt install -y nano
+
+$cred = Get-Credential -UserName "user@domain.tld"
+$cred | Export-CliXml -Path "/root/cred.xml"
+
 nano /root/.config/powershell/Microsoft.PowerShell_profile.ps1
 ```
 
