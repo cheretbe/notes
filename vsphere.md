@@ -1,3 +1,25 @@
+#### Initial setup
+
+```shell
+docker run -dti -v ${HOME}/temp/powershell-root:/root -v ${HOME}/projects:/projects:ro --name powershell mcr.microsoft.com/powershell:preview-7.5-ubuntu-24.04 bash
+
+docker exec -it powershell pwsh
+
+apt update
+apt install -y nano
+nano /root/.config/powershell/Microsoft.PowerShell_profile.ps1
+```
+
+`/root/.config/powershell/Microsoft.PowerShell_profile.ps1` example
+```powershell
+Write-Output "Setting DNS server to 192.168.0.100"
+@("nameserver 192.168.0.100", "search .") | Set-Content "/etc/resolv.conf"
+Write-Output "Connecting to vsphere.domain.tld"
+$cred = Import-CliXml -Path "/root/cred.xml"
+Connect-VIServer -Server vsphere.domain.tld -Credential $cred
+```
+
+
 * http://www.vmwareadmins.com/finding-orphaned-vmdks-using-powercli/
 ```powershell
 # tremendously slow, but seems to work
