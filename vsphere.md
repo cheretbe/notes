@@ -19,7 +19,7 @@ $cred = Import-CliXml -Path "/root/cred.xml"
 Connect-VIServer -Server vsphere.domain.tld -Credential $cred
 ```
 
-
+#### Orphaned disks
 * http://www.vmwareadmins.com/finding-orphaned-vmdks-using-powercli/
 ```powershell
 # tremendously slow, but seems to work
