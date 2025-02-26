@@ -5,6 +5,10 @@ docker run -dti -v ${HOME}/temp/powershell-root:/root -v ${HOME}/projects:/proje
 
 docker exec -it powershell pwsh
 
+Install-Module -Name VMware.PowerCLI -Force
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$FALSE
+Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $FALSE -Confirm:$FALSE
+
 apt update
 apt install -y nano
 
