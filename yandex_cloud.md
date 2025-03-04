@@ -26,6 +26,10 @@ yc compute image list --folder-id standard-images
 yc compute image list --folder-id standard-images --format json | jq -r '[.[] | select(.family == "ubuntu-2204-lts")] | sort_by(.created_at)[-1].id'
 yc compute image list --folder-id standard-images --format json | jq -r '[.[] | select(.family == "ubuntu-2204-lts")] | sort_by(.created_at)[-1] | .id + " " + .name + " created at: " + .created_at'
 
+# Import an image from a different cloud or folder
+yc compute image list --folder-name my-source-folder
+yc compute image create --folder-id 00000000000000000000 --source-image-id=fd8o0pt9qfbt********
+
 yc vpc subnet list
 
 # [!!] user name is ya-cloud
