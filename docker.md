@@ -11,6 +11,12 @@
 * https://www.googlinux.com/how-to-list-all-tags-of-a-docker-image/
 
 ```shell
+docker system df
+
+# Remove build cache
+docker buildx du
+docker buildx prune
+
 # Remove -f to see what's going to be deleted (example below)
 #   - all stopped containers
 #   - all networks not used by at least one container
