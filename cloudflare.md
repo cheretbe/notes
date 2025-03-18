@@ -5,7 +5,10 @@ curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/clie
 # Get zone ID
 my_zone_id=$(curl -X GET -H "Authorization: Bearer $my_token" https://api.cloudflare.com/client/v4/zones/?name=domain.tld | jq -r ".result[].id")
 # Get DNS record
+# https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/list/
 curl -X GET -H "Authorization: Bearer $my_token" "https://api.cloudflare.com/client/v4/zones/$my_zone_id/dns_records?type=A&name=host.domain.tld" | jq
+# Additional parameters (comment.contains=test)
+curl -X GET -H "Authorization: Bearer $my_token" "https://api.cloudflare.com/client/v4/zones/$my_zone_id/dns_records?type=A&name=host.domain.tld&comment.contains=test" | jq
 ```
 
 * https://github.com/cloudflare/cloudflare-go/releases
