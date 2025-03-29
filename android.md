@@ -1,6 +1,18 @@
 * Player to test: https://krosbits.in/musicolet/
     * https://play.google.com/store/apps/details?id=in.krosbits.musicolet
     * https://www.techsupportalert.com/content/musicolet-music-player.htm
+ 
+### MTP
+
+* https://github.com/hanwen/go-mtpfs
+```shell
+apt install go-mtpfs
+# as user
+mkdir -p ~/mnt/android
+go-mtpfs ~/mnt/android &
+tree -d ~/mnt/android
+fusermount -u ~/mnt/android
+```
 
 ### Xiaomi Redmi
 
