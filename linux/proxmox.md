@@ -96,6 +96,18 @@ lvremove /dev/hdd-sas-1/vm-103-hdd-sas-1
 
 cat /etc/pve/storage.cfg
 ```
+Remove an LVM disk
+```shell
+# 1. Make sure the disk in not used in the VM (zpool detach, umount + /etc/fstab edit etc.)
+# 2. Detach disk from the VM
+# 3. Detached disk will change its status to "Unused Disk x". Select it and click "Delete". This will delete the LV
+# 4. Remove VG and PV if there are no LVs left
+vgscan
+pvscan
+vgremove hdd-sas-X
+pvscan
+pvremove /dev/sdX
+```
 
 ## LXC
 ### Images
