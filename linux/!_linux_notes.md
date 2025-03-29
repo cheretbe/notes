@@ -8,6 +8,11 @@ HEIC to JPG
 # this appears to work better
 sudo apt install libheif-examples
 for file in *.heic; do heif-convert $file ${file/%.heic/.jpg}; done
+# Convert recursively and delete originals
+for file in **/*.heic; do echo "$file"; heif-convert "$file" "${file/%.heic/.jpg}" || break; done
+# Double check that loop didn't break with "Input file is not an HEIF/AVIF file" message
+for file in **/*.heic; do echo "$file"; rm "$file"; done
+
 # doesn't work?
 for i in *.heic; do ffmpeg -i "$i" "${i%.*}.jpg"; done
 ```
