@@ -1,4 +1,7 @@
 ```shell
+# [!!]
+jq '.["Controllers"][]["Response Data"]["Virtual Drives"][]["State"]'
+
 # List env variables
 jq -n 'env'
 
