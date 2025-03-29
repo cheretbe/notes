@@ -61,6 +61,18 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 
 ## LVM
 
+Disk identification
+```shell
+# Disk names in the UI (scsi0, etc)
+#   Hard Disk (scsi0)
+#   Hard Disk (scsi1)
+# Will have corresponding serials in the VM:
+lsblk --nodeps -o NAME,SERIAL
+# NAME SERIAL
+# sda  drive-scsi0
+# sdb  drive-scsi1
+```
+
 ```shell
 pvcreate /dev/sdd /dev/sde
 vgcreate hdd-sas-2 /dev/sde
