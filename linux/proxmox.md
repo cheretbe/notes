@@ -102,6 +102,9 @@ Remove an LVM disk
 # 2. Detach disk from the VM
 # 3. Detached disk will change its status to "Unused Disk x". Select it and click "Delete". This will delete the LV
 # 4. Remove VG and PV if there are no LVs left
+#    Datacenter > Storage > Remove
+#    [!!] Select Datacenter object iself, then click storage item in the right
+#      panel (not Storage subitem in the tree on the left)
 vgscan
 pvscan
 vgremove hdd-sas-X
