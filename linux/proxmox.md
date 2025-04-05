@@ -38,9 +38,9 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
   ```
 * Add new user
   * Counter-intuitive as usual
-    * First add user in Datacenter > Persmissions > Users
-    * Then select Datacenter > Permissionn and click Add > Use Permission **there**
-    * Permissions button in Datacenter > Persmissions > Users shows read-only combination of effectiver permissions
+    * First add user in `Datacenter` > `Persmissions` > `Users`
+    * Then select `Datacenter` > `Permissions` and click `Add` > `User Permission` **there**
+    * `Permissions` button in `Datacenter` > `Persmissions` > `Users` shows read-only combination of effectiver permissions
   * https://forum.proxmox.com/threads/add-new-administrator-user.102650/
   * :warning: Some actions are available as root only (at the minimum install updates, attach USB devices)
 * DHCP
