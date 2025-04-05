@@ -41,8 +41,9 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
     * First add user in `Datacenter` > `Persmissions` > `Users`
     * Then select `Datacenter` > `Permissions` and click `Add` > `User Permission` **there**
     * `Permissions` button in `Datacenter` > `Persmissions` > `Users` shows read-only combination of effectiver permissions
-  * https://forum.proxmox.com/threads/add-new-administrator-user.102650/
-  * :warning: Some actions are available as root only (at the minimum install updates, attach USB devices)
+    * https://forum.proxmox.com/threads/add-new-administrator-user.102650/
+    * :warning: Some actions are available as root only (at the minimum install updates, attach USB devices)
+  * API tokens are in `Datacenter` > `Persmissions` > `API tokens`
 * DHCP
   * Using dhcp and 127.0.1.1 in `/etc/host` leads to error: `[main] crit: Unable to resolve node name 'node-name' to a non-loopback IP address - missing entry in '/etc/hosts' or DNS?`
   * There is an (ugly) hack
