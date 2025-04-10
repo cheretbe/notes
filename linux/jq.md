@@ -1,4 +1,7 @@
 ```shell
+# convert to array of objects (first map), select objects, then convert to array of field values (second map) and join
+openstack port list --long --format json | jq -r 'map(select((.Name == "") and (."Device Owner" != "network:distributed"))) | map(.ID) | join(" ")'
+
 # [!!]
 jq '.["Controllers"][]["Response Data"]["Virtual Drives"][]["State"]'
 
