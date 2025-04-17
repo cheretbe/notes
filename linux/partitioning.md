@@ -7,6 +7,10 @@ parted
 ```shell
 # grow a partition (see also growpart above)
 resizepart 2 100%
+
+# batch
+parted -s /dev/sda resizepart 2 100%
+parted -s /dev/sda resizepart 5 100%
 ```
 
 ```shell
