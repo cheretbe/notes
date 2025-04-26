@@ -77,6 +77,7 @@ curl -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token"
 
 # Download an image
 # 1. Start download task (node and storage parameters are mandatory)
+#    content="import" supports only .ova images (make sure storage has "Import" option in "Content" property)
 task_id=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" \
   --data-urlencode content="iso" \
   --data-urlencode url="https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img" \
@@ -88,7 +89,7 @@ task_id=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'
      jq -r '.data'
 )
 # 2. Check status (running|stopped)
-#    In UI it is in Datacenter > Nodes > mp1 > Task History
+#    In UI it is in Datacenter > Nodes > mp1 > Task History (current tasks are below under "Logs")
 task_status=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" \
   https://pm1.domain.tld:8006/api2/json/nodes/pm1/tasks/${task_id}/status |
     jq -r '.data.status'
