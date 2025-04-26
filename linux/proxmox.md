@@ -71,7 +71,32 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 # There is no easy way to escape an ! in double quotes, so this is a reasonable workaround
 # https://superuser.com/questions/133780/in-bash-how-do-i-escape-an-exclamation-mark
 # Authorization header has a form of PVEAPIToken=USER@REALM!TOKENID=UUID
+
+# Get available space
 curl -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" https://pm1.domain.tld:8006/api2/json/nodes/pm1/storage/local/status | jq '.data.avail'
+
+# Download an image
+# 1. Start download task (node and storage parameters are mandatory)
+task_id=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" \
+  --data-urlencode content="iso" \
+  --data-urlencode url="https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img" \
+  --data-urlencode filename="noble-server-cloudimg-amd64.img" \
+  --data-urlencode node="pm1" \
+  --data-urlencode storage="local" \
+  -X POST \
+   https://pm1.domain.tld:8006/api2/json/nodes/pm1/storage/local/download-url |
+     jq -r '.data'
+)
+# 2. Check status (running|stopped)
+task_status=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" \
+  https://pm1.domain.tld:8006/api2/json/nodes/pm1/tasks/${task_id}/status |
+    jq -r '.data.status'
+)
+# 3. Check result when stopped (should be "OK")
+task_result=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" \
+  https://pm1.domain.tld:8006/api2/json/nodes/pm1/tasks/${task_id}/status |
+    jq -r '.data.exitstatus'
+)
 ```
 
 ## LVM
