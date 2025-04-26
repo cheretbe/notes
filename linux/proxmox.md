@@ -64,6 +64,15 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
     * Nodes can be added/removed only if there are no VMs/containers on it
     * Renaming a node becomes effectively impossible - same problems as with a single node plus cluster config files (:warning: replicated on each node of a cluster)
 
+## API
+
+```shell
+# Note '!' usage together with "$var"
+# There is no easy way to escape an ! in double quotes, so this is a reasonable workaround
+# https://superuser.com/questions/133780/in-bash-how-do-i-escape-an-exclamation-mark
+curl -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" https://pm1.domain.tld:8006/api2/json/nodes/pm1/storage/local/status | jq '.data.avail'
+```
+
 ## LVM
 
 Disk identification
