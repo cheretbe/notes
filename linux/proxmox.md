@@ -88,6 +88,7 @@ task_id=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'
      jq -r '.data'
 )
 # 2. Check status (running|stopped)
+#    In UI it is in Datacenter > Nodes > mp1 > Task History
 task_status=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@pve"'!'"ansible_pve_token=$my_token" \
   https://pm1.domain.tld:8006/api2/json/nodes/pm1/tasks/${task_id}/status |
     jq -r '.data.status'
