@@ -109,7 +109,7 @@ As always everything is not quite straightforward 🙂 There is no easy way to u
 * This leaves 3 options to create a VM
     * 1. Download `.ova` archive using `content="import"` option, create a template from it and then use Ansible `community.general.proxmox_kvm` module to create a VM from this template
         * pros: can be done using API only, template is easy to use for manual VM creation
-        * cons: uses additional storage space, template needs changing parameters after creation (controller types etc.)
+        * cons: uses additional storage space, template needs changing parameters after creation (controller types etc.), Debian doesn't have an official OVA archive
     * 2. Download `.qcow2` image as `.img` using `content="iso"` option, create a diskless template, use console command `qm importdisk <vm_id> /var/lib/vz/template/iso/noble-server-cloudimg-amd64.img <storage_name>` to create a disk and attach this disk to template
           * pros: reusable template
           * cons: console command usage as root, rather difficult logic to figure out VM ID and local file path
