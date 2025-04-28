@@ -113,7 +113,7 @@ As always everything is not quite straightforward 🙂 There is no easy way to u
     * 2. Download `.qcow2` image as `.img` using `content="iso"` option, create a diskless template, use console command `qm importdisk <vm_id> /var/lib/vz/template/iso/noble-server-cloudimg-amd64.img <storage_name>` to create a disk and attach this disk to template
           * pros: reusable template
           * cons: console command usage as root, rather difficult logic to figure out VM ID and local file path
-      3. Download `.qcow2` image file directly to a non-existing VM ID local directory `/var/lib/vz/images/999/`, then create a VM using `import-from=local:images/debian-12-generic-amd64.img` parameter
+    * 3. Download `.qcow2` image file directly to a non-existing VM ID local directory `/var/lib/vz/images/999/`, then create a VM using `import-from=local:images/debian-12-generic-amd64.img` parameter
           * pros: uses less disk space
           * cons: ugly hack, manual VM creation will require `qm importdisk` usage
 
