@@ -106,6 +106,16 @@ As always everything is not quite straightforward 🙂 There is no easy way to u
 * [download-url](https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/download-url) method doesn't support downloading VM images, only `iso` (`.iso`, `.img`), `import` (`.ova`), vztmpl (?)
     * https://bugzilla.proxmox.com/show_bug.cgi?id=4141
 * There is no way to copy QCOW2 image saved as an `.img` to a datastore using API. There is a workaround: use `import-from` parameter during VM creation. But it doesn't support copying from "images" section of a store ("local:images/debian-12-generic-amd64.img" fails). So a dirty hack is needed to use a workaround: place image file under non-existent VM ID (as suggested [here](https://www.reddit.com/r/Proxmox/comments/y51x5h/qemu_importfrom_qcow2_without_root/))
+* This leaves 3 options to create a VM
+    * 1. Download `.ova` archive using `content="import"` option, create a template from it and then use Ansible `community.general.proxmox_kvm` module to create a VM from this template
+        * pros: can be done using API only, template is easy to use for manual VM creation
+        * cons: uses additional storage space, template needs changing parameters after creation (controller types etc.)
+    * 2. Download `.qcow2` image as `.img` using `content="iso"` option, create a diskless template, use console command `qm importdisk <vm_id> /var/lib/vz/template/iso/noble-server-cloudimg-amd64.img <storage_name>` to create a disk and attach this disk to template
+          * pros: reusable template
+          * cons: console command usage as root, rather difficult logic to figure out VM ID and local file path
+      3. Download `.qcow2` image file directly to a non-existing VM ID local directory `/var/lib/vz/images/999/`, then create a VM using `import-from=local:images/debian-12-generic-amd64.img` parameter
+          * pros: uses less disk space
+          * cons: ugly hack, manual VM creation will require `qm importdisk` usage
 
 ## LVM
 
