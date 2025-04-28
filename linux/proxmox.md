@@ -102,10 +102,10 @@ task_result=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@p
 ```
 
 #### VM creation gotchas
-As always everything is not quite straightforward 🙂 There is not easy way to use existing qcow2 image using API. Situation summary as of 28.04.2005
+As always everything is not quite straightforward 🙂 There is no easy way to use existing qcow2 image using API only. Situation summary as of 28.04.2005
 * [download-url](https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/download-url) method doesn't support downloading VM images, only `iso` (`.iso`, `.img`), `import` (`.ova`), vztmpl (?)
     * https://bugzilla.proxmox.com/show_bug.cgi?id=4141
-* There is no way to copy QCOW2 image saved as an `.img` to 
+* There is no way to copy QCOW2 image saved as an `.img` to a datastore using API. There is a workaround: use `import-from` parameter during VM creation. But it doesn't support copying from "images" section of a store ("local:images/debian-12-generic-amd64.img" fails). So a dirty hack is needed to use a workaround: place image file under non-existent VM ID (as suggested [here](https://www.reddit.com/r/Proxmox/comments/y51x5h/qemu_importfrom_qcow2_without_root/))
 
 ## LVM
 
