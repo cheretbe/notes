@@ -101,6 +101,12 @@ task_result=$(curl --fail-with-body -sS -H "Authorization: PVEAPIToken=ansible@p
 )
 ```
 
+#### VM creation gotchas
+As always everything is not quite straightforward 🙂 There is not easy way to use existing qcow2 image using API. Situation summary as of 28.04.2005
+* [download-url](https://pve.proxmox.com/pve-docs/api-viewer/index.html#/nodes/{node}/storage/{storage}/download-url) method doesn't support downloading VM images, only `iso` (`.iso`, `.img`), `import` (`.ova`), vztmpl (?)
+    * https://bugzilla.proxmox.com/show_bug.cgi?id=4141
+* There is no way to copy QCOW2 image saved as an `.img` to 
+
 ## LVM
 
 Disk identification
