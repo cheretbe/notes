@@ -116,6 +116,42 @@ As always everything is not quite straightforward 🙂 There is no easy way to u
     * 3. Download `.qcow2` image file directly to a non-existing VM ID local directory `/var/lib/vz/images/999/`, then create a VM using `import-from=local:images/debian-12-generic-amd64.img` parameter
           * pros: uses less disk space
           * cons: ugly hack, needs disk resize after creation, manual VM creation will require `qm importdisk` usage
+        
+#### Direct API calls using Ansible
+
+```yml
+# [!] Just for the reference, use 'community.general.proxmox_disk' and 'community.general.proxmox_tasks_info' modules
+
+- name: Resize system disk
+  ansible.builtin.uri:
+    url: "https://{{ proxmox_vm_api_host }}:8006/api2/json/nodes/{{ proxmox_vm_node }}/qemu/{{ __pvm_vm_data.vmid }}/resize"
+    headers:
+      Authorization: "PVEAPIToken={{ proxmox_vm_api_user }}!{{ proxmox_vm_api_token_id }}={{ proxmox_vm_api_token_secret }}"
+    method: PUT
+    body_format: form-urlencoded
+    body:
+      node: "{{ proxmox_vm_node }}"
+      vmid: "{{ __pvm_vm_data.vmid }}"
+      disk: virtio0
+      size: 10G
+  delegate_to: localhost
+  register: __pvm_resize_request_result
+
+- name: Wait for resize to complete
+  ansible.builtin.uri:
+    url: "https://{{ proxmox_vm_api_host }}:8006/api2/json/nodes/{{ proxmox_vm_node }}/tasks/{{ __pvm_resize_request_result.json.data }}/status"
+    headers:
+      Authorization: "PVEAPIToken={{ proxmox_vm_api_user }}!{{ proxmox_vm_api_token_id }}={{ proxmox_vm_api_token_secret }}"
+  delegate_to: localhost
+  register: __pvm_resize_task_status
+  until: __pvm_resize_task_status.json.data.status == 'stopped'
+  retries: 10
+  delay: 6
+
+- name: Check resize result
+  ansible.builtin.assert:
+    that: __pvm_resize_task_status.json.data.exitstatus == 'OK'
+```
 
 ## LVM
 
