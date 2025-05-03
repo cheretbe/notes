@@ -81,6 +81,8 @@ qm terminal <vm_id>
 
 ## API
 
+* https://pve.proxmox.com/pve-docs/api-viewer/index.html
+
 ```shell
 # Note '!' usage together with "$var"
 # There is no easy way to escape an ! in double quotes, so this is a reasonable workaround
