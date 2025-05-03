@@ -64,6 +64,14 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
     * Nodes can be added/removed only if there are no VMs/containers on it
     * Renaming a node becomes effectively impossible - same problems as with a single node plus cluster config files (:warning: replicated on each node of a cluster)
 
+## Serial console
+* https://pve.proxmox.com/wiki/Serial_Terminal
+```shell
+qm list
+# Press Ctrl+O to exit (O, not 0 🙂)
+qm terminal <vm_id>
+```
+
 ## API
 
 ```shell
