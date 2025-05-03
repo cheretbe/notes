@@ -65,7 +65,14 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
     * Renaming a node becomes effectively impossible - same problems as with a single node plus cluster config files (:warning: replicated on each node of a cluster)
 
 ## Serial console
+
 * https://pve.proxmox.com/wiki/Serial_Terminal
+* `Hardware` > `Add` > `Serial Port`, Serial Port: `0`
+    ```yml
+    # 'community.general.proxmox_kvm' syntax
+    serial:
+      serial0: socket
+    ``` 
 ```shell
 qm list
 # Press Ctrl+O to exit (O, not 0 🙂)
