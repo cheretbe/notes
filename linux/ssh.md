@@ -1,6 +1,17 @@
 * https://linux.die.net/man/5/sshd_config
 * https://linux.die.net/man/5/ssh_config
 
+```shell
+# View complete set of active settings
+# Client
+#   -G  Causes ssh to print its configuration after evaluating Host and Match blocks and exit
+ssh -G host.domain.tld
+# Server (as root)
+#   -T  Extended test mode.  Check the validity of the configuration file, output the effective
+#       configuration to stdout and then exit
+sshd -T
+```
+
 On server in `/etc/ssh/sshd_config`:
 ```
 # Multiple environment variables may be separated by whitespace or spread across multiple AcceptEnv directives
