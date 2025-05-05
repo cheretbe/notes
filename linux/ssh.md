@@ -232,6 +232,11 @@ https://access.redhat.com/solutions/1166283
 ### SSH Keys
 
 ```shell
+# -H Hash a known_hosts file
+# -F hostname | [hostname]:port
+ssh-keygen -H -F host.domain.tld
+ssh-keygen -R host.domain.tld
+
 # https://security.stackexchange.com/questions/143442/what-are-ssh-keygen-best-practices/144044#144044
 # https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54
 # -a rounds When saving a private key, this option specifies the number of KDF (key derivation function, currently
