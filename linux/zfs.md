@@ -298,6 +298,7 @@ zfs list -t snapshot
 # View snapshots space usage
 zfs list -ro space
 # Access snapshot content
+# [!!] Use clone (example below)
 ls /mountpoint/pool/.zfs/snapshot/snap-name
 ls /mountpoint/pool/path/.zfs/snapshot/snap-name
 
