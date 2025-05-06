@@ -265,9 +265,17 @@ newaliases
 
 ```shell
 # View zlib-compressed log file
+# [!] if doesn't work see zlib-flate example below
 printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - XferLOG.5.z | gzip -dc | less
 # or use BackupPC_zcat - as backuppc server (!) user
 /usr/local/BackupPC/bin/BackupPC_zcat /var/lib/backuppc/pc/hostname/XferLOG.1.z
+#
+# alternative: zlib-flate
+sudo apt install qpdf
+# view binary file
+zlib-flate -uncompress < /mnt/zfs-data/backuppc/cpool/8e/84/8e845253718904ff758271d6c2696053 | xxd | less
+# extract
+zlib-flate -uncompress < /mnt/zfs-data/backuppc/cpool/8e/84/8e845253718904ff758271d6c2696053 > ~/temp/extracted
 
 # List backup contents
 /usr/local/BackupPC/bin/BackupPC_ls -h hostname -n 26 -s /home /
