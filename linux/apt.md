@@ -4,7 +4,7 @@ sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
 apt update && apt -y dist-upgrade
 # Fully non-interactive dist-upgrade (keeps current version of config files)
 # https://serverfault.com/questions/259226/automatically-keep-current-version-of-config-files-when-apt-get-install
-DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -qq dist-upgrade-o Dpkg::Options::="--force-confold"
+DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -qq dist-upgrade -o Dpkg::Options::="--force-confold"
 ```
 
 ```shell
