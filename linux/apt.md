@@ -1,5 +1,6 @@
 ```shell
 # Debian 11 > 12 upgrade
+# [!!] Don't forget to check third-party files in /etc/apt/sources.list.d/
 sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
 apt update && apt -y dist-upgrade
 # Fully non-interactive dist-upgrade (keeps current version of config files)
