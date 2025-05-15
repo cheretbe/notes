@@ -68,3 +68,25 @@ foreach ($ds in (Get-Datastore | where { $_.ExtensionData.Parent -eq $dsCluster.
 
 ("Total size: {0}" -f $totalSize)
 ```
+
+```powershell
+# https://vprhlabs.blogspot.com/2016/07/move-vm-files-between-datastore-using.html
+# Didn't actually work, failed on a couple of *-ctk.vmdk files. Didn't try on anything else 
+
+Connect-VIServer vcenter-server
+
+$dstDatastore = Get-Datastore destination-Datastore-Name
+New-PSDrive -PSProvider VimDatastore -Root "\"  -location $dstDatastore -Name dstDS
+
+$vmdks = Import-Csv c:\temp\vmdk-folders.csv
+foreach ( $vmdk in $vmdks ) { 
+  Write-Host Moving $vmdk.vmdkfolder from $vmdk.datastore....
+  $srcDatastore = Get-Datastore $vmdk.datastore
+  $vmdkfolder = $vmdk.vmdkFolder
+  New-PSDrive -PSProvider VimDatastore -Root "\"  -location $srcDatastore -Name srcDS
+  Move-Item srcDs:\$vmdkfolder -Destination dstDS:\
+  Remove-PSDrive -Name srcDS
+}
+
+Remove-PSDrive -Name dstDS
+```
