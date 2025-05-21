@@ -1,3 +1,5 @@
+Trigger dependecies: add parent in dependent trigger (i.e. add average in warning settings)
+
 ### Templates
 
 * https://superuser.com/questions/1016290/how-to-edit-a-zabbix-trigger-for-a-specific-host
