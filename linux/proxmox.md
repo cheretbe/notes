@@ -7,6 +7,25 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 ```
 * https://forum.proxmox.com/threads/how-to-mount-etc-pve-in-rescue-mode.12496/
 
+## System disk layout
+
+Proxmox's default setup is to create an LVM volume group called pve. It will then create a thin-pool called data on that volume group, as well as a normal ("thick") logical volume called root on there for your root filesystem (/). A storage configuration called `local-lvm` is then configured to use the data thin pool, which your KVM guests will be set to utilize.
+
+* https://blog.programster.org/proxmox-storage-guide#proxmox-default-storage-setup
+* https://unix.stackexchange.com/questions/629607/what-is-lvm-tmeta-tdata-in-lsblk/629647#629647
+
+```shell
+# Thin Pools Carry Danger
+# Removing default "local-lvm" storage
+
+# Check if local-lvm with type lvmthin is present
+pvesm status
+# This does not delete any data, and does not disconnect or unmount anything. It just removes the storage configuration.
+pvesm remove local-lvm
+lvremove /dev/pve/data
+lvresize -l+100%FREE /dev/pve/root
+```
+
 ## Installation
 
 * :warning: Since DHCP is not an option (see below), when changing static ip after editing `/etc/networking/interfaces` don't forget to update `/etc/hosts` entry
@@ -172,7 +191,7 @@ As always everything is not quite straightforward 🙂 There is no easy way to u
 
 ## LVM
 
-Disk identification
+VM disk identification
 ```shell
 # Disk names in the UI (scsi0, etc)
 #   Hard Disk (scsi0)
