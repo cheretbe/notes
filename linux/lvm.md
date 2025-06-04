@@ -28,7 +28,12 @@ pvdisplay
 vgcreate vg_name /dev/sdb1 [/dev/sdc1]
 vgdisplay
 
-
+# Size[UNIT]
+# Size is an input number that accepts an optional unit.  Input units are always treated as base two values, regardless
+# of capitalization, e.g. 'k' and 'K' both refer to 1024.  The default input  unit  is  specified by letter, followed by |UNIT.
+# UNIT represents other possible input units: b|B is bytes, s|S is sectors of 512 bytes, k|K is KiB, m|M is MiB, g|G is GiB,
+# t|T is TiB, p|P is PiB, e|E is EiB.  (This should not be confused with the output control --units, where capital letters mean
+# multiple of 1000.)
 lvcreate --name lv_name --size 100G name_vg
 # All free space
 lvcreate --name lv_name -l +100%FREE name_vg
