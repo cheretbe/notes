@@ -34,6 +34,7 @@ vgdisplay
 # UNIT represents other possible input units: b|B is bytes, s|S is sectors of 512 bytes, k|K is KiB, m|M is MiB, g|G is GiB,
 # t|T is TiB, p|P is PiB, e|E is EiB.  (This should not be confused with the output control --units, where capital letters mean
 # multiple of 1000.)
+# hint: use b for bytes
 lvcreate --name lv_name --size 100G name_vg
 # All free space
 lvcreate --name lv_name -l +100%FREE name_vg
