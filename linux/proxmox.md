@@ -5,6 +5,10 @@ Its content is in `/var/lib/pve-cluster/config.db` SQLite file
 ```shell
 sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 ```
+Node notes
+```shell
+cat cat /etc/pve/nodes/pm1/config
+```
 * https://forum.proxmox.com/threads/how-to-mount-etc-pve-in-rescue-mode.12496/
 
 ## System disk layout
