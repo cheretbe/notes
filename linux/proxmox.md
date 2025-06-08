@@ -7,7 +7,7 @@ sqlite3 /var/lib/pve-cluster/config.db 'select * from tree' | less
 ```
 Node notes
 ```shell
-cat cat /etc/pve/nodes/pm1/config
+cat /etc/pve/nodes/node_name/config
 ```
 * https://forum.proxmox.com/threads/how-to-mount-etc-pve-in-rescue-mode.12496/
 
