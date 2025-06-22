@@ -215,6 +215,8 @@ vgcreate hdd-sas-2 /dev/sde
 # Datacenter > Storage > Add > LVM
 # [!!] Select Datacenter object iself, then click storage item in the right
 #      panel (not Storage subitem in the tree on the left)
+# or
+pvesm add lvm hdd-sas-3 --vgname hdd-sas-3 --content rootdir,images
 
 pvesm lvmscan
 pvesm status
