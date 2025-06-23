@@ -262,6 +262,7 @@ newaliases
 * https://backuppc.github.io/backuppc/BackupPC.html#Other-Command-Line-Utilities
 * Re: [BackupPC-users] delete backup: https://sourceforge.net/p/backuppc/mailman/message/35851832/
 * Delete files from Backups: https://sourceforge.net/p/backuppc/mailman/message/36287909/
+* :bulb: https://github.com/backuppc/backuppc/wiki/How-to-find-which-backups-reference-a-particular-pool-file
 
 ```shell
 # View zlib-compressed log file
