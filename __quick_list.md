@@ -16,6 +16,8 @@ zfs list -o space -r pool
 # -d, --nodeps         don't print slaves or holders
 lsblk --nodeps -e7 -o name,serial,type,tran
 
+fallocate -l $((20*1024*1024*1024)) /var/lib/docker/dummy
+
 curl -L -vvv http://connectivitycheck.gstatic.com/generate_204
 
 # test port connection
