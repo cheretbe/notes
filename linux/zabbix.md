@@ -1,5 +1,12 @@
 Trigger dependecies: add parent in dependent trigger (i.e. add average in warning settings)
 
+* Forcing a Metrics Refresh for a Host in Zabbix
+    * Go to Configuration → Hosts
+    * Select your host
+    * Click on Discovery rules in the row of your host
+    * Find the specific discovery rule you want to refresh
+    * Click on Execute now in the Actions column
+
 ### Templates
 
 * https://superuser.com/questions/1016290/how-to-edit-a-zabbix-trigger-for-a-specific-host
