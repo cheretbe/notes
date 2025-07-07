@@ -75,7 +75,7 @@ pex -v --python-shebang="/usr/bin/env python3.6" -r requirements.txt -o test.pex
 * https://docs.python.org/3/distutils/sourcedist.html
 * https://github.com/pypa/pip/issues/4207#issuecomment-281236055 (+ `pip install -t`)
 
-Git ignore
+Git ignore file (.gitignore)
 ```
 .cache/
 __pycache__/
