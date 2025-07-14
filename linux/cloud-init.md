@@ -10,5 +10,23 @@
 apt_preserve_sources_list: true
 apt:
   preserve_sources_list: true
+```
 
+```shell
+# [!] Note \EOF - escapes dollar signs
+cat <<\EOF >/tmp/os_user_data
+#cloud-config
+timezone: Europe/Moscow
+fqdn: host.domain.tld
+users:
+  - name: cheretbe
+    groups: [sudo]
+    lock-passwd: false
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    # mkpasswd -m sha512crypt
+    passwd: "$6$r/5YeV6tiWItqFyh$/xq8F4IkwgARQCbdH5A7mmWn8wbk.QsbH.jnsvaoNFtBvVLT5RSDiJ0NXjCz/M7AsnVMTvXZ5MlrjjvVxvZvN/"
+    ssh_authorized_keys:
+      - "ssh-ed25519 0000000000000000000000000000000000000000000000000000000 cheretbe"
+EOF
 ```
