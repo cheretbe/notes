@@ -1,3 +1,5 @@
+* Soft word wrapping: <kbd>Esc</kbd>+<kbd>$</kbd> (press and release <kbd>Esc</kbd> and then press <kbd>$</kbd>)
+
 ```
 -E, --tabstospaces
 Convert typed tabs to spaces.
