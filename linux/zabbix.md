@@ -82,6 +82,11 @@ Debugging
 zabbix_get -s ip-of-your-agent -k agent.ping
 zabbix_get -s ip-of-your-agent -k agent.version
 zabbix_get -s ip-of-your-agent -k agent.hostname
+
+# on client
+zabbix_agent2 -t system.uptime
+# print all known items
+zabbix_agent2 -p
 ```
 
 ### API
