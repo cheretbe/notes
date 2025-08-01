@@ -87,6 +87,14 @@ zabbix_get -s ip-of-your-agent -k agent.hostname
 zabbix_agent2 -t system.uptime
 # print all known items
 zabbix_agent2 -p
+
+# item discovery
+# piping to jq doesn't work as JSON output is wrapped in [s|[*]] stuff
+zabbix_agent2 -t "systemd.unit.discovery"
+# instead of messing up with awk it's easier to test it on server
+zabbix_get -s host.domain.tld -k 'systemd.unit.info["runner-autoclean.service",ActiveState]'
+# docker
+docker exec -it zabbixdocker_zabbix-server_1zabbix_get -s host.domain.tld -k 'systemd.unit.info["runner-autoclean.service",ActiveState]'
 ```
 
 ### API
