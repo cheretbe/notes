@@ -92,8 +92,10 @@ zabbix_agent2 -p
 # piping to jq doesn't work as JSON output is wrapped in [s|[*]] stuff
 zabbix_agent2 -t "systemd.unit.discovery"
 # instead of messing up with awk it's easier to test it on server
+zabbix_get -s host.domain.tld -k "systemd.unit.discovery[service]" | jq
+docker exec -it zabbixdocker_zabbix-server_1zabbix_get zabbix_get -s host.domain.tld -k "systemd.unit.discovery[service]" | jq
+# check discovered value
 zabbix_get -s host.domain.tld -k 'systemd.unit.info["runner-autoclean.service",ActiveState]'
-# docker
 docker exec -it zabbixdocker_zabbix-server_1zabbix_get -s host.domain.tld -k 'systemd.unit.info["runner-autoclean.service",ActiveState]'
 ```
 
