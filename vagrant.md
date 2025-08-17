@@ -142,6 +142,21 @@ end
       ls /dir2
     SHELL
 ```
+##### Use insecure private key permanently
+
+The key is in `~/.vagrant.d/insecure_private_key`
+```ruby
+# It's obviously a security risk
+config.ssh.insert_key = false
+
+# consider using custom key
+config.ssh.private_key_path = "~/.ssh/your_key"
+# but there is no automatic way to provision its presence on guest VM
+# this example needs to be adjusted to ensure correct authorized_keys file permissions
+# and idempotency (not inserting the key if it's already present)
+config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "/tmp/id_rsa.pub"
+config.vm.provision "shell", inline: "cat /tmp/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys"
+```
 ##### Port forwarding
 
 * https://github.com/hashicorp/vagrant/blob/main/website/content/docs/networking/forwarded_ports.mdx
