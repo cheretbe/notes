@@ -141,7 +141,18 @@ end
       ls /dir2
     SHELL
 ```
-##### Privileged ports forwarding
+##### Port forwarding
+
+* https://github.com/hashicorp/vagrant/blob/main/website/content/docs/networking/forwarded_ports.mdx
+* https://github.com/hashicorp/vagrant/blob/main/plugins/providers/virtualbox/model/forwarded_port.rb#L55
+``` ruby
+config.vm.network "forwarded_port",
+  # bind ssh to all interfaces instead of default 127.0.0.1 ([!] security implications)
+  guest: 22, host: 2222, host_ip: "0.0.0.0", id: "ssh", auto_correct: true
+```
+
+
+For privileged ports (most likely not needed at all):
 ```
 vagrant ssh-config > /tmp/ssh-config-name
 # -g      Allows remote hosts to connect to local forwarded ports.  If used on a multiplexed connection, then this option must be specified on the master
