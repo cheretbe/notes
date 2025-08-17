@@ -101,6 +101,7 @@ end
   # Disable the default /vagrant share
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
+  # see forwarded ports section for advanced settings
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.winrm.password = "password"
 
