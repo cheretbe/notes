@@ -418,6 +418,23 @@ git fetch --all && git status
 
 ### Linux
 
+```shell
+# view configuration details
+python3 -m site
+
+sudo apt install python3-venv build-essential python3-dev
+python3 -m venv ~/.cache/venv/venv-name
+. ~/.cache/venv/venv-name/bin/activate
+# [!] before doing anything else
+pip install --upgrade pip
+pip install wheel
+```
+
+<details>
+  <summary>
+    Old notes
+  </summary>
+
 To review:
 * https://docs.python.org/3/library/venv.html
 * http://chrisstrelioff.ws/sandbox/2016/09/21/python_setup_on_ubuntu_16_04.html
@@ -500,6 +517,7 @@ nano $VIRTUAL_ENV/bin/postactivate
 echo Checking git repo status...
 git fetch --all && git status
 ```
+</details>
 * [\[ TOC \]](#table-of-contents)
 
 ## Requirements
