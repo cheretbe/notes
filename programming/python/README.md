@@ -418,6 +418,16 @@ git fetch --all && git status
 
 ### Linux
 
+* https://github.com/cheretbe/bootstrap/tree/master?tab=readme-ov-file#setup_venvpy
+* https://github.com/cheretbe/notes/blob/master/programming/python/tools/build_python_as_user.sh
+* (todo: review and move to tools) https://github.com/cheretbe/ao-env/blob/master/bin/venv
+    ```shell
+    mkdir -p ~/bin/
+    wget https://raw.githubusercontent.com/cheretbe/ao-env/refs/heads/master/bin/venv -O ~/bin/venv
+    chmod +x ~/bin/venv
+    echo "alias venv='. ~/bin/venv'" >> ~/.bashrc
+    ``` 
+
 ```shell
 # view configuration details
 python3 -m site
