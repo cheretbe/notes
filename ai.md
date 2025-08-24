@@ -1,5 +1,6 @@
 ### ollama
 * Browse models: https://ollama.com/library
+* https://github.com/ollama/ollama/blob/main/docs/api.md
 * Difference between between /api/generate and /api/chat: https://github.com/ollama/ollama/issues/2774
 ```shell
 # as root 😅
