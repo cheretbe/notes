@@ -1,5 +1,6 @@
 ### ollama
 * Browse models: https://ollama.com/library
+* Difference between between /api/generate and /api/chat: https://github.com/ollama/ollama/issues/2774
 ```shell
 # as root 😅
 curl -fsSL https://ollama.com/install.sh | sh
@@ -16,4 +17,24 @@ ollama show deepseek-coder
 curl http://192.168.1.100:11434/api/show -d '{
   "name": "deepseek-coder:latest"
 }' | jq '.details'
+
+# Benchmarking CPU usage
+# View the number of cores available
+nproc
+# Compare response time by changing "num_thread" option
+curl http://192.168.1.100:11434/api/generate -d '
+{  
+"model": "gpt-oss:20b",  
+"prompt": "Why is the blue sky blue?",  
+"stream": false,
+"think": false,
+"options":{
+  "temperature": 0,
+  "system": "You are a bored assistant. Provide short answers.",
+  "num_thread": 20
+}
+}' | jq 'del(.context)'
 ```
+### Deepseek
+* API: https://api-docs.deepseek.com/
+* https://platform.deepseek.com/api_keys
