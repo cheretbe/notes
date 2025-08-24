@@ -39,6 +39,30 @@ curl http://192.168.1.100:11434/api/generate -d '
 }
 }' | jq 'del(.context)'
 ```
+Minimal working config for VSCode (~/.continue/config.yaml)
+```yaml
+name: Local Agent
+version: 1.0.0
+schema: v1
+models:
+  - name: Autodetect
+    provider: ollama
+    apiBase: "http://192.168.1.100:11434"
+    model: AUTODETECT
+roles:
+  - chat
+  - edit
+  - apply
+
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
+```
 ### Deepseek
 * API: https://api-docs.deepseek.com/
 * https://platform.deepseek.com/api_keys
