@@ -22,13 +22,16 @@ curl http://192.168.1.100:11434/api/show -d '{
 # Benchmarking CPU usage
 # View the number of cores available
 nproc
+# gpt-oss:20b always uses thinking mode
+# https://github.com/ollama/ollama/issues/11751
 # Compare response time by changing "num_thread" option
 curl http://192.168.1.100:11434/api/generate -d '
 {  
-"model": "gpt-oss:20b",  
+"model": "deepseek-r1:1.5b",  
 "prompt": "Why is the blue sky blue?",  
 "stream": false,
 "think": false,
+"keep_alive": 0,
 "options":{
   "temperature": 0,
   "system": "You are a bored assistant. Provide short answers.",
