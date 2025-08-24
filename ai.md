@@ -39,6 +39,7 @@ curl http://192.168.1.100:11434/api/generate -d '
 }
 }' | jq 'del(.context)'
 ```
+### Continue plugin
 Minimal working config for VSCode (~/.continue/config.yaml)
 ```yaml
 name: Local Agent
