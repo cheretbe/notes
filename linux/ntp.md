@@ -12,6 +12,9 @@ timedatectl status
 
 ```shell
 cat /etc/chrony/chrony.conf
+chronyc tracking
+# ^*, ^+ are good, ^* is bad, use -v to get details
+chronyc -n sources
 chronyc ntpdata
 
 # ntpdate -q alternative:
