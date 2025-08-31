@@ -180,6 +180,8 @@ sudo mkfs.ext4 /dev/sda2
 ```shell
 # View current reserved block count
 tune2fs -l /dev/nvme0n1p1 | grep 'Reserved block count'
+# In Mib (make sure that block size is 4096)
+echo $(( 10750751 * 4096 / 1048576 )) Mib
 # Set reserved percentage for an existing file system
 # tune2fs -m <percentage> <device-name>
 tune2fs -m 0 /dev/nvme0n1p1
