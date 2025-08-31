@@ -3,6 +3,10 @@
 # System clock synchronized: yes
 #               NTP service: active
 timedatectl status
+
+# the only relatively easy way to check random NTP server availability
+apt install python3-ntplib
+python3 -c "import ntplib; exit(0 if ntplib.NTPClient().request('ntp.pt.corp', timeout=5) else 1)"
 ```
 
 ### Chrony
