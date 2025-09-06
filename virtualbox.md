@@ -46,6 +46,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/oracl
 apt update
 apt install virtualbox-6.1
 apt install virtualbox-7.0
+apt install virtualbox-7.1
 ```
 
 ### Emulating failed disk drive
