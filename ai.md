@@ -4,6 +4,7 @@
 * Difference between between /api/generate and /api/chat: https://github.com/ollama/ollama/issues/2774
 ```shell
 # as root 😅
+# [!!] check if it causes duplicate deb entries in /etc/apt/sources.list.d/contrib.list 
 curl -fsSL https://ollama.com/install.sh | sh
 
 ollama pull deepseek-coder:1.3b-base
