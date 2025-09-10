@@ -25,6 +25,21 @@ Host hostname
     SendEnv VAR1 VAR2 VAR3
 ```
 
+`.bashrc` entry example
+```bash
+# Workaround for AcceptEnv limited to LC_*
+# example: LC_mgmt_ZABBIX_API_TOKEN => ZABBIX_API_TOKEN
+for var in $(compgen -e); do
+    if [[ "$var" == LC_mgmt_* ]]; then
+        export "${var#LC_mgmt_}"="${!var}"
+        # Clean up the LC_ variable to avoid conflicts
+        unset "$var"
+    fi
+done
+
+
+```
+
 ### Parallel-ssh
 
 Execute jobs in parallel on multiple hosts
