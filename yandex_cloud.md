@@ -11,6 +11,7 @@ yc init --federation-id=00000000000000000000
 # On error "federation id authentication is not supported on this system because the browser can not be opened"
 # use service account
 yc config set service-account-key /path/to/key.json
+yc resource cloud list
 yc config set cloud-id <Cloud ID>
 yc resource-manager folder list
 yc config set folder-id <Folder ID>
