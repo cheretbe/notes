@@ -10,6 +10,9 @@ kill -TERM 1
 ```
 
 ```shell
+# View all actual settings in effect for a unit
+systemctl show service
+
 systemctl --now enable service
 systemctl --now disable service
 
