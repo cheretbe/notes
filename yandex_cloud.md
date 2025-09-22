@@ -37,6 +37,7 @@ yc compute image create --name my-image --folder-id 00000000000000000000 --sourc
 yc vpc subnet list
 
 # [!!] user name is ya-cloud
+#      TODO: add labels example
 yc compute instance create \
     --name docker-test \
     --zone ru-central1-b \
