@@ -57,5 +57,6 @@ iscsiadm -m node --logout -p 192.168.10.105:3260,1 --targetname iqn.2020-07.exam
 iscsiadm -m session
 # Detailed info
 # -P 3 sets the "print" (or "output") level to 3, which shows detailed information about each iSCSI session.
+# [!!] watch for "Attached scsi disk sdX" in "Attached SCSI devices" section
 iscsiadm -m session -P 3
 ```
