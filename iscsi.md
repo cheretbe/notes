@@ -41,11 +41,21 @@ nano /etc/iscsi/nodes/iqn.2020-07.example.com\:lun1/192.168.10.105\,3260\,1/defa
 # to connect on startup
 # node.startup = automatic
 
+# list node records
+# will output something like
+# 192.168.10.105:3260,1 iqn.2020-07.example.com:lun1
+# |                     |
+# +-- -p --portal       +-- -T --targename
+iscsiadm --mode node
+
 # connect manually
 iscsiadm -m node --login -p 192.168.10.105:3260,1 --targetname iqn.2020-07.example.com:lun1
 # disconnect
 iscsiadm -m node --logout -p 192.168.10.105:3260,1 --targetname iqn.2020-07.example.com:lun1
 
-# list node records
-iscsiadm --mode node
+# view the current iSCSI connection (login) status
+iscsiadm -m session
+# Detailed info
+# -P 3 sets the "print" (or "output") level to 3, which shows detailed information about each iSCSI session.
+iscsiadm -m session -P 3
 ```
