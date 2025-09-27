@@ -38,7 +38,7 @@ nano /etc/iscsi/nodes/iqn.2020-07.example.com\:lun1/192.168.10.105\,3260\,1/defa
 # Add user and password settings
 # node.session.auth.username = test
 # node.session.auth.password = example_pwd
-# to connect on startup
+# to connect on startup ([!] make sure node.startup = manual is not present further along)
 # node.startup = automatic
 
 # list node records
