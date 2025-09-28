@@ -249,6 +249,20 @@ pvscan
 pvremove /dev/sdX
 ```
 
+### Physical disk passthrough
+
+* https://pve.proxmox.com/wiki/Passthrough_Physical_Disk_to_Virtual_Machine_(VM)
+
+```shell
+# hot-plug (add)
+# [!] adjust -scsi<n> as needed
+qm set <id> -scsi<n> /dev/disk/by-id/ata-<id>
+# hot-unplug (remove)
+qm unlink <id> --idlist scsi<n>
+# view current config
+qm config <id>
+```
+
 ## LXC
 ### Images
 * http://download.proxmox.com/images/system/
