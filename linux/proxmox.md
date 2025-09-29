@@ -247,6 +247,15 @@ pvscan
 vgremove hdd-sas-X
 pvscan
 pvremove /dev/sdX
+
+cli alternative
+qm config <id>
+# not tested, 2check
+# qm unlink <id> --idlist scsi<n>
+# [!] this deletes the lv
+qm unlink <id> --idlist unused0
+# Check if this does what's needed
+pvesm remove hdd-sas-X
 ```
 
 ### Physical disk passthrough
