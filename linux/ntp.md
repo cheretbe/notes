@@ -4,7 +4,7 @@
 #               NTP service: active
 timedatectl status
 
-# the only relatively easy way to check random NTP server availability
+# the only relatively easy way to check an arbitrary NTP server availability
 apt install python3-ntplib
 python3 -c "import ntplib; exit(0 if ntplib.NTPClient().request('pool.ntp.org', timeout=5) else 1)"
 # Ansible version
