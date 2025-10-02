@@ -7,7 +7,7 @@ HEIC to JPG
 ```shell
 # this appears to work better
 sudo apt install libheif-examples
-for file in *.heic; do heif-convert $file ${file/%.heic/.jpg}; done
+for file in *.heic; do heif-convert "$file" "${file/%.heic/.jpg}"; done
 
 # Convert recursively and delete originals
 for file in **/*.heic; do echo "$file"; heif-convert "$file" "${file/%.heic/.jpg}" || break; done
