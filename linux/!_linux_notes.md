@@ -7,6 +7,8 @@ HEIC to JPG
 ```shell
 # this appears to work better
 sudo apt install libheif-examples
+# [!] beware of stuff like auxiliary, depth etc. images
+#    *-urn:com:apple:photo:2020:aux:hdrgainmap.jpg *-depth.jpg
 for file in *.heic; do heif-convert "$file" "${file/%.heic/.jpg}"; done
 
 # Convert recursively and delete originals
