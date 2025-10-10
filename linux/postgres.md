@@ -59,3 +59,27 @@ log:
 ```shell
 docker exec -it -e PATRONI_LOG_LEVEL=DEBUG postgres patronictl -c /var/lib/postgres/patroni.yml list
 ```
+### Transaction wraparound
+
+* https://www.rockdata.net/tutorial/troubleshooting-txn-wraparound/#fix-transaction-wraparound
+* https://www.tigerdata.com/blog/how-to-fix-transaction-id-wraparound
+
+```sql
+-- Select dead tuples data (need to be connected to a DB)
+SELECT 
+  t.relname, 
+  t.n_dead_tup, 
+  c.reltuples AS total_estimated_rows,
+  ROUND(
+    CASE 
+      WHEN c.reltuples > 0 THEN (t.n_dead_tup::numeric / c.reltuples::numeric) * 100
+      ELSE 0
+    END, 2
+  ) AS dead_tup_percent
+FROM 
+  pg_stat_user_tables t
+JOIN 
+  pg_class c ON c.oid = t.relid
+ORDER BY 
+  t.n_dead_tup DESC LIMIT 10;
+```
