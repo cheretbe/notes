@@ -33,6 +33,7 @@ docker exec -it postgres pg_controldata -D /var/lib/postgres/data
 ### Optimization
 ```SQL
 -- View index size
+-- It is optimal if `shared_buffers = nGB` in postgres.conf allows to fit all indexes
 SELECT
    relname  as table_name,
    pg_size_pretty(pg_total_relation_size(relid)) As "Total Size",
