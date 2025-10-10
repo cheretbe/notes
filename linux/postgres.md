@@ -30,6 +30,18 @@ docker exec -it postgres pg_controldata -D /var/lib/postgres/data
 \pset pager off
 ```
 
+### Optimization
+```SQL
+-- View index size
+SELECT
+   relname  as table_name,
+   pg_size_pretty(pg_total_relation_size(relid)) As "Total Size",
+   pg_size_pretty(pg_indexes_size(relid)) as "Index Size",
+   pg_size_pretty(pg_relation_size(relid)) as "Actual Table Size"
+   FROM pg_catalog.pg_statio_user_tables 
+ORDER BY pg_total_relation_size(relid) DESC LIMIT 20;
+```
+
 ### pg_upgrade
 * https://github.com/tianon/docker-postgres-upgrade
 * https://dev.to/rafaelbernard/postgresql-pgupgrade-from-10-to-12-566i
