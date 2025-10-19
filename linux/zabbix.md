@@ -6,6 +6,10 @@ Trigger dependecies: add parent in dependent trigger (i.e. add average in warnin
     * Click on Discovery rules in the row of your host
     * Find the specific discovery rule you want to refresh
     * Click on Execute now in the Actions column
+ 
+### Notifications
+
+* https://aaronsaray.com/2020/zabbix-test-notification/
 
 ### Templates
 
