@@ -38,11 +38,14 @@ yc compute image update 00000000000000000000 --new-name image_name
 
 yc vpc subnet list
 
-# [!!] user name is ya-cloud
-#      TODO: add labels example
+# [!!] user name is yc-user
+#      remove "nat-ip-version=ipv4" to get local-only IP
+#      --ssh-key can't take public key string, only file path
 yc compute instance create \
     --name docker-test \
     --zone ru-central1-b \
+    --cloud-id 0000000000000000 \
+    --folder-id 0000000000000000 \
     --network-interface subnet-name=default-ru-central1-b,nat-ip-version=ipv4 \
     --platform standard-v3 \
     --preemptible \
@@ -50,7 +53,7 @@ yc compute instance create \
     --memory 2 \
     --cores 2 \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,type=network-ssd,size=15 \
-    --ssh-key ~/.ssh/id_ed25519.pub
+    --ssh-key ~/.ssh/id_ed25519.pub \
+    --labels "label1=test,label2=test"
 
-yc compute instance delete --name docker-test
-```
+yc compute instance delete --name docker-test```
