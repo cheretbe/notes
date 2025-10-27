@@ -33,6 +33,8 @@ yc compute image list --folder-name runners-ngfw --cloud-id 00000000000000000
 #     If the source cloud is different from current it's still ok to use just --source-image-id
 # [!] The name is not copied from the source and will be empty if not specified
 yc compute image create --name my-image --folder-id 00000000000000000000 --source-image-id=fd8o0pt9qfbt********
+# Set the name later
+yc compute image update 00000000000000000000 --new-name image_name
 
 yc vpc subnet list
 
