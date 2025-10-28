@@ -120,6 +120,21 @@ def run_rofi(menu_items, prompt, show_back=False):
         sys.exit(1)
 
 
+def get_clipboard_content():
+    """Get clipboard content using xclip."""
+    try:
+        result = subprocess.run(
+            ["xclip", "-selection", "clipboard", "-o"], capture_output=True, text=True, check=True
+        )
+        return result.stdout
+    except FileNotFoundError:
+        print("Error: xclip is not installed. Install it with: sudo apt install xclip")
+        return None
+    except subprocess.CalledProcessError as e:
+        print(f"Error getting clipboard content: {e}")
+        return None
+
+
 def insert_text(text):
     """Insert text into the currently focused X11 window using xdotool."""
     try:
@@ -155,8 +170,13 @@ def show_menu(config_dir, menu_path, prompt, is_submenu=False):
         {"label": f"📁 {subdir}", "type": "submenu", "path": subdir} for subdir in sorted(subdirs)
     ]
 
-    # Combine submenu items and regular menu items
-    all_items = submenu_items + menu_items
+    # Add clipboard option only at the top level
+    clipboard_items = []
+    if not menu_path:  # Only show at top level
+        clipboard_items = [{"label": "📋 Type clipboard content", "type": "clipboard"}]
+
+    # Combine clipboard items, submenu items and regular menu items
+    all_items = clipboard_items + submenu_items + menu_items
 
     if not all_items:
         print(f"No menu items or subdirectories found in {current_dir}")
@@ -175,7 +195,13 @@ def show_menu(config_dir, menu_path, prompt, is_submenu=False):
     # Find the selected item
     for item in all_items:
         if item["label"] == selected:
-            if item.get("type") == "submenu":
+            if item.get("type") == "clipboard":
+                # Get clipboard content and type it
+                clipboard_content = get_clipboard_content()
+                if clipboard_content is not None:
+                    insert_text(clipboard_content)
+                return False
+            elif item.get("type") == "submenu":
                 # Enter submenu
                 subdir_name = item["path"]
                 new_menu_path = os.path.join(menu_path, subdir_name) if menu_path else subdir_name
