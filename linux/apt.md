@@ -13,6 +13,8 @@ DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -qq dist-upgrade -o Dpkg::Opt
 apt-cache search openjdk
 apt-cache policy openjdk-18-jre
 
+apt update --allow-releaseinfo-change
+
 # Remove PPA and downgrade packages
 apt install ppa-purge
 ppa-purge ppa:kubuntu-ppa/backports
