@@ -135,6 +135,55 @@ def get_clipboard_content():
         return None
 
 
+def load_history():
+    """Load history from ~/.cache/rofi_menu/history.yml."""
+    history_file = os.path.expanduser("~/.cache/rofi_menu/history.yml")
+    try:
+        with open(history_file, "r") as file:
+            history = yaml.safe_load(file)
+            return history if history else []
+    except FileNotFoundError:
+        return []
+    except yaml.YAMLError as e:
+        print(f"Error parsing history file: {e}")
+        return []
+
+
+def save_history(history):
+    """Save history to ~/.cache/rofi_menu/history.yml."""
+    history_file = os.path.expanduser("~/.cache/rofi_menu/history.yml")
+    history_dir = os.path.dirname(history_file)
+
+    # Ensure cache directory exists
+    os.makedirs(history_dir, exist_ok=True)
+
+    try:
+        with open(history_file, "w") as file:
+            yaml.dump(history, file, default_flow_style=False)
+    except Exception as e:
+        print(f"Error saving history: {e}")
+
+
+def update_history(item):
+    """Update history with the selected item, keeping only last 20 items."""
+    # Load current history
+    history = load_history()
+
+    # Remove item if it already exists in history
+    history = [
+        h for h in history if h.get("label") != item.get("label") or h.get("text") != item.get("text")
+    ]
+
+    # Add item to the beginning
+    history.insert(0, item)
+
+    # Keep only last 20 items
+    history = history[:20]
+
+    # Save updated history
+    save_history(history)
+
+
 def insert_text(text):
     """Insert text into the currently focused X11 window using xdotool."""
     try:
@@ -144,6 +193,42 @@ def insert_text(text):
         sys.exit(1)
     except subprocess.CalledProcessError as e:
         print(f"Error inserting text with xdotool: {e}")
+
+
+def show_history_menu(prompt):
+    """Display a history submenu with all history items."""
+    history = load_history()
+
+    if not history:
+        print("No history items found")
+        return False
+
+    # Create menu items from history
+    history_menu_items = []
+    for item in history:
+        history_menu_items.append({"label": item["label"], "type": "history", "original_item": item})
+
+    # Run rofi and get selection
+    selected = run_rofi(history_menu_items, prompt, show_back=True)
+
+    # Handle selection
+    if not selected:
+        return False
+
+    if selected == "← Back":
+        return True  # Signal to go back
+
+    # Find the selected item
+    for item in history_menu_items:
+        if item["label"] == selected:
+            original_item = item["original_item"]
+            # Update history before inserting text
+            update_history(original_item)
+            # Insert text into focused window
+            insert_text(original_item["text"])
+            return False
+
+    return False
 
 
 def show_menu(config_dir, menu_path, prompt, is_submenu=False):
@@ -170,13 +255,28 @@ def show_menu(config_dir, menu_path, prompt, is_submenu=False):
         {"label": f"📁 {subdir}", "type": "submenu", "path": subdir} for subdir in sorted(subdirs)
     ]
 
-    # Add clipboard option only at the top level
+    # Add clipboard option and history items only at the top level
     clipboard_items = []
+    history_items = []
+    last_used_item = []
+
     if not menu_path:  # Only show at top level
         clipboard_items = [{"label": "📋 Type clipboard content", "type": "clipboard"}]
 
-    # Combine clipboard items, submenu items and regular menu items
-    all_items = clipboard_items + submenu_items + menu_items
+        # Load history and create history items
+        history = load_history()
+        if history:
+            # Add the last used item first
+            last_used_item = [
+                {"label": f"🕐 {history[0]['label']}", "type": "history", "original_item": history[0]}
+            ]
+
+            # Add history submenu if there are more than 1 items
+            if len(history) > 1:
+                history_items = [{"label": "📜 History", "type": "history_submenu"}]
+
+    # Combine clipboard items, last used item, history submenu, submenu items and regular menu items
+    all_items = clipboard_items + last_used_item + history_items + submenu_items + menu_items
 
     if not all_items:
         print(f"No menu items or subdirectories found in {current_dir}")
@@ -201,6 +301,30 @@ def show_menu(config_dir, menu_path, prompt, is_submenu=False):
                 if clipboard_content is not None:
                     insert_text(clipboard_content)
                 return False
+            elif item.get("type") == "history":
+                # Handle history item selection
+                original_item = item["original_item"]
+                # Update history before inserting text
+                update_history(original_item)
+                # Insert text into focused window
+                insert_text(original_item["text"])
+                return False
+            elif item.get("type") == "history_submenu":
+                # Enter history submenu
+                history_prompt = f"{prompt} > History"
+
+                # Show history submenu in a loop to handle back navigation
+                while True:
+                    should_continue = show_history_menu(history_prompt)
+                    if not should_continue:
+                        # User cancelled or executed a command, exit completely
+                        return False
+                    else:
+                        # User pressed back, return to current menu
+                        break
+
+                # After returning from history submenu, show current menu again
+                return show_menu(config_dir, menu_path, prompt, is_submenu)
             elif item.get("type") == "submenu":
                 # Enter submenu
                 subdir_name = item["path"]
@@ -220,6 +344,8 @@ def show_menu(config_dir, menu_path, prompt, is_submenu=False):
                 # After returning from submenu, show current menu again
                 return show_menu(config_dir, menu_path, prompt, is_submenu)
             else:
+                # Regular menu item - update history before inserting text
+                update_history(item)
                 # Insert text into focused window
                 insert_text(item["text"])
                 return False
