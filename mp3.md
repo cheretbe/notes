@@ -63,6 +63,8 @@ Threading capabilities: none
 ```
 Convert from m4b to mp3
 ```shell
+# View info (including bitrate)
+ffprobe -show_format source.m4b
 # m4b is just a fancy name for an AAC file
 # This creates a single MP3 file, just use mp3splt afterwards
 # Non-working fancy solution below
