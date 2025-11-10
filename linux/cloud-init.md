@@ -12,6 +12,14 @@ apt:
   preserve_sources_list: true
 ```
 
+Use this for setting root password
+```yaml
+chpasswd:
+  list: |
+    root:$6$r/5YeV6tiWItqFyh$/xq8F4IkwgARQCbdH5A7mmWn8wbk.QsbH.jnsvaoNFtBvVLT5RSDiJ0NXjCz/M7AsnVMTvXZ5MlrjjvVxvZvN/
+  expire: False
+```
+
 ```shell
 # [!] Note \EOF - escapes dollar signs
 cat <<\EOF >/tmp/os_user_data
