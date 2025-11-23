@@ -274,7 +274,7 @@ nano /etc/gitlab/gitlab.rb
 
 gitlab-ctl reconfigure
 gitlab-ctl start
-# [!] watch 
+# [!] Watch for projects namespace checks
 gitlab-rake gitlab:check
 ```
 
