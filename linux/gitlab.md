@@ -240,6 +240,44 @@ pg_dump -h /var/opt/gitlab/postgresql/ gitlabhq_production -Fc | PGPASSWORD="$my
 gitlab-ctl pg-upgrade -V 14
 ```
 
+#### Migrate from packaged DB server to an external one
+
+* https://docs.gitlab.com/omnibus/settings/database/
+* https://docs.gitlab.com/omnibus/settings/database/#using-a-non-packaged-postgresql-database-management-server
+* https://docs.gitlab.com/administration/postgresql/moving/
+
+```shell
+gitlab-ctl stop
+# Needed for pg_dump
+gitlab-ctl start postgresql
+
+# [!] Use screen
+sudo -u gitlab-psql -i
+bash
+read -s -p "Password: " my_pwd; echo ""; export my_pwd
+set -o pipefail
+# /opt/gitlab/embedded/bin/pg_dump and /opt/gitlab/embedded/bin/psql are symlinks
+# for different versions check /opt/gitlab/embedded/postgresql/16/bin/ etc
+/opt/gitlab/embedded/bin/pg_dump gitlabhq_production --host=/var/opt/gitlab/postgresql | PGPASSWORD=$my_pwd /opt/gitlab/embedded/bin/psql -U gitlab -d gitlabhq_production -h postgres.domain.tld -p 5432
+
+gitlab-ctl stop postgresql
+nano /etc/gitlab/gitlab.rb
+# # Disable the built-in Postgres
+# postgresql['enable'] = false
+# # Fill in the connection details for database.yml
+# gitlab_rails['db_adapter'] = 'postgresql'
+# gitlab_rails['db_encoding'] = 'utf8'
+# gitlab_rails['db_host'] = '127.0.0.1'
+# gitlab_rails['db_port'] = 5432
+# gitlab_rails['db_username'] = 'USERNAME'
+# gitlab_rails['db_password'] = 'PASSWORD'
+
+gitlab-ctl reconfigure
+gitlab-ctl start
+# [!] watch 
+gitlab-rake gitlab:check
+```
+
 ### Reverse proxy
 Settings for `/etc/gitlab/gitlab.rb` on Gitlab server:
 ```ruby
