@@ -220,6 +220,7 @@ gitlab-ctl tail
 
 ```shell
 # Postgres shipped with the linux package
+# for different versions check /opt/gitlab/embedded/postgresql/16/bin/ etc
 # View version
 /opt/gitlab/embedded/bin/pg_dump --version
 /opt/gitlab/embedded/bin/psql --version
@@ -232,6 +233,8 @@ sudo gitlab-psql
 # Same as gitlab-psql script
 sudo su -s /bin/bash - gitlab-psql
 psql -h /var/opt/gitlab/postgresql/ gitlabhq_production
+# View DB size
+SELECT pg_size_pretty(pg_database_size('gitlabhq_production'));
 # Dump DB to a remote host
 # -F, --format=c|d|t|p   output file format (custom, directory, tar, plain text (default))
 read -s -p "Password: " my_pwd; echo ""; export my_pwd
@@ -254,6 +257,8 @@ gitlab-ctl start postgresql
 # [!] Use screen
 sudo -u gitlab-psql -i
 bash
+# or
+sudo su -s /bin/bash - gitlab-psql
 read -s -p "Password: " my_pwd; echo ""; export my_pwd
 set -o pipefail
 # /opt/gitlab/embedded/bin/pg_dump and /opt/gitlab/embedded/bin/psql are symlinks
