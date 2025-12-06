@@ -45,6 +45,8 @@ export GW_ADDR=192.168.0.1
 route add -net 151.101.0.0/16 gw $GW_ADDR metric 10
 # Amazon-4 (vagrantcloud.com)
 route add -net 52.84.0.0/15 gw $GW_ADDR metric 10
+
+curl https://apt.releases.hashicorp.com
 ```
 
 `.gitignore` contents:
