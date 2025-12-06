@@ -232,6 +232,11 @@ lvrename vg02 lvold lvnew
 lvremove /dev/hdd-sas-1/vm-103-hdd-sas-1
 
 cat /etc/pve/storage.cfg
+
+# b|B is bytes, s|S is sectors of 512 bytes, k|K is KiB, m|M is MiB,
+# g|G is GiB, t|T is TiB, p|P is PiB, e|E is EiB
+# https://www.man7.org/linux/man-pages/man8/lvresize.8.html
+lvresize -L +5G /dev/ssd-1/vm-100-disk-0
 ```
 Remove an LVM disk
 ```shell
