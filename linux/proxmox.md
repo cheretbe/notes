@@ -237,6 +237,9 @@ cat /etc/pve/storage.cfg
 # g|G is GiB, t|T is TiB, p|P is PiB, e|E is EiB
 # https://www.man7.org/linux/man-pages/man8/lvresize.8.html
 lvresize -L +5G /dev/ssd-1/vm-100-disk-0
+# then do
+qm rescan
+# or just use (not quite obvious as usual) "Disk Action" > "Resize"
 ```
 Remove an LVM disk
 ```shell
