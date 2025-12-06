@@ -114,7 +114,7 @@ nano /etc/nut/upsd.users
 systemctl restart nut-server
 upsc apc
 upsrw -s "ups.id=APC 750" apc
-upsrw -s "battery.date=12/28/23"
+upsrw -s "battery.date=12/28/23" apc
 upsc apc
 
 # list commmands
