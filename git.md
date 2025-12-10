@@ -68,6 +68,16 @@ git config --global --list
 # Use meld as merge tool temporarily
 git -c "merge.tool=meld" mergetool
 
+# https://stackoverflow.com/questions/44549733/how-to-use-visual-studio-code-as-the-default-editor-for-git-mergetool-including
+git config --global mergetool.vscode.cmd 'code --wait --merge $REMOTE $LOCAL $BASE $MERGED'
+# used to have
+#  cmd = code --wait $MERGED
+# that worked well
+git config --global merge.tool vscode
+
+# Use vscode as merge tool temporarily (mergetool.vscode.cmd )
+git -c "merge.tool=vscode" mergetool
+
 # Merge dry-run
 # https://stackoverflow.com/questions/501407/is-there-a-git-merge-dry-run-option/501461#501461
 git merge --no-commit --no-ff $BRANCH
