@@ -38,6 +38,7 @@ mount -o loop,offset=$((514048*512)) /path/disk.img /mnt/loop
 # forcefsck replacement
 # default is -1 (check is disabled)
 sudo tune2fs -l /dev/nvme0n1p2 | grep 'Maximum mount'
+# [!] Don't forget to reset back after forcing check 
 sudo tune2fs -c 1 /dev/nvme0n1p2
 ```
 
