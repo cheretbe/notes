@@ -12,6 +12,11 @@ apt:
   preserve_sources_list: true
 ```
 
+```shell
+# validate
+cloud-init schema -c /root/cloud_init_test.yml --annotate
+```
+
 Use this for setting root password
 ```yaml
 chpasswd:
