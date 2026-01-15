@@ -243,6 +243,8 @@ pg_dump -h /var/opt/gitlab/postgresql/ gitlabhq_production -Fc | PGPASSWORD="$my
 docker exec -it gitlab_gitlab_1 gitlab-psql -c "SELECT version();"
 gitlab-psql -c "SELECT version();"
 gitlab-ctl pg-upgrade -V 14
+# Use --timeout option for large databases
+gitlab-ctl pg-upgrade --timeout 2h
 ```
 
 #### Migrate from packaged DB server to an external one
