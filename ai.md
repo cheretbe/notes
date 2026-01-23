@@ -69,3 +69,18 @@ context:
 ### Deepseek
 * API: https://api-docs.deepseek.com/
 * https://platform.deepseek.com/api_keys
+
+```shell
+# Test API key
+curl https://api.deepseek.com/v1/chat/completions \
+  -H "Authorization: Bearer ${DEEPSEEK_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "deepseek-coder",
+    "messages": [
+      {"role": "system", "content": "You are a helpful assistant."},
+      {"role": "user", "content": "Hello"}
+    ],
+    "max_tokens": 50
+  }'
+```
