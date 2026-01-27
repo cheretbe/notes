@@ -19,6 +19,7 @@ yc config set folder-id <Folder ID>
 # https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
 # Срок жизни OAuth-токена 1 год. После этого необходимо получить новый OAuth-токен и повторить процедуру аутентификации
 yc init
+# (↧↧↧ все равно сбрасывается настройка папки по умолчанию, так что yc init)
 # или зайти на https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token, выбрать "Получите OAuth-токен"
 # и поменять его в ~/.config/yandex-cloud/config.yaml
 # (возможно есть какая-то команда, посмотреть потом как будет время)
