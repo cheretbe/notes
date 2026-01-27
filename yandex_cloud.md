@@ -19,6 +19,9 @@ yc config set folder-id <Folder ID>
 # https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
 # Срок жизни OAuth-токена 1 год. После этого необходимо получить новый OAuth-токен и повторить процедуру аутентификации
 yc init
+# или зайти на https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token, выбрать "Получите OAuth-токен"
+# и поменять его в ~/.config/yandex-cloud/config.yaml
+# (возможно есть какая-то команда, посмотреть потом как будет время)
 
 yc compute instance list --folder-id=00000000000000000000 --format json |
   jq -r '. | sort_by(.name)[] | (.name) + "  ansible_host=" + .network_interfaces[0].primary_v4_address.address'
