@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 current_state=$(yc compute instance get --name "windows-current" --profile default --format json | jq -r '.status')
 
 if [ "${current_state}" = "RUNNING" ]; then
