@@ -229,6 +229,9 @@ docker run --rm --detach --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
 https://developers.redhat.com/cheat-sheets/containers/
 
 ```shell
+# use custom dns server
+docker run --rm --dns 8.8.8.8 busybox nslookup google.com
+
 # Remove all (!) containers
 docker ps -a -q | xargs docker rm
 
