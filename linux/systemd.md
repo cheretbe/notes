@@ -74,6 +74,7 @@ RestartSec=30
 ...
 ```
 #### Timers
+* :bulb: **much** better description and examples: https://blogs.reliablepenguin.com/2025/10/15/systemd-timers-a-practical-guide-to-replacing-cron-on-linux
 * https://wiki.archlinux.org/index.php/Systemd/Timers
 
 ```shell
