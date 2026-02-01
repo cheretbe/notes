@@ -161,6 +161,102 @@ supervisorctl reread
 supervisorctl update
 ```
 
+### SOCKS5 Proxy over SSH
+
+Configure a persistent SOCKS5 proxy tunnel using systemd.
+
+#### Client setup with systemd
+
+Create a dedicated user and SSH key:
+```bash
+# Add user
+# -m creates the user's home directory
+# Account is created with password locked (no password set)
+# https://man7.org/linux/man-pages/man8/useradd.8.html
+sudo useradd -m -s /bin/bash socks5-ssh-tunnel
+
+# Verify account is locked (shows 'L' or 'LK' status)
+# https://man7.org/linux/man-pages/man1/passwd.1.html
+sudo passwd -S socks5-ssh-tunnel
+# Output: socks5-ssh-tunnel L ...
+# L = password locked, P = usable password, NP = no password
+
+# Generate ed25519 key
+sudo -u socks5-ssh-tunnel ssh-keygen -t ed25519 -a 100 -C "socks5-ssh-tunnel" -f /home/socks5-ssh-tunnel/.ssh/socks5-ssh-tunnel-key
+
+# Copy public key to remote server
+sudo -u socks5-ssh-tunnel ssh-copy-id -i /home/socks5-ssh-tunnel/.ssh/socks5-ssh-tunnel-key.pub socks5-ssh-tunnel@host.domain.tld
+```
+
+Create `/etc/systemd/system/socks5-ssh-tunnel.service`
+```ini
+[Unit]
+Description=SOCKS5 SSH Tunnel
+After=network.target
+
+[Service]
+Type=simple
+User=socks5-ssh-tunnel
+# -v    verbose mode
+# -N    do not execute a remote command, just forward ports
+# -g    allows remote hosts to connect to forwarded ports
+# -D    dynamic application-level port forwarding (SOCKS5)
+ExecStart=/usr/bin/ssh -v -N -g -D 1080 -i /home/socks5-ssh-tunnel/.ssh/socks5-ssh-tunnel-key -o ServerAliveInterval=10 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes socks5-ssh-tunnel@host.domain.tld
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Alternatively, use SSH config file for cleaner service definition.
+
+Create or edit `/home/socks5-ssh-tunnel/.ssh/config`:
+```
+Host socks5-tunnel
+  Hostname               host.domain.tld
+  User                   socks5-ssh-tunnel
+  IdentityFile           /home/socks5-ssh-tunnel/.ssh/socks5-ssh-tunnel-key
+  DynamicForward         1080
+  ServerAliveInterval    30
+  ServerAliveCountMax    3
+  PubkeyAuthentication   yes
+  PasswordAuthentication no
+  ExitOnForwardFailure   yes
+```
+
+Simplified service file using SSH config:
+```ini
+[Unit]
+Description=SOCKS5 SSH Tunnel
+After=network.target
+
+[Service]
+Type=simple
+User=socks5-ssh-tunnel
+ExecStart=/usr/bin/ssh -v -N -g socks5-tunnel
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable and start the service:
+```bash
+# Reload systemd configuration
+systemctl daemon-reload
+
+# Enable and start the service
+systemctl enable --now socks5-ssh-tunnel.service
+
+# Check service status
+systemctl status socks5-ssh-tunnel.service
+
+# Configure applications to use the SOCKS5 proxy
+# [!] Don't forget to check iptables rules when accessing it remotely
+curl --socks5 localhost:1080 https://cloudflare.com/cdn-cgi/trace
+```
 
 ### Multiple instances of sshd
 
