@@ -1,7 +1,8 @@
 #### Initial setup
 
 ```shell
-docker run -dti -v ${HOME}/temp/powershell-root:/root -v ${HOME}/projects:/projects:ro --name powershell mcr.microsoft.com/powershell:preview-7.5-ubuntu-24.04 bash
+# mcr.microsoft.com/powershell:preview-7.5-ubuntu-24.04
+docker run -dti --dns 10.100.10.100 -v ${HOME}/temp/powershell-root:/root -v ${HOME}/projects:/projects:ro --name powershell mcr.microsoft.com/powershell:preview-ubuntu-24.04 bash
 
 docker exec -it powershell pwsh
 
