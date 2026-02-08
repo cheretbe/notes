@@ -3,6 +3,10 @@
 The default settings are hardcoded in the vscode sources. To see all settings in read-only format:<br>
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>: type `open default settings` (choose **Preferences: Open Default Settings (JSON)**)
 
+### Proxy
+
+* socks5 proxy format: `socks5://127.0.0.1:1080`
+
 ### Title bar
 * https://dev.to/ismaellopezdev/customize-titlebar-in-vs-code-5hie
 * :point_right: Change workspace color: https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock
