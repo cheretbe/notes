@@ -22,11 +22,20 @@ nmcli -f ipv4.addresses connection show $CONNECTION_UUID
 IF_NAME=enp0s31f6
 # --port=0 disables DNS (DHCP/TFTP only)
 # [!] connect to router's port 1
+# [!] initramfs-kernel, not squashfs-sysupgrade
+#    easy way to find out router's MAC: just temporarily remove --dchp-host option altogether and wait for messages like
+#    dnsmasq-dhcp: BOOTP(enp0s31f6) 00:00:00:00:00:00 no address configured
 dnsmasq --no-daemon --port=0 --enable-tftp --tftp-root=$(pwd) --interface=$IF_NAME \
-  --dhcp-range=interface:$IF_NAME,192.168.88.0,static --dhcp-host=cc:2d:e0:a2:f5:4f,192.168.88.50 --bootp-dynamic \
+  --dhcp-range=interface:$IF_NAME,192.168.88.0,static --dhcp-host=00:00:00:00:00:00,192.168.88.50 --bootp-dynamic \
   --dhcp-boot=openwrt-24.10.5-ipq40xx-mikrotik-mikrotik_hap-ac2-initramfs-kernel.bin
 
 # [!] connect to router's port 2-5
 # user root, password is empty
+# [!] squashfs-sysupgrade, not initramfs-kernel
+scp -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+  openwrt-24.10.5-ipq40xx-mikrotik-mikrotik_hap-ac2-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/
 ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.1.1
+
+cd /tmp
+sysupgrade openwrt-24.10.5-ipq40xx-mikrotik-mikrotik_hap-ac2-squashfs-sysupgrade.bin
 ```
