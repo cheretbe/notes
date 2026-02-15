@@ -1,3 +1,12 @@
+### Microtic
+* https://openwrt.org/toh/mikrotik/common
+    * https://openwrt.org/toh/mikrotik/hap_ac2 
+    * https://firmware-selector.openwrt.org/?version=24.10.5&target=ipq40xx%2Fmikrotik&id=mikrotik_hap-ac2
+* TL/DR
+    * :warning: Make backup of license key (Windows Winbox only :shrug:): System > License > Export Key...
+    * Downgrade to ROS 6 (version 7 bootloader support is introduced in v25)
+    * 
+
 ```shell
 nmcli con show | grep -i ether
 CONNECTION_UUID="connection-uuid"
@@ -10,7 +19,12 @@ nmcli -f ipv4.addresses connection show $CONNECTION_UUID
 
 IF_NAME=enp0s31f6
 # --port=0 disables DNS (DHCP/TFTP only)
+# [!] connect to router's port 1
 dnsmasq --no-daemon --port=0 --enable-tftp --tftp-root=$(pwd) --interface=$IF_NAME \
   --dhcp-range=interface:$IF_NAME,192.168.88.0,static --dhcp-host=cc:2d:e0:a2:f5:4f,192.168.88.50 --bootp-dynamic \
   --dhcp-boot=openwrt-24.10.5-ipq40xx-mikrotik-mikrotik_hap-ac2-initramfs-kernel.bin
+
+# [!] connect to router's port 2-5
+# user root, password is empty
+ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.1.1
 ```
