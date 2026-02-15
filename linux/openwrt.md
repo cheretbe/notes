@@ -11,6 +11,6 @@ nmcli -f ipv4.addresses connection show $CONNECTION_UUID
 IF_NAME=enp0s31f6
 # --port=0 disables DNS (DHCP/TFTP only)
 dnsmasq --no-daemon --port=0 --enable-tftp --tftp-root=$(pwd) --interface=$IF_NAME \
-  --dhcp-range=interface:$IF_NAME,192.168.88.100,192.168.88.200,12h --dhcp-host=cc:2d:e0:a2:f5:4f,192.168.88.50 --bootp-dynamic \
+  --dhcp-range=interface:$IF_NAME,192.168.88.0,static --dhcp-host=cc:2d:e0:a2:f5:4f,192.168.88.50 --bootp-dynamic \
   --dhcp-boot=openwrt-24.10.5-ipq40xx-mikrotik-mikrotik_hap-ac2-initramfs-kernel.bin
 ```
