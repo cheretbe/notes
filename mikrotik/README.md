@@ -449,6 +449,13 @@ snmptable -c public -v 2c ip-addr .1.3.6.1.2.1.4.20
 hAP ac2: all ports work, port 1 works 100%
 
 ```shell
+ip -br -c link
+# -a is a temporary address of the router, the interface (enp0s31f6 in this example) should have a static
+# address in the same range
+./netinstall-cli -v -i enp0s31f6 -a 192.168.88.22 ../routeros-7.20.6-arm.npk ../wifi-qcom-ac-7.20.6-arm.npk
+```
+
+```shell
 # (2test) Under wine run as root or allow Wine to bind low ports as non-root
 # https://www.winehq.org/pipermail/wine-bugs/2014-July/391739.html
 # (?) Looks like everything works with stock Wine from Ubuntu 20.04 repo, but fails
