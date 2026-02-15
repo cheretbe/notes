@@ -32,6 +32,7 @@ dnsmasq --no-daemon --port=0 --enable-tftp --tftp-root=$(pwd) --interface=$IF_NA
 # [!] connect to router's port 2-5
 # user root, password is empty
 # [!] squashfs-sysupgrade, not initramfs-kernel
+# Or go to "System" > "Backup / Flash Firmware" in the UI
 scp -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
   openwrt-24.10.5-ipq40xx-mikrotik-mikrotik_hap-ac2-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/
 ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@192.168.1.1
