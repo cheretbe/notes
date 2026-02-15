@@ -2,10 +2,12 @@
 * https://openwrt.org/toh/mikrotik/common
     * https://openwrt.org/toh/mikrotik/hap_ac2 
     * https://firmware-selector.openwrt.org/?version=24.10.5&target=ipq40xx%2Fmikrotik&id=mikrotik_hap-ac2
+    * https://radiusdesk.com/docuwiki/user_guide/mikrotik/openwrt_rb750gr3
+    * https://gist.github.com/bramford/781321e4cfd726730b68bb3adee36fa9
 * TL/DR
     * :warning: Make backup of license key (Windows Winbox only :shrug:): System > License > Export Key...
     * Downgrade to ROS 6 (version 7 bootloader support is introduced in v25)
-    * 
+    * Don't forget that netboot is done on port 1, router conifg is on ports 2-5
 
 ```shell
 nmcli con show | grep -i ether
