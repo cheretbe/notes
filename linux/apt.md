@@ -14,6 +14,12 @@ apt-cache search openjdk
 apt-cache policy openjdk-18-jre
 
 apt update --allow-releaseinfo-change
+apt-get update -o Acquire::AllowReleaseInfoChange=true
+# cloud-init fix
+# apt:
+#   conf: |
+#     Acquire::AllowReleaseInfoChange "true";
+
 
 # Remove PPA and downgrade packages
 apt install ppa-purge
