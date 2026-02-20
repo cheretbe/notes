@@ -10,6 +10,9 @@
 apt_preserve_sources_list: true
 apt:
   preserve_sources_list: true
+# Fix for unattended apt calls failing when repository Release metadata changes
+  conf: |
+    Acquire::AllowReleaseInfoChange "true";
 ```
 
 ```shell
