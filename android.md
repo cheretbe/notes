@@ -14,6 +14,23 @@ tree -d ~/mnt/android
 fusermount -u ~/mnt/android
 ```
 
+### Nothing Phone 3
+* Отключение кнопки AI (Essential key)
+   * Включить отладку по USB (как в Redmi, только тапать по номеру сборки в "Сведения о программном обеспечении")
+   * источник: https://github.com/z3phydev/How-to-remap-or-disable-the-Essential-Key
+   * ```shell
+     wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+     unzip platform-tools-latest-linux.zip
+     ./platform-tools/adb devices
+     ./platform-tools/adb shell pm disable-user --user 0 com.nothing.ntessentialspace
+     # должно вывести: Package com.nothing.ntessentialspace new state: disabled-user
+     ./platform-tools/adb shell pm disable-user --user 0 com.nothing.ntessentialrecorder
+     # должно вывести: Package com.nothing.ntessentialrecorder new state: disabled-user
+     
+     ./platform-tools/adb kill-server
+     rm -rf platform-tools
+     ```
+
 ### Xiaomi Redmi
 
 * Режимы USB
