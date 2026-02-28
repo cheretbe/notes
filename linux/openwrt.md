@@ -1,3 +1,15 @@
+* multiple wans
+    * https://www.reddit.com/r/openwrt/comments/tuin03/trying_to_set_up_two_wans_on_one_router/
+    * https://openwrt.org/docs/guide-user/network/wan/multiwan/mwan3?s[]=ipv6&s[]=setup
+    * https://forum.openwrt.org/t/mwan3-documentation-simple-example/237699/4
+    * https://oldme.knnect.com/blogs/openwrt_mwan3/
+* backup
+    * https://www.reddit.com/r/openwrt/comments/vuw59b/openwrt_backup/
+    * https://openwrt.org/docs/guide-user/troubleshooting/backup_restore?s[]=open&s[]=level
+* vpn
+    * https://docs.amnezia.org/documentation/instructions/openwrt-os-awg/
+
+
 ### Microtic
 * https://openwrt.org/toh/mikrotik/common
     * https://openwrt.org/toh/mikrotik/hap_ac2 
