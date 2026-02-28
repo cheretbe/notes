@@ -7,6 +7,12 @@ The default settings are hardcoded in the vscode sources. To see all settings in
 
 * socks5 proxy format: `socks5://127.0.0.1:1080`
 
+### AI
+* Turn inline suggestions on/off with <kbd>Alt</kbd>+<kbd>\\</kbd>
+    * `"editor.inlineSuggest.enabled": false,`
+    * Under File, Preferences, Keyboard Shortcuts, search for `inlinesuggest` and set the hotkey for `editor.action.inlineSuggest.trigger`
+    * https://stackoverflow.com/questions/71224911/can-github-copilot-stop-auto-suggesting-instead-be-triggered-by-a-keystroke/71224912#71224912
+
 ### Title bar
 * https://dev.to/ismaellopezdev/customize-titlebar-in-vs-code-5hie
 * :point_right: Change workspace color: https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock
