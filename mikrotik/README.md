@@ -17,6 +17,14 @@ Installation Check-List
 - [ ] Disable autodiscovery on WAN (`IP` > `Neighbours` > `Discovery Interfaces`. New ROS uses lists, defined in `Interfaces` > `Interface List`)
 - [ ] Review https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router
 
+#### ICMP Packet loss simulation
+```shell
+# nth=2,1 - every 2nd packet (50%)
+# nth=5,1 - every 5th packet (20%)
+/ip firewall mangle add action=mark-packet chain=output comment="DEBUG: ICMP packet loss simulation" disabled=yes dst-address=192.168.10.1 new-packet-mark=icmp-drop-simulation nth=5,1 protocol=icmp
+/ip firewall filter add action=drop chain=output comment="DEBUG: Output - drop packets with icmp-drop-simulation mark" disabled=yes log=yes log-prefix="DEBUG [drop ICMP]: " packet-mark=icmp-drop-simulation
+```
+
 #### DNS with DoH
 
 ```
