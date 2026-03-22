@@ -10,8 +10,26 @@ import pathlib
 import subprocess
 import requests
 import questionary
+import packaging
 
-import routeros_utils
+
+def normalize_routeros_version(version_str):
+    """
+    Normalize RouterOS version to ensure proper semantic versioning and return a Version object.
+
+    RouterOS versions can be in formats like:
+    - "7.12" -> "7.12.0"
+    - "6.49.1" -> "6.49.1"
+    - "7.12.1" -> "7.12.1"
+
+    This ensures consistent version comparison.
+    """
+    parts = version_str.split(".")
+    # Ensure we have at least major.minor.patch format
+    while len(parts) < 3:
+        parts.append("0")
+
+    return packaging.version.Version(".".join(parts))
 
 
 def ask_for_confirmation(prompt, batch_mode, default):
@@ -33,9 +51,7 @@ def inc_version_release(new_base_version, current_version, separator):
     current_base_version, current_subversion = current_version.rsplit(separator, maxsplit=1)
     if current_base_version == new_base_version:
         new_version = current_base_version + separator + str(int(current_subversion) + 1)
-    elif routeros_utils.normalize_routeros_version(
-        new_base_version
-    ) > routeros_utils.normalize_routeros_version(current_base_version):
+    elif normalize_routeros_version(new_base_version) > normalize_routeros_version(current_base_version):
         new_version = new_base_version + separator + "0"
     else:
         sys.exit(
@@ -43,6 +59,41 @@ def inc_version_release(new_base_version, current_version, separator):
             f"released ({current_base_version})"
         )
     return new_version
+
+
+KNOWN_PROVIDERS = ["virtualbox", "libvirt"]
+
+
+def get_box_provider(box_file, batch_mode):
+    box_file_stem = pathlib.Path(box_file).stem
+    # Strip version suffix (trailing digits, dots, hyphens) using same logic as get_box_name_and_version
+    idx = len(box_file_stem) - 1
+    while idx >= 0:
+        if not (box_file_stem[idx].isdigit() or box_file_stem[idx] in [".", "-"]):
+            break
+        idx -= 1
+    name_part = box_file_stem[0:idx] if 0 <= idx < len(box_file_stem) - 1 else box_file_stem
+
+    detected_provider = None
+    for provider in KNOWN_PROVIDERS:
+        if name_part.endswith(f"_{provider}"):
+            detected_provider = provider
+            break
+
+    if batch_mode:
+        if detected_provider:
+            print(f"Detected provider from box file name: {detected_provider}")
+            return detected_provider
+        sys.exit("Could not detect provider from box file name in batch mode. Use --provider option.")
+
+    selected = questionary.select(
+        "Select box provider",
+        choices=KNOWN_PROVIDERS,
+        default=detected_provider if detected_provider else KNOWN_PROVIDERS[0],
+    ).ask()
+    if selected is None:
+        sys.exit("Cancelled by user")
+    return selected
 
 
 def select_box_file(batch_mode):
@@ -165,7 +216,14 @@ def get_version_description(box_file, batch_mode):
 
 
 def publish_box(  # pylint: disable=too-many-arguments
-    box_file, cloud_user_name, box_name, box_version, box_description, version_description, dry_run_mode
+    box_file,
+    cloud_user_name,
+    box_name,
+    box_version,
+    box_description,
+    version_description,
+    provider,
+    dry_run_mode,
 ):
     print(f"Publishing '{box_file}' as '{cloud_user_name}/{box_name}'version {box_version}")
     vagrant_parameters = [
@@ -174,7 +232,7 @@ def publish_box(  # pylint: disable=too-many-arguments
         "publish",
         f"{cloud_user_name}/{box_name}",
         box_version,
-        "virtualbox",
+        provider,
         box_file,
         "--version-description",
         version_description,
@@ -240,6 +298,13 @@ def parse_arguments():
         help="Prompt for Hashicorp Cloud Portal credentials interactively",
     )
     parser.add_argument(
+        "-p",
+        "--provider",
+        choices=KNOWN_PROVIDERS,
+        default=None,
+        help="Box provider (virtualbox or libvirt). Will try autodetection from box file name if not set.",
+    )
+    parser.add_argument(
         "-d",
         "--dry-run",
         action="store_true",
@@ -283,6 +348,11 @@ def main():
         box_file=options.box_file, explicit_name=options.box_name, explicit_version=options.box_ver
     )
 
+    if options.provider:
+        box_provider = options.provider
+    else:
+        box_provider = get_box_provider(options.box_file, options.batch)
+
     print(f"Publishing '{cloud_user_name}/{box_name}' {box_version}")
 
     current_version = get_current_cloud_box_version(cloud_user_name, box_name)
@@ -316,6 +386,7 @@ def main():
         box_version=new_version,
         box_description=box_description,
         version_description=version_description,
+        provider=box_provider,
         dry_run_mode=options.dry_run,
     )
 
