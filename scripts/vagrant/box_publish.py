@@ -12,6 +12,8 @@ import requests
 import questionary
 import packaging
 
+KNOWN_PROVIDERS = ["virtualbox", "libvirt"]
+
 
 def normalize_routeros_version(version_str):
     """
@@ -44,7 +46,7 @@ def ask_for_confirmation(prompt, batch_mode, default):
         if confirmed is None:  # Handle Ctrl+C
             confirmed = False
     if not confirmed:
-        sys.exit("Cancelled by user")
+        sys.exit(1)
 
 
 def inc_version_release(new_base_version, current_version, separator):
@@ -61,39 +63,26 @@ def inc_version_release(new_base_version, current_version, separator):
     return new_version
 
 
-KNOWN_PROVIDERS = ["virtualbox", "libvirt"]
+def detect_box_info(box_file):
+    """Detect box name, provider, and base version from filename.
 
+    Supports patterns: box-name_provider_version or box-name_version
+    Returns (name, provider, version) with None for undetected values.
+    """
+    parts = pathlib.Path(box_file).stem.split("_")
 
-def get_box_provider(box_file, batch_mode):
-    box_file_stem = pathlib.Path(box_file).stem
-    # Strip version suffix (trailing digits, dots, hyphens) using same logic as get_box_name_and_version
-    idx = len(box_file_stem) - 1
-    while idx >= 0:
-        if not (box_file_stem[idx].isdigit() or box_file_stem[idx] in [".", "-"]):
-            break
-        idx -= 1
-    name_part = box_file_stem[0:idx] if 0 <= idx < len(box_file_stem) - 1 else box_file_stem
-
+    detected_version = None
     detected_provider = None
-    for provider in KNOWN_PROVIDERS:
-        if name_part.endswith(f"_{provider}"):
-            detected_provider = provider
-            break
 
-    if batch_mode:
-        if detected_provider:
-            print(f"Detected provider from box file name: {detected_provider}")
-            return detected_provider
-        sys.exit("Could not detect provider from box file name in batch mode. Use --provider option.")
+    if parts and all(c.isdigit() or c in ".-" for c in parts[-1]):
+        detected_version = parts.pop()
 
-    selected = questionary.select(
-        "Select box provider",
-        choices=KNOWN_PROVIDERS,
-        default=detected_provider if detected_provider else KNOWN_PROVIDERS[0],
-    ).ask()
-    if selected is None:
-        sys.exit("Cancelled by user")
-    return selected
+    if parts and parts[-1] in KNOWN_PROVIDERS:
+        detected_provider = parts.pop()
+
+    detected_name = "_".join(parts) if parts else None
+
+    return detected_name, detected_provider, detected_version
 
 
 def select_box_file(batch_mode):
@@ -106,14 +95,10 @@ def select_box_file(batch_mode):
         sys.exit("More than one box file has been found. Will not display selection " "dialog in batch mode")
     selected = questionary.select("Select a box file to publish", choices=[str(i) for i in box_files]).ask()
     if selected is None:
-        sys.exit("Cancelled by user")
+        sys.exit(1)
     return str(selected)
 
 
-# By default login token is in ~/.vagrant.d/data/vagrant_login_token
-# [!] Make sure there are no leading spaces when copypasting the following
-# curl -s "https://vagrantcloud.com/api/v1/authenticate?access_token="\
-# "$(cat ~/.vagrant.d/data/vagrant_login_token)" | jq -r .user.username
 def check_vagrant_cloud_login(batch_mode):
     print("Checking Vagrant Cloud login...")
 
@@ -132,33 +117,6 @@ def check_vagrant_cloud_login(batch_mode):
             "use --hcp-client-id and --hcp-client-secret options or "
             "use --hcp-creds-prompt option for cloud auth to work"
         )
-
-
-def get_box_name_and_version(box_file, explicit_name, explicit_version):
-    if (not explicit_name) or (not explicit_version):
-        box_file_name = pathlib.Path(box_file).stem
-        idx = len(box_file_name) - 1
-        while idx >= 0:
-            token = box_file_name[idx]
-            if not (token.isdigit() or (token in [".", "-"])):
-                break
-            idx -= 1
-        if idx == len(box_file_name) - 1:
-            box_name = box_file_name
-            box_version = ""
-        else:
-            box_name = box_file_name[0:idx]
-            box_version = box_file_name[idx + 1 :]
-    if explicit_name:
-        box_name = explicit_name
-    if explicit_version:
-        box_version = explicit_version
-    if not box_version:
-        print("Box version is not specified and has not been detected from the file name")
-        box_version = datetime.datetime.now().strftime("%Y%m%d")
-        print(f"Using {box_version} as a box version")
-
-    return [box_name, box_version]
 
 
 def get_box_description(batch_mode, is_new_box):
@@ -180,7 +138,7 @@ def get_box_description(batch_mode, is_new_box):
                 "Please enter box description", default=box_description, multiline=True
             ).ask()
             if box_description is None:
-                sys.exit("Cancelled by user")
+                sys.exit(1)
     return box_description
 
 
@@ -193,7 +151,7 @@ def get_current_cloud_box_version(cloud_user_name, box_name):
     else:
         print(f"There is no currently released version of '{cloud_user_name}/{box_name}'")
         current_version = ""
-    return current_version
+    return current_version, (response.get("message", "") == "box not found")
 
 
 def get_version_description(box_file, batch_mode):
@@ -210,7 +168,7 @@ def get_version_description(box_file, batch_mode):
             "Please enter a version description", default=version_description, multiline=True
         ).ask()
         if version_description is None:
-            sys.exit("Cancelled by user")
+            sys.exit(1)
 
     return version_description
 
@@ -326,10 +284,10 @@ def main():
         print("Enter Hashicorp Cloud Portal credentials")
         options.hcp_client_id = questionary.text("HCP client ID:").ask()
         if options.hcp_client_id is None:
-            sys.exit("Cancelled by user")
+            sys.exit(1)
         options.hcp_client_secret = questionary.password("HCP client secret:").ask()
         if options.hcp_client_secret is None:
-            sys.exit("Cancelled by user")
+            sys.exit(1)
 
     if options.box_file == "":
         options.box_file = select_box_file(batch_mode=options.batch)
@@ -344,18 +302,40 @@ def main():
         os.environ["HCP_CLIENT_SECRET"] = options.hcp_client_secret
     check_vagrant_cloud_login(options.batch)
 
-    box_name, box_version = get_box_name_and_version(
-        box_file=options.box_file, explicit_name=options.box_name, explicit_version=options.box_ver
-    )
+    detected_name, detected_provider, detected_version = detect_box_info(options.box_file)
 
-    if options.provider:
-        box_provider = options.provider
-    else:
-        box_provider = get_box_provider(options.box_file, options.batch)
+    box_name = options.box_name or detected_name
+    box_version = options.box_ver or detected_version
+    box_provider = options.provider or detected_provider
+
+    if not box_name:
+        if options.batch:
+            sys.exit("Could not detect box name from file name in batch mode. Use --box-name option.")
+        box_name = questionary.text("Box name:").ask()
+        if box_name is None:
+            sys.exit(1)
+
+    if not box_version:
+        box_version = datetime.datetime.now().strftime("%Y%m%d")
+        if options.batch:
+            print(f"Box version not specified or detected, using {box_version}")
+        else:
+            box_version = questionary.text("Box version:", default=box_version).ask()
+            if box_version is None:
+                sys.exit(1)
+
+    if not box_provider:
+        if options.batch:
+            sys.exit("Could not detect provider from box file name in batch mode. Use --provider option.")
+        box_provider = questionary.select(
+            "Select box provider", choices=KNOWN_PROVIDERS, default=KNOWN_PROVIDERS[0]
+        ).ask()
+        if box_provider is None:
+            sys.exit(1)
 
     print(f"Publishing '{cloud_user_name}/{box_name}' {box_version}")
 
-    current_version = get_current_cloud_box_version(cloud_user_name, box_name)
+    current_version, is_new_box = get_current_cloud_box_version(cloud_user_name, box_name)
     if current_version:
         new_version = inc_version_release(
             new_base_version=box_version,
@@ -365,14 +345,15 @@ def main():
     else:
         new_version = box_version + options.version_separator + "0"
 
-    box_description = get_box_description(batch_mode=options.batch, is_new_box=(not bool(current_version)))
+    box_description = get_box_description(batch_mode=options.batch, is_new_box=is_new_box)
 
     version_description = get_version_description(options.box_file, options.batch)
 
+    current_version_info = ""
     if current_version:
         current_version_info = f", replacing currenly released version {current_version}"
-    else:
-        current_version_info = f", creating a new box\nBox description: {box_description}"
+    elif is_new_box:
+        current_version_info = f", creating a new box\nNew box description: {box_description}"
     print(
         f"This will release '{options.box_file}' as '{cloud_user_name}/{box_name}' "
         f"version {new_version}" + current_version_info + f"\nVersion description: {version_description}"
