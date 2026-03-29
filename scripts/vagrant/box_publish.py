@@ -99,9 +99,27 @@ def select_box_file(batch_mode):
     return str(selected)
 
 
-def check_vagrant_cloud_login(batch_mode):
-    print("Checking Vagrant Cloud login...")
+def setup_hcp_credentials(options):
+    client_id = options.hcp_client_id or os.environ.get("HCP_CLIENT_ID", "")
+    client_secret = options.hcp_client_secret or os.environ.get("HCP_CLIENT_SECRET", "")
 
+    if not (client_id and client_secret):
+        if options.batch:
+            sys.exit("Cannot prompt for HCP credentials in batch mode")
+        print("Enter Hashicorp Cloud Portal credentials")
+        client_id = questionary.text("HCP client ID:", default=client_id).ask()
+        if client_id is None:
+            sys.exit(1)
+        client_secret = questionary.password("HCP client secret:", default=client_secret).ask()
+        if client_secret is None:
+            sys.exit(1)
+
+    if client_id:
+        os.environ["HCP_CLIENT_ID"] = client_id
+    if client_secret:
+        os.environ["HCP_CLIENT_SECRET"] = client_secret
+
+    print("Checking Vagrant Cloud login...")
     if (
         subprocess.call(
             "vagrant cloud auth login --check",
@@ -113,9 +131,8 @@ def check_vagrant_cloud_login(batch_mode):
     ):
         print("You are not currently logged in.")
         sys.exit(
-            "Set HCP_CLIENT_ID, HCP_CLIENT_SECRET env variables, "
-            "use --hcp-client-id and --hcp-client-secret options or "
-            "use --hcp-creds-prompt option for cloud auth to work"
+            "Set HCP_CLIENT_ID, HCP_CLIENT_SECRET env variables or "
+            "use --hcp-client-id and --hcp-client-secret options for cloud auth to work"
         )
 
 
@@ -142,15 +159,20 @@ def get_box_description(batch_mode, is_new_box):
     return box_description
 
 
-def get_current_cloud_box_version(cloud_user_name, box_name):
+def get_current_cloud_box_version(cloud_user_name, box_name, provider):
     print("Getting currently released version info")
+    current_version = ""
     response = requests.get(f"https://app.vagrantup.com/api/v1/box/{cloud_user_name}/{box_name}").json()
     if response.get("current_version", ""):
-        current_version = response["current_version"]["version"]
-        print(f"Currently released version of '{cloud_user_name}/{box_name}': {current_version}")
+        current_providers = [p["name"] for p in response["current_version"].get("providers", [])]
+        if provider in current_providers:
+            current_version = response["current_version"]["version"]
+    if current_version:
+        print(
+            f"Currently released version of '{cloud_user_name}/{box_name}' ({provider}): {current_version}"
+        )
     else:
-        print(f"There is no currently released version of '{cloud_user_name}/{box_name}'")
-        current_version = ""
+        print(f"There is no currently released version of '{cloud_user_name}/{box_name}' ({provider})")
     return current_version, (response.get("message", "") == "box not found")
 
 
@@ -250,12 +272,6 @@ def parse_arguments():
         help="Hashicorp Cloud Portal client secret",
     )
     parser.add_argument(
-        "--hcp-creds-prompt",
-        action="store_true",
-        default=False,
-        help="Prompt for Hashicorp Cloud Portal credentials interactively",
-    )
-    parser.add_argument(
         "-p",
         "--provider",
         choices=KNOWN_PROVIDERS,
@@ -278,17 +294,6 @@ def parse_arguments():
 def main():
     options = parse_arguments()
 
-    if options.hcp_creds_prompt:
-        if options.batch:
-            sys.exit("Cannot prompt for HCP credentials in batch mode")
-        print("Enter Hashicorp Cloud Portal credentials")
-        options.hcp_client_id = questionary.text("HCP client ID:").ask()
-        if options.hcp_client_id is None:
-            sys.exit(1)
-        options.hcp_client_secret = questionary.password("HCP client secret:").ask()
-        if options.hcp_client_secret is None:
-            sys.exit(1)
-
     if options.box_file == "":
         options.box_file = select_box_file(batch_mode=options.batch)
     print(f"Box file name: {options.box_file}")
@@ -296,11 +301,7 @@ def main():
         sys.exit(f"File doesn't exist: {options.box_file}")
     cloud_user_name = options.username
 
-    if options.hcp_client_id:
-        os.environ["HCP_CLIENT_ID"] = options.hcp_client_id
-    if options.hcp_client_secret:
-        os.environ["HCP_CLIENT_SECRET"] = options.hcp_client_secret
-    check_vagrant_cloud_login(options.batch)
+    setup_hcp_credentials(options)
 
     detected_name, detected_provider, detected_version = detect_box_info(options.box_file)
 
@@ -335,7 +336,7 @@ def main():
 
     print(f"Publishing '{cloud_user_name}/{box_name}' {box_version}")
 
-    current_version, is_new_box = get_current_cloud_box_version(cloud_user_name, box_name)
+    current_version, is_new_box = get_current_cloud_box_version(cloud_user_name, box_name, box_provider)
     if current_version:
         new_version = inc_version_release(
             new_base_version=box_version,
