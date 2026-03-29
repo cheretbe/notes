@@ -10,7 +10,7 @@ import pathlib
 import subprocess
 import requests
 import questionary
-import packaging
+import packaging.version
 
 KNOWN_PROVIDERS = ["virtualbox", "libvirt"]
 
