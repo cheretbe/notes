@@ -16,7 +16,7 @@ fusermount -u ~/mnt/android
 
 ### Nothing Phone 3
 * Отключение кнопки AI (Essential key)
-   * Включить отладку по USB (как в Redmi, только тапать по номеру сборки в "Сведения о программном обеспечении")
+   * Включить отладку по USB (как в Redmi, только тапать по номеру сборки в "Сведения о программном обеспечении"). Похоже, что отладку нужно включать каждый раз заново.
    * источник: https://github.com/z3phydev/How-to-remap-or-disable-the-Essential-Key
    * ```shell
      wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
@@ -29,7 +29,17 @@ fusermount -u ~/mnt/android
      
      ./platform-tools/adb kill-server
      rm -rf platform-tools
+
+     # Вернуть обратно
+     ./platform-tools/adb shell pm enable --user 0 com.nothing.ntessentialspace
+     ./platform-tools/adb shell pm enable --user 0 com.nothing.ntessentialrecorder
+     # Посмотреть запрещенные пакеты
+     ./platform-tools/adb shell pm list packages -d
      ```
+* После какого-то из обновлений вместо кнопки закрытия клавиатуры появилась кнопка Essential Voice. Чтобы убрать
+    * Сначала временно включить пакет com.nothing.ntessentialrecorder
+    * Выключить Settings > Intelligence toolkit > Essential Voice > Show keyboard button
+    * Запретить обратно пакет
 
 ### Xiaomi Redmi
 
