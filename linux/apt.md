@@ -1,4 +1,9 @@
 ```shell
+# Configure any half-configured packages
+dpkg --configure -a
+# Fix broken dependencies
+apt-get install -f
+
 # Debian 11 > 12 upgrade
 # [!!] Don't forget to check third-party files in /etc/apt/sources.list.d/
 sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
