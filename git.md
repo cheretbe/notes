@@ -1,6 +1,9 @@
 
 ### Unsorted
 ```shell
+# Temporarily set current repo as safe to overcome "fatal: detected dubious ownership in repository"
+git -c safe.directory="$(pwd)" status
+
 # compare two arbitrary files
 git diff --no-index file1 file2
 
