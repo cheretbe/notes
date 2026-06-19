@@ -1,3 +1,10 @@
+Cert viewer on ubuntu
+```shell
+sudo apt install gcr
+# Should add View File handler
+gcr-viewer cert.pem
+```
+
 ```shell
 #  -servername   Set TLS extension servername (SNI) in ClientHello (default)
 # Essentially it works a little like a "Host" header in HTTP, i.e. it causes the requested domain name
