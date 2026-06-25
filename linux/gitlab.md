@@ -5,6 +5,17 @@ https://about.gitlab.com/downloads/
 * Fail2ban: https://gist.github.com/pawilon/238c278d3c6c4669771eb81b03264acd
 * Display pipeline variables: https://gitlab.com/gitlab-org/gitlab/-/issues/22204
 
+### Useful rails console snippets
+
+```shell
+gitlab-rails console
+```
+
+```ruby
+# Find out username by API token
+PersonalAccessToken.find_by_token('glpat-xxxxxxxxxxxxxxxxxxxx').user.username
+```
+
 ### Config
 
 * gitlab.rb template
