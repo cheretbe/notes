@@ -14,9 +14,9 @@ gcr-viewer cert.pem
 # If you do not request a specific domain name the server does not know which certificate to give you, so you
 # end up with a default one.
 # https://stackoverflow.com/questions/43785703/using-servername-param-with-openssl-s-client/43787519#43787519
-openssl s_client -verify_hostname www.godaddy.com -servername www.godaddy.com -connect www.godaddy.com:443 -showcerts -verify_return_error 2>/dev/null </dev/null | openssl x509 -text -issuer
+openssl s_client -verify_hostname www.godaddy.com -servername www.godaddy.com -connect www.godaddy.com:443 -showcerts -crl_check -crl_download -verify_return_error 2>/dev/null </dev/null | openssl x509 -text -issuer
 # Expiration date
-openssl s_client -verify_hostname www.godaddy.com -servername www.godaddy.com -connect www.godaddy.com:443 -verify_return_error 2>/dev/null </dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
+openssl s_client -verify_hostname www.godaddy.com -servername www.godaddy.com -connect www.godaddy.com:443 -crl_check -crl_download -verify_return_error 2>/dev/null </dev/null | openssl x509 -noout -enddate | sed -e 's#notAfter=##' | xargs -i date -d "{}" +%d.%m.%Y
 
 # Check if key matches certificate
 openssl rsa -in certificate.key -noout -modulus | openssl sha256
