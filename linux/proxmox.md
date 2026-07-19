@@ -87,6 +87,99 @@ resize2fs /dev/mapper/pve-root
   * Very strict limitations
     * Nodes can be added/removed only if there are no VMs/containers on it
     * Renaming a node becomes effectively impossible - same problems as with a single node plus cluster config files (:warning: replicated on each node of a cluster)
+   
+## Hardening
+
+1. Verify you have console access (IPMI, iKVM, or physical console) before changing SSH settings.
+2. Confirm the management IP, hostname, and `/etc/hosts` entry are correct.
+3. Create admin user `npa` and grant sudo:
+   ```shell
+   adduser npa
+   usermod -aG sudo npa
+   ```
+4. Install SSH key for `npa`:
+   ```shell
+   install -d -m 700 -o npa -g npa /home/npa/.ssh
+   install -m 600 -o npa -g npa /tmp/npa_authorized_keys /home/npa/.ssh/authorized_keys
+   ```
+5. Test login and sudo for `npa`:
+   ```shell
+   ssh npa@<host>
+   sudo -v
+   ```
+6. Add `npa` to Proxmox and grant admin rights:
+   ```shell
+   pveum user add npa@pam
+   pveum acl modify / -user npa@pam -role Administrator
+   ```
+7. Create automation user `ansible-user` and grant sudo:
+   ```shell
+   adduser ansible-user
+   usermod -aG sudo ansible-user
+   ```
+8. Install SSH key for `ansible-user`:
+   ```shell
+   install -d -m 700 -o ansible-user -g ansible-user /home/ansible-user/.ssh
+   install -m 600 -o ansible-user -g ansible-user /tmp/ansible_authorized_keys /home/ansible-user/.ssh/authorized_keys
+   ```
+9. Test login and sudo for `ansible-user`:
+   ```shell
+   ssh ansible-user@<host>
+   sudo -v
+   ```
+10. Add `ansible-user` to Proxmox and grant admin rights:
+    ```shell
+    pveum user add ansible-user@pam
+    pveum acl modify / -user ansible-user@pam -role Administrator
+    ```
+11. Create API token for `ansible-user`:
+    ```shell
+    pveum user token add ansible-user@pam automation -privsep 1
+    pveum acl modify / -token 'ansible-user@pam!automation' -role Administrator
+    ```
+12. Save the token secret securely.
+13. Edit `/etc/ssh/sshd_config` and set:
+    ```text
+    PasswordAuthentication no
+    KbdInteractiveAuthentication no
+    ChallengeResponseAuthentication no
+    PubkeyAuthentication yes
+    UsePAM yes
+    PermitRootLogin prohibit-password
+    PermitEmptyPasswords no
+    ```
+14. Validate and reload SSH:
+    ```shell
+    sshd -t
+    systemctl reload ssh
+    ```
+15. Open a new terminal and verify:
+    * `ssh npa@<host>` works with key auth
+    * `ssh ansible-user@<host>` works with key auth
+    * password-based SSH login no longer works
+    * root SSH password login no longer works
+16. Set or confirm a strong root password:
+    ```shell
+    passwd root
+    ```
+17. Enable 2FA for `npa@pam` in GUI: `Datacenter` > `Permissions` > `Users`.
+18. Install TLS certificate for Web UI if using your own cert:
+    ```shell
+    cp host.domain.tld.crt /etc/pve/local/pve-ssl.pem
+    cp host.domain.tld.key /etc/pve/local/pve-ssl.key
+    systemctl restart pveproxy.service
+    ```
+19. Restrict inbound access to trusted admin networks only:
+    * TCP `8006` for GUI/API
+    * TCP `22` for SSH
+20. Validate Proxmox access:
+    * GUI login as `npa@pam`
+    * API token works for `ansible-user@pam!automation`
+    * `sudo` works for both Linux users
+    ```shell
+    curl -k -H "Authorization: PVEAPIToken=ansible-user@pam!automation=TOKEN_SECRET" \
+      https://<host>:8006/api2/json/version
+    ```
 
 ## Serial console
 
