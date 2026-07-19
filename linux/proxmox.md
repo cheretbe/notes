@@ -134,8 +134,8 @@ resize2fs /dev/mapper/pve-root
     ```
 11. Create API token for `ansible-user`:
     ```shell
-    pveum user token add ansible-user@pam automation -privsep 1
-    pveum acl modify / -token 'ansible-user@pam!automation' -role Administrator
+    pveum user token add ansible-user@pam ansible_pve_token -privsep 1
+    pveum acl modify / -token 'ansible-user@pam!ansible_pve_token' -role Administrator
     ```
 12. Save the token secret securely.
 13. Edit `/etc/ssh/sshd_config` and set:
