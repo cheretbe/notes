@@ -95,6 +95,7 @@ resize2fs /dev/mapper/pve-root
 3. Create admin user `npa` and grant sudo:
    ```shell
    apt install sudo
+   echo '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' | sudo EDITOR='tee' visudo -f /etc/sudoers.d/00_passwordless_sudo
    adduser npa
    usermod -aG sudo npa
    ```
@@ -119,8 +120,7 @@ resize2fs /dev/mapper/pve-root
    ```
 8. Install SSH key for `ansible-user`:
    ```shell
-   install -d -m 700 -o ansible-user -g ansible-user /home/ansible-user/.ssh
-   install -m 600 -o ansible-user -g ansible-user /tmp/ansible_authorized_keys /home/ansible-user/.ssh/authorized_keys
+   ssh-copy-id -i ~/Documents/data/ansible/private/keys/ansible-user.key.pub ansible-user@host.domain.tld
    ```
 9. Test login and sudo for `ansible-user`:
    ```shell
