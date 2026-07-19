@@ -94,6 +94,7 @@ resize2fs /dev/mapper/pve-root
 2. Confirm the management IP, hostname, and `/etc/hosts` entry are correct.
 3. Create admin user `npa` and grant sudo:
    ```shell
+   apt install sudo
    adduser npa
    usermod -aG sudo npa
    ```
