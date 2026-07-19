@@ -88,7 +88,7 @@ resize2fs /dev/mapper/pve-root
     * Nodes can be added/removed only if there are no VMs/containers on it
     * Renaming a node becomes effectively impossible - same problems as with a single node plus cluster config files (:warning: replicated on each node of a cluster)
    
-## Hardening
+## Hardening / Setup
 
 1. Verify you have console access (IPMI, iKVM, or physical console) before changing SSH settings.
 2. Confirm the management IP, hostname, and `/etc/hosts` entry are correct.
@@ -99,8 +99,7 @@ resize2fs /dev/mapper/pve-root
    ```
 4. Install SSH key for `npa`:
    ```shell
-   install -d -m 700 -o npa -g npa /home/npa/.ssh
-   install -m 600 -o npa -g npa /tmp/npa_authorized_keys /home/npa/.ssh/authorized_keys
+   ssh-copy-id -i ~/.ssh/id_ed25519.pub npa@host.domain.tld
    ```
 5. Test login and sudo for `npa`:
    ```shell
