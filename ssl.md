@@ -491,6 +491,15 @@ Sources:
 
 ### Adding a CA to Debian/Ubuntu
 ```shell
+# Fix for Python/PIP/Poetry/nuget etc
+# [!] RHEL/Fedora uses /etc/pki/tls/certs/ca-bundle.crt
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+export PIP_CERT=/etc/ssl/certs/ca-certificates.crt
+
 # Alternative:
 # just copy .crt file to /usr/local/share/ca-certificates and run
 update-ca-certificates --fresh
