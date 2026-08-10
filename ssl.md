@@ -524,6 +524,9 @@ update-ca-trust
 # [!] GUI version
 # chrome://settings/certificates?search=certificate
 # Select "Authorities" > "Import"
+# Firefox:
+# "Menu(☰)" > "Settings" > "Privacy & Security" > "Advanced" > In "Certificates" section "Manage Certificates"
+# "Authorities" > "Import..."
 
 sudo apt install libnss3-tools
 
