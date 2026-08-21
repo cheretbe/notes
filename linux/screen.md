@@ -4,5 +4,5 @@ Increase scrollback buffer
 <kbd>Ctrl</kbd>+<kbd>A</kbd> `:scrollback 10000`  
 Permanent setting - add to `~/.screenrc`:
 ```
-scrollback 10000
+defscrollback 10000
 ```
