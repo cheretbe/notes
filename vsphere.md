@@ -9,21 +9,23 @@ Install-Module -Name VMware.PowerCLI -Force
 Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$FALSE
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $FALSE -Confirm:$FALSE
 
+# As root
+docker exec -it --user root powershell pwsh
 apt update
 apt install -y nano
 
 $cred = Get-Credential -UserName "user@domain.tld"
-$cred | Export-CliXml -Path "/root/cred.xml"
+$cred | Export-CliXml -Path "/home/pwsh/cred.xml"
 
-nano /root/.config/powershell/Microsoft.PowerShell_profile.ps1
+nano /home/pwsh/.config/powershell/Microsoft.PowerShell_profile.ps1
 ```
 
-`/root/.config/powershell/Microsoft.PowerShell_profile.ps1` example
+`/home/pwsh/.config/powershell/Microsoft.PowerShell_profile.ps1` example
 ```powershell
-Write-Output "Setting DNS server to 192.168.0.100"
-@("nameserver 192.168.0.100", "search .") | Set-Content "/etc/resolv.conf"
+# Write-Output "Setting DNS server to 192.168.0.100"
+# @("nameserver 192.168.0.100", "search .") | Set-Content "/etc/resolv.conf"
 Write-Output "Connecting to vsphere.domain.tld"
-$cred = Import-CliXml -Path "/root/cred.xml"
+$cred = Import-CliXml -Path "/home/pwsh/cred.xml"
 Connect-VIServer -Server vsphere.domain.tld -Credential $cred
 ```
 
