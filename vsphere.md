@@ -17,6 +17,7 @@ apt install -y nano
 $cred = Get-Credential -UserName "user@domain.tld"
 $cred | Export-CliXml -Path "/home/pwsh/cred.xml"
 
+mkdir /home/pwsh/.config/powershell/
 nano /home/pwsh/.config/powershell/Microsoft.PowerShell_profile.ps1
 ```
 
