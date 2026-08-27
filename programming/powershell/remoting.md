@@ -1,4 +1,4 @@
-## Powershell Remoting
+# Powershell Remoting
 
 * References
     * https://adamtheautomator.com/psremoting/
@@ -11,7 +11,12 @@
 * [Linux](#linux)
 * [Unencrypted](#unencrypted)
 
-### Linux client
+## Linux client
+
+### Native
+
+* :bulb: See docker version below
+
 ```shell
 # Tested on Ubuntu 24.04 (noble)
 # 1. Microsoft package repo
@@ -72,6 +77,110 @@ sudo tee /etc/gss/mech.d/mech.ntlmssp.conf > /dev/null << 'EOF'
 gssntlmssp_v1		1.3.6.1.4.1.311.2.2.10	        /usr/lib/gssntlmssp/gssntlmssp.so
 EOF
 ```
+
+### Docker
+
+Dockerfile
+```
+# PowerShell with working WinRM/PSRemoting against Windows hosts.
+#
+# Three things are needed beyond a stock PowerShell install, none of which the
+# powershell package pulls in:
+#   1. PowerShell itself from packages.microsoft.com. The MCR powershell images
+#      are deprecated and frozen at 7.6.0-preview.3 (Feb 2025); the apt repo is
+#      current.
+#   2. gss-ntlmssp, so SPNEGO has an NTLM mechanism to offer. Without it,
+#      Negotiate against a local Windows account fails with
+#      "SPNEGO cannot find mechanisms to negotiate".
+#   3. PSWSMan, which supplies libmi.so/libpsrpclient.so. Without them,
+#      New-PSSession fails with "no supported WSMan client library was found".
+#
+# gss-ntlmssp is built from source rather than installed from apt: the version
+# in Ubuntu 22.04 (0.7.x, 2021) does not work with libmi.
+
+########################  stage 1 — build gss-ntlmssp  ########################
+FROM ubuntu:24.04 AS ntlm-builder
+
+ARG GSS_NTLMSSP_VERSION=v1.3.1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        autoconf automake libtool build-essential git ca-certificates \
+        pkg-config gettext \
+        libkrb5-dev libwbclient-dev libssl-dev libunistring-dev zlib1g-dev \
+        docbook-xml docbook-xsl xsltproc libxml2-utils doxygen \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 --branch "${GSS_NTLMSSP_VERSION}" \
+        https://github.com/gssapi/gss-ntlmssp.git /src
+
+WORKDIR /src
+RUN autoreconf -f -i \
+    && ./configure --prefix=/usr \
+    && make -j"$(nproc)" \
+    && make install DESTDIR=/out
+
+############################  stage 2 — runtime  ##############################
+FROM ubuntu:24.04
+
+# powershell | powershell-lts | powershell-preview
+ARG PS_PACKAGE=powershell
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates wget apt-transport-https \
+        libgssapi-krb5-2 libkrb5-3 libwbclient0 libunistring5 libssl3t64 \
+    && wget -q https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb \
+    && dpkg -i packages-microsoft-prod.deb \
+    && rm packages-microsoft-prod.deb \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends "${PS_PACKAGE}" \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=ntlm-builder /out/ /
+
+# --prefix=/usr puts the plugin outside the multiarch dir, so the mech config
+# has to name that path explicitly.
+RUN mkdir -p /etc/gss/mech.d \
+    && printf '%s\n' \
+        '# NTLMSSP mechanism plugin, built from source' \
+        'gssntlmssp_v1  1.3.6.1.4.1.311.2.2.10  /usr/lib/gssntlmssp/gssntlmssp.so' \
+        > /etc/gss/mech.d/mech.ntlmssp.conf \
+    && ldconfig
+
+RUN pwsh -NoProfile -Command "\
+        \$ErrorActionPreference = 'Stop'; \
+        Install-Module PSWSMan -Scope AllUsers -Force -AcceptLicense; \
+        Import-Module PSWSMan; \
+        Install-WSMan; \
+        Get-WSManVersion"
+
+# Run as a non-root user matching the host uid/gid, so files written to a
+# bind-mounted home stay readable on the host. ubuntu:24.04 ships a default
+# "ubuntu" user squatting on 1000:1000, so drop it first.
+ARG USER_UID=1000
+ARG USER_GID=1000
+
+RUN userdel -r ubuntu 2>/dev/null || true \
+    && groupdel ubuntu 2>/dev/null || true \
+    && groupadd -g "${USER_GID}" pwsh \
+    && useradd -m -u "${USER_UID}" -g "${USER_GID}" pwsh
+
+USER pwsh
+WORKDIR /home/pwsh
+
+CMD ["pwsh"]
+```
+
+```shell
+mkdir -p ~/temp/pwsh-docker-build
+cd ~/temp/pwsh-docker-build
+nano Dockerfile
+docker build --network host --build-arg USER_UID=$(id -u) --build-arg USER_GID=$(id -g) -t local/pwsh-winrm:latest .
+# [!!] Important to create the dir before the first run (otherwise it will be owned by root)
+mkdir -p ${HOME}/temp/powershell-home
+docker run -dti --network host -v ${HOME}/temp/powershell-home:/home/pwsh --name powershell local/pwsh-winrm:latest bash
+docker exec -it powershell pwsh
+```
+
 
 
 Attempts to find working replacement for linux screen
