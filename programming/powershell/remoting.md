@@ -38,6 +38,38 @@ $cred = Get-Credential
 # Non-HTTPS port 5895
 Enter-PSSession -ComputerName host.domain.tld -Port 5985 -Authentication Negotiate -Credential $cred
 ```
+-UseSSL failure fix
+```shell
+# Enter-PSSession: Connecting to remote server host.domain.tld failed with the following error
+# message : acquiring creds with username only failed An invalid name was supplied SPNEGO cannot
+# find mechanisms to negotiate For more information, see the about_Remote_Troubleshooting Help topic.
+# 
+# Root Cause: Ubuntu 22.04 ships ancient gss-ntlmssp v0.7.0 (2021) with credential-passing bug
+# Solution: Upgrade to gss-ntlmssp v1.3.1 (2024)
+
+# Install build dependencies
+sudo apt-get update
+sudo apt-get install -y autoconf automake libtool libkrb5-dev doxygen \
+    libwbclient-dev libssl-dev libunistring-dev docbook-xsl xsltproc \
+    git build-essential
+
+# Clone and build gss-ntlmssp v1.3.1
+cd /tmp
+git clone --depth 1 --branch v1.3.1 https://github.com/gssapi/gss-ntlmssp.git
+cd gss-ntlmssp
+autoreconf -f -i
+./configure --prefix=/usr
+make
+sudo make install
+
+# Update GSSAPI to use new library (backup the original config)
+sudo cp /etc/gss/mech.d/mech.ntlmssp.conf{,.bak}
+sudo tee /etc/gss/mech.d/mech.ntlmssp.conf > /dev/null << 'EOF'
+# NTLMSSP mechanism plugin v1.3.1
+gssntlmssp_v1		1.3.6.1.4.1.311.2.2.10	        /usr/lib/gssntlmssp/gssntlmssp.so
+EOF
+```
+
 
 Attempts to find working replacement for linux screen
 ```powershell
