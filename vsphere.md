@@ -1,9 +1,8 @@
 #### Initial setup
 
 ```shell
-# mcr.microsoft.com/powershell:preview-7.5-ubuntu-24.04
-docker run -dti --dns 10.100.10.100 -v ${HOME}/temp/powershell-root:/root -v ${HOME}/projects:/projects:ro --name powershell mcr.microsoft.com/powershell:preview-ubuntu-24.04 bash
-
+# https://github.com/cheretbe/notes/blob/master/programming/powershell/remoting.md#docker
+docker run -dti --network host -v ${HOME}/temp/powershell-home:/home/pwsh --name powershell local/pwsh-winrm:latest bash
 docker exec -it powershell pwsh
 
 Install-Module -Name VMware.PowerCLI -Force
