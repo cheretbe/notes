@@ -35,8 +35,11 @@ ls /etc/gss/mech.d/mech.ntlmssp.conf
 ```powershell
 pwsh
 $cred = Get-Credential
-# Non-HTTPS port 5895
+# Non-HTTPS port 5985
 Enter-PSSession -ComputerName host.domain.tld -Port 5985 -Authentication Negotiate -Credential $cred
+# HTTPS port 5986
+# [!] See the fix for "SPNEGO cannot find mechanisms to negotiate" below
+Enter-PSSession -UseSSL -ComputerName host.domain.tld -Credential $cred
 ```
 -UseSSL failure fix
 ```shell
