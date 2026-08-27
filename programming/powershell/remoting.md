@@ -11,6 +11,32 @@
 * [Linux](#linux)
 * [Unencrypted](#unencrypted)
 
+### Linux client
+```shell
+# Tested on Ubuntu 24.04 (noble)
+# 1. Microsoft package repo
+sudo apt update && sudo apt install -y wget apt-transport-https
+wget -q https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb && rm packages-microsoft-prod.deb
+sudo apt update
+
+# 2. PowerShell (currently 7.6.5)
+sudo apt install -y powershell
+
+# 3. GSSAPI NTLM mechanism — required for Negotiate against local Windows accounts
+sudo apt install -y gss-ntlmssp
+  
+# 4. WSMan client libraries — not shipped in PowerShell's Linux builds
+sudo pwsh -NoProfile -c "Install-Module PSWSMan -Scope AllUsers -Force -AcceptLicense; Import-Module PSWSMan; Install-WSMan"
+# Verify:
+pwsh -NoProfile -c 'Import-Module PSWSMan; Get-WSManVersion'
+ls /etc/gss/mech.d/mech.ntlmssp.conf
+
+$cred = Get-Credential
+# Non-HTTPS port 5895
+Enter-PSSession -ComputerName host.domain.tld -Port 5985 -Authentication Negotiate -Credential $cred
+```
+
 Attempts to find working replacement for linux screen
 ```powershell
 # https://devops-collective-inc.gitbook.io/secrets-of-powershell-remoting/session-management
