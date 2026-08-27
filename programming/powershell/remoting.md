@@ -31,7 +31,9 @@ sudo pwsh -NoProfile -c "Install-Module PSWSMan -Scope AllUsers -Force -AcceptLi
 # Verify:
 pwsh -NoProfile -c 'Import-Module PSWSMan; Get-WSManVersion'
 ls /etc/gss/mech.d/mech.ntlmssp.conf
-
+```
+```powershell
+pwsh
 $cred = Get-Credential
 # Non-HTTPS port 5895
 Enter-PSSession -ComputerName host.domain.tld -Port 5985 -Authentication Negotiate -Credential $cred
