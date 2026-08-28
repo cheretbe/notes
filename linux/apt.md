@@ -14,9 +14,10 @@ DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -qq dist-upgrade -o Dpkg::Opt
 ```
 
 ```shell
-# [!!!]
+# [!!!] search package names
 apt-cache search openjdk
 apt-cache policy openjdk-18-jre
+apt-cache madison openjdk-18-jre
 
 apt update --allow-releaseinfo-change
 apt-get update -o Acquire::AllowReleaseInfoChange=true
