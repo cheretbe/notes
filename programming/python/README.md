@@ -5,6 +5,13 @@
 * [Portable Windows settings](./portable_windows.md)
 
 Unsorted
+```shell
+python3 -m http.server 8008 --bind 192.168.56.1
+
+pip install proxy.py
+proxy --hostname 0.0.0.0 --port 3128
+```
+
 ```python
 #pylint: disable=missing-module-docstring,missing-function-docstring
 
