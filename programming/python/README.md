@@ -8,6 +8,9 @@ Unsorted
 ```shell
 python3 -m http.server 8008 --bind 192.168.56.1
 
+pipx install mitmproxy
+mitmdump -p 3128 --ignore-hosts '.*'
+
 pip install proxy.py
 # default timeout value is 10s
 proxy --hostname 0.0.0.0 --port 3128  --timeout 60
