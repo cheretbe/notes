@@ -302,6 +302,9 @@ lsblk --nodeps -o NAME,SERIAL
 ```
 
 ```shell
+# [!!!] Be careful. DOUBLE CHECK the HOST and drive letter
+wipefs -a -f /dev/sdX
+
 pvcreate /dev/sdd /dev/sde
 vgcreate hdd-sas-2 /dev/sde
 
