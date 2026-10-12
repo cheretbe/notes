@@ -364,6 +364,8 @@ pvesm remove hdd-sas-X
 
 ### Physical disk passthrough
 
+:warning: do some research on physical host's ZFS interfering with guests' pools (e.g. trying to import on boot)
+
 * https://pve.proxmox.com/wiki/Passthrough_Physical_Disk_to_Virtual_Machine_(VM)
 
 ```shell
