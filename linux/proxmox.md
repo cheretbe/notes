@@ -299,6 +299,9 @@ lsblk --nodeps -o NAME,SERIAL
 # NAME SERIAL
 # sda  drive-scsi0
 # sdb  drive-scsi1
+
+# 💡 Disk to VM mapping wrapper script
+/home/npa/temp/notes/scripts/proxmox/vm_disk_map.py
 ```
 
 ```shell
