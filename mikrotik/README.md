@@ -31,8 +31,8 @@ Installation Check-List
 # To get root CA URL (Authority Information Access > CA Issuers)
 openssl s_client -showcerts 1.1.1.1:443 </dev/null 2>/dev/null | openssl x509 -text
 
-/tool fetch url=http://cacerts.digicert.com/DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt
-/certificate import file-name=DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt passphrase=""
+/tool fetch url=http://cert.ssl.com/SSLcom-SubCA-SSL-ECC-384-R2.cer
+/certificate import file-name=SSLcom-SubCA-SSL-ECC-384-R2.cer passphrase=""
 /ip dns set use-doh-server=https://1.1.1.1/dns-query verify-doh-cert=yes
 /ip dns set servers=""
 # Check
