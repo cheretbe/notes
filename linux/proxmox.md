@@ -317,6 +317,17 @@ vgcreate hdd-sas-2 /dev/sde
 # or
 pvesm add lvm hdd-sas-3 --vgname hdd-sas-3 --content rootdir,images
 
+# [!!] For volumes that share multiple VM disks
+# zero LV blocks when a disk is deleted, so a newly created VM's disk can't
+# inherit leftover data from a previous one (thick LVM doesn't wipe freed extents).
+# ("Wipe Removed Volumes" in UI)
+pvesm set ssd-1 --saferemove 1
+# Wipe speed; the default of 10 MiB/s makes deleting large disks very slow.
+# (no UI option)
+pvesm set ssd-1 --saferemove_throughput 52428800
+# Verify
+pvesm config ssd-1
+
 pvesm lvmscan
 pvesm status
 cat /etc/pve/storage.cfg
