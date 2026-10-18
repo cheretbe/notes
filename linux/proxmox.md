@@ -326,7 +326,7 @@ pvesm set ssd-1 --saferemove 1
 # (no UI option)
 pvesm set ssd-1 --saferemove_throughput 52428800
 # Verify
-pvesm config ssd-1
+grep -A8 '^lvm: ssd-1' /etc/pve/storage.cfg
 
 pvesm lvmscan
 pvesm status
