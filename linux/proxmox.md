@@ -327,6 +327,16 @@ pvesm set ssd-1 --saferemove 1
 pvesm set ssd-1 --saferemove_throughput 52428800
 # Verify
 grep -A8 '^lvm: ssd-1' /etc/pve/storage.cfg
+# 👉 BUT
+#    - even at 50Mb/s it's rather slow (and while data erasure
+#      task is active the datastore is LOCKED)
+#    - on SSD this (arguably negligibly) wears the drive
+# So if the drive supports both options
+hdparm -I /dev/sdX | grep -iE 'trim|zero'
+#           *    Data Set Management TRIM supported (limit 8 blocks)
+#           *    Deterministic read ZEROs after TRIM
+# setting `issue_discards = 1` in `/etc/lvm/lvm.conf` solves the problem
+
 
 pvesm lvmscan
 pvesm status
