@@ -336,7 +336,15 @@ hdparm -I /dev/sdX | grep -iE 'trim|zero'
 #           *    Data Set Management TRIM supported (limit 8 blocks)
 #           *    Deterministic read ZEROs after TRIM
 # setting `issue_discards = 1` in `/etc/lvm/lvm.conf` solves the problem
-
+# /etc/lvm/lvmlocal.conf overrides /etc/lvm/lvm.conf
+cat >> /etc/lvm/lvmlocal.conf <<'EOF'
+# TRIM freed extents on lvremove/lvreduce
+devices {
+    issue_discards = 1
+}
+EOF
+lvmconfig --typeconfig diff          # shows only values differing from defaults, should list issue_discards=1
+lvmconfig devices/issue_discards     # must print 1
 
 pvesm lvmscan
 pvesm status
